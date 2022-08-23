@@ -57,7 +57,7 @@ namespace Simulator.ViewModel
 		public bool LoadEnabled { get { return !string.IsNullOrEmpty(Filename); } }
 
 		/// <summary>
-		/// Tells the UI if the file type is not a state file. This Property prevents the InitialProgram Counter and Memory Offset from being enabled.
+		/// Tells the UI if the file type is not a state file. This Property prevents the Initial Program Counter and Memory Offset from being enabled.
 		/// </summary>
 		public bool IsNotStateFile
 		{
