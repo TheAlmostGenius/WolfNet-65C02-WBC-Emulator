@@ -120,8 +120,6 @@
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,485,740,0" Name="CurrentInstructionText" Text="Current Instruction" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,485,1028,0" Name="ProgramCounterText" Text="PC" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="792,731,0,0" Name="CycleCountText" Text="Cycle Count" VerticalAlignment="Top" />
-
-        <Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="145,438,0,0" Name="SaveState" VerticalAlignment="Top" Width="75" FontSize="14" Command="{Binding Path= SaveStateCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
         <Button Height="23" HorizontalAlignment="Left" Margin="243,438,0,0" Name="Run" VerticalAlignment="Top" Width="75" FontSize="14" Command="{Binding Path= RunPauseCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" Style="{StaticResource RunButtonStyle}" />
         <Button Content="Step" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="340,438,0,0" Name="Step" VerticalAlignment="Top" Width="75" Command="{Binding Path= StepCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
         <Button Content="Reset" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="438,438,0,0" Name="Reset" VerticalAlignment="Top" Width="75" Command="{Binding Path= ResetCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
@@ -144,15 +142,15 @@
 
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="49,29,0,0" Name="FilePathText" Text="{Binding Path=FilePath}" VerticalAlignment="Top" Width="630" FontSize="14" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="49,6,0,0" Name="MemoryMapText" Text="Memory Map" VerticalAlignment="Top" Width="86" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="736,140,0,0" Name="CurrentPage" Text="{Binding Path=MemoryPageOffset, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="72" >
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="736,37,0,0" Name="CurrentPage" Text="{Binding Path=MemoryPageOffset, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="72" >
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding Path=UpdateMemoryMapCommand}" Key="Enter"/>
             </TextBox.InputBindings>
         </TextBox>
-        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="641,140,0,0" Name="CurrentPageText" Text="Current Page:" VerticalAlignment="Top" Width="86" />
+        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="641,37,0,0" Name="CurrentPageText" Text="Current Page:" VerticalAlignment="Top" Width="86" />
         <Slider Height="23" HorizontalAlignment="Left" Margin="978,750,0,0" Name="CpuSpeed" VerticalAlignment="Top" Width="100" Value="{Binding Path=CpuSpeed}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="978,731,0,0" Name="SpeedText" Text="CPU Speed S->F" VerticalAlignment="Top" />
-        <DataGrid Height="247" HorizontalAlignment="Left" Margin="641,186,0,0" x:Name="Breakpoints" VerticalAlignment="Top" MaxWidth="800" Width="546" AutoGenerateColumns="False" 
+        <DataGrid Height="247" HorizontalAlignment="Left" Margin="641,83,0,0" x:Name="Breakpoints" VerticalAlignment="Top" MaxWidth="800" Width="546" AutoGenerateColumns="False" 
 			CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserDeleteRows="False"
 			CanUserAddRows="False" ItemsSource="{Binding Breakpoints}" CellStyle="{StaticResource CellStyle}" GridLinesVisibility="Horizontal" SelectedItem="{Binding SelectedBreakpoint}">
             <DataGrid.Columns>

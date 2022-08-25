@@ -192,7 +192,6 @@ namespace Simulator.ViewModel
 			OpenCommand = new RelayCommand(OpenFile);
 			RunPauseCommand = new RelayCommand(RunPause);
 			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
-			SaveStateCommand = new RelayCommand(SaveState);
 			AddBreakPointCommand = new RelayCommand(AddBreakPoint);
 			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
 			SendNonMaskableInterruptComand = new RelayCommand(SendNonMaskableInterrupt);
@@ -485,21 +484,6 @@ namespace Simulator.ViewModel
 				_backgroundWorker.CancelAsync();
 
 			Messenger.Default.Send(new NotificationMessage("OpenFileWindow"));
-		}
-
-		private void SaveState()
-		{
-			IsRunning = false;
-
-			if (_backgroundWorker.IsBusy)
-				_backgroundWorker.CancelAsync();
-
-			Messenger.Default.Send(new NotificationMessage<StateFileModel>(new StateFileModel
-				{
-					NumberOfCycles = NumberOfCycles,
-					OutputLog = OutputLog.ToList(),
-					Processor = Proc
-				}, "SaveFileWindow"));
 		}
 
 		private void AddBreakPoint()
