@@ -6,9 +6,14 @@
 	public class AssemblyFileModel
 	{
 		/// <summary>
-		/// The Program Converted into Hex
+		/// The BIOS Converted into Hex
 		/// </summary>
-		public byte[] Program { get; set; }
+		public byte[] Bios { get; set; }
+
+		/// <summary>
+		/// The Banked ROM Converted into Hex
+		/// </summary>
+		public byte[] ProgramRom { get; set; }
 
 		/// <summary>
 		/// The Programs Listing
@@ -26,8 +31,13 @@
 		public int InitialProgramCounter { get; set; }
 
 		/// <summary>
-		/// The path of the Program that was loaded
+		/// The path of the BIOS that was loaded
 		/// </summary>
-		public string FilePath { get; set; }
+		public string BiosPath { get; set; }
+
+		/// <summary>
+		/// The path of the Banked ROM that was loaded
+		/// </summary>
+		public string RomPath { get; set; }
 	}
 }

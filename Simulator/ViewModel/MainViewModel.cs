@@ -95,11 +95,6 @@ namespace Simulator.ViewModel
 		}
 
 		/// <summary>
-		/// The Assembler Listing
-		/// </summary>
-		public string Listing { get; set; }
-
-		/// <summary>
 		///  Is the Prorgam Running
 		/// </summary>
 		public bool IsRunning
@@ -118,9 +113,14 @@ namespace Simulator.ViewModel
 		public bool IsProgramLoaded { get; set; }
 
 		/// <summary>
-		/// The Path to the Program that is running
+		/// The Path to the BIOS that is running
 		/// </summary>
-		public string FilePath { get; private set; }
+		public string BiosPath { get; private set; }
+
+		/// <summary>
+		/// The Path to the ROM that is running
+		/// </summary>
+		public string RomPath { get; private set; }
 
 		/// <summary>
 		/// The Slider CPU Speed
@@ -200,8 +200,8 @@ namespace Simulator.ViewModel
 
 
 			Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
-			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
-			FilePath = "No File Loaded";
+			BiosPath = "No File Loaded";
+			RomPath = "No File Loaded";
 
 			MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
@@ -222,45 +222,16 @@ namespace Simulator.ViewModel
 				return;
 			}
 
-			Proc.LoadProgram(notificationMessage.Content.MemoryOffset, notificationMessage.Content.Program, notificationMessage.Content.InitialProgramCounter);
-			FilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.FilePath);
+			Proc.LoadProgram(notificationMessage.Content.MemoryOffset, notificationMessage.Content.ProgramRom);
+			Proc.LoadProgram(0xE000, notificationMessage.Content.Bios);
+			BiosPath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosPath);
+			RomPath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomPath);
 			RaisePropertyChanged("FilePath");
 
 			IsProgramLoaded = true;
 			RaisePropertyChanged("IsProgramLoaded");
 
-			Listing = notificationMessage.Content.Listing;
-			RaisePropertyChanged("Listing");
-
 			Reset();
-		}
-
-		private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
-		{
-			if (notificationMessage.Notification != "FileLoaded")
-			{
-				return;
-			}
-
-			Reset();
-
-			FilePath = string.Format("Loaded State: {0}", notificationMessage.Content.FilePath);
-			RaisePropertyChanged("FilePath");
-
-			Listing = notificationMessage.Content.Listing;
-			RaisePropertyChanged("Listing");
-
-			OutputLog = new MultiThreadedObservableCollection<OutputLog>(notificationMessage.Content.OutputLog);
-			RaisePropertyChanged("OutputLog");
-
-			NumberOfCycles = notificationMessage.Content.NumberOfCycles;
-
-			Proc = notificationMessage.Content.Processor;
-			UpdateMemoryPage();
-			UpdateUi();
-
-			IsProgramLoaded = true;
-			RaisePropertyChanged("IsProgramLoaded");
 		}
 
 		private void UpdateMemoryPage()
@@ -526,7 +497,6 @@ namespace Simulator.ViewModel
 			Messenger.Default.Send(new NotificationMessage<StateFileModel>(new StateFileModel
 				{
 					NumberOfCycles = NumberOfCycles,
-					Listing = Listing,
 					OutputLog = OutputLog.ToList(),
 					Processor = Proc
 				}, "SaveFileWindow"));

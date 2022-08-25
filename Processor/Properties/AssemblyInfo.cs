@@ -7,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Processor")]
 [assembly: AssemblyDescription("Process Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Aaron Mell")]
-[assembly: AssemblyProduct("6502")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("WolfNet Computing")]
+[assembly: AssemblyProduct("WolfNet-6502-WBC")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

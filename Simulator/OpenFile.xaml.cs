@@ -18,5 +18,5 @@ namespace Simulator
 			if (notificationMessage.Notification == "CloseFileWindow")
 				Close();
 		}
-	}
+    }
 }

@@ -27,14 +27,14 @@ namespace Simulator.ViewModel
 		public RelayCommand CloseCommand { get; set; }
 
 		/// <summary>
-		/// The Relay Command used to select a file
+		/// The Relay Command used to select a BIOS file
 		/// </summary>
-		public RelayCommand SelectFileCommand { get; set; }
+		public RelayCommand SelectBiosFileCommand { get; set; }
 
 		/// <summary>
-		/// The Name of the file being opened
+		/// The Relay Command used to select a Banked ROM file
 		/// </summary>
-		public string Filename { get; set; }
+		public RelayCommand SelectRomFileCommand { get; set; }
 
 		/// <summary>
 		/// The Initial Program Counter, used only when opening a Binary File. Not used when opening saved state.
@@ -47,28 +47,34 @@ namespace Simulator.ViewModel
 		public string MemoryOffset { get; set; }
 
 		/// <summary>
-		/// The inital memory offset. Determines where in memory the program begins loading to.
+		/// The output COM port. Determines where to output the data stream.
 		/// </summary>
-		public string ComPort { get; set; }
+		public string comPort { get; set; }
 
 		/// <summary>
 		/// Tells the UI if the file has been selected succesfully
 		/// </summary>
-		public bool LoadEnabled { get { return !string.IsNullOrEmpty(Filename); } }
+		public bool LoadEnabled { get { return biosLoadEnabled || romLoadEnabled; } }
 
 		/// <summary>
-		/// Tells the UI if the file type is not a state file. This Property prevents the Initial Program Counter and Memory Offset from being enabled.
+		/// Tells the UI if the file has been selected succesfully
 		/// </summary>
-		public bool IsNotStateFile
-		{
-			get
-			{
-				if (string.IsNullOrEmpty(Filename))
-					return true;
+		public bool biosLoadEnabled { get { return !string.IsNullOrEmpty(BiosFilename); } }
 
-				return !Filename.EndsWith(".6502");
-			}
-		}
+		/// <summary>
+		/// Tells the UI if the file has been selected succesfully
+		/// </summary>
+		public bool romLoadEnabled { get { return !string.IsNullOrEmpty(RomFilename); } }
+
+		/// <summary>
+		/// The Name of the BIOS file being opened
+		/// </summary>
+		public string BiosFilename { get; set; }
+
+		/// <summary>
+		/// The Name of the Banked ROM file being opened
+		/// </summary>
+		public string RomFilename { get; set; }
 		#endregion
 
 		#region Public Methods
@@ -79,40 +85,20 @@ namespace Simulator.ViewModel
 		{
 			LoadProgramCommand = new RelayCommand(Load);
 			CloseCommand = new RelayCommand(Close);
-			SelectFileCommand = new RelayCommand(Select);
+			SelectBiosFileCommand = new RelayCommand(BiosSelect);
+			SelectRomFileCommand = new RelayCommand(RomSelect);
 
-			InitalProgramCounter = "0x0000";
-			MemoryOffset = "0x0000";
-			ComPort = "COM5";
+			comPort = "COM5";
 		}
 		#endregion
 
 		#region Private Methods
 		private void Load()
 		{
-			var extension = Path.GetExtension(Filename);
-			if (extension != null && extension.ToUpper() == ".BIN" && !TryLoadBinFile())
-				return;
-
-			if (extension != null && extension.ToUpper() == ".6502" && !TryLoad6502File())
+			if (!TryLoadBinFile())
 				return;
 
 			Close();
-		}
-
-		private bool TryLoad6502File()
-		{
-			var formatter = new BinaryFormatter();
-			Stream stream = new FileStream(Filename, FileMode.Open);
-
-			var fileModel = (StateFileModel)formatter.Deserialize(stream);
-			fileModel.FilePath = Filename;
-
-			stream.Close();
-
-			Messenger.Default.Send(new NotificationMessage<StateFileModel>(fileModel, "FileLoaded"));
-
-			return true;
 		}
 
 		private bool TryLoadBinFile()
@@ -139,27 +125,25 @@ namespace Simulator.ViewModel
 				return false;
 			}
 
-			byte[] program;
+			byte[] bios;
 			try
 			{
-				program = File.ReadAllBytes(Filename);
+				bios = File.ReadAllBytes(BiosFilename);
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Unable to Open Program Binary");
+				MessageBox.Show("Unable to Open BIOS Binary");
 				return false;
 			}
 
-			string listing;
+			byte[] rom;
 			try
 			{
-				// ReSharper disable AssignNullToNotNullAttribute
-				listing = File.ReadAllText(string.Format("{0}.lst", Path.Combine(Path.GetDirectoryName(Filename), Path.GetFileNameWithoutExtension(Filename))));
-				// ReSharper restore AssignNullToNotNullAttribute
+				rom = File.ReadAllBytes(RomFilename);
 			}
 			catch (Exception)
 			{
-				MessageBox.Show("Unable to Open Program Listing");
+				MessageBox.Show("Unable to Open ROM Binary");
 				return false;
 			}
 
@@ -167,9 +151,10 @@ namespace Simulator.ViewModel
 			{
 				InitialProgramCounter = programCounter,
 				MemoryOffset = memoryOffset,
-				Listing = listing,
-				Program = program,
-				FilePath = Filename
+				Bios = bios,
+				ProgramRom = rom,
+				BiosPath = BiosFilename,
+				RomPath = RomFilename
 			}, "FileLoaded"));
 
 			return true;
@@ -180,19 +165,32 @@ namespace Simulator.ViewModel
 			Messenger.Default.Send(new NotificationMessage("CloseFileWindow"));
 		}
 
-		private void Select()
+		private void BiosSelect()
 		{
-			var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.6502)|*.bin;*.6502|Binary Assembly (*.bin)|*.bin|6502 Simulator Save State (*.6502)|*.6502" };
+			var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin)|*.bin|Binary Assembly (*.bin)|*.bin" };
 
 			var result = dialog.ShowDialog();
 
 			if (result != true)
 				return;
 
-			Filename = dialog.FileName;
-			RaisePropertyChanged("Filename");
-			RaisePropertyChanged("LoadEnabled");
-			RaisePropertyChanged("IsNotStateFile");
+			BiosFilename = dialog.FileName;
+			RaisePropertyChanged("biosFilename");
+			RaisePropertyChanged("biosLoadEnabled");
+		}
+
+		private void RomSelect()
+		{
+			var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin)|*.bin|Binary Assembly (*.bin)|*.bin" };
+
+			var result = dialog.ShowDialog();
+
+			if (result != true)
+				return;
+
+			RomFilename = dialog.FileName;
+			RaisePropertyChanged("romFilename");
+			RaisePropertyChanged("romLoadEnabled");
 		}
 		#endregion
 	}
