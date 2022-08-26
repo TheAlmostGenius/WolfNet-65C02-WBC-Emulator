@@ -184,7 +184,7 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public MainViewModel()
 		{
-			Proc = new Proc();
+			var Proc = new Proc();
 			Proc.Reset();
 
 			ResetCommand = new RelayCommand(Reset);
@@ -245,7 +245,7 @@ namespace Simulator.ViewModel
 				MemoryPage.Add(new MemoryRowModel
 					               {
 						               Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-									   Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2,'0'),
+									   Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
 									   Location01 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
 									   Location02 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
 									   Location03 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),

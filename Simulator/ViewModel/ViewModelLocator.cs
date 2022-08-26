@@ -55,7 +55,7 @@ namespace Simulator.ViewModel
 		/// </summary>
         public static void Cleanup()
         {
-            // TODO Clear the ViewModels
+            // TODO: Clear the ViewModels
         }
     }
 }

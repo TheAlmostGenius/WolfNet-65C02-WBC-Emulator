@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using GalaSoft.MvvmLight;
@@ -7,6 +8,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 using Simulator.Model;
+using COM = COMIO.COMIO;
 
 namespace Simulator.ViewModel
 {
@@ -46,11 +48,6 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public string MemoryOffset { get; set; }
 
-		/// <summary>
-		/// The output COM port. Determines where to output the data stream.
-		/// </summary>
-		public string[] ComPort { get; set; }
-
         /// <summary>
         /// Tells the UI if the file has been selected succesfully
         /// </summary>
@@ -75,6 +72,11 @@ namespace Simulator.ViewModel
 		/// The Name of the Banked ROM file being opened
 		/// </summary>
 		public string RomFilename { get; set; }
+
+		/// <summary>
+		/// The port list used in selecting a COM port for I/O
+		/// </summary>
+		public List<string> PortList { get; set; }
 		#endregion
 
 		#region Public Methods
@@ -87,6 +89,10 @@ namespace Simulator.ViewModel
 			CloseCommand = new RelayCommand(Close);
 			SelectBiosFileCommand = new RelayCommand(BiosSelect);
 			SelectRomFileCommand = new RelayCommand(RomSelect);
+
+			var Comio = new COM();
+			Comio.UpdatePortList();
+			PortList = Comio.GetPortList();
 		}
 		#endregion
 

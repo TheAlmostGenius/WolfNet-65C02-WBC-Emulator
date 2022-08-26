@@ -13,6 +13,6 @@
         <Button Content="Select File" Height="23" HorizontalAlignment="Left" Margin="397,117,0,0" x:Name="SelectRomFile" VerticalAlignment="Top" Width="75" Command="{Binding SelectRomFileCommand}" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="12,117,0,0" x:Name="RomFilePath" VerticalAlignment="Top" Width="361" Text="{Binding RomFilename}" IsReadOnly="True"/>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,94,0,0" x:Name="RomPathText" Text="Path to Banked ROM:" VerticalAlignment="Top" Width="120" />
-        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="363" Margin="10,197,0,0" x:Name="ComPortCombo" ItemsSource="{Binding ComPorts}" />
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="363" Margin="10,197,0,0" x:Name="ComPortCombo" ItemsSource="{Binding portList, Mode=OneWay}" IsSynchronizedWithCurrentItem="True" />
     </Grid>
 </Window>

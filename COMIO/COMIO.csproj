@@ -7,8 +7,8 @@
     <ProjectGuid>{31A58338-FB2F-4C66-AEBE-092A90C07364}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>COM_Output</RootNamespace>
-    <AssemblyName>COM Output</AssemblyName>
+    <RootNamespace>COMIO</RootNamespace>
+    <AssemblyName>COMIO</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="COM_Output.cs" />
+    <Compile Include="COMIO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
