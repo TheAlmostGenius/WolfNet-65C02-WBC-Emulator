@@ -192,26 +192,6 @@ namespace Processor
             }  
         }
 
-		/// <summary>
-		/// Loads a program into the processors memory
-		/// </summary>
-		/// <param name="offset">The offset in memory when loading the program.</param>
-		/// <param name="program">The program to be loaded</param>
-		/// <param name="initialProgramCounter">The initial PC value, this is the entry point of the program</param>
-		public void LoadProgram(int offset, byte[] program, int initialProgramCounter)
-		{
-			LoadProgram(offset, program);
-
-			var bytes = BitConverter.GetBytes(initialProgramCounter);
-
-			//Write the initialProgram Counter to the reset vector
-			WriteMemoryValue(0xFFFC,bytes[0]);
-			WriteMemoryValue(0xFFFD, bytes[1]);
-			
-			//Reset the CPU
-			Reset();
-		}
-
         /// <summary>
         /// Loads a program into the processors memory
         /// </summary>
@@ -241,7 +221,7 @@ namespace Processor
 		    TriggerIRQ = true;
 		}
 
-		        /// <summary>
+		/// <summary>
         /// Clears the memory
         /// </summary>
         public void ClearMemory()
@@ -273,22 +253,32 @@ namespace Processor
             return value;
         }
 
+		/// <summary>
+		/// Writes data to the given address.
+		/// </summary>
+		/// <param name="address">The address to write data to</param>
+		/// <param name="data">The data to write</param>
+		public virtual void WriteMemoryValue(int address, byte data)
+		{
+			IncrementCycleCount();
+			Memory[address] = data;
+		}
+
         /// <summary>
         /// Writes data to the given address.
         /// </summary>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
-        public virtual void WriteMemoryValue(int address, byte data)
-        {
-            IncrementCycleCount();
-            Memory[address] = data;
-        }
+        public virtual void WriteMemoryValueWithoutCycle(int address, byte data)
+		{
+			Memory[address] = data;
+		}
 
-        /// <summary>
-        /// Gets the Number of Cycles that have elapsed
-        /// </summary>
-        /// <returns>The number of elapsed cycles</returns>
-	    public int GetCycleCount()
+		/// <summary>
+		/// Gets the Number of Cycles that have elapsed
+		/// </summary>
+		/// <returns>The number of elapsed cycles</returns>
+		public int GetCycleCount()
 	    {
 	        return _cycleCount;
 	    }

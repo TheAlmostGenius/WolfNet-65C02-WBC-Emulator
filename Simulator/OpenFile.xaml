@@ -5,14 +5,14 @@
         Title="Open New Program" Height="335" Width="506">
     <Grid>
         <Button Content="Select File" Height="23" HorizontalAlignment="Left" Margin="397,50,0,0" Name="SelectBiosFile" VerticalAlignment="Top" Width="75" Command="{Binding Path=SelectBiosFileCommand}" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,50,0,0" Name="FilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=BiosFilename }" IsReadOnly="True" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,50,0,0" Name="FilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=BiosFilename}" IsReadOnly="True" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,27,0,0" Name="PathTest" Text="Path to BIOS:" VerticalAlignment="Top" Width="97" />
         <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="397,270,0,0" Name="CancelButton" VerticalAlignment="Top" Width="75" Command="{Binding Path=CloseCommand}" />
-        <Button Content="Load" Height="23" HorizontalAlignment="Left" Margin="316,270,0,0" Name="LoadButton" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=LoadEnabled, Mode=OneWay}" Command="{Binding Path=LoadProgramCommand}" />
+        <Button Content="Load" Height="23" HorizontalAlignment="Left" Margin="316,270,0,0" Name="LoadButton" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=BiosLoadEnabled, Mode=OneWay}" Command="{Binding Path=LoadProgramCommand}" />
         <TextBlock Height="23" Margin="12,174,351.2,0" x:Name="ComOutputPortText" Text="COM Output Port" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" />
         <Button Content="Select File" Height="23" HorizontalAlignment="Left" Margin="397,117,0,0" x:Name="SelectRomFile" VerticalAlignment="Top" Width="75" Command="{Binding SelectRomFileCommand}" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="12,117,0,0" x:Name="RomFilePath" VerticalAlignment="Top" Width="361" Text="{Binding RomFilename}" IsReadOnly="True"/>
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="12,94,0,0" x:Name="RomPathText" Text="Path to Banked ROM:" VerticalAlignment="Top" Width="120" />
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="12,197,0,0" x:Name="comPort" VerticalAlignment="Top" Width="361" Text="{Binding comPort}" />
+        <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="363" Margin="10,197,0,0" x:Name="ComPortCombo" ItemsSource="{Binding ComPorts}" />
     </Grid>
 </Window>

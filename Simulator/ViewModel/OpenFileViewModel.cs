@@ -49,22 +49,22 @@ namespace Simulator.ViewModel
 		/// <summary>
 		/// The output COM port. Determines where to output the data stream.
 		/// </summary>
-		public string comPort { get; set; }
+		public string[] ComPort { get; set; }
+
+        /// <summary>
+        /// Tells the UI if the file has been selected succesfully
+        /// </summary>
+        public bool LoadEnabled => BiosLoadEnabled && RomLoadEnabled;
+
+        /// <summary>
+        /// Tells the UI if the file has been selected succesfully
+        /// </summary>
+        public bool BiosLoadEnabled { get { return !string.IsNullOrEmpty(BiosFilename); } }
 
 		/// <summary>
 		/// Tells the UI if the file has been selected succesfully
 		/// </summary>
-		public bool LoadEnabled { get { return biosLoadEnabled || romLoadEnabled; } }
-
-		/// <summary>
-		/// Tells the UI if the file has been selected succesfully
-		/// </summary>
-		public bool biosLoadEnabled { get { return !string.IsNullOrEmpty(BiosFilename); } }
-
-		/// <summary>
-		/// Tells the UI if the file has been selected succesfully
-		/// </summary>
-		public bool romLoadEnabled { get { return !string.IsNullOrEmpty(RomFilename); } }
+		public bool RomLoadEnabled { get { return !string.IsNullOrEmpty(RomFilename); } }
 
 		/// <summary>
 		/// The Name of the BIOS file being opened
@@ -87,8 +87,6 @@ namespace Simulator.ViewModel
 			CloseCommand = new RelayCommand(Close);
 			SelectBiosFileCommand = new RelayCommand(BiosSelect);
 			SelectRomFileCommand = new RelayCommand(RomSelect);
-
-			comPort = "COM5";
 		}
 		#endregion
 
@@ -174,9 +172,9 @@ namespace Simulator.ViewModel
 			if (result != true)
 				return;
 
-			BiosFilename = dialog.FileName;
-			RaisePropertyChanged("biosFilename");
-			RaisePropertyChanged("biosLoadEnabled");
+            BiosFilename = dialog.FileName;
+            RaisePropertyChanged("biosFilename");
+            RaisePropertyChanged("biosLoadEnabled");
 		}
 
 		private void RomSelect()
@@ -189,8 +187,8 @@ namespace Simulator.ViewModel
 				return;
 
 			RomFilename = dialog.FileName;
-			RaisePropertyChanged("romFilename");
-			RaisePropertyChanged("romLoadEnabled");
+            RaisePropertyChanged("romFilename");
+            RaisePropertyChanged("romLoadEnabled");
 		}
 		#endregion
 	}
