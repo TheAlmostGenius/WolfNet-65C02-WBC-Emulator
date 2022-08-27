@@ -192,26 +192,6 @@ namespace Processor
             }  
         }
 
-		/// <summary>
-		/// Loads a program into the processors memory
-		/// </summary>
-		/// <param name="offset">The offset in memory when loading the program.</param>
-		/// <param name="program">The program to be loaded</param>
-		/// <param name="initialProgramCounter">The initial PC value, this is the entry point of the program</param>
-		public void LoadProgram(int offset, byte[] program, int initialProgramCounter)
-		{
-			LoadProgram(offset, program);
-
-			var bytes = BitConverter.GetBytes(initialProgramCounter);
-
-			//Write the initialProgram Counter to the reset vector
-			WriteMemoryValue(0xFFFC,bytes[0]);
-			WriteMemoryValue(0xFFFD, bytes[1]);
-			
-			//Reset the CPU
-			Reset();
-		}
-
         /// <summary>
         /// Loads a program into the processors memory
         /// </summary>
