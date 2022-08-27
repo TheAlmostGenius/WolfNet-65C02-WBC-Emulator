@@ -32,6 +32,7 @@ namespace Simulator.ViewModel
 
             SimpleIoc.Default.Register<MainViewModel>();
 			SimpleIoc.Default.Register<OpenFileViewModel>();
+			SimpleIoc.Default.Register<SaveFileViewModel>();
         }
 
 		/// <summary>
@@ -50,12 +51,22 @@ namespace Simulator.ViewModel
 			get { return ServiceLocator.Current.GetInstance<OpenFileViewModel>(); }
 		}
 
+
+		/// <summary>
+		/// The SaveFileViewModel Instance
+		/// </summary>
+	    public SaveFileViewModel SaveFile
+	    {
+		    get { return ServiceLocator.Current.GetInstance<SaveFileViewModel>(); }
+	    }
+
+
 		/// <summary>
 		/// The Cleanup Method
 		/// </summary>
         public static void Cleanup()
         {
-            // TODO: Clear the ViewModels
+            // TODO Clear the ViewModels
         }
     }
 }

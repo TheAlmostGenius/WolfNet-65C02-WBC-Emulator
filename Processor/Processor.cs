@@ -285,6 +285,16 @@ namespace Processor
         }
 
         /// <summary>
+        /// Writes data to the given address without incrementing the cycle.
+        /// </summary>
+        /// <param name="address">The address to write data to</param>
+        /// <param name="data">The data to write</param>
+        public virtual void WriteMemoryValueWithoutCycle(int address, byte data)
+        {
+            Memory[address] = data;
+        }
+
+        /// <summary>
         /// Gets the Number of Cycles that have elapsed
         /// </summary>
         /// <returns>The number of elapsed cycles</returns>

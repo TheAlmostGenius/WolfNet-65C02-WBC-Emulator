@@ -3,11 +3,11 @@
 namespace Simulator
 {
 	/// <summary>
-	/// Interaction logic for OpenFile.xaml
+	/// Interaction logic for SaveState.xaml
 	/// </summary>
-	public partial class OpenFile
+	public partial class SaveFile
 	{
-		public OpenFile()
+		public SaveFile()
 		{
 			InitializeComponent();
 			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
@@ -15,7 +15,7 @@ namespace Simulator
 
 		private void NotificationMessageReceived(NotificationMessage notificationMessage)
 		{
-			if (notificationMessage.Notification == "CloseFileWindow")
+			if (notificationMessage.Notification == "CloseSaveFileWindow")
 				Close();
 		}
 	}

@@ -8,9 +8,9 @@ using System.Windows;
 [assembly: AssemblyTitle("Simulator")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("WolfNet Computing")]
-[assembly: AssemblyProduct("WolfNet-6502-WBC-Simulator")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Simulator")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

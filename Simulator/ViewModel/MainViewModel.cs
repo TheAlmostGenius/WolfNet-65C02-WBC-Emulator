@@ -95,6 +95,11 @@ namespace Simulator.ViewModel
 		}
 
 		/// <summary>
+		/// The Assembler Listing
+		/// </summary>
+		public string Listing { get; set; }
+
+		/// <summary>
 		///  Is the Prorgam Running
 		/// </summary>
 		public bool IsRunning
@@ -113,19 +118,19 @@ namespace Simulator.ViewModel
 		public bool IsProgramLoaded { get; set; }
 
 		/// <summary>
-		/// The Path to the BIOS that is running
+		/// The Path to the Program that is running
 		/// </summary>
-		public string BiosPath { get; private set; }
+		public string BiosFilePath { get; private set; }
 
-		/// <summary>
-		/// The Path to the ROM that is running
-		/// </summary>
-		public string RomPath { get; private set; }
+        /// <summary>
+        /// The Path to the Program that is running
+        /// </summary>
+        public string RomFilePath { get; private set; }
 
-		/// <summary>
-		/// The Slider CPU Speed
-		/// </summary>
-		public int CpuSpeed { get; set; }
+        /// <summary>
+        /// The Slider CPU Speed
+        /// </summary>
+        public int CpuSpeed { get; set; }
 
 		/// <summary>
 		/// RelayCommand for Stepping through the progam one instruction at a time.
@@ -184,7 +189,7 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public MainViewModel()
 		{
-			var Proc = new Proc();
+			Proc = new Proc();
 			Proc.Reset();
 
 			ResetCommand = new RelayCommand(Reset);
@@ -192,6 +197,7 @@ namespace Simulator.ViewModel
 			OpenCommand = new RelayCommand(OpenFile);
 			RunPauseCommand = new RelayCommand(RunPause);
 			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
+			SaveStateCommand = new RelayCommand(SaveState);
 			AddBreakPointCommand = new RelayCommand(AddBreakPoint);
 			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
 			SendNonMaskableInterruptComand = new RelayCommand(SendNonMaskableInterrupt);
@@ -199,10 +205,11 @@ namespace Simulator.ViewModel
 
 
 			Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
-			BiosPath = "No File Loaded";
-			RomPath = "No File Loaded";
+			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
+			BiosFilePath = "No File Loaded";
+            RomFilePath = "No File Loaded";
 
-			MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
+            MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
 			Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
 			
@@ -221,16 +228,39 @@ namespace Simulator.ViewModel
 				return;
 			}
 
-			Proc.LoadProgram(notificationMessage.Content.MemoryOffset, notificationMessage.Content.ProgramRom);
-			Proc.LoadProgram(0xE000, notificationMessage.Content.Bios);
-			BiosPath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosPath);
-			RomPath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomPath);
-			RaisePropertyChanged("FilePath");
+            Proc.LoadProgram(0xE000, notificationMessage.Content.Bios);
+            Proc.LoadProgram(0x8000, notificationMessage.Content.Rom);
+            BiosFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosFilePath);
+            RaisePropertyChanged("BiosFilePath");
+            RomFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomFilePath);
+            RaisePropertyChanged("RomFilePath");
 
-			IsProgramLoaded = true;
+            IsProgramLoaded = true;
 			RaisePropertyChanged("IsProgramLoaded");
 
 			Reset();
+		}
+
+		private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
+		{
+			if (notificationMessage.Notification != "FileLoaded")
+			{
+				return;
+			}
+
+			Reset();
+
+			OutputLog = new MultiThreadedObservableCollection<OutputLog>(notificationMessage.Content.OutputLog);
+			RaisePropertyChanged("OutputLog");
+
+			NumberOfCycles = notificationMessage.Content.NumberOfCycles;
+
+			Proc = notificationMessage.Content.Processor;
+			UpdateMemoryPage();
+			UpdateUi();
+
+			IsProgramLoaded = true;
+			RaisePropertyChanged("IsProgramLoaded");
 		}
 
 		private void UpdateMemoryPage()
@@ -245,7 +275,7 @@ namespace Simulator.ViewModel
 				MemoryPage.Add(new MemoryRowModel
 					               {
 						               Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-									   Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+									   Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2,'0'),
 									   Location01 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
 									   Location02 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
 									   Location03 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
@@ -484,6 +514,21 @@ namespace Simulator.ViewModel
 				_backgroundWorker.CancelAsync();
 
 			Messenger.Default.Send(new NotificationMessage("OpenFileWindow"));
+		}
+
+		private void SaveState()
+		{
+			IsRunning = false;
+
+			if (_backgroundWorker.IsBusy)
+				_backgroundWorker.CancelAsync();
+
+			Messenger.Default.Send(new NotificationMessage<StateFileModel>(new StateFileModel
+				{
+					NumberOfCycles = NumberOfCycles,
+					OutputLog = OutputLog.ToList(),
+					Processor = Proc
+				}, "SaveFileWindow"));
 		}
 
 		private void AddBreakPoint()

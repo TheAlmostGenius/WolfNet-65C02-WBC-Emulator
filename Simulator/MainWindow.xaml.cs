@@ -9,10 +9,13 @@ namespace Simulator
 	/// </summary>
 	public partial class MainWindow
 	{
+		
+
 		public MainWindow()
 		{
 			InitializeComponent();
 			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
+			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
 		}
 
 		private void NotificationMessageReceived(NotificationMessage notificationMessage)
@@ -23,5 +26,14 @@ namespace Simulator
 				openFile.ShowDialog();
 			}
 		}
-    }
+
+		private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)
+		{
+			if (notificationMessage.Notification == "SaveFileWindow")
+			{
+				var saveFile = new SaveFile {DataContext = new SaveFileViewModel(notificationMessage.Content)};
+				saveFile.ShowDialog();
+			}
+		}
+	}
 }
