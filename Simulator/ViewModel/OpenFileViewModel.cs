@@ -95,10 +95,7 @@ namespace Simulator.ViewModel
             LoadProgramCommand = new RelayCommand(Load);
 			CloseCommand = new RelayCommand(Close);
             SelectBiosFileCommand = new RelayCommand(Select);
-            SelectRomFileCommand = new RelayCommand(Select);
-
-            InitalProgramCounter = "0x0000";
-			MemoryOffset = "0x0000";
+            SelectRomFileCommand = new RelayCommand(RomSelect);
 		}
 		#endregion
 
@@ -180,8 +177,9 @@ namespace Simulator.ViewModel
 
 			BiosFilename = dialog.FileName;
 			RaisePropertyChanged("Filename");
-			RaisePropertyChanged("LoadEnabled");
-			RaisePropertyChanged("IsNotStateFile");
+            RaisePropertyChanged("BiosLoadEnabled");
+            RaisePropertyChanged("LoadEnabled");
+            RaisePropertyChanged("IsNotStateFile");
         }
 
         private void RomSelect()
@@ -195,6 +193,7 @@ namespace Simulator.ViewModel
 
             RomFilename = dialog.FileName;
             RaisePropertyChanged("Filename");
+            RaisePropertyChanged("RomLoadEnabled");
             RaisePropertyChanged("LoadEnabled");
             RaisePropertyChanged("IsNotStateFile");
         }
