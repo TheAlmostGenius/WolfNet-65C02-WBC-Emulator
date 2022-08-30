@@ -5,13 +5,13 @@
         Title="Open New Program" Height="242" Width="500">
     <Grid HorizontalAlignment="Center" Width="500" Height="220" VerticalAlignment="Top">
         <Button Content="Select Bios" Height="23" HorizontalAlignment="Left" Margin="397,28,0,0" Name="SelectBiosFile" VerticalAlignment="Top" Width="75" Command="{Binding Path=SelectBiosFileCommand}" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,28,0,0" Name="BiosFilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=BiosFilename }" IsReadOnly="True"/>
-        <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,8,0,0" Name="BiosPathTest" Text="Path" VerticalAlignment="Top" Width="29" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,28,0,0" Name="BiosFilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=BiosFilename}" IsReadOnly="True"/>
+        <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,8,0,0" Name="BiosPathText" Text="Path" VerticalAlignment="Top" Width="29" />
         <Button Content="Select ROM" Height="23" HorizontalAlignment="Left" Margin="397,76,0,0" Name="SelectRomFile" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=IsNotStateFile, Mode=OneWay}" Command="{Binding Path=SelectRomFileCommand}" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,76,0,0" Name="RomFilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=RomFilename }" IsReadOnly="True"/>
-        <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,51,0,0" Name="RomPathTest" Text="Path" VerticalAlignment="Top" Width="29" />
-        <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,101,0,0" x:Name="ComPort" Text="COM I/O Port" VerticalAlignment="Top" Width="82" />
-        <ComboBox HorizontalAlignment="Left" Height="23" Margin="12,126,0,0" VerticalAlignment="Top" Width="361"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="12,76,0,0" Name="RomFilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=RomFilename}" IsReadOnly="True"/>
+        <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,51,0,0" Name="RomPathText" Text="Path" VerticalAlignment="Top" Width="29" />
+        <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,101,0,0" x:Name="ComPortText" Text="COM I/O Port" VerticalAlignment="Top" Width="82" />
+        <ComboBox Height="23" Margin="0,126,127,0" x:Name="ComPort"  VerticalAlignment="Top" IsTextSearchEnabled="False" IsReadOnly="True" ItemsSource="{Binding PortList, Mode=OneWay}" HorizontalAlignment="Right" Width="361" />
         <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="397,175,0,0" Name="CancelButton" VerticalAlignment="Top" Width="75" Command="{Binding Path=CloseCommand}" />
         <Button Content="Load" Height="23" HorizontalAlignment="Left" Margin="316,175,0,0" Name="LoadButton" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=LoadEnabled, Mode=OneWay}" Command="{Binding Path=LoadProgramCommand}" />
     </Grid>

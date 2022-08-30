@@ -1,8 +1,11 @@
 ﻿using NLog;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO.Ports;
+using System.IO;
 
 namespace Processor
 {
@@ -19,6 +22,10 @@ namespace Processor
 	    private int _cycleCount;
         private bool _previousInterrupt;
         private bool _interrupt;
+        private static SerialPort _serialPort;
+        private static readonly int _defaultBaudRate = 9600;
+        private List<string> _portsList = new List<string>();
+        byte _byteIn;
         #endregion
 
         //All of the properties here are public and read only to facilitate ease of debugging and testing.
@@ -151,7 +158,7 @@ namespace Processor
 			//Set the Program Counter to the Reset Vector Address.
 			ProgramCounter = 0xFFFC;
 			//Reset the Program Counter to the Address contained in the Reset Vector
-			ProgramCounter = ( Memory[ProgramCounter] | ( Memory[ProgramCounter + 1] << 8));;
+			ProgramCounter = ( Memory[ProgramCounter] | ( Memory[ProgramCounter + 1] << 8));
 
             CurrentOpCode = Memory[ProgramCounter];
 			
@@ -211,12 +218,38 @@ namespace Processor
             }
 
             Reset();
+			string logName = String.Format("C:/{0}.6502-memory.log", DateTime.Now.ToString("ddMMyy-HHmm"));
+			FileStream file = File.OpenWrite(logName);
+			byte[] dump = DumpMemory();
+			file.Write(dump, 0, dump.Length);
+			file.Flush();
+			file.Close();
         }
-		
-		/// <summary>
-		/// The InterruptRequest or IRQ
-		/// </summary>
-		public void InterruptRequest()
+
+        /// <summary>
+        /// Loads a program into the processors memory
+        /// </summary>
+        /// <param name="offset">The offset in memory when loading the program.</param>
+        /// <param name="program">The program to be loaded</param>
+        /// <param name="initialProgramCounter">The initial PC value, this is the entry point of the program</param>
+        public void LoadProgram(int offset, byte[] program, int initialProgramCounter)
+        {
+            LoadProgram(offset, program);
+
+            var bytes = BitConverter.GetBytes(initialProgramCounter);
+
+            //Write the initialProgram Counter to the reset vector
+            WriteMemoryValueWithoutCycle(0xFFFC, bytes[0]);
+            WriteMemoryValueWithoutCycle(0xFFFD, bytes[1]);
+
+            //Reset the CPU
+            Reset();
+        }
+
+        /// <summary>
+        /// The InterruptRequest or IRQ
+        /// </summary>
+        public void InterruptRequest()
 		{
 		    TriggerIRQ = true;
 		}
@@ -311,13 +344,70 @@ namespace Processor
         {
             return Memory;
         }
+        /// <summary>
+        /// Default Constructor, Instantiates a new instance of COM Port I/O.
+        /// </summary>
+        /// <param name="port"> COM Port to use for I/O</param>
+        public void Init(string port)
+        {
+            _serialPort = new SerialPort(port, _defaultBaudRate, Parity.None, 8, StopBits.One);
+
+            ComInit(_serialPort);
+        }
+
+        /// <summary>
+        /// Default Constructor, Instantiates a new instance of COM Port I/O.
+        /// </summary>
+        /// <param name="port"> COM Port to use for I/O</param>
+        /// <param name="baudRate"> Baud Rate (Connection Speed) to use for I/O</param>
+        public void Init(string port, int baudRate)
+        {
+            _serialPort = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
+
+            ComInit(_serialPort);
+        }
+
+        public void WriteCOM(byte data)
+        {
+            _serialPort.Write(data.ToString());
+        }
+
+        public void SerialDataReceivedEventHandler(SerialPort port, SerialDataReceivedEventArgs args)
+        {
+            try
+            {
+                if (_serialPort == port)
+                {
+                    _byteIn = Convert.ToByte(port.ReadByte());
+                    InterruptRequest();
+                }
+            }
+            catch (Win32Exception w)
+            {
+                FileStream file = new FileStream("./COMIO.log", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                StreamWriter stream = new StreamWriter(file);
+                stream.WriteLine(w.Message);
+                stream.WriteLine(w.ErrorCode.ToString());
+                stream.WriteLine(w.Source);
+                stream.Flush();
+                stream.Close();
+                file.Flush();
+                file.Close();
+            }
+        }
         #endregion
 
-		#region Private Methods
-		/// <summary>
-		/// Executes an Opcode
-		/// </summary>
-		private void ExecuteOpCode()
+        #region Private Methods
+        private void ComInit(SerialPort serialPort)
+        {
+            serialPort.ReadTimeout = 1000;
+            serialPort.WriteTimeout = 1000;
+        }
+
+        /// <summary>
+        /// Executes an Opcode
+        /// </summary>
+        private void ExecuteOpCode()
 		{
 			//The x+ cycles denotes that if a page wrap occurs, then an additional cycle is consumed.
 			//The x++ cycles denotes that 1 cycle is added when a branch occurs and it on the same page, and two cycles are added if its on a different page./
@@ -2516,8 +2606,8 @@ namespace Processor
 
             SetDisassembly();
         }
-		#endregion
+        #endregion
 
-		#endregion
+        #endregion
     }
 }

@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.IO.Ports;
+using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using GalaSoft.MvvmLight;
@@ -7,6 +11,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 using Simulator.Model;
+using Proc = Processor.Processor;
 
 namespace Simulator.ViewModel
 {
@@ -15,11 +20,11 @@ namespace Simulator.ViewModel
 	/// </summary>
 	public class OpenFileViewModel : ViewModelBase
 	{
-		#region Properties
-		/// <summary>
-		/// The Relay Command used to Load a Program
-		/// </summary>
-		public RelayCommand LoadProgramCommand { get; set; }
+        #region Properties
+        /// <summary>
+        /// The Relay Command used to Load a Program
+        /// </summary>
+        public RelayCommand LoadProgramCommand { get; set; }
 
         /// <summary>
         /// The Relay Command used to close the dialog
@@ -83,24 +88,49 @@ namespace Simulator.ViewModel
 
 				return !BiosFilename.EndsWith(".6502");
 			}
-		}
-		#endregion
+        }
 
-		#region Public Methods
-		/// <summary>
-		/// Creates a new instance of the OpenFileViewModel
-		/// </summary>
-		public OpenFileViewModel()
+        /// <summary>
+        /// Creates a new instance of PortList, the list of all COM ports available to the computer
+        /// </summary>
+        /// 
+        public ObservableCollection<string> PortList { get { return _PortList; } }
+
+        private ObservableCollection<string> _PortList = new ObservableCollection<string>();
+
+        private string ComPortSelection { get; set; }
+        #endregion
+
+        #region Public Methods
+        /// <summary>
+        /// Updates PortList with the COM ports available to the computer
+        /// </summary>
+        public void UpdatePortList()
+        {
+            PortList.Clear();
+            foreach (string s in SerialPort.GetPortNames())
+            {
+                PortList.Add(s);
+            }
+            RaisePropertyChanged("PortList");
+        }
+
+        /// <summary>
+        /// Creates a new instance of the OpenFileViewModel
+        /// </summary>
+        public OpenFileViewModel()
         {
             LoadProgramCommand = new RelayCommand(Load);
 			CloseCommand = new RelayCommand(Close);
             SelectBiosFileCommand = new RelayCommand(Select);
             SelectRomFileCommand = new RelayCommand(RomSelect);
-		}
-		#endregion
 
-		#region Private Methods
-		private void Load()
+            UpdatePortList();
+        }
+        #endregion
+
+        #region Private Methods
+        private void Load()
         {
             var extension1 = Path.GetExtension(BiosFilename);
             var extension2 = Path.GetExtension(RomFilename);
@@ -150,13 +180,14 @@ namespace Simulator.ViewModel
                 return false;
             }
 
-			Messenger.Default.Send(new NotificationMessage<AssemblyFileModel>(new AssemblyFileModel
-			{
-				Bios = bios,
-				Rom = rom,
-				BiosFilePath = BiosFilename,
-				RomFilePath = RomFilename
-			}, "FileLoaded"));
+            Messenger.Default.Send(new NotificationMessage<AssemblyFileModel>(new AssemblyFileModel
+            {
+                Bios = bios,
+                Rom = rom,
+                BiosFilePath = BiosFilename,
+                RomFilePath = RomFilename,
+                ComPort = ComPortSelection
+            }, "FileLoaded"));
 
 			return true;
 		}
@@ -176,7 +207,7 @@ namespace Simulator.ViewModel
 				return;
 
 			BiosFilename = dialog.FileName;
-			RaisePropertyChanged("Filename");
+			RaisePropertyChanged("BiosFilename");
             RaisePropertyChanged("BiosLoadEnabled");
             RaisePropertyChanged("LoadEnabled");
             RaisePropertyChanged("IsNotStateFile");
@@ -192,7 +223,7 @@ namespace Simulator.ViewModel
                 return;
 
             RomFilename = dialog.FileName;
-            RaisePropertyChanged("Filename");
+            RaisePropertyChanged("RomFilename");
             RaisePropertyChanged("RomLoadEnabled");
             RaisePropertyChanged("LoadEnabled");
             RaisePropertyChanged("IsNotStateFile");

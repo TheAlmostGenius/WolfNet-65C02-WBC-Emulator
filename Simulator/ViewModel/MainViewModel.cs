@@ -34,16 +34,16 @@ namespace Simulator.ViewModel
 		/// The Current Memory Page
 		/// </summary>
 		public MultiThreadedObservableCollection<MemoryRowModel> MemoryPage { get; set; }
-		
+
 		/// <summary>
 		/// The output log
 		/// </summary>
 		public MultiThreadedObservableCollection<OutputLog> OutputLog { get; private set; }
-		
+
 		/// <summary>
 		/// The Breakpoints
 		/// </summary>
-		public MultiThreadedObservableCollection<Breakpoint> Breakpoints { get; set; } 
+		public MultiThreadedObservableCollection<Breakpoint> Breakpoints { get; set; }
 
 		/// <summary>
 		/// The Currently Selected Breakpoint
@@ -55,16 +55,16 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public string CurrentDisassembly
 		{
-			get 
-            { 
-                if (Proc.CurrentDisassembly != null) 
-                    return string.Format("{0} {1}", Proc.CurrentDisassembly.OpCodeString, Proc.CurrentDisassembly.DisassemblyOutput);
+			get
+			{
+				if (Proc.CurrentDisassembly != null)
+					return string.Format("{0} {1}", Proc.CurrentDisassembly.OpCodeString, Proc.CurrentDisassembly.DisassemblyOutput);
 
-			    else
-                {
-                    return string.Empty;
-                }
-            }
+				else
+				{
+					return string.Empty;
+				}
+			}
 		}
 
 		/// <summary>
@@ -87,17 +87,12 @@ namespace Simulator.ViewModel
 				{
 					_memoryPageOffset = Convert.ToInt32(value, 16);
 				}
-// ReSharper disable EmptyGeneralCatchClause
-				catch {}
-// ReSharper restore EmptyGeneralCatchClause
-				
+				// ReSharper disable EmptyGeneralCatchClause
+				catch { }
+				// ReSharper restore EmptyGeneralCatchClause
+
 			}
 		}
-
-		/// <summary>
-		/// The Assembler Listing
-		/// </summary>
-		public string Listing { get; set; }
 
 		/// <summary>
 		///  Is the Prorgam Running
@@ -122,15 +117,15 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public string BiosFilePath { get; private set; }
 
-        /// <summary>
-        /// The Path to the Program that is running
-        /// </summary>
-        public string RomFilePath { get; private set; }
+		/// <summary>
+		/// The Path to the Program that is running
+		/// </summary>
+		public string RomFilePath { get; private set; }
 
-        /// <summary>
-        /// The Slider CPU Speed
-        /// </summary>
-        public int CpuSpeed { get; set; }
+		/// <summary>
+		/// The Slider CPU Speed
+		/// </summary>
+		public int CpuSpeed { get; set; }
 
 		/// <summary>
 		/// RelayCommand for Stepping through the progam one instruction at a time.
@@ -171,7 +166,7 @@ namespace Simulator.ViewModel
 		/// The Relay Command that Removes an existing breakpoint
 		/// </summary>
 		public RelayCommand RemoveBreakPointCommand { get; set; }
-		
+
 		/// <summary>
 		/// The Command that sends an IRQ or Interrupt Request to the processor
 		/// </summary>
@@ -207,15 +202,15 @@ namespace Simulator.ViewModel
 			Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
 			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
 			BiosFilePath = "No File Loaded";
-            RomFilePath = "No File Loaded";
+			RomFilePath = "No File Loaded";
 
-            MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
+			MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
 			Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
-			
+
 			UpdateMemoryPage();
 
-			_backgroundWorker = new BackgroundWorker {WorkerSupportsCancellation = true, WorkerReportsProgress = false};
+			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
 		}
 		#endregion
@@ -228,14 +223,14 @@ namespace Simulator.ViewModel
 				return;
 			}
 
-            Proc.LoadProgram(0xE000, notificationMessage.Content.Bios);
-            Proc.LoadProgram(0x8000, notificationMessage.Content.Rom);
-            BiosFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosFilePath);
-            RaisePropertyChanged("BiosFilePath");
-            RomFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomFilePath);
-            RaisePropertyChanged("RomFilePath");
+			Proc.LoadProgram(0xF000, notificationMessage.Content.Bios);
+			Proc.LoadProgram(0x8000, notificationMessage.Content.Rom);
+			BiosFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosFilePath);
+			RaisePropertyChanged("BiosFilePath");
+			RomFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomFilePath);
+			RaisePropertyChanged("RomFilePath");
 
-            IsProgramLoaded = true;
+			IsProgramLoaded = true;
 			RaisePropertyChanged("IsProgramLoaded");
 
 			Reset();
@@ -266,32 +261,32 @@ namespace Simulator.ViewModel
 		private void UpdateMemoryPage()
 		{
 			MemoryPage.Clear();
-			var offset = ( _memoryPageOffset * 256 );
+			var offset = (_memoryPageOffset * 256);
 
 			var multiplyer = 0;
 			for (var i = offset; i < 256 * (_memoryPageOffset + 1); i++)
 			{
-				
+
 				MemoryPage.Add(new MemoryRowModel
-					               {
-						               Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-									   Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2,'0'),
-									   Location01 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location02 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location03 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location04 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location05 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location06 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location07 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location08 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location09 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location0A = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location0B = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location0C = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location0D = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location0E = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-									   Location0F = Proc.ReadMemoryValueWithoutCycle(i).ToString("X").PadLeft(2, '0'),
-									});
+				{
+					Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
+					Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location01 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location02 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location03 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location04 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location05 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location06 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location07 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location08 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location09 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0A = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0B = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0C = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0D = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0E = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0F = Proc.ReadMemoryValueWithoutCycle(i).ToString("X").PadLeft(2, '0'),
+				});
 				multiplyer++;
 			}
 		}
@@ -305,11 +300,11 @@ namespace Simulator.ViewModel
 
 			Proc.Reset();
 			RaisePropertyChanged("Proc");
-			
+
 			IsRunning = false;
 			NumberOfCycles = 0;
 			RaisePropertyChanged("NumberOfCycles");
-			
+
 			UpdateMemoryPage();
 			RaisePropertyChanged("MemoryPage");
 
@@ -327,7 +322,7 @@ namespace Simulator.ViewModel
 
 			if (_backgroundWorker.IsBusy)
 				_backgroundWorker.CancelAsync();
-				
+
 			StepProcessor();
 			UpdateMemoryPage();
 
@@ -346,26 +341,26 @@ namespace Simulator.ViewModel
 		private void StepProcessor()
 		{
 			Proc.NextStep();
-            NumberOfCycles = Proc.GetCycleCount();
-        }
+			NumberOfCycles = Proc.GetCycleCount();
+		}
 
 		private OutputLog GetOutputLog()
 		{
-            if (Proc.CurrentDisassembly == null)
-            {
-                return new OutputLog(new Processor.Disassembly());
-            }
+			if (Proc.CurrentDisassembly == null)
+			{
+				return new OutputLog(new Processor.Disassembly());
+			}
 
 			return new OutputLog(Proc.CurrentDisassembly)
-				                    {
-					                    XRegister = Proc.XRegister.ToString("X").PadLeft(2,'0'),
-										YRegister = Proc.YRegister.ToString("X").PadLeft(2,'0'),
-										Accumulator =  Proc.Accumulator.ToString("X").PadLeft(2,'0'),
-										NumberOfCycles = NumberOfCycles,
-										StackPointer = Proc.StackPointer.ToString("X").PadLeft(2, '0'),
-										ProgramCounter = Proc.ProgramCounter.ToString("X").PadLeft(4, '0'),
-										CurrentOpCode = Proc.CurrentOpCode.ToString("X").PadLeft(2, '0')
-				                    };
+			{
+				XRegister = Proc.XRegister.ToString("X").PadLeft(2, '0'),
+				YRegister = Proc.YRegister.ToString("X").PadLeft(2, '0'),
+				Accumulator = Proc.Accumulator.ToString("X").PadLeft(2, '0'),
+				NumberOfCycles = NumberOfCycles,
+				StackPointer = Proc.StackPointer.ToString("X").PadLeft(2, '0'),
+				ProgramCounter = Proc.ProgramCounter.ToString("X").PadLeft(4, '0'),
+				CurrentOpCode = Proc.CurrentOpCode.ToString("X").PadLeft(2, '0')
+			};
 		}
 
 		private void RunPause()
@@ -384,7 +379,7 @@ namespace Simulator.ViewModel
 		{
 			var worker = sender as BackgroundWorker;
 			var outputLogs = new List<OutputLog>();
-			
+
 			while (true)
 			{
 				if (worker != null && worker.CancellationPending || IsBreakPointTriggered())
@@ -392,9 +387,9 @@ namespace Simulator.ViewModel
 					e.Cancel = true;
 
 					RaisePropertyChanged("Proc");
-					
+
 					foreach (var log in outputLogs)
-						OutputLog.Insert(0,log);
+						OutputLog.Insert(0, log);
 
 					UpdateMemoryPage();
 					return;
@@ -426,7 +421,7 @@ namespace Simulator.ViewModel
 
 			foreach (var breakpoint in Breakpoints.Where(x => x.IsEnabled))
 			{
-				int value ;
+				int value;
 
 				if (!int.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out value))
 					continue;
@@ -524,11 +519,11 @@ namespace Simulator.ViewModel
 				_backgroundWorker.CancelAsync();
 
 			Messenger.Default.Send(new NotificationMessage<StateFileModel>(new StateFileModel
-				{
-					NumberOfCycles = NumberOfCycles,
-					OutputLog = OutputLog.ToList(),
-					Processor = Proc
-				}, "SaveFileWindow"));
+			{
+				NumberOfCycles = NumberOfCycles,
+				OutputLog = OutputLog.ToList(),
+				Processor = Proc
+			}, "SaveFileWindow"));
 		}
 
 		private void AddBreakPoint()
@@ -571,7 +566,7 @@ namespace Simulator.ViewModel
 				_backgroundWorker.CancelAsync();
 
 			Proc.InterruptRequest();
-			
+
 			UpdateMemoryPage();
 
 			OutputLog.Insert(0, GetOutputLog());
