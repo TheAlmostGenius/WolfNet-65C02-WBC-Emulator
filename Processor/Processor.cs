@@ -141,6 +141,7 @@ namespace Processor
         public Processor()
 		{
 			Memory = new byte[0x10000];
+			ClearMemory();
 			StackPointer = 0x100;
 
 		    CycleCountIncrementedAction = () => { };
@@ -270,7 +271,7 @@ namespace Processor
         /// <returns>the byte being returned</returns>
         public virtual byte ReadMemoryValue(int address)
         {
-            var value  = Memory[address];
+            var value  = ReadMemoryValueWithoutCycle(address);
             IncrementCycleCount();
             return value;
         }
@@ -294,7 +295,7 @@ namespace Processor
         public virtual void WriteMemoryValue(int address, byte data)
         {
             IncrementCycleCount();
-            Memory[address] = data;
+            WriteMemoryValueWithoutCycle(address, data);
         }
 
         /// <summary>
@@ -344,6 +345,7 @@ namespace Processor
         {
             return Memory;
         }
+
         /// <summary>
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
