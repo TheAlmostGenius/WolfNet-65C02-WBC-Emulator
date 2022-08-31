@@ -219,12 +219,6 @@ namespace Processor
             }
 
             Reset();
-			string logName = String.Format("C:/{0}.6502-memory.log", DateTime.Now.ToString("ddMMyy-HHmm"));
-			FileStream file = File.OpenWrite(logName);
-			byte[] dump = DumpMemory();
-			file.Write(dump, 0, dump.Length);
-			file.Flush();
-			file.Close();
         }
 
         /// <summary>
@@ -280,11 +274,19 @@ namespace Processor
         /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
         /// </summary>
         /// <param name="address"></param>
-        /// <returns></returns>
+        /// <returns>the byte being returned</returns>
         public virtual byte ReadMemoryValueWithoutCycle(int address)
         {
-            var value = Memory[address];
-            return value;
+			if (address == 0xD012)
+			{
+				return _byteIn;
+			}
+			else
+			{
+                var value = Memory[address];
+                return value;
+            }
+
         }
 
         /// <summary>
@@ -305,6 +307,10 @@ namespace Processor
         /// <param name="data">The data to write</param>
         public virtual void WriteMemoryValueWithoutCycle(int address, byte data)
         {
+			if (address == 0xD010)
+			{
+				WriteCOM(data);
+			}
             Memory[address] = data;
         }
 
