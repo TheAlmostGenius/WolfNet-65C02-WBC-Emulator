@@ -277,7 +277,7 @@ namespace Processor
         /// <returns>the byte being returned</returns>
         public virtual byte ReadMemoryValueWithoutCycle(int address)
         {
-			if (address == 0xD012)
+			if (address == 0xD010)
 			{
 				return _byteIn;
 			}
@@ -374,20 +374,41 @@ namespace Processor
 
             ComInit(_serialPort);
         }
-
+		public static void Fini()
+		{
+			ComFini(_serialPort);
+        }
         public void WriteCOM(byte data)
         {
             _serialPort.Write(data.ToString());
         }
+        #endregion
 
-        public void SerialDataReceivedEventHandler(SerialPort port, SerialDataReceivedEventArgs args)
+        #region Private Methods
+        private void ComInit(SerialPort serialPort)
+        {
+            serialPort.ReadTimeout = 1000;
+            serialPort.WriteTimeout = 1000;
+            serialPort.Open();
+        }
+
+		private static void ComFini(SerialPort serialPort)
+        {
+			if (serialPort != null)
+			{
+				serialPort.Close();
+			}
+        }
+
+        private void SerialDataReceivedEventHandler(SerialPort port, SerialDataReceivedEventArgs args)
         {
             try
             {
                 if (_serialPort == port)
                 {
-                    _byteIn = Convert.ToByte(port.ReadByte());
-                    InterruptRequest();
+                    _byteIn = Convert.ToByte(_serialPort.ReadByte());
+                    WriteMemoryValueWithoutCycle(0xD011, 0b00000000);
+					InterruptRequest();
                 }
             }
             catch (Win32Exception w)
@@ -402,14 +423,6 @@ namespace Processor
                 file.Flush();
                 file.Close();
             }
-        }
-        #endregion
-
-        #region Private Methods
-        private void ComInit(SerialPort serialPort)
-        {
-            serialPort.ReadTimeout = 1000;
-            serialPort.WriteTimeout = 1000;
         }
 
         /// <summary>
