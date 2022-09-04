@@ -11,7 +11,7 @@ using static Processor.Processor.W65C22;
 namespace Processor
 {
 	/// <summary>
-	/// An Implementation of a 6502 Processor
+	/// An implementation of a W65C02 Processor, W65C22 VIAs and a W65C51 ACIA.
 	/// </summary>
 	[Serializable]
 	public class Processor
