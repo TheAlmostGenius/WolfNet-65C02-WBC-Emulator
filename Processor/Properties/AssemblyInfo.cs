@@ -1,15 +1,16 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Processor")]
-[assembly: AssemblyDescription("Process Library")]
+[assembly: AssemblyTitle("WolfNet 6502 Processor Library")]
+[assembly: AssemblyDescription("Processor Library")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Aaron Mell")]
-[assembly: AssemblyProduct("6502")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCompany("WolfNet")]
+[assembly: AssemblyProduct("WolfNet 6502 Processor Library")]
+[assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,3 +34,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: NeutralResourcesLanguage("")]

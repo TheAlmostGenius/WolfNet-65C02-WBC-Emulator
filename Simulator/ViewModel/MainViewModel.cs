@@ -18,7 +18,6 @@ namespace Simulator.ViewModel
 	public class MainViewModel : ViewModelBase
 	{
 		#region Fields
-		private bool _isRunning;
 		private int _memoryPageOffset;
 		private readonly BackgroundWorker _backgroundWorker;
 		private bool _breakpointTriggered;
@@ -99,10 +98,10 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public bool IsRunning
 		{
-			get { return _isRunning; }
+			get { return Proc.isRunning; }
 			set
 			{
-				_isRunning = value;
+				Proc.isRunning = value;
 				RaisePropertyChanged("IsRunning");
 			}
 		}
@@ -223,7 +222,9 @@ namespace Simulator.ViewModel
 				return;
 			}
 
-			Proc.LoadProgram(0xF000, notificationMessage.Content.Bios);
+			// Load Shared ROM
+			Proc.LoadProgram(0xE000, notificationMessage.Content.Bios);
+			// Load Banked ROM
 			Proc.LoadProgram(0x8000, notificationMessage.Content.Rom);
 			BiosFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosFilePath);
 			RaisePropertyChanged("BiosFilePath");

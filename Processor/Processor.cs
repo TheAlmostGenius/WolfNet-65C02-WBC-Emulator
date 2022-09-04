@@ -1,11 +1,12 @@
 ﻿using NLog;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
 using System.IO.Ports;
 using System.IO;
+using System.Timers;
+using static Processor.Processor.W65C22;
 
 namespace Processor
 {
@@ -17,15 +18,126 @@ namespace Processor
 	{
 		#region Fields
         private static readonly ILogger _logger = LogManager.GetLogger("Processor");
-		private int _programCounter;
-		private int _stackPointer;
-	    private int _cycleCount;
-        private bool _previousInterrupt;
-        private bool _interrupt;
-        private static SerialPort _serialPort;
+		private static int _programCounter;
+		private static int _stackPointer;
+	    private static int _cycleCount;
+        private static bool _previousInterrupt;
+        private static bool _interrupt;
+
+		public static class Serial
+		{
+			public static int address = 0xD010;
+			public static byte data = 0b00000000;
+			public static bool IsEnabled { get; set; }
+            public static SerialPort Object { get; set; }
+        }
         private static readonly int _defaultBaudRate = 9600;
-        private List<string> _portsList = new List<string>();
-        byte _byteIn;
+        private static byte _byteIn;
+        public static bool isRunning;
+
+        public static class W65C22
+        {
+            /// <summary>
+            /// Is timer 1 an interrupt or NMI.
+            /// </summary>
+            public static readonly bool T1IsIRQ = true;
+
+            /// <summary>
+            /// Is timer 2 an interrupt or NMI.
+            /// </summary>
+            public static readonly bool T2IsIRQ = true;
+
+            public static int T1CL = 0xD024;
+			public static int T1CH = 0xD025;
+            public static int T2CL = 0xD028;
+            public static int T2CH = 0xD029;
+
+            /// <summary>
+            /// T1 timer control
+            /// </summary>
+            public static bool T1TimerControl
+            {
+                get { return T1Object.AutoReset; }
+                set { T1Object.AutoReset = value; }
+            }
+
+            /// <summary>
+            /// T2 timer control.
+            /// </summary>
+            public static bool T2TimerControl
+            {
+                get { return T2Object.AutoReset; }
+                set { T2Object.AutoReset = value; }
+            }
+
+            public static int ACR = 0xD02B;
+
+            public static class ACRdata
+            {
+                public static byte T1TC = (byte)(1 << 7);
+                public static byte T2TC = (byte)(1 << 6);
+            }
+
+            public static int IFR = 0xD02D;
+			public static class IFRdata
+            {
+                public static byte T2 = (byte)(1 << 5);
+                public static byte T1 = (byte)(1 << 6);
+				public static byte INT = (byte)(1 << 7);
+            }
+
+            public static int IER = 0xD02E;
+            public static class IERdata
+            {
+                public static byte T2 = (byte)(1 << 5);
+                public static byte T1 = (byte)(1 << 6);
+                public static byte EN = (byte)(1 << 7);
+            }
+
+            /// <summary>
+            /// Enable or check whether timer 1 is enabled or not.
+            /// </summary>
+            public static bool T1IsEnabled
+            {
+                get { return T1Object.Enabled; }
+                set { T1Object.Enabled = value; }
+            }
+
+            /// <summary>
+            /// Enable or check whether timer 2 is enabled or not.
+            /// </summary>
+            public static bool T2IsEnabled
+            {
+                get { return T2Object.Enabled; }
+                set { T2Object.Enabled = value; }
+            }
+
+            /// <summary>
+            /// Set or check the timer 1 interval.
+            /// </summary>
+            public static double T1Interval
+            {
+                get { return (int)(ReadMemoryValueWithoutCycle(T1CL) | (ReadMemoryValueWithoutCycle(T1CH) << 8)); }
+            }
+
+            /// <summary>
+            /// Set or check the timer 2 interval.
+            /// </summary>
+            public static double T2Interval
+            {
+                get { return (int)(ReadMemoryValueWithoutCycle(T2CL) | (ReadMemoryValueWithoutCycle(T2CH) << 8)); }
+            }
+
+            /// <summary>
+            /// Set or get the timer 1 object.
+            /// </summary>
+            public static System.Timers.Timer T1Object { get; set; }
+
+            /// <summary>
+            /// Set or get the timer 2 object.
+            /// </summary>
+            public static System.Timers.Timer T2Object { get; set; }
+        };
         #endregion
 
         //All of the properties here are public and read only to facilitate ease of debugging and testing.
@@ -33,44 +145,49 @@ namespace Processor
         /// <summary>
         /// The memory
         /// </summary>
-        protected byte[] Memory { get; private set; }
+        protected static byte[] Memory { get; private set; }
 
 		/// <summary>
 		/// The Accumulator. This value is implemented as an integer intead of a byte.
 		/// This is done so we can detect wrapping of the value and set the correct number of cycles.
 		/// </summary>
-		public int Accumulator { get; protected set; }
+		public static int Accumulator { get; protected set; }
+
 		/// <summary>
 		/// The X Index Register
 		/// </summary>
-		public int XRegister { get; private set; }
+		public static int XRegister { get; private set; }
+
 		/// <summary>
 		/// The Y Index Register
 		/// </summary>
-		public int YRegister { get; private set; }
+		public static int YRegister { get; private set; }
+
 		/// <summary>
 		/// The Current Op Code being executed by the system
 		/// </summary>
-		public int CurrentOpCode { get; private set; }
+		public static int CurrentOpCode { get; private set; }
         
 		/// <summary>
 		/// The disassembly of the current operation. This value is only set when the CPU is built in debug mode.
 		/// </summary>
-		public Disassembly CurrentDisassembly { get; private set; }
+		public static Disassembly CurrentDisassembly { get; private set; }
+
 		/// <summary>
 		/// Points to the Current Address of the instruction being executed by the system. 
 		/// The PC wraps when the value is greater than 65535, or less than 0. 
 		/// </summary>
-		public int ProgramCounter
+		public static int ProgramCounter
 		{
 			get { return _programCounter; } 
 			private set { _programCounter = WrapProgramCounter(value); }
 		}
+
 		/// <summary>
 		/// Points to the Current Position of the Stack.
 		/// This value is a 00-FF value but is offset to point to the location in memory where the stack resides.
 		/// </summary>
-		public int StackPointer
+		public static int StackPointer
 		{
 			get { return _stackPointer; }
 			private set
@@ -87,29 +204,33 @@ namespace Processor
         /// <summary>
         /// An external action that occurs when the cycle count is incremented
         /// </summary>
-        public Action CycleCountIncrementedAction { get; set; }
+        public static Action CycleCountIncrementedAction { get; set; }
 
         //Status Registers
 		/// <summary>
 		/// This is the carry flag. when adding, if the result is greater than 255 or 99 in BCD Mode, then this bit is enabled. 
 		/// In subtraction this is reversed and set to false if a borrow is required IE the result is less than 0
 		/// </summary>
-		public bool CarryFlag { get; protected set; }
+		public static bool CarryFlag { get; protected set; }
+
 		/// <summary>
 		/// Is true if one of the registers is set to zero.
 		/// </summary>
-		public bool ZeroFlag { get; private set; }
+		public static bool ZeroFlag { get; private set; }
+
 		/// <summary>
 		/// This determines if Interrupts are currently disabled.
 		/// This flag is turned on during a reset to prevent an interrupt from occuring during startup/Initialization.
 		/// If this flag is true, then the IRQ pin is ignored.
 		/// </summary>
-		public bool DisableInterruptFlag { get; private set; }
+		public static bool DisableInterruptFlag { get; private set; }
+
 		/// <summary>
 		/// Binary Coded Decimal Mode is set/cleared via this flag.
 		/// when this mode is in effect, a byte represents a number from 0-99. 
 		/// </summary>
-		public bool DecimalFlag { get; private set; }
+		public static bool DecimalFlag { get; private set; }
+
 		/// <summary>
 		/// This property is set when an overflow occurs. An overflow happens if the high bit(7) changes during the operation. Remember that values from 128-256 are negative values
 		/// as the high bit is set to 1.
@@ -117,21 +238,22 @@ namespace Processor
 		/// 64 + 64 = -128 
 		/// -128 + -128 = 0
 		/// </summary>
-		public bool OverflowFlag { get; protected set; }
+		public static bool OverflowFlag { get; protected set; }
+
 		/// <summary>
 		/// Set to true if the result of an operation is negative in ADC and SBC operations. 
 		/// Remember that 128-256 represent negative numbers when doing signed math.
 		/// In shift operations the sign holds the carry.
 		/// </summary>
-		public bool NegativeFlag { get; private set; }
+		public static bool NegativeFlag { get; private set; }
 
         /// <summary>
         /// Set to true when an NMI should occur
         /// </summary>
-        public bool TriggerNmi { get; set; }
+        public static bool TriggerNmi { get; set; }
 
         /// Set to true when an IRQ has occurred and is being processed by the CPU
-        public bool TriggerIRQ { get; private set; }
+        public static bool TriggerIRQ { get; private set; }
         #endregion
 
         #region Public Methods
@@ -150,7 +272,7 @@ namespace Processor
 		/// <summary>
 		/// Initializes the processor to its default state.
 		/// </summary>
-		public void Reset()
+		public static void Reset()
 		{
             ResetCycleCount();
            
@@ -169,12 +291,12 @@ namespace Processor
             _previousInterrupt = false;
             TriggerNmi = false;
             TriggerIRQ = false;
-		}
+        }
 
 		/// <summary>
 		/// Performs the next step on the processor
 		/// </summary>
-		public void NextStep()
+		public static void NextStep()
 		{
             SetDisassembly();
 
@@ -205,7 +327,7 @@ namespace Processor
         /// </summary>
         /// <param name="offset">The offset in memory when loading the program.</param>
         /// <param name="program">The program to be loaded</param>
-        public void LoadProgram(int offset, byte[] program)
+        public static void LoadProgram(int offset, byte[] program)
         {
             if (offset > Memory.Length)
                 throw new InvalidOperationException("Offset '{0}' is larger than memory size '{1}'");
@@ -227,7 +349,7 @@ namespace Processor
         /// <param name="offset">The offset in memory when loading the program.</param>
         /// <param name="program">The program to be loaded</param>
         /// <param name="initialProgramCounter">The initial PC value, this is the entry point of the program</param>
-        public void LoadProgram(int offset, byte[] program, int initialProgramCounter)
+        public static void LoadProgram(int offset, byte[] program, int initialProgramCounter)
         {
             LoadProgram(offset, program);
 
@@ -244,7 +366,7 @@ namespace Processor
         /// <summary>
         /// The InterruptRequest or IRQ
         /// </summary>
-        public void InterruptRequest()
+        public static void InterruptRequest()
 		{
 		    TriggerIRQ = true;
 		}
@@ -252,7 +374,7 @@ namespace Processor
 		        /// <summary>
         /// Clears the memory
         /// </summary>
-        public void ClearMemory()
+        public static void ClearMemory()
         {
             for (var i = 0; i < Memory.Length; i++)
                 Memory[i] = 0x00;
@@ -263,7 +385,7 @@ namespace Processor
         /// </summary>
         /// <param name="address">The address to return</param>
         /// <returns>the byte being returned</returns>
-        public virtual byte ReadMemoryValue(int address)
+        public static byte ReadMemoryValue(int address)
         {
             var value  = ReadMemoryValueWithoutCycle(address);
             IncrementCycleCount();
@@ -275,11 +397,25 @@ namespace Processor
         /// </summary>
         /// <param name="address"></param>
         /// <returns>the byte being returned</returns>
-        public virtual byte ReadMemoryValueWithoutCycle(int address)
+        public static byte ReadMemoryValueWithoutCycle(int address)
         {
-			if (address == 0xD010)
+			if (address == Serial.address)
 			{
 				return _byteIn;
+			}
+			else if (address == W65C22.ACR)
+			{
+				byte data = (byte)0;
+				if (W65C22.T1TimerControl)
+				{
+					data = (byte)(data | W65C22.ACRdata.T1TC);
+				}
+				else if (W65C22.T2TimerControl)
+				{
+					data = (byte)(data | W65C22.ACRdata.T2TC);
+				}
+				return data;
+				
 			}
 			else
 			{
@@ -294,7 +430,7 @@ namespace Processor
         /// </summary>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
-        public virtual void WriteMemoryValue(int address, byte data)
+        public static void WriteMemoryValue(int address, byte data)
         {
             IncrementCycleCount();
             WriteMemoryValueWithoutCycle(address, data);
@@ -305,20 +441,39 @@ namespace Processor
         /// </summary>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
-        public virtual void WriteMemoryValueWithoutCycle(int address, byte data)
+        public static void WriteMemoryValueWithoutCycle(int address, byte data)
         {
-			if (address == 0xD010)
+			if (address == Serial.address)
 			{
 				WriteCOM(data);
+            }
+            else if ((address == W65C22.ACR) && ((data | W65C22.ACRdata.T1TC) == W65C22.ACRdata.T1TC))
+            {
+                W65C22.T1TimerControl = true;
+            }
+            else if ((address == W65C22.ACR) && ((data | W65C22.ACRdata.T2TC) == W65C22.ACRdata.T2TC))
+            {
+                W65C22.T2TimerControl = true;
+            }
+            else if ((address == W65C22.IER) && ((data | W65C22.IERdata.T1) == W65C22.IERdata.T1) && ((data | W65C22.IERdata.EN) == W65C22.IERdata.EN))
+            {
+				T1Init(T1Interval);
+            }
+            else if ((address == W65C22.IER) && ((data | W65C22.IERdata.T2) == W65C22.IERdata.T2) && ((data | W65C22.IERdata.EN) == W65C22.IERdata.EN))
+            {
+                T2Init(T2Interval);
+            }
+            else
+			{
+				Memory[address] = data;
 			}
-            Memory[address] = data;
         }
 
         /// <summary>
         /// Gets the Number of Cycles that have elapsed
         /// </summary>
         /// <returns>The number of elapsed cycles</returns>
-	    public int GetCycleCount()
+	    public static int GetCycleCount()
 	    {
 	        return _cycleCount;
 	    }
@@ -326,7 +481,7 @@ namespace Processor
         /// <summary>
         /// Increments the Cycle Count, causes a CycleCountIncrementedAction to fire.
         /// </summary>
-        protected void IncrementCycleCount()
+        protected static void IncrementCycleCount()
         {
             _cycleCount++;
             CycleCountIncrementedAction();
@@ -338,7 +493,7 @@ namespace Processor
         /// <summary>
         /// Resets the Cycle Count back to 0
         /// </summary>
-	    public void ResetCycleCount()
+	    public static void ResetCycleCount()
 	    {
 	        _cycleCount = 0;
 	    }
@@ -347,7 +502,7 @@ namespace Processor
         /// Dumps the entire memory object. Used when saving the memory state
         /// </summary>
         /// <returns></returns>
-        public byte[] DumpMemory()
+        public static byte[] DumpMemory()
         {
             return Memory;
         }
@@ -356,11 +511,11 @@ namespace Processor
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
         /// <param name="port"> COM Port to use for I/O</param>
-        public void Init(string port)
+        public static void Init(string port)
         {
-            _serialPort = new SerialPort(port, _defaultBaudRate, Parity.None, 8, StopBits.One);
+            Serial.Object = new SerialPort(port, _defaultBaudRate, Parity.None, 8, StopBits.One);
 
-            ComInit(_serialPort);
+            ComInit(Serial.Object);
         }
 
         /// <summary>
@@ -368,28 +523,29 @@ namespace Processor
         /// </summary>
         /// <param name="port"> COM Port to use for I/O</param>
         /// <param name="baudRate"> Baud Rate (Connection Speed) to use for I/O</param>
-        public void Init(string port, int baudRate)
+        public static void Init(string port, int baudRate)
         {
-            _serialPort = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
+            Serial.Object = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
 
-            ComInit(_serialPort);
+            ComInit(Serial.Object);
         }
 		public static void Fini()
 		{
-			ComFini(_serialPort);
+			ComFini(Serial.Object);
         }
-        public void WriteCOM(byte data)
+        public static void WriteCOM(byte data)
         {
-            _serialPort.Write(data.ToString());
+            Serial.Object.Write(data.ToString());
         }
         #endregion
 
         #region Private Methods
-        private void ComInit(SerialPort serialPort)
+        private static void ComInit(SerialPort serialPort)
         {
             serialPort.ReadTimeout = 1000;
             serialPort.WriteTimeout = 1000;
             serialPort.Open();
+			serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceived);
         }
 
 		private static void ComFini(SerialPort serialPort)
@@ -400,16 +556,93 @@ namespace Processor
 			}
         }
 
-        private void SerialDataReceivedEventHandler(SerialPort port, SerialDataReceivedEventArgs args)
+		/// <summary>
+		/// T1 counter initialization routine.
+		/// </summary>
+		public static void T1Init(double value)
+        {
+            T1Object = new System.Timers.Timer(value);
+			T1Object.Start();
+            T1Object.Elapsed += OnT1Timeout;
+            T1TimerControl = true;
+            T1IsEnabled = true;
+        }
+
+        /// <summary>
+        /// T2 counter initialization routine.
+        /// </summary>
+        public static void T2Init(double value)
+		{
+            T2Object = new System.Timers.Timer(value);
+			T2Object.Start();
+            T2Object.Elapsed += OnT2Timeout;
+            T2TimerControl = true;
+            T2IsEnabled = true;
+        }
+
+        /// <summary>
+        /// Called whenever System.Timers.Timer event elapses
+        /// </summary>
+        /// 
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void OnT1Timeout(object sender, ElapsedEventArgs e)
+        {
+            if (isRunning)
+            {
+                if (T1IsEnabled)
+                {
+                    WriteMemoryValueWithoutCycle(IFR, (byte)(IFRdata.T1 & IFRdata.INT));
+                    if (T1IsIRQ)
+                    {
+                        InterruptRequest();
+                    }
+                    else
+                    {
+                        TriggerNmi = true;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called whenever System.Timers.Timer event elapses
+        /// </summary>
+        /// 
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void OnT2Timeout(object sender, ElapsedEventArgs e)
+        {
+            if (isRunning)
+            {
+                if (T2IsEnabled)
+                {
+                    WriteMemoryValueWithoutCycle(IFR, (byte)(IFRdata.T2 & IFRdata.INT));
+                    if (T2IsIRQ)
+                    {
+                        InterruptRequest();
+                    }
+                    else
+                    {
+                        TriggerNmi = true;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Called whenever SerialDataReceivedEventHandler event occurs.
+        /// </summary>
+        /// 
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void SerialDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
-                if (_serialPort == port)
-                {
-                    _byteIn = Convert.ToByte(_serialPort.ReadByte());
-                    WriteMemoryValueWithoutCycle(0xD011, 0b00000000);
-					InterruptRequest();
-                }
+                _byteIn = Convert.ToByte(Serial.Object.ReadByte());
+                WriteMemoryValueWithoutCycle(0xD011, Serial.data);
+				InterruptRequest();
             }
             catch (Win32Exception w)
             {
@@ -428,7 +661,7 @@ namespace Processor
         /// <summary>
         /// Executes an Opcode
         /// </summary>
-        private void ExecuteOpCode()
+        private static void ExecuteOpCode()
 		{
 			//The x+ cycles denotes that if a page wrap occurs, then an additional cycle is consumed.
 			//The x++ cycles denotes that 1 cycle is added when a branch occurs and it on the same page, and two cycles are added if its on a different page./
@@ -1507,7 +1740,7 @@ namespace Processor
 		/// Sets the IsSignNegative register
 		/// </summary>
 		/// <param name="value"></param>
-		protected void SetNegativeFlag(int value)
+		protected static void SetNegativeFlag(int value)
 		{
 			//on the 6502, any value greater than 127 is negative. 128 = 1000000 in Binary. the 8th bit is set, therefore the number is a negative number.
 			NegativeFlag = value > 127;
@@ -1517,7 +1750,7 @@ namespace Processor
 		/// Sets the IsResultZero register
 		/// </summary>
 		/// <param name="value"></param>
-		protected void SetZeroFlag(int value)
+		protected static void SetZeroFlag(int value)
 		{
 			ZeroFlag = value == 0;
 		}
@@ -1529,7 +1762,7 @@ namespace Processor
 		/// </summary>
 		/// <param name="addressingMode">The addressing Mode to use</param>
 		/// <returns>The memory Location</returns>
-		protected int GetAddressByAddressingMode(AddressingMode addressingMode)
+		protected static int GetAddressByAddressingMode(AddressingMode addressingMode)
 		{
 			int address;
 		    int highByte;
@@ -1665,7 +1898,7 @@ namespace Processor
 		/// Moves the ProgramCounter in a given direction based on the value inputted
 		/// 
 		/// </summary>
-		private void MoveProgramCounterByRelativeValue(byte valueToMove)
+		private static void MoveProgramCounterByRelativeValue(byte valueToMove)
 		{
 			var movement = valueToMove > 127 ? (valueToMove - 255) : valueToMove;
 
@@ -1690,7 +1923,7 @@ namespace Processor
 		/// </summary>
 		
 		/// <returns>The value at the current Stack Pointer</returns>
-		private byte PeekStack()
+		private static byte PeekStack()
 		{
 			//The stack lives at 0x100-0x1FF, but the value is only a byte so it needs to be translated
 			return Memory[StackPointer + 0x100];
@@ -1699,8 +1932,9 @@ namespace Processor
 		/// <summary>
 		/// Write a value directly to the stack without modifying the Stack Pointer
 		/// </summary>
+		/// 
 		/// <param name="value">The value to be written to the stack</param>
-		private void PokeStack(byte value)
+		private static void PokeStack(byte value)
 		{
 			//The stack lives at 0x100-0x1FF, but the value is only a byte so it needs to be translated
 			Memory[StackPointer + 0x100] = value;
@@ -1711,14 +1945,14 @@ namespace Processor
 		/// </summary>
 		/// <param name="setBreak">Determines if the break flag should be set during conversion. IRQ does not set the flag on the stack, but PHP and BRK do</param>
 		/// <returns></returns>
-		private byte ConvertFlagsToByte(bool setBreak)
+		private static byte ConvertFlagsToByte(bool setBreak)
 		{
 			return (byte)((CarryFlag ? 0x01 : 0) + (ZeroFlag ? 0x02 : 0) + (DisableInterruptFlag ? 0x04 : 0) +
 						 (DecimalFlag ? 8 : 0) + (setBreak ? 0x10 : 0) + 0x20 + (OverflowFlag ? 0x40 : 0) + (NegativeFlag ? 0x80 : 0));
 		}
 
         [Conditional("DEBUG")]
-		private void SetDisassembly()
+		private static void SetDisassembly()
         {
             if (!_logger.IsDebugEnabled)
                 return;
@@ -1869,12 +2103,12 @@ namespace Processor
 			                 Convert.ToInt16(CarryFlag));
 		}
 
-		private int WrapProgramCounter(int value)
+		private static int WrapProgramCounter(int value)
 		{
 			return value & 0xFFFF;
 		}
 
-		private AddressingMode GetAddressingMode()
+		private static AddressingMode GetAddressingMode()
 		{
 			switch (CurrentOpCode)
 			{
@@ -2077,7 +2311,7 @@ namespace Processor
 		/// The ADC - Add Memory to Accumulator with Carry Operation
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode used to perform this operation.</param>
-		protected virtual void AddWithCarryOperation(AddressingMode addressingMode)
+		protected static void AddWithCarryOperation(AddressingMode addressingMode)
 		{
 			//Accumulator, Carry = Accumulator + ValueInMemoryLocation + Carry 
 			var memoryValue = ReadMemoryValue(GetAddressByAddressingMode(addressingMode));
@@ -2125,7 +2359,7 @@ namespace Processor
 		/// The AND - Compare Memory with Accumulator operation
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode being used</param>
-		private void AndOperation(AddressingMode addressingMode)
+		private static void AndOperation(AddressingMode addressingMode)
 		{
 			Accumulator =ReadMemoryValue(GetAddressByAddressingMode(addressingMode)) & Accumulator;
 
@@ -2137,7 +2371,7 @@ namespace Processor
 		/// The ASL - Shift Left One Bit (Memory or Accumulator)
 		/// </summary>
 		/// <param name="addressingMode">The addressing Mode being used</param>
-		public void AslOperation(AddressingMode addressingMode)
+		public static void AslOperation(AddressingMode addressingMode)
 		{
 			int value;
 			var memoryAddress = 0;
@@ -2180,7 +2414,7 @@ namespace Processor
 		/// Performs the different branch operations.
 		/// </summary>
 		/// <param name="performBranch">Is a branch required</param>
-		private void BranchOperation(bool performBranch)
+		private static void BranchOperation(bool performBranch)
 		{
             var value = ReadMemoryValue(GetAddressByAddressingMode(AddressingMode.Relative));
 
@@ -2197,7 +2431,7 @@ namespace Processor
 		/// The bit operation, does an & comparison between a value in memory and the accumulator
 		/// </summary>
 		/// <param name="addressingMode"></param>
-		private void BitOperation(AddressingMode addressingMode)
+		private static void BitOperation(AddressingMode addressingMode)
 		{
 
 			var memoryValue =ReadMemoryValue(GetAddressByAddressingMode(addressingMode));
@@ -2214,7 +2448,7 @@ namespace Processor
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
 		/// <param name="comparisonValue">The value to compare against memory</param>
-		private void CompareOperation(AddressingMode addressingMode, int comparisonValue)
+		private static void CompareOperation(AddressingMode addressingMode, int comparisonValue)
 		{
 			var memoryValue =ReadMemoryValue(GetAddressByAddressingMode(addressingMode));
 			var comparedValue = comparisonValue - memoryValue;
@@ -2233,7 +2467,7 @@ namespace Processor
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
 		/// <param name="decrement">If the operation is decrementing or incrementing the vaulue by 1 </param>
-		private void ChangeMemoryByOne(AddressingMode addressingMode, bool decrement)
+		private static void ChangeMemoryByOne(AddressingMode addressingMode, bool decrement)
 		{
 			var memoryLocation = GetAddressByAddressingMode(addressingMode);
 			var memory =ReadMemoryValue(memoryLocation);
@@ -2257,7 +2491,7 @@ namespace Processor
 		/// </summary>
 		/// <param name="useXRegister">If the operation is using the X or Y register</param>
 		/// <param name="decrement">If the operation is decrementing or incrementing the vaulue by 1 </param>
-		private void ChangeRegisterByOne(bool useXRegister, bool decrement)
+		private static void ChangeRegisterByOne(bool useXRegister, bool decrement)
 		{
 			var value = useXRegister ? XRegister : YRegister;
 
@@ -2285,7 +2519,7 @@ namespace Processor
 		/// The EOR Operation, Performs an Exclusive OR Operation against the Accumulator and a value in memory
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
-		private void EorOperation(AddressingMode addressingMode)
+		private static void EorOperation(AddressingMode addressingMode)
 		{
 			Accumulator = Accumulator ^ReadMemoryValue(GetAddressByAddressingMode(addressingMode));	
 
@@ -2297,7 +2531,7 @@ namespace Processor
 		/// The LSR Operation. Performs a Left shift operation on a value in memory
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
-		private void LsrOperation(AddressingMode addressingMode)
+		private static void LsrOperation(AddressingMode addressingMode)
 		{
 			int value;
 			var memoryAddress = 0;
@@ -2338,7 +2572,7 @@ namespace Processor
 		/// The Or Operation. Performs an Or Operation with the accumulator and a value in memory
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
-		private void OrOperation(AddressingMode addressingMode)
+		private static void OrOperation(AddressingMode addressingMode)
 		{
 			Accumulator = Accumulator |ReadMemoryValue(GetAddressByAddressingMode(addressingMode));
 			
@@ -2350,7 +2584,7 @@ namespace Processor
 		/// The ROL operation. Performs a rotate left operation on a value in memory.
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
-		private void RolOperation(AddressingMode addressingMode)
+		private static void RolOperation(AddressingMode addressingMode)
 		{
 			int value;
 			var memoryAddress = 0;
@@ -2399,7 +2633,7 @@ namespace Processor
 		/// The ROR operation. Performs a rotate right operation on a value in memory.
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
-		private void RorOperation(AddressingMode addressingMode)
+		private static void RorOperation(AddressingMode addressingMode)
 		{
 			int value;
 			var memoryAddress = 0;
@@ -2447,7 +2681,7 @@ namespace Processor
 		/// The SBC operation. Performs a subtract with carry operation on the accumulator and a value in memory.
 		/// </summary>
 		/// <param name="addressingMode">The addressing mode to use</param>
-		protected virtual void SubtractWithBorrowOperation(AddressingMode addressingMode)
+		protected static void SubtractWithBorrowOperation(AddressingMode addressingMode)
 		{
 			var memoryValue =ReadMemoryValue(GetAddressByAddressingMode(addressingMode));
 			var newValue = DecimalFlag
@@ -2480,7 +2714,7 @@ namespace Processor
 		/// <summary>
 		/// The PSP Operation. Pushes the Status Flags to the stack
 		/// </summary>
-		private void PushFlagsOperation()
+		private static void PushFlagsOperation()
 		{
 			PokeStack(ConvertFlagsToByte(true));
 		}
@@ -2488,7 +2722,7 @@ namespace Processor
 		/// <summary>
 		/// The PLP Operation. Pull the status flags off the stack on sets the flags accordingly.
 		/// </summary>
-		private void PullFlagsOperation()
+		private static void PullFlagsOperation()
 		{
 			var flags = PeekStack();
 			CarryFlag = (flags & 0x01) != 0;
@@ -2504,7 +2738,7 @@ namespace Processor
 		/// <summary>
 		/// The JSR routine. Jumps to a subroutine. 
 		/// </summary>
-		private void JumpToSubRoutineOperation()
+		private static void JumpToSubRoutineOperation()
 		{
 		    IncrementCycleCount();
 
@@ -2524,7 +2758,7 @@ namespace Processor
 	    /// <summary>
 	    /// The RTS routine. Called when returning from a subroutine.
 	    /// </summary>
-	    private void ReturnFromSubRoutineOperation()
+	    private static void ReturnFromSubRoutineOperation()
 	    {
 	         ReadMemoryValue(++ProgramCounter);
 	        StackPointer++;
@@ -2545,7 +2779,7 @@ namespace Processor
 	    /// <summary>
 		/// The BRK routine. Called when a BRK occurs.
 		/// </summary>
-		private void BreakOperation(bool isBrk, int vector)
+		private static void BreakOperation(bool isBrk, int vector)
 	    {
             ReadMemoryValue(++ProgramCounter);
 
@@ -2581,7 +2815,7 @@ namespace Processor
 		/// Note: when called after a BRK operation the Program Counter is not set to the location after the BRK,
 		/// it is set +1
 		/// </summary>
-		private void ReturnFromInterruptOperation()
+		private static void ReturnFromInterruptOperation()
 		{
             ReadMemoryValue(++ProgramCounter);
 			StackPointer++;
@@ -2604,7 +2838,7 @@ namespace Processor
         /// <summary>
         /// This is ran anytime an NMI occurrs
         /// </summary>
-	    private void ProcessNMI()
+	    private static void ProcessNMI()
 	    {
             ProgramCounter--;
             BreakOperation(false, 0xFFFA);
@@ -2616,7 +2850,7 @@ namespace Processor
         /// <summary>
         /// This is ran anytime an IRQ occurrs
         /// </summary>
-        private void ProcessIRQ()
+        private static void ProcessIRQ()
         {
             if (DisableInterruptFlag)
                 return;

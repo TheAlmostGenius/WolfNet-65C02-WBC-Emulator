@@ -11,9 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor.UnitTests", "Proc
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulator", "Simulator\Simulator.csproj", "{F1A6A24D-9DBA-4850-904E-1CCD3BC78565}"
-	ProjectSection(ProjectDependencies) = postProject
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C} = {9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
