@@ -1,4 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using System.Windows.Controls;
+using System;
+using OpenFileView = Simulator.ViewModel.OpenFileViewModel;
 
 namespace Simulator
 {
@@ -18,5 +21,11 @@ namespace Simulator
 			if (notificationMessage.Notification == "CloseFileWindow")
 				Close();
 		}
-	}
+
+        private void PortSelectionDropDownClosed(object sender, EventArgs e)
+        {
+            string port = ComPortCombo.SelectedValue.ToString();
+			OpenFileView.ComPortSelection = port; 
+        }
+    }
 }

@@ -3,12 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor", "Processor\Processor.csproj", "{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Processor.UnitTests", "Processor.UnitTests\Processor.UnitTests.csproj", "{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}"
-	ProjectSection(ProjectDependencies) = postProject
-		{F46D0ADD-EE98-4533-A672-AED74EE4B5B7} = {F46D0ADD-EE98-4533-A672-AED74EE4B5B7}
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hardware", "Processor\Hardware.csproj", "{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simulator", "Simulator\Simulator.csproj", "{F1A6A24D-9DBA-4850-904E-1CCD3BC78565}"
 EndProject
@@ -32,16 +27,6 @@ Global
 		{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}.Release|x86.ActiveCfg = Release|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{9CA121DA-5FC3-4613-8F7E-9AA5BA28F87C}.Release|x86.ActiveCfg = Release|Any CPU
 		{F1A6A24D-9DBA-4850-904E-1CCD3BC78565}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{F1A6A24D-9DBA-4850-904E-1CCD3BC78565}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{F1A6A24D-9DBA-4850-904E-1CCD3BC78565}.Debug|Mixed Platforms.Build.0 = Debug|x86

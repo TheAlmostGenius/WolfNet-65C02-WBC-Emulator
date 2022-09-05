@@ -235,6 +235,8 @@ namespace Simulator.ViewModel
 			RaisePropertyChanged("IsProgramLoaded");
 
 			Reset();
+
+			Proc.Init(notificationMessage.Content.ComPort);
 		}
 
 		private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)

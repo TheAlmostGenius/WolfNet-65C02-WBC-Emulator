@@ -521,31 +521,38 @@ namespace Processor
         /// <summary>
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
-        /// <param name="port"> COM Port to use for I/O</param>
+        /// <param name="newPort"> COM Port to use for I/O</param>
         /// <param name="baudRate"> Baud Rate (Connection Speed) to use for I/O</param>
-        public static void Init(string port, int baudRate)
+        public static void Init(string newPort, int baudRate)
         {
-            Serial.Object = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
+            Serial.Object = new SerialPort(newPort, baudRate, Parity.None, 8, StopBits.One);
 
             ComInit(Serial.Object);
         }
+
 		public static void Fini()
 		{
 			ComFini(Serial.Object);
         }
+
         public static void WriteCOM(byte data)
         {
-            Serial.Object.Write(data.ToString());
+			byte[] writeByte = new byte[] {data};
+            Serial.Object.Write(writeByte, 0, 1);
         }
         #endregion
 
         #region Private Methods
         private static void ComInit(SerialPort serialPort)
         {
+            serialPort.Open();
             serialPort.ReadTimeout = 1000;
             serialPort.WriteTimeout = 1000;
-            serialPort.Open();
 			serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceived);
+			serialPort.Write("---------------------------\r\n");
+            serialPort.Write(" WolfNet 6502 WBC Emulator\r\n");
+            serialPort.Write("---------------------------\r\n");
+			serialPort.Write("\r\n");
         }
 
 		private static void ComFini(SerialPort serialPort)

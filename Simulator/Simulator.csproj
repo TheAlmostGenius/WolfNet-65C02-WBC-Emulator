@@ -156,9 +156,9 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Processor\Processor.csproj">
+    <ProjectReference Include="..\Processor\Hardware.csproj">
       <Project>{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}</Project>
-      <Name>Processor</Name>
+      <Name>Hardware</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

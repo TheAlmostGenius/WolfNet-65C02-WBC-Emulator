@@ -11,7 +11,7 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="12,76,0,0" Name="RomFilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=RomFilename}" IsReadOnly="True"/>
         <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,51,0,0" Name="RomPathText" Text="Path" VerticalAlignment="Top" Width="29" />
         <TextBlock Height="20" HorizontalAlignment="Left" Margin="12,101,0,0" x:Name="ComPortText" Text="COM I/O Port" VerticalAlignment="Top" Width="82" />
-        <ComboBox Height="23" Margin="0,126,127,0" x:Name="ComPort"  VerticalAlignment="Top" IsTextSearchEnabled="False" IsReadOnly="True" ItemsSource="{Binding PortList, Mode=OneWay}" HorizontalAlignment="Right" Width="361" />
+        <ComboBox Height="23" Margin="0,126,127,0" Name="ComPortCombo"  VerticalAlignment="Top" IsTextSearchEnabled="False" IsReadOnly="True" ItemsSource="{Binding PortList, Mode=OneWay}" HorizontalAlignment="Right" Width="361" DropDownClosed="PortSelectionDropDownClosed" />
         <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="397,175,0,0" Name="CancelButton" VerticalAlignment="Top" Width="75" Command="{Binding Path=CloseCommand}" />
         <Button Content="Load" Height="23" HorizontalAlignment="Left" Margin="316,175,0,0" Name="LoadButton" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=LoadEnabled, Mode=OneWay}" Command="{Binding Path=LoadProgramCommand}" />
     </Grid>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("WolfNet 6502 Processor Library")]
-[assembly: AssemblyDescription("Processor Library")]
+[assembly: AssemblyTitle("WolfNet 6502 Hardware Library")]
+[assembly: AssemblyDescription("6502 Hardware Library")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("WolfNet")]
-[assembly: AssemblyProduct("WolfNet 6502 Processor Library")]
+[assembly: AssemblyProduct("WolfNet 6502 Hardware Library")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

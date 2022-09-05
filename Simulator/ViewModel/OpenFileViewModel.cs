@@ -6,6 +6,8 @@ using System.IO.Ports;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -95,10 +97,9 @@ namespace Simulator.ViewModel
         /// </summary>
         /// 
         public ObservableCollection<string> PortList { get { return _PortList; } }
-
         private ObservableCollection<string> _PortList = new ObservableCollection<string>();
 
-        private string ComPortSelection { get; set; }
+        public static string ComPortSelection { get; set; }
         #endregion
 
         #region Public Methods
@@ -186,7 +187,7 @@ namespace Simulator.ViewModel
                 Rom = rom,
                 BiosFilePath = BiosFilename,
                 RomFilePath = RomFilename,
-                ComPort = ComPortSelection
+                ComPort = ComPortSelection,
             }, "FileLoaded"));
 
 			return true;
