@@ -84,7 +84,7 @@ namespace Simulator.ViewModel
 
 		private void Select()
 		{
-			var dialog = new SaveFileDialog { DefaultExt = ".6502", Filter = "6502 Simulator Save State (*.6502)|*.6502" };
+			var dialog = new SaveFileDialog { DefaultExt = ".6502", Filter = "WolfNet W65C02 Emulator Save State (*.6502)|*.6502" };
 
 			var result = dialog.ShowDialog();
 

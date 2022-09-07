@@ -8,8 +8,8 @@
     <ProjectGuid>{F1A6A24D-9DBA-4850-904E-1CCD3BC78565}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simulator</RootNamespace>
-    <AssemblyName>Simulator</AssemblyName>
+    <RootNamespace>Emulator</RootNamespace>
+    <AssemblyName>Emulator</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -156,14 +156,14 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Processor\Hardware.csproj">
-      <Project>{F46D0ADD-EE98-4533-A672-AED74EE4B5B7}</Project>
-      <Name>Hardware</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\add.png" />
     <Resource Include="Images\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hardware\Hardware.csproj">
+      <Project>{f46d0add-ee98-4533-a672-aed74ee4b5b7}</Project>
+      <Name>Hardware</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

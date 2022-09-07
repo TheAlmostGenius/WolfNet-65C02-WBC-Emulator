@@ -7,8 +7,11 @@ using System.Threading;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using Hardware;
 using Simulator.Model;
-using Proc = Processor.Processor;
+using W65C02 = Hardware.W65C02;
+using W65C22 = Hardware.W65C22;
+using W65C51 = Hardware.W65C51;
 
 namespace Simulator.ViewModel
 {
@@ -21,18 +24,28 @@ namespace Simulator.ViewModel
 		private int _memoryPageOffset;
 		private readonly BackgroundWorker _backgroundWorker;
 		private bool _breakpointTriggered;
-		#endregion
+        #endregion
 
-		#region Properties
-		/// <summary>
-		/// The Processor
-		/// </summary>
-		public Proc Proc { get; set; }
+        #region Properties
+        /// <summary>
+        /// The Processor
+        /// </summary>
+        public W65C02 W65C02 { get; set; }
 
-		/// <summary>
-		/// The Current Memory Page
-		/// </summary>
-		public MultiThreadedObservableCollection<MemoryRowModel> MemoryPage { get; set; }
+        /// <summary>
+        /// The Processor
+        /// </summary>
+        public W65C22 W65C22 { get; set; }
+
+        /// <summary>
+        /// The Processor
+        /// </summary>
+        public W65C51 W65C51 { get; set; }
+
+        /// <summary>
+        /// The Current Memory Page
+        /// </summary>
+        public MultiThreadedObservableCollection<MemoryRowModel> MemoryPage { get; set; }
 
 		/// <summary>
 		/// The output log
@@ -56,8 +69,8 @@ namespace Simulator.ViewModel
 		{
 			get
 			{
-				if (Proc.CurrentDisassembly != null)
-					return string.Format("{0} {1}", Proc.CurrentDisassembly.OpCodeString, Proc.CurrentDisassembly.DisassemblyOutput);
+				if (W65C02.CurrentDisassembly != null)
+					return string.Format("{0} {1}", W65C02.CurrentDisassembly.OpCodeString, W65C02.CurrentDisassembly.DisassemblyOutput);
 
 				else
 				{
@@ -98,10 +111,10 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public bool IsRunning
 		{
-			get { return Proc.isRunning; }
+			get { return W65C02.isRunning; }
 			set
 			{
-				Proc.isRunning = value;
+				W65C02.isRunning = value;
 				RaisePropertyChanged("IsRunning");
 			}
 		}
@@ -183,8 +196,8 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public MainViewModel()
 		{
-			Proc = new Proc();
-			Proc.Reset();
+            W65C02 = new W65C02();
+			W65C02.Reset();
 
 			ResetCommand = new RelayCommand(Reset);
 			StepCommand = new RelayCommand(Step);
@@ -223,9 +236,9 @@ namespace Simulator.ViewModel
 			}
 
 			// Load Shared ROM
-			Proc.LoadProgram(0xE000, notificationMessage.Content.Bios);
+			W65C02.LoadProgram(MemoryMap.SharedRom, notificationMessage.Content.Bios);
 			// Load Banked ROM
-			Proc.LoadProgram(0x8000, notificationMessage.Content.Rom);
+			W65C02.LoadProgram(MemoryMap.BankedRom, notificationMessage.Content.Rom);
 			BiosFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosFilePath);
 			RaisePropertyChanged("BiosFilePath");
 			RomFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomFilePath);
@@ -236,7 +249,7 @@ namespace Simulator.ViewModel
 
 			Reset();
 
-			Proc.Init(notificationMessage.Content.ComPort);
+			W65C51.Init(notificationMessage.Content.ComPort);
 		}
 
 		private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
@@ -253,8 +266,10 @@ namespace Simulator.ViewModel
 
 			NumberOfCycles = notificationMessage.Content.NumberOfCycles;
 
-			Proc = notificationMessage.Content.Processor;
-			UpdateMemoryPage();
+            W65C02 = notificationMessage.Content.W65C02;
+            W65C22 = notificationMessage.Content.W65C22;
+            W65C51 = notificationMessage.Content.W65C51;
+            UpdateMemoryPage();
 			UpdateUi();
 
 			IsProgramLoaded = true;
@@ -273,22 +288,22 @@ namespace Simulator.ViewModel
 				MemoryPage.Add(new MemoryRowModel
 				{
 					Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-					Location00 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location01 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location02 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location03 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location04 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location05 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location06 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location07 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location08 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location09 = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0A = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0B = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0C = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0D = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0E = Proc.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0F = Proc.ReadMemoryValueWithoutCycle(i).ToString("X").PadLeft(2, '0'),
+					Location00 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location01 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location02 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location03 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location04 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location05 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location06 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location07 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location08 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location09 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0A = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0B = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0C = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0D = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0E = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0F = W65C02.ReadMemoryValueWithoutCycle(i).ToString("X").PadLeft(2, '0'),
 				});
 				multiplyer++;
 			}
@@ -301,8 +316,8 @@ namespace Simulator.ViewModel
 			if (_backgroundWorker.IsBusy)
 				_backgroundWorker.CancelAsync();
 
-			Proc.Reset();
-			RaisePropertyChanged("Proc");
+			W65C02.Reset();
+			RaisePropertyChanged("W65C02");
 
 			IsRunning = false;
 			NumberOfCycles = 0;
@@ -343,26 +358,26 @@ namespace Simulator.ViewModel
 
 		private void StepProcessor()
 		{
-			Proc.NextStep();
-			NumberOfCycles = Proc.GetCycleCount();
+			W65C02.NextStep();
+			NumberOfCycles = W65C02.GetCycleCount();
 		}
 
 		private OutputLog GetOutputLog()
 		{
-			if (Proc.CurrentDisassembly == null)
+			if (W65C02.CurrentDisassembly == null)
 			{
-				return new OutputLog(new Processor.Disassembly());
+				return new OutputLog(new Hardware.Disassembly());
 			}
 
-			return new OutputLog(Proc.CurrentDisassembly)
+			return new OutputLog(W65C02.CurrentDisassembly)
 			{
-				XRegister = Proc.XRegister.ToString("X").PadLeft(2, '0'),
-				YRegister = Proc.YRegister.ToString("X").PadLeft(2, '0'),
-				Accumulator = Proc.Accumulator.ToString("X").PadLeft(2, '0'),
+				XRegister = W65C02.XRegister.ToString("X").PadLeft(2, '0'),
+				YRegister = W65C02.YRegister.ToString("X").PadLeft(2, '0'),
+				Accumulator = W65C02.Accumulator.ToString("X").PadLeft(2, '0'),
 				NumberOfCycles = NumberOfCycles,
-				StackPointer = Proc.StackPointer.ToString("X").PadLeft(2, '0'),
-				ProgramCounter = Proc.ProgramCounter.ToString("X").PadLeft(4, '0'),
-				CurrentOpCode = Proc.CurrentOpCode.ToString("X").PadLeft(2, '0')
+				StackPointer = W65C02.StackPointer.ToString("X").PadLeft(2, '0'),
+				ProgramCounter = W65C02.ProgramCounter.ToString("X").PadLeft(4, '0'),
+				CurrentOpCode = W65C02.CurrentOpCode.ToString("X").PadLeft(2, '0')
 			};
 		}
 
@@ -436,7 +451,7 @@ namespace Simulator.ViewModel
 					return true;
 				}
 
-				if (breakpoint.Type == BreakpointType.ProgramCounterType && value == Proc.ProgramCounter)
+				if (breakpoint.Type == BreakpointType.ProgramCounterType && value == W65C02.ProgramCounter)
 				{
 					_breakpointTriggered = true;
 					RunPause();
@@ -525,8 +540,10 @@ namespace Simulator.ViewModel
 			{
 				NumberOfCycles = NumberOfCycles,
 				OutputLog = OutputLog.ToList(),
-				Processor = Proc
-			}, "SaveFileWindow"));
+                W65C02 = W65C02,
+				W65C22 = W65C22,
+				W65C51 = W65C51,
+            }, "SaveFileWindow"));
 		}
 
 		private void AddBreakPoint()
@@ -553,7 +570,7 @@ namespace Simulator.ViewModel
 			if (_backgroundWorker.IsBusy)
 				_backgroundWorker.CancelAsync();
 
-			Proc.TriggerNmi = true;
+			W65C02.TriggerNmi = true;
 
 			UpdateMemoryPage();
 
@@ -568,7 +585,7 @@ namespace Simulator.ViewModel
 			if (_backgroundWorker.IsBusy)
 				_backgroundWorker.CancelAsync();
 
-			Proc.InterruptRequest();
+			W65C02.InterruptRequest();
 
 			UpdateMemoryPage();
 

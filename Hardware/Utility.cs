@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace Processor
+namespace Hardware
 {
 	public static class Utility
 	{

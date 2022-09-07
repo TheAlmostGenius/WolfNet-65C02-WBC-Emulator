@@ -1,4 +1,4 @@
-﻿namespace Processor
+﻿namespace Hardware
 {
 	/// <summary>
 	/// The addressing modes used by the 6502 Processor

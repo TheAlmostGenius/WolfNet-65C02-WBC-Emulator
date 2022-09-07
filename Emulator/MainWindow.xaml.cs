@@ -22,7 +22,7 @@ namespace Simulator
 		private void OnClose(Object sender, CancelEventArgs e)
 		{
 			e.Cancel = false;
-			Processor.Processor.Fini();
+			Hardware.W65C51.Fini();
 		}
 
 		private void NotificationMessageReceived(NotificationMessage notificationMessage)

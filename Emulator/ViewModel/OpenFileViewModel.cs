@@ -6,14 +6,11 @@ using System.IO.Ports;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 using Simulator.Model;
-using Proc = Processor.Processor;
 
 namespace Simulator.ViewModel
 {
@@ -200,7 +197,7 @@ namespace Simulator.ViewModel
 
 		private void Select()
 		{
-			var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.6502)|*.bin;*.6502|Binary Assembly (*.bin)|*.bin|6502 Simulator Save State (*.6502)|*.6502" };
+			var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.6502)|*.bin;*.6502|Binary Assembly (*.bin)|*.bin|WolfNet W65C02 Emulator Save State (*.6502)|*.6502" };
 
 			var result = dialog.ShowDialog();
 

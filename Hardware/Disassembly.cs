@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Processor
+namespace Hardware
 {
 	/// <summary>
 	/// Used to help simulating. This class contains the disassembly properties.

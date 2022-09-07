@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Proc = Processor.Processor;
 
 namespace Simulator.Model
 {
@@ -23,6 +22,16 @@ namespace Simulator.Model
         /// <summary>
         /// The Processor Object that is being saved
         /// </summary>
-        public Proc Processor { get; set; }
-	}
+        public Hardware.W65C02 W65C02 { get; set; }
+
+        /// <summary>
+        /// The VIA Object that is being saved
+        /// </summary>
+        public Hardware.W65C22 W65C22 { get; set; }
+
+        /// <summary>
+        /// The ACIA Object that is being saved
+        /// </summary>
+        public Hardware.W65C51 W65C51 { get; set; }
+    }
 }

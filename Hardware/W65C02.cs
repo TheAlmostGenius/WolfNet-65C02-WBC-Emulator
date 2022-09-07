@@ -6,15 +6,15 @@ using System.Globalization;
 using System.IO.Ports;
 using System.IO;
 using System.Timers;
-using static Processor.Processor.W65C22;
+using static Hardware.W65C22;
 
-namespace Processor
+namespace Hardware
 {
 	/// <summary>
-	/// An implementation of a W65C02 Processor, W65C22 VIAs and a W65C51 ACIA.
-	/// </summary>
-	[Serializable]
-	public class Processor
+    /// An implementation of a W65C02 Processor.
+    /// </summary>
+    [Serializable]
+	public class W65C02
 	{
 		#region Fields
         private static readonly ILogger _logger = LogManager.GetLogger("Processor");
@@ -23,121 +23,7 @@ namespace Processor
 	    private static int _cycleCount;
         private static bool _previousInterrupt;
         private static bool _interrupt;
-
-		public static class Serial
-		{
-			public static int address = 0xD010;
-			public static byte data = 0b00000000;
-			public static bool IsEnabled { get; set; }
-            public static SerialPort Object { get; set; }
-        }
-        private static readonly int _defaultBaudRate = 9600;
-        private static byte _byteIn;
         public static bool isRunning;
-
-        public static class W65C22
-        {
-            /// <summary>
-            /// Is timer 1 an interrupt or NMI.
-            /// </summary>
-            public static readonly bool T1IsIRQ = true;
-
-            /// <summary>
-            /// Is timer 2 an interrupt or NMI.
-            /// </summary>
-            public static readonly bool T2IsIRQ = true;
-
-            public static int T1CL = 0xD024;
-			public static int T1CH = 0xD025;
-            public static int T2CL = 0xD028;
-            public static int T2CH = 0xD029;
-
-            /// <summary>
-            /// T1 timer control
-            /// </summary>
-            public static bool T1TimerControl
-            {
-                get { return T1Object.AutoReset; }
-                set { T1Object.AutoReset = value; }
-            }
-
-            /// <summary>
-            /// T2 timer control.
-            /// </summary>
-            public static bool T2TimerControl
-            {
-                get { return T2Object.AutoReset; }
-                set { T2Object.AutoReset = value; }
-            }
-
-            public static int ACR = 0xD02B;
-
-            public static class ACRdata
-            {
-                public static byte T1TC = (byte)(1 << 7);
-                public static byte T2TC = (byte)(1 << 6);
-            }
-
-            public static int IFR = 0xD02D;
-			public static class IFRdata
-            {
-                public static byte T2 = (byte)(1 << 5);
-                public static byte T1 = (byte)(1 << 6);
-				public static byte INT = (byte)(1 << 7);
-            }
-
-            public static int IER = 0xD02E;
-            public static class IERdata
-            {
-                public static byte T2 = (byte)(1 << 5);
-                public static byte T1 = (byte)(1 << 6);
-                public static byte EN = (byte)(1 << 7);
-            }
-
-            /// <summary>
-            /// Enable or check whether timer 1 is enabled or not.
-            /// </summary>
-            public static bool T1IsEnabled
-            {
-                get { return T1Object.Enabled; }
-                set { T1Object.Enabled = value; }
-            }
-
-            /// <summary>
-            /// Enable or check whether timer 2 is enabled or not.
-            /// </summary>
-            public static bool T2IsEnabled
-            {
-                get { return T2Object.Enabled; }
-                set { T2Object.Enabled = value; }
-            }
-
-            /// <summary>
-            /// Set or check the timer 1 interval.
-            /// </summary>
-            public static double T1Interval
-            {
-                get { return (int)(ReadMemoryValueWithoutCycle(T1CL) | (ReadMemoryValueWithoutCycle(T1CH) << 8)); }
-            }
-
-            /// <summary>
-            /// Set or check the timer 2 interval.
-            /// </summary>
-            public static double T2Interval
-            {
-                get { return (int)(ReadMemoryValueWithoutCycle(T2CL) | (ReadMemoryValueWithoutCycle(T2CH) << 8)); }
-            }
-
-            /// <summary>
-            /// Set or get the timer 1 object.
-            /// </summary>
-            public static System.Timers.Timer T1Object { get; set; }
-
-            /// <summary>
-            /// Set or get the timer 2 object.
-            /// </summary>
-            public static System.Timers.Timer T2Object { get; set; }
-        };
         #endregion
 
         //All of the properties here are public and read only to facilitate ease of debugging and testing.
@@ -260,7 +146,7 @@ namespace Processor
         /// <summary>
         /// Default Constructor, Instantiates a new instance of the processor.
         /// </summary>
-        public Processor()
+        public W65C02()
 		{
 			Memory = new byte[0x10000];
 			ClearMemory();
@@ -281,7 +167,7 @@ namespace Processor
 			//Set the Program Counter to the Reset Vector Address.
 			ProgramCounter = 0xFFFC;
 			//Reset the Program Counter to the Address contained in the Reset Vector
-			ProgramCounter = ( Memory[ProgramCounter] | ( Memory[ProgramCounter + 1] << 8));
+			ProgramCounter = (Memory[ProgramCounter] | (Memory[ProgramCounter + 1] << 8));
 
             CurrentOpCode = Memory[ProgramCounter];
 			
@@ -371,7 +257,7 @@ namespace Processor
 		    TriggerIRQ = true;
 		}
 
-		        /// <summary>
+		/// <summary>
         /// Clears the memory
         /// </summary>
         public static void ClearMemory()
@@ -399,9 +285,9 @@ namespace Processor
         /// <returns>the byte being returned</returns>
         public static byte ReadMemoryValueWithoutCycle(int address)
         {
-			if (address == Serial.address)
+			if (address == W65C51.address)
 			{
-				return _byteIn;
+				return W65C51.byteIn;
 			}
 			else if (address == W65C22.ACR)
 			{
@@ -443,9 +329,9 @@ namespace Processor
         /// <param name="data">The data to write</param>
         public static void WriteMemoryValueWithoutCycle(int address, byte data)
         {
-			if (address == Serial.address)
+			if (address == W65C51.address)
 			{
-				WriteCOM(data);
+				W65C51.WriteCOM(data);
             }
             else if ((address == W65C22.ACR) && ((data | W65C22.ACRdata.T1TC) == W65C22.ACRdata.T1TC))
             {
@@ -506,165 +392,9 @@ namespace Processor
         {
             return Memory;
         }
+		#endregion
 
-        /// <summary>
-        /// Default Constructor, Instantiates a new instance of COM Port I/O.
-        /// </summary>
-        /// <param name="port"> COM Port to use for I/O</param>
-        public static void Init(string port)
-        {
-            Serial.Object = new SerialPort(port, _defaultBaudRate, Parity.None, 8, StopBits.One);
-
-            ComInit(Serial.Object);
-        }
-
-        /// <summary>
-        /// Default Constructor, Instantiates a new instance of COM Port I/O.
-        /// </summary>
-        /// <param name="newPort"> COM Port to use for I/O</param>
-        /// <param name="baudRate"> Baud Rate (Connection Speed) to use for I/O</param>
-        public static void Init(string newPort, int baudRate)
-        {
-            Serial.Object = new SerialPort(newPort, baudRate, Parity.None, 8, StopBits.One);
-
-            ComInit(Serial.Object);
-        }
-
-		public static void Fini()
-		{
-			ComFini(Serial.Object);
-        }
-
-        public static void WriteCOM(byte data)
-        {
-			byte[] writeByte = new byte[] {data};
-            Serial.Object.Write(writeByte, 0, 1);
-        }
-        #endregion
-
-        #region Private Methods
-        private static void ComInit(SerialPort serialPort)
-        {
-            serialPort.Open();
-            serialPort.ReadTimeout = 1000;
-            serialPort.WriteTimeout = 1000;
-			serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceived);
-			serialPort.Write("---------------------------\r\n");
-            serialPort.Write(" WolfNet 6502 WBC Emulator\r\n");
-            serialPort.Write("---------------------------\r\n");
-			serialPort.Write("\r\n");
-        }
-
-		private static void ComFini(SerialPort serialPort)
-        {
-			if (serialPort != null)
-			{
-				serialPort.Close();
-			}
-        }
-
-		/// <summary>
-		/// T1 counter initialization routine.
-		/// </summary>
-		public static void T1Init(double value)
-        {
-            T1Object = new System.Timers.Timer(value);
-			T1Object.Start();
-            T1Object.Elapsed += OnT1Timeout;
-            T1TimerControl = true;
-            T1IsEnabled = true;
-        }
-
-        /// <summary>
-        /// T2 counter initialization routine.
-        /// </summary>
-        public static void T2Init(double value)
-		{
-            T2Object = new System.Timers.Timer(value);
-			T2Object.Start();
-            T2Object.Elapsed += OnT2Timeout;
-            T2TimerControl = true;
-            T2IsEnabled = true;
-        }
-
-        /// <summary>
-        /// Called whenever System.Timers.Timer event elapses
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private static void OnT1Timeout(object sender, ElapsedEventArgs e)
-        {
-            if (isRunning)
-            {
-                if (T1IsEnabled)
-                {
-                    WriteMemoryValueWithoutCycle(IFR, (byte)(IFRdata.T1 & IFRdata.INT));
-                    if (T1IsIRQ)
-                    {
-                        InterruptRequest();
-                    }
-                    else
-                    {
-                        TriggerNmi = true;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called whenever System.Timers.Timer event elapses
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private static void OnT2Timeout(object sender, ElapsedEventArgs e)
-        {
-            if (isRunning)
-            {
-                if (T2IsEnabled)
-                {
-                    WriteMemoryValueWithoutCycle(IFR, (byte)(IFRdata.T2 & IFRdata.INT));
-                    if (T2IsIRQ)
-                    {
-                        InterruptRequest();
-                    }
-                    else
-                    {
-                        TriggerNmi = true;
-                    }
-                }
-            }
-        }
-
-        /// <summary>
-        /// Called whenever SerialDataReceivedEventHandler event occurs.
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private static void SerialDataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            try
-            {
-                _byteIn = Convert.ToByte(Serial.Object.ReadByte());
-                WriteMemoryValueWithoutCycle(0xD011, Serial.data);
-				InterruptRequest();
-            }
-            catch (Win32Exception w)
-            {
-                FileStream file = new FileStream("./COMIO.log", FileMode.OpenOrCreate, FileAccess.ReadWrite);
-                StreamWriter stream = new StreamWriter(file);
-                stream.WriteLine(w.Message);
-                stream.WriteLine(w.ErrorCode.ToString());
-                stream.WriteLine(w.Source);
-                stream.Flush();
-                stream.Close();
-                file.Flush();
-                file.Close();
-            }
-        }
-
+		#region Private Methods
         /// <summary>
         /// Executes an Opcode
         /// </summary>
@@ -1928,7 +1658,6 @@ namespace Processor
 		/// <summary>
 		/// Returns a the value from the stack without changing the position of the stack pointer
 		/// </summary>
-		
 		/// <returns>The value at the current Stack Pointer</returns>
 		private static byte PeekStack()
 		{
