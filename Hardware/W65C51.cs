@@ -74,17 +74,17 @@ namespace Hardware
             {
                 serialPort.Open();
             }
-            catch (Win32Exception w)
+            catch (UnauthorizedAccessException w)
             {
                 FileStream file = new FileStream("./COMIO.log", FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine(w.Message);
-                stream.WriteLine(w.ErrorCode.ToString());
                 stream.WriteLine(w.Source);
                 stream.Flush();
-                stream.Close();
                 file.Flush();
+                stream.Close();
                 file.Close();
+                return;
             }
             serialPort.ReadTimeout = 1000;
             serialPort.WriteTimeout = 1000;
