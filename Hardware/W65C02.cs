@@ -205,7 +205,7 @@ namespace Hardware
                     ProcessIRQ();
                     TriggerIRQ = false;
                 }                
-            }  
+            }
         }
 
         /// <summary>
@@ -343,11 +343,11 @@ namespace Hardware
             }
             else if ((address == W65C22.IER) && ((data | W65C22.IERdata.T1) == W65C22.IERdata.T1) && ((data | W65C22.IERdata.EN) == W65C22.IERdata.EN))
             {
-				T1Init(T1Interval);
+                W65C22.T1Init(W65C22.T1Interval);
             }
             else if ((address == W65C22.IER) && ((data | W65C22.IERdata.T2) == W65C22.IERdata.T2) && ((data | W65C22.IERdata.EN) == W65C22.IERdata.EN))
             {
-                T2Init(T2Interval);
+                W65C22.T2Init(W65C22.T2Interval);
             }
             else
 			{
