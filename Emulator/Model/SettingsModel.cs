@@ -19,6 +19,6 @@ namespace Simulator.Model
         /// <summary>
         /// The PC port that is being saved
         /// </summary>
-        public string ComPort { get; set; }
+        public string ComPortName { get; set; }
     }
 }

@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
+using System.Xml.Serialization;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
@@ -207,7 +210,6 @@ namespace Simulator.ViewModel
 
             Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
             Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
-            Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, SettingsLoadedNotification);
             BiosFilePath = "No File Loaded";
 			RomFilePath = "No File Loaded";
 
@@ -220,8 +222,15 @@ namespace Simulator.ViewModel
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
 
-			W65C51 W65C51 = new W65C51(0x10);
-			W65C22 W65C22 = new W65C22(0x20);
+			// Load the settings from the disk...
+            var formatter = new XmlSerializer(typeof(SettingsModel));
+            Stream stream = new FileStream(Hardware.Hardware.SettingsFile, FileMode.Open);
+            var fileModel = (SettingsModel)formatter.Deserialize(stream);
+            stream.Close();
+
+            W65C51 W65C51 = new W65C51(0x10);
+            W65C51.Init(fileModel.ComPortName);
+            W65C22 W65C22 = new W65C22(0x20);
             W65C22 MM65SIB = new W65C22(0x30);
         }
 		#endregion
@@ -272,15 +281,6 @@ namespace Simulator.ViewModel
 			IsProgramLoaded = true;
 			RaisePropertyChanged("IsProgramLoaded");
 		}
-
-		private void SettingsLoadedNotification(NotificationMessage<SettingsModel> notificationMessage)
-        {
-            if (notificationMessage.Notification != "FileLoaded")
-            {
-                return;
-            }
-            W65C51.Init(notificationMessage.Content.ComPort.ToString());
-        }
 
 		private void UpdateMemoryPage()
 		{
@@ -563,7 +563,7 @@ namespace Simulator.ViewModel
             Messenger.Default.Send(new NotificationMessage<SettingsModel>(new SettingsModel
             {
 				SettingsVersion = "1.0.0",
-                ComPort = W65C51.ObjectName,
+                ComPortName = W65C51.ObjectName,
             }, "SettingsWindow"));
         }
 
