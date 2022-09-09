@@ -16,6 +16,7 @@ namespace Simulator
 			InitializeComponent();
 			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
 			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
+            Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
             this.Closing += new CancelEventHandler(this.OnClose);
         }
 
@@ -32,15 +33,24 @@ namespace Simulator
 				var openFile = new OpenFile();
 				openFile.ShowDialog();
 			}
-		}
+        }
 
-		private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)
-		{
-			if (notificationMessage.Notification == "SaveFileWindow")
-			{
-				var saveFile = new SaveFile {DataContext = new SaveFileViewModel(notificationMessage.Content)};
-				saveFile.ShowDialog();
-			}
-		}
+        private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)
+        {
+            if (notificationMessage.Notification == "SaveFileWindow")
+            {
+                var saveFile = new SaveFile { DataContext = new SaveFileViewModel(notificationMessage.Content) };
+                saveFile.ShowDialog();
+            }
+        }
+
+        private void NotificationMessageReceived(NotificationMessage<SettingsModel> notificationMessage)
+        {
+            if (notificationMessage.Notification == "SettingsWindow")
+            {
+                var settingsFile = new Settings { DataContext = new SettingsViewModel(notificationMessage.Content) };
+                settingsFile.ShowDialog();
+            }
+        }
 	}
 }

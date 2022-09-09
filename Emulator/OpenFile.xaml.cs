@@ -21,11 +21,5 @@ namespace Simulator
 			if (notificationMessage.Notification == "CloseFileWindow")
 				Close();
 		}
-
-        private void PortSelectionDropDownClosed(object sender, EventArgs e)
-        {
-            string port = ComPortCombo.SelectedValue.ToString();
-			OpenFileView.ComPortSelection = port; 
-        }
     }
 }

@@ -3,10 +3,6 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Globalization;
-using System.IO.Ports;
-using System.IO;
-using System.Timers;
-using static Hardware.W65C22;
 
 namespace Hardware
 {

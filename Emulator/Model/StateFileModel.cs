@@ -25,9 +25,14 @@ namespace Simulator.Model
         public Hardware.W65C02 W65C02 { get; set; }
 
         /// <summary>
-        /// The VIA Object that is being saved
+        /// The first VIA Object that is being saved
         /// </summary>
         public Hardware.W65C22 W65C22 { get; set; }
+
+        /// <summary>
+        /// The second VIA Object that is being saved
+        /// </summary>
+        public Hardware.W65C22 MM65SIB { get; set; }
 
         /// <summary>
         /// The ACIA Object that is being saved

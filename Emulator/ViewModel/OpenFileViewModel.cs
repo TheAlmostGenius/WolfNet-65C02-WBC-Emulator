@@ -88,31 +88,9 @@ namespace Simulator.ViewModel
 				return !BiosFilename.EndsWith(".6502");
 			}
         }
-
-        /// <summary>
-        /// Creates a new instance of PortList, the list of all COM ports available to the computer
-        /// </summary>
-        /// 
-        public ObservableCollection<string> PortList { get { return _PortList; } }
-        private ObservableCollection<string> _PortList = new ObservableCollection<string>();
-
-        public static string ComPortSelection { get; set; }
         #endregion
 
         #region Public Methods
-        /// <summary>
-        /// Updates PortList with the COM ports available to the computer
-        /// </summary>
-        public void UpdatePortList()
-        {
-            PortList.Clear();
-            foreach (string s in SerialPort.GetPortNames())
-            {
-                PortList.Add(s);
-            }
-            RaisePropertyChanged("PortList");
-        }
-
         /// <summary>
         /// Creates a new instance of the OpenFileViewModel
         /// </summary>
@@ -122,8 +100,6 @@ namespace Simulator.ViewModel
 			CloseCommand = new RelayCommand(Close);
             SelectBiosFileCommand = new RelayCommand(Select);
             SelectRomFileCommand = new RelayCommand(RomSelect);
-
-            UpdatePortList();
         }
         #endregion
 
@@ -184,7 +160,6 @@ namespace Simulator.ViewModel
                 Rom = rom,
                 BiosFilePath = BiosFilename,
                 RomFilePath = RomFilename,
-                ComPort = ComPortSelection,
             }, "FileLoaded"));
 
 			return true;

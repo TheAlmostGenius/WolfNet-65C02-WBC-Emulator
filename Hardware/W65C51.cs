@@ -19,20 +19,28 @@ namespace Hardware
         #endregion
 
         #region Properties
+        public static ushort Offset { get; set; }
         public static bool IsEnabled { get; set; }
         public static SerialPort Object { get; set; }
+        public static string ObjectName { get; set; }
         #endregion
 
         #region Public Methods
+        public W65C51(ushort offset)
+        {
+            if (offset > MemoryMap.DeviceArea.Length)
+                throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
+            Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
+        }
         /// <summary>
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
         /// <param name="port"> COM Port to use for I/O</param>
         public static void Init(string port)
         {
-            W65C51.Object = new SerialPort(port, W65C51.defaultBaudRate, Parity.None, 8, StopBits.One);
+            Object = new SerialPort(port, defaultBaudRate, Parity.None, 8, StopBits.One);
 
-            ComInit(W65C51.Object);
+            ComInit(Object);
         }
 
         /// <summary>
@@ -42,9 +50,9 @@ namespace Hardware
         /// <param name="baudRate">Baud Rate to use for I/O</param>
         public static void Init(string port, int baudRate)
         {
-            W65C51.Object = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
+            Object = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
 
-            ComInit(W65C51.Object);
+            ComInit(Object);
         }
 
         /// <summary>
@@ -52,7 +60,7 @@ namespace Hardware
         /// </summary>
         public static void Fini()
         {
-            ComFini(W65C51.Object);
+            ComFini(Object);
         }
 
         /// <summary>
@@ -63,7 +71,7 @@ namespace Hardware
         public static void WriteCOM(byte data)
         {
             byte[] writeByte = new byte[] { data };
-            W65C51.Object.Write(writeByte, 0, 1);
+            Object.Write(writeByte, 0, 1);
         }
         #endregion
 
@@ -118,13 +126,13 @@ namespace Hardware
         {
             try
             {
-                W65C51.byteIn = Convert.ToByte(W65C51.Object.ReadByte());
-                W65C02.WriteMemoryValueWithoutCycle(0xD011, W65C51.data);
+                byteIn = Convert.ToByte(Object.ReadByte());
+                W65C02.WriteMemoryValueWithoutCycle(0xD011, data);
                 W65C02.InterruptRequest();
             }
             catch (Win32Exception w)
             {
-                FileStream file = new FileStream("./COMIO.log", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                FileStream file = new FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine(w.Message);
                 stream.WriteLine(w.ErrorCode.ToString());

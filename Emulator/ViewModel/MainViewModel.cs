@@ -40,6 +40,11 @@ namespace Simulator.ViewModel
         /// <summary>
         /// The Processor
         /// </summary>
+        public W65C22 MM65SIB { get; set; }
+
+        /// <summary>
+        /// The Processor
+        /// </summary>
         public W65C51 W65C51 { get; set; }
 
         /// <summary>
@@ -85,24 +90,20 @@ namespace Simulator.ViewModel
 		public int NumberOfCycles { get; private set; }
 
 		/// <summary>
-		/// The Memory Page Offset. IE: Which page are we looking at
+		/// The Memory Page number.
 		/// </summary>
 		public string MemoryPageOffset
 		{
 			get { return _memoryPageOffset.ToString("X"); }
 			set
 			{
-				//I don't like this hack, but WPF doesn't support any way to update the Value on keypress
 				if (string.IsNullOrEmpty(value))
 					return;
 				try
 				{
 					_memoryPageOffset = Convert.ToInt32(value, 16);
 				}
-				// ReSharper disable EmptyGeneralCatchClause
 				catch { }
-				// ReSharper restore EmptyGeneralCatchClause
-
 			}
 		}
 
@@ -180,19 +181,14 @@ namespace Simulator.ViewModel
 		public RelayCommand RemoveBreakPointCommand { get; set; }
 
 		/// <summary>
-		/// The Command that sends an IRQ or Interrupt Request to the processor
+		/// The Command that loads or saves the settings.
 		/// </summary>
-		public RelayCommand SendInterruptRequestCommand { get; set; }
-
-		/// <summary>
-		/// The Command that sends an NMI or non-maskable Interrupt to the processor
-		/// </summary>
-		public RelayCommand SendNonMaskableInterruptComand { get; set; }
+		public RelayCommand SettingsCommand { get; set; }
 		#endregion
 
 		#region public Methods
 		/// <summary>
-		/// Creates a new Instance of the MainViewModel
+		/// Creates a new Instance of the MainViewModel.
 		/// </summary>
 		public MainViewModel()
 		{
@@ -205,15 +201,14 @@ namespace Simulator.ViewModel
 			RunPauseCommand = new RelayCommand(RunPause);
 			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 			SaveStateCommand = new RelayCommand(SaveState);
-			AddBreakPointCommand = new RelayCommand(AddBreakPoint);
+            AddBreakPointCommand = new RelayCommand(AddBreakPoint);
 			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
-			SendNonMaskableInterruptComand = new RelayCommand(SendNonMaskableInterrupt);
-			SendInterruptRequestCommand = new RelayCommand(SendInterruptRequest);
+            SettingsCommand = new RelayCommand(Settings);
 
-
-			Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
-			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
-			BiosFilePath = "No File Loaded";
+            Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
+            Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
+            Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, SettingsLoadedNotification);
+            BiosFilePath = "No File Loaded";
 			RomFilePath = "No File Loaded";
 
 			MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
@@ -224,7 +219,11 @@ namespace Simulator.ViewModel
 
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
-		}
+
+			W65C51 W65C51 = new W65C51(0x10);
+			W65C22 W65C22 = new W65C22(0x20);
+            W65C22 MM65SIB = new W65C22(0x30);
+        }
 		#endregion
 
 		#region Private Methods
@@ -248,8 +247,6 @@ namespace Simulator.ViewModel
 			RaisePropertyChanged("IsProgramLoaded");
 
 			Reset();
-
-			W65C51.Init(notificationMessage.Content.ComPort);
 		}
 
 		private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
@@ -275,6 +272,15 @@ namespace Simulator.ViewModel
 			IsProgramLoaded = true;
 			RaisePropertyChanged("IsProgramLoaded");
 		}
+
+		private void SettingsLoadedNotification(NotificationMessage<SettingsModel> notificationMessage)
+        {
+            if (notificationMessage.Notification != "FileLoaded")
+            {
+                return;
+            }
+            W65C51.Init(notificationMessage.Content.ComPort.ToString());
+        }
 
 		private void UpdateMemoryPage()
 		{
@@ -366,7 +372,7 @@ namespace Simulator.ViewModel
 		{
 			if (W65C02.CurrentDisassembly == null)
 			{
-				return new OutputLog(new Hardware.Disassembly());
+				return new OutputLog(new Disassembly());
 			}
 
 			return new OutputLog(W65C02.CurrentDisassembly)
@@ -541,12 +547,27 @@ namespace Simulator.ViewModel
 				NumberOfCycles = NumberOfCycles,
 				OutputLog = OutputLog.ToList(),
                 W65C02 = W65C02,
-				W65C22 = W65C22,
-				W65C51 = W65C51,
+                W65C22 = W65C22,
+                MM65SIB = MM65SIB,
+                W65C51 = W65C51,
             }, "SaveFileWindow"));
 		}
 
-		private void AddBreakPoint()
+        private void Settings()
+        {
+            IsRunning = false;
+
+            if (_backgroundWorker.IsBusy)
+                _backgroundWorker.CancelAsync();
+
+            Messenger.Default.Send(new NotificationMessage<SettingsModel>(new SettingsModel
+            {
+				SettingsVersion = "1.0.0",
+                ComPort = W65C51.ObjectName,
+            }, "SettingsWindow"));
+        }
+
+        private void AddBreakPoint()
 		{
 			Breakpoints.Add(new Breakpoint());
 			RaisePropertyChanged("Breakpoints");
@@ -560,37 +581,6 @@ namespace Simulator.ViewModel
 			Breakpoints.Remove(SelectedBreakpoint);
 			SelectedBreakpoint = null;
 			RaisePropertyChanged("SelectedBreakpoint");
-
-		}
-
-		private void SendNonMaskableInterrupt()
-		{
-			IsRunning = false;
-
-			if (_backgroundWorker.IsBusy)
-				_backgroundWorker.CancelAsync();
-
-			W65C02.TriggerNmi = true;
-
-			UpdateMemoryPage();
-
-			OutputLog.Insert(0, GetOutputLog());
-			UpdateUi();
-		}
-
-		private void SendInterruptRequest()
-		{
-			IsRunning = false;
-
-			if (_backgroundWorker.IsBusy)
-				_backgroundWorker.CancelAsync();
-
-			W65C02.InterruptRequest();
-
-			UpdateMemoryPage();
-
-			OutputLog.Insert(0, GetOutputLog());
-			UpdateUi();
 		}
 		#endregion
 	}

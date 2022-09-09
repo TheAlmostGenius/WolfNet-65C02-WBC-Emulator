@@ -24,10 +24,5 @@
         /// The path of the Program that was loaded
         /// </summary>
         public string RomFilePath { get; set; }
-
-        /// <summary>
-        /// The COM port that is used for output
-        /// </summary>
-        public string ComPort { get; set; }
     }
 }

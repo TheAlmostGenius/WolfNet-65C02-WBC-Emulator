@@ -48,6 +48,8 @@ namespace Hardware
         #endregion
 
         #region Properties
+        ushort Offset { get; set; }
+
         /// <summary>
         /// T1 timer control
         /// </summary>
@@ -112,6 +114,20 @@ namespace Hardware
         #endregion
 
         #region Public Methods
+        public W65C22()
+        {
+            
+        }
+
+        public W65C22(byte offset)
+        {
+            if (offset > MemoryMap.DeviceArea.Length)
+                throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
+            Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
+            T1Init(1000);
+            T2Init(1000);
+        }
+
         /// <summary>
         /// T1 counter initialization routine.
         /// </summary>
@@ -123,7 +139,7 @@ namespace Hardware
             T1Object.Start();
             T1Object.Elapsed += OnT1Timeout;
             T1TimerControl = true;
-            T1IsEnabled = true;
+            T1IsEnabled = false;
         }
 
         /// <summary>
@@ -137,7 +153,7 @@ namespace Hardware
             T2Object.Start();
             T2Object.Elapsed += OnT2Timeout;
             T2TimerControl = true;
-            T2IsEnabled = true;
+            T2IsEnabled = false;
         }
         #endregion
 
