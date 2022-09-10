@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.Ports;
 using System.Xml.Serialization;
@@ -7,8 +6,6 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using Hardware;
-using Microsoft.Win32;
 using Simulator.Model;
 
 namespace Simulator.ViewModel
@@ -19,12 +16,12 @@ namespace Simulator.ViewModel
 	public class SettingsViewModel : ViewModelBase
 	{
 		private static SettingsModel _settingsModel;
-		
-		#region Properties
-		/// <summary>
-		/// The Relay Command called when saving a file
-		/// </summary>
-		public RelayCommand SaveFileCommand { get; set; }
+
+        #region Properties
+        /// <summary>
+        /// The Relay Command called when saving a file
+        /// </summary>
+        public RelayCommand SaveFileCommand { get; set; }
 		
 		/// <summary>
 		/// The Relay Command called when closing a file
@@ -91,7 +88,6 @@ namespace Simulator.ViewModel
             XmlFormatter.Serialize(stream, _settingsModel);
 			stream.Flush();
 			stream.Close();
-
 			Close();
 		}
 

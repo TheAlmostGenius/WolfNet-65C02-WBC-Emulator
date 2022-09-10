@@ -274,13 +274,13 @@ namespace Hardware
             return value;
         }
 
-        /// <summary>
-        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
-        /// </summary>
-        /// <param name="address"></param>
-        /// <returns>the byte being returned</returns>
-        public static byte ReadMemoryValueWithoutCycle(int address)
-        {
+		/// <summary>
+		/// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
+		/// </summary>
+		/// <param name="address"></param>
+		/// <returns>the byte being returned</returns>
+		public static byte ReadMemoryValueWithoutCycle(int address)
+		{
 			if (address == W65C51.address)
 			{
 				return W65C51.byteIn;
@@ -297,7 +297,11 @@ namespace Hardware
 					data = (byte)(data | W65C22.ACRdata.T2TC);
 				}
 				return data;
-				
+
+			}
+			else if (0xD000 > address && address > 0xD0FF)
+			{
+				throw new ArgumentException("Cannot write to the Device Area without there being a device present at the location.");
 			}
 			else
 			{

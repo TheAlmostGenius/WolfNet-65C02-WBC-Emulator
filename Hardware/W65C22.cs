@@ -128,6 +128,25 @@ namespace Hardware
             T2Init(1000);
         }
 
+        public W65C22 get()
+        {
+            return this;
+        }
+
+        public void Reset()
+        {
+            T1TimerControl = false;
+            T1IsEnabled = false;
+            T2TimerControl = false;
+            T2IsEnabled = false;
+        }
+
+        public void Init(double timer)
+        {
+            T1Init(timer);
+            T2Init(timer);
+        }
+
         /// <summary>
         /// T1 counter initialization routine.
         /// </summary>

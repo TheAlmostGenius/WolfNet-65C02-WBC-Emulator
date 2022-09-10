@@ -90,14 +90,15 @@
         <Button Content="Load" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="62,416,0,0" Name="Load" VerticalAlignment="Top" Width="75" Command="{Binding Path= OpenCommand}" />
         <Button Content="Settings" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="654,416,0,0" x:Name="Settings" VerticalAlignment="Top" Width="75" Command="{Binding Path= SettingsCommand}" />
 
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="49,29,0,0" Name="FilePathText" Text="{Binding Path=FilePath}" VerticalAlignment="Top" Width="630" FontSize="14" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="147,329,0,0" Name="CurrentPage" Text="{Binding Path=MemoryPageOffset, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="72" >
+        <TextBlock Height="24" HorizontalAlignment="Left" Margin="62,13,0,0" Name="FilePathText" Text="{Binding Path=BiosFilePath}" VerticalAlignment="Top" Width="546" FontSize="14" />
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,62,0,0" x:Name="FilePathText_Copy" Text="{Binding RomFilePath}" VerticalAlignment="Top" Width="546" FontSize="14" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="160,372,0,0" Name="CurrentPage" Text="{Binding Path=MemoryPageOffset, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="72" >
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding Path=UpdateMemoryMapCommand}" Key="Enter"/>
             </TextBox.InputBindings>
         </TextBox>
-        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="49,329,0,0" Name="CurrentPageText" Text="Current Page:" VerticalAlignment="Top" Width="86" />
-        <DataGrid Height="247" HorizontalAlignment="Left" Margin="49,41,0,0" x:Name="Breakpoints" VerticalAlignment="Top" MaxWidth="800" Width="546" AutoGenerateColumns="False" 
+        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="62,372,0,0" Name="CurrentPageText" Text="Current Page:" VerticalAlignment="Top" Width="86" />
+        <DataGrid Height="248" HorizontalAlignment="Left" Margin="62,110,0,0" x:Name="Breakpoints" VerticalAlignment="Top" MaxWidth="800" Width="546" AutoGenerateColumns="False" 
 			CanUserReorderColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserResizeColumns="False" CanUserDeleteRows="False"
 			CanUserAddRows="False" ItemsSource="{Binding Breakpoints}" CellStyle="{StaticResource CellStyle}" GridLinesVisibility="Horizontal" SelectedItem="{Binding SelectedBreakpoint}">
             <DataGrid.Columns>
@@ -136,11 +137,11 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,157,128,0" x:Name="YRegister" VerticalAlignment="Top" Width="60" Text="{Binding Proc.YRegister, Mode=OneWay, StringFormat=X}"/>
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,157,233,0" x:Name="XRegister" VerticalAlignment="Top" Width="60" Text="{Binding Proc.XRegister, Mode=OneWay, StringFormat=X}" />
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,159,337,0" x:Name="Accumulator" VerticalAlignment="Top" Width="60" Text="{Binding Proc.Accumulator, Mode=OneWay, StringFormat=X}" />
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,159,32,0" x:Name="StackPointer" VerticalAlignment="Top" Width="60" Text="{Binding Proc.StackPointer, Mode=OneWay, StringFormat=X}"/>
-        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,86,263,0" x:Name="ProgramCounter" VerticalAlignment="Top" Width="134" Text="{Binding Proc.ProgramCounter, Mode=OneWay, StringFormat=X}" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,157,128,0" x:Name="YRegister" VerticalAlignment="Top" Width="60" Text="{Binding W65C02.YRegister, Mode=OneWay, StringFormat=X}"/>
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,157,233,0" x:Name="XRegister" VerticalAlignment="Top" Width="60" Text="{Binding W65C02.XRegister, Mode=OneWay, StringFormat=X}" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,159,337,0" x:Name="Accumulator" VerticalAlignment="Top" Width="60" Text="{Binding W65C02.Accumulator, Mode=OneWay, StringFormat=X}" />
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,159,32,0" x:Name="StackPointer" VerticalAlignment="Top" Width="60" Text="{Binding W65C02.StackPointer, Mode=OneWay, StringFormat=X}"/>
+        <TextBox Height="23" HorizontalAlignment="Right" Margin="0,86,263,0" x:Name="ProgramCounter" VerticalAlignment="Top" Width="134" Text="{Binding W65C02.ProgramCounter, Mode=OneWay, StringFormat=X}" />
         <TextBox Height="23" HorizontalAlignment="Right" Margin="0,86,75,0" x:Name="Dissambly" VerticalAlignment="Top" Width="134" Text="{Binding CurrentDisassembly, Mode=OneWay}"  />
         <TextBox Height="23" HorizontalAlignment="Right" Margin="0,284,262,0" x:Name="CycleCount" VerticalAlignment="Top" Width="134" Text="{Binding NumberOfCycles, Mode=OneWay}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,139,284,0" x:Name="XRegisterText" Text="X" VerticalAlignment="Top" />
@@ -150,19 +151,19 @@
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,66,91,0" x:Name="CurrentInstructionText" Text="Current Instruction" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,66,379,0" x:Name="ProgramCounterText" Text="PC" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="629,265,0,0" x:Name="CycleCountText" Text="Cycle Count" VerticalAlignment="Top" />
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="858,226,0,0" x:Name="CarryFlag" VerticalAlignment="Top" IsChecked="{Binding Proc.CarryFlag, Mode=OneWay}" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="858,226,0,0" x:Name="CarryFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.CarryFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="858,206,0,0" x:Name="CarryFlagText" Text="C" VerticalAlignment="Top" />
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="820,226,0,0" x:Name="ZeroFlag" VerticalAlignment="Top" IsChecked="{Binding Proc.ZeroFlag, Mode=OneWay}" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="820,226,0,0" x:Name="ZeroFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.ZeroFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="820,206,0,0" x:Name="ZeroFlagText" Text="Z" Height="23" VerticalAlignment="Top" />
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="782,226,0,0" x:Name="InterrupFlag" VerticalAlignment="Top" IsChecked="{Binding Proc.DisableInterruptFlag, Mode=OneWay}" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="782,226,0,0" x:Name="InterrupFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.DisableInterruptFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" HorizontalAlignment="Left" Margin="782,206,0,0" x:Name="InterruptFlagText" Text="I" Height="23" VerticalAlignment="Top" />
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="743,226,0,0" x:Name="BcdFlag" VerticalAlignment="Top" IsChecked="{Binding Proc.DecimalFlag, Mode=OneWay}" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="743,226,0,0" x:Name="BcdFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.DecimalFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="743,206,0,0" x:Name="BcdFlagText" Text="D" VerticalAlignment="Top" />
         <CheckBox Height="16" HorizontalAlignment="Left" Margin="705,226,0,0" x:Name="BreakFlag" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="705,206,0,0" x:Name="BreakFlagText" Text="B" VerticalAlignment="Top" />
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="667,226,0,0" x:Name="OverflowFlag" VerticalAlignment="Top" IsChecked="{Binding Proc.OverflowFlag, Mode=OneWay}" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="667,226,0,0" x:Name="OverflowFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.OverflowFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="667,206,0,0" x:Name="OverflowFlagText" Text="V" VerticalAlignment="Top" />
-        <CheckBox Height="16" HorizontalAlignment="Left" Margin="629,226,0,0" x:Name="NegativeFlag" VerticalAlignment="Top" IsChecked="{Binding Proc.NegativeFlag, Mode=OneWay}" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="629,226,0,0" x:Name="NegativeFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.NegativeFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="629,206,0,0" x:Name="NegativeFlagText" Text="N" VerticalAlignment="Top" />
         <Slider Height="23" HorizontalAlignment="Left" Margin="815,284,0,0" x:Name="CpuSpeed" VerticalAlignment="Top" Width="100" Value="{Binding CpuSpeed}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="815,265,0,0" x:Name="SpeedText" Text="CPU Speed" VerticalAlignment="Top" />

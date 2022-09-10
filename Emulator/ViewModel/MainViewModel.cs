@@ -31,22 +31,22 @@ namespace Simulator.ViewModel
 
         #region Properties
         /// <summary>
-        /// The Processor
+        /// The Processor.
         /// </summary>
         public W65C02 W65C02 { get; set; }
 
         /// <summary>
-        /// The Processor
+        /// General Purpose I/O, Shift Registers and Timers.
         /// </summary>
         public W65C22 W65C22 { get; set; }
 
         /// <summary>
-        /// The Processor
+        /// Memory management and 65SIB.
         /// </summary>
         public W65C22 MM65SIB { get; set; }
 
         /// <summary>
-        /// The Processor
+        /// The ACIA serial interface.
         /// </summary>
         public W65C51 W65C51 { get; set; }
 
@@ -143,6 +143,8 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public int CpuSpeed { get; set; }
 
+		private SettingsModel SettingsModel { get; set; }
+
 		/// <summary>
 		/// RelayCommand for Stepping through the progam one instruction at a time.
 		/// </summary>
@@ -196,9 +198,9 @@ namespace Simulator.ViewModel
 		public MainViewModel()
 		{
             W65C02 = new W65C02();
-			W65C02.Reset();
+            W65C02.Reset();
 
-			ResetCommand = new RelayCommand(Reset);
+            ResetCommand = new RelayCommand(Reset);
 			StepCommand = new RelayCommand(Step);
 			OpenCommand = new RelayCommand(OpenFile);
 			RunPauseCommand = new RelayCommand(RunPause);
@@ -222,16 +224,27 @@ namespace Simulator.ViewModel
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
 
-			// Load the settings from the disk...
-            var formatter = new XmlSerializer(typeof(SettingsModel));
-            Stream stream = new FileStream(Hardware.Hardware.SettingsFile, FileMode.Open);
-            var fileModel = (SettingsModel)formatter.Deserialize(stream);
-            stream.Close();
-
-            W65C51 W65C51 = new W65C51(0x10);
-            W65C51.Init(fileModel.ComPortName);
-            W65C22 W65C22 = new W65C22(0x20);
-            W65C22 MM65SIB = new W65C22(0x30);
+            var _formatter = new XmlSerializer(typeof(SettingsModel));
+            Stream _stream = new FileStream(Hardware.Hardware.SettingsFile, FileMode.OpenOrCreate);
+            if ((_stream == null) || (0 >= _stream.Length))
+			{
+                SettingsModel = (SettingsModel)_formatter.Deserialize(_stream);
+                _stream.Close();
+            }
+            else
+			{
+				SettingsModel = new SettingsModel
+				{
+					SettingsVersion = "1.0.0",
+					ComPortName = "COM10",
+				};
+			}
+            W65C51 = new W65C51(0x10);
+            W65C51.Init(SettingsModel.ComPortName.ToString());
+            W65C22 = new W65C22(0x20);
+			W65C22.Init(1000);
+			MM65SIB = new W65C22(0x30);
+			MM65SIB.Init(1000);
         }
 		#endregion
 
@@ -322,16 +335,22 @@ namespace Simulator.ViewModel
 			if (_backgroundWorker.IsBusy)
 				_backgroundWorker.CancelAsync();
 
-			W65C02.Reset();
-			RaisePropertyChanged("W65C02");
+			// "Reset" the Hardware...
+            W65C02.Reset();
+            RaisePropertyChanged("W65C02");
+			W65C22.Reset();
+            RaisePropertyChanged("W65C22");
+			MM65SIB.Reset();
+			RaisePropertyChanged("MM65SIB");
+			W65C51.Reset();
+			RaisePropertyChanged("W65C51");
 
-			IsRunning = false;
+            IsRunning = false;
 			NumberOfCycles = 0;
 			RaisePropertyChanged("NumberOfCycles");
 
 			UpdateMemoryPage();
 			RaisePropertyChanged("MemoryPage");
-
 
 			OutputLog.Clear();
 			RaisePropertyChanged("CurrentDisassembly");
@@ -356,7 +375,7 @@ namespace Simulator.ViewModel
 
 		private void UpdateUi()
 		{
-			RaisePropertyChanged("Proc");
+			RaisePropertyChanged("W65C02");
 			RaisePropertyChanged("NumberOfCycles");
 			RaisePropertyChanged("CurrentDisassembly");
 			RaisePropertyChanged("MemoryPage");
@@ -410,7 +429,7 @@ namespace Simulator.ViewModel
 				{
 					e.Cancel = true;
 
-					RaisePropertyChanged("Proc");
+					RaisePropertyChanged("W65C02");
 
 					foreach (var log in outputLogs)
 						OutputLog.Insert(0, log);
@@ -445,9 +464,7 @@ namespace Simulator.ViewModel
 
 			foreach (var breakpoint in Breakpoints.Where(x => x.IsEnabled))
 			{
-				int value;
-
-				if (!int.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out value))
+				if (!int.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out int value))
 					continue;
 
 				if (breakpoint.Type == BreakpointType.NumberOfCycleType && value == NumberOfCycles)

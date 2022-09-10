@@ -32,6 +32,12 @@ namespace Hardware
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
             Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
         }
+
+        public static void Reset()
+        {
+            IsEnabled = false;
+        }
+
         /// <summary>
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
@@ -84,7 +90,7 @@ namespace Hardware
             }
             catch (UnauthorizedAccessException w)
             {
-                FileStream file = new FileStream("./COMIO.log", FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                FileStream file = new FileStream(Hardware.SettingsFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine(w.Message);
                 stream.WriteLine(w.Source);
