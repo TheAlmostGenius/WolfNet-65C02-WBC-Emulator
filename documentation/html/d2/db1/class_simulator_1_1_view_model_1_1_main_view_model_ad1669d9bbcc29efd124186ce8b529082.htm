@@ -116,7 +116,7 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm#l00437">437</a> of file <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm">MainViewModel.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm#l00484">484</a> of file <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm">MainViewModel.cs</a>.</p>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="comment">//This prevents the Run Command from getting stuck after reaching a breakpoint</span></div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a550b5caaaba5e5070153c0d502c46ff6.htm#a550b5caaaba5e5070153c0d502c46ff6">_breakpointTriggered</a>)</div>
@@ -127,9 +127,7 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">foreach</span> (var breakpoint <span class="keywordflow">in</span> <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_afd535fed5af112c0fe55ccbfa844f0b1.htm#afd535fed5af112c0fe55ccbfa844f0b1" title="The Breakpoints ">Breakpoints</a>.Where(x =&gt; x.IsEnabled))</div>
 <div class="line">            {</div>
-<div class="line">                <span class="keywordtype">int</span> value;</div>
-<div class="line"></div>
-<div class="line">                <span class="keywordflow">if</span> (!<span class="keywordtype">int</span>.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out value))</div>
+<div class="line">                <span class="keywordflow">if</span> (!<span class="keywordtype">int</span>.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out <span class="keywordtype">int</span> value))</div>
 <div class="line">                    <span class="keywordflow">continue</span>;</div>
 <div class="line"></div>
 <div class="line">                <span class="keywordflow">if</span> (breakpoint.Type == <a class="code" href="../../d1/dd1/class_simulator_1_1_model_1_1_breakpoint_type.htm" title="The Type of Breakpoint ">BreakpointType</a>.<a class="code" href="../../d1/dd1/class_simulator_1_1_model_1_1_breakpoint_type_a9a81b4d7b6df1bf5bb6f44ac7fdfac0c.htm#a9a81b4d7b6df1bf5bb6f44ac7fdfac0c" title="The CycleCount Breakpoint Type ">NumberOfCycleType</a> &amp;&amp; value == <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a8637fa4846ff8c83b362c73a51002ba3.htm#a8637fa4846ff8c83b362c73a51002ba3" title="The number of cycles. ">NumberOfCycles</a>)</div>
@@ -158,7 +156,7 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d04/namespace_simulator.htm">Simulator</a></li><li class="navelem"><a class="el" href="../../d7/df6/namespace_simulator_1_1_view_model.htm">ViewModel</a></li><li class="navelem"><a class="el" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model.htm">MainViewModel</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:54 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

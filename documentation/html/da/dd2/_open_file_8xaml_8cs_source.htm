@@ -105,38 +105,50 @@ $(document).ready(function(){initNavTree('da/dd2/_open_file_8xaml_8cs_source.htm
 <div class="title">OpenFile.xaml.cs</div>  </div>
 </div><!--header-->
 <div class="contents">
-<a href="../../da/dd2/_open_file_8xaml_8cs.htm">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;﻿using GalaSoft.MvvmLight.Messaging;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Windows.Controls;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> System;</div>
-<div class="line"><a name="l00004"></a><span class="lineno"><a class="code" href="../../da/dd2/_open_file_8xaml_8cs_acb30f105ee2733bc9df87590fd1b845e.htm#acb30f105ee2733bc9df87590fd1b845e">    4</a></span>&#160;<span class="keyword">using</span> <a class="code" href="../../da/dd2/_open_file_8xaml_8cs_acb30f105ee2733bc9df87590fd1b845e.htm#acb30f105ee2733bc9df87590fd1b845e">OpenFileView</a> = Simulator.ViewModel.OpenFileViewModel;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span>Simulator</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    /// Interaction logic for OpenFile.xaml</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">partial class </span>OpenFile</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
-<div class="line"><a name="l00013"></a><span class="lineno"><a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_acb7136e5c7c69a65b47f051a97d75699.htm#acb7136e5c7c69a65b47f051a97d75699">   13</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_acb7136e5c7c69a65b47f051a97d75699.htm#acb7136e5c7c69a65b47f051a97d75699">OpenFile</a>()</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a09f72bc714d44ba942a689d035643eaa.htm#a09f72bc714d44ba942a689d035643eaa" title="InitializeComponent ">InitializeComponent</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&gt;(<span class="keyword">this</span>, <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a9b1227739d2e197b777a5290c2396ca5.htm#a9b1227739d2e197b777a5290c2396ca5">NotificationMessageReceived</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a9b1227739d2e197b777a5290c2396ca5.htm#a9b1227739d2e197b777a5290c2396ca5">   19</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a9b1227739d2e197b777a5290c2396ca5.htm#a9b1227739d2e197b777a5290c2396ca5">NotificationMessageReceived</a>(NotificationMessage notificationMessage)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;CloseFileWindow&quot;</span>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                Close();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<a href="../../da/dd2/_open_file_8xaml_8cs.htm">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;﻿using GalaSoft.MvvmLight;</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> GalaSoft.MvvmLight.Command;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> GalaSoft.MvvmLight.Messaging;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> Simulator.Model;</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> Simulator.ViewModel;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> System;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> System.Windows;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>Simulator</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    /// Interaction logic for OpenFile.xaml</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">partial class </span>OpenFile</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_acb7136e5c7c69a65b47f051a97d75699.htm#acb7136e5c7c69a65b47f051a97d75699">   16</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_acb7136e5c7c69a65b47f051a97d75699.htm#acb7136e5c7c69a65b47f051a97d75699">OpenFile</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a09f72bc714d44ba942a689d035643eaa.htm#a09f72bc714d44ba942a689d035643eaa" title="InitializeComponent ">InitializeComponent</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&gt;(<span class="keyword">this</span>, <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a9b1227739d2e197b777a5290c2396ca5.htm#a9b1227739d2e197b777a5290c2396ca5">NotificationMessageReceived</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a9b1227739d2e197b777a5290c2396ca5.htm#a9b1227739d2e197b777a5290c2396ca5">   22</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a9b1227739d2e197b777a5290c2396ca5.htm#a9b1227739d2e197b777a5290c2396ca5">NotificationMessageReceived</a>(NotificationMessage notificationMessage)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;CloseFileWindow&quot;</span>)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                Close();</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a882dec9e74f37d6ed022ce75890595dd.htm#a882dec9e74f37d6ed022ce75890595dd">   27</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a882dec9e74f37d6ed022ce75890595dd.htm#a882dec9e74f37d6ed022ce75890595dd">HandleBiosOnlyChecked</a>(<span class="keywordtype">object</span> sender, EventArgs e)</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model.htm" title="The ViewModel Used by the OpenFileView ">OpenFileViewModel</a>.<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a1c7a482f35a313adaa4d1ed9538bf81f.htm#a1c7a482f35a313adaa4d1ed9538bf81f" title="Tells the UI if the file has been selected succesfully ">IsBiosOnly</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        }</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_aecfd3f4591c5a0cb2952b09461758859.htm#aecfd3f4591c5a0cb2952b09461758859">   32</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_aecfd3f4591c5a0cb2952b09461758859.htm#aecfd3f4591c5a0cb2952b09461758859">HandleBiosOnlyUnchecked</a>(<span class="keywordtype">object</span> sender, EventArgs e)</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model.htm" title="The ViewModel Used by the OpenFileView ">OpenFileViewModel</a>.<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a1c7a482f35a313adaa4d1ed9538bf81f.htm#a1c7a482f35a313adaa4d1ed9538bf81f" title="Tells the UI if the file has been selected succesfully ">IsBiosOnly</a> = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3eca51afc31ab9312b29b4249736bc7a.htm">Emulator</a></li><li class="navelem"><a class="el" href="../../da/dd2/_open_file_8xaml_8cs.htm">OpenFile.xaml.cs</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:53 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:45 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

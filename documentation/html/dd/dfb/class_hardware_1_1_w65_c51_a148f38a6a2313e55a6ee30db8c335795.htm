@@ -117,7 +117,7 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d6/d6c/_w65_c51_8cs_source.htm#l00079">79</a> of file <a class="el" href="../../d6/d6c/_w65_c51_8cs_source.htm">W65C51.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d6/d6c/_w65_c51_8cs_source.htm#l00085">85</a> of file <a class="el" href="../../d6/d6c/_w65_c51_8cs_source.htm">W65C51.cs</a>.</p>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <span class="keywordflow">try</span></div>
 <div class="line">            {</div>
@@ -125,7 +125,7 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">catch</span> (UnauthorizedAccessException w)</div>
 <div class="line">            {</div>
-<div class="line">                FileStream file = <span class="keyword">new</span> FileStream(<span class="stringliteral">&quot;./COMIO.log&quot;</span>, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
+<div class="line">                FileStream file = <span class="keyword">new</span> FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
 <div class="line">                StreamWriter stream = <span class="keyword">new</span> StreamWriter(file);</div>
 <div class="line">                stream.WriteLine(w.Message);</div>
 <div class="line">                stream.WriteLine(w.Source);</div>
@@ -135,10 +135,27 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 <div class="line">                file.Close();</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
-<div class="line">            serialPort.ReadTimeout = 1000;</div>
-<div class="line">            serialPort.WriteTimeout = 1000;</div>
+<div class="line"></div>
+<div class="line">            serialPort.ReadTimeout = 250;</div>
+<div class="line">            serialPort.WriteTimeout = 250;</div>
 <div class="line">            serialPort.DataReceived += <span class="keyword">new</span> SerialDataReceivedEventHandler(<a class="code" href="../../dd/dfb/class_hardware_1_1_w65_c51_ab874b70cecba00fb83c726988ff949a5.htm#ab874b70cecba00fb83c726988ff949a5" title="Called whenever SerialDataReceivedEventHandler event occurs. ">SerialDataReceived</a>);</div>
-<div class="line">            serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
+<div class="line">            <span class="keywordflow">try</span></div>
+<div class="line">            {</div>
+<div class="line">                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
+<div class="line">            }</div>
+<div class="line">            <span class="keywordflow">catch</span> (System.TimeoutException t)</div>
+<div class="line">            {</div>
+<div class="line">                _ = t;</div>
+<div class="line">                FileStream file = <span class="keyword">new</span> FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
+<div class="line">                StreamWriter stream = <span class="keyword">new</span> StreamWriter(file);</div>
+<div class="line">                stream.WriteLine(<span class="stringliteral">&quot;Read/Write error: Port timed out!&quot;</span>);</div>
+<div class="line">                stream.WriteLine(<span class="stringliteral">&quot;Please ensure all cables are connected properly!&quot;</span>);</div>
+<div class="line">                stream.Flush();</div>
+<div class="line">                file.Flush();</div>
+<div class="line">                stream.Close();</div>
+<div class="line">                file.Close();</div>
+<div class="line">                <span class="keywordflow">return</span>;</div>
+<div class="line">            }</div>
 <div class="line">            serialPort.Write(<span class="stringliteral">&quot; WolfNet 6502 WBC Emulator\r\n&quot;</span>);</div>
 <div class="line">            serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
 <div class="line">            serialPort.Write(<span class="stringliteral">&quot;\r\n&quot;</span>);</div>
@@ -152,7 +169,7 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d5f/namespace_hardware.htm">Hardware</a></li><li class="navelem"><a class="el" href="../../dd/dfb/class_hardware_1_1_w65_c51.htm">W65C51</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:54 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

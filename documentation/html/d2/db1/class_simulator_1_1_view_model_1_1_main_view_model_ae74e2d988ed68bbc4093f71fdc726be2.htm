@@ -116,15 +116,22 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm#l00318">318</a> of file <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm">MainViewModel.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm#l00359">359</a> of file <a class="el" href="../../d8/d80/_main_view_model_8cs_source.htm">MainViewModel.cs</a>.</p>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_af6057b736de6cb3127a8dcf39005e460.htm#af6057b736de6cb3127a8dcf39005e460" title="Is the Prorgam Running ">IsRunning</a> = <span class="keyword">false</span>;</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">if</span> (<a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a32958dc9d9e747f086c669061d9ad7a2.htm#a32958dc9d9e747f086c669061d9ad7a2">_backgroundWorker</a>.IsBusy)</div>
 <div class="line">                <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a32958dc9d9e747f086c669061d9ad7a2.htm#a32958dc9d9e747f086c669061d9ad7a2">_backgroundWorker</a>.CancelAsync();</div>
 <div class="line"></div>
+<div class="line">            <span class="comment">// &quot;Reset&quot; the Hardware...</span></div>
 <div class="line">            <a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02.htm" title="An implementation of a W65C02 Processor. ">W65C02</a>.<a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02_a4c296a33414aaea18eca9b60dd5abab4.htm#a4c296a33414aaea18eca9b60dd5abab4" title="Initializes the processor to its default state. ">Reset</a>();</div>
 <div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;W65C02&quot;</span>);</div>
+<div class="line">            <a class="code" href="../../d8/d59/class_hardware_1_1_w65_c22.htm" title="An implementation of a W65C22 VIA. ">W65C22</a>.<a class="code" href="../../d8/d59/class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc.htm#af98a9e750fd72188ddd96f56ef2f52dc">Reset</a>();</div>
+<div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;W65C22&quot;</span>);</div>
+<div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a28476813f980fc39dbb0cf0771a7c613.htm#a28476813f980fc39dbb0cf0771a7c613" title="Memory management and 65SIB. ">MM65SIB</a>.<a class="code" href="../../d8/d59/class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc.htm#af98a9e750fd72188ddd96f56ef2f52dc">Reset</a>();</div>
+<div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;MM65SIB&quot;</span>);</div>
+<div class="line">            <a class="code" href="../../dd/dfb/class_hardware_1_1_w65_c51.htm" title="An implementation of a W65C51 ACIA. ">W65C51</a>.<a class="code" href="../../dd/dfb/class_hardware_1_1_w65_c51_ab991f8ac26a9a8686907f32f94450706.htm#ab991f8ac26a9a8686907f32f94450706">Reset</a>();</div>
+<div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;W65C51&quot;</span>);</div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_af6057b736de6cb3127a8dcf39005e460.htm#af6057b736de6cb3127a8dcf39005e460" title="Is the Prorgam Running ">IsRunning</a> = <span class="keyword">false</span>;</div>
 <div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a8637fa4846ff8c83b362c73a51002ba3.htm#a8637fa4846ff8c83b362c73a51002ba3" title="The number of cycles. ">NumberOfCycles</a> = 0;</div>
@@ -132,7 +139,6 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 <div class="line"></div>
 <div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a601336cca3be575e75132a7c4e89efa8.htm#a601336cca3be575e75132a7c4e89efa8">UpdateMemoryPage</a>();</div>
 <div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;MemoryPage&quot;</span>);</div>
-<div class="line"></div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="../../d0/dc3/class_simulator_1_1_model_1_1_output_log.htm" title="The OutputLog Model. Used by the outputlog grid to show a history of operations performed by the CPU ...">OutputLog</a>.Clear();</div>
 <div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;CurrentDisassembly&quot;</span>);</div>
@@ -149,7 +155,7 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d04/namespace_simulator.htm">Simulator</a></li><li class="navelem"><a class="el" href="../../d7/df6/namespace_simulator_1_1_view_model.htm">ViewModel</a></li><li class="navelem"><a class="el" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model.htm">MainViewModel</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:54 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('d9/d0f/class_simulator_1_1_open_file.h
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d0d/x64_2_debug_2_open_file_8g_8cs_source.htm#l00149">149</a> of file <a class="el" href="../../dd/d0d/x64_2_debug_2_open_file_8g_8cs_source.htm">x64/Debug/OpenFile.g.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d0/dae/_open_file_8g_8i_8cs_source.htm#l00141">141</a> of file <a class="el" href="../../d0/dae/_open_file_8g_8i_8cs_source.htm">OpenFile.g.i.cs</a>.</p>
 <div class="fragment"><div class="line">                                                                                                {</div>
 <div class="line">            <span class="keywordflow">switch</span> (connectionId)</div>
 <div class="line">            {</div>
@@ -135,32 +135,43 @@ $(document).ready(function(){initNavTree('d9/d0f/class_simulator_1_1_open_file.h
 <div class="line">            this.SelectBiosFile = ((System.Windows.Controls.Button)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">            <span class="keywordflow">case</span> 2:</div>
-<div class="line">            this.FilePath = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            this.BiosFilePath = ((System.Windows.Controls.TextBox)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">            <span class="keywordflow">case</span> 3:</div>
-<div class="line">            this.PathTest = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            this.BiosPathText = ((System.Windows.Controls.TextBlock)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">            <span class="keywordflow">case</span> 4:</div>
-<div class="line">            this.CancelButton = ((System.Windows.Controls.Button)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 5:</div>
-<div class="line">            this.LoadButton = ((System.Windows.Controls.Button)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 6:</div>
-<div class="line">            this.ComOutputPortText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 7:</div>
 <div class="line">            this.SelectRomFile = ((System.Windows.Controls.Button)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 8:</div>
+<div class="line">            <span class="keywordflow">case</span> 5:</div>
 <div class="line">            this.RomFilePath = ((System.Windows.Controls.TextBox)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 9:</div>
+<div class="line">            <span class="keywordflow">case</span> 6:</div>
 <div class="line">            this.RomPathText = ((System.Windows.Controls.TextBlock)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 10:</div>
-<div class="line">            this.ComPortCombo = ((System.Windows.Controls.ComboBox)(target));</div>
+<div class="line">            <span class="keywordflow">case</span> 7:</div>
+<div class="line">            this.CancelButton = ((System.Windows.Controls.Button)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 8:</div>
+<div class="line">            this.LoadButton = ((System.Windows.Controls.Button)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 9:</div>
+<div class="line">            this.LoadBiosOnlyText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 10:</div>
+<div class="line">            </div>
+<div class="line"><span class="preprocessor">            #line 16 &quot;..\..\..\OpenFile.xaml&quot;</span></div>
+<div class="line"><span class="preprocessor"></span>            ((System.Windows.Controls.CheckBox)(target)).Checked += <span class="keyword">new</span> System.Windows.RoutedEventHandler(<span class="keyword">this</span>.HandleBiosOnlyChecked);</div>
+<div class="line">            </div>
+<div class="line"><span class="preprocessor">            #line default</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">            #line hidden</span></div>
+<div class="line"><span class="preprocessor"></span>            </div>
+<div class="line"><span class="preprocessor">            #line 16 &quot;..\..\..\OpenFile.xaml&quot;</span></div>
+<div class="line"><span class="preprocessor"></span>            ((System.Windows.Controls.CheckBox)(target)).Unchecked += <span class="keyword">new</span> System.Windows.RoutedEventHandler(<span class="keyword">this</span>.HandleBiosOnlyUnchecked);</div>
+<div class="line">            </div>
+<div class="line"><span class="preprocessor">            #line default</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">            #line hidden</span></div>
+<div class="line"><span class="preprocessor"></span>            <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
 <div class="line">            this.<a class="code" href="../../d9/d0f/class_simulator_1_1_open_file_a4eaa79cc893e125c3c26d6917f00d5fa.htm#a4eaa79cc893e125c3c26d6917f00d5fa">_contentLoaded</a> = <span class="keyword">true</span>;</div>
 <div class="line">        }</div>
@@ -173,7 +184,7 @@ $(document).ready(function(){initNavTree('d9/d0f/class_simulator_1_1_open_file.h
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d04/namespace_simulator.htm">Simulator</a></li><li class="navelem"><a class="el" href="../../d9/d0f/class_simulator_1_1_open_file.htm">OpenFile</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:54 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

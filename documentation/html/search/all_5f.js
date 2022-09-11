@@ -12,7 +12,6 @@ var searchData=
   ['_5fportlist',['_PortList',['../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a291a122514569e50cfb446baaeeece59.htm#a291a122514569e50cfb446baaeeece59',1,'Simulator::ViewModel::SettingsViewModel']]],
   ['_5fpreviousinterrupt',['_previousInterrupt',['../db/d4d/class_hardware_1_1_w65_c02_af27df02bea5ab70320301aa322bdf50a.htm#af27df02bea5ab70320301aa322bdf50a',1,'Hardware::W65C02']]],
   ['_5fprogramcounter',['_programCounter',['../db/d4d/class_hardware_1_1_w65_c02_ae180656bffc65257a3656e69f63aee79.htm#ae180656bffc65257a3656e69f63aee79',1,'Hardware::W65C02']]],
-  ['_5fsettingsmodel',['_settingsModel',['../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a04bfa16f13c1427b42789a47f3e3657c.htm#a04bfa16f13c1427b42789a47f3e3657c',1,'Simulator::ViewModel::SettingsViewModel']]],
   ['_5fstackpointer',['_stackPointer',['../db/d4d/class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.htm#a42a8b12df740a0135197860cc854ceed',1,'Hardware::W65C02']]],
   ['_5fstatefilemodel',['_stateFileModel',['../dd/d0a/class_simulator_1_1_view_model_1_1_save_file_view_model_a5c73644549647d1f08b4692d4d4d6797.htm#a5c73644549647d1f08b4692d4d4d6797',1,'Simulator::ViewModel::SaveFileViewModel']]]
 ];

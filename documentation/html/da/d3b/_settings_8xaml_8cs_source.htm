@@ -121,28 +121,40 @@ $(document).ready(function(){initNavTree('da/d3b/_settings_8xaml_8cs_source.htm'
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        {</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_a759f835543621a0aca6fa4daf1d50eea.htm#a759f835543621a0aca6fa4daf1d50eea" title="InitializeComponent ">InitializeComponent</a>();</div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&gt;(<span class="keyword">this</span>, <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">NotificationMessageReceived</a>);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">   19</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">NotificationMessageReceived</a>(NotificationMessage notificationMessage)</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;CloseSettingsWindow&quot;</span>)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                Close();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="../../dc/d0f/class_simulator_1_1_settings_a6d513f4716696b1046569f0ddfb47c67.htm#a6d513f4716696b1046569f0ddfb47c67">   25</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_a6d513f4716696b1046569f0ddfb47c67.htm#a6d513f4716696b1046569f0ddfb47c67">PortSelectionDropDownClosed</a>(<span class="keywordtype">object</span> sender, EventArgs e)</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordtype">string</span> port = ComPortCombo.SelectedValue.ToString();</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>.<a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_aa74eb8c9af1ef140f2240f5d18c0a756.htm#aa74eb8c9af1ef140f2240f5d18c0a756">ComPortSelection</a> = port;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        }</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&lt;SettingsModel&gt;&gt;(<span class="keyword">this</span>, <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">NotificationMessageReceived</a>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        }</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">   20</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">NotificationMessageReceived</a>(NotificationMessage notificationMessage)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;CloseSettingsWindow&quot;</span>)</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            {</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                Close();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        }</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ab2b691a28937902b3d910e82820540f8.htm#ab2b691a28937902b3d910e82820540f8">   28</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_ac9128dca8e648faba7c2f75764835ee4.htm#ac9128dca8e648faba7c2f75764835ee4">NotificationMessageReceived</a>(NotificationMessage&lt;SettingsModel&gt; notificationMessage)</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;SettingsWindow&quot;</span>)</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;                <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>.<a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_aa34bce4332aafca9d18d0abde7e73445.htm#aa34bce4332aafca9d18d0abde7e73445">SettingsModel</a> = notificationMessage.Content;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                ComPortCombo.SelectedItem = notificationMessage.Content.ComPortName;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            }</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../dc/d0f/class_simulator_1_1_settings_a6d513f4716696b1046569f0ddfb47c67.htm#a6d513f4716696b1046569f0ddfb47c67">   37</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings_a6d513f4716696b1046569f0ddfb47c67.htm#a6d513f4716696b1046569f0ddfb47c67">PortSelectionDropDownClosed</a>(<span class="keywordtype">object</span> sender, EventArgs e)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordtype">string</span> port = ComPortCombo.SelectedValue.ToString();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>.<a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_aa74eb8c9af1ef140f2240f5d18c0a756.htm#aa74eb8c9af1ef140f2240f5d18c0a756">ComPortSelection</a> = port;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3eca51afc31ab9312b29b4249736bc7a.htm">Emulator</a></li><li class="navelem"><a class="el" href="../../da/d3b/_settings_8xaml_8cs.htm">Settings.xaml.cs</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:53 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:45 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

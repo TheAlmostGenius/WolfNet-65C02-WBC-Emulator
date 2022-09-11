@@ -11,7 +11,7 @@ var NAVTREE =
       [ "Class Hierarchy", "hierarchy.htm", "hierarchy" ],
       [ "Class Members", "functions.htm", [
         [ "All", "functions.htm", "functions_dup" ],
-        [ "Functions", "functions_func.htm", "functions_func" ],
+        [ "Functions", "functions_func.htm", null ],
         [ "Variables", "functions_vars.htm", null ],
         [ "Properties", "functions_prop.htm", null ],
         [ "Events", "functions_evnt.htm", null ]
@@ -30,8 +30,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.htm",
-"d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a04bfa16f13c1427b42789a47f3e3657c.htm#a04bfa16f13c1427b42789a47f3e3657c",
-"dc/d96/class_hardware_1_1_memory_map_1_1_device_area.htm"
+"d9/dcc/_save_file_8xaml_8cs_source.htm",
+"functions_0x66.htm"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

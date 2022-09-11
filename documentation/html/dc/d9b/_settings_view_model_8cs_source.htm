@@ -114,108 +114,101 @@ $(document).ready(function(){initNavTree('dc/d9b/_settings_view_model_8cs_source
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> GalaSoft.MvvmLight.Command;</div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">using</span> GalaSoft.MvvmLight.Ioc;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">using</span> GalaSoft.MvvmLight.Messaging;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> <a class="code" href="../../d8/ddb/class_hardware_1_1_hardware.htm">Hardware</a>;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">using</span> Microsoft.Win32;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">using</span> Simulator.Model;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">namespace </span>Simulator.ViewModel</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">    /// The ViewModel Used by the SaveFileView</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm">   19</a></span>&#160;<span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a> : ViewModelBase</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a04bfa16f13c1427b42789a47f3e3657c.htm#a04bfa16f13c1427b42789a47f3e3657c">   21</a></span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a04bfa16f13c1427b42789a47f3e3657c.htm#a04bfa16f13c1427b42789a47f3e3657c">_settingsModel</a>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">        #region Properties</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor"></span><span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"></span><span class="comment">        /// The Relay Command called when saving a file</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"></span><span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_ad8056b35dcfdcc9ca7ed75a90fa68388.htm#ad8056b35dcfdcc9ca7ed75a90fa68388">   27</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> RelayCommand SaveFileCommand { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="comment"></span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        /// The Relay Command called when closing a file</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_af51bd626bc463da3e421ab3d43739004.htm#af51bd626bc463da3e421ab3d43739004">   32</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> RelayCommand CloseCommand { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">        /// Tells the UI that that a file has been selected and can be saved.</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a0205838bdca7cbce4a80f62e10097cc5.htm#a0205838bdca7cbce4a80f62e10097cc5">   37</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">bool</span> SaveEnabled { <span class="keyword">get</span> { <span class="keywordflow">return</span> !<span class="keywordtype">string</span>.IsNullOrEmpty(<a class="code" href="../../d8/ddb/class_hardware_1_1_hardware.htm">Hardware</a>.Hardware.<a class="code" href="../../d8/ddb/class_hardware_1_1_hardware_a57a05a83297828bdf0a1adae17ecfda5.htm#a57a05a83297828bdf0a1adae17ecfda5">SettingsFile</a>); } }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">        /// Creates a new instance of PortList, the list of all COM ports available to the computer</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">        /// </span></div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a9c7873b88aef4a17dcc9bcb0d0c54f5f.htm#a9c7873b88aef4a17dcc9bcb0d0c54f5f">   43</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> ObservableCollection&lt;string&gt; PortList { <span class="keyword">get</span> { <span class="keywordflow">return</span> _PortList; } }</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a291a122514569e50cfb446baaeeece59.htm#a291a122514569e50cfb446baaeeece59">   44</a></span>&#160;        <span class="keyword">private</span> readonly ObservableCollection&lt;string&gt; _PortList = <span class="keyword">new</span> ObservableCollection&lt;string&gt;();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_aa74eb8c9af1ef140f2240f5d18c0a756.htm#aa74eb8c9af1ef140f2240f5d18c0a756">   46</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">string</span> ComPortSelection { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">        #endregion</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">        #region Public Methods</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor"></span><span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment"></span><span class="comment">        /// Instantiates a new instance of the SaveFileViewModel. This is used by the IOC to create the default instance.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment"></span><span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment"></span>        [PreferredConstructor]</div>
-<div class="line"><a name="l00054"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a627e764e60217937ee6c75acc0312cb8.htm#a627e764e60217937ee6c75acc0312cb8">   54</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>()</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        {</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">        /// Instantiates a new instance of the SaveFileViewModel</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="comment">        /// &lt;param name=&quot;settingsModel&quot;&gt;The StateFIleModel to be serialized to a file&lt;/param&gt;</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a542ef7b5463cb964aa0e7dc92fedc7d5.htm#a542ef7b5463cb964aa0e7dc92fedc7d5">   63</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>(<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a> settingsModel)</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            SaveFileCommand = <span class="keyword">new</span> RelayCommand(Save);</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            CloseCommand = <span class="keyword">new</span> RelayCommand(Close);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            _settingsModel = settingsModel;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            UpdatePortList();</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">        /// Updates PortList with the COM ports available to the computer</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a8115ae6537b79341fa29ad3b069e50b8.htm#a8115ae6537b79341fa29ad3b069e50b8">   75</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">void</span> UpdatePortList()</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            PortList.Clear();</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s <span class="keywordflow">in</span> SerialPort.GetPortNames())</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                PortList.Add(s);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            RaisePropertyChanged(<span class="stringliteral">&quot;PortList&quot;</span>);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">        #endregion</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">        #region Private Methods</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a0a87bb13328e734e2388a788976ebf9f.htm#a0a87bb13328e734e2388a788976ebf9f">   87</a></span>&#160;<span class="preprocessor"></span>        <span class="keyword">private</span> <span class="keywordtype">void</span> Save()</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            Stream stream = <span class="keyword">new</span> FileStream(<a class="code" href="../../d8/ddb/class_hardware_1_1_hardware.htm">Hardware</a>.Hardware.<a class="code" href="../../d8/ddb/class_hardware_1_1_hardware_a57a05a83297828bdf0a1adae17ecfda5.htm#a57a05a83297828bdf0a1adae17ecfda5">SettingsFile</a>, FileMode.Create, FileAccess.Write, FileShare.None);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            XmlSerializer XmlFormatter = <span class="keyword">new</span> XmlSerializer(typeof(<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a>));</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;            XmlFormatter.Serialize(stream, _settingsModel);</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;            stream.Flush();</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            stream.Close();</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            Close();</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_ad6a0ba98253cfda0ab1b4b71589d64da.htm#ad6a0ba98253cfda0ab1b4b71589d64da">   98</a></span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> Close()</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        {</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            Messenger.Default.Send(<span class="keyword">new</span> NotificationMessage(<span class="stringliteral">&quot;CloseSettingsWindow&quot;</span>));</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        }</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">        #endregion</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor"></span>    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">using</span> Simulator.Model;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">namespace </span>Simulator.ViewModel</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">    /// The ViewModel Used by the SaveFileView</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm">   17</a></span>&#160;<span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a> : ViewModelBase</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">        #region Properties</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor"></span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"></span><span class="comment">        /// The Relay Command called when saving a file</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"></span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_af4a6e06def373fe33086da989ee6a7ef.htm#af4a6e06def373fe33086da989ee6a7ef">   23</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> RelayCommand ApplyCommand { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <span class="comment"></span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">        /// The Relay Command called when closing a file</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_af51bd626bc463da3e421ab3d43739004.htm#af51bd626bc463da3e421ab3d43739004">   28</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> RelayCommand CloseCommand { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">        /// Tells the UI that that a file has been selected and can be saved.</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a11f9991a66fb88f5222ce467f9379cb9.htm#a11f9991a66fb88f5222ce467f9379cb9">   33</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">bool</span> ApplyEnabled { <span class="keyword">get</span> { <span class="keywordflow">return</span> !<span class="keywordtype">string</span>.IsNullOrEmpty(Hardware.Hardware.SettingsFile); } }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">        /// Creates a new instance of PortList, the list of all COM ports available to the computer</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">        /// </span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a9c7873b88aef4a17dcc9bcb0d0c54f5f.htm#a9c7873b88aef4a17dcc9bcb0d0c54f5f">   39</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> ObservableCollection&lt;string&gt; PortList { <span class="keyword">get</span> { <span class="keywordflow">return</span> _PortList; } }</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a291a122514569e50cfb446baaeeece59.htm#a291a122514569e50cfb446baaeeece59">   40</a></span>&#160;        <span class="keyword">private</span> readonly ObservableCollection&lt;string&gt; _PortList = <span class="keyword">new</span> ObservableCollection&lt;string&gt;();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_aa74eb8c9af1ef140f2240f5d18c0a756.htm#aa74eb8c9af1ef140f2240f5d18c0a756">   42</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">string</span> ComPortSelection { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_aa34bce4332aafca9d18d0abde7e73445.htm#aa34bce4332aafca9d18d0abde7e73445">   43</a></span>&#160;        <span class="keyword">public</span> <span class="keyword">static</span> <a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a> <a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">        #endregion</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">        #region Public Methods</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor"></span><span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"></span><span class="comment">        /// Instantiates a new instance of the SettingsViewModel. This is used by the IOC to create the default instance.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"></span><span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment"></span>        [PreferredConstructor]</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a627e764e60217937ee6c75acc0312cb8.htm#a627e764e60217937ee6c75acc0312cb8">   51</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>()</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">        /// Instantiates a new instance of the SettingsViewModel</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">        /// &lt;param name=&quot;settingsModel&quot;&gt;The SettingsFIleModel to be serialized to a file&lt;/param&gt;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a542ef7b5463cb964aa0e7dc92fedc7d5.htm#a542ef7b5463cb964aa0e7dc92fedc7d5">   60</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>(<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a> settingsModel)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            ApplyCommand = <span class="keyword">new</span> RelayCommand(Apply);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            CloseCommand = <span class="keyword">new</span> RelayCommand(Close);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;            <a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a> = settingsModel;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            UpdatePortList();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">        /// Updates PortList with the COM ports available to the computer</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a8115ae6537b79341fa29ad3b069e50b8.htm#a8115ae6537b79341fa29ad3b069e50b8">   72</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">void</span> UpdatePortList()</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            PortList.Clear();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            <span class="keywordflow">foreach</span> (<span class="keywordtype">string</span> s <span class="keywordflow">in</span> SerialPort.GetPortNames())</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;            {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                PortList.Add(s);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;            }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            RaisePropertyChanged(<span class="stringliteral">&quot;PortList&quot;</span>);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">        #endregion</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">        #region Private Methods</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_a3cac7dfb75b605e3b789d46ff9c4c572.htm#a3cac7dfb75b605e3b789d46ff9c4c572">   84</a></span>&#160;<span class="preprocessor"></span>        <span class="keyword">private</span> <span class="keywordtype">void</span> Apply()</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a>.<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model_a0497da984447494de00e1ce21caa1ad9.htm#a0497da984447494de00e1ce21caa1ad9" title="The version of the file that is being saved ">SettingsVersion</a> = <span class="stringliteral">&quot;1.0.0&quot;</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;            <a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a>.<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model_accca662929bab6268c33e9baaaac3c62.htm#accca662929bab6268c33e9baaaac3c62" title="The PC port that is being saved ">ComPortName</a> = ComPortSelection;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            Messenger.Default.Send(<span class="keyword">new</span> NotificationMessage&lt;SettingsModel&gt;(<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a>, <span class="stringliteral">&quot;SettingsApplied&quot;</span>));</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model_ad6a0ba98253cfda0ab1b4b71589d64da.htm#ad6a0ba98253cfda0ab1b4b71589d64da">   91</a></span>&#160;        <span class="keyword">private</span> <span class="keyword">static</span> <span class="keywordtype">void</span> Close()</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            Messenger.Default.Send(<span class="keyword">new</span> NotificationMessage(<span class="stringliteral">&quot;CloseSettingsWindow&quot;</span>));</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">        #endregion</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor"></span>    }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3eca51afc31ab9312b29b4249736bc7a.htm">Emulator</a></li><li class="navelem"><a class="el" href="../../dir_4628b6d30aa244e4f118722c40127ba3.htm">ViewModel</a></li><li class="navelem"><a class="el" href="../../dc/d9b/_settings_view_model_8cs.htm">SettingsViewModel.cs</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:53 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:45 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

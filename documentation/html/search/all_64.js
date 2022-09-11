@@ -8,7 +8,5 @@ var searchData=
   ['disassembly',['Disassembly',['../d4/d41/class_hardware_1_1_disassembly.htm',1,'Hardware']]],
   ['disassembly_2ecs',['Disassembly.cs',['../d0/d0d/_disassembly_8cs.htm',1,'']]],
   ['disassemblyoutput',['DisassemblyOutput',['../d4/d41/class_hardware_1_1_disassembly_a91bd4979539e3d6dfcba828aca5d83e4.htm#a91bd4979539e3d6dfcba828aca5d83e4',1,'Hardware::Disassembly']]],
-  ['dumpmemory',['DumpMemory',['../db/d4d/class_hardware_1_1_w65_c02_a17ba698a6817caf2c5e1a0de63234b91.htm#a17ba698a6817caf2c5e1a0de63234b91',1,'Hardware::W65C02']]],
-  ['savefile_2eg_2ecs',['SaveFile.g.cs',['../dd/d37/_debug_2_save_file_8g_8cs.htm',1,'']]],
-  ['savefile_2eg_2ei_2ecs',['SaveFile.g.i.cs',['../da/de8/_debug_2_save_file_8g_8i_8cs.htm',1,'']]]
+  ['dumpmemory',['DumpMemory',['../db/d4d/class_hardware_1_1_w65_c02_a17ba698a6817caf2c5e1a0de63234b91.htm#a17ba698a6817caf2c5e1a0de63234b91',1,'Hardware::W65C02']]]
 ];

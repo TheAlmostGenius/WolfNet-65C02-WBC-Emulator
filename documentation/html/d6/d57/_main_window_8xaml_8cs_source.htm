@@ -110,64 +110,72 @@ $(document).ready(function(){initNavTree('d6/d57/_main_window_8xaml_8cs_source.h
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> Simulator.ViewModel;</div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">using</span> System;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">using</span> System.ComponentModel;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span>Simulator</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">    /// Interaction logic for MainWindow.xaml</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window.htm">   12</a></span>&#160;<span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">partial class </span><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window.htm" title="Interaction logic for MainWindow.xaml ">MainWindow</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a7cdcf0efea2b3be03fc4ec74a71dc254.htm#a7cdcf0efea2b3be03fc4ec74a71dc254">   14</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a7cdcf0efea2b3be03fc4ec74a71dc254.htm#a7cdcf0efea2b3be03fc4ec74a71dc254">MainWindow</a>()</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a1c003092c7a42952d666e0aaed749fa5.htm#a1c003092c7a42952d666e0aaed749fa5" title="InitializeComponent ">InitializeComponent</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&gt;(<span class="keyword">this</span>, <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&lt;StateFileModel&gt;&gt;(<span class="keyword">this</span>, <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&lt;SettingsModel&gt;&gt;(<span class="keyword">this</span>, <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            this.Closing += <span class="keyword">new</span> CancelEventHandler(this.<a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a51a8a8948a1b059efb8e78ebda4f34ee.htm#a51a8a8948a1b059efb8e78ebda4f34ee">OnClose</a>);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a51a8a8948a1b059efb8e78ebda4f34ee.htm#a51a8a8948a1b059efb8e78ebda4f34ee">   23</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a51a8a8948a1b059efb8e78ebda4f34ee.htm#a51a8a8948a1b059efb8e78ebda4f34ee">OnClose</a>(Object sender, CancelEventArgs e)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;            e.Cancel = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            Hardware.W65C51.Fini();</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">   29</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>(NotificationMessage notificationMessage)</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;OpenFileWindow&quot;</span>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;                var openFile = <span class="keyword">new</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file.htm" title="OpenFile ">OpenFile</a>();</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                openFile.ShowDialog();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a945b0c2ae6de0a8fec2df6225694a69e.htm#a945b0c2ae6de0a8fec2df6225694a69e">   38</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>(NotificationMessage&lt;StateFileModel&gt; notificationMessage)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;SaveFileWindow&quot;</span>)</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                var saveFile = <span class="keyword">new</span> <a class="code" href="../../de/d3e/class_simulator_1_1_save_file.htm" title="SaveFile ">SaveFile</a> { DataContext = <span class="keyword">new</span> <a class="code" href="../../dd/d0a/class_simulator_1_1_view_model_1_1_save_file_view_model.htm" title="The ViewModel Used by the SaveFileView ">SaveFileViewModel</a>(notificationMessage.Content) };</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                saveFile.ShowDialog();</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;            }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;</div>
-<div class="line"><a name="l00047"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_ad0b528fab86eb6415459b373f9ce767f.htm#ad0b528fab86eb6415459b373f9ce767f">   47</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>(NotificationMessage&lt;SettingsModel&gt; notificationMessage)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        {</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;SettingsWindow&quot;</span>)</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;            {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                var settingsFile = <span class="keyword">new</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings.htm" title="Settings ">Settings</a> { DataContext = <span class="keyword">new</span> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>(notificationMessage.Content) };</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                settingsFile.ShowDialog();</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;            }</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        }</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;}</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">using</span> System.IO;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using</span> System.Xml.Serialization;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>Simulator</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">    /// Interaction logic for MainWindow.xaml</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window.htm">   14</a></span>&#160;<span class="comment"></span>    <span class="keyword">public</span> <span class="keyword">partial class </span><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window.htm" title="Interaction logic for MainWindow.xaml ">MainWindow</a></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a7cdcf0efea2b3be03fc4ec74a71dc254.htm#a7cdcf0efea2b3be03fc4ec74a71dc254">   16</a></span>&#160;        <span class="keyword">public</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a7cdcf0efea2b3be03fc4ec74a71dc254.htm#a7cdcf0efea2b3be03fc4ec74a71dc254">MainWindow</a>()</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        {</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a1c003092c7a42952d666e0aaed749fa5.htm#a1c003092c7a42952d666e0aaed749fa5" title="InitializeComponent ">InitializeComponent</a>();</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&gt;(<span class="keyword">this</span>, <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&lt;StateFileModel&gt;&gt;(<span class="keyword">this</span>, <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            Messenger.Default.Register&lt;NotificationMessage&lt;SettingsModel&gt;&gt;(<span class="keyword">this</span>, <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            this.Closing += <span class="keyword">new</span> CancelEventHandler(this.<a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a51a8a8948a1b059efb8e78ebda4f34ee.htm#a51a8a8948a1b059efb8e78ebda4f34ee">OnClose</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a51a8a8948a1b059efb8e78ebda4f34ee.htm#a51a8a8948a1b059efb8e78ebda4f34ee">   25</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a51a8a8948a1b059efb8e78ebda4f34ee.htm#a51a8a8948a1b059efb8e78ebda4f34ee">OnClose</a>(Object sender, CancelEventArgs e)</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        {</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            e.Cancel = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            Hardware.W65C51.Fini();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            Stream stream = <span class="keyword">new</span> FileStream(Hardware.Hardware.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            XmlSerializer XmlFormatter = <span class="keyword">new</span> XmlSerializer(typeof(<a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a>));</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            XmlFormatter.Serialize(stream, <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model.htm" title="The Main ViewModel ">MainViewModel</a>.<a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_aebcddbe363cfa8bb5c84b70de59ee96b.htm#aebcddbe363cfa8bb5c84b70de59ee96b">SettingsModel</a>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            stream.Flush();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            stream.Close();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            Hardware.W65C02.ClearMemory();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">   37</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>(NotificationMessage notificationMessage)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;OpenFileWindow&quot;</span>)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;                var openFile = <span class="keyword">new</span> <a class="code" href="../../d9/d0f/class_simulator_1_1_open_file.htm" title="OpenFile ">OpenFile</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                openFile.ShowDialog();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;            }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        }</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a945b0c2ae6de0a8fec2df6225694a69e.htm#a945b0c2ae6de0a8fec2df6225694a69e">   46</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>(NotificationMessage&lt;StateFileModel&gt; notificationMessage)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;SaveFileWindow&quot;</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;            {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                var saveFile = <span class="keyword">new</span> <a class="code" href="../../de/d3e/class_simulator_1_1_save_file.htm" title="SaveFile ">SaveFile</a> { DataContext = <span class="keyword">new</span> <a class="code" href="../../dd/d0a/class_simulator_1_1_view_model_1_1_save_file_view_model.htm" title="The ViewModel Used by the SaveFileView ">SaveFileViewModel</a>(notificationMessage.Content) };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                saveFile.ShowDialog();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_ad0b528fab86eb6415459b373f9ce767f.htm#ad0b528fab86eb6415459b373f9ce767f">   55</a></span>&#160;        <span class="keyword">private</span> <span class="keywordtype">void</span> <a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d">NotificationMessageReceived</a>(NotificationMessage&lt;SettingsModel&gt; notificationMessage)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        {</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">if</span> (notificationMessage.Notification == <span class="stringliteral">&quot;SettingsWindow&quot;</span>)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                var settingsFile = <span class="keyword">new</span> <a class="code" href="../../dc/d0f/class_simulator_1_1_settings.htm" title="Settings ">Settings</a> { DataContext = <span class="keyword">new</span> <a class="code" href="../../d8/dd1/class_simulator_1_1_view_model_1_1_settings_view_model.htm" title="The ViewModel Used by the SaveFileView ">SettingsViewModel</a>(notificationMessage.Content) };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                settingsFile.ShowDialog();</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3eca51afc31ab9312b29b4249736bc7a.htm">Emulator</a></li><li class="navelem"><a class="el" href="../../d6/d57/_main_window_8xaml_8cs.htm">MainWindow.xaml.cs</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:53 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:45 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -116,12 +116,12 @@ $(document).ready(function(){initNavTree('da/d09/class_simulator_1_1_view_model_
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../d9/d86/_open_file_view_model_8cs_source.htm#l00133">133</a> of file <a class="el" href="../../d9/d86/_open_file_view_model_8cs_source.htm">OpenFileViewModel.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../d9/d86/_open_file_view_model_8cs_source.htm#l00163">163</a> of file <a class="el" href="../../d9/d86/_open_file_view_model_8cs_source.htm">OpenFileViewModel.cs</a>.</p>
 <div class="fragment"><div class="line">        {</div>
 <div class="line">            byte[] bios;</div>
 <div class="line">            <span class="keywordflow">try</span></div>
 <div class="line">            {</div>
-<div class="line">                bios = File.ReadAllBytes(<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a27b7971cd7b45989aa99ee7944ac2c1b.htm#a27b7971cd7b45989aa99ee7944ac2c1b" title="The Name of the file being opened ">BiosFilename</a>);</div>
+<div class="line">                bios = File.ReadAllBytes(<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_ad91c2ebe06325eea9fc85f475aa7d455.htm#ad91c2ebe06325eea9fc85f475aa7d455" title="The path of the file being opened ">BiosFilePath</a>);</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">catch</span> (Exception)</div>
 <div class="line">            {</div>
@@ -129,23 +129,30 @@ $(document).ready(function(){initNavTree('da/d09/class_simulator_1_1_view_model_
 <div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            byte[] rom;</div>
-<div class="line">            <span class="keywordflow">try</span></div>
+<div class="line">            byte[] rom = null;</div>
+<div class="line">            <span class="keywordflow">if</span> (!<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a1c7a482f35a313adaa4d1ed9538bf81f.htm#a1c7a482f35a313adaa4d1ed9538bf81f" title="Tells the UI if the file has been selected succesfully ">IsBiosOnly</a>)</div>
 <div class="line">            {</div>
-<div class="line">                rom = File.ReadAllBytes(<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a9f39fde73e74e5e6f6ddcd527bcb7187.htm#a9f39fde73e74e5e6f6ddcd527bcb7187" title="The Name of the file being opened ">RomFilename</a>);</div>
-<div class="line">            }</div>
-<div class="line">            <span class="keywordflow">catch</span> (Exception)</div>
-<div class="line">            {</div>
-<div class="line">                MessageBox.Show(<span class="stringliteral">&quot;Unable to Open ROM Binary&quot;</span>);</div>
-<div class="line">                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                <span class="keywordflow">try</span></div>
+<div class="line">                {</div>
+<div class="line">                    rom = File.ReadAllBytes(<a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_ac988ae709f92710d52c240e0424c23ae.htm#ac988ae709f92710d52c240e0424c23ae" title="The path of the file being opened ">RomFilePath</a>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">catch</span> (Exception)</div>
+<div class="line">                {</div>
+<div class="line">                    MessageBox.Show(<span class="stringliteral">&quot;Unable to Open ROM Binary&quot;</span>);</div>
+<div class="line">                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line">                }</div>
 <div class="line">            }</div>
 <div class="line"></div>
-<div class="line">            Messenger.Default.Send(<span class="keyword">new</span> NotificationMessage&lt;AssemblyFileModel&gt;(<span class="keyword">new</span> <a class="code" href="../../dc/d49/class_simulator_1_1_model_1_1_assembly_file_model.htm" title="The Model used when Loading a Program ">AssemblyFileModel</a></div>
+<div class="line">            Messenger.Default.Send(<span class="keyword">new</span> NotificationMessage&lt;AssemblyFileModel&gt;(<span class="keyword">new</span> <a class="code" href="../../dc/d49/class_simulator_1_1_model_1_1_assembly_file_model.htm" title="The Model used when Loading a Program. ">AssemblyFileModel</a></div>
 <div class="line">            {</div>
 <div class="line">                Bios = bios,</div>
 <div class="line">                Rom = rom,</div>
-<div class="line">                BiosFilePath = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a27b7971cd7b45989aa99ee7944ac2c1b.htm#a27b7971cd7b45989aa99ee7944ac2c1b" title="The Name of the file being opened ">BiosFilename</a>,</div>
-<div class="line">                RomFilePath = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a9f39fde73e74e5e6f6ddcd527bcb7187.htm#a9f39fde73e74e5e6f6ddcd527bcb7187" title="The Name of the file being opened ">RomFilename</a>,</div>
+<div class="line">                <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a1c7a482f35a313adaa4d1ed9538bf81f.htm#a1c7a482f35a313adaa4d1ed9538bf81f" title="Tells the UI if the file has been selected succesfully ">IsBiosOnly</a> = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a1c7a482f35a313adaa4d1ed9538bf81f.htm#a1c7a482f35a313adaa4d1ed9538bf81f" title="Tells the UI if the file has been selected succesfully ">IsBiosOnly</a>,</div>
+<div class="line">                <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_ad91c2ebe06325eea9fc85f475aa7d455.htm#ad91c2ebe06325eea9fc85f475aa7d455" title="The path of the file being opened ">BiosFilePath</a> = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_ad91c2ebe06325eea9fc85f475aa7d455.htm#ad91c2ebe06325eea9fc85f475aa7d455" title="The path of the file being opened ">BiosFilePath</a>,</div>
+<div class="line">                <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a54b08aa45695884c79195c26fdce8ddb.htm#a54b08aa45695884c79195c26fdce8ddb" title="The name of the file being opened ">BiosFileName</a> = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a54b08aa45695884c79195c26fdce8ddb.htm#a54b08aa45695884c79195c26fdce8ddb" title="The name of the file being opened ">BiosFileName</a>,</div>
+<div class="line">                <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_ac988ae709f92710d52c240e0424c23ae.htm#ac988ae709f92710d52c240e0424c23ae" title="The path of the file being opened ">RomFilePath</a> = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_ac988ae709f92710d52c240e0424c23ae.htm#ac988ae709f92710d52c240e0424c23ae" title="The path of the file being opened ">RomFilePath</a>,</div>
+<div class="line">                <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a909cdb0ac095492beff2b5441e3af5e6.htm#a909cdb0ac095492beff2b5441e3af5e6" title="The name of the file being opened ">RomFileName</a> = <a class="code" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a909cdb0ac095492beff2b5441e3af5e6.htm#a909cdb0ac095492beff2b5441e3af5e6" title="The name of the file being opened ">RomFileName</a>,</div>
+<div class="line"></div>
 <div class="line">            }, <span class="stringliteral">&quot;FileLoaded&quot;</span>));</div>
 <div class="line"></div>
 <div class="line">            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -159,7 +166,7 @@ $(document).ready(function(){initNavTree('da/d09/class_simulator_1_1_view_model_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d04/namespace_simulator.htm">Simulator</a></li><li class="navelem"><a class="el" href="../../d7/df6/namespace_simulator_1_1_view_model.htm">ViewModel</a></li><li class="navelem"><a class="el" href="../../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model.htm">OpenFileViewModel</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:55 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

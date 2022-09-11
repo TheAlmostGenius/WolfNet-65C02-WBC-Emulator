@@ -127,138 +127,131 @@ $(document).ready(function(){initNavTree('d8/ddb/class_simulator_1_1_main_window
 </table>
 </div><div class="memdoc">
 
-<p>Definition at line <a class="el" href="../../dd/d70/x64_2_release_2_main_window_8g_8i_8cs_source.htm#l00413">413</a> of file <a class="el" href="../../dd/d70/x64_2_release_2_main_window_8g_8i_8cs_source.htm">x64/Release/MainWindow.g.i.cs</a>.</p>
+<p>Definition at line <a class="el" href="../../de/d26/_main_window_8g_8i_8cs_source.htm#l00373">373</a> of file <a class="el" href="../../de/d26/_main_window_8g_8i_8cs_source.htm">MainWindow.g.i.cs</a>.</p>
 <div class="fragment"><div class="line">                                                                                                {</div>
 <div class="line">            <span class="keywordflow">switch</span> (connectionId)</div>
 <div class="line">            {</div>
 <div class="line">            <span class="keywordflow">case</span> 1:</div>
-<div class="line">            this.MemoryMap = ((System.Windows.Controls.DataGrid)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            </div>
+<div class="line"><span class="preprocessor">            #line 6 &quot;..\..\..\MainWindow.xaml&quot;</span></div>
+<div class="line"><span class="preprocessor"></span>            ((Simulator.MainWindow)(target)).Closing += <span class="keyword">new</span> System.ComponentModel.CancelEventHandler(<span class="keyword">this</span>.OnClose);</div>
+<div class="line">            </div>
+<div class="line"><span class="preprocessor">            #line default</span></div>
+<div class="line"><span class="preprocessor"></span><span class="preprocessor">            #line hidden</span></div>
+<div class="line"><span class="preprocessor"></span>            <span class="keywordflow">return</span>;</div>
 <div class="line">            <span class="keywordflow">case</span> 2:</div>
 <div class="line">            this.OutputLog = ((System.Windows.Controls.DataGrid)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">            <span class="keywordflow">case</span> 3:</div>
-<div class="line">            this.YRegister = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 4:</div>
-<div class="line">            this.XRegister = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 5:</div>
-<div class="line">            this.Accumulator = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 6:</div>
-<div class="line">            this.StackPointer = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 7:</div>
-<div class="line">            this.ProgramCounter = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 8:</div>
-<div class="line">            this.Dissambly = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 9:</div>
-<div class="line">            this.CycleCount = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 10:</div>
-<div class="line">            this.XRegisterText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 11:</div>
-<div class="line">            this.YRegisterText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 12:</div>
-<div class="line">            this.StackPointerRegisterText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 13:</div>
-<div class="line">            this.AText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 14:</div>
-<div class="line">            this.CurrentInstructionText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 15:</div>
-<div class="line">            this.ProgramCounterText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 16:</div>
-<div class="line">            this.CycleCountText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 17:</div>
 <div class="line">            this.Run = ((System.Windows.Controls.Button)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 18:</div>
+<div class="line">            <span class="keywordflow">case</span> 4:</div>
 <div class="line">            this.Step = ((System.Windows.Controls.Button)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 19:</div>
+<div class="line">            <span class="keywordflow">case</span> 5:</div>
 <div class="line">            this.Reset = ((System.Windows.Controls.Button)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 20:</div>
-<div class="line">            this.Load = ((System.Windows.Controls.Button)(target));</div>
+<div class="line">            <span class="keywordflow">case</span> 6:</div>
+<div class="line">            this.BiosFileNameText = ((System.Windows.Controls.TextBlock)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 21:</div>
-<div class="line">            this.CarryFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">case</span> 7:</div>
+<div class="line">            this.RomFileNameText = ((System.Windows.Controls.TextBlock)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 22:</div>
-<div class="line">            this.CarryFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">case</span> 8:</div>
+<div class="line">            this.ComPortNameText = ((System.Windows.Controls.TextBlock)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 23:</div>
-<div class="line">            this.ZeroFlag = ((System.Windows.Controls.CheckBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 24:</div>
-<div class="line">            this.ZeroFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 25:</div>
-<div class="line">            this.InterrupFlag = ((System.Windows.Controls.CheckBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 26:</div>
-<div class="line">            this.InterruptFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 27:</div>
-<div class="line">            this.BcdFlag = ((System.Windows.Controls.CheckBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 28:</div>
-<div class="line">            this.BcdFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 29:</div>
-<div class="line">            this.BreakFlag = ((System.Windows.Controls.CheckBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 30:</div>
-<div class="line">            this.BreakFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 31:</div>
-<div class="line">            this.OverflowFlag = ((System.Windows.Controls.CheckBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 32:</div>
-<div class="line">            this.OverflowFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 33:</div>
-<div class="line">            this.NegativeFlag = ((System.Windows.Controls.CheckBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 34:</div>
-<div class="line">            this.NegativeFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 35:</div>
-<div class="line">            this.FilePathText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 36:</div>
-<div class="line">            this.MemoryMapText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 37:</div>
-<div class="line">            this.CurrentPage = ((System.Windows.Controls.TextBox)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 38:</div>
-<div class="line">            this.CurrentPageText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 39:</div>
-<div class="line">            this.CpuSpeed = ((System.Windows.Controls.Slider)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 40:</div>
-<div class="line">            this.SpeedText = ((System.Windows.Controls.TextBlock)(target));</div>
-<div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 41:</div>
+<div class="line">            <span class="keywordflow">case</span> 9:</div>
 <div class="line">            this.Breakpoints = ((System.Windows.Controls.DataGrid)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 42:</div>
-<div class="line">            this.InterruptRequest = ((System.Windows.Controls.Button)(target));</div>
+<div class="line">            <span class="keywordflow">case</span> 10:</div>
+<div class="line">            this.YRegister = ((System.Windows.Controls.TextBox)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
-<div class="line">            <span class="keywordflow">case</span> 43:</div>
-<div class="line">            this.NonMaskableInterrupt = ((System.Windows.Controls.Button)(target));</div>
+<div class="line">            <span class="keywordflow">case</span> 11:</div>
+<div class="line">            this.XRegister = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 12:</div>
+<div class="line">            this.Accumulator = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 13:</div>
+<div class="line">            this.StackPointer = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 14:</div>
+<div class="line">            this.ProgramCounter = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 15:</div>
+<div class="line">            this.Dissambly = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 16:</div>
+<div class="line">            this.CycleCount = ((System.Windows.Controls.TextBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 17:</div>
+<div class="line">            this.XRegisterText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 18:</div>
+<div class="line">            this.YRegisterText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 19:</div>
+<div class="line">            this.StackPointerRegisterText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 20:</div>
+<div class="line">            this.AText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 21:</div>
+<div class="line">            this.CurrentInstructionText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 22:</div>
+<div class="line">            this.ProgramCounterText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 23:</div>
+<div class="line">            this.CycleCountText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 24:</div>
+<div class="line">            this.CarryFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 25:</div>
+<div class="line">            this.CarryFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 26:</div>
+<div class="line">            this.ZeroFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 27:</div>
+<div class="line">            this.ZeroFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 28:</div>
+<div class="line">            this.InterrupFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 29:</div>
+<div class="line">            this.InterruptFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 30:</div>
+<div class="line">            this.BcdFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 31:</div>
+<div class="line">            this.BcdFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 32:</div>
+<div class="line">            this.BreakFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 33:</div>
+<div class="line">            this.BreakFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 34:</div>
+<div class="line">            this.OverflowFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 35:</div>
+<div class="line">            this.OverflowFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 36:</div>
+<div class="line">            this.NegativeFlag = ((System.Windows.Controls.CheckBox)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 37:</div>
+<div class="line">            this.NegativeFlagText = ((System.Windows.Controls.TextBlock)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 38:</div>
+<div class="line">            this.CpuSpeed = ((System.Windows.Controls.Slider)(target));</div>
+<div class="line">            <span class="keywordflow">return</span>;</div>
+<div class="line">            <span class="keywordflow">case</span> 39:</div>
+<div class="line">            this.SpeedText = ((System.Windows.Controls.TextBlock)(target));</div>
 <div class="line">            <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
 <div class="line">            this.<a class="code" href="../../d8/ddb/class_simulator_1_1_main_window_a4593e472364435e13d14f5f0e9b59b7f.htm#a4593e472364435e13d14f5f0e9b59b7f">_contentLoaded</a> = <span class="keyword">true</span>;</div>
@@ -272,7 +265,7 @@ $(document).ready(function(){initNavTree('d8/ddb/class_simulator_1_1_main_window
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d04/namespace_simulator.htm">Simulator</a></li><li class="navelem"><a class="el" href="../../d8/ddb/class_simulator_1_1_main_window.htm">MainWindow</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:54 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

@@ -106,36 +106,35 @@ $(document).ready(function(){initNavTree('dd/d97/_settings_model_8cs_source.htm'
 </div><!--header-->
 <div class="contents">
 <a href="../../dd/d97/_settings_model_8cs.htm">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;﻿using System;</div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.IO.Ports;</div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="keyword">using</span> System.Xml.Serialization;</div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span>Simulator.Model</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{<span class="comment"></span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    /// Model that contains the required information needed to save the current settings to disk</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"></span>    [Serializable]</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    [XmlRootAttribute(<span class="stringliteral">&quot;SettingsFileModel&quot;</span>, Namespace=<span class="stringliteral">&quot;Simulator.Model&quot;</span>, IsNullable = <span class="keyword">false</span>)]</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm">   12</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {<span class="comment"></span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">        /// The version of the file that is being saved</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model_a0497da984447494de00e1ce21caa1ad9.htm#a0497da984447494de00e1ce21caa1ad9">   17</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> SettingsVersion { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// The PC port that is being saved</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model_a9c567f1d635e9ed444172ec1c3420382.htm#a9c567f1d635e9ed444172ec1c3420382">   22</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> ComPort { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;}</div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="keyword">using</span> System.Xml.Serialization;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span>Simulator.Model</div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{<span class="comment"></span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">    /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">    /// Model that contains the required information needed to save the current settings to disk</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">    /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"></span>    [Serializable]</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    [XmlRootAttribute(<span class="stringliteral">&quot;SettingsFileModel&quot;</span>, Namespace=<span class="stringliteral">&quot;Simulator.Model&quot;</span>, IsNullable = <span class="keyword">false</span>)]</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm">   11</a></span>&#160;    <span class="keyword">public</span> <span class="keyword">class </span><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model.htm" title="Model that contains the required information needed to save the current settings to disk ...">SettingsModel</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {<span class="comment"></span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">        /// The version of the file that is being saved</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model_a0497da984447494de00e1ce21caa1ad9.htm#a0497da984447494de00e1ce21caa1ad9">   16</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> SettingsVersion { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"></span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">        /// &lt;summary&gt;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">        /// The PC port that is being saved</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">        /// &lt;/summary&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="../../d6/dc6/class_simulator_1_1_model_1_1_settings_model_accca662929bab6268c33e9baaaac3c62.htm#accca662929bab6268c33e9baaaac3c62">   21</a></span>&#160;<span class="comment"></span>        <span class="keyword">public</span> <span class="keywordtype">string</span> ComPortName { <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    }</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_3eca51afc31ab9312b29b4249736bc7a.htm">Emulator</a></li><li class="navelem"><a class="el" href="../../dir_2835156238d98cbf8c2d0e157fcd5cfa.htm">Model</a></li><li class="navelem"><a class="el" href="../../dd/d97/_settings_model_8cs.htm">SettingsModel.cs</a></li>
-    <li class="footer">Generated on Fri Sep 9 2022 23:07:53 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Sun Sep 11 2022 00:14:45 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>
