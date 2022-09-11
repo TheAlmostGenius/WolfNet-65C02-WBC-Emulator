@@ -13,13 +13,25 @@ namespace Simulator
 		public Settings()
 		{
 			InitializeComponent();
-			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
-		}
+            Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
+            Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
+        }
 
-		private void NotificationMessageReceived(NotificationMessage notificationMessage)
-		{
-			if (notificationMessage.Notification == "CloseSettingsWindow")
+        private void NotificationMessageReceived(NotificationMessage notificationMessage)
+        {
+            if (notificationMessage.Notification == "CloseSettingsWindow")
+            {
                 Close();
+            }
+        }
+
+        private void NotificationMessageReceived(NotificationMessage<SettingsModel> notificationMessage)
+        {
+            if (notificationMessage.Notification == "SettingsWindow")
+            {
+                SettingsViewModel.SettingsModel = notificationMessage.Content;
+                ComPortCombo.SelectedItem = notificationMessage.Content.ComPortName;
+            }
         }
 
         private void PortSelectionDropDownClosed(object sender, EventArgs e)

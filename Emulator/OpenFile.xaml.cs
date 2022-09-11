@@ -1,7 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
-using System.Windows.Controls;
+using Simulator.ViewModel;
 using System;
-using OpenFileView = Simulator.ViewModel.OpenFileViewModel;
 
 namespace Simulator
 {
@@ -21,5 +20,14 @@ namespace Simulator
 			if (notificationMessage.Notification == "CloseFileWindow")
 				Close();
 		}
+        private void HandleBiosOnlyChecked(object sender, EventArgs e)
+        {
+            OpenFileViewModel.IsBiosOnly = true;
+        }
+
+        private void HandleBiosOnlyUnchecked(object sender, EventArgs e)
+        {
+            OpenFileViewModel.IsBiosOnly = false;
+        }
     }
 }

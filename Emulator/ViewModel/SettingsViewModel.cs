@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.IO.Ports;
 using System.Xml.Serialization;
@@ -15,13 +16,11 @@ namespace Simulator.ViewModel
 	/// </summary>
 	public class SettingsViewModel : ViewModelBase
 	{
-		private static SettingsModel _settingsModel;
-
         #region Properties
         /// <summary>
         /// The Relay Command called when saving a file
         /// </summary>
-        public RelayCommand SaveFileCommand { get; set; }
+        public RelayCommand ApplyCommand { get; set; }
 		
 		/// <summary>
 		/// The Relay Command called when closing a file
@@ -31,7 +30,7 @@ namespace Simulator.ViewModel
 		/// <summary>
 		/// Tells the UI that that a file has been selected and can be saved.
 		/// </summary>
-		public bool SaveEnabled { get { return !string.IsNullOrEmpty(Hardware.Hardware.SettingsFile); } }
+		public bool ApplyEnabled { get { return !string.IsNullOrEmpty(Hardware.Hardware.SettingsFile); } }
 
         /// <summary>
         /// Creates a new instance of PortList, the list of all COM ports available to the computer
@@ -41,11 +40,12 @@ namespace Simulator.ViewModel
         private readonly ObservableCollection<string> _PortList = new ObservableCollection<string>();
 
         public static string ComPortSelection { get; set; }
+        public static SettingsModel SettingsModel { get; set; }
         #endregion
 
         #region Public Methods
         /// <summary>
-        /// Instantiates a new instance of the SaveFileViewModel. This is used by the IOC to create the default instance.
+        /// Instantiates a new instance of the SettingsViewModel. This is used by the IOC to create the default instance.
         /// </summary>
         [PreferredConstructor]
 		public SettingsViewModel()
@@ -54,14 +54,14 @@ namespace Simulator.ViewModel
 		}
 
 		/// <summary>
-		/// Instantiates a new instance of the SaveFileViewModel
+		/// Instantiates a new instance of the SettingsViewModel
 		/// </summary>
-		/// <param name="settingsModel">The StateFIleModel to be serialized to a file</param>
+		/// <param name="settingsModel">The SettingsFIleModel to be serialized to a file</param>
 		public SettingsViewModel(SettingsModel settingsModel)
 		{
-			SaveFileCommand = new RelayCommand(Save);
+			ApplyCommand = new RelayCommand(Apply);
 			CloseCommand = new RelayCommand(Close);
-			_settingsModel = settingsModel;
+			SettingsModel = settingsModel;
 
             UpdatePortList();
         }
@@ -81,15 +81,12 @@ namespace Simulator.ViewModel
         #endregion
 
         #region Private Methods
-        private void Save()
+        private void Apply()
 		{
-			Stream stream = new FileStream(Hardware.Hardware.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
-            XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
-            XmlFormatter.Serialize(stream, _settingsModel);
-			stream.Flush();
-			stream.Close();
-			Close();
-		}
+            SettingsModel.SettingsVersion = "1.0.0";
+            SettingsModel.ComPortName = ComPortSelection;
+            Messenger.Default.Send(new NotificationMessage<SettingsModel>(SettingsModel, "SettingsApplied"));
+        }
 
 		private static void Close()
 		{

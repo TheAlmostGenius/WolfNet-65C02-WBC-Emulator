@@ -3,6 +3,8 @@ using Simulator.Model;
 using Simulator.ViewModel;
 using System;
 using System.ComponentModel;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Simulator
 {
@@ -10,8 +12,8 @@ namespace Simulator
 	/// Interaction logic for MainWindow.xaml
 	/// </summary>
 	public partial class MainWindow
-	{
-		public MainWindow()
+    {
+        public MainWindow()
 		{
 			InitializeComponent();
 			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
@@ -21,9 +23,15 @@ namespace Simulator
         }
 
 		private void OnClose(Object sender, CancelEventArgs e)
-		{
-			e.Cancel = false;
-			Hardware.W65C51.Fini();
+        {
+            e.Cancel = false;
+            Hardware.W65C51.Fini();
+            Stream stream = new FileStream(Hardware.Hardware.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
+            XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
+            XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);
+            stream.Flush();
+            stream.Close();
+            Hardware.W65C02.ClearMemory();
 		}
 
 		private void NotificationMessageReceived(NotificationMessage notificationMessage)
@@ -52,5 +60,5 @@ namespace Simulator
                 settingsFile.ShowDialog();
             }
         }
-	}
+    }
 }

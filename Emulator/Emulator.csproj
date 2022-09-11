@@ -171,6 +171,7 @@
     <None Include="app.config" />
     <Resource Include="Images\icon.ico" />
     <Resource Include="icon.ico" />
+    <Resource Include="Images\oshw-logo-outline.png" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

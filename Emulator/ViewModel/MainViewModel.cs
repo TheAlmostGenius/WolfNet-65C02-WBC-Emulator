@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
+using System.Windows;
 using System.Xml.Serialization;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -31,7 +32,7 @@ namespace Simulator.ViewModel
 
         #region Properties
         /// <summary>
-        /// The Processor.
+        /// The 65C02 Processor.
         /// </summary>
         public W65C02 W65C02 { get; set; }
 
@@ -128,22 +129,32 @@ namespace Simulator.ViewModel
 		/// </summary>
 		public bool IsProgramLoaded { get; set; }
 
-		/// <summary>
-		/// The Path to the Program that is running
-		/// </summary>
-		public string BiosFilePath { get; private set; }
+        /// <summary>
+        /// The Path to the Program that is running
+        /// </summary>
+        public string BiosFilePath { get; private set; }
 
-		/// <summary>
-		/// The Path to the Program that is running
-		/// </summary>
-		public string RomFilePath { get; private set; }
+        /// <summary>
+        /// The Path to the Program that is running
+        /// </summary>
+        public string RomFilePath { get; private set; }
 
-		/// <summary>
-		/// The Slider CPU Speed
-		/// </summary>
-		public int CpuSpeed { get; set; }
+        /// <summary>
+        /// The filename of the Program that is running
+        /// </summary>
+        public string BiosFileName { get; private set; }
 
-		private SettingsModel SettingsModel { get; set; }
+        /// <summary>
+        /// The filename of the Program that is running
+        /// </summary>
+        public string RomFileName { get; private set; }
+
+        /// <summary>
+        /// The Slider CPU Speed
+        /// </summary>
+        public int CpuSpeed { get; set; }
+
+		public static SettingsModel SettingsModel { get; set; }
 
 		/// <summary>
 		/// RelayCommand for Stepping through the progam one instruction at a time.
@@ -210,12 +221,15 @@ namespace Simulator.ViewModel
 			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
             SettingsCommand = new RelayCommand(Settings);
 
-            Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, FileOpenedNotification);
+            Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, BinaryLoadedNotification);
             Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
-            BiosFilePath = "No File Loaded";
-			RomFilePath = "No File Loaded";
+            Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, SettingsAppliedNotifcation);
+            BiosFilePath = "No BIOS Loaded";
+            RomFilePath = "No ROM Loaded";
+            BiosFileName = "No BIOS Loaded";
+            RomFileName = "No ROM Loaded";
 
-			MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
+            MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
 			Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
 
@@ -226,10 +240,9 @@ namespace Simulator.ViewModel
 
             var _formatter = new XmlSerializer(typeof(SettingsModel));
             Stream _stream = new FileStream(Hardware.Hardware.SettingsFile, FileMode.OpenOrCreate);
-            if ((_stream == null) || (0 >= _stream.Length))
+			if (!((_stream == null) || (0 >= _stream.Length)))
 			{
                 SettingsModel = (SettingsModel)_formatter.Deserialize(_stream);
-                _stream.Close();
             }
             else
 			{
@@ -238,7 +251,8 @@ namespace Simulator.ViewModel
 					SettingsVersion = "1.0.0",
 					ComPortName = "COM10",
 				};
-			}
+            }
+            _stream.Close();
             W65C51 = new W65C51(0x10);
             W65C51.Init(SettingsModel.ComPortName.ToString());
             W65C22 = new W65C22(0x20);
@@ -249,53 +263,73 @@ namespace Simulator.ViewModel
 		#endregion
 
 		#region Private Methods
-		private void FileOpenedNotification(NotificationMessage<AssemblyFileModel> notificationMessage)
+		private void BinaryLoadedNotification(NotificationMessage<AssemblyFileModel> notificationMessage)
 		{
 			if (notificationMessage.Notification != "FileLoaded")
 			{
 				return;
 			}
+
+			MessageBox.Show(notificationMessage.ToString());
 
 			// Load Shared ROM
 			W65C02.LoadProgram(MemoryMap.SharedRom, notificationMessage.Content.Bios);
-			// Load Banked ROM
-			W65C02.LoadProgram(MemoryMap.BankedRom, notificationMessage.Content.Rom);
-			BiosFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.BiosFilePath);
-			RaisePropertyChanged("BiosFilePath");
-			RomFilePath = string.Format("Loaded Program: {0}", notificationMessage.Content.RomFilePath);
-			RaisePropertyChanged("RomFilePath");
+            BiosFilePath = notificationMessage.Content.BiosFilePath;
+            RaisePropertyChanged("BiosFilePath");
+            BiosFileName = String.Format("Loaded Program: {0}", notificationMessage.Content.BiosFileName);
+            RaisePropertyChanged("BiosFileName");
 
-			IsProgramLoaded = true;
+            if (!notificationMessage.Content.IsBiosOnly)
+			{
+				// Load Banked ROM
+				W65C02.LoadProgram(MemoryMap.BankedRom, notificationMessage.Content.Rom);
+                RomFilePath = notificationMessage.Content.RomFilePath;
+                RaisePropertyChanged("RomFilePath");
+                RomFileName = String.Format("Loaded Program: {0}", notificationMessage.Content.RomFileName);
+                RaisePropertyChanged("RomFileName");
+            }
+
+            IsProgramLoaded = true;
 			RaisePropertyChanged("IsProgramLoaded");
 
 			Reset();
 		}
 
-		private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
-		{
-			if (notificationMessage.Notification != "FileLoaded")
-			{
-				return;
-			}
+        private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
+        {
+            if (notificationMessage.Notification != "FileLoaded")
+            {
+                return;
+            }
 
-			Reset();
+            Reset();
 
-			OutputLog = new MultiThreadedObservableCollection<OutputLog>(notificationMessage.Content.OutputLog);
-			RaisePropertyChanged("OutputLog");
+            OutputLog = new MultiThreadedObservableCollection<OutputLog>(notificationMessage.Content.OutputLog);
+            RaisePropertyChanged("OutputLog");
 
-			NumberOfCycles = notificationMessage.Content.NumberOfCycles;
+            NumberOfCycles = notificationMessage.Content.NumberOfCycles;
 
             W65C02 = notificationMessage.Content.W65C02;
             W65C22 = notificationMessage.Content.W65C22;
+            MM65SIB = notificationMessage.Content.MM65SIB;
             W65C51 = notificationMessage.Content.W65C51;
             UpdateMemoryPage();
-			UpdateUi();
+            UpdateUi();
 
-			IsProgramLoaded = true;
-			RaisePropertyChanged("IsProgramLoaded");
+            IsProgramLoaded = true;
+            RaisePropertyChanged("IsProgramLoaded");
+        }
+
+        private void SettingsAppliedNotifcation(NotificationMessage<SettingsModel> notificationMessage)
+        {
+            if (notificationMessage.Notification != "SettingsApplied")
+            {
+                return;
+            }
+			SettingsModel = notificationMessage.Content;
 		}
 
-		private void UpdateMemoryPage()
+        private void UpdateMemoryPage()
 		{
 			MemoryPage.Clear();
 			var offset = (_memoryPageOffset * 256);
@@ -577,11 +611,7 @@ namespace Simulator.ViewModel
             if (_backgroundWorker.IsBusy)
                 _backgroundWorker.CancelAsync();
 
-            Messenger.Default.Send(new NotificationMessage<SettingsModel>(new SettingsModel
-            {
-				SettingsVersion = "1.0.0",
-                ComPortName = W65C51.ObjectName,
-            }, "SettingsWindow"));
+            Messenger.Default.Send(new NotificationMessage<SettingsModel>(SettingsModel, "SettingsWindow"));
         }
 
         private void AddBreakPoint()

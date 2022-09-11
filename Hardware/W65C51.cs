@@ -90,7 +90,7 @@ namespace Hardware
             }
             catch (UnauthorizedAccessException w)
             {
-                FileStream file = new FileStream(Hardware.SettingsFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                FileStream file = new FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine(w.Message);
                 stream.WriteLine(w.Source);
@@ -100,13 +100,29 @@ namespace Hardware
                 file.Close();
                 return;
             }
-            serialPort.ReadTimeout = 1000;
-            serialPort.WriteTimeout = 1000;
+            serialPort.ReadTimeout = 50;
+            serialPort.WriteTimeout = 50;
             serialPort.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceived);
-            serialPort.Write("---------------------------\r\n");
-            serialPort.Write(" WolfNet 6502 WBC Emulator\r\n");
-            serialPort.Write("---------------------------\r\n");
-            serialPort.Write("\r\n");
+            try
+            {
+                serialPort.Write("---------------------------\r\n");
+                serialPort.Write(" WolfNet 6502 WBC Emulator\r\n");
+                serialPort.Write("---------------------------\r\n");
+                serialPort.Write("\r\n");
+            }
+            catch (System.TimeoutException t)
+            {
+                _ = t;
+                FileStream file = new FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                StreamWriter stream = new StreamWriter(file);
+                stream.WriteLine("Read/Write error: Port timed out!");
+                stream.WriteLine("Please ensure all cables are connected properly!");
+                stream.Flush();
+                file.Flush();
+                stream.Close();
+                file.Close();
+                return;
+            }
         }
 
         /// <summary>
