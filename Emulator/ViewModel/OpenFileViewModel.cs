@@ -103,10 +103,7 @@ namespace Simulator.ViewModel
         /// </summary>
         public bool IsRomEnabled
         {
-            get
-            {
-                return !(IsBiosOnly || !IsNotStateFile);
-            }
+            get { return !(IsBiosOnly || !IsNotStateFile); }
         }
 
         /// <summary>
