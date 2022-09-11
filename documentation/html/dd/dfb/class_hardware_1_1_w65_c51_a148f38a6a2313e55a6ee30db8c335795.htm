@@ -135,13 +135,15 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 <div class="line">                file.Close();</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
-<div class="line"></div>
-<div class="line">            serialPort.ReadTimeout = 250;</div>
-<div class="line">            serialPort.WriteTimeout = 250;</div>
+<div class="line">            serialPort.ReadTimeout = 50;</div>
+<div class="line">            serialPort.WriteTimeout = 50;</div>
 <div class="line">            serialPort.DataReceived += <span class="keyword">new</span> SerialDataReceivedEventHandler(<a class="code" href="../../dd/dfb/class_hardware_1_1_w65_c51_ab874b70cecba00fb83c726988ff949a5.htm#ab874b70cecba00fb83c726988ff949a5" title="Called whenever SerialDataReceivedEventHandler event occurs. ">SerialDataReceived</a>);</div>
 <div class="line">            <span class="keywordflow">try</span></div>
 <div class="line">            {</div>
 <div class="line">                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
+<div class="line">                serialPort.Write(<span class="stringliteral">&quot; WolfNet 6502 WBC Emulator\r\n&quot;</span>);</div>
+<div class="line">                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
+<div class="line">                serialPort.Write(<span class="stringliteral">&quot;\r\n&quot;</span>);</div>
 <div class="line">            }</div>
 <div class="line">            <span class="keywordflow">catch</span> (System.TimeoutException t)</div>
 <div class="line">            {</div>
@@ -156,9 +158,6 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 <div class="line">                file.Close();</div>
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
-<div class="line">            serialPort.Write(<span class="stringliteral">&quot; WolfNet 6502 WBC Emulator\r\n&quot;</span>);</div>
-<div class="line">            serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
-<div class="line">            serialPort.Write(<span class="stringliteral">&quot;\r\n&quot;</span>);</div>
 <div class="line">        }</div>
 </div><!-- fragment -->
 </div>
@@ -169,7 +168,7 @@ $(document).ready(function(){initNavTree('dd/dfb/class_hardware_1_1_w65_c51.htm'
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d6/d5f/namespace_hardware.htm">Hardware</a></li><li class="navelem"><a class="el" href="../../dd/dfb/class_hardware_1_1_w65_c51.htm">W65C51</a></li>
-    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Mon Sep 12 2022 00:52:02 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

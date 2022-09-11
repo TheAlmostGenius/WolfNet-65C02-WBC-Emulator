@@ -4,6 +4,7 @@ var hierarchy =
     [ "Simulator.App", "d3/da1/class_simulator_1_1_app.htm", null ],
     [ "Application", null, [
       [ "XamlGeneratedNamespace.GeneratedApplication", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application.htm", null ],
+      [ "XamlGeneratedNamespace.GeneratedApplication", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application.htm", null ],
       [ "XamlGeneratedNamespace.GeneratedApplication", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application.htm", null ]
     ] ],
     [ "Simulator.Model.AssemblyFileModel", "dc/d49/class_simulator_1_1_model_1_1_assembly_file_model.htm", null ],
@@ -17,16 +18,21 @@ var hierarchy =
     [ "IComponentConnector", null, [
       [ "Simulator.MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", null ],
       [ "Simulator.MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", null ],
+      [ "Simulator.MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", null ],
+      [ "Simulator.OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", null ],
       [ "Simulator.OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", null ],
       [ "Simulator.OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", null ],
       [ "Simulator.SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", null ],
       [ "Simulator.SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", null ],
+      [ "Simulator.SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", null ],
+      [ "Simulator.Settings", "dc/d0f/class_simulator_1_1_settings.htm", null ],
       [ "Simulator.Settings", "dc/d0f/class_simulator_1_1_settings.htm", null ],
       [ "Simulator.Settings", "dc/d0f/class_simulator_1_1_settings.htm", null ]
     ] ],
     [ "Hardware.W65C22.IERdata", "d7/d50/class_hardware_1_1_w65_c22_1_1_i_e_rdata.htm", null ],
     [ "Hardware.W65C22.IFRdata", "d9/dbd/class_hardware_1_1_w65_c22_1_1_i_f_rdata.htm", null ],
     [ "InternalTypeHelper", null, [
+      [ "XamlGeneratedNamespace.GeneratedInternalTypeHelper", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper.htm", null ],
       [ "XamlGeneratedNamespace.GeneratedInternalTypeHelper", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper.htm", null ],
       [ "XamlGeneratedNamespace.GeneratedInternalTypeHelper", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper.htm", null ]
     ] ],
@@ -51,10 +57,14 @@ var hierarchy =
     [ "Window", null, [
       [ "Simulator.MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", null ],
       [ "Simulator.MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", null ],
+      [ "Simulator.MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", null ],
+      [ "Simulator.OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", null ],
       [ "Simulator.OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", null ],
       [ "Simulator.OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", null ],
       [ "Simulator.SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", null ],
       [ "Simulator.SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", null ],
+      [ "Simulator.SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", null ],
+      [ "Simulator.Settings", "dc/d0f/class_simulator_1_1_settings.htm", null ],
       [ "Simulator.Settings", "dc/d0f/class_simulator_1_1_settings.htm", null ],
       [ "Simulator.Settings", "dc/d0f/class_simulator_1_1_settings.htm", null ]
     ] ]

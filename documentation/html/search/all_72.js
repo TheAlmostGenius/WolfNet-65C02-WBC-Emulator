@@ -1,5 +1,10 @@
 var searchData=
 [
+  ['app_2eg_2ei_2ecs',['App.g.i.cs',['../d8/dea/_release_2_app_8g_8i_8cs.htm',1,'']]],
+  ['emulator_5fcontent_2eg_2ei_2ecs',['Emulator_Content.g.i.cs',['../da/da5/_release_2_emulator___content_8g_8i_8cs.htm',1,'']]],
+  ['generatedinternaltypehelper_2eg_2ei_2ecs',['GeneratedInternalTypeHelper.g.i.cs',['../df/d66/_release_2_generated_internal_type_helper_8g_8i_8cs.htm',1,'']]],
+  ['mainwindow_2eg_2ei_2ecs',['MainWindow.g.i.cs',['../dd/db5/_release_2_main_window_8g_8i_8cs.htm',1,'']]],
+  ['openfile_2eg_2ei_2ecs',['OpenFile.g.i.cs',['../d5/db3/_release_2_open_file_8g_8i_8cs.htm',1,'']]],
   ['readmemoryvalue',['ReadMemoryValue',['../db/d4d/class_hardware_1_1_w65_c02_a9ed4e776a88e30933642a3f15f665f0c.htm#a9ed4e776a88e30933642a3f15f665f0c',1,'Hardware::W65C02']]],
   ['readmemoryvaluewithoutcycle',['ReadMemoryValueWithoutCycle',['../db/d4d/class_hardware_1_1_w65_c02_aa87324e6a5b7787fa2985d1c0af12960.htm#aa87324e6a5b7787fa2985d1c0af12960',1,'Hardware::W65C02']]],
   ['removebreakpoint',['RemoveBreakPoint',['../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a5e0e28f84cf854679ca87c3f8a52a490.htm#a5e0e28f84cf854679ca87c3f8a52a490',1,'Simulator::ViewModel::MainViewModel']]],
@@ -19,5 +24,7 @@ var searchData=
   ['romselect',['RomSelect',['../da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a961e6354f12c226cfd7cbcca5815d82f.htm#a961e6354f12c226cfd7cbcca5815d82f',1,'Simulator::ViewModel::OpenFileViewModel']]],
   ['roroperation',['RorOperation',['../db/d4d/class_hardware_1_1_w65_c02_a7981078f501e2860a6a3b66b4e644268.htm#a7981078f501e2860a6a3b66b4e644268',1,'Hardware::W65C02']]],
   ['runpause',['RunPause',['../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a71f38d969eb30e6cf67401481ba908f3.htm#a71f38d969eb30e6cf67401481ba908f3',1,'Simulator::ViewModel::MainViewModel']]],
-  ['runpausecommand',['RunPauseCommand',['../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_ae306f58f001dd7f73be1f32e40123ab1.htm#ae306f58f001dd7f73be1f32e40123ab1',1,'Simulator::ViewModel::MainViewModel']]]
+  ['runpausecommand',['RunPauseCommand',['../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_ae306f58f001dd7f73be1f32e40123ab1.htm#ae306f58f001dd7f73be1f32e40123ab1',1,'Simulator::ViewModel::MainViewModel']]],
+  ['savefile_2eg_2ei_2ecs',['SaveFile.g.i.cs',['../d8/d84/_release_2_save_file_8g_8i_8cs.htm',1,'']]],
+  ['settings_2eg_2ei_2ecs',['Settings.g.i.cs',['../d8/d5b/_release_2_settings_8g_8i_8cs.htm',1,'']]]
 ];

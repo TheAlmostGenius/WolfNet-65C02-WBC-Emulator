@@ -14,7 +14,7 @@ var class_simulator_1_1_view_model_1_1_open_file_view_model =
     [ "InitalProgramCounter", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_abf9c637c0cb9e1d24b27b18a4431711c.htm#abf9c637c0cb9e1d24b27b18a4431711c", null ],
     [ "IsBiosOnly", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a1c7a482f35a313adaa4d1ed9538bf81f.htm#a1c7a482f35a313adaa4d1ed9538bf81f", null ],
     [ "IsNotStateFile", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a5f00bf34c63233387723f88a2e2cdce9.htm#a5f00bf34c63233387723f88a2e2cdce9", null ],
-    [ "IsStateFile", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a056488496bc3dd4e2ab8b5cb2676a397.htm#a056488496bc3dd4e2ab8b5cb2676a397", null ],
+    [ "IsRomEnabled", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a0327b2a3cbfd756a28b1265d81851c5d.htm#a0327b2a3cbfd756a28b1265d81851c5d", null ],
     [ "LoadEnabled", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_a0bced18ab7ac84bcf00105e976cd9dcb.htm#a0bced18ab7ac84bcf00105e976cd9dcb", null ],
     [ "LoadProgramCommand", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_abe54ecd34769d799825f212fdd902693.htm#abe54ecd34769d799825f212fdd902693", null ],
     [ "MemoryOffset", "da/d09/class_simulator_1_1_view_model_1_1_open_file_view_model_aa1e89921f1fb92131224320c11534cb5.htm#aa1e89921f1fb92131224320c11534cb5", null ],

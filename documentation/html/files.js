@@ -1,12 +1,17 @@
 var files =
 [
     [ "Emulator/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs", "d4/d6b/_emulator_2obj_2x86_2_debug_2_8_n_e_t_framework_00_version_0Av4_88_8_assembly_attributes_8cs.htm", null ],
+    [ "Emulator/obj/x86/Release/.NETFramework,Version=v4.8.AssemblyAttributes.cs", "d1/d67/_emulator_2obj_2x86_2_release_2_8_n_e_t_framework_00_version_0Av4_88_8_assembly_attributes_8cs.htm", null ],
     [ "Hardware/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs", "df/db9/_hardware_2obj_2_debug_2_8_n_e_t_framework_00_version_0Av4_88_8_assembly_attributes_8cs.htm", null ],
+    [ "Hardware/obj/Release/.NETFramework,Version=v4.8.AssemblyAttributes.cs", "d8/d6e/_hardware_2obj_2_release_2_8_n_e_t_framework_00_version_0Av4_88_8_assembly_attributes_8cs.htm", null ],
     [ "AddressingMode.cs", "d8/d28/_addressing_mode_8cs.htm", "d8/d28/_addressing_mode_8cs" ],
     [ "App.g.cs", "d7/d66/_app_8g_8cs.htm", [
       [ "GeneratedApplication", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application.htm", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application" ]
     ] ],
-    [ "App.g.i.cs", "d8/d51/_app_8g_8i_8cs.htm", [
+    [ "Debug/App.g.i.cs", "d7/d83/_debug_2_app_8g_8i_8cs.htm", [
+      [ "GeneratedApplication", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application.htm", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application" ]
+    ] ],
+    [ "Release/App.g.i.cs", "d8/dea/_release_2_app_8g_8i_8cs.htm", [
       [ "GeneratedApplication", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application.htm", "dc/d8e/class_xaml_generated_namespace_1_1_generated_application" ]
     ] ],
     [ "App.xaml.cs", "db/da1/_app_8xaml_8cs.htm", [
@@ -27,11 +32,15 @@ var files =
       [ "Disassembly", "d4/d41/class_hardware_1_1_disassembly.htm", "d4/d41/class_hardware_1_1_disassembly" ]
     ] ],
     [ "Emulator_Content.g.cs", "df/d76/_emulator___content_8g_8cs.htm", null ],
-    [ "Emulator_Content.g.i.cs", "df/d56/_emulator___content_8g_8i_8cs.htm", null ],
+    [ "Debug/Emulator_Content.g.i.cs", "dc/d70/_debug_2_emulator___content_8g_8i_8cs.htm", null ],
+    [ "Release/Emulator_Content.g.i.cs", "da/da5/_release_2_emulator___content_8g_8i_8cs.htm", null ],
     [ "GeneratedInternalTypeHelper.g.cs", "d9/db3/_generated_internal_type_helper_8g_8cs.htm", [
       [ "GeneratedInternalTypeHelper", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper.htm", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper" ]
     ] ],
-    [ "GeneratedInternalTypeHelper.g.i.cs", "d6/d98/_generated_internal_type_helper_8g_8i_8cs.htm", [
+    [ "Debug/GeneratedInternalTypeHelper.g.i.cs", "d7/de7/_debug_2_generated_internal_type_helper_8g_8i_8cs.htm", [
+      [ "GeneratedInternalTypeHelper", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper.htm", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper" ]
+    ] ],
+    [ "Release/GeneratedInternalTypeHelper.g.i.cs", "df/d66/_release_2_generated_internal_type_helper_8g_8i_8cs.htm", [
       [ "GeneratedInternalTypeHelper", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper.htm", "dc/db0/class_xaml_generated_namespace_1_1_generated_internal_type_helper" ]
     ] ],
     [ "Hardware.cs", "dd/d45/_hardware_8cs.htm", [
@@ -41,7 +50,10 @@ var files =
     [ "MainWindow.g.cs", "d0/da8/_main_window_8g_8cs.htm", [
       [ "MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", "d8/ddb/class_simulator_1_1_main_window" ]
     ] ],
-    [ "MainWindow.g.i.cs", "de/d26/_main_window_8g_8i_8cs.htm", [
+    [ "Debug/MainWindow.g.i.cs", "d8/d80/_debug_2_main_window_8g_8i_8cs.htm", [
+      [ "MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", "d8/ddb/class_simulator_1_1_main_window" ]
+    ] ],
+    [ "Release/MainWindow.g.i.cs", "dd/db5/_release_2_main_window_8g_8i_8cs.htm", [
       [ "MainWindow", "d8/ddb/class_simulator_1_1_main_window.htm", "d8/ddb/class_simulator_1_1_main_window" ]
     ] ],
     [ "MainWindow.xaml.cs", "d6/d57/_main_window_8xaml_8cs.htm", [
@@ -60,7 +72,10 @@ var files =
     [ "OpenFile.g.cs", "db/df3/_open_file_8g_8cs.htm", [
       [ "OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", "d9/d0f/class_simulator_1_1_open_file" ]
     ] ],
-    [ "OpenFile.g.i.cs", "d0/dae/_open_file_8g_8i_8cs.htm", [
+    [ "Debug/OpenFile.g.i.cs", "d2/d1c/_debug_2_open_file_8g_8i_8cs.htm", [
+      [ "OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", "d9/d0f/class_simulator_1_1_open_file" ]
+    ] ],
+    [ "Release/OpenFile.g.i.cs", "d5/db3/_release_2_open_file_8g_8i_8cs.htm", [
       [ "OpenFile", "d9/d0f/class_simulator_1_1_open_file.htm", "d9/d0f/class_simulator_1_1_open_file" ]
     ] ],
     [ "OpenFile.xaml.cs", "da/dd2/_open_file_8xaml_8cs.htm", [
@@ -74,7 +89,10 @@ var files =
     [ "SaveFile.g.cs", "d9/db2/_save_file_8g_8cs.htm", [
       [ "SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", "de/d3e/class_simulator_1_1_save_file" ]
     ] ],
-    [ "SaveFile.g.i.cs", "dd/d22/_save_file_8g_8i_8cs.htm", [
+    [ "Debug/SaveFile.g.i.cs", "da/de8/_debug_2_save_file_8g_8i_8cs.htm", [
+      [ "SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", "de/d3e/class_simulator_1_1_save_file" ]
+    ] ],
+    [ "Release/SaveFile.g.i.cs", "d8/d84/_release_2_save_file_8g_8i_8cs.htm", [
       [ "SaveFile", "de/d3e/class_simulator_1_1_save_file.htm", "de/d3e/class_simulator_1_1_save_file" ]
     ] ],
     [ "SaveFile.xaml.cs", "d9/dcc/_save_file_8xaml_8cs.htm", [
@@ -87,7 +105,10 @@ var files =
     [ "Settings.g.cs", "de/d4c/_settings_8g_8cs.htm", [
       [ "Settings", "dc/d0f/class_simulator_1_1_settings.htm", "dc/d0f/class_simulator_1_1_settings" ]
     ] ],
-    [ "Settings.g.i.cs", "da/d6d/_settings_8g_8i_8cs.htm", [
+    [ "Debug/Settings.g.i.cs", "d8/d02/_debug_2_settings_8g_8i_8cs.htm", [
+      [ "Settings", "dc/d0f/class_simulator_1_1_settings.htm", "dc/d0f/class_simulator_1_1_settings" ]
+    ] ],
+    [ "Release/Settings.g.i.cs", "d8/d5b/_release_2_settings_8g_8i_8cs.htm", [
       [ "Settings", "dc/d0f/class_simulator_1_1_settings.htm", "dc/d0f/class_simulator_1_1_settings" ]
     ] ],
     [ "Settings.xaml.cs", "da/d3b/_settings_8xaml_8cs.htm", [

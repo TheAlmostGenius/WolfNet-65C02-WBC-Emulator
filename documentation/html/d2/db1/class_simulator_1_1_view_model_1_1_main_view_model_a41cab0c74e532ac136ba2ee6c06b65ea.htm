@@ -124,19 +124,24 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 <div class="line">                <span class="keywordflow">return</span>;</div>
 <div class="line">            }</div>
 <div class="line"></div>
+<div class="line">            MessageBox.Show(notificationMessage.ToString());</div>
+<div class="line"></div>
 <div class="line">            <span class="comment">// Load Shared ROM</span></div>
 <div class="line">            <a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02.htm" title="An implementation of a W65C02 Processor. ">W65C02</a>.<a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02_a81a8eb880fcdac32f4d5a92790e90735.htm#a81a8eb880fcdac32f4d5a92790e90735" title="Loads a program into the processors memory ">LoadProgram</a>(<a class="code" href="../../dc/de1/class_hardware_1_1_memory_map.htm">MemoryMap</a>.<a class="code" href="../../dc/de1/class_hardware_1_1_memory_map_aedc52671c096cc3940899fc7681ec8ea.htm#aedc52671c096cc3940899fc7681ec8ea">SharedRom</a>, notificationMessage.Content.Bios);</div>
-<div class="line">            <span class="comment">// Load Banked ROM</span></div>
-<div class="line">            <a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02.htm" title="An implementation of a W65C02 Processor. ">W65C02</a>.<a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02_a81a8eb880fcdac32f4d5a92790e90735.htm#a81a8eb880fcdac32f4d5a92790e90735" title="Loads a program into the processors memory ">LoadProgram</a>(<a class="code" href="../../dc/de1/class_hardware_1_1_memory_map.htm">MemoryMap</a>.<a class="code" href="../../dc/de1/class_hardware_1_1_memory_map_aed8a5ee7ea9e33097c42024a54d84264.htm#aed8a5ee7ea9e33097c42024a54d84264">BankedRom</a>, notificationMessage.Content.Rom);</div>
-<div class="line"></div>
 <div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a44748ef6c2a1aebce47ecc78f0d487e4.htm#a44748ef6c2a1aebce47ecc78f0d487e4" title="The Path to the Program that is running ">BiosFilePath</a> = notificationMessage.Content.BiosFilePath;</div>
 <div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;BiosFilePath&quot;</span>);</div>
-<div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a6d0ac3bec5dd5d590c7af00f6024207b.htm#a6d0ac3bec5dd5d590c7af00f6024207b" title="The filename of the Program that is running ">BiosFileName</a> = String.Format(<span class="stringliteral">&quot;Loaded Program: {0}&quot;</span>, notificationMessage.Content.BiosFileName.ToUpper());</div>
+<div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a6d0ac3bec5dd5d590c7af00f6024207b.htm#a6d0ac3bec5dd5d590c7af00f6024207b" title="The filename of the Program that is running ">BiosFileName</a> = String.Format(<span class="stringliteral">&quot;Loaded Program: {0}&quot;</span>, notificationMessage.Content.BiosFileName);</div>
 <div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;BiosFileName&quot;</span>);</div>
-<div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a1a1890e05f25b3f26348dbeb8c2aba4a.htm#a1a1890e05f25b3f26348dbeb8c2aba4a" title="The Path to the Program that is running ">RomFilePath</a> = notificationMessage.Content.RomFilePath;</div>
-<div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;RomFilePath&quot;</span>);</div>
-<div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a8ad1b58d470ed76be447b613dcf86219.htm#a8ad1b58d470ed76be447b613dcf86219" title="The filename of the Program that is running ">RomFileName</a> = String.Format(<span class="stringliteral">&quot;Loaded Program: {0}&quot;</span>, notificationMessage.Content.RomFileName.ToUpper());</div>
-<div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;RomFileName&quot;</span>);</div>
+<div class="line"></div>
+<div class="line">            <span class="keywordflow">if</span> (!notificationMessage.Content.IsBiosOnly)</div>
+<div class="line">            {</div>
+<div class="line">                <span class="comment">// Load Banked ROM</span></div>
+<div class="line">                <a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02.htm" title="An implementation of a W65C02 Processor. ">W65C02</a>.<a class="code" href="../../db/d4d/class_hardware_1_1_w65_c02_a81a8eb880fcdac32f4d5a92790e90735.htm#a81a8eb880fcdac32f4d5a92790e90735" title="Loads a program into the processors memory ">LoadProgram</a>(<a class="code" href="../../dc/de1/class_hardware_1_1_memory_map.htm">MemoryMap</a>.<a class="code" href="../../dc/de1/class_hardware_1_1_memory_map_aed8a5ee7ea9e33097c42024a54d84264.htm#aed8a5ee7ea9e33097c42024a54d84264">BankedRom</a>, notificationMessage.Content.Rom);</div>
+<div class="line">                <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a1a1890e05f25b3f26348dbeb8c2aba4a.htm#a1a1890e05f25b3f26348dbeb8c2aba4a" title="The Path to the Program that is running ">RomFilePath</a> = notificationMessage.Content.RomFilePath;</div>
+<div class="line">                RaisePropertyChanged(<span class="stringliteral">&quot;RomFilePath&quot;</span>);</div>
+<div class="line">                <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_a8ad1b58d470ed76be447b613dcf86219.htm#a8ad1b58d470ed76be447b613dcf86219" title="The filename of the Program that is running ">RomFileName</a> = String.Format(<span class="stringliteral">&quot;Loaded Program: {0}&quot;</span>, notificationMessage.Content.RomFileName);</div>
+<div class="line">                RaisePropertyChanged(<span class="stringliteral">&quot;RomFileName&quot;</span>);</div>
+<div class="line">            }</div>
 <div class="line"></div>
 <div class="line">            <a class="code" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model_ad88293648da6a222b063de498635bf81.htm#ad88293648da6a222b063de498635bf81" title="Is a Program Loaded. ">IsProgramLoaded</a> = <span class="keyword">true</span>;</div>
 <div class="line">            RaisePropertyChanged(<span class="stringliteral">&quot;IsProgramLoaded&quot;</span>);</div>
@@ -152,7 +157,7 @@ $(document).ready(function(){initNavTree('d2/db1/class_simulator_1_1_view_model_
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d04/namespace_simulator.htm">Simulator</a></li><li class="navelem"><a class="el" href="../../d7/df6/namespace_simulator_1_1_view_model.htm">ViewModel</a></li><li class="navelem"><a class="el" href="../../d2/db1/class_simulator_1_1_view_model_1_1_main_view_model.htm">MainViewModel</a></li>
-    <li class="footer">Generated on Sun Sep 11 2022 00:14:46 for WolfNet 6502 WorkBench Computer Emulator by
+    <li class="footer">Generated on Mon Sep 12 2022 00:52:02 for WolfNet 6502 WorkBench Computer Emulator by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.3 </li>
   </ul>

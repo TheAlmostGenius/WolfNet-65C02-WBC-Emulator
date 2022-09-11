@@ -3,6 +3,8 @@ var class_simulator_1_1_main_window =
     [ "MainWindow", "d8/ddb/class_simulator_1_1_main_window_a7cdcf0efea2b3be03fc4ec74a71dc254.htm#a7cdcf0efea2b3be03fc4ec74a71dc254", null ],
     [ "Connect", "d8/ddb/class_simulator_1_1_main_window_a8f46af74210f89f7711424c9b692a8fc.htm#a8f46af74210f89f7711424c9b692a8fc", null ],
     [ "Connect", "d8/ddb/class_simulator_1_1_main_window_a8f46af74210f89f7711424c9b692a8fc.htm#a8f46af74210f89f7711424c9b692a8fc", null ],
+    [ "Connect", "d8/ddb/class_simulator_1_1_main_window_a8f46af74210f89f7711424c9b692a8fc.htm#a8f46af74210f89f7711424c9b692a8fc", null ],
+    [ "InitializeComponent", "d8/ddb/class_simulator_1_1_main_window_a1c003092c7a42952d666e0aaed749fa5.htm#a1c003092c7a42952d666e0aaed749fa5", null ],
     [ "InitializeComponent", "d8/ddb/class_simulator_1_1_main_window_a1c003092c7a42952d666e0aaed749fa5.htm#a1c003092c7a42952d666e0aaed749fa5", null ],
     [ "InitializeComponent", "d8/ddb/class_simulator_1_1_main_window_a1c003092c7a42952d666e0aaed749fa5.htm#a1c003092c7a42952d666e0aaed749fa5", null ],
     [ "NotificationMessageReceived", "d8/ddb/class_simulator_1_1_main_window_a0a9c0f78aedd4dae10e6817c80775e9d.htm#a0a9c0f78aedd4dae10e6817c80775e9d", null ],
