@@ -171,3 +171,7 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+Settings.xml
+Errors.log
+BIOS.bin
