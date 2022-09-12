@@ -110,7 +110,7 @@ sql
 TestResults
 TestResult.xml
 CoverageReports/*
-#Documentation/*
+Documentation/*
 *.Cache
 ClientBin
 stylecop.*
