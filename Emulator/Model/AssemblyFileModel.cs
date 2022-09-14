@@ -1,4 +1,4 @@
-﻿namespace Simulator.Model
+﻿namespace Emulator.Model
 {
 	/// <summary>
 	/// The Model used when Loading a Program.

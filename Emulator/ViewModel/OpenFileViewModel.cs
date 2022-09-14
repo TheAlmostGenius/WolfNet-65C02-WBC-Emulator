@@ -10,10 +10,10 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
-using Simulator.Model;
+using Emulator.Model;
 using ResDict = System.Windows.ResourceDictionary;
 
-namespace Simulator.ViewModel
+namespace Emulator.ViewModel
 {
 	/// <summary>
 	/// The ViewModel Used by the OpenFileView
@@ -34,32 +34,17 @@ namespace Simulator.ViewModel
         /// <summary>
         /// The Relay Command used to select a file
         /// </summary>
-        public RelayCommand SelectBiosFileCommand { get; set; }
-
-        /// <summary>
-        /// The Relay Command used to select a file
-        /// </summary>
-        public RelayCommand SelectRomFileCommand { get; set; }
+        public RelayCommand SelectFileCommand { get; set; }
 
         /// <summary>
         /// The path of the file being opened
         /// </summary>
-        public string BiosFilePath { get; set; }
-
-        /// <summary>
-        /// The path of the file being opened
-        /// </summary>
-        public string RomFilePath { get; set; }
+        public string FilePath { get; set; }
 
         /// <summary>
         /// The name of the file being opened
         /// </summary>
-        public string BiosFileName { get; set; }
-
-        /// <summary>
-        /// The name of the file being opened
-        /// </summary>
-        public string RomFileName { get; set; }
+        public string FileName { get; set; }
 
         /// <summary>
         /// The Initial Program Counter, used only when opening a Binary File. Not used when opening saved state.
@@ -78,11 +63,7 @@ namespace Simulator.ViewModel
         {
             get
             {
-                if (BiosLoadable && IsBiosOnly)
-                {
-                    return true;
-                }
-                else if (BiosLoadable && RomLoadable && IsNotStateFile)
+                if (IsLoadable && IsNotStateFile)
                 {
                     return true;
                 }
@@ -101,20 +82,15 @@ namespace Simulator.ViewModel
         /// <summary>
         /// Tells the UI if the ROM file is to be loaded.
         /// </summary>
-        public bool IsRomEnabled
+        public bool IsEnabled
         {
-            get { return !(IsBiosOnly || !IsNotStateFile); }
+            get { return IsNotStateFile; }
         }
 
         /// <summary>
         /// Tells the UI if the file has been selected succesfully.
         /// </summary>
-        public bool BiosLoadable { get { return !string.IsNullOrEmpty(BiosFilePath); } }
-
-        /// <summary>
-        /// Tells the UI if the file has been selected succesfully.
-        /// </summary>
-        public bool RomLoadable { get { return !string.IsNullOrEmpty(RomFilePath); } }
+        public bool IsLoadable { get { return !string.IsNullOrEmpty(FilePath); } }
 
         /// <summary>
         /// Tells the UI if the file type is not a state file. This Property prevents the Initial Program Counter and Memory Offset from being enabled.
@@ -123,17 +99,12 @@ namespace Simulator.ViewModel
         {
             get
             {
-                if (string.IsNullOrEmpty(BiosFilePath))
+                if (string.IsNullOrEmpty(FilePath))
                     return true;
 
-                return !BiosFilePath.EndsWith(".6502");
+                return !FilePath.EndsWith(".6502");
             }
         }
-
-        /// <summary>
-        /// Tells the UI to only load the BIOS
-        /// </summary>
-        public static bool IsBiosOnly { get; set; }
         #endregion
 
         #region Public Methods
@@ -144,17 +115,15 @@ namespace Simulator.ViewModel
         {
             LoadProgramCommand = new RelayCommand(Load);
 			CloseCommand = new RelayCommand(Close);
-            SelectBiosFileCommand = new RelayCommand(Select);
-            SelectRomFileCommand = new RelayCommand(RomSelect);
+            SelectFileCommand = new RelayCommand(Select);
         }
         #endregion
 
         #region Private Methods
         private void Load()
         {
-            var extension1 = Path.GetExtension(BiosFilePath);
-            var extension2 = Path.GetExtension(RomFilePath);
-            if (extension1 != null && extension1.ToUpper() == ".BIN" && extension2 != null && extension2.ToUpper() == ".BIN" && !TryLoadBinFile())
+            var extension1 = Path.GetExtension(FilePath);
+            if (extension1 != null && extension1.ToUpper() == ".BIN" && !TryLoadBinFile())
 				return;
 
 			if (extension1 != null && extension1 == ".6502" && !TryLoad6502File())
@@ -165,7 +134,7 @@ namespace Simulator.ViewModel
         private bool TryLoad6502File()
 		{
 			var formatter = new BinaryFormatter();
-			Stream stream = new FileStream(BiosFilePath, FileMode.Open);
+			Stream stream = new FileStream(FilePath, FileMode.Open);
 
 			var fileModel = (StateFileModel)formatter.Deserialize(stream);
 
@@ -178,39 +147,22 @@ namespace Simulator.ViewModel
 
 		private bool TryLoadBinFile()
 		{
-			byte[] bios;
-			try
-			{
-				bios = File.ReadAllBytes(BiosFilePath);
-			}
-			catch (Exception)
-			{
-				MessageBox.Show("Unable to Open BIOS Binary");
-				return false;
-			}
-
-            byte[] rom = null;
-            if (!IsBiosOnly)
+            byte[] rom;
+            try
             {
-                try
-                {
-                    rom = File.ReadAllBytes(RomFilePath);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Unable to Open ROM Binary");
-                    return false;
-                }
+                rom = File.ReadAllBytes(FilePath);
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Unable to Open ROM Binary");
+                return false;
+            }
+
             Messenger.Default.Send(new NotificationMessage<AssemblyFileModel>(new AssemblyFileModel
             {
-                Bios = bios,
                 Rom = rom,
-                IsBiosOnly = IsBiosOnly,
-                BiosFilePath = BiosFilePath,
-                BiosFileName = BiosFileName,
-                RomFilePath = RomFilePath,
-                RomFileName = RomFileName,
+                RomFilePath = FilePath,
+                RomFileName = FileName,
             }, "FileLoaded"));
 
 			return true;
@@ -221,25 +173,7 @@ namespace Simulator.ViewModel
 			Messenger.Default.Send(new NotificationMessage("CloseFileWindow"));
 		}
 
-		private void Select()
-		{
-			var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.6502)|*.bin;*.6502|Binary Assembly (*.bin)|*.bin|WolfNet W65C02 Emulator Save State (*.6502)|*.6502" };
-
-			var result = dialog.ShowDialog();
-
-			if (result != true)
-				return;
-
-			BiosFilePath = dialog.FileName;
-            BiosFileName = Path.GetFileName(BiosFilePath);
-            RaisePropertyChanged("BiosFilePath");
-            RaisePropertyChanged("BiosFileName");
-            RaisePropertyChanged("BiosLoadEnabled");
-            RaisePropertyChanged("LoadEnabled");
-            RaisePropertyChanged("IsNotStateFile");
-        }
-
-        private void RomSelect()
+        private void Select()
         {
             var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin)|*.bin|Binary Assembly (*.bin)|*.bin" };
 
@@ -248,11 +182,10 @@ namespace Simulator.ViewModel
             if (result != true)
                 return;
 
-            RomFilePath = dialog.FileName;
-            RomFileName = Path.GetFileName(RomFilePath);
-            RaisePropertyChanged("RomFilePath");
-            RaisePropertyChanged("RomFileName");
-            RaisePropertyChanged("RomLoadEnabled");
+            FilePath = dialog.FileName;
+            FileName = Path.GetFileName(FilePath);
+            RaisePropertyChanged("FilePath");
+            RaisePropertyChanged("FileName");
             RaisePropertyChanged("LoadEnabled");
             RaisePropertyChanged("IsNotStateFile");
         }

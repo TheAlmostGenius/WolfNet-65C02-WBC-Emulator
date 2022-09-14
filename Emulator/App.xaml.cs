@@ -1,4 +1,4 @@
-﻿namespace Simulator
+﻿namespace Emulator
 {
 	/// <summary>
 	/// Interaction logic for App.xaml

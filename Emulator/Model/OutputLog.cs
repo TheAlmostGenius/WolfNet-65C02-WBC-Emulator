@@ -1,7 +1,7 @@
 ﻿using System;
 using Hardware;
 
-namespace Simulator.Model
+namespace Emulator.Model
 {
 	/// <summary>
 	/// The OutputLog Model. Used by the outputlog grid to show a history of operations performed by the CPU

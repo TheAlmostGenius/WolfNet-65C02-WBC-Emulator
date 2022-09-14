@@ -5,9 +5,9 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
-using Simulator.Model;
+using Emulator.Model;
 
-namespace Simulator.ViewModel
+namespace Emulator.ViewModel
 {
 	/// <summary>
 	/// The ViewModel Used by the SaveFileView

@@ -1,6 +1,6 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
 
-namespace Simulator
+namespace Emulator
 {
 	/// <summary>
 	/// Interaction logic for SaveState.xaml

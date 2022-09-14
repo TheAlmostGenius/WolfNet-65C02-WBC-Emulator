@@ -1,8 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
-using Simulator.ViewModel;
+using Emulator.ViewModel;
 using System;
 
-namespace Simulator
+namespace Emulator
 {
 	/// <summary>
 	/// Interaction logic for OpenFile.xaml
@@ -20,14 +20,5 @@ namespace Simulator
 			if (notificationMessage.Notification == "CloseFileWindow")
 				Close();
 		}
-        private void HandleBiosOnlyChecked(object sender, EventArgs e)
-        {
-            OpenFileViewModel.IsBiosOnly = true;
-        }
-
-        private void HandleBiosOnlyUnchecked(object sender, EventArgs e)
-        {
-            OpenFileViewModel.IsBiosOnly = false;
-        }
     }
 }

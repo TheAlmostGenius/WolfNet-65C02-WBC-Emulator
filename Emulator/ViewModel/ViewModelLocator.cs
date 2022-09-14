@@ -1,7 +1,7 @@
 /*
   In App.xaml:
   <Application.Resources>
-      <vm:ViewModelLocator xmlns:vm="clr-namespace:Simulator"
+      <vm:ViewModelLocator xmlns:vm="clr-namespace:Emulator"
                            x:Key="Locator" />
   </Application.Resources>
   
@@ -15,7 +15,7 @@
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
 
-namespace Simulator.ViewModel
+namespace Emulator.ViewModel
 {
     /// <summary>
     /// This class contains static references to all the view models in the

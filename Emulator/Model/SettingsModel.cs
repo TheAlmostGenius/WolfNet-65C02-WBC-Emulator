@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace Simulator.Model
+namespace Emulator.Model
 {
 	/// <summary>
 	/// Model that contains the required information needed to save the current settings to disk
 	/// </summary>
     [Serializable]
-    [XmlRootAttribute("SettingsFileModel", Namespace="Simulator.Model", IsNullable = false)]
+    [XmlRootAttribute("SettingsFileModel", Namespace="Emulator.Model", IsNullable = false)]
 	public class SettingsModel
     {
         /// <summary>

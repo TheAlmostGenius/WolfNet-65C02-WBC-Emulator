@@ -90,7 +90,7 @@ namespace Hardware
             }
             catch (UnauthorizedAccessException w)
             {
-                FileStream file = new FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                FileStream file = new FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine(w.Message);
                 stream.WriteLine(w.Source);
@@ -113,7 +113,7 @@ namespace Hardware
             catch (System.TimeoutException t)
             {
                 _ = t;
-                FileStream file = new FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                FileStream file = new FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine("Read/Write error: Port timed out!");
                 stream.WriteLine("Please ensure all cables are connected properly!");
@@ -154,7 +154,7 @@ namespace Hardware
             }
             catch (Win32Exception w)
             {
-                FileStream file = new FileStream(Hardware.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+                FileStream file = new FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);
                 StreamWriter stream = new StreamWriter(file);
                 stream.WriteLine(w.Message);
                 stream.WriteLine(w.ErrorCode.ToString());

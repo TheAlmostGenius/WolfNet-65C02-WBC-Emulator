@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Simulator.Model
+namespace Emulator.Model
 {
 	/// <summary>
 	/// Model that contains the required information needed to save the current state of the processor to disk

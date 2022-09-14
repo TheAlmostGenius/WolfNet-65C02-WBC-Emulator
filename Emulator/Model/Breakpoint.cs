@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Simulator.Model
+namespace Emulator.Model
 {
 	/// <summary>
 	/// A Representation of a Breakpoint

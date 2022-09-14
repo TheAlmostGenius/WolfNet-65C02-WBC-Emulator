@@ -1,4 +1,4 @@
-﻿namespace Simulator.Model
+﻿namespace Emulator.Model
 {
 	/// <summary>
 	/// A Model of a Single Page of memory

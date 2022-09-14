@@ -7,9 +7,9 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using Simulator.Model;
+using Emulator.Model;
 
-namespace Simulator.ViewModel
+namespace Emulator.ViewModel
 {
 	/// <summary>
 	/// The ViewModel Used by the SaveFileView
@@ -30,7 +30,7 @@ namespace Simulator.ViewModel
 		/// <summary>
 		/// Tells the UI that that a file has been selected and can be saved.
 		/// </summary>
-		public bool ApplyEnabled { get { return !string.IsNullOrEmpty(Hardware.Hardware.SettingsFile); } }
+		public bool ApplyEnabled { get { return !string.IsNullOrEmpty(Emulator.FileLocations.SettingsFile); } }
 
         /// <summary>
         /// Creates a new instance of PortList, the list of all COM ports available to the computer

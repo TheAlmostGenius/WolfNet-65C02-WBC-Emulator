@@ -1,4 +1,4 @@
-﻿<Window x:Class="Simulator.MainWindow"
+﻿<Window x:Class="Emulator.MainWindow" x:Name="EmulatorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
@@ -70,7 +70,7 @@
                     <MenuItem Header="_Open" Command="{Binding OpenCommand}" />
                     <MenuItem Header="_Save" Command="{Binding SaveStateCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
                     <Separator />
-                    <MenuItem Header="E_xit" />
+                    <MenuItem Header="E_xit" Command="{Binding CloseCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=EmulatorWindow}" />
                 </MenuItem>
                 <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Breakpoints" >
                     <MenuItem Header="_Add" IsEnabled="{Binding Path=IsProgramLoaded}" Icon="Images/add.png" Command="{Binding AddBreakPointCommand}" />
@@ -101,7 +101,6 @@
         <Button Content="Step" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="160,417,0,0" Name="Step" VerticalAlignment="Top" Width="75" Command="{Binding Path= StepCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
         <Button Content="Reset" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="255,417,0,0" Name="Reset" VerticalAlignment="Top" Width="75" Command="{Binding Path= ResetCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
 
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,53,0,0" Name="BiosFileNameText" Text="{Binding Path=BiosFileName}" VerticalAlignment="Top" Width="546" FontSize="14" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,82,0,0" Name="RomFileNameText" Text="{Binding Path=RomFileName}" VerticalAlignment="Top" Width="546" FontSize="14" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,375,0,0" x:Name="ComPortNameText" Text="{Binding Path=SettingsModel.ComPortName}" VerticalAlignment="Top" Width="48" FontSize="14" />
         <DataGrid Height="248" HorizontalAlignment="Left" Margin="62,110,0,0" x:Name="Breakpoints" VerticalAlignment="Top" MaxWidth="800" Width="546" AutoGenerateColumns="False" 

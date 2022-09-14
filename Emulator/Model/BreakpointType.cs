@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Simulator.Model
+namespace Emulator.Model
 {
 	/// <summary>
 	/// The Type of Breakpoint
