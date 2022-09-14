@@ -153,7 +153,7 @@ html {
 --font-family-normal: Roboto,sans-serif;
 --font-family-monospace: monospace,fixed;
 --font-family-nav: 'Lucida Grande',Geneva,Helvetica,Arial,sans-serif;
---font-family-title: Tahoma,Arial,sans-serif;
+--font-family-title: 'Subspace', fantasy;
 --font-family-toc: Verdana,'DejaVu Sans',Geneva,sans-serif;
 --font-family-search: Arial,Verdana,sans-serif;
 --font-family-icon: Arial,Helvetica;
@@ -314,14 +314,14 @@ html {
 --tooltip-shadow: 1px 1px 7px gray;
 
 /** font-family */
---font-family-normal: Roboto,sans-serif;
---font-family-monospace: monospace,fixed;
---font-family-nav: 'Lucida Grande',Geneva,Helvetica,Arial,sans-serif;
---font-family-title: Tahoma,Arial,sans-serif;
---font-family-toc: Verdana,'DejaVu Sans',Geneva,sans-serif;
---font-family-search: Arial,Verdana,sans-serif;
---font-family-icon: Arial,Helvetica;
---font-family-tooltip: Roboto,sans-serif;
+--font-family-normal: "lucida console", sans-serif;
+--font-family-monospace: "lucida console", sans-serif;
+--font-family-nav: "lucida console", sans-serif;
+--font-family-title: "lucida console", sans-serif;
+--font-family-toc: "lucida console", sans-serif;
+--font-family-search: "lucida console", sans-serif;
+--font-family-icon: "lucida console", sans-serif;
+--font-family-tooltip: "lucida console", sans-serif;
 
 }}
 body {
