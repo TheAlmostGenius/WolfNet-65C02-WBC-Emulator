@@ -199,10 +199,20 @@
 
 % End of preamble, now comes the document contents
 %===== C O N T E N T S =====
-
-\usepackage{fontspec}
 \begin{document}
-\setmainfont[Ligatures=TeX]{Subspace}
+
+%%BEGIN LATEX_CUSTOM_FONT
+	\setmainfont{Subspace.otf}[
+			Ligatures = TeX,
+			Path = ./ ]
+	\setsansfont{Subspace.otf}[
+			Ligatures = TeX,
+			Path = ./ ]
+	\setmonofont{Subspace.otf}[
+			Ligatures = TeX,
+			Path = ./ ]
+%%END LATEX_CUSTOM_FONT
+
 \raggedbottom
 
 $latexdocumentpre
@@ -219,7 +229,6 @@ $latexdocumentpre
 %%END USE_PDFLATEX
 %%END PDF_HYPERLINKS
   \pagenumbering{alph}
-\fontfamily{Subspace}\selectfont
   \begin{titlepage}
   \vspace*{7cm}
   \begin{center}%
