@@ -173,5 +173,5 @@ pip-log.txt
 .DS_Store
 
 Settings.xml
-Errors.log
-BIOS.bin
+*.log
+*.bin
