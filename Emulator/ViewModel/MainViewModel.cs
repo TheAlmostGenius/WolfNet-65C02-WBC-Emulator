@@ -15,6 +15,8 @@ using Emulator.Model;
 using W65C02 = Hardware.W65C02;
 using W65C22 = Hardware.W65C22;
 using W65C51 = Hardware.W65C51;
+using System.Runtime.Serialization.Formatters.Binary;
+using Microsoft.Win32;
 
 namespace Emulator.ViewModel
 {
@@ -33,22 +35,27 @@ namespace Emulator.ViewModel
         /// <summary>
         /// The 65C02 Processor.
         /// </summary>
-        public W65C02 W65C02 { get; set; }
+        public W65C02 W65C02 { get; private set; }
 
         /// <summary>
         /// General Purpose I/O, Shift Registers and Timers.
         /// </summary>
-        public W65C22 W65C22 { get; set; }
+        public W65C22 W65C22 { get; private set; }
 
         /// <summary>
         /// Memory management and 65SIB.
         /// </summary>
-        public W65C22 MM65SIB { get; set; }
+        public W65C22 MM65SIB { get; private set; }
 
         /// <summary>
         /// The ACIA serial interface.
         /// </summary>
-        public W65C51 W65C51 { get; set; }
+        public W65C51 W65C51 { get; private set; }
+
+        /// <summary>
+        /// The AT28Cxx(x) ROM.
+        /// </summary>
+        public AT28CXX AT28C010 { get; private set; }
 
         /// <summary>
         /// The Current Memory Page
@@ -73,12 +80,12 @@ namespace Emulator.ViewModel
         /// <summary>
         /// The currently loaded binary file. (If it is indeed loaded, that is.)
         /// </summary>
-        public AssemblyFileModel AssemblyFile { get; set; }
+        public RomFileModel RomFile { get; set; }
 
-		/// <summary>
-		/// The Current Disassembly
-		/// </summary>
-		public string CurrentDisassembly
+        /// <summary>
+        /// The Current Disassembly
+        /// </summary>
+        public string CurrentDisassembly
 		{
 			get
 			{
@@ -149,7 +156,10 @@ namespace Emulator.ViewModel
         /// </summary>
         public int CpuSpeed { get; set; }
 
-		public static SettingsModel SettingsModel { get; set; }
+        /// <summary>
+        /// The Model used for saving, loading and using data from Settings.xml
+        /// </summary>
+        public static SettingsModel SettingsModel { get; set; }
 
 		/// <summary>
 		/// RelayCommand for Stepping through the progam one instruction at a time.
@@ -222,11 +232,9 @@ namespace Emulator.ViewModel
             SettingsCommand = new RelayCommand(Settings);
 			CloseCommand = new RelayCommand<IClosable>(Close);
 
-            Messenger.Default.Register<NotificationMessage<AssemblyFileModel>>(this, BinaryLoadedNotification);
+            Messenger.Default.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
             Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, SettingsAppliedNotifcation);
-            RomFilePath = "No ROM Loaded";
-            RomFileName = "No ROM Loaded";
 
             MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
@@ -265,7 +273,7 @@ namespace Emulator.ViewModel
         #endregion
 
         #region Private Methods
-		private void Close(IClosable window)
+        private void Close(IClosable window)
 		{
 			if ((window != null) && (!IsRunning))
 			{
@@ -273,23 +281,33 @@ namespace Emulator.ViewModel
 			}
 		}
 
+//		private void OpenFileSimple()
+//		{
+//          Window window = new OpenFile();
+//          window.ShowDialog();
+//      }
+
 		private void TryLoadBiosFile(byte[] bios)
 		{
             if (bios != null)
             {
                 try
                 {
-                    W65C02.LoadProgram(MemoryMap.SharedRom, bios);
+                    W65C02.LoadRam(MemoryMap.SharedRom.Offset, bios);
                 }
                 catch (Exception)
                 {
-                    Environment.Exit(ExitCodes.BIOS_LOAD2MEM_ERROR);
-                }
+					#if DEBUG
+						Environment.Exit(ExitCodes.BIOS_LOADPROGRAM_ERROR);
+					#endif
+				}
             }
             else
             {
-                Environment.Exit(ExitCodes.BIOS_FILE_LOAD_ERROR);
-            }
+				#if DEBUG
+					Environment.Exit(ExitCodes.LOAD_BIOS_FILE_ERROR);
+				#endif
+			}
         }
 
         private byte[] TryReadBiosFile()
@@ -307,19 +325,26 @@ namespace Emulator.ViewModel
 
         }
 
-        private void BinaryLoadedNotification(NotificationMessage<AssemblyFileModel> notificationMessage)
+        private void BinaryLoadedNotification(NotificationMessage<RomFileModel> notificationMessage)
 		{
 			if (notificationMessage.Notification != "FileLoaded")
 			{
 				return;
 			}
 
-            AssemblyFile.Rom = notificationMessage.Content.Rom;
-            AssemblyFile.RomFilePath = notificationMessage.Content.RomFilePath;
-            AssemblyFile.RomFileName = notificationMessage.Content.RomFileName;
+            RomFile.Rom = notificationMessage.Content.Rom;
+            RomFile.RomFilePath = notificationMessage.Content.RomFilePath;
+            RomFile.RomFileName = notificationMessage.Content.RomFileName;
 
             // Load Banked ROM
-            W65C02.LoadProgram(MemoryMap.BankedRom, notificationMessage.Content.Rom);
+            if (notificationMessage.Content.Rom.Length <= MemoryMap.BankedRom.BankSize || (notificationMessage.Content.Rom.Length > MemoryMap.BankedRom.BankSize) || (notificationMessage.Content.Rom.Length <= MemoryMap.BankedRom.TotalLength))
+            {
+                AT28CXX.LoadRom(1, notificationMessage.Content.Rom);
+            } else
+			{
+                AT28CXX.LoadRom(notificationMessage.Content.Rom);
+            }
+
             RomFilePath = notificationMessage.Content.RomFilePath;
             RaisePropertyChanged("RomFilePath");
             RomFileName = String.Format("Loaded Program: {0}", notificationMessage.Content.RomFileName);
@@ -331,7 +356,7 @@ namespace Emulator.ViewModel
 			Reset();
 		}
 
-            private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
+        private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
         {
             if (notificationMessage.Notification != "FileLoaded")
             {
@@ -618,8 +643,8 @@ namespace Emulator.ViewModel
 
 			if (_backgroundWorker.IsBusy)
 				_backgroundWorker.CancelAsync();
-
-			Messenger.Default.Send(new NotificationMessage<AssemblyFileModel>(AssemblyFile, "OpenFileWindow"));
+			
+			Messenger.Default.Send(new NotificationMessage("OpenFileWindow"));
 		}
 
 		private void SaveState()

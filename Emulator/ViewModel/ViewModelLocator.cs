@@ -76,7 +76,9 @@ namespace Emulator.ViewModel
         /// </summary>
         public static void Cleanup()
         {
-            // TODO Clear the ViewModels
+            /// <todo>
+            /// Clear the ViewModels
+            /// </todo>
         }
     }
 }

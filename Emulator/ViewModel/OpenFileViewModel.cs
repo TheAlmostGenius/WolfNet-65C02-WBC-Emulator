@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
-using System.IO.Ports;
-using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows;
 using GalaSoft.MvvmLight;
@@ -11,7 +7,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Win32;
 using Emulator.Model;
-using ResDict = System.Windows.ResourceDictionary;
+using Hardware;
 
 namespace Emulator.ViewModel
 {
@@ -24,7 +20,7 @@ namespace Emulator.ViewModel
         /// <summary>
         /// The Relay Command used to Load a Program
         /// </summary>
-        public RelayCommand LoadProgramCommand { get; set; }
+        public RelayCommand LoadRomCommand { get; set; }
 
         /// <summary>
         /// The Relay Command used to close the dialog
@@ -113,7 +109,7 @@ namespace Emulator.ViewModel
         /// </summary>
         public OpenFileViewModel()
         {
-            LoadProgramCommand = new RelayCommand(Load);
+            LoadRomCommand = new RelayCommand(Load);
 			CloseCommand = new RelayCommand(Close);
             SelectFileCommand = new RelayCommand(Select);
         }
@@ -131,6 +127,7 @@ namespace Emulator.ViewModel
 
 			Close();
 		}
+
         private bool TryLoad6502File()
 		{
 			var formatter = new BinaryFormatter();
@@ -145,12 +142,16 @@ namespace Emulator.ViewModel
 			return true;
 		}
 
-		private bool TryLoadBinFile()
-		{
-            byte[] rom;
+        private bool TryLoadBinFile()
+        {
+            byte[][] _rom = new byte[MemoryMap.BankedRom.TotalBanks][];
             try
             {
-                rom = File.ReadAllBytes(FilePath);
+                FileStream _file = new FileStream(FilePath, FileMode.Open);
+                for (ushort j = 0; j < MemoryMap.BankedRom.TotalBanks; j++)
+                {
+                    _file.Read(_rom[j], j * MemoryMap.BankedRom.BankSize, MemoryMap.BankedRom.BankSize);
+                }
             }
             catch (Exception)
             {
@@ -158,9 +159,9 @@ namespace Emulator.ViewModel
                 return false;
             }
 
-            Messenger.Default.Send(new NotificationMessage<AssemblyFileModel>(new AssemblyFileModel
+            Messenger.Default.Send(new NotificationMessage<RomFileModel>(new RomFileModel
             {
-                Rom = rom,
+                Rom = _rom,
                 RomFilePath = FilePath,
                 RomFileName = FileName,
             }, "FileLoaded"));

@@ -1,4 +1,5 @@
-﻿<Window x:Class="Emulator.MainWindow" x:Name="EmulatorWindow"
+﻿<Window x:Class="Emulator.MainWindow"
+        x:Name="EmulatorWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
@@ -67,14 +68,14 @@
         <Grid Height="23" Width="1024" VerticalAlignment="Top" HorizontalAlignment="Center" >
             <Menu Height="23" Width="1024" >
                 <MenuItem Header="File" VerticalAlignment="Top" HorizontalAlignment="Left" >
-                    <MenuItem Header="_Open" Command="{Binding OpenCommand}" />
-                    <MenuItem Header="_Save" Command="{Binding SaveStateCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
+                    <MenuItem Header="_Open" Command="{Binding OpenCommand, Mode=OneWay}" />
+                    <MenuItem Header="_Save" Command="{Binding SaveStateCommand, Mode=OneWay}" IsEnabled="{Binding Path=IsRomLoaded}" />
                     <Separator />
                     <MenuItem Header="E_xit" Command="{Binding CloseCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=EmulatorWindow}" />
                 </MenuItem>
                 <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Breakpoints" >
-                    <MenuItem Header="_Add" IsEnabled="{Binding Path=IsProgramLoaded}" Icon="Images/add.png" Command="{Binding AddBreakPointCommand}" />
-                    <MenuItem Header="_Remove" IsEnabled="{Binding Path=IsProgramLoaded}" Icon="Images/remove.png" Command="{Binding RemoveBreakPointCommand}" />
+                    <MenuItem Header="_Add" IsEnabled="{Binding Path=IsRomLoaded}" Icon="/Images/add.png" Command="{Binding AddBreakPointCommand}" />
+                    <MenuItem Header="_Remove" IsEnabled="{Binding Path=IsRomLoaded}" Icon="/Images/remove.png" Command="{Binding RemoveBreakPointCommand}" />
                 </MenuItem>
                 <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Settings"  Command="{Binding Path= SettingsCommand}" />
             </Menu>
@@ -97,9 +98,9 @@
                 <DataGridTextColumn Header="CycleCount" MinWidth="200" Width="Auto" CanUserResize="False" IsReadOnly="True" Binding="{Binding NumberOfCycles, Mode=OneWay}" HeaderStyle="{StaticResource ColumnHeaderStyle}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Height="23" HorizontalAlignment="Left" Margin="62,416,0,0" Name="Run" VerticalAlignment="Top" Width="75" FontSize="14" Command="{Binding Path= RunPauseCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" Style="{StaticResource RunButtonStyle}" />
-        <Button Content="Step" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="160,417,0,0" Name="Step" VerticalAlignment="Top" Width="75" Command="{Binding Path= StepCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
-        <Button Content="Reset" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="255,417,0,0" Name="Reset" VerticalAlignment="Top" Width="75" Command="{Binding Path= ResetCommand}" IsEnabled="{Binding Path=IsProgramLoaded}" />
+        <Button Height="23" HorizontalAlignment="Left" Margin="62,416,0,0" Name="Run" VerticalAlignment="Top" Width="75" FontSize="14" Command="{Binding Path= RunPauseCommand}" IsEnabled="{Binding Path=IsRomLoaded}" Style="{StaticResource RunButtonStyle}" />
+        <Button Content="Step" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="160,417,0,0" Name="Step" VerticalAlignment="Top" Width="75" Command="{Binding Path= StepCommand}" IsEnabled="{Binding Path=IsRomLoaded}" />
+        <Button Content="Reset" FontSize="14" Height="23" HorizontalAlignment="Left" Margin="255,417,0,0" Name="Reset" VerticalAlignment="Top" Width="75" Command="{Binding Path= ResetCommand}" IsEnabled="{Binding Path=IsRomLoaded}" />
 
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,82,0,0" Name="RomFileNameText" Text="{Binding Path=RomFileName}" VerticalAlignment="Top" Width="546" FontSize="14" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="62,375,0,0" x:Name="ComPortNameText" Text="{Binding Path=SettingsModel.ComPortName}" VerticalAlignment="Top" Width="48" FontSize="14" />

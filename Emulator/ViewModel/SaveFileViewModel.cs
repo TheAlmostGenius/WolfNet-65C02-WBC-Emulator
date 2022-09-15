@@ -56,7 +56,7 @@ namespace Emulator.ViewModel
 		/// <summary>
 		/// Instantiates a new instance of the SaveFileViewModel
 		/// </summary>
-		/// <param name="stateFileModel">The StateFIleModel to be serialized to a file</param>
+		/// <param name="stateFileModel">The StateFileModel to be serialized to a file</param>
 		public SaveFileViewModel(StateFileModel stateFileModel)
 		{
 			SaveFileCommand = new RelayCommand(Save);

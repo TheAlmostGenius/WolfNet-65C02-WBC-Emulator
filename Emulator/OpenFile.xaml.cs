@@ -1,6 +1,4 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
-using Emulator.ViewModel;
-using System;
 
 namespace Emulator
 {
