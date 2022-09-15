@@ -3,12 +3,12 @@
 	/// <summary>
 	/// The Model used when Loading a Program.
 	/// </summary>
-	public class AssemblyFileModel
+	public class RomFileModel
     {
         /// <summary>
         /// The Program Converted into Hex.
         /// </summary>
-        public byte[] Rom { get; set; }
+        public byte[][] Rom { get; set; }
 
         /// <summary>
         /// The path of the Program that was loaded.
