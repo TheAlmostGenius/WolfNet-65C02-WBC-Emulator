@@ -209,7 +209,7 @@ namespace Hardware
         /// </summary>
         /// <param name="offset">The offset in memory when loading the program.</param>
         /// <param name="program">The program to be loaded</param>
-        public static void LoadProgram(int offset, byte[] program)
+        public static void LoadRam(int offset, byte[] program)
         {
             if (offset > Memory.Length)
                 throw new InvalidOperationException("Offset '{0}' is larger than memory size '{1}'");
@@ -231,9 +231,9 @@ namespace Hardware
         /// <param name="offset">The offset in memory when loading the program.</param>
         /// <param name="program">The program to be loaded</param>
         /// <param name="initialProgramCounter">The initial PC value, this is the entry point of the program</param>
-        public static void LoadProgram(int offset, byte[] program, int initialProgramCounter)
+        public static void LoadRam(int offset, byte[] program, int initialProgramCounter)
         {
-            LoadProgram(offset, program);
+            LoadRam(offset, program);
 
             var bytes = BitConverter.GetBytes(initialProgramCounter);
 
