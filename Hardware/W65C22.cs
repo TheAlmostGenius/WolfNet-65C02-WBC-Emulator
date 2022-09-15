@@ -48,7 +48,7 @@ namespace Hardware
         #endregion
 
         #region Properties
-        ushort Offset { get; set; }
+        private ushort Offset { get; set; }
 
         /// <summary>
         /// T1 timer control
@@ -126,11 +126,6 @@ namespace Hardware
             Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
             T1Init(1000);
             T2Init(1000);
-        }
-
-        public W65C22 get()
-        {
-            return this;
         }
 
         public void Reset()
