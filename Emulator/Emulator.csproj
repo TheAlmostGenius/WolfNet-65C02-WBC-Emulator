@@ -127,7 +127,7 @@
       <DependentUpon>SaveFile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\MemoryRowModel.cs" />
-    <Compile Include="Model\AssemblyFileModel.cs" />
+    <Compile Include="Model\RomFileModel.cs" />
     <Compile Include="Model\OutputLog.cs" />
     <Compile Include="MultiThreadedCollection.cs" />
     <Compile Include="OpenFile.xaml.cs">
@@ -177,6 +177,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <SplashScreen Include="SplashScreen.png" />
     <Resource Include="Images\wolf_logo_white.png" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
