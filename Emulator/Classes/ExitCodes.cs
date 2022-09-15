@@ -9,7 +9,8 @@ namespace Emulator
     public class ExitCodes
     {
         public static readonly int NO_ERROR = 0x00;
-        public static readonly int BIOS_LOAD2MEM_ERROR = 0x01;
-        public static readonly int BIOS_FILE_LOAD_ERROR = 0x02;
+        public static readonly int LOAD_BIOS_FILE_ERROR = 0x01;
+        public static readonly int BIOS_LOADPROGRAM_ERROR = 0x02;
+        public static readonly int LOAD_ROM_FILE_ERROR = 0x03;
     }
 }
