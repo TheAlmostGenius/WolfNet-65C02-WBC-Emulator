@@ -34,6 +34,7 @@ namespace Emulator.ViewModel
 			SimpleIoc.Default.Register<OpenFileViewModel>();
             SimpleIoc.Default.Register<SaveFileViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
+            SimpleIoc.Default.Register<AboutViewModel>();
         }
 
 		/// <summary>
@@ -52,7 +53,6 @@ namespace Emulator.ViewModel
 			get { return ServiceLocator.Current.GetInstance<OpenFileViewModel>(); }
         }
 
-
         /// <summary>
         /// The SaveFileViewModel Instance
         /// </summary>
@@ -60,7 +60,6 @@ namespace Emulator.ViewModel
         {
             get { return ServiceLocator.Current.GetInstance<SaveFileViewModel>(); }
         }
-
 
         /// <summary>
         /// The SaveFileViewModel Instance
@@ -70,6 +69,13 @@ namespace Emulator.ViewModel
             get { return ServiceLocator.Current.GetInstance<SettingsViewModel>(); }
         }
 
+        /// <summary>
+        /// The SaveFileViewModel Instance
+        /// </summary>
+        public AboutViewModel About
+        {
+            get { return ServiceLocator.Current.GetInstance<AboutViewModel>(); }
+        }
 
         /// <summary>
         /// The Cleanup Method

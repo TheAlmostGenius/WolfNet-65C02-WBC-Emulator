@@ -38,5 +38,10 @@ namespace Emulator.Model
         /// The ACIA Object that is being saved
         /// </summary>
         public Hardware.W65C51 W65C51 { get; set; }
+
+        /// <summary>
+        /// The ACIA Object that is being saved
+        /// </summary>
+        public Hardware.AT28CXX AT28C010 { get; set; }
     }
 }

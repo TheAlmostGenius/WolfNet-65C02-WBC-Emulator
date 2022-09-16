@@ -45,6 +45,7 @@ namespace Hardware
         public static void Init(string port)
         {
             Object = new SerialPort(port, defaultBaudRate, Parity.None, 8, StopBits.One);
+            ObjectName = port;
 
             ComInit(Object);
         }
@@ -57,6 +58,7 @@ namespace Hardware
         public static void Init(string port, int baudRate)
         {
             Object = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
+            ObjectName = port;
 
             ComInit(Object);
         }

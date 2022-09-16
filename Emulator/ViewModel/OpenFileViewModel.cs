@@ -28,17 +28,22 @@ namespace Emulator.ViewModel
         public RelayCommand CloseCommand { get; set; }
 
         /// <summary>
-        /// The Relay Command used to select a file
+        /// The Relay Command used to select a file.
         /// </summary>
         public RelayCommand SelectFileCommand { get; set; }
 
         /// <summary>
-        /// The path of the file being opened
+        /// The data from the ROM file.
+        /// </summary>
+        private byte[][] Rom { get; set; }
+
+        /// <summary>
+        /// The path of the file being opened.
         /// </summary>
         public string FilePath { get; set; }
 
         /// <summary>
-        /// The name of the file being opened
+        /// The name of the file being opened.
         /// </summary>
         public string FileName { get; set; }
 
@@ -105,12 +110,12 @@ namespace Emulator.ViewModel
 
         #region Public Methods
         /// <summary>
-        /// Creates a new instance of the OpenFileViewModel
+        /// Creates a new instance of the OpenFileViewModel.
         /// </summary>
         public OpenFileViewModel()
         {
             LoadRomCommand = new RelayCommand(Load);
-			CloseCommand = new RelayCommand(Close);
+            CloseCommand = new RelayCommand(Close);
             SelectFileCommand = new RelayCommand(Select);
         }
         #endregion
@@ -144,13 +149,19 @@ namespace Emulator.ViewModel
 
         private bool TryLoadBinFile()
         {
-            byte[][] _rom = new byte[MemoryMap.BankedRom.TotalBanks][];
             try
             {
                 FileStream _file = new FileStream(FilePath, FileMode.Open);
-                for (ushort j = 0; j < MemoryMap.BankedRom.TotalBanks; j++)
+                if (_file.Length > (MemoryMap.BankedRom.TotalBanks * MemoryMap.BankedRom.BankSize))
                 {
-                    _file.Read(_rom[j], j * MemoryMap.BankedRom.BankSize, MemoryMap.BankedRom.BankSize);
+                    MessageBox.Show("File length is greater than the total size of the ROM!");
+                }
+                for (ushort i = 0; i < MemoryMap.BankedRom.TotalBanks; i++)
+                {
+                    for (ushort j = 0; j < MemoryMap.BankedRom.BankSize; j++)
+                    {
+                        Rom[i][j] = (byte)_file.ReadByte();
+                    }
                 }
             }
             catch (Exception)
@@ -161,7 +172,7 @@ namespace Emulator.ViewModel
 
             Messenger.Default.Send(new NotificationMessage<RomFileModel>(new RomFileModel
             {
-                Rom = _rom,
+                Rom = Rom,
                 RomFilePath = FilePath,
                 RomFileName = FileName,
             }, "FileLoaded"));
@@ -172,11 +183,11 @@ namespace Emulator.ViewModel
         private static void Close()
 		{
 			Messenger.Default.Send(new NotificationMessage("CloseFileWindow"));
-		}
+        }
 
         private void Select()
         {
-            var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin)|*.bin|Binary Assembly (*.bin)|*.bin" };
+            var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.6502)|*.bin;*.6502|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.6502)|*.6502" };
 
             var result = dialog.ShowDialog();
 
@@ -185,7 +196,7 @@ namespace Emulator.ViewModel
 
             FilePath = dialog.FileName;
             FileName = Path.GetFileName(FilePath);
-            RaisePropertyChanged("FilePath");
+            RaisePropertyChanged("FilePame");
             RaisePropertyChanged("FileName");
             RaisePropertyChanged("LoadEnabled");
             RaisePropertyChanged("IsNotStateFile");

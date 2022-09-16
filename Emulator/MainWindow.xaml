@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="WolfNet 6502 WorkBench Computer Emulator" Height="768" Width="1024"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" Closing="OnClose">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" Loaded="OnLoad" Closing="OnClose" >
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
@@ -68,7 +68,6 @@
         <Grid Height="23" Width="1024" VerticalAlignment="Top" HorizontalAlignment="Center" >
             <Menu Height="23" Width="1024" >
                 <MenuItem Header="File" VerticalAlignment="Top" HorizontalAlignment="Left" >
-                    <MenuItem Header="_Open" Command="{Binding OpenCommand, Mode=OneWay}" />
                     <MenuItem Header="_Save" Command="{Binding SaveStateCommand, Mode=OneWay}" IsEnabled="{Binding Path=IsRomLoaded}" />
                     <Separator />
                     <MenuItem Header="E_xit" Command="{Binding CloseCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=EmulatorWindow}" />
@@ -77,7 +76,10 @@
                     <MenuItem Header="_Add" IsEnabled="{Binding Path=IsRomLoaded}" Icon="/Images/add.png" Command="{Binding AddBreakPointCommand}" />
                     <MenuItem Header="_Remove" IsEnabled="{Binding Path=IsRomLoaded}" Icon="/Images/remove.png" Command="{Binding RemoveBreakPointCommand}" />
                 </MenuItem>
-                <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Settings"  Command="{Binding Path= SettingsCommand}" />
+                <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Settings" Command="{Binding Path=SettingsCommand}" />
+                <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Help" >
+                    <MenuItem Header="About" VerticalAlignment="Top" HorizontalAlignment="Left" Command="{Binding AboutCommand}" />
+                </MenuItem>
             </Menu>
         </Grid>
 

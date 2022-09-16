@@ -143,9 +143,9 @@ namespace Hardware
         /// Default Constructor, Instantiates a new instance of the processor.
         /// </summary>
         public W65C02()
-		{
-			Memory = new byte[0x10000];
-			ClearMemory();
+        {
+            Memory = new byte[0x10000];
+            ClearMemory();
 			StackPointer = 0x100;
 
 		    CycleCountIncrementedAction = () => { };
@@ -299,7 +299,7 @@ namespace Hardware
 				return data;
 
 			}
-			else if (0xD000 > address && address > 0xD0FF)
+			else if (0xD000 > address && address >= 0xD0FF)
 			{
 				throw new ArgumentException("Cannot write to the Device Area without there being a device present at the location.");
 			}

@@ -2,6 +2,7 @@
 using Emulator.Model;
 using Emulator.ViewModel;
 using System;
+using System.Windows;
 
 namespace Emulator
 {
@@ -36,8 +37,11 @@ namespace Emulator
 
         private void PortSelectionDropDownClosed(object sender, EventArgs e)
         {
-            string port = ComPortCombo.SelectedValue.ToString();
-            SettingsViewModel.ComPortSelection = port;
+            if (!(ComPortCombo.SelectedValue == null))
+            {
+                string port = ComPortCombo.SelectedValue.ToString();
+                SettingsViewModel.ComPortSelection = port;
+            }
         }
     }
 }

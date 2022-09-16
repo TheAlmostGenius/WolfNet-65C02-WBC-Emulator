@@ -13,11 +13,21 @@
         /// <summary>
         /// The path of the Program that was loaded.
         /// </summary>
-        public string RomFilePath { get; set; }
+        public byte RomBanks { get; set; }
+
+        /// <summary>
+        /// The name of the Program that was loaded.
+        /// </summary>
+        public ushort RomBankSize { get; set; }
 
         /// <summary>
         /// The name of the Program that was loaded.
         /// </summary>
         public string RomFileName { get; set; }
+
+        /// <summary>
+        /// The path of the Program that was loaded.
+        /// </summary>
+        public string RomFilePath { get; set; }
     }
 }

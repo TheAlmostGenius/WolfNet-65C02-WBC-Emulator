@@ -1,0 +1,13 @@
+﻿<Window x:Class="Emulator.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		DataContext="{Binding About, Source={StaticResource Locator}}"
+        Title="About" Height="200" Width="500" Foreground="AntiqueWhite" Background="Black" >
+    <Grid>
+        <TextBlock Height="23" TextWrapping="Wrap" Text="{Binding Path=Name}" Margin="10,10,10,93" />
+        <TextBlock Height="46" TextWrapping="Wrap" Text="{Binding Path=Description}" Margin="10,48,10,40" />
+        <TextBlock Height="23" TextWrapping="Wrap" Text="{Binding Path=Version}" Margin="10,101,250,10" />
+        <Button Height="23" Width="75" Content="Close" Margin="415,101,10,10" Command="{Binding CloseCommand}" />
+    </Grid>
+</Window>
+

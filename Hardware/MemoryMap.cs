@@ -18,10 +18,12 @@
 
             public static int TotalLength = (BankSize * TotalBanks);
             public static byte TotalBanks = 16;
-            public static int BankSize = Length + 1;
-            public static ushort Offset => _Offset;
+			public static ushort BankSize = (ushort)(Length + 1);
+
+			public static ushort Offset => _Offset;
             public static ushort Length => _Length;
         }
+
 		public class SharedRom
 		{
 			private static ushort _Offset = 0xE000;

@@ -14,12 +14,12 @@ namespace Hardware
         /// <summary>
         /// The ROM.
         /// </summary>
-        protected static byte[][] Memory { get; private set; }
+        public static byte[][] Memory { get; private set; }
 
         /// <summary>
         /// The total number of banks on the ROM.
         /// </summary>
-        protected static byte TotalBanks { get; private set; }
+        protected static byte Banks { get; private set; }
 
         /// <summary>
         /// The memory
@@ -31,11 +31,15 @@ namespace Hardware
         /// <summary>
         /// Default Constructor, Instantiates a new instance of the processor.
         /// </summary>
-        public AT28CXX(ushort offset, byte banks, byte[][] data)
+        public AT28CXX(ushort offset, byte banks)
         {
+            Memory = new byte[banks][];
+            for (int i = 0; i < banks; i++)
+            {
+                Memory[i] = new byte[MemoryMap.BankedRom.BankSize];
+            }
             Offset = offset;
-            TotalBanks = banks;
-            Init(TotalBanks, data);
+            Banks = banks;
             //Reset();
         }
 
@@ -50,10 +54,9 @@ namespace Hardware
         /// <summary>
         /// 28CXX family initialization routine.
         /// </summary>
-        public static void Init(byte banks, byte[][] data)
+        public static void Init(byte[][] data)
         {
-            Memory = new byte[banks][];
-            LoadRom(data);
+            throw new NotImplementedException("28CXX should not be initialised through this routine!");
         }
 
         /// <summary>
@@ -64,34 +67,44 @@ namespace Hardware
         {
             for (byte i = 0; i < MemoryMap.BankedRom.TotalBanks; i++)
             {
-                for (byte j = 0; j <= MemoryMap.BankedRom.Length; j++)
-                {
-                   LoadRom(i, j, data[i][j]);
-                }
+                LoadRom(i, data);
             }
         }
 
         /// <summary>
         /// Loads a program into ROM.
         /// </summary>
+        /// <param name="bank">The bank to load data to.</param>
         /// <param name="data">The data to be loaded to ROM.</param>
         public static void LoadRom(byte bank, byte[][] data)
         {
-            for (byte i = 0; i <= MemoryMap.BankedRom.Length; i++)
-            {
-                LoadRom(bank, i, data[bank][i]);
-            }
+            Memory[bank] = data[bank];
         }
 
-		/// <summary>
-		/// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
-		/// </summary>
-		/// <param name="address"></param>
-		/// <returns>the byte being returned</returns>
-		public static byte ReadBankedRomValue(byte bank, ushort address)
-		{
-			var value = Memory[bank][address];
-			return value;
+        /// <summary>
+        /// Loads a program into ROM.
+        /// </summary>
+        /// <param name="bank">The bank to load data to.</param>
+        /// <param name="offset">The offset within the bank to load data to.</param>
+        /// <param name="data">The data to be loaded to ROM.</param>
+        public static void LoadRom(ushort offset, byte bank, byte[][] data)
+        {
+            for (ushort i = 0; i < MemoryMap.BankedRom.BankSize - 1; i++)
+            {
+                Memory[bank][offset + i] = data[bank][offset];
+            }
+            
+        }
+
+        /// <summary>
+        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
+        /// </summary>
+        /// <param name="bank">The bank to read data from.</param>
+        /// <param name="address"></param>
+        /// <returns>the byte being returned</returns>
+        public static byte ReadBankedRomValue(byte bank, ushort address)
+        {
+            return Memory[bank][address];
         }
 
         /// <summary>
@@ -106,6 +119,7 @@ namespace Hardware
         /// <summary>
         /// Dumps the selected ROM bank.
         /// </summary>
+        /// <param name="bank">The bank to dump data from.</param>
         /// <returns>2 dimensional array of data analogous to the ROM of the computer.</returns>
         public static byte[] DumpMemory(byte bank)
         {
@@ -118,39 +132,30 @@ namespace Hardware
         #endregion
 
         #region Private Methods
-
         /// <summary>
         /// Clears the memory.
         /// </summary>
-        private static void ClearMemory()
-        {
-            for (byte i = 0; i < MemoryMap.BankedRom.TotalBanks; i++)
-            {
-                for (ushort j = 0; j < MemoryMap.BankedRom.Length; i++)
-                {
-                    Memory[i][j] = 0x00;
-                }
-            }
-        }
+        //private static void ClearMemory()
+        //{
+        //    for (byte i = 0; i < MemoryMap.BankedRom.TotalBanks; i++)
+        //    {
+        //        for (ushort j = 0; j < MemoryMap.BankedRom.Length; i++)
+        //        {
+        //            Memory[i][j] = 0x00;
+        //        }
+        //    }
+        //}
 
         /// <summary>
         /// Writes data to the given address without incrementing the cycle.
         /// </summary>
+        /// <param name="bank">The bank to load data to.</param>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
-        private static void WriteBankedRomValue(byte bank, ushort address, byte data)
-        {
-            Memory[bank][address] = data;
-        }
-
-        /// <summary>
-        /// Loads a program into ROM.
-        /// </summary>
-        /// <param name="data">The data to be loaded to ROM.</param>
-        private static void LoadRom(byte bank, ushort offset, byte data)
-        {
-            Memory[bank][offset] = data;
-        }
+        //private static void WriteBankedRomValue(byte bank, ushort address, byte data)
+        //{
+        //    Memory[bank][address] = data;
+        //}
         #endregion
     }
 }

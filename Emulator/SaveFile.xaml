@@ -8,6 +8,6 @@
 		<TextBox Height="23" HorizontalAlignment="Left" Margin="12,50,0,0" Name="FilePath" VerticalAlignment="Top" Width="361" Text="{Binding Path=Filename}" IsReadOnly="True"/>
 		<TextBlock Height="20" HorizontalAlignment="Left" Margin="12,32,0,0" Name="PathText" Text="Path to ROM:" VerticalAlignment="Top" Width="75" />
 		<Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="397,92,0,0" Name="CancelButton" VerticalAlignment="Top" Width="75" Command="{Binding Path=CloseCommand}" />
-		<Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="317,92,0,0" Name="LoadButton" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=SaveEnabled, Mode=OneWay}" Command="{Binding Path=SaveFileCommand}" />
+		<Button Content="Save" Height="23" HorizontalAlignment="Left" Margin="317,92,0,0" Name="LoadButton" VerticalAlignment="Top" Width="75" IsEnabled="{Binding Path=SaveEnabled}" Command="{Binding Path=SaveFileCommand}" />
 	</Grid>
 </Window>

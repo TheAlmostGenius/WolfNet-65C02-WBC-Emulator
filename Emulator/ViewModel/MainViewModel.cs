@@ -161,15 +161,20 @@ namespace Emulator.ViewModel
         /// </summary>
         public static SettingsModel SettingsModel { get; set; }
 
-		/// <summary>
-		/// RelayCommand for Stepping through the progam one instruction at a time.
-		/// </summary>
-		public RelayCommand StepCommand { get; set; }
+        /// <summary>
+        /// RelayCommand called when the program has finished initialisation.
+        /// </summary>
+        public RelayCommand InitCommand { get; set; }
 
-		/// <summary>
-		/// Relay Command to Reset the Program back to its initial state.
-		/// </summary>
-		public RelayCommand ResetCommand { get; set; }
+        /// <summary>
+        /// RelayCommand for Stepping through the progam one instruction at a time.
+        /// </summary>
+        public RelayCommand StepCommand { get; set; }
+
+        /// <summary>
+        /// Relay Command to Reset the Program back to its initial state.
+        /// </summary>
+        public RelayCommand ResetCommand { get; set; }
 
 		/// <summary>
 		/// Relay Command that Run/Pauses Execution
@@ -191,15 +196,20 @@ namespace Emulator.ViewModel
 		/// </summary>
 		public RelayCommand SaveStateCommand { get; set; }
 
-		/// <summary>
-		/// The Relay Command that adds a new breakpoint
-		/// </summary>
-		public RelayCommand AddBreakPointCommand { get; set; }
+        /// <summary>
+        /// The Relay Command that adds a new breakpoint
+        /// </summary>
+        public RelayCommand AddBreakPointCommand { get; set; }
 
-		/// <summary>
-		/// The Relay Command that Removes an existing breakpoint
-		/// </summary>
-		public RelayCommand RemoveBreakPointCommand { get; set; }
+        /// <summary>
+        /// The Relay Command that opens the About window.
+        /// </summary>
+        public RelayCommand AboutCommand { get; set; }
+
+        /// <summary>
+        /// The Relay Command that Removes an existing breakpoint.
+        /// </summary>
+        public RelayCommand RemoveBreakPointCommand { get; set; }
 
         /// <summary>
         /// The Command that loads or saves the settings.
@@ -221,16 +231,18 @@ namespace Emulator.ViewModel
             W65C02 = new W65C02();
             W65C02.Reset();
 
-            ResetCommand = new RelayCommand(Reset);
-			StepCommand = new RelayCommand(Step);
-			OpenCommand = new RelayCommand(OpenFile);
-			RunPauseCommand = new RelayCommand(RunPause);
-			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
-			SaveStateCommand = new RelayCommand(SaveState);
+            AboutCommand = new RelayCommand(About);
             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
+            CloseCommand = new RelayCommand<IClosable>(Close);
+			//InitCommand = new RelayCommand(TryLoadRomFile);
+			//OpenCommand = new RelayCommand(OpenFile);
 			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
+            ResetCommand = new RelayCommand(Reset);
+			RunPauseCommand = new RelayCommand(RunPause);
+			SaveStateCommand = new RelayCommand(SaveState);
             SettingsCommand = new RelayCommand(Settings);
-			CloseCommand = new RelayCommand<IClosable>(Close);
+			StepCommand = new RelayCommand(Step);
+			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 
             Messenger.Default.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
             Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
@@ -246,16 +258,17 @@ namespace Emulator.ViewModel
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
 
             var _formatter = new XmlSerializer(typeof(SettingsModel));
-            Stream _stream = new FileStream(Emulator.FileLocations.SettingsFile, FileMode.OpenOrCreate);
+            Stream _stream = new FileStream(FileLocations.SettingsFile, FileMode.OpenOrCreate);
 			if (!((_stream == null) || (0 >= _stream.Length)))
 			{
                 SettingsModel = (SettingsModel)_formatter.Deserialize(_stream);
             }
             else
 			{
+				MessageBox.Show("Creating new settings file...");
 				SettingsModel = new SettingsModel
 				{
-					SettingsVersion = "1.0.0",
+					SettingsVersion = Versioning.SettingsFile,
 					ComPortName = "COM10",
 				};
             }
@@ -266,9 +279,10 @@ namespace Emulator.ViewModel
 			W65C22.Init(1000);
 			MM65SIB = new W65C22(0x30);
 			MM65SIB.Init(1000);
+			AT28C010 = new AT28CXX(MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.TotalBanks);
 
-			// Now we can load the BIOS.
-			TryLoadBiosFile(TryReadBiosFile());
+            // Now we can load the BIOS.
+            TryLoadBiosFile(TryReadBiosFile());
         }
         #endregion
 
@@ -279,16 +293,10 @@ namespace Emulator.ViewModel
 			{
                 Environment.Exit(ExitCodes.NO_ERROR);
 			}
-		}
+        }
 
-//		private void OpenFileSimple()
-//		{
-//          Window window = new OpenFile();
-//          window.ShowDialog();
-//      }
-
-		private void TryLoadBiosFile(byte[] bios)
-		{
+        private void TryLoadBiosFile(byte[] bios)
+        {
             if (bios != null)
             {
                 try
@@ -297,17 +305,13 @@ namespace Emulator.ViewModel
                 }
                 catch (Exception)
                 {
-					#if DEBUG
-						Environment.Exit(ExitCodes.BIOS_LOADPROGRAM_ERROR);
-					#endif
-				}
+                    Environment.Exit(ExitCodes.BIOS_LOADPROGRAM_ERROR);
+                }
             }
             else
             {
-				#if DEBUG
-					Environment.Exit(ExitCodes.LOAD_BIOS_FILE_ERROR);
-				#endif
-			}
+                Environment.Exit(ExitCodes.LOAD_BIOS_FILE_ERROR);
+            }
         }
 
         private byte[] TryReadBiosFile()
@@ -326,35 +330,23 @@ namespace Emulator.ViewModel
         }
 
         private void BinaryLoadedNotification(NotificationMessage<RomFileModel> notificationMessage)
-		{
-			if (notificationMessage.Notification != "FileLoaded")
-			{
-				return;
-			}
-
-            RomFile.Rom = notificationMessage.Content.Rom;
-            RomFile.RomFilePath = notificationMessage.Content.RomFilePath;
-            RomFile.RomFileName = notificationMessage.Content.RomFileName;
-
-            // Load Banked ROM
-            if (notificationMessage.Content.Rom.Length <= MemoryMap.BankedRom.BankSize || (notificationMessage.Content.Rom.Length > MemoryMap.BankedRom.BankSize) || (notificationMessage.Content.Rom.Length <= MemoryMap.BankedRom.TotalLength))
+        {
+            if (notificationMessage.Notification != "FileLoaded")
             {
-                AT28CXX.LoadRom(1, notificationMessage.Content.Rom);
-            } else
-			{
-                AT28CXX.LoadRom(notificationMessage.Content.Rom);
+                return;
             }
 
-            RomFilePath = notificationMessage.Content.RomFilePath;
-            RaisePropertyChanged("RomFilePath");
-            RomFileName = String.Format("Loaded Program: {0}", notificationMessage.Content.RomFileName);
-            RaisePropertyChanged("RomFileName");
+			//Initialize the RomFile.Rom memory area.
+			RomFile = notificationMessage.Content;
+
+            // Load Banked ROM
+            AT28CXX.LoadRom(notificationMessage.Content.Rom);
 
             IsRomLoaded = true;
-			RaisePropertyChanged("IsRomLoaded");
+            RaisePropertyChanged("IsRomLoaded");
 
-			Reset();
-		}
+            Reset();
+        }
 
         private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
         {
@@ -388,6 +380,9 @@ namespace Emulator.ViewModel
                 return;
             }
 			SettingsModel = notificationMessage.Content;
+            W65C51.Init(notificationMessage.Content.ComPortName);
+			RaisePropertyChanged("SettingsModel");
+			UpdateUi();
 		}
 
         private void UpdateMemoryPage()
@@ -471,6 +466,7 @@ namespace Emulator.ViewModel
 		private void UpdateUi()
 		{
 			RaisePropertyChanged("W65C02");
+			RaisePropertyChanged("SettingsModel.ComPortName");
 			RaisePropertyChanged("NumberOfCycles");
 			RaisePropertyChanged("CurrentDisassembly");
 			RaisePropertyChanged("MemoryPage");
@@ -637,16 +633,6 @@ namespace Emulator.ViewModel
 			}
 		}
 
-		private void OpenFile()
-		{
-			IsRunning = false;
-
-			if (_backgroundWorker.IsBusy)
-				_backgroundWorker.CancelAsync();
-			
-			Messenger.Default.Send(new NotificationMessage("OpenFileWindow"));
-		}
-
 		private void SaveState()
 		{
 			IsRunning = false;
@@ -664,6 +650,16 @@ namespace Emulator.ViewModel
                 W65C51 = W65C51,
             }, "SaveFileWindow"));
 		}
+
+        private void About()
+        {
+            IsRunning = false;
+
+            if (_backgroundWorker.IsBusy)
+                _backgroundWorker.CancelAsync();
+
+            Messenger.Default.Send(new NotificationMessage("AboutWindow"));
+        }
 
         private void Settings()
         {

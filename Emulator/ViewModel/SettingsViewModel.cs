@@ -56,12 +56,12 @@ namespace Emulator.ViewModel
 		/// <summary>
 		/// Instantiates a new instance of the SettingsViewModel
 		/// </summary>
-		/// <param name="settingsModel">The SettingsFIleModel to be serialized to a file</param>
+		/// <param name="settingsModel">The SettingsFileModel to be serialized to a file</param>
 		public SettingsViewModel(SettingsModel settingsModel)
 		{
 			ApplyCommand = new RelayCommand(Apply);
 			CloseCommand = new RelayCommand(Close);
-			SettingsModel = settingsModel;
+            ComPortSelection = settingsModel.ComPortName;
 
             UpdatePortList();
         }
@@ -83,9 +83,12 @@ namespace Emulator.ViewModel
         #region Private Methods
         private void Apply()
 		{
-            SettingsModel.SettingsVersion = "1.0.0";
-            SettingsModel.ComPortName = ComPortSelection;
-            Messenger.Default.Send(new NotificationMessage<SettingsModel>(SettingsModel, "SettingsApplied"));
+            Messenger.Default.Send(new NotificationMessage<SettingsModel>(new SettingsModel
+            {
+                SettingsVersion = Versioning.SettingsFile,
+                ComPortName = ComPortSelection,
+            }, "SettingsApplied"));
+            Messenger.Default.Send(new NotificationMessage("CloseSettingsWindow"));
         }
 
 		private static void Close()
