@@ -102,12 +102,7 @@ namespace Emulator
 
         private void NotificationMessageReceived(NotificationMessage notificationMessage)
         {
-            if (notificationMessage.Notification == "OpenFileWindow")
-            {
-                var openFile = new OpenFile();
-                openFile.ShowDialog();
-            }
-            else if (notificationMessage.Notification == "AboutWindow")
+            if (notificationMessage.Notification == "AboutWindow")
             {
                 var openAbout = new About();
                 openAbout.ShowDialog();

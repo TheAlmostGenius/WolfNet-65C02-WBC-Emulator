@@ -31,7 +31,6 @@ namespace Emulator.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<MainViewModel>();
-			SimpleIoc.Default.Register<OpenFileViewModel>();
             SimpleIoc.Default.Register<SaveFileViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
             SimpleIoc.Default.Register<AboutViewModel>();
@@ -43,14 +42,6 @@ namespace Emulator.ViewModel
         public MainViewModel Main
         {
             get { return ServiceLocator.Current.GetInstance<MainViewModel>(); }
-        }
-
-		/// <summary>
-		/// The OpenFileViewModel Instance
-		/// </summary>
-		public OpenFileViewModel OpenFile
-		{
-			get { return ServiceLocator.Current.GetInstance<OpenFileViewModel>(); }
         }
 
         /// <summary>
