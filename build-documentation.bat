@@ -4,7 +4,7 @@ Tools\Doxygen\doxygen.exe doxyfile.config
 pushd .\Documentation\LaTeX\
 call make.bat pdf
 popd
-pushd .\Documentation\html
+pushd .\Documentation\html_docs
 start index.html
 start "C:\Program Files (x86)\HTML Help Workshop\hhw.exe" index.hhp
 popd
