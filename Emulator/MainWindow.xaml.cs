@@ -23,9 +23,8 @@ namespace Emulator
 			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
 			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
-            Initialized += new EventHandler(LoadFile);
             Closing += new CancelEventHandler(OnClose);
-            DataContext = new MainViewModel();
+            //DataContext = new MainViewModel();
         }
 
         private void OnClose(Object sender, CancelEventArgs e)
@@ -46,12 +45,12 @@ namespace Emulator
 
         private void LoadFile(Object sender, EventArgs e)
         {
-            Messenger.Default.Send("LoadBinary");
+            Messenger.Default.Send(new NotificationMessage("LoadFile"));
         }
 
         private void SaveFile(Object sender, EventArgs e)
         {
-            Messenger.Default.Send("SaveState");
+            Messenger.Default.Send(new NotificationMessage("SaveState"));
         }
 
         private void NotificationMessageReceived(NotificationMessage notificationMessage)

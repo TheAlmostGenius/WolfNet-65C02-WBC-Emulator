@@ -40,6 +40,14 @@ namespace Emulator.ViewModel
             }
         }
 
+        public string Copyright
+        {
+            get
+            {
+                return Versioning.Product.Copyright;
+            }
+        }
+
         public RelayCommand CloseCommand { get; set; }
         #endregion
 

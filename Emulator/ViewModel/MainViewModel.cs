@@ -216,7 +216,7 @@ namespace Emulator.ViewModel
 			StepCommand = new RelayCommand(Step);
 			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 
-            Messenger.Default.Register<NotificationMessage>(this, SaveStateNotifcation);
+            Messenger.Default.Register<NotificationMessage>(this, GenericNotifcation);
             Messenger.Default.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, SettingsAppliedNotifcation);
             Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
@@ -347,9 +347,9 @@ namespace Emulator.ViewModel
             RaisePropertyChanged("IsRomLoaded");
         }
 
-        private void SaveStateNotifcation(NotificationMessage notificationMessage)
+        private void GenericNotifcation(NotificationMessage notificationMessage)
         {
-			if (notificationMessage.Notification == "LoadBinary")
+			if (notificationMessage.Notification == "LoadFile")
 			{
                 var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
 
@@ -683,7 +683,8 @@ namespace Emulator.ViewModel
             if (_backgroundWorker.IsBusy)
                 _backgroundWorker.CancelAsync();
 
-            Messenger.Default.Send(new NotificationMessage("AboutWindow"));
+			MessageBox.Show(string.Format("{0}\n{1}\nVersion: {2}", Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.Version), Versioning.Product.Title);
+            //Messenger.Default.Send(new NotificationMessage("AboutWindow"));
         }
 
         private void Settings()
