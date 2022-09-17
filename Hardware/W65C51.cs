@@ -12,28 +12,30 @@ namespace Hardware
     public class W65C51
     {
         #region Fields
-        public static int address = 0xD010;
-        public static byte data = 0b00000000;
-        public static readonly int defaultBaudRate = 9600;
-        public static byte byteIn;
+        public int address = 0xD010;
+        public byte data = 0b00000000;
+        public readonly int defaultBaudRate = 9600;
+        public byte byteIn;
         #endregion
 
         #region Properties
-        public static ushort Offset { get; set; }
-        public static bool IsEnabled { get; set; }
-        public static SerialPort Object { get; set; }
-        public static string ObjectName { get; set; }
+        private W65C02 Processor { get; set; }
+        public ushort Offset { get; set; }
+        public bool IsEnabled { get; set; }
+        public SerialPort Object { get; set; }
+        public string ObjectName { get; set; }
         #endregion
 
         #region Public Methods
-        public W65C51(ushort offset)
+        public W65C51(W65C02 processor, ushort offset)
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
             Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
+            Processor = processor;
         }
 
-        public static void Reset()
+        public void Reset()
         {
             IsEnabled = false;
         }
@@ -42,7 +44,7 @@ namespace Hardware
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
         /// <param name="port"> COM Port to use for I/O</param>
-        public static void Init(string port)
+        public void Init(string port)
         {
             Object = new SerialPort(port, defaultBaudRate, Parity.None, 8, StopBits.One);
             ObjectName = port;
@@ -55,7 +57,7 @@ namespace Hardware
         /// </summary>
         /// <param name="port">COM Port to use for I/O</param>
         /// <param name="baudRate">Baud Rate to use for I/O</param>
-        public static void Init(string port, int baudRate)
+        public void Init(string port, int baudRate)
         {
             Object = new SerialPort(port, baudRate, Parity.None, 8, StopBits.One);
             ObjectName = port;
@@ -66,7 +68,7 @@ namespace Hardware
         /// <summary>
         /// Called when the window is closed.
         /// </summary>
-        public static void Fini()
+        public void Fini()
         {
             ComFini(Object);
         }
@@ -76,7 +78,7 @@ namespace Hardware
         /// </summary>
         /// 
         /// <param name="data">Byte of data to send</param>
-        public static void WriteCOM(byte data)
+        public void WriteCOM(byte data)
         {
             byte[] writeByte = new byte[] { data };
             Object.Write(writeByte, 0, 1);
@@ -84,7 +86,7 @@ namespace Hardware
         #endregion
 
         #region Private Methods
-        private static void ComInit(SerialPort serialPort)
+        private void ComInit(SerialPort serialPort)
         {
             try
             {
@@ -132,7 +134,7 @@ namespace Hardware
         /// </summary>
         /// 
         /// <param name="serialPort">SerialPort Object to close</param>
-        private static void ComFini(SerialPort serialPort)
+        private void ComFini(SerialPort serialPort)
         {
             if (serialPort != null)
             {
@@ -146,13 +148,13 @@ namespace Hardware
         /// 
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private static void SerialDataReceived(object sender, SerialDataReceivedEventArgs e)
+        private void SerialDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             try
             {
                 byteIn = Convert.ToByte(Object.ReadByte());
-                W65C02.WriteMemoryValueWithoutCycle(0xD011, data);
-                W65C02.InterruptRequest();
+                MemoryMap.WriteWithoutCycle(0xD011, data);
+                Processor.InterruptRequest();
             }
             catch (Win32Exception w)
             {

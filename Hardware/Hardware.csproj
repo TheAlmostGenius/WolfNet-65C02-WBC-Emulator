@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddressingMode.cs" />
+    <Compile Include="HM62256.cs" />
     <Compile Include="Disassembly.cs" />
     <Compile Include="FileLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
