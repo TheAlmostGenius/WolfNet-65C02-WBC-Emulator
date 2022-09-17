@@ -69,6 +69,7 @@
     <Compile Include="MemoryMap.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="AT28CXX.cs" />
+    <Compile Include="Versioning.cs" />
     <Compile Include="W65C02.cs" />
     <Compile Include="W65C22.cs" />
     <Compile Include="W65C51.cs" />
