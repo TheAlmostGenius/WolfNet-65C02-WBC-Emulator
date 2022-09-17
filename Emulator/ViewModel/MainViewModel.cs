@@ -195,7 +195,15 @@ namespace Emulator.ViewModel
         /// The Command that loads or saves the settings.
         /// </summary>
         public RelayCommand<IClosable> CloseCommand { get; private set; }
-        #endregion
+
+		public string CurrentSerialPort
+		{
+			get
+			{
+				return W65C51.ObjectName;
+			}
+		}
+		#endregion
 
         #region public Methods
         /// <summary>
@@ -349,7 +357,17 @@ namespace Emulator.ViewModel
 
         private void GenericNotifcation(NotificationMessage notificationMessage)
         {
-			if (notificationMessage.Notification == "LoadFile")
+			if (notificationMessage.Notification == "Closing")
+			{
+                W65C51.Fini();
+                Stream stream = new FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
+                XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
+                XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);
+                stream.Flush();
+                stream.Close();
+                W65C02.ClearMemory();
+            }
+			else if (notificationMessage.Notification == "LoadFile")
 			{
                 var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
 
@@ -509,7 +527,6 @@ namespace Emulator.ViewModel
 		private void UpdateUi()
 		{
 			RaisePropertyChanged("W65C02");
-			RaisePropertyChanged("SettingsModel.ComPortName");
 			RaisePropertyChanged("NumberOfCycles");
 			RaisePropertyChanged("CurrentDisassembly");
 			RaisePropertyChanged("MemoryPage");
@@ -684,7 +701,6 @@ namespace Emulator.ViewModel
                 _backgroundWorker.CancelAsync();
 
 			MessageBox.Show(string.Format("{0}\n{1}\nVersion: {2}", Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.Version), Versioning.Product.Title);
-            //Messenger.Default.Send(new NotificationMessage("AboutWindow"));
         }
 
         private void Settings()
