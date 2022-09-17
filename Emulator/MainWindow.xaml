@@ -64,9 +64,9 @@
 
     </Window.Resources>
 
-    <Grid Width="1024" Margin="1,1,1,1" HorizontalAlignment="Left">
+    <Grid Width="1024" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
         
-        <Grid Height="23" Width="1024" VerticalAlignment="Top" HorizontalAlignment="Center" >
+        <Grid Height="23" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
             <Menu Height="23" Width="1024" >
                 <MenuItem Header="File" VerticalAlignment="Top" HorizontalAlignment="Left" >
                     <MenuItem Header="_Open" Click="LoadFile" />

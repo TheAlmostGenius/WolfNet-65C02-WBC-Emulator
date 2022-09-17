@@ -5,7 +5,7 @@ namespace Emulator.Model
 	/// <summary>
 	/// The Type of Breakpoint
 	/// </summary>
-	public static class BreakpointType
+	public class BreakpointType
 	{
 		/// <summary>
 		/// A Listing of all of the Current Types

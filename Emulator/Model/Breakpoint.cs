@@ -22,7 +22,7 @@ namespace Emulator.Model
 		/// </summary>
 		public string Type { get; set; }
 
-		public static List<string> AllTypes
+		public List<string> AllTypes
 		{
 			get { return BreakpointType.AllTypes; }
 		} 

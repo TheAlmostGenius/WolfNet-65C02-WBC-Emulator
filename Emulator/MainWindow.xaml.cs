@@ -12,6 +12,16 @@ namespace Emulator
 	/// </summary>
 	public partial class MainWindow : Window, IClosable
     {
+        public DependencyProperty CurrentHeight
+        {
+            get { return Window.ActualHeightProperty; }
+        }
+
+        public DependencyProperty CurrentWidth
+        {
+            get { return Window.ActualWidthProperty; }
+        }
+
         public MainWindow()
 		{
 			InitializeComponent();

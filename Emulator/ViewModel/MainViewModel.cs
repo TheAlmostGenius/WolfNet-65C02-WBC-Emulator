@@ -33,6 +33,11 @@ namespace Emulator.ViewModel
 
         #region Properties
         /// <summary>
+        /// The 62256 RAM.
+        /// </summary>
+        private HM62256 HM62256 { get; set; }
+
+        /// <summary>
         /// The 65C02 Processor.
         /// </summary>
         public W65C02 W65C02 { get; private set; }
@@ -53,7 +58,12 @@ namespace Emulator.ViewModel
         public W65C51 W65C51 { get; private set; }
 
         /// <summary>
-        /// The AT28Cxx(x) ROM.
+        /// The AT28C010 ROM.
+        /// </summary>
+        public AT28CXX AT28C64 { get; private set; }
+
+        /// <summary>
+        /// The AT28C010 ROM.
         /// </summary>
         public AT28CXX AT28C010 { get; private set; }
 
@@ -210,9 +220,40 @@ namespace Emulator.ViewModel
         /// Creates a new Instance of the MainViewModel.
         /// </summary>
         public MainViewModel()
-		{
+        {
+            var _formatter = new XmlSerializer(typeof(SettingsModel));
+            Stream _stream = new FileStream(FileLocations.SettingsFile, FileMode.OpenOrCreate);
+            if (!((_stream == null) || (0 >= _stream.Length)))
+            {
+                SettingsModel = (SettingsModel)_formatter.Deserialize(_stream);
+            }
+            else
+            {
+                MessageBox.Show("Creating new settings file...");
+                SettingsModel = new SettingsModel
+                {
+                    SettingsVersion = Versioning.SettingsFile,
+                    ComPortName = "COM10",
+                };
+                Messenger.Default.Send("SaveSettings");
+            }
+            _stream.Close();
+
+            HM62256 = new HM62256(MemoryMap.BankedRam.Length + (uint)1, W65C02);
+            W65C51 = new W65C51(W65C02, 0x10);
+            W65C51.Init(SettingsModel.ComPortName.ToString());
+            W65C22 = new W65C22(W65C02, 0x20);
+            W65C22.Init(1000);
+            MM65SIB = new W65C22(W65C02, 0x30);
+            MM65SIB.Init(1000);
+            AT28C64 = new AT28CXX(W65C02, MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length + 1, 1);
+            AT28C010 = new AT28CXX(W65C02, MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.BankSize, MemoryMap.BankedRom.TotalBanks);
+
             W65C02 = new W65C02();
-            W65C02.Reset();
+            MemoryMap.Init(0x10000, W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
+
+            // Now we can load the BIOS.
+            AT28C64.Load(AT28C64.TryRead(FileLocations.BiosFile));
 
             AboutCommand = new RelayCommand(About);
             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
@@ -238,32 +279,7 @@ namespace Emulator.ViewModel
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
 
-            var _formatter = new XmlSerializer(typeof(SettingsModel));
-            Stream _stream = new FileStream(FileLocations.SettingsFile, FileMode.OpenOrCreate);
-			if (!((_stream == null) || (0 >= _stream.Length)))
-			{
-                SettingsModel = (SettingsModel)_formatter.Deserialize(_stream);
-            }
-            else
-			{
-				MessageBox.Show("Creating new settings file...");
-				SettingsModel = new SettingsModel
-				{
-					SettingsVersion = Versioning.SettingsFile,
-					ComPortName = "COM10",
-				};
-            }
-            _stream.Close();
-            W65C51 = new W65C51(0x10);
-            W65C51.Init(SettingsModel.ComPortName.ToString());
-            W65C22 = new W65C22(0x20);
-			W65C22.Init(1000);
-			MM65SIB = new W65C22(0x30);
-			MM65SIB.Init(1000);
-			AT28C010 = new AT28CXX(MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.TotalBanks);
-
-            // Now we can load the BIOS.
-            TryLoadBiosFile(TryReadBiosFile());
+            Reset();
         }
         #endregion
 
@@ -274,40 +290,6 @@ namespace Emulator.ViewModel
             {
                 Environment.Exit(ExitCodes.NO_ERROR);
             }
-        }
-
-        private void TryLoadBiosFile(byte[] bios)
-        {
-            if (bios != null)
-            {
-                try
-                {
-                    W65C02.LoadRam(MemoryMap.SharedRom.Offset, bios);
-                }
-                catch (Exception)
-                {
-                    Environment.Exit(ExitCodes.BIOS_LOADPROGRAM_ERROR);
-                }
-            }
-            else
-            {
-                Environment.Exit(ExitCodes.LOAD_BIOS_FILE_ERROR);
-            }
-        }
-
-        private byte[] TryReadBiosFile()
-        {
-            byte[] bios = null;
-            try
-            {
-                bios = File.ReadAllBytes(FileLocations.BiosFile);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Unable to Open BIOS Binary!\nPlease ensure it is in the correct location and not currently in use by another program.\nThe file \"BIOS.bin\" should be placed in the same directory as the emulator.");
-            }
-            return bios;
-
         }
 
         private void BinaryLoadedNotification(NotificationMessage<RomFileModel> notificationMessage)
@@ -321,7 +303,7 @@ namespace Emulator.ViewModel
 			RomFile = notificationMessage.Content;
 
             // Load Banked ROM
-            AT28CXX.LoadRom(notificationMessage.Content.Rom);
+            AT28C010.Load(notificationMessage.Content.Rom);
 
             IsRomLoaded = true;
             RaisePropertyChanged("IsRomLoaded");
@@ -365,7 +347,8 @@ namespace Emulator.ViewModel
                 XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);
                 stream.Flush();
                 stream.Close();
-                W65C02.ClearMemory();
+                AT28C64.Clear();
+				AT28C010.Clear();
             }
 			else if (notificationMessage.Notification == "LoadFile")
 			{
@@ -452,28 +435,28 @@ namespace Emulator.ViewModel
 			var offset = (_memoryPageOffset * 256);
 
 			var multiplyer = 0;
-			for (var i = offset; i < 256 * (_memoryPageOffset + 1); i++)
+			for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
 			{
 
 				MemoryPage.Add(new MemoryRowModel
 				{
 					Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-					Location00 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location01 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location02 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location03 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location04 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location05 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location06 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location07 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location08 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location09 = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0A = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0B = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0C = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0D = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0E = W65C02.ReadMemoryValueWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0F = W65C02.ReadMemoryValueWithoutCycle(i).ToString("X").PadLeft(2, '0'),
+					Location00 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location01 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location02 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location03 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location04 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location05 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location06 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location07 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location08 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location09 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0A = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0B = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0C = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0D = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0E = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0F = MemoryMap.ReadWithoutCycle(i).ToString("X").PadLeft(2, '0'),
 				});
 				multiplyer++;
 			}
