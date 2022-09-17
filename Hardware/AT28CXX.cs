@@ -116,6 +116,25 @@ namespace Hardware
             return Memory;
         }
 
+        public byte[][] ConvertByteArrayToJagged(ushort elements, ushort bytesPerElement, byte[] array)
+        {
+            byte[][] jagged = new byte[elements][];
+            int k = 0;
+
+            for (int i = 0; i < jagged.Length; i++)
+            {
+                jagged[i] = new byte[bytesPerElement];
+                for (int j = 0; j < jagged[i].Length; j++)
+                {
+                    if (k == array.Length) { break; }
+                    jagged[i][j] = array[k];
+                    k++;
+                }
+            }
+
+            return jagged;
+        }
+
         /// <summary>
         /// Dumps the selected ROM bank.
         /// </summary>
