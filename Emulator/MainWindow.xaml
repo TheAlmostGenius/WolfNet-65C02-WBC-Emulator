@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="WolfNet 6502 WorkBench Computer Emulator" Height="768" Width="1024"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" Loaded="OnLoad" Closing="OnClose" >
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" Loaded="LoadFile" Closing="OnClose" >
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
@@ -68,7 +68,8 @@
         <Grid Height="23" Width="1024" VerticalAlignment="Top" HorizontalAlignment="Center" >
             <Menu Height="23" Width="1024" >
                 <MenuItem Header="File" VerticalAlignment="Top" HorizontalAlignment="Left" >
-                    <MenuItem Header="_Save" Command="{Binding SaveStateCommand, Mode=OneWay}" IsEnabled="{Binding Path=IsRomLoaded}" />
+                    <MenuItem Header="_Open" Click="LoadFile" />
+                    <MenuItem Header="_Save" Click="SaveFile" IsEnabled="{Binding Path=IsRomLoaded}" />
                     <Separator />
                     <MenuItem Header="E_xit" Command="{Binding CloseCommand, Mode=OneWay}" CommandParameter="{Binding ElementName=EmulatorWindow}" />
                 </MenuItem>

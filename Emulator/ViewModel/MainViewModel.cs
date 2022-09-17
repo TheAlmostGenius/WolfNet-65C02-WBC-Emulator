@@ -1,3 +1,4 @@
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +17,6 @@ using W65C02 = Hardware.W65C02;
 using W65C22 = Hardware.W65C22;
 using W65C51 = Hardware.W65C51;
 using System.Runtime.Serialization.Formatters.Binary;
-using Microsoft.Win32;
 
 namespace Emulator.ViewModel
 {
@@ -142,16 +142,6 @@ namespace Emulator.ViewModel
         public bool IsRomLoaded { get; set; }
 
         /// <summary>
-        /// The Path to the Program that is running
-        /// </summary>
-        public string RomFilePath { get; private set; }
-
-        /// <summary>
-        /// The filename of the Program that is running
-        /// </summary>
-        public string RomFileName { get; private set; }
-
-        /// <summary>
         /// The Slider CPU Speed
         /// </summary>
         public int CpuSpeed { get; set; }
@@ -160,11 +150,6 @@ namespace Emulator.ViewModel
         /// The Model used for saving, loading and using data from Settings.xml
         /// </summary>
         public static SettingsModel SettingsModel { get; set; }
-
-        /// <summary>
-        /// RelayCommand called when the program has finished initialisation.
-        /// </summary>
-        public RelayCommand InitCommand { get; set; }
 
         /// <summary>
         /// RelayCommand for Stepping through the progam one instruction at a time.
@@ -182,19 +167,9 @@ namespace Emulator.ViewModel
 		public RelayCommand RunPauseCommand { get; set; }
 
 		/// <summary>
-		/// Relay Command that opens a new file
-		/// </summary>
-		public RelayCommand OpenCommand { get; set; }
-
-		/// <summary>
 		/// Relay Command that updates the Memory Map when the Page changes
 		/// </summary>
 		public RelayCommand UpdateMemoryMapCommand { get; set; }
-
-		/// <summary>
-		/// Relay Command the Saves the Current State to File
-		/// </summary>
-		public RelayCommand SaveStateCommand { get; set; }
 
         /// <summary>
         /// The Relay Command that adds a new breakpoint
@@ -234,19 +209,17 @@ namespace Emulator.ViewModel
             AboutCommand = new RelayCommand(About);
             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
             CloseCommand = new RelayCommand<IClosable>(Close);
-			//InitCommand = new RelayCommand(TryLoadRomFile);
-			//OpenCommand = new RelayCommand(OpenFile);
 			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
             ResetCommand = new RelayCommand(Reset);
 			RunPauseCommand = new RelayCommand(RunPause);
-			SaveStateCommand = new RelayCommand(SaveState);
             SettingsCommand = new RelayCommand(Settings);
 			StepCommand = new RelayCommand(Step);
 			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 
+            Messenger.Default.Register<NotificationMessage>(this, SaveStateNotifcation);
             Messenger.Default.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
-            Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, SettingsAppliedNotifcation);
+            Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
 
             MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
@@ -288,11 +261,11 @@ namespace Emulator.ViewModel
 
         #region Private Methods
         private void Close(IClosable window)
-		{
-			if ((window != null) && (!IsRunning))
-			{
+        {
+            if ((window != null) && (!IsRunning))
+            {
                 Environment.Exit(ExitCodes.NO_ERROR);
-			}
+            }
         }
 
         private void TryLoadBiosFile(byte[] bios)
@@ -350,7 +323,7 @@ namespace Emulator.ViewModel
 
         private void StateLoadedNotifcation(NotificationMessage<StateFileModel> notificationMessage)
         {
-            if (notificationMessage.Notification != "FileLoaded")
+            if (notificationMessage.Notification != "StateLoaded")
             {
                 return;
             }
@@ -366,11 +339,81 @@ namespace Emulator.ViewModel
             W65C22 = notificationMessage.Content.W65C22;
             MM65SIB = notificationMessage.Content.MM65SIB;
             W65C51 = notificationMessage.Content.W65C51;
+			AT28C010 = notificationMessage.Content.AT28C010;
             UpdateMemoryPage();
             UpdateUi();
 
             IsRomLoaded = true;
             RaisePropertyChanged("IsRomLoaded");
+        }
+
+        private void SaveStateNotifcation(NotificationMessage notificationMessage)
+        {
+			if (notificationMessage.Notification == "LoadBinary")
+			{
+                var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
+
+                var result = dialog.ShowDialog();
+
+                if (result != true)
+                {
+                    return;
+                }
+
+                if (Path.GetExtension(dialog.FileName.ToUpper()) == ".BIN")
+                {
+                    byte[][] _rom = AT28C010.ConvertByteArrayToJagged(MemoryMap.BankedRom.TotalBanks, MemoryMap.BankedRom.BankSize, File.ReadAllBytes(dialog.FileName));
+
+                    Messenger.Default.Send(new NotificationMessage<RomFileModel>(new RomFileModel
+                    {
+                        Rom = _rom,
+                        RomBanks = (byte)_rom.GetLength(0),
+                        RomBankSize = (ushort)_rom[0].Length,
+                        RomFilePath = dialog.FileName,
+                        RomFileName = Path.GetFileName(dialog.FileName),
+                    }, "FileLoaded"));
+                }
+                else if (Path.GetExtension(dialog.FileName.ToUpper()) == ".6502")
+                {
+                    var formatter = new BinaryFormatter();
+                    Stream stream = new FileStream(dialog.FileName, FileMode.Open);
+                    var fileModel = (StateFileModel)formatter.Deserialize(stream);
+
+                    stream.Close();
+
+                    Messenger.Default.Send(new NotificationMessage<StateFileModel>(fileModel, "StateLoaded"));
+                }
+            }
+            else if (notificationMessage.Notification == "SaveState")
+            {
+                var dialog = new SaveFileDialog { DefaultExt = ".65C02", Filter = "WolfNet W65C02 Emulator Save State (*.65C02)|*.65C02" };
+                var result = dialog.ShowDialog();
+
+                if (result != true)
+                {
+                    return;
+                }
+
+                string Filename = dialog.FileName;
+                var formatter = new BinaryFormatter();
+                Stream stream = new FileStream(Filename, FileMode.Create, FileAccess.Write, FileShare.None);
+
+                formatter.Serialize(stream, new StateFileModel
+                {
+                    NumberOfCycles = NumberOfCycles,
+                    OutputLog = OutputLog,
+                    W65C02 = W65C02,
+                    W65C22 = W65C22,
+                    MM65SIB = MM65SIB,
+                    W65C51 = W65C51,
+                    AT28C010 = AT28C010,
+                });
+                stream.Close();
+            }
+			else
+			{
+                return;
+            }
         }
 
         private void SettingsAppliedNotifcation(NotificationMessage<SettingsModel> notificationMessage)
@@ -631,24 +674,6 @@ namespace Emulator.ViewModel
 				default:
 					return 5;
 			}
-		}
-
-		private void SaveState()
-		{
-			IsRunning = false;
-
-			if (_backgroundWorker.IsBusy)
-				_backgroundWorker.CancelAsync();
-
-			Messenger.Default.Send(new NotificationMessage<StateFileModel>(new StateFileModel
-			{
-				NumberOfCycles = NumberOfCycles,
-				OutputLog = OutputLog.ToList(),
-                W65C02 = W65C02,
-                W65C22 = W65C22,
-                MM65SIB = MM65SIB,
-                W65C51 = W65C51,
-            }, "SaveFileWindow"));
 		}
 
         private void About()

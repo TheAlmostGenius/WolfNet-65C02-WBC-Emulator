@@ -8,7 +8,6 @@ using System.IO;
 using System.Windows;
 using System.Xml.Serialization;
 using Microsoft.Win32;
-using System.Windows.Media;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Emulator
@@ -24,64 +23,9 @@ namespace Emulator
 			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
 			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
-            Initialized += new EventHandler(OnLoad);
+            Initialized += new EventHandler(LoadFile);
             Closing += new CancelEventHandler(OnClose);
             DataContext = new MainViewModel();
-        }
-
-        private void OnLoad(Object sender, EventArgs e)
-        {
-            var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.6502)|*.bin;*.6502|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.6502)|*.6502" };
-
-            var result = dialog.ShowDialog();
-
-            if (result != true)
-            {
-                return;
-            }
-            if (Path.GetExtension(dialog.FileName.ToUpper()) == ".BIN")
-            {
-                byte[][] _rom = ConvertByteArrayToJagged(MemoryMap.BankedRom.TotalBanks, MemoryMap.BankedRom.BankSize, File.ReadAllBytes(dialog.FileName));
-                
-                Messenger.Default.Send(new NotificationMessage<RomFileModel>(new RomFileModel
-                {
-                    Rom = _rom,
-                    RomBanks = (byte)_rom.GetLength(0),
-                    RomBankSize = (ushort)_rom[0].Length,
-                    RomFilePath = dialog.FileName,
-                    RomFileName = Path.GetFileName(dialog.FileName),
-                }, "FileLoaded"));
-            }
-            else if (Path.GetExtension(dialog.FileName.ToUpper()) == ".6502")
-            {
-                var formatter = new BinaryFormatter();
-                Stream stream = new FileStream(dialog.FileName, FileMode.Open);
-                var fileModel = (StateFileModel)formatter.Deserialize(stream);
-
-                stream.Close();
-
-                Messenger.Default.Send(new NotificationMessage<StateFileModel>(fileModel, "FileLoaded"));
-            }
-            
-        }
-
-        private byte[][] ConvertByteArrayToJagged(ushort elements, ushort bytesPerElement, byte[] array)
-        {
-            byte[][] jagged = new byte[elements][];
-            int k = 0;
-
-            for (int i = 0; i < jagged.Length; i++)
-            {
-                jagged[i] = new byte[bytesPerElement];
-                for (int j = 0; j < jagged[i].Length; j++)
-                {
-                    if (k == array.Length) { break; }
-                    jagged[i][j] = array[k];
-                    k++;
-                }
-            }
-
-            return jagged;
         }
 
         private void OnClose(Object sender, CancelEventArgs e)
@@ -91,13 +35,23 @@ namespace Emulator
             {
                 return;
             }
-            Hardware.W65C51.Fini();
-            Stream stream = new FileStream(Emulator.FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
+            W65C51.Fini();
+            Stream stream = new FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
             XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
             XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);
             stream.Flush();
             stream.Close();
-            Hardware.W65C02.ClearMemory();
+            W65C02.ClearMemory();
+        }
+
+        private void LoadFile(Object sender, EventArgs e)
+        {
+            Messenger.Default.Send("LoadBinary");
+        }
+
+        private void SaveFile(Object sender, EventArgs e)
+        {
+            Messenger.Default.Send("SaveState");
         }
 
         private void NotificationMessageReceived(NotificationMessage notificationMessage)
