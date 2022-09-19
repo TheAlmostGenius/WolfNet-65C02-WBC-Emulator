@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Timers;
+using static Hardware.MemoryMap.Devices;
 
 namespace Hardware
 {
@@ -12,13 +13,13 @@ namespace Hardware
         #region Fields
         public readonly bool T1IsIRQ = false;
         public readonly bool T2IsIRQ = true;
-        public ushort T1CL = 0xD024;
-        public ushort T1CH = 0xD025;
-        public ushort T2CL = 0xD028;
-        public ushort T2CH = 0xD029;
-        public ushort ACR = 0xD02B;
-        public ushort IFR = 0xD02D;
-        public ushort IER = 0xD02E;
+        public int T1CL = 0xD024;
+        public int T1CH = 0xD025;
+        public int T2CL = 0xD028;
+        public int T2CH = 0xD029;
+        public int ACR = 0xD02B;
+        public int IFR = 0xD02D;
+        public int IER = 0xD02E;
 
         public byte ACR_T1TC = (byte)(1 << 7);
         public byte ACR_T2TC = (byte)(1 << 6);
@@ -33,7 +34,8 @@ namespace Hardware
         #endregion
 
         #region Properties
-        private ushort Offset { get; set; }
+        public int Offset { get; set; }
+        public int Length { get; set; }
 
         /// <summary>
         /// T1 timer control
@@ -103,14 +105,15 @@ namespace Hardware
             Processor = processor;
         }
 
-        public W65C22(W65C02 processor, byte offset)
+        public W65C22(W65C02 processor, byte offset, int length)
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
-            Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
             T1Init(1000);
             T2Init(1000);
 
+            Offset = (int)(MemoryMap.DeviceArea.Offset | offset);
+            Length = length;
             Processor = processor;
         }
 
@@ -154,6 +157,44 @@ namespace Hardware
             T2Object.Elapsed += OnT2Timeout;
             T2TimerControl = true;
             T2IsEnabled = false;
+        }
+
+        public byte Read(int address)
+        {
+            byte data = 0x00;
+            if (T1TimerControl)
+            {
+                data = (byte)(data | ACR_T1TC);
+            }
+            else if (T2TimerControl)
+            {
+                data = (byte)(data | ACR_T2TC);
+            }
+            return data;
+        }
+
+        public void Write(int address, byte data)
+        {
+            if ((address == ACR) && ((data | ACR_T1TC) == ACR_T1TC))
+            {
+                T1TimerControl = true;
+            }
+            else if ((address == ACR) && ((data | ACR_T2TC) == ACR_T2TC))
+            {
+                T2TimerControl = true;
+            }
+            else if ((address == IER) && ((data | IER_T1) == IER_T1) && ((data | IER_EN) == IER_EN))
+            {
+                T1Init(T1Interval);
+            }
+            else if ((address == IER) && ((data | IER_T2) == IER_T2) && ((data | IER_EN) == IER_EN))
+            {
+                T2Init(T2Interval);
+            }
+            else
+            {
+                return;
+            }
         }
         #endregion
 

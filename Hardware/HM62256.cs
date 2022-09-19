@@ -4,17 +4,32 @@ namespace Hardware
 {
     public class HM62256
     {
-        public byte[] Memory { get; set; }
+        public byte[][] Memory { get; set; }
 
         private W65C02 Processor { get; set; }
 
-        public uint Length { get; set; }
+        public int Offset { get; set; }
 
-        public HM62256(uint size, W65C02 processor)
+        public int Length { get; set; }
+
+        public int End { get { return Offset + Length; } }
+
+        public byte Banks { get; set; }
+
+        public byte CurrentBank { get; set; }
+
+        public HM62256(byte banks, int offset, int length, W65C02 processor)
         {
-            Memory = new byte[size];
-            Length = size;
+            Memory = new byte[banks][];
+            for (int i = 0; i < banks; i++)
+            {
+                Memory[i] = new byte[length + 1];
+            }
+            Length = length;
             Processor = processor;
+            Banks = banks;
+            Offset = offset;
+            CurrentBank = 0;
         }
 
         public void Reset()
@@ -27,56 +42,42 @@ namespace Hardware
         /// </summary>
         public void Clear()
         {
-            for (var i = 0; i < Memory.Length; i++)
-                Memory[i] = 0x00;
+            for (var i = 0; i < Banks; i++)
+            {
+                for (var j = 0; j < Memory.Length; j++)
+                {
+                    Memory[i][j] = 0x00;
+                }
+            }
         }
         
         /// <summary>
-        /// Loads a program into the processors memory
+        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
         /// </summary>
-        /// <param name="offset">The offset in memory when loading the program.</param>
-        /// <param name="program">The program to be loaded</param>
-        public void Load(int offset, byte[] program)
+        /// <param name="bank">The bank to read data from.</param>
+        /// <param name="address"></param>
+        /// <returns>the byte being returned</returns>
+        public byte Read(int address)
         {
-            if (offset > Memory.Length)
-                throw new InvalidOperationException("Offset '{0}' is larger than memory size '{1}'");
-
-            if (program.Length > Memory.Length + offset)
-                throw new InvalidOperationException(string.Format("Program Size '{0}' Cannot be Larger than Memory Size '{1}' plus offset '{2}'", program.Length, Memory.Length, offset));
-
-            for (var i = 0; i < program.Length; i++)
-            {
-                Memory[i + offset] = program[i];
-            }
-
-            Processor.Reset();
+            return Memory[CurrentBank][address];
         }
 
         /// <summary>
-        /// Loads a program into the processors memory
+        /// Writes data to the given address without incrementing the cycle.
         /// </summary>
-        /// <param name="offset">The offset in memory when loading the program.</param>
-        /// <param name="program">The program to be loaded</param>
-        /// <param name="initialProgramCounter">The initial PC value, this is the entry point of the program</param>
-        public void Load(int offset, byte[] program, int initialProgramCounter)
+        /// <param name="bank">The bank to load data to.</param>
+        /// <param name="address">The address to write data to</param>
+        /// <param name="data">The data to write</param>
+        public void Write(int address, byte data)
         {
-            Load(offset, program);
-
-            var bytes = BitConverter.GetBytes(initialProgramCounter);
-
-            //Write the initialProgram Counter to the reset vector
-            MemoryMap.WriteWithoutCycle(0xFFFC, bytes[0]);
-            MemoryMap.WriteWithoutCycle(0xFFFD, bytes[1]);
-
-            //Reset the CPU
-            Processor.Reset();
+            Memory[CurrentBank][address] = data;
         }
 
         /// <summary>
         /// Dumps the entire memory object. Used when saving the memory state
         /// </summary>
         /// <returns></returns>
-        public byte[] DumpMemory()
+        public byte[][] DumpMemory()
         {
             return Memory;
         }

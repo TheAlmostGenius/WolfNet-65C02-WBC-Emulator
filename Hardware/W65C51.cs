@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
+using System.Xml.Schema;
 
 namespace Hardware
 {
@@ -19,20 +20,25 @@ namespace Hardware
         #endregion
 
         #region Properties
-        private W65C02 Processor { get; set; }
-        public ushort Offset { get; set; }
+        public byte[] Memory { get; set; }
         public bool IsEnabled { get; set; }
         public SerialPort Object { get; set; }
         public string ObjectName { get; set; }
+        private W65C02 Processor { get; set; }
+        public int Offset { get; set; }
+        public int Length { get; set; }
         #endregion
 
         #region Public Methods
-        public W65C51(W65C02 processor, ushort offset)
+        public W65C51(W65C02 processor, byte offset, int length)
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
-            Offset = (ushort)(MemoryMap.DeviceArea.Offset & offset);
             Processor = processor;
+           
+            Offset = (int)(MemoryMap.DeviceArea.Offset | offset);
+            Length = length;
+            Memory = new byte[length];
         }
 
         public void Reset()
@@ -71,6 +77,28 @@ namespace Hardware
         public void Fini()
         {
             ComFini(Object);
+        }
+
+        /// <summary>
+        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
+        /// </summary>
+        /// <param name="bank">The bank to read data from.</param>
+        /// <param name="address"></param>
+        /// <returns>the byte being returned</returns>
+        public byte Read(int address)
+        {
+            return Memory[address];
+        }
+
+        /// <summary>
+        /// Writes data to the given address without incrementing the cycle.
+        /// </summary>
+        /// <param name="bank">The bank to load data to.</param>
+        /// <param name="address">The address to write data to</param>
+        /// <param name="data">The data to write</param>
+        public void Write(int address, byte data)
+        {
+            Memory[address] = data;
         }
 
         /// <summary>
@@ -114,7 +142,7 @@ namespace Hardware
                 serialPort.Write("---------------------------\r\n");
                 serialPort.Write("\r\n");
             }
-            catch (System.TimeoutException t)
+            catch (TimeoutException t)
             {
                 _ = t;
                 FileStream file = new FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);

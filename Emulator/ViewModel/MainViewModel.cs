@@ -239,18 +239,18 @@ namespace Emulator.ViewModel
             }
             _stream.Close();
 
-            HM62256 = new HM62256(MemoryMap.BankedRam.Length + (uint)1, W65C02);
-            W65C51 = new W65C51(W65C02, 0x10);
+            HM62256 = new HM62256(MemoryMap.BankedRam.TotalBanks, MemoryMap.BankedRam.Offset, MemoryMap.BankedRam.Length, W65C02);
+            W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset, MemoryMap.Devices.ACIA.Length);
             W65C51.Init(SettingsModel.ComPortName.ToString());
-            W65C22 = new W65C22(W65C02, 0x20);
+            W65C22 = new W65C22(W65C02, MemoryMap.Devices.GPIO.Offset, MemoryMap.Devices.GPIO.Length);
             W65C22.Init(1000);
-            MM65SIB = new W65C22(W65C02, 0x30);
+            MM65SIB = new W65C22(W65C02, MemoryMap.Devices.MM65SIB.Offset, MemoryMap.Devices.MM65SIB.Length);
             MM65SIB.Init(1000);
-            AT28C64 = new AT28CXX(W65C02, MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length + 1, 1);
-            AT28C010 = new AT28CXX(W65C02, MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.BankSize, MemoryMap.BankedRom.TotalBanks);
+            AT28C64 = new AT28CXX(W65C02, MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length, 1);
+            AT28C010 = new AT28CXX(W65C02, MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.Length, MemoryMap.BankedRom.TotalBanks);
 
             W65C02 = new W65C02();
-            MemoryMap.Init(0x10000, W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
+            MemoryMap.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
 
             // Now we can load the BIOS.
             AT28C64.Load(AT28C64.TryRead(FileLocations.BiosFile));
@@ -263,7 +263,7 @@ namespace Emulator.ViewModel
 			RunPauseCommand = new RelayCommand(RunPause);
             SettingsCommand = new RelayCommand(Settings);
 			StepCommand = new RelayCommand(Step);
-			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
+			//UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 
             Messenger.Default.Register<NotificationMessage>(this, GenericNotifcation);
             Messenger.Default.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
@@ -274,7 +274,7 @@ namespace Emulator.ViewModel
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
 			Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
 
-			UpdateMemoryPage();
+			//UpdateMemoryPage();
 
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
@@ -329,8 +329,9 @@ namespace Emulator.ViewModel
             W65C22 = notificationMessage.Content.W65C22;
             MM65SIB = notificationMessage.Content.MM65SIB;
             W65C51 = notificationMessage.Content.W65C51;
-			AT28C010 = notificationMessage.Content.AT28C010;
-            UpdateMemoryPage();
+            AT28C010 = notificationMessage.Content.AT28C010;
+            AT28C64 = notificationMessage.Content.AT28C64;
+            //UpdateMemoryPage();
             UpdateUi();
 
             IsRomLoaded = true;
@@ -363,13 +364,13 @@ namespace Emulator.ViewModel
 
                 if (Path.GetExtension(dialog.FileName.ToUpper()) == ".BIN")
                 {
-                    byte[][] _rom = AT28C010.ConvertByteArrayToJagged(MemoryMap.BankedRom.TotalBanks, MemoryMap.BankedRom.BankSize, File.ReadAllBytes(dialog.FileName));
+                    byte[][] _rom = AT28C010.DumpMemory();
 
                     Messenger.Default.Send(new NotificationMessage<RomFileModel>(new RomFileModel
                     {
                         Rom = _rom,
-                        RomBanks = (byte)_rom.GetLength(0),
-                        RomBankSize = (ushort)_rom[0].Length,
+                        RomBanks = AT28C010.Banks,
+                        RomBankSize = AT28C010.Length,
                         RomFilePath = dialog.FileName,
                         RomFileName = Path.GetFileName(dialog.FileName),
                     }, "FileLoaded"));
@@ -395,9 +396,8 @@ namespace Emulator.ViewModel
                     return;
                 }
 
-                string Filename = dialog.FileName;
                 var formatter = new BinaryFormatter();
-                Stream stream = new FileStream(Filename, FileMode.Create, FileAccess.Write, FileShare.None);
+                Stream stream = new FileStream(dialog.FileName, FileMode.Create, FileAccess.Write, FileShare.None);
 
                 formatter.Serialize(stream, new StateFileModel
                 {
@@ -408,7 +408,8 @@ namespace Emulator.ViewModel
                     MM65SIB = MM65SIB,
                     W65C51 = W65C51,
                     AT28C010 = AT28C010,
-                });
+                    AT28C64 = AT28C64,
+            });
                 stream.Close();
             }
 			else
@@ -429,38 +430,38 @@ namespace Emulator.ViewModel
 			UpdateUi();
 		}
 
-        private void UpdateMemoryPage()
-		{
-			MemoryPage.Clear();
-			var offset = (_memoryPageOffset * 256);
+		//private void UpdateMemoryPage()
+		//{
+		//	MemoryPage.Clear();
+		//	var offset = (_memoryPageOffset * 256);
 
-			var multiplyer = 0;
-			for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
-			{
+		//	var multiplyer = 0;
+		//	for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
+		//	{
 
-				MemoryPage.Add(new MemoryRowModel
-				{
-					Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-					Location00 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location01 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location02 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location03 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location04 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location05 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location06 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location07 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location08 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location09 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0A = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0B = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0C = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0D = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0E = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-					Location0F = MemoryMap.ReadWithoutCycle(i).ToString("X").PadLeft(2, '0'),
-				});
-				multiplyer++;
-			}
-		}
+		//		MemoryPage.Add(new MemoryRowModel
+		//		{
+		//			Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
+		//			Location00 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location01 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location02 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location03 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location04 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location05 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location06 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location07 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location08 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location09 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location0A = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location0B = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location0C = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location0D = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location0E = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+		//			Location0F = MemoryMap.ReadWithoutCycle(i).ToString("X").PadLeft(2, '0'),
+		//		});
+		//		multiplyer++;
+		//	}
+		//}
 
 		private void Reset()
 		{
@@ -478,12 +479,14 @@ namespace Emulator.ViewModel
 			RaisePropertyChanged("MM65SIB");
 			W65C51.Reset();
 			RaisePropertyChanged("W65C51");
+			HM62256.Reset();
+			RaisePropertyChanged("HM62256");
 
             IsRunning = false;
 			NumberOfCycles = 0;
 			RaisePropertyChanged("NumberOfCycles");
 
-			UpdateMemoryPage();
+			//UpdateMemoryPage();
 			RaisePropertyChanged("MemoryPage");
 
 			OutputLog.Clear();
@@ -501,7 +504,7 @@ namespace Emulator.ViewModel
 				_backgroundWorker.CancelAsync();
 
 			StepProcessor();
-			UpdateMemoryPage();
+			//UpdateMemoryPage();
 
 			OutputLog.Insert(0, GetOutputLog());
 			UpdateUi();
@@ -568,7 +571,7 @@ namespace Emulator.ViewModel
 					foreach (var log in outputLogs)
 						OutputLog.Insert(0, log);
 
-					UpdateMemoryPage();
+					//UpdateMemoryPage();
 					return;
 				}
 
@@ -683,7 +686,7 @@ namespace Emulator.ViewModel
             if (_backgroundWorker.IsBusy)
                 _backgroundWorker.CancelAsync();
 
-			MessageBox.Show(string.Format("{0}\n{1}\nVersion: {2}", Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.Version), Versioning.Product.Title);
+			MessageBox.Show(string.Format("{0}\n{1}\nVersion: {2}\nCompany: {3}", Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.Version, Versioning.Product.Company), Versioning.Product.Title);
         }
 
         private void Settings()

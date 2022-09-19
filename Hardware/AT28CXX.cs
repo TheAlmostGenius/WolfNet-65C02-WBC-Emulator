@@ -19,15 +19,25 @@ namespace Hardware
         /// <summary>
         /// The total number of banks on the ROM.
         /// </summary>
-        protected byte Banks { get; private set; }
+        public byte Banks { get; private set; }
 
         /// <summary>
-        /// The memory
+        /// The bank the ROM is currently using.
+        /// </summary>
+        public byte CurrentBank { get; private set; }
+
+        /// <summary>
+        /// The memory offset
         /// </summary>
         public int Offset { get; private set; }
 
         /// <summary>
-        /// The memory
+        /// The end of memory
+        /// </summary>
+        public int End { get { return Offset + Length; } }
+
+        /// <summary>
+        /// The memory length
         /// </summary>
         public int Length { get; private set; }
 
@@ -46,11 +56,12 @@ namespace Hardware
             Memory = new byte[banks][];
             for (int i = 0; i < banks; i++)
             {
-                Memory[i] = new byte[length];
+                Memory[i] = new byte[length + 1];
             }
             Offset = offset;
             Length = length;
             Banks = banks;
+            CurrentBank = 0;
             Processor = processor;
             Clear();
         }
@@ -79,7 +90,7 @@ namespace Hardware
         {
             for (byte i = 0; i < Banks; i++)
             {
-                Load(i, data);
+                Load(i, data[i]);
             }
         }
 
@@ -88,40 +99,35 @@ namespace Hardware
         /// </summary>
         /// <param name="bank">The bank to load data to.</param>
         /// <param name="data">The data to be loaded to ROM.</param>
-        public void Load(byte bank, byte[][] data)
+        public void Load(byte bank, byte[] data)
         {
-            Memory[bank] = data[bank];
+            for (int i = 0; i <= Length; i++)
+            {
+                Memory[bank][i] = data[i];
+            }
         }
 
-        /// <summary>
-        /// Loads a program into ROM.
-        /// </summary>
-        /// <param name="bank">The bank to load data to.</param>
-        /// <param name="offset">The offset within the bank to load data to.</param>
-        /// <param name="data">The data to be loaded to ROM.</param>
-        public void Load(int offset, byte bank, byte[][] data)
+        public byte[][] TryRead(string filename)
         {
-            for (int i = 0; i < Length - 1; i++)
-            {
-                Memory[bank][offset + i] = data[bank][offset];
-            }
-
-        }
-
-        public byte[][] TryRead(string biosFile)
-        {
-            byte[][] bios = null;
-            try
-            {
-                byte[] _try = File.ReadAllBytes(biosFile);
-                bios = ConvertByteArrayToJagged(1, 0x2000, _try);
-            }
-            catch (Exception)
-            {
-                return null;
-            }
+            byte[][] bios = new byte[Banks][];
+            //try
+            //{
+                FileStream file = new FileStream(filename, FileMode.Open, FileAccess.Read);
+                for (int i = 0; i < Banks; i++)
+                {
+                    bios[i] = new byte[Length + 1];
+                    for (int j = 0; j <= Length; j++)
+                    {
+                        bios[i][j] = new byte();
+                        bios[i][j] = (byte)file.ReadByte();
+                    }
+                }
+            //}
+            //catch (Exception)
+            //{
+            //    return null;
+            //}
             return bios;
-
         }
 
         /// <summary>
@@ -130,9 +136,24 @@ namespace Hardware
         /// <param name="bank">The bank to read data from.</param>
         /// <param name="address"></param>
         /// <returns>the byte being returned</returns>
-        public byte Read(byte bank, int address)
+        public byte Read(int address)
         {
-            return Memory[bank][address];
+            return Memory[CurrentBank][address - Offset];
+        }
+
+        /// <summary>
+        /// Writes data to the given address without incrementing the cycle.
+        /// </summary>
+        /// <param name="bank">The bank to load data to.</param>
+        /// <param name="address">The address to write data to</param>
+        /// <param name="data">The data to write</param>
+        public void Write(int address, byte data)
+        {
+#if DEBUG
+            Memory[CurrentBank][address - Offset] = data;
+#else
+            throw new NotSupportedException("Writing to ROM is not supported by the software as it isn't supported in the real world!");
+#endif
         }
 
         /// <summary>
@@ -149,10 +170,10 @@ namespace Hardware
             byte[][] jagged = new byte[elements][];
             int k = 0;
 
-            for (int i = 0; i < jagged.Length; i++)
+            for (int i = 0; i < elements; i++)
             {
                 jagged[i] = new byte[bytesPerElement];
-                for (int j = 0; j < jagged[i].Length; j++)
+                for (int j = 0; j < bytesPerElement; j++)
                 {
                     if (k == array.Length) { break; }
                     jagged[i][j] = array[k];
@@ -190,19 +211,6 @@ namespace Hardware
                 }
             }
         }
-        #endregion
-
-        #region Private Methods
-        /// <summary>
-        /// Writes data to the given address without incrementing the cycle.
-        /// </summary>
-        /// <param name="bank">The bank to load data to.</param>
-        /// <param name="address">The address to write data to</param>
-        /// <param name="data">The data to write</param>
-        private void Write(byte bank, int address, byte data)
-        {
-            Memory[bank][address] = data;
-        }
-        #endregion
+#endregion
     }
 }

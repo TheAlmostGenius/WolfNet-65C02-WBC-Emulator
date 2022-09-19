@@ -140,7 +140,6 @@ namespace Hardware
         public W65C02()
         {
             StackPointer = 0x100;
-
             CycleCountIncrementedAction = () => { };
         }
 
@@ -150,18 +149,13 @@ namespace Hardware
         public void Reset()
         {
             ResetCycleCount();
-
             StackPointer = 0x1FD;
-
             //Set the Program Counter to the Reset Vector Address.
             ProgramCounter = 0xFFFC;
             //Reset the Program Counter to the Address contained in the Reset Vector
-            ProgramCounter = (MemoryMap.MemorySpace[ProgramCounter] | (MemoryMap.MemorySpace[ProgramCounter + 1] << 8));
-
-            CurrentOpCode = MemoryMap.MemorySpace[ProgramCounter];
-
+            ProgramCounter = (MemoryMap.Read(ProgramCounter) | (MemoryMap.Read(ProgramCounter + 1) << 8));
+            CurrentOpCode = MemoryMap.Read(ProgramCounter);
             //SetDisassembly();
-
             DisableInterruptFlag = true;
             _previousInterrupt = false;
             TriggerNmi = false;
@@ -176,7 +170,7 @@ namespace Hardware
             SetDisassembly();
 
             //Have to read this first otherwise it causes tests to fail on a NES
-            CurrentOpCode = MemoryMap.Read((ushort)ProgramCounter);
+            CurrentOpCode = MemoryMap.Read(ProgramCounter);
 
             ProgramCounter++;
 
@@ -1503,7 +1497,7 @@ namespace Hardware
         private byte PeekStack()
         {
             //The stack lives at 0x100-0x1FF, but the value is only a byte so it needs to be translated
-            return MemoryMap.MemorySpace[StackPointer + 0x100];
+            return MemoryMap.Read(StackPointer + 0x100);
         }
 
         /// <summary>
@@ -1514,7 +1508,7 @@ namespace Hardware
         private void PokeStack(byte value)
         {
             //The stack lives at 0x100-0x1FF, but the value is only a byte so it needs to be translated
-            MemoryMap.MemorySpace[StackPointer + 0x100] = value;
+            MemoryMap.Write(StackPointer + 0x100, value);
         }
 
         /// <summary>
@@ -1539,10 +1533,10 @@ namespace Hardware
             var currentProgramCounter = ProgramCounter;
 
             currentProgramCounter = WrapProgramCounter(++currentProgramCounter);
-            int? address1 = MemoryMap.MemorySpace[currentProgramCounter];
+            int? address1 = MemoryMap.Read(currentProgramCounter);
 
             currentProgramCounter = WrapProgramCounter(++currentProgramCounter);
-            int? address2 = MemoryMap.MemorySpace[currentProgramCounter];
+            int? address2 = MemoryMap.Read(currentProgramCounter);
 
             string disassembledStep = string.Empty;
 

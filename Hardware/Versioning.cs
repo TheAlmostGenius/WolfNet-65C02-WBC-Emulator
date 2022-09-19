@@ -1,8 +1,4 @@
-﻿using System.Deployment;
-using System.Reflection;
-using System;
-
-namespace Hardware
+﻿namespace Hardware
 {
     public class Versioning
     {

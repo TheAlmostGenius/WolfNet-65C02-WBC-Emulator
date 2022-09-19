@@ -18,7 +18,7 @@
         /// <summary>
         /// The name of the Program that was loaded.
         /// </summary>
-        public ushort RomBankSize { get; set; }
+        public int RomBankSize { get; set; }
 
         /// <summary>
         /// The name of the Program that was loaded.

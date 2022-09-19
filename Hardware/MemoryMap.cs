@@ -1,77 +1,97 @@
 ﻿using System;
 using System.IO;
-using System.Xml.Schema;
 
 namespace Hardware
 {
-	public class MemoryMap
-	{
-		public static class BankedRam
-		{
-            private static ushort _Offset = 0x0000;
-            private static ushort _Length = 0x7FFF;
+    public class MemoryMap
+    {
+        public static class BankedRam
+        {
+            private static int _Offset = 0x0000;
+            private static int _Length = 0x7FFF;
 
-            public static ushort CurrentBank { get; set; }
-            public static ushort Offset => _Offset;
-            public static ushort Length => _Length;
-        }
-
-		public static class DeviceArea
-		{
-			private static ushort _Offset = 0xD000;
-			private static ushort _Length = 0x00FF;
-
-			public static ushort Offset => _Offset;
-			public static ushort Length => _Length;
-		}
-
-		public static class BankedRom
-		{
-			private static ushort _Offset = 0x8000;
-            private static ushort _Length = 0x3FFF;
-
-            public static int TotalLength = (BankSize * TotalBanks);
+            public static int TotalLength = (BankSize * TotalBanks) - 1;
+            public static int BankSize = (int)(Length + 1);
             public static byte TotalBanks = 16;
-			public static ushort BankSize = (ushort)(Length + 1);
 
-            public static ushort CurrentBank { get; set; }
-			public static ushort Offset => _Offset;
-            public static ushort Length => _Length;
+            public static int Offset { get { return _Offset; } }
+            public static int Length { get { return _Length; } }
         }
 
-		public static class SharedRom
-		{
-			private static ushort _Offset = 0xE000;
-            private static ushort _Length = 0x1FFF;
+        public static class DeviceArea
+        {
+            private static int _Offset = 0xD000;
+            private static int _Length = 0x00FF;
 
-            public static ushort Offset => _Offset;
-            public static ushort Length => _Length;
+            /// <summary>
+            /// The end of memory
+            /// </summary>
+            public static int End { get { return Offset + Length; } }
+            public static int Offset { get { return _Offset; } }
+            public static int Length { get { return _Length; } }
         }
 
-        private static int Length { get; set; }
+        public static class BankedRom
+        {
+            private static int _Offset = 0x8000;
+            private static int _Length = 0x3FFF;
+
+            public static byte TotalBanks = 16;
+
+            public static int Offset { get { return _Offset; } }
+            public static int Length { get { return _Length; } }
+        }
+
+        public static class SharedRom
+        {
+            private static int _Offset = 0xE000;
+            private static int _Length = 0x1FFF;
+
+            public static byte TotalBanks = 1;
+
+            public static int Offset { get { return _Offset; } }
+            public static int Length { get { return _Length; } }
+        }
+
+        public static class Devices
+        {
+            public static class ACIA
+            {
+                public static int Length = 0x03;
+                public static byte Offset = 0x10;
+            }
+
+            public static class GPIO
+            {
+                public static int Length = 0x0F;
+                public static byte Offset = 0x20;
+            }
+
+            public static class MM65SIB
+            {
+                public static int Length = 0x0F;
+                public static byte Offset = 0x30;
+            }
+        }
+
         private static W65C02 Processor { get; set; }
         private static W65C22 GPIO { get; set; }
         private static W65C22 MM65SIB { get; set; }
         private static W65C51 ACIA { get; set; }
-        private static HM62256 RAM { get; set; }
         private static AT28CXX SharedROM { get; set; }
         private static AT28CXX BankedROM { get; set; }
-        public static byte[] MemorySpace { get; set; }
+        private static HM62256 BankedRAM { get; set; }
 
-        public static void Init(int length, W65C02 processor, W65C22 gpio, W65C22 mm65sib, W65C51 acia, HM62256 ram, AT28CXX bankedRom, AT28CXX sharedRom)
-		{
-            MemorySpace = new byte[length];
-            Length = length;
-            BankedRom.CurrentBank = 0;
-            BankedRam.CurrentBank = 0;
+        public static void Init(W65C02 processor, W65C22 gpio, W65C22 mm65sib, W65C51 acia, HM62256 bankedRam, AT28CXX bankedRom, AT28CXX sharedRom)
+        {
             Processor = processor;
-			GPIO = gpio;
-			MM65SIB = mm65sib;
-			ACIA = acia;
-			RAM = ram;
-			SharedROM = sharedRom;
+            GPIO = gpio;
+            MM65SIB = mm65sib;
+            ACIA = acia;
+            SharedROM = sharedRom;
             BankedROM = bankedRom;
-		}
+            BankedRAM = bankedRam;
+        }
 
         /// <summary>
         /// Returns the byte at the given address.
@@ -86,40 +106,49 @@ namespace Hardware
         }
 
         public static byte ReadWithoutCycle(int address)
-		{
-            if (address == ACIA.address)
+        {
+            int _address = address;
+            if ((ACIA.Offset <= _address) && (_address <= (ACIA.Offset + ACIA.Length)))
             {
                 return ACIA.byteIn;
             }
-            else if (address == GPIO.ACR)
+            else if ((GPIO.Offset <= _address) && (_address <= (GPIO.Offset + GPIO.Length)))
             {
-                byte data = (byte)0;
-                if (GPIO.T1TimerControl)
-                {
-                    data = (byte)(data | GPIO.ACR_T1TC);
-                }
-                else if (GPIO.T2TimerControl)
-                {
-                    data = (byte)(data | GPIO.ACR_T2TC);
-                }
-                return data;
-
+                return GPIO.Read(_address);
             }
-            else if (0xD000 < address && address <= 0xD0FF)
+            else if ((DeviceArea.Offset <= _address) && (_address < DeviceArea.End))
             {
                 throw new ArgumentOutOfRangeException("Device area accessed where there is no device!");
             }
-            else if (BankedRom.Offset < address && address <= (BankedRom.Offset & BankedRom.Length))
+            else if ((SharedROM.Offset <= _address) && (_address < SharedROM.End))
             {
-                return SharedROM.Memory[BankedRom.CurrentBank][address];
+                return SharedROM.Read(_address);
             }
-            else if (BankedRam.Offset < address && address <= (BankedRam.Offset & BankedRam.Length))
+            else if ((BankedROM.Offset <= _address) && (_address < BankedROM.End))
             {
-                return RAM.Memory[address];
+                return BankedROM.Read(_address);
+            }
+            else if ((BankedRAM.Offset <= _address) && (_address < BankedRAM.End))
+            {
+                return BankedRAM.Read(_address);
             }
             else
             {
+#if DEBUG
+                StreamWriter file = File.CreateText(FileLocations.ErrorFile);
+                string stringToWrite;
+                stringToWrite = String.Format("Banked RAM Offset: {0} Banked RAM End: {1]", BankedRAM.Offset.ToString(), (BankedRAM.Offset + BankedRAM.Length));
+                file.WriteLine(stringToWrite);
+                stringToWrite = String.Format("Banked ROM Offset: {0} Banked ROM End: {1]", BankedROM.Offset.ToString(), (BankedROM.Offset + BankedROM.Length));
+                file.WriteLine(stringToWrite);
+                stringToWrite = String.Format("Shared ROM Offset: {0} Shared ROM End: {1]", SharedROM.Offset.ToString(), (SharedROM.Offset + SharedROM.Length));
+                file.WriteLine(stringToWrite);
+                file.Flush();
+                file.Close();
+                throw new ArgumentOutOfRangeException(String.Format("Cannot access memory at address: {0}", address));
+#else
                 return 0x00;
+#endif
             }
         }
 
@@ -141,44 +170,34 @@ namespace Hardware
         /// <param name="data">The data to write</param>
         public static void WriteWithoutCycle(int address, byte data)
         {
-            if (DeviceArea.Offset < address && address <= (DeviceArea.Offset & DeviceArea.Length))
+            if ((ACIA.Offset <= address) && (address <= (DeviceArea.Offset | ACIA.Offset | ACIA.Length)))
             {
-                if (address == ACIA.address)
+                if (address == ACIA.Offset)
                 {
                     ACIA.WriteCOM(data);
                 }
-                else if ((address == GPIO.ACR) && ((data | GPIO.ACR_T1TC) == GPIO.ACR_T1TC))
-                {
-                    GPIO.T1TimerControl = true;
-                }
-                else if ((address == GPIO.ACR) && ((data | GPIO.ACR_T2TC) == GPIO.ACR_T2TC))
-                {
-                    GPIO.T2TimerControl = true;
-                }
-                else if ((address == GPIO.IER) && ((data | GPIO.IER_T1) == GPIO.IER_T1) && ((data | GPIO.IER_EN) == GPIO.IER_EN))
-                {
-                    GPIO.T1Init(GPIO.T1Interval);
-                }
-                else if ((address == GPIO.IER) && ((data | GPIO.IER_T2) == GPIO.IER_T2) && ((data | GPIO.IER_EN) == GPIO.IER_EN))
-                {
-                    GPIO.T2Init(GPIO.T2Interval);
-                }
-                else
-                {
-                    return;
-                }
             }
-            else if (BankedRom.Offset < address && address <= (BankedRom.Offset & BankedRom.Length))
+            else if ((GPIO.Offset <= address) && (address <= (DeviceArea.Offset | GPIO.Offset | GPIO.Length)))
             {
-                SharedROM.Memory[BankedRom.CurrentBank][address] = data;
+                GPIO.Write(address, data);
             }
-            else if (BankedRam.Offset < address && address <= (BankedRam.Offset & BankedRam.Length))
+            else if ((SharedROM.Offset <= address) && (address <= (SharedROM.Offset | SharedROM.Length)))
             {
-                RAM.Memory[address] = data;
+                SharedROM.Write(address, data);
+            }
+            else if ((BankedROM.Offset <= address) && (address <= (BankedROM.Offset | BankedROM.Length)))
+            {
+                BankedROM.Write(address, data);
+            }
+            else if ((BankedRAM.Offset <= address) && (address <= (BankedRAM.Offset | BankedRAM.Length)))
+            {
+                BankedRAM.Write(address, data);
             }
             else
             {
-                return;
+#if DEBUG
+                throw new ApplicationException(String.Format("Cannot write to address: {0}", address));
+#endif
             }
         }
     }
