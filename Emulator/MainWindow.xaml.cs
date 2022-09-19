@@ -4,6 +4,9 @@ using Emulator.ViewModel;
 using System;
 using System.ComponentModel;
 using System.Windows;
+using Hardware;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Emulator
 {
@@ -27,17 +30,6 @@ namespace Emulator
 			InitializeComponent();
 			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
-            Closing += new CancelEventHandler(OnClose);
-        }
-
-        private void OnClose(Object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            if (e.Cancel)
-            {
-                return;
-            }
-            Messenger.Default.Send("Closing");
         }
 
         private void LoadFile(Object sender, EventArgs e)

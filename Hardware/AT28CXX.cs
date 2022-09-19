@@ -51,7 +51,7 @@ namespace Hardware
         /// <summary>
         /// Default Constructor, Instantiates a new instance of the processor.
         /// </summary>
-        public AT28CXX(W65C02 processor, int offset, int length, byte banks)
+        public AT28CXX(int offset, int length, byte banks)
         {
             Memory = new byte[banks][];
             for (int i = 0; i < banks; i++)
@@ -62,8 +62,6 @@ namespace Hardware
             Length = length;
             Banks = banks;
             CurrentBank = 0;
-            Processor = processor;
-            Clear();
         }
 
         /// <summary>
@@ -110,8 +108,8 @@ namespace Hardware
         public byte[][] TryRead(string filename)
         {
             byte[][] bios = new byte[Banks][];
-            //try
-            //{
+            try
+            {
                 FileStream file = new FileStream(filename, FileMode.Open, FileAccess.Read);
                 for (int i = 0; i < Banks; i++)
                 {
@@ -122,11 +120,11 @@ namespace Hardware
                         bios[i][j] = (byte)file.ReadByte();
                     }
                 }
-            //}
-            //catch (Exception)
-            //{
-            //    return null;
-            //}
+            }
+            catch (Exception)
+            {
+                return null;
+            }
             return bios;
         }
 
@@ -149,11 +147,7 @@ namespace Hardware
         /// <param name="data">The data to write</param>
         public void Write(int address, byte data)
         {
-#if DEBUG
-            Memory[CurrentBank][address - Offset] = data;
-#else
             throw new NotSupportedException("Writing to ROM is not supported by the software as it isn't supported in the real world!");
-#endif
         }
 
         /// <summary>
@@ -165,30 +159,11 @@ namespace Hardware
             return Memory;
         }
 
-        public byte[][] ConvertByteArrayToJagged(int elements, int bytesPerElement, byte[] array)
-        {
-            byte[][] jagged = new byte[elements][];
-            int k = 0;
-
-            for (int i = 0; i < elements; i++)
-            {
-                jagged[i] = new byte[bytesPerElement];
-                for (int j = 0; j < bytesPerElement; j++)
-                {
-                    if (k == array.Length) { break; }
-                    jagged[i][j] = array[k];
-                    k++;
-                }
-            }
-
-            return jagged;
-        }
-
         /// <summary>
         /// Dumps the selected ROM bank.
         /// </summary>
         /// <param name="bank">The bank to dump data from.</param>
-        /// <returns>2 dimensional array of data analogous to the ROM of the computer.</returns>
+        /// <returns>Array that represents the selected ROM bank.</returns>
         public byte[] DumpMemory(byte bank)
         {
             byte[] _tempMemory = new byte[MemoryMap.BankedRom.Length + 1];
