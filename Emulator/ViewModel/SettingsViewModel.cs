@@ -12,7 +12,7 @@ using Emulator.Model;
 namespace Emulator.ViewModel
 {
 	/// <summary>
-	/// The ViewModel Used by the SaveFileView
+	/// The ViewModel Used by the SettingsView
 	/// </summary>
 	public class SettingsViewModel : ViewModelBase
 	{

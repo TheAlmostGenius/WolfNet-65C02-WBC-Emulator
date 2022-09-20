@@ -28,13 +28,17 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
+    <MapFileExtensions>false</MapFileExtensions>
     <SupportUrl>https://thealmostgenius.geekgalaxy.com/Wolfnet-6502-WBC-Simulator</SupportUrl>
     <ProductName>WolfNet 65C02 WorkBench Computer Emulator</ProductName>
     <PublisherName>WolfNet Computing</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <AutorunEnabled>true</AutorunEnabled>
+    <DisallowUrlActivation>true</DisallowUrlActivation>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>0.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -59,7 +63,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\icon.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Publish|x86'">
     <OutputPath>bin\x86\Publish\</OutputPath>
@@ -115,6 +120,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\Language.cs" />
     <Compile Include="Classes\Versioning.cs" />
     <Compile Include="Classes\FileLocations.cs" />
     <Compile Include="Classes\ExitCodes.cs" />
@@ -126,22 +132,14 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SaveFile.xaml.cs">
-      <DependentUpon>SaveFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\MemoryRowModel.cs" />
     <Compile Include="Model\RomFileModel.cs" />
     <Compile Include="Model\OutputLog.cs" />
     <Compile Include="MultiThreadedCollection.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
-    <Compile Include="ViewModel\SaveFileViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="Settings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SaveFile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -165,9 +163,9 @@
     <SplashScreen Include="SplashScreen.png" />
     <Resource Include="Images\wolf_logo_white.png" />
     <None Include="app.config" />
-    <Resource Include="Images\icon.ico" />
     <Resource Include="icon.ico" />
     <Resource Include="Images\oshw-logo-outline.png" />
+    <Resource Include="Images\language.png" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
