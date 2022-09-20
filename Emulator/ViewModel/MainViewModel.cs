@@ -278,6 +278,7 @@ namespace Emulator.ViewModel
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
 <<<<<<< HEAD
+<<<<<<< HEAD
             Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
 
             Reset();
@@ -309,6 +310,11 @@ namespace Emulator.ViewModel
             W65C51.Fini();
         }
 
+=======
+
+            Reset();
+        }
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
 =======
 
             Reset();
@@ -375,6 +381,7 @@ namespace Emulator.ViewModel
         private void GenericNotifcation(NotificationMessage notificationMessage)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			if (notificationMessage.Notification == "CloseFile")
 			{
 				AT28C010.Clear();
@@ -382,6 +389,8 @@ namespace Emulator.ViewModel
 				RaisePropertyChanged("IsRomLoaded");
 			}
 =======
+=======
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
 			if (notificationMessage.Notification == "Closing")
 			{
                 W65C51.Fini();
@@ -393,6 +402,9 @@ namespace Emulator.ViewModel
                 AT28C64.Clear();
 				AT28C010.Clear();
             }
+<<<<<<< HEAD
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
+=======
 >>>>>>> parent of 74ec302 (Finished handling on closure of window...)
 			else if (notificationMessage.Notification == "LoadFile")
 			{

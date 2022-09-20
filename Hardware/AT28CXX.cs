@@ -148,15 +148,21 @@ namespace Hardware
         public void Write(int address, byte data)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             _ = address;
             _ = data;
             return;
 =======
+=======
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
 #if DEBUG
             Memory[CurrentBank][address - Offset] = data;
 #else
             throw new NotSupportedException("Writing to ROM is not supported by the software as it isn't supported in the real world!");
 #endif
+<<<<<<< HEAD
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
+=======
 >>>>>>> parent of 74ec302 (Finished handling on closure of window...)
         }
 

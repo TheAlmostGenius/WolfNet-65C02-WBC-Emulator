@@ -4,8 +4,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
 <<<<<<< HEAD
+<<<<<<< HEAD
         Title="WolfNet 65C02 WorkBench Computer Emulator" Height="768" Width="1024"
         ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" FontFamily="Comic Sans MS" >
+=======
+        Title="WolfNet 6502 WorkBench Computer Emulator" Height="768" Width="1024"
+        ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" Closing="OnClose" >
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
 =======
         Title="WolfNet 6502 WorkBench Computer Emulator" Height="768" Width="1024"
         ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" Closing="OnClose" >

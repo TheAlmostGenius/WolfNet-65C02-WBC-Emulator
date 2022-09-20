@@ -26,11 +26,14 @@ namespace Emulator
                 return;
             }
             Messenger.Default.Send("Closing");
+<<<<<<< HEAD
         }
 
         private void Exit(object sender, RoutedEventArgs e)
         {
             this.Close();
+=======
+>>>>>>> parent of 74ec302 (Finished handling on closure of window...)
         }
 
         private void LoadFile(Object sender, EventArgs e)
