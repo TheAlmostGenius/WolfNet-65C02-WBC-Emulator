@@ -17,7 +17,6 @@ using W65C02 = Hardware.W65C02;
 using W65C22 = Hardware.W65C22;
 using W65C51 = Hardware.W65C51;
 using System.Runtime.Serialization.Formatters.Binary;
-using static Emulator.Language;
 
 namespace Emulator.ViewModel
 {
