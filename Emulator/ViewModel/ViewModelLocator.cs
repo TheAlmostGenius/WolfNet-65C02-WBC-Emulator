@@ -31,6 +31,7 @@ namespace Emulator.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<SaveFileViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
         }
 
@@ -43,7 +44,15 @@ namespace Emulator.ViewModel
         }
 
         /// <summary>
-        /// The SettingsViewModel Instance
+        /// The SaveFileViewModel Instance
+        /// </summary>
+        public SaveFileViewModel SaveFile
+        {
+            get { return ServiceLocator.Current.GetInstance<SaveFileViewModel>(); }
+        }
+
+        /// <summary>
+        /// The SaveFileViewModel Instance
         /// </summary>
         public SettingsViewModel Settings
         {
