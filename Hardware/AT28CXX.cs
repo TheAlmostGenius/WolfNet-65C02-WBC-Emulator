@@ -69,7 +69,7 @@ namespace Hardware
         /// </summary>
         public void Reset()
 		{
-            throw new NotImplementedException("Reset signal not valid for simulated ROM!");
+            throw new NotImplementedException("Reset signal not valid for emulated ROM!");
         }
 
         /// <summary>
@@ -131,7 +131,6 @@ namespace Hardware
         /// <summary>
         /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
         /// </summary>
-        /// <param name="bank">The bank to read data from.</param>
         /// <param name="address"></param>
         /// <returns>the byte being returned</returns>
         public byte Read(int address)
@@ -142,12 +141,13 @@ namespace Hardware
         /// <summary>
         /// Writes data to the given address without incrementing the cycle.
         /// </summary>
-        /// <param name="bank">The bank to load data to.</param>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
         public void Write(int address, byte data)
         {
-            throw new NotSupportedException("Writing to ROM is not supported by the software as it isn't supported in the real world!");
+            _ = address;
+            _ = data;
+            return;
         }
 
         /// <summary>
