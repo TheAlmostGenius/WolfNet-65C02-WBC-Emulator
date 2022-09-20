@@ -156,26 +156,26 @@ namespace Hardware
         /// <param name="data">The data to write</param>
         public static void WriteWithoutCycle(int address, byte data)
         {
-            if ((ACIA.Offset <= address) && (address <= (ACIA.Offset + ACIA.Length)))
+            if ((ACIA.Offset <= address) && (address <= (DeviceArea.Offset | ACIA.Offset | ACIA.Length)))
             {
                 if (address == ACIA.Offset)
                 {
                     ACIA.WriteCOM(data);
                 }
             }
-            else if ((GPIO.Offset <= address) && (address <= (GPIO.Offset + GPIO.Length)))
+            else if ((GPIO.Offset <= address) && (address <= (DeviceArea.Offset | GPIO.Offset | GPIO.Length)))
             {
                 GPIO.Write(address, data);
             }
-            else if ((SharedROM.Offset <= address) && (address <= SharedROM.End))
+            else if ((SharedROM.Offset <= address) && (address <= (SharedROM.Offset | SharedROM.Length)))
             {
                 SharedROM.Write(address, data);
             }
-            else if ((BankedROM.Offset <= address) && (address <= BankedROM.End))
+            else if ((BankedROM.Offset <= address) && (address <= (BankedROM.Offset | BankedROM.Length)))
             {
                 BankedROM.Write(address, data);
             }
-            else if ((BankedRAM.Offset <= address) && (address <= BankedRAM.End))
+            else if ((BankedRAM.Offset <= address) && (address <= (BankedRAM.Offset | BankedRAM.Length)))
             {
                 BankedRAM.Write(address, data);
             }

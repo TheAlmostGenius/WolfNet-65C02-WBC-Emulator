@@ -2,7 +2,6 @@
 
 namespace Hardware
 {
-    [Serializable]
     public class HM62256
     {
         public byte[][] Memory { get; set; }

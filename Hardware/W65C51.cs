@@ -166,7 +166,6 @@ namespace Hardware
         {
             if (serialPort != null)
             {
-                serialPort.DataReceived -= SerialDataReceived;
                 serialPort.Close();
             }
         }
