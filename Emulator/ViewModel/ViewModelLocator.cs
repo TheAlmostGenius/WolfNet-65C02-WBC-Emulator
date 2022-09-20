@@ -13,7 +13,7 @@
 */
 
 using GalaSoft.MvvmLight.Ioc;
-using CommonServiceLocator;
+using Microsoft.Practices.ServiceLocation;
 
 namespace Emulator.ViewModel
 {
