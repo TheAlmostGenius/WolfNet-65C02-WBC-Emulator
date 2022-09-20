@@ -4,8 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
         Title="WolfNet 65C02 WorkBench Computer Emulator" Height="768" Width="1024"
-        ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" FontFamily="Comic Sans MS" >
-
+        ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen" WindowState="Normal" Foreground="AntiqueWhite" Background="Black" FontFamily="Comic Sans MS"  >
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="3.5,0" />
