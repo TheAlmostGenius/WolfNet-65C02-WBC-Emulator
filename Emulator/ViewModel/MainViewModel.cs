@@ -17,6 +17,7 @@ using W65C02 = Hardware.W65C02;
 using W65C22 = Hardware.W65C22;
 using W65C51 = Hardware.W65C51;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Interop;
 
 namespace Emulator.ViewModel
 {
@@ -206,14 +207,17 @@ namespace Emulator.ViewModel
         /// </summary>
         public RelayCommand<IClosable> CloseCommand { get; private set; }
 
-		public string CurrentSerialPort
+        /// <summary>
+        /// The current serial port object name.
+        /// </summary>
+        public string CurrentSerialPort
 		{
 			get
 			{
 				return W65C51.ObjectName;
 			}
-        }
-        #endregion
+		}
+		#endregion
 
         #region public Methods
         /// <summary>
@@ -229,40 +233,46 @@ namespace Emulator.ViewModel
             }
             else
             {
-				SettingsModel = new SettingsModel
-				{
-					SettingsVersion = Versioning.SettingsFile,
-					ComPortName = "COM10",
+                MessageBox.Show("Creating new settings file...");
+                SettingsModel = new SettingsModel
+                {
+                    SettingsVersion = Versioning.SettingsFile,
+                    ComPortName = "COM10",
                 };
                 Messenger.Default.Send("SaveSettings");
             }
             _stream.Close();
 
-            HM62256 = new HM62256(MemoryMap.BankedRam.TotalBanks, MemoryMap.BankedRam.Offset, MemoryMap.BankedRam.Length, W65C02);
+            HM62256 = new HM62256(MemoryMap.BankedRam.TotalBanks, MemoryMap.BankedRam.Offset, MemoryMap.BankedRam.Length);
             W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset, MemoryMap.Devices.ACIA.Length);
             W65C51.Init(SettingsModel.ComPortName.ToString());
             W65C22 = new W65C22(W65C02, MemoryMap.Devices.GPIO.Offset, MemoryMap.Devices.GPIO.Length);
             W65C22.Init(1000);
             MM65SIB = new W65C22(W65C02, MemoryMap.Devices.MM65SIB.Offset, MemoryMap.Devices.MM65SIB.Length);
             MM65SIB.Init(1000);
-            AT28C64 = new AT28CXX(W65C02, MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length, 1);
-            AT28C010 = new AT28CXX(W65C02, MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.Length, MemoryMap.BankedRom.TotalBanks);
+            AT28C64 = new AT28CXX(MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length, 1);
+            AT28C010 = new AT28CXX(MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.Length, MemoryMap.BankedRom.TotalBanks);
 
             W65C02 = new W65C02();
             MemoryMap.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
 
-            // Now we can load the BIOS.
-            AT28C64.Load(AT28C64.TryRead(FileLocations.BiosFile));
+			// Now we can load the BIOS.
+			byte[][] _bios = AT28C64.TryRead(FileLocations.BiosFile);
+			if (_bios == null)
+			{
+                Environment.Exit(ExitCodes.NO_BIOS);
+            }
+            AT28C64.Load(_bios);
 
             AboutCommand = new RelayCommand(About);
             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
             CloseCommand = new RelayCommand<IClosable>(Close);
-            RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
+			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
             ResetCommand = new RelayCommand(Reset);
 			RunPauseCommand = new RelayCommand(RunPause);
             SettingsCommand = new RelayCommand(Settings);
 			StepCommand = new RelayCommand(Step);
-			//UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
+			UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 
             Messenger.Default.Register<NotificationMessage>(this, GenericNotifcation);
             Messenger.Default.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
@@ -273,12 +283,10 @@ namespace Emulator.ViewModel
 			OutputLog = new MultiThreadedObservableCollection<OutputLog>();
 			Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
 
-			//UpdateMemoryPage();
+			UpdateMemoryPage();
 
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
-<<<<<<< HEAD
-<<<<<<< HEAD
             Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
 
             Reset();
@@ -289,13 +297,12 @@ namespace Emulator.ViewModel
             e.Cancel = false;
             if (IsRunning)
             {
-				MessageBox.Show("Can't exit while the emulator is actively running.", "You can't do that!", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
                 return;
             }
 			else
 			{
-				var result = MessageBox.Show("Are you sure you want to quit the emulator?", "To quit, or not to quit -- That is the question.", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				var result = MessageBox.Show("Are you sure you want to quit the emulator?", "To quit, or not to quit.", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				if (result == MessageBoxResult.No)
 				{
 					e.Cancel = true;
@@ -310,16 +317,6 @@ namespace Emulator.ViewModel
             W65C51.Fini();
         }
 
-=======
-
-            Reset();
-        }
->>>>>>> parent of 74ec302 (Finished handling on closure of window...)
-=======
-
-            Reset();
-        }
->>>>>>> parent of 74ec302 (Finished handling on closure of window...)
         #endregion
 
         #region Private Methods
@@ -338,11 +335,10 @@ namespace Emulator.ViewModel
                 return;
             }
 
-			// Clear the memory so that it is as if it were about to be programmed.
-            AT28C010.Clear();
-            //Initialize the RomFile.Rom memory area.
-            RomFile = notificationMessage.Content;
-            // Load Banked ROM.
+			//Initialize the RomFile.Rom memory area.
+			RomFile = notificationMessage.Content;
+
+            // Load Banked ROM
             AT28C010.Load(notificationMessage.Content.Rom);
 
             IsRomLoaded = true;
@@ -371,7 +367,7 @@ namespace Emulator.ViewModel
             W65C51 = notificationMessage.Content.W65C51;
             AT28C010 = notificationMessage.Content.AT28C010;
             AT28C64 = notificationMessage.Content.AT28C64;
-            //UpdateMemoryPage();
+            UpdateMemoryPage();
             UpdateUi();
 
             IsRomLoaded = true;
@@ -380,38 +376,10 @@ namespace Emulator.ViewModel
 
         private void GenericNotifcation(NotificationMessage notificationMessage)
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
-			if (notificationMessage.Notification == "CloseFile")
-			{
-				AT28C010.Clear();
-				IsRomLoaded = false;
-				RaisePropertyChanged("IsRomLoaded");
-			}
-=======
-=======
->>>>>>> parent of 74ec302 (Finished handling on closure of window...)
-			if (notificationMessage.Notification == "Closing")
-			{
-                W65C51.Fini();
-                Stream stream = new FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
-                XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
-                XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);
-                stream.Flush();
-                stream.Close();
-                AT28C64.Clear();
-				AT28C010.Clear();
-            }
-<<<<<<< HEAD
->>>>>>> parent of 74ec302 (Finished handling on closure of window...)
-=======
->>>>>>> parent of 74ec302 (Finished handling on closure of window...)
-			else if (notificationMessage.Notification == "LoadFile")
+			if (notificationMessage.Notification == "LoadFile")
 			{
                 var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
-
                 var result = dialog.ShowDialog();
-
                 if (result != true)
                 {
                     return;
@@ -480,48 +448,43 @@ namespace Emulator.ViewModel
                 return;
             }
 			SettingsModel = notificationMessage.Content;
-
-			W65C51.Fini();
-			W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset, MemoryMap.Devices.ACIA.Length);
             W65C51.Init(notificationMessage.Content.ComPortName);
-			RaisePropertyChanged("SettingsModel.ComPortName");
-
-
+			RaisePropertyChanged("SettingsModel");
 			UpdateUi();
 		}
 
-		//private void UpdateMemoryPage()
-		//{
-		//	MemoryPage.Clear();
-		//	var offset = (_memoryPageOffset * 256);
+		private void UpdateMemoryPage()
+		{
+			MemoryPage.Clear();
+			var offset = (_memoryPageOffset * 256);
+			
+			var multiplyer = 0;
+			for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
+			{
 
-		//	var multiplyer = 0;
-		//	for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
-		//	{
-
-		//		MemoryPage.Add(new MemoryRowModel
-		//		{
-		//			Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
-		//			Location00 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location01 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location02 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location03 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location04 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location05 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location06 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location07 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location08 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location09 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location0A = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location0B = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location0C = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location0D = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location0E = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
-		//			Location0F = MemoryMap.ReadWithoutCycle(i).ToString("X").PadLeft(2, '0'),
-		//		});
-		//		multiplyer++;
-		//	}
-		//}
+				MemoryPage.Add(new MemoryRowModel
+				{
+					Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
+					Location00 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location01 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location02 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location03 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location04 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location05 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location06 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location07 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location08 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location09 = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0A = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0B = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0C = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0D = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0E = MemoryMap.ReadWithoutCycle(i++).ToString("X").PadLeft(2, '0'),
+					Location0F = MemoryMap.ReadWithoutCycle(i).ToString("X").PadLeft(2, '0'),
+				});
+				multiplyer++;
+			}
+		}
 
 		private void Reset()
 		{
@@ -546,7 +509,7 @@ namespace Emulator.ViewModel
 			NumberOfCycles = 0;
 			RaisePropertyChanged("NumberOfCycles");
 
-			//UpdateMemoryPage();
+			UpdateMemoryPage();
 			RaisePropertyChanged("MemoryPage");
 
 			OutputLog.Clear();
@@ -564,7 +527,7 @@ namespace Emulator.ViewModel
 				_backgroundWorker.CancelAsync();
 
 			StepProcessor();
-			//UpdateMemoryPage();
+			UpdateMemoryPage();
 
 			OutputLog.Insert(0, GetOutputLog());
 			UpdateUi();
@@ -631,7 +594,7 @@ namespace Emulator.ViewModel
 					foreach (var log in outputLogs)
 						OutputLog.Insert(0, log);
 
-					//UpdateMemoryPage();
+					UpdateMemoryPage();
 					return;
 				}
 

@@ -2,7 +2,11 @@
 using Emulator.Model;
 using Emulator.ViewModel;
 using System;
+using System.ComponentModel;
 using System.Windows;
+using Hardware;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace Emulator
 {
@@ -11,29 +15,21 @@ namespace Emulator
 	/// </summary>
 	public partial class MainWindow : Window, IClosable
     {
+        public DependencyProperty CurrentHeight
+        {
+            get { return Window.ActualHeightProperty; }
+        }
+
+        public DependencyProperty CurrentWidth
+        {
+            get { return Window.ActualWidthProperty; }
+        }
+
         public MainWindow()
 		{
 			InitializeComponent();
+			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
-            Closing += new CancelEventHandler(OnClose);
-        }
-
-        private void OnClose(Object sender, CancelEventArgs e)
-        {
-            e.Cancel = false;
-            if (e.Cancel)
-            {
-                return;
-            }
-            Messenger.Default.Send("Closing");
-<<<<<<< HEAD
-        }
-
-        private void Exit(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-=======
->>>>>>> parent of 74ec302 (Finished handling on closure of window...)
         }
 
         private void LoadFile(Object sender, EventArgs e)
@@ -46,9 +42,13 @@ namespace Emulator
             Messenger.Default.Send(new NotificationMessage("SaveState"));
         }
 
-        private void CloseFile(Object sender, EventArgs e)
+        private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)
         {
-            Messenger.Default.Send(new NotificationMessage("CloseFile"));
+            if (notificationMessage.Notification == "SaveFileWindow")
+            {
+                var saveFile = new SaveFile { DataContext = new SaveFileViewModel(notificationMessage.Content) };
+                saveFile.ShowDialog();
+            }
         }
 
         private void NotificationMessageReceived(NotificationMessage<SettingsModel> notificationMessage)

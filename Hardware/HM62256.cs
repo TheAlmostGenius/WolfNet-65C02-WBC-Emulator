@@ -2,12 +2,9 @@
 
 namespace Hardware
 {
-    [Serializable]
     public class HM62256
     {
         public byte[][] Memory { get; set; }
-
-        private W65C02 Processor { get; set; }
 
         public int Offset { get; set; }
 
@@ -19,7 +16,7 @@ namespace Hardware
 
         public byte CurrentBank { get; set; }
 
-        public HM62256(byte banks, int offset, int length, W65C02 processor)
+        public HM62256(byte banks, int offset, int length)
         {
             Memory = new byte[banks][];
             for (int i = 0; i < banks; i++)
@@ -27,7 +24,6 @@ namespace Hardware
                 Memory[i] = new byte[length + 1];
             }
             Length = length;
-            Processor = processor;
             Banks = banks;
             Offset = offset;
             CurrentBank = 0;
@@ -60,7 +56,7 @@ namespace Hardware
         /// <returns>the byte being returned</returns>
         public byte Read(int address)
         {
-            return Memory[CurrentBank][address];
+            return Memory[CurrentBank][address - Offset];
         }
 
         /// <summary>
@@ -71,7 +67,7 @@ namespace Hardware
         /// <param name="data">The data to write</param>
         public void Write(int address, byte data)
         {
-            Memory[CurrentBank][address] = data;
+            Memory[CurrentBank][address - Offset] = data;
         }
 
         /// <summary>
