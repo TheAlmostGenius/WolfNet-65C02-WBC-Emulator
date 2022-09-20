@@ -87,7 +87,7 @@ namespace Hardware
         /// <returns>the byte being returned</returns>
         public byte Read(int address)
         {
-            return Memory[address - Offset];
+            return Memory[address];
         }
 
         /// <summary>
@@ -98,7 +98,7 @@ namespace Hardware
         /// <param name="data">The data to write</param>
         public void Write(int address, byte data)
         {
-            Memory[address - Offset] = data;
+            Memory[address] = data;
         }
 
         /// <summary>

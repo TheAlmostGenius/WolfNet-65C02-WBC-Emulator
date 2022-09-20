@@ -15,6 +15,17 @@ namespace Emulator
 		{
 			InitializeComponent();
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
+            Closing += new CancelEventHandler(OnClose);
+        }
+
+        private void OnClose(Object sender, CancelEventArgs e)
+        {
+            e.Cancel = false;
+            if (e.Cancel)
+            {
+                return;
+            }
+            Messenger.Default.Send("Closing");
         }
 
         private void Exit(object sender, RoutedEventArgs e)

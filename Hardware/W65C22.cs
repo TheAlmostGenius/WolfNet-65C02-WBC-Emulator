@@ -138,7 +138,7 @@ namespace Hardware
         /// <param name="value">Timer initialization value in milliseconds</param>
         public void T1Init(double value)
         {
-            T1Object = new Timer(value);
+            T1Object = new System.Timers.Timer(value);
             T1Object.Start();
             T1Object.Elapsed += OnT1Timeout;
             T1TimerControl = true;
@@ -152,7 +152,7 @@ namespace Hardware
         /// <param name="value">Timer initialization value in milliseconds</param>
         public void T2Init(double value)
         {
-            T2Object = new Timer(value);
+            T2Object = new System.Timers.Timer(value);
             T2Object.Start();
             T2Object.Elapsed += OnT2Timeout;
             T2TimerControl = true;

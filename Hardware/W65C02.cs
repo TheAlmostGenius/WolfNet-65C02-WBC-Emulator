@@ -19,13 +19,10 @@ namespace Hardware
         private int _cycleCount;
         private bool _previousInterrupt;
         private bool _interrupt;
-
-        /// <summary>
-        /// Checks shether the emulated computer is running or not.
-        /// </summary>
         public bool isRunning;
         #endregion
 
+        //All of the properties here are public and read only to facilitate ease of debugging and testing.
         #region Properties
         /// <summary>
         /// The Accumulator. This value is implemented as an integer intead of a byte.
