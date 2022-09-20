@@ -2,11 +2,7 @@
 using Emulator.Model;
 using Emulator.ViewModel;
 using System;
-using System.ComponentModel;
 using System.Windows;
-using Hardware;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace Emulator
 {
@@ -15,21 +11,15 @@ namespace Emulator
 	/// </summary>
 	public partial class MainWindow : Window, IClosable
     {
-        public DependencyProperty CurrentHeight
-        {
-            get { return Window.ActualHeightProperty; }
-        }
-
-        public DependencyProperty CurrentWidth
-        {
-            get { return Window.ActualWidthProperty; }
-        }
-
         public MainWindow()
 		{
 			InitializeComponent();
-			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
+        }
+
+        private void Exit(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
 
         private void LoadFile(Object sender, EventArgs e)
@@ -42,13 +32,9 @@ namespace Emulator
             Messenger.Default.Send(new NotificationMessage("SaveState"));
         }
 
-        private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)
+        private void CloseFile(Object sender, EventArgs e)
         {
-            if (notificationMessage.Notification == "SaveFileWindow")
-            {
-                var saveFile = new SaveFile { DataContext = new SaveFileViewModel(notificationMessage.Content) };
-                saveFile.ShowDialog();
-            }
+            Messenger.Default.Send(new NotificationMessage("CloseFile"));
         }
 
         private void NotificationMessageReceived(NotificationMessage<SettingsModel> notificationMessage)

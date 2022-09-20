@@ -17,7 +17,7 @@ using W65C02 = Hardware.W65C02;
 using W65C22 = Hardware.W65C22;
 using W65C51 = Hardware.W65C51;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Interop;
+using static Emulator.Language;
 
 namespace Emulator.ViewModel
 {
@@ -216,8 +216,8 @@ namespace Emulator.ViewModel
 			{
 				return W65C51.ObjectName;
 			}
-		}
-		#endregion
+        }
+        #endregion
 
         #region public Methods
         /// <summary>
@@ -233,11 +233,10 @@ namespace Emulator.ViewModel
             }
             else
             {
-                MessageBox.Show("Creating new settings file...");
-                SettingsModel = new SettingsModel
-                {
-                    SettingsVersion = Versioning.SettingsFile,
-                    ComPortName = "COM10",
+				SettingsModel = new SettingsModel
+				{
+					SettingsVersion = Versioning.SettingsFile,
+					ComPortName = "COM10",
                 };
                 Messenger.Default.Send("SaveSettings");
             }
@@ -262,7 +261,7 @@ namespace Emulator.ViewModel
             AboutCommand = new RelayCommand(About);
             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
             CloseCommand = new RelayCommand<IClosable>(Close);
-			RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
+            RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
             ResetCommand = new RelayCommand(Reset);
 			RunPauseCommand = new RelayCommand(RunPause);
             SettingsCommand = new RelayCommand(Settings);
@@ -282,7 +281,7 @@ namespace Emulator.ViewModel
 
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
-            System.Windows.Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
+            Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
 
             Reset();
         }
@@ -292,12 +291,13 @@ namespace Emulator.ViewModel
             e.Cancel = false;
             if (IsRunning)
             {
+				MessageBox.Show("Can't exit while the emulator is actively running.", "You can't do that!", MessageBoxButton.OK, MessageBoxImage.Error);
                 e.Cancel = true;
                 return;
             }
 			else
 			{
-				var result = MessageBox.Show("Are you sure you want to quit the emulator?", "To quit, or not to quit.", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				var result = MessageBox.Show("Are you sure you want to quit the emulator?", "To quit, or not to quit -- That is the question.", MessageBoxButton.YesNo, MessageBoxImage.Question);
 				if (result == MessageBoxResult.No)
 				{
 					e.Cancel = true;
@@ -330,10 +330,11 @@ namespace Emulator.ViewModel
                 return;
             }
 
-			//Initialize the RomFile.Rom memory area.
-			RomFile = notificationMessage.Content;
-
-            // Load Banked ROM
+			// Clear the memory so that it is as if it were about to be programmed.
+            AT28C010.Clear();
+            //Initialize the RomFile.Rom memory area.
+            RomFile = notificationMessage.Content;
+            // Load Banked ROM.
             AT28C010.Load(notificationMessage.Content.Rom);
 
             IsRomLoaded = true;
@@ -371,7 +372,13 @@ namespace Emulator.ViewModel
 
         private void GenericNotifcation(NotificationMessage notificationMessage)
         {
-			if (notificationMessage.Notification == "LoadFile")
+			if (notificationMessage.Notification == "CloseFile")
+			{
+				AT28C010.Clear();
+				IsRomLoaded = false;
+				RaisePropertyChanged("IsRomLoaded");
+			}
+			else if (notificationMessage.Notification == "LoadFile")
 			{
                 var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
                 var result = dialog.ShowDialog();
@@ -443,8 +450,13 @@ namespace Emulator.ViewModel
                 return;
             }
 			SettingsModel = notificationMessage.Content;
+
+			W65C51.Fini();
+			W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset, MemoryMap.Devices.ACIA.Length);
             W65C51.Init(notificationMessage.Content.ComPortName);
-			RaisePropertyChanged("SettingsModel");
+			RaisePropertyChanged("SettingsModel.ComPortName");
+
+
 			UpdateUi();
 		}
 
