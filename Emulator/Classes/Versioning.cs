@@ -12,7 +12,7 @@ namespace Emulator
             public const string Name = "WolfNet 65C02 WorkBench Computer Emulator";
             public const string Company = "WolfNet Computing";
             public const string Copyright = "Copyright © WolfNet Computing 2022";
-            public const string Version = "0.0.3.1";
+            public const string Version = "0.1.3.1";
             public const string Description = "Emulator for the WolfNet 65C02 WorkBench Computer coded in C# using the .NET Framework";
         }
         public const string SettingsFile = "1.0.0.0";
