@@ -1,7 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Timers;
-using static Hardware.MemoryMap.Devices;
 
 namespace Hardware
 {
@@ -35,8 +34,19 @@ namespace Hardware
         #endregion
 
         #region Properties
+        /// <summary>
+        /// The memory area.
+        /// </summary>
         public byte[][] Memory { get; set; }
+
+        /// <summary>
+        /// The memory offset of the device.
+        /// </summary>
         public int Offset { get; set; }
+
+        /// <summary>
+        /// The length of the device memory.
+        /// </summary>
         public int Length { get; set; }
 
         /// <summary>
@@ -155,6 +165,7 @@ namespace Hardware
         /// <summary>
         /// T2 counter initialization routine.
         /// </summary>
+        /// 
         /// <param name="value">Timer initialization value in milliseconds</param>
         public void T2Init(double value)
         {
@@ -168,7 +179,9 @@ namespace Hardware
         /// <summary>
         /// Routine to read from local memory.
         /// </summary>
+        /// 
         /// <param name="address">Address to read from</param>
+        /// 
         /// <returns>Byte value stored in the local memory.</returns>
         public byte Read(int address)
         {
@@ -194,6 +207,7 @@ namespace Hardware
         /// <summary>
         /// Writes data to the specified address in local memory.
         /// </summary>
+        /// 
         /// <param name="address">The address to write data to.</param>
         /// <param name="data">The data to be written.</param>
         public void Write(int address, byte data)
@@ -222,6 +236,7 @@ namespace Hardware
         /// <summary>
         /// Called whenever System.Timers.Timer event elapses.
         /// </summary>
+        /// 
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnT1Timeout(object sender, ElapsedEventArgs e)
@@ -246,6 +261,7 @@ namespace Hardware
         /// <summary>
         /// Called whenever System.Timers.Timer event elapses
         /// </summary>
+        /// 
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnT2Timeout(object sender, ElapsedEventArgs e)
