@@ -1,0 +1,123 @@
+.TH "Emulator.ViewModel.ViewModelLocator" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.ViewModel.ViewModelLocator \- This class contains static references to all the view models in the application and provides an entry point for the bindings\&.   
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBViewModelLocator\fP ()"
+.br
+.RI "Initializes a new instance of the \fBViewModelLocator\fP class\&.  "
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBCleanup\fP ()"
+.br
+.RI "The Cleanup Method  "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "\fBMainViewModel\fP \fBMain\fP\fC [get]\fP"
+.br
+.RI "The \fBMainViewModel\fP Instance  "
+.ti -1c
+.RI "\fBSaveFileViewModel\fP \fBSaveFile\fP\fC [get]\fP"
+.br
+.RI "The \fBSaveFileViewModel\fP Instance  "
+.ti -1c
+.RI "\fBSettingsViewModel\fP \fBSettings\fP\fC [get]\fP"
+.br
+.RI "The \fBSaveFileViewModel\fP Instance  "
+.in -1c
+.SH "Detailed Description"
+.PP 
+This class contains static references to all the view models in the application and provides an entry point for the bindings\&.  
+.PP
+Definition at line \fB24\fP of file \fBViewModelLocator\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.ViewModel\&.ViewModelLocator\&.ViewModelLocator ()\fC [inline]\fP"
+
+.PP
+Initializes a new instance of the \fBViewModelLocator\fP class\&.  
+.PP
+Definition at line \fB29\fP of file \fBViewModelLocator\&.cs\fP\&.
+.PP
+.nf
+30         {
+31             ServiceLocator\&.SetLocatorProvider(() => SimpleIoc\&.Default);
+32 
+33             SimpleIoc\&.Default\&.Register<MainViewModel>();
+34             SimpleIoc\&.Default\&.Register<SaveFileViewModel>();
+35             SimpleIoc\&.Default\&.Register<SettingsViewModel>();
+36         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "static void Emulator\&.ViewModel\&.ViewModelLocator\&.Cleanup ()\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+The Cleanup Method  <todo> Clear the ViewModels </todo>
+.PP
+Definition at line \fB65\fP of file \fBViewModelLocator\&.cs\fP\&.
+.PP
+.nf
+66         {
+67             /// <todo>
+68             /// Clear the ViewModels
+69             /// </todo>
+70         }
+.fi
+.SH "Property Documentation"
+.PP 
+.SS "\fBMainViewModel\fP Emulator\&.ViewModel\&.ViewModelLocator\&.Main\fC [get]\fP"
+
+.PP
+The \fBMainViewModel\fP Instance  
+.PP
+Definition at line \fB41\fP of file \fBViewModelLocator\&.cs\fP\&.
+.PP
+.nf
+42         {
+43             get { return ServiceLocator\&.Current\&.GetInstance<MainViewModel>(); }
+44         }
+.fi
+.SS "\fBSaveFileViewModel\fP Emulator\&.ViewModel\&.ViewModelLocator\&.SaveFile\fC [get]\fP"
+
+.PP
+The \fBSaveFileViewModel\fP Instance  
+.PP
+Definition at line \fB49\fP of file \fBViewModelLocator\&.cs\fP\&.
+.PP
+.nf
+50         {
+51             get { return ServiceLocator\&.Current\&.GetInstance<SaveFileViewModel>(); }
+52         }
+.fi
+.SS "\fBSettingsViewModel\fP Emulator\&.ViewModel\&.ViewModelLocator\&.Settings\fC [get]\fP"
+
+.PP
+The \fBSaveFileViewModel\fP Instance  
+.PP
+Definition at line \fB57\fP of file \fBViewModelLocator\&.cs\fP\&.
+.PP
+.nf
+58         {
+59             get { return ServiceLocator\&.Current\&.GetInstance<SettingsViewModel>(); }
+60         }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

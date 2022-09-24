@@ -1,0 +1,239 @@
+\hypertarget{class_emulator_1_1_save_file}{}\doxysubsection{Emulator.\+Save\+File Class Reference}
+\label{class_emulator_1_1_save_file}\index{Emulator.SaveFile@{Emulator.SaveFile}}
+
+
+\mbox{\hyperlink{class_emulator_1_1_save_file}{Save\+File}}   
+
+
+Inheritance diagram for Emulator.\+Save\+File\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.965517cm]{class_emulator_1_1_save_file}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_emulator_1_1_save_file_a1a2bb012188d57f7bdb3200de0dd0a98_a1a2bb012188d57f7bdb3200de0dd0a98}{Save\+File}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. \mbox{\hyperlink{class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1_ad8a7f921c8b79521f7e93429a92da6d1}{Connect}} (int connection\+Id, object target)
+\item 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. \mbox{\hyperlink{class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1_ad8a7f921c8b79521f7e93429a92da6d1}{Connect}} (int connection\+Id, object target)
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_save_file_a2ca9babc4168689a6b682ca3d33884c2_a2ca9babc4168689a6b682ca3d33884c2}{Notification\+Message\+Received}} (Notification\+Message notification\+Message)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}{\+\_\+content\+Loaded}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+\mbox{\hyperlink{class_emulator_1_1_save_file}{Save\+File}}  
+
+Interaction logic for Save\+State.\+xaml  
+
+Definition at line \mbox{\hyperlink{_save_file_8g_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_save_file_8g_8cs_source}{Save\+File.\+g.\+cs}}.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_a1a2bb012188d57f7bdb3200de0dd0a98_a1a2bb012188d57f7bdb3200de0dd0a98}\label{class_emulator_1_1_save_file_a1a2bb012188d57f7bdb3200de0dd0a98_a1a2bb012188d57f7bdb3200de0dd0a98}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!SaveFile@{SaveFile}}
+\index{SaveFile@{SaveFile}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{SaveFile()}{SaveFile()}}
+{\footnotesize\ttfamily Emulator.\+Save\+File.\+Save\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8xaml_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_save_file_8xaml_8cs_source}{Save\+File.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00011         \{}
+\DoxyCodeLine{00012             \mbox{\hyperlink{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}{InitializeComponent}}();}
+\DoxyCodeLine{00013             Messenger.Default.Register<NotificationMessage>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_save_file_a2ca9babc4168689a6b682ca3d33884c2_a2ca9babc4168689a6b682ca3d33884c2}{NotificationMessageReceived}});}
+\DoxyCodeLine{00014         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1_ad8a7f921c8b79521f7e93429a92da6d1}\label{class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1_ad8a7f921c8b79521f7e93429a92da6d1}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!Connect@{Connect}}
+\index{Connect@{Connect}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{Connect()}{Connect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void System.\+Windows.\+Markup.\+IComponent\+Connector. Emulator.\+Save\+File.\+Connect (\begin{DoxyParamCaption}\item[{int}]{connection\+Id,  }\item[{object}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8g_8cs_source_l00109}{109}} of file \mbox{\hyperlink{_save_file_8g_8cs_source}{Save\+File.\+g.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109                                                                                                 \{}
+\DoxyCodeLine{00110             \textcolor{keywordflow}{switch} (connectionId)}
+\DoxyCodeLine{00111             \{}
+\DoxyCodeLine{00112             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00113             this.SelectFile = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00114             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00115             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00116             this.FilePath = ((System.Windows.Controls.TextBox)(target));}
+\DoxyCodeLine{00117             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00119             this.PathText = ((System.Windows.Controls.TextBlock)(target));}
+\DoxyCodeLine{00120             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00121             \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00122             this.CancelButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00123             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00124             \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00125             this.LoadButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00126             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00127             \}}
+\DoxyCodeLine{00128             this.\_contentLoaded = \textcolor{keyword}{true};}
+\DoxyCodeLine{00129         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1_ad8a7f921c8b79521f7e93429a92da6d1}\label{class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1_ad8a7f921c8b79521f7e93429a92da6d1}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!Connect@{Connect}}
+\index{Connect@{Connect}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{Connect()}{Connect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void System.\+Windows.\+Markup.\+IComponent\+Connector. Emulator.\+Save\+File.\+Connect (\begin{DoxyParamCaption}\item[{int}]{connection\+Id,  }\item[{object}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8g_8i_8cs_source_l00109}{109}} of file \mbox{\hyperlink{_save_file_8g_8i_8cs_source}{Save\+File.\+g.\+i.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109                                                                                                 \{}
+\DoxyCodeLine{00110             \textcolor{keywordflow}{switch} (connectionId)}
+\DoxyCodeLine{00111             \{}
+\DoxyCodeLine{00112             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00113             this.SelectFile = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00114             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00115             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00116             this.FilePath = ((System.Windows.Controls.TextBox)(target));}
+\DoxyCodeLine{00117             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00119             this.PathText = ((System.Windows.Controls.TextBlock)(target));}
+\DoxyCodeLine{00120             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00121             \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00122             this.CancelButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00123             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00124             \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00125             this.LoadButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00126             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00127             \}}
+\DoxyCodeLine{00128             this.\_contentLoaded = \textcolor{keyword}{true};}
+\DoxyCodeLine{00129         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}\label{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{InitializeComponent()}{InitializeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Emulator.\+Save\+File.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize\+Component  
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8g_8cs_source_l00089}{89}} of file \mbox{\hyperlink{_save_file_8g_8cs_source}{Save\+File.\+g.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089                                           \{}
+\DoxyCodeLine{00090             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}{\_contentLoaded}}) \{}
+\DoxyCodeLine{00091                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00092             \}}
+\DoxyCodeLine{00093             \mbox{\hyperlink{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}{\_contentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00094             System.Uri resourceLocater = \textcolor{keyword}{new} System.Uri(\textcolor{stringliteral}{"{}/Emulator;component/savefile.xaml"{}}, System.UriKind.Relative);}
+\DoxyCodeLine{00095             }
+\DoxyCodeLine{00096 \textcolor{preprocessor}{            \#line 1 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)SaveFile.xaml"{}}}
+\DoxyCodeLine{00097             System.Windows.Application.LoadComponent(\textcolor{keyword}{this}, resourceLocater);}
+\DoxyCodeLine{00098             }
+\DoxyCodeLine{00099 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{00100 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{00101         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}\label{class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1_a72ff13c671b6b8f30e89a5e81bc8fdd1}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{InitializeComponent()}{InitializeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Emulator.\+Save\+File.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize\+Component  
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8g_8i_8cs_source_l00089}{89}} of file \mbox{\hyperlink{_save_file_8g_8i_8cs_source}{Save\+File.\+g.\+i.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00089                                           \{}
+\DoxyCodeLine{00090             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}{\_contentLoaded}}) \{}
+\DoxyCodeLine{00091                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00092             \}}
+\DoxyCodeLine{00093             \mbox{\hyperlink{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}{\_contentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00094             System.Uri resourceLocater = \textcolor{keyword}{new} System.Uri(\textcolor{stringliteral}{"{}/Emulator;component/savefile.xaml"{}}, System.UriKind.Relative);}
+\DoxyCodeLine{00095             }
+\DoxyCodeLine{00096 \textcolor{preprocessor}{            \#line 1 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)SaveFile.xaml"{}}}
+\DoxyCodeLine{00097             System.Windows.Application.LoadComponent(\textcolor{keyword}{this}, resourceLocater);}
+\DoxyCodeLine{00098             }
+\DoxyCodeLine{00099 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{00100 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{00101         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_a2ca9babc4168689a6b682ca3d33884c2_a2ca9babc4168689a6b682ca3d33884c2}\label{class_emulator_1_1_save_file_a2ca9babc4168689a6b682ca3d33884c2_a2ca9babc4168689a6b682ca3d33884c2}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!NotificationMessageReceived@{NotificationMessageReceived}}
+\index{NotificationMessageReceived@{NotificationMessageReceived}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{NotificationMessageReceived()}{NotificationMessageReceived()}}
+{\footnotesize\ttfamily void Emulator.\+Save\+File.\+Notification\+Message\+Received (\begin{DoxyParamCaption}\item[{Notification\+Message}]{notification\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8xaml_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_save_file_8xaml_8cs_source}{Save\+File.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017         \{}
+\DoxyCodeLine{00018             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}CloseSaveFileWindow"{}})}
+\DoxyCodeLine{00019                 Close();}
+\DoxyCodeLine{00020         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}\label{class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc_ace53a05d6d24b62c991d36723a5449cc}} 
+\index{Emulator.SaveFile@{Emulator.SaveFile}!\_contentLoaded@{\_contentLoaded}}
+\index{\_contentLoaded@{\_contentLoaded}!Emulator.SaveFile@{Emulator.SaveFile}}
+\doxyparagraph{\texorpdfstring{\_contentLoaded}{\_contentLoaded}}
+{\footnotesize\ttfamily bool Emulator.\+Save\+File.\+\_\+content\+Loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_save_file_8g_8cs_source_l00082}{82}} of file \mbox{\hyperlink{_save_file_8g_8cs_source}{Save\+File.\+g.\+cs}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Emulator/obj/x86/\+Debug/\mbox{\hyperlink{_save_file_8g_8cs}{Save\+File.\+g.\+cs}}\item 
+Emulator/obj/x86/\+Debug/\mbox{\hyperlink{_save_file_8g_8i_8cs}{Save\+File.\+g.\+i.\+cs}}\item 
+Emulator/\mbox{\hyperlink{_save_file_8xaml_8cs}{Save\+File.\+xaml.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,55 @@
+\hypertarget{_output_log_8cs_source}{}\doxysubsection{Output\+Log.\+cs}
+\label{_output_log_8cs_source}\index{Emulator/Model/OutputLog.cs@{Emulator/Model/OutputLog.cs}}
+\mbox{\hyperlink{_output_log_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_hardware}{Hardware}};}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00005}00005 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00006}00006 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00007}00007 \textcolor{comment}{    /// The OutputLog Model. Used by the outputlog grid to show a history of operations performed by the CPU}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00008}00008 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00009}00009 \textcolor{comment}{}    [Serializable]}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00010}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{00010}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} : \mbox{\hyperlink{class_hardware_1_1_disassembly}{Disassembly}}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00011}00011     \{}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00012}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a43dc5fca930c9fa7a6e410540e052894_a43dc5fca930c9fa7a6e410540e052894}{00012}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a43dc5fca930c9fa7a6e410540e052894_a43dc5fca930c9fa7a6e410540e052894}{OutputLog}}(\mbox{\hyperlink{class_hardware_1_1_disassembly}{Disassembly}} disassembly)}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00013}00013         \{}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00014}00014             \mbox{\hyperlink{class_hardware_1_1_disassembly_a91bd4979539e3d6dfcba828aca5d83e4_a91bd4979539e3d6dfcba828aca5d83e4}{DisassemblyOutput}} = disassembly.\mbox{\hyperlink{class_hardware_1_1_disassembly_a91bd4979539e3d6dfcba828aca5d83e4_a91bd4979539e3d6dfcba828aca5d83e4}{DisassemblyOutput}};}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00015}00015             \mbox{\hyperlink{class_hardware_1_1_disassembly_a39a633987e912e085578c5b180cc3da3_a39a633987e912e085578c5b180cc3da3}{HighAddress}} = disassembly.\mbox{\hyperlink{class_hardware_1_1_disassembly_a39a633987e912e085578c5b180cc3da3_a39a633987e912e085578c5b180cc3da3}{HighAddress}};}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00016}00016             \mbox{\hyperlink{class_hardware_1_1_disassembly_a316d86f8bd84cd38723522e34138ace0_a316d86f8bd84cd38723522e34138ace0}{LowAddress}} = disassembly.\mbox{\hyperlink{class_hardware_1_1_disassembly_a316d86f8bd84cd38723522e34138ace0_a316d86f8bd84cd38723522e34138ace0}{LowAddress}};}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00017}00017             \mbox{\hyperlink{class_hardware_1_1_disassembly_a36c24bc939c910f06e59e310831bf592_a36c24bc939c910f06e59e310831bf592}{OpCodeString}} = disassembly.\mbox{\hyperlink{class_hardware_1_1_disassembly_a36c24bc939c910f06e59e310831bf592_a36c24bc939c910f06e59e310831bf592}{OpCodeString}};}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00018}00018         \}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00019}00019 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00021}00021 \textcolor{comment}{        /// The Program Counter Value}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00022}00022 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00023}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a56e9093d20ad1bade077712ee2e6a611_a56e9093d20ad1bade077712ee2e6a611}{00023}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a56e9093d20ad1bade077712ee2e6a611_a56e9093d20ad1bade077712ee2e6a611}{ProgramCounter}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00024}00024 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00025}00025 \textcolor{comment}{        /// The Current Ope Code}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00026}00026 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00027}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a50e385dce244da336904936f01844366_a50e385dce244da336904936f01844366}{00027}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a50e385dce244da336904936f01844366_a50e385dce244da336904936f01844366}{CurrentOpCode}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00028}00028 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00029}00029 \textcolor{comment}{        /// The X Register}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00030}00030 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00031}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a58489f8c186d2e2ca445f0ad69db8dda_a58489f8c186d2e2ca445f0ad69db8dda}{00031}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a58489f8c186d2e2ca445f0ad69db8dda_a58489f8c186d2e2ca445f0ad69db8dda}{XRegister}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00032}00032 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00033}00033 \textcolor{comment}{        /// The Y Register}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00034}00034 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00035}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a61f7c3b9ef8deb166d43015bfcd802e9_a61f7c3b9ef8deb166d43015bfcd802e9}{00035}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a61f7c3b9ef8deb166d43015bfcd802e9_a61f7c3b9ef8deb166d43015bfcd802e9}{YRegister}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00036}00036 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00037}00037 \textcolor{comment}{        /// The Accummulator}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00038}00038 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00039}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a011c78eff5a09e40a8acbd745bc4b5fd_a011c78eff5a09e40a8acbd745bc4b5fd}{00039}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a011c78eff5a09e40a8acbd745bc4b5fd_a011c78eff5a09e40a8acbd745bc4b5fd}{Accumulator}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00040}00040 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00041}00041 \textcolor{comment}{        /// The Stack Pointer}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00042}00042 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00043}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a3a5897d45953778129157300edd6823d_a3a5897d45953778129157300edd6823d}{00043}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a3a5897d45953778129157300edd6823d_a3a5897d45953778129157300edd6823d}{StackPointer}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00044}00044 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00045}00045 \textcolor{comment}{        /// The number of cycles executed since the last load or reset}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00046}00046 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00047}\mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a75aed4810abc1ee8b04f76af2d4711ab_a75aed4810abc1ee8b04f76af2d4711ab}{00047}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log_a75aed4810abc1ee8b04f76af2d4711ab_a75aed4810abc1ee8b04f76af2d4711ab}{NumberOfCycles}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00048}00048     \}}
+\DoxyCodeLine{\Hypertarget{_output_log_8cs_source_l00049}00049 \}}
+
+\end{DoxyCode}

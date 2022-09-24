@@ -1,0 +1,80 @@
+.TH "Emulator.Model.Breakpoint" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.Model.Breakpoint \- A Representation of a \fBBreakpoint\fP   
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "bool \fBIsEnabled\fP\fC [get, set]\fP"
+.br
+.RI "Is the \fBBreakpoint\fP enabled or disabled  "
+.ti -1c
+.RI "string \fBValue\fP\fC [get, set]\fP"
+.br
+.RI "The Value of the \fBBreakpoint\fP  "
+.ti -1c
+.RI "string \fBType\fP\fC [get, set]\fP"
+.br
+.RI "The Type of breakpoint being set  "
+.ti -1c
+.RI "List< string > \fBAllTypes\fP\fC [get]\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A Representation of a \fBBreakpoint\fP  
+.PP
+Definition at line \fB8\fP of file \fBBreakpoint\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "List<string> Emulator\&.Model\&.Breakpoint\&.AllTypes\fC [get]\fP"
+
+.PP
+Definition at line \fB25\fP of file \fBBreakpoint\&.cs\fP\&.
+.PP
+.nf
+26         {
+27             get { return BreakpointType\&.AllTypes; }
+28         } 
+.fi
+.SS "bool Emulator\&.Model\&.Breakpoint\&.IsEnabled\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Is the \fBBreakpoint\fP enabled or disabled  
+.PP
+Definition at line \fB13\fP of file \fBBreakpoint\&.cs\fP\&.
+.PP
+.nf
+13 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.Breakpoint\&.Type\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Type of breakpoint being set  
+.PP
+Definition at line \fB23\fP of file \fBBreakpoint\&.cs\fP\&.
+.PP
+.nf
+23 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.Breakpoint\&.Value\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Value of the \fBBreakpoint\fP  
+.PP
+Definition at line \fB18\fP of file \fBBreakpoint\&.cs\fP\&.
+.PP
+.nf
+18 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

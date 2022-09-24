@@ -1,0 +1,294 @@
+\hypertarget{class_emulator_1_1_settings}{}\doxysubsection{Emulator.\+Settings Class Reference}
+\label{class_emulator_1_1_settings}\index{Emulator.Settings@{Emulator.Settings}}
+
+
+\mbox{\hyperlink{class_emulator_1_1_settings}{Settings}}   
+
+
+Inheritance diagram for Emulator.\+Settings\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.965517cm]{class_emulator_1_1_settings}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}{Initialize\+Component}} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_emulator_1_1_settings_a91ad34f048185ffa3cfd28034335cfbd_a91ad34f048185ffa3cfd28034335cfbd}{Settings}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. \mbox{\hyperlink{class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703_a0aae9631fe13978aeac0edae697b9703}{Connect}} (int connection\+Id, object target)
+\item 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. \mbox{\hyperlink{class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703_a0aae9631fe13978aeac0edae697b9703}{Connect}} (int connection\+Id, object target)
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_settings_a133d0856d63fea826ca76de426691c89_a133d0856d63fea826ca76de426691c89}{Notification\+Message\+Received}} (Notification\+Message notification\+Message)
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_settings_accd0b24ec993d17eb446c90ec98d0fcf_accd0b24ec993d17eb446c90ec98d0fcf}{Notification\+Message\+Received}} (Notification\+Message$<$ \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} $>$ notification\+Message)
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_settings_a23a4579f0c3eb6508f2274109991956b_a23a4579f0c3eb6508f2274109991956b}{Port\+Selection\+Drop\+Down\+Closed}} (object sender, Event\+Args e)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}{\+\_\+content\+Loaded}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+\mbox{\hyperlink{class_emulator_1_1_settings}{Settings}}  
+
+Interaction logic for Settings.\+xaml  
+
+Definition at line \mbox{\hyperlink{_settings_8g_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_settings_8g_8cs_source}{Settings.\+g.\+cs}}.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_settings_a91ad34f048185ffa3cfd28034335cfbd_a91ad34f048185ffa3cfd28034335cfbd}\label{class_emulator_1_1_settings_a91ad34f048185ffa3cfd28034335cfbd_a91ad34f048185ffa3cfd28034335cfbd}} 
+\index{Emulator.Settings@{Emulator.Settings}!Settings@{Settings}}
+\index{Settings@{Settings}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{Settings()}{Settings()}}
+{\footnotesize\ttfamily Emulator.\+Settings.\+Settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8xaml_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_settings_8xaml_8cs_source}{Settings.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00015         \{}
+\DoxyCodeLine{00016             \mbox{\hyperlink{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}{InitializeComponent}}();}
+\DoxyCodeLine{00017             Messenger.Default.Register<NotificationMessage>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_settings_a133d0856d63fea826ca76de426691c89_a133d0856d63fea826ca76de426691c89}{NotificationMessageReceived}});}
+\DoxyCodeLine{00018             Messenger.Default.Register<NotificationMessage<SettingsModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_settings_a133d0856d63fea826ca76de426691c89_a133d0856d63fea826ca76de426691c89}{NotificationMessageReceived}});}
+\DoxyCodeLine{00019         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703_a0aae9631fe13978aeac0edae697b9703}\label{class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703_a0aae9631fe13978aeac0edae697b9703}} 
+\index{Emulator.Settings@{Emulator.Settings}!Connect@{Connect}}
+\index{Connect@{Connect}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{Connect()}{Connect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void System.\+Windows.\+Markup.\+IComponent\+Connector. Emulator.\+Settings.\+Connect (\begin{DoxyParamCaption}\item[{int}]{connection\+Id,  }\item[{object}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8g_8cs_source_l00101}{101}} of file \mbox{\hyperlink{_settings_8g_8cs_source}{Settings.\+g.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101                                                                                                 \{}
+\DoxyCodeLine{00102             \textcolor{keywordflow}{switch} (connectionId)}
+\DoxyCodeLine{00103             \{}
+\DoxyCodeLine{00104             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00105             this.ComPortCombo = ((System.Windows.Controls.ComboBox)(target));}
+\DoxyCodeLine{00106             }
+\DoxyCodeLine{00107 \textcolor{preprocessor}{            \#line 7 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)Settings.xaml"{}}}
+\DoxyCodeLine{00108             this.ComPortCombo.DropDownClosed += \textcolor{keyword}{new} System.EventHandler(this.\mbox{\hyperlink{class_emulator_1_1_settings_a23a4579f0c3eb6508f2274109991956b_a23a4579f0c3eb6508f2274109991956b}{PortSelectionDropDownClosed}});}
+\DoxyCodeLine{00109             }
+\DoxyCodeLine{00110 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{00111 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{00112             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00113             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00114             this.PortText = ((System.Windows.Controls.TextBlock)(target));}
+\DoxyCodeLine{00115             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00116             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00117             this.ApplyButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00119             \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00120             this.CloseButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00121             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00122             \}}
+\DoxyCodeLine{00123             this.\_contentLoaded = \textcolor{keyword}{true};}
+\DoxyCodeLine{00124         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703_a0aae9631fe13978aeac0edae697b9703}\label{class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703_a0aae9631fe13978aeac0edae697b9703}} 
+\index{Emulator.Settings@{Emulator.Settings}!Connect@{Connect}}
+\index{Connect@{Connect}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{Connect()}{Connect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void System.\+Windows.\+Markup.\+IComponent\+Connector. Emulator.\+Settings.\+Connect (\begin{DoxyParamCaption}\item[{int}]{connection\+Id,  }\item[{object}]{target }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8g_8i_8cs_source_l00101}{101}} of file \mbox{\hyperlink{_settings_8g_8i_8cs_source}{Settings.\+g.\+i.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00101                                                                                                 \{}
+\DoxyCodeLine{00102             \textcolor{keywordflow}{switch} (connectionId)}
+\DoxyCodeLine{00103             \{}
+\DoxyCodeLine{00104             \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00105             this.ComPortCombo = ((System.Windows.Controls.ComboBox)(target));}
+\DoxyCodeLine{00106             }
+\DoxyCodeLine{00107 \textcolor{preprocessor}{            \#line 7 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)Settings.xaml"{}}}
+\DoxyCodeLine{00108             this.ComPortCombo.DropDownClosed += \textcolor{keyword}{new} System.EventHandler(this.\mbox{\hyperlink{class_emulator_1_1_settings_a23a4579f0c3eb6508f2274109991956b_a23a4579f0c3eb6508f2274109991956b}{PortSelectionDropDownClosed}});}
+\DoxyCodeLine{00109             }
+\DoxyCodeLine{00110 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{00111 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{00112             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00113             \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00114             this.PortText = ((System.Windows.Controls.TextBlock)(target));}
+\DoxyCodeLine{00115             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00116             \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00117             this.ApplyButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00118             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00119             \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00120             this.CloseButton = ((System.Windows.Controls.Button)(target));}
+\DoxyCodeLine{00121             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00122             \}}
+\DoxyCodeLine{00123             this.\_contentLoaded = \textcolor{keyword}{true};}
+\DoxyCodeLine{00124         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}\label{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}} 
+\index{Emulator.Settings@{Emulator.Settings}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{InitializeComponent()}{InitializeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Emulator.\+Settings.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize\+Component  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8g_8cs_source_l00081}{81}} of file \mbox{\hyperlink{_settings_8g_8cs_source}{Settings.\+g.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081                                           \{}
+\DoxyCodeLine{00082             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}{\_contentLoaded}}) \{}
+\DoxyCodeLine{00083                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00084             \}}
+\DoxyCodeLine{00085             \mbox{\hyperlink{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}{\_contentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00086             System.Uri resourceLocater = \textcolor{keyword}{new} System.Uri(\textcolor{stringliteral}{"{}/Emulator;component/settings.xaml"{}}, System.UriKind.Relative);}
+\DoxyCodeLine{00087             }
+\DoxyCodeLine{00088 \textcolor{preprocessor}{            \#line 1 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)Settings.xaml"{}}}
+\DoxyCodeLine{00089             System.Windows.Application.LoadComponent(\textcolor{keyword}{this}, resourceLocater);}
+\DoxyCodeLine{00090             }
+\DoxyCodeLine{00091 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{00092 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{00093         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}\label{class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51_afbdd691cc1d09333564ab6464073bb51}} 
+\index{Emulator.Settings@{Emulator.Settings}!InitializeComponent@{InitializeComponent}}
+\index{InitializeComponent@{InitializeComponent}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{InitializeComponent()}{InitializeComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Emulator.\+Settings.\+Initialize\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialize\+Component  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8g_8i_8cs_source_l00081}{81}} of file \mbox{\hyperlink{_settings_8g_8i_8cs_source}{Settings.\+g.\+i.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00081                                           \{}
+\DoxyCodeLine{00082             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}{\_contentLoaded}}) \{}
+\DoxyCodeLine{00083                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00084             \}}
+\DoxyCodeLine{00085             \mbox{\hyperlink{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}{\_contentLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00086             System.Uri resourceLocater = \textcolor{keyword}{new} System.Uri(\textcolor{stringliteral}{"{}/Emulator;component/settings.xaml"{}}, System.UriKind.Relative);}
+\DoxyCodeLine{00087             }
+\DoxyCodeLine{00088 \textcolor{preprocessor}{            \#line 1 "{}..\(\backslash\)..\(\backslash\)..\(\backslash\)Settings.xaml"{}}}
+\DoxyCodeLine{00089             System.Windows.Application.LoadComponent(\textcolor{keyword}{this}, resourceLocater);}
+\DoxyCodeLine{00090             }
+\DoxyCodeLine{00091 \textcolor{preprocessor}{            \#line default}}
+\DoxyCodeLine{00092 \textcolor{preprocessor}{            \#line hidden}}
+\DoxyCodeLine{00093         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_settings_a133d0856d63fea826ca76de426691c89_a133d0856d63fea826ca76de426691c89}\label{class_emulator_1_1_settings_a133d0856d63fea826ca76de426691c89_a133d0856d63fea826ca76de426691c89}} 
+\index{Emulator.Settings@{Emulator.Settings}!NotificationMessageReceived@{NotificationMessageReceived}}
+\index{NotificationMessageReceived@{NotificationMessageReceived}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{NotificationMessageReceived()}{NotificationMessageReceived()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Emulator.\+Settings.\+Notification\+Message\+Received (\begin{DoxyParamCaption}\item[{Notification\+Message}]{notification\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8xaml_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_settings_8xaml_8cs_source}{Settings.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022         \{}
+\DoxyCodeLine{00023             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}CloseSettingsWindow"{}})}
+\DoxyCodeLine{00024             \{}
+\DoxyCodeLine{00025                 Close();}
+\DoxyCodeLine{00026             \}}
+\DoxyCodeLine{00027         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_settings_accd0b24ec993d17eb446c90ec98d0fcf_accd0b24ec993d17eb446c90ec98d0fcf}\label{class_emulator_1_1_settings_accd0b24ec993d17eb446c90ec98d0fcf_accd0b24ec993d17eb446c90ec98d0fcf}} 
+\index{Emulator.Settings@{Emulator.Settings}!NotificationMessageReceived@{NotificationMessageReceived}}
+\index{NotificationMessageReceived@{NotificationMessageReceived}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{NotificationMessageReceived()}{NotificationMessageReceived()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Emulator.\+Settings.\+Notification\+Message\+Received (\begin{DoxyParamCaption}\item[{Notification\+Message$<$ \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} $>$}]{notification\+Message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8xaml_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_settings_8xaml_8cs_source}{Settings.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030         \{}
+\DoxyCodeLine{00031             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}SettingsWindow"{}})}
+\DoxyCodeLine{00032             \{}
+\DoxyCodeLine{00033                 SettingsViewModel.SettingsModel = notificationMessage.Content;}
+\DoxyCodeLine{00034                 ComPortCombo.SelectedItem = notificationMessage.Content.ComPortName;}
+\DoxyCodeLine{00035             \}}
+\DoxyCodeLine{00036         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_settings_a23a4579f0c3eb6508f2274109991956b_a23a4579f0c3eb6508f2274109991956b}\label{class_emulator_1_1_settings_a23a4579f0c3eb6508f2274109991956b_a23a4579f0c3eb6508f2274109991956b}} 
+\index{Emulator.Settings@{Emulator.Settings}!PortSelectionDropDownClosed@{PortSelectionDropDownClosed}}
+\index{PortSelectionDropDownClosed@{PortSelectionDropDownClosed}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{PortSelectionDropDownClosed()}{PortSelectionDropDownClosed()}}
+{\footnotesize\ttfamily void Emulator.\+Settings.\+Port\+Selection\+Drop\+Down\+Closed (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8xaml_8cs_source_l00038}{38}} of file \mbox{\hyperlink{_settings_8xaml_8cs_source}{Settings.\+xaml.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039         \{}
+\DoxyCodeLine{00040             \textcolor{keywordflow}{if} (!(ComPortCombo.SelectedValue == \textcolor{keyword}{null}))}
+\DoxyCodeLine{00041             \{}
+\DoxyCodeLine{00042                 \textcolor{keywordtype}{string} port = ComPortCombo.SelectedValue.ToString();}
+\DoxyCodeLine{00043                 SettingsViewModel.ComPortSelection = port;}
+\DoxyCodeLine{00044             \}}
+\DoxyCodeLine{00045         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}\label{class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c_a3da00fc0f33d3c5cc15a576d2eefac1c}} 
+\index{Emulator.Settings@{Emulator.Settings}!\_contentLoaded@{\_contentLoaded}}
+\index{\_contentLoaded@{\_contentLoaded}!Emulator.Settings@{Emulator.Settings}}
+\doxyparagraph{\texorpdfstring{\_contentLoaded}{\_contentLoaded}}
+{\footnotesize\ttfamily bool Emulator.\+Settings.\+\_\+content\+Loaded\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_8g_8cs_source_l00074}{74}} of file \mbox{\hyperlink{_settings_8g_8cs_source}{Settings.\+g.\+cs}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Emulator/obj/x86/\+Debug/\mbox{\hyperlink{_settings_8g_8cs}{Settings.\+g.\+cs}}\item 
+Emulator/obj/x86/\+Debug/\mbox{\hyperlink{_settings_8g_8i_8cs}{Settings.\+g.\+i.\+cs}}\item 
+Emulator/\mbox{\hyperlink{_settings_8xaml_8cs}{Settings.\+xaml.\+cs}}\end{DoxyCompactItemize}

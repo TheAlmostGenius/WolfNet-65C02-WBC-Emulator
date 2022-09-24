@@ -1,0 +1,138 @@
+.TH "Hardware" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBAT28CXX\fP"
+.br
+.RI "An implementation of a \fBW65C02\fP Processor\&.  "
+.ti -1c
+.RI "class \fBDisassembly\fP"
+.br
+.RI "Used to help simulating\&. This class contains the disassembly properties\&.  "
+.ti -1c
+.RI "class \fBHM62256\fP"
+.br
+.ti -1c
+.RI "class \fBMemoryMap\fP"
+.br
+.ti -1c
+.RI "class \fBUtility\fP"
+.br
+.ti -1c
+.RI "class \fBW65C02\fP"
+.br
+.RI "An implementation of a \fBW65C02\fP Processor\&.  "
+.ti -1c
+.RI "class \fBW65C22\fP"
+.br
+.RI "An implementation of a \fBW65C22\fP VIA\&.  "
+.ti -1c
+.RI "class \fBW65C51\fP"
+.br
+.RI "An implementation of a \fBW65C51\fP ACIA\&.  "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBAddressingMode\fP "
+.br
+.RI "The addressing modes used by the 6502 Processor  "
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBHardware\&.AddressingMode\fP"
+
+.PP
+The addressing modes used by the 6502 Processor  
+.PP
+Definition at line \fB6\fP of file \fBAddressingMode\&.cs\fP\&.
+.PP
+.nf
+7     {
+8         /// <summary>
+9         /// In this mode a full address is given to operation on IE: Memory byte[] { 0x60, 0x00, 0xFF } 
+10         /// would perform an ADC operation and Add the value at ADDRESS 0xFF00 to the accumulator\&.
+11         /// The address is always LSB first
+12         /// </summary>
+13         Absolute = 1,
+14         /// <summary>
+15         /// In this mode a full address is given to operation on IE: Memory byte[] { 0x7D, 0x00, 0xFF } The full value would then be added to the X Register\&.
+16         /// If the X register was 0x01 then the address would be 0xFF01\&. and the value stored there would have an ADC operation performed on it and the value would
+17         /// be added to the accumulator\&.
+18         /// </summary>
+19         AbsoluteX = 2,
+20         /// <summary>
+21         /// In this mode a full address is given to operation on IE: Memory byte[] { 0x79, 0x00, 0xFF } The full value would then be added to the Y Register\&.
+22         /// If the Y register was 0x01 then the address would be 0xFF01\&. and the value stored there would have an ADC operation performed on it and the value would
+23         /// be added to the accumulator
+24         /// </summary>
+25         AbsoluteY = 3,
+26         /// <summary>
+27         /// In this mode the instruction operates on the accumulator\&. No operands are needed\&. 
+28         /// </summary>
+29         Accumulator = 4,
+30         /// <summary>
+31         /// In this mode, the value to operate on immediately follows the instruction\&. IE: Memory byte[] { 0x69, 0x01 } 
+32         /// would perform an ADC operation and Add 0x01 directly to the accumulator
+33         /// </summary>
+34         Immediate = 5,
+35         /// <summary>
+36         /// No address is needed for this mode\&. EX: BRK (Break), CLC (Clear Carry Flag) etc
+37         /// </summary>
+38         Implied = 6,
+39         /// <summary>
+40         /// In this mode assume the following
+41         /// Memory = { 0x61, 0x02, 0x04, 0x00, 0x03 }
+42         /// RegisterX = 0x01
+43         /// 1\&. Take the sum of the X Register and the value after the opcode 0x01 + 0x01 = 0x02\&. 
+44         /// 2\&. Starting at position 0x02 get an address (0x04,0x00) = 0x0004
+45         /// 3\&. Perform the ADC operation and Add the value at 0x0005 to the accumulator
+46         /// Note: if the Zero Page address is greater than 0xff then roll over the value\&. IE 0x101 rolls over to 0x01
+47         /// </summary>
+48         IndirectX = 7,
+49         /// <summary>
+50         /// In this mode assume the following
+51         /// Memory = { 0x61, 0x02, 0x04, 0x00, 0x03 }
+52         /// RegisterY = 0x01
+53         /// 1\&. Starting at position 0x02 get an address (0x04,0x00) = 0x0004 
+54         /// 2\&. Take the sum of the Y Register and the absolute address 0x01+0x0004 = 0x0005
+55         /// 3\&. Perform the ADC operation and Add the value at 0x0005 to the accumulator
+56         /// Note: if the address is great that 0xffff then roll over IE: 0x10001 rolls over to 0x01
+57         /// </summary>
+58         IndirectY = 8,
+59         /// <summary>
+60         /// JMP is the only operation that uses this mode\&. In this mode an absolute address is specified that points to the location of the absolute address we want to jump to\&.
+61         /// </summary>
+62         Indirect = 9,
+63         /// <summary>
+64         /// This Mode Changes the PC\&. It allows the program to change the location of the PC by 127 in either direction\&.
+65         /// </summary>
+66         Relative = 10,
+67         /// <summary>
+68         /// In this mode, a zero page address of the value to operate on is specified\&. This mode can only operation on values between 0x0 and 0xFF, or those that sit on the zero page of memory\&. IE: Memory byte[] { 0x69, 0x02, 0x01 } 
+69         /// would perform an ADC operation and Add 0x01 directly to the Accumulator
+70         /// </summary>
+71         ZeroPage = 11,
+72         /// <summary>
+73         /// In this mode, a zero page address of the value to operate on is specified, however the value of the X register is added to the address IE: Memory byte[] { 0x86, 0x02, 0x01, 0x67, 0x04, 0x01 } 
+74         /// In this example we store a value of 0x01 into the X register, then we would perform an ADC operation using the addres of 0x04+0x01=0x05 and Add the result of 0x01 directly to the Accumulator
+75         /// </summary>
+76         ZeroPageX = 12,
+77         /// <summary>
+78         /// This works the same as ZeroPageX except it uses the Y register instead of the X register\&.
+79         /// </summary>
+80         ZeroPageY = 13,
+81     }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

@@ -1,0 +1,706 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {section}{\numberline {1}Namespace Index}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Namespace List}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Hierarchical Index}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Class Hierarchy}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Class Index}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Class List}{4}{subsection.3.1}%
+\contentsline {section}{\numberline {4}File Index}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}File List}{5}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Namespace Documentation}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Emulator Namespace Reference}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Namespace Reference}{8}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Namespace Reference}{8}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Hardware Namespace Reference}{8}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}Enumeration Type Documentation}{9}{subsubsection.5.4.1}%
+\contentsline {paragraph}{\numberline {5.4.1.1}AddressingMode}{9}{paragraph.5.4.1.1}%
+\contentsline {subsection}{\numberline {5.5}Xaml\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Namespace Namespace Reference}{10}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Class Documentation}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Devices.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}ACIA Class Reference}{10}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Detailed Description}{10}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Member Data Documentation}{10}{subsubsection.6.1.2}%
+\contentsline {paragraph}{\numberline {6.1.2.1}Length}{10}{paragraph.6.1.2.1}%
+\contentsline {paragraph}{\numberline {6.1.2.2}Offset}{11}{paragraph.6.1.2.2}%
+\contentsline {subsection}{\numberline {6.2}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App Class Reference}{11}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}Detailed Description}{11}{subsubsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.3}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AT28\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CXX Class Reference}{11}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}Detailed Description}{12}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}Constructor \& Destructor Documentation}{12}{subsubsection.6.3.2}%
+\contentsline {paragraph}{\numberline {6.3.2.1}AT28CXX()}{12}{paragraph.6.3.2.1}%
+\contentsline {subsubsection}{\numberline {6.3.3}Member Function Documentation}{12}{subsubsection.6.3.3}%
+\contentsline {paragraph}{\numberline {6.3.3.1}Clear()}{13}{paragraph.6.3.3.1}%
+\contentsline {paragraph}{\numberline {6.3.3.2}DumpMemory()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{13}{paragraph.6.3.3.2}%
+\contentsline {paragraph}{\numberline {6.3.3.3}DumpMemory()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{13}{paragraph.6.3.3.3}%
+\contentsline {paragraph}{\numberline {6.3.3.4}Load()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{14}{paragraph.6.3.3.4}%
+\contentsline {paragraph}{\numberline {6.3.3.5}Load()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{15}{paragraph.6.3.3.5}%
+\contentsline {paragraph}{\numberline {6.3.3.6}Read()}{15}{paragraph.6.3.3.6}%
+\contentsline {paragraph}{\numberline {6.3.3.7}ReadFile()}{16}{paragraph.6.3.3.7}%
+\contentsline {paragraph}{\numberline {6.3.3.8}Write()}{16}{paragraph.6.3.3.8}%
+\contentsline {subsubsection}{\numberline {6.3.4}Property Documentation}{16}{subsubsection.6.3.4}%
+\contentsline {paragraph}{\numberline {6.3.4.1}Banks}{16}{paragraph.6.3.4.1}%
+\contentsline {paragraph}{\numberline {6.3.4.2}CurrentBank}{17}{paragraph.6.3.4.2}%
+\contentsline {paragraph}{\numberline {6.3.4.3}End}{17}{paragraph.6.3.4.3}%
+\contentsline {paragraph}{\numberline {6.3.4.4}Length}{17}{paragraph.6.3.4.4}%
+\contentsline {paragraph}{\numberline {6.3.4.5}Memory}{17}{paragraph.6.3.4.5}%
+\contentsline {paragraph}{\numberline {6.3.4.6}Offset}{17}{paragraph.6.3.4.6}%
+\contentsline {paragraph}{\numberline {6.3.4.7}Processor}{17}{paragraph.6.3.4.7}%
+\contentsline {subsection}{\numberline {6.4}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Banked\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Ram Class Reference}{18}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}Detailed Description}{18}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}Member Data Documentation}{18}{subsubsection.6.4.2}%
+\contentsline {paragraph}{\numberline {6.4.2.1}\_Length}{18}{paragraph.6.4.2.1}%
+\contentsline {paragraph}{\numberline {6.4.2.2}\_Offset}{18}{paragraph.6.4.2.2}%
+\contentsline {paragraph}{\numberline {6.4.2.3}BankSize}{18}{paragraph.6.4.2.3}%
+\contentsline {paragraph}{\numberline {6.4.2.4}TotalBanks}{19}{paragraph.6.4.2.4}%
+\contentsline {paragraph}{\numberline {6.4.2.5}TotalLength}{19}{paragraph.6.4.2.5}%
+\contentsline {subsubsection}{\numberline {6.4.3}Property Documentation}{19}{subsubsection.6.4.3}%
+\contentsline {paragraph}{\numberline {6.4.3.1}Length}{19}{paragraph.6.4.3.1}%
+\contentsline {paragraph}{\numberline {6.4.3.2}Offset}{19}{paragraph.6.4.3.2}%
+\contentsline {subsection}{\numberline {6.5}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Banked\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rom Class Reference}{19}{subsection.6.5}%
+\contentsline {subsubsection}{\numberline {6.5.1}Detailed Description}{20}{subsubsection.6.5.1}%
+\contentsline {subsubsection}{\numberline {6.5.2}Member Data Documentation}{20}{subsubsection.6.5.2}%
+\contentsline {paragraph}{\numberline {6.5.2.1}\_Length}{20}{paragraph.6.5.2.1}%
+\contentsline {paragraph}{\numberline {6.5.2.2}\_Offset}{20}{paragraph.6.5.2.2}%
+\contentsline {paragraph}{\numberline {6.5.2.3}TotalBanks}{20}{paragraph.6.5.2.3}%
+\contentsline {subsubsection}{\numberline {6.5.3}Property Documentation}{20}{subsubsection.6.5.3}%
+\contentsline {paragraph}{\numberline {6.5.3.1}Length}{20}{paragraph.6.5.3.1}%
+\contentsline {paragraph}{\numberline {6.5.3.2}Offset}{20}{paragraph.6.5.3.2}%
+\contentsline {subsection}{\numberline {6.6}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Breakpoint Class Reference}{20}{subsection.6.6}%
+\contentsline {subsubsection}{\numberline {6.6.1}Detailed Description}{21}{subsubsection.6.6.1}%
+\contentsline {subsubsection}{\numberline {6.6.2}Property Documentation}{21}{subsubsection.6.6.2}%
+\contentsline {paragraph}{\numberline {6.6.2.1}AllTypes}{21}{paragraph.6.6.2.1}%
+\contentsline {paragraph}{\numberline {6.6.2.2}IsEnabled}{21}{paragraph.6.6.2.2}%
+\contentsline {paragraph}{\numberline {6.6.2.3}Type}{21}{paragraph.6.6.2.3}%
+\contentsline {paragraph}{\numberline {6.6.2.4}Value}{22}{paragraph.6.6.2.4}%
+\contentsline {subsection}{\numberline {6.7}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Breakpoint\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type Class Reference}{22}{subsection.6.7}%
+\contentsline {subsubsection}{\numberline {6.7.1}Detailed Description}{22}{subsubsection.6.7.1}%
+\contentsline {subsubsection}{\numberline {6.7.2}Member Data Documentation}{22}{subsubsection.6.7.2}%
+\contentsline {paragraph}{\numberline {6.7.2.1}AllTypes}{22}{paragraph.6.7.2.1}%
+\contentsline {paragraph}{\numberline {6.7.2.2}NumberOfCycleType}{23}{paragraph.6.7.2.2}%
+\contentsline {paragraph}{\numberline {6.7.2.3}ProgramCounterType}{23}{paragraph.6.7.2.3}%
+\contentsline {subsection}{\numberline {6.8}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Device\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Area Class Reference}{23}{subsection.6.8}%
+\contentsline {subsubsection}{\numberline {6.8.1}Detailed Description}{23}{subsubsection.6.8.1}%
+\contentsline {subsubsection}{\numberline {6.8.2}Member Data Documentation}{23}{subsubsection.6.8.2}%
+\contentsline {paragraph}{\numberline {6.8.2.1}\_Length}{23}{paragraph.6.8.2.1}%
+\contentsline {paragraph}{\numberline {6.8.2.2}\_Offset}{24}{paragraph.6.8.2.2}%
+\contentsline {subsubsection}{\numberline {6.8.3}Property Documentation}{24}{subsubsection.6.8.3}%
+\contentsline {paragraph}{\numberline {6.8.3.1}End}{24}{paragraph.6.8.3.1}%
+\contentsline {paragraph}{\numberline {6.8.3.2}Length}{24}{paragraph.6.8.3.2}%
+\contentsline {paragraph}{\numberline {6.8.3.3}Offset}{24}{paragraph.6.8.3.3}%
+\contentsline {subsection}{\numberline {6.9}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Devices Class Reference}{24}{subsection.6.9}%
+\contentsline {subsubsection}{\numberline {6.9.1}Detailed Description}{24}{subsubsection.6.9.1}%
+\contentsline {subsection}{\numberline {6.10}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Disassembly Class Reference}{25}{subsection.6.10}%
+\contentsline {subsubsection}{\numberline {6.10.1}Detailed Description}{25}{subsubsection.6.10.1}%
+\contentsline {subsubsection}{\numberline {6.10.2}Property Documentation}{25}{subsubsection.6.10.2}%
+\contentsline {paragraph}{\numberline {6.10.2.1}DisassemblyOutput}{25}{paragraph.6.10.2.1}%
+\contentsline {paragraph}{\numberline {6.10.2.2}HighAddress}{25}{paragraph.6.10.2.2}%
+\contentsline {paragraph}{\numberline {6.10.2.3}LowAddress}{26}{paragraph.6.10.2.3}%
+\contentsline {paragraph}{\numberline {6.10.2.4}OpCodeString}{26}{paragraph.6.10.2.4}%
+\contentsline {subsection}{\numberline {6.11}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Exit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Codes Class Reference}{26}{subsection.6.11}%
+\contentsline {subsubsection}{\numberline {6.11.1}Detailed Description}{26}{subsubsection.6.11.1}%
+\contentsline {subsubsection}{\numberline {6.11.2}Member Data Documentation}{26}{subsubsection.6.11.2}%
+\contentsline {paragraph}{\numberline {6.11.2.1}BIOS\_LOADPROGRAM\_ERROR}{26}{paragraph.6.11.2.1}%
+\contentsline {paragraph}{\numberline {6.11.2.2}LOAD\_BIOS\_FILE\_ERROR}{27}{paragraph.6.11.2.2}%
+\contentsline {paragraph}{\numberline {6.11.2.3}LOAD\_ROM\_FILE\_ERROR}{27}{paragraph.6.11.2.3}%
+\contentsline {paragraph}{\numberline {6.11.2.4}LOAD\_STATE\_ERROR}{27}{paragraph.6.11.2.4}%
+\contentsline {paragraph}{\numberline {6.11.2.5}NO\_BIOS}{27}{paragraph.6.11.2.5}%
+\contentsline {paragraph}{\numberline {6.11.2.6}NO\_ERROR}{27}{paragraph.6.11.2.6}%
+\contentsline {paragraph}{\numberline {6.11.2.7}ROM\_LOADPROGRAM\_ERROR}{27}{paragraph.6.11.2.7}%
+\contentsline {paragraph}{\numberline {6.11.2.8}USER\_ERROR}{27}{paragraph.6.11.2.8}%
+\contentsline {subsection}{\numberline {6.12}Xaml\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Namespace.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Application Class Reference}{28}{subsection.6.12}%
+\contentsline {subsubsection}{\numberline {6.12.1}Detailed Description}{28}{subsubsection.6.12.1}%
+\contentsline {subsubsection}{\numberline {6.12.2}Member Function Documentation}{28}{subsubsection.6.12.2}%
+\contentsline {paragraph}{\numberline {6.12.2.1}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{29}{paragraph.6.12.2.1}%
+\contentsline {paragraph}{\numberline {6.12.2.2}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{29}{paragraph.6.12.2.2}%
+\contentsline {paragraph}{\numberline {6.12.2.3}Main()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{29}{paragraph.6.12.2.3}%
+\contentsline {paragraph}{\numberline {6.12.2.4}Main()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{30}{paragraph.6.12.2.4}%
+\contentsline {subsubsection}{\numberline {6.12.3}Member Data Documentation}{30}{subsubsection.6.12.3}%
+\contentsline {paragraph}{\numberline {6.12.3.1}\_contentLoaded}{30}{paragraph.6.12.3.1}%
+\contentsline {subsection}{\numberline {6.13}Xaml\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Namespace.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Internal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper Class Reference}{30}{subsection.6.13}%
+\contentsline {subsubsection}{\numberline {6.13.1}Detailed Description}{31}{subsubsection.6.13.1}%
+\contentsline {subsubsection}{\numberline {6.13.2}Member Function Documentation}{31}{subsubsection.6.13.2}%
+\contentsline {paragraph}{\numberline {6.13.2.1}AddEventHandler()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{31}{paragraph.6.13.2.1}%
+\contentsline {paragraph}{\numberline {6.13.2.2}AddEventHandler()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{31}{paragraph.6.13.2.2}%
+\contentsline {paragraph}{\numberline {6.13.2.3}CreateDelegate()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{32}{paragraph.6.13.2.3}%
+\contentsline {paragraph}{\numberline {6.13.2.4}CreateDelegate()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{32}{paragraph.6.13.2.4}%
+\contentsline {paragraph}{\numberline {6.13.2.5}CreateInstance()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{32}{paragraph.6.13.2.5}%
+\contentsline {paragraph}{\numberline {6.13.2.6}CreateInstance()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{33}{paragraph.6.13.2.6}%
+\contentsline {paragraph}{\numberline {6.13.2.7}GetPropertyValue()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{33}{paragraph.6.13.2.7}%
+\contentsline {paragraph}{\numberline {6.13.2.8}GetPropertyValue()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{33}{paragraph.6.13.2.8}%
+\contentsline {paragraph}{\numberline {6.13.2.9}SetPropertyValue()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{33}{paragraph.6.13.2.9}%
+\contentsline {paragraph}{\numberline {6.13.2.10}SetPropertyValue()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{34}{paragraph.6.13.2.10}%
+\contentsline {subsection}{\numberline {6.14}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Devices.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}GPIO Class Reference}{34}{subsection.6.14}%
+\contentsline {subsubsection}{\numberline {6.14.1}Detailed Description}{34}{subsubsection.6.14.1}%
+\contentsline {subsubsection}{\numberline {6.14.2}Member Data Documentation}{34}{subsubsection.6.14.2}%
+\contentsline {paragraph}{\numberline {6.14.2.1}Length}{34}{paragraph.6.14.2.1}%
+\contentsline {paragraph}{\numberline {6.14.2.2}Offset}{34}{paragraph.6.14.2.2}%
+\contentsline {subsection}{\numberline {6.15}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}HM62256 Class Reference}{35}{subsection.6.15}%
+\contentsline {subsubsection}{\numberline {6.15.1}Detailed Description}{35}{subsubsection.6.15.1}%
+\contentsline {subsubsection}{\numberline {6.15.2}Constructor \& Destructor Documentation}{35}{subsubsection.6.15.2}%
+\contentsline {paragraph}{\numberline {6.15.2.1}HM62256()}{35}{paragraph.6.15.2.1}%
+\contentsline {subsubsection}{\numberline {6.15.3}Member Function Documentation}{36}{subsubsection.6.15.3}%
+\contentsline {paragraph}{\numberline {6.15.3.1}Clear()}{36}{paragraph.6.15.3.1}%
+\contentsline {paragraph}{\numberline {6.15.3.2}DumpMemory()}{36}{paragraph.6.15.3.2}%
+\contentsline {paragraph}{\numberline {6.15.3.3}Read()}{36}{paragraph.6.15.3.3}%
+\contentsline {paragraph}{\numberline {6.15.3.4}Reset()}{37}{paragraph.6.15.3.4}%
+\contentsline {paragraph}{\numberline {6.15.3.5}Write()}{37}{paragraph.6.15.3.5}%
+\contentsline {subsubsection}{\numberline {6.15.4}Property Documentation}{37}{subsubsection.6.15.4}%
+\contentsline {paragraph}{\numberline {6.15.4.1}Banks}{37}{paragraph.6.15.4.1}%
+\contentsline {paragraph}{\numberline {6.15.4.2}CurrentBank}{38}{paragraph.6.15.4.2}%
+\contentsline {paragraph}{\numberline {6.15.4.3}End}{38}{paragraph.6.15.4.3}%
+\contentsline {paragraph}{\numberline {6.15.4.4}Length}{38}{paragraph.6.15.4.4}%
+\contentsline {paragraph}{\numberline {6.15.4.5}Memory}{38}{paragraph.6.15.4.5}%
+\contentsline {paragraph}{\numberline {6.15.4.6}Offset}{38}{paragraph.6.15.4.6}%
+\contentsline {subsection}{\numberline {6.16}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IClosable Interface Reference}{38}{subsection.6.16}%
+\contentsline {subsubsection}{\numberline {6.16.1}Detailed Description}{39}{subsubsection.6.16.1}%
+\contentsline {subsubsection}{\numberline {6.16.2}Member Function Documentation}{39}{subsubsection.6.16.2}%
+\contentsline {paragraph}{\numberline {6.16.2.1}Close()}{39}{paragraph.6.16.2.1}%
+\contentsline {subsection}{\numberline {6.17}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{39}{subsection.6.17}%
+\contentsline {subsubsection}{\numberline {6.17.1}Detailed Description}{41}{subsubsection.6.17.1}%
+\contentsline {subsubsection}{\numberline {6.17.2}Constructor \& Destructor Documentation}{41}{subsubsection.6.17.2}%
+\contentsline {paragraph}{\numberline {6.17.2.1}MainViewModel()}{42}{paragraph.6.17.2.1}%
+\contentsline {subsubsection}{\numberline {6.17.3}Member Function Documentation}{43}{subsubsection.6.17.3}%
+\contentsline {paragraph}{\numberline {6.17.3.1}About()}{43}{paragraph.6.17.3.1}%
+\contentsline {paragraph}{\numberline {6.17.3.2}AddBreakPoint()}{43}{paragraph.6.17.3.2}%
+\contentsline {paragraph}{\numberline {6.17.3.3}BackgroundWorkerDoWork()}{43}{paragraph.6.17.3.3}%
+\contentsline {paragraph}{\numberline {6.17.3.4}BinaryLoadedNotification()}{44}{paragraph.6.17.3.4}%
+\contentsline {paragraph}{\numberline {6.17.3.5}Close()}{44}{paragraph.6.17.3.5}%
+\contentsline {paragraph}{\numberline {6.17.3.6}GenericNotifcation()}{44}{paragraph.6.17.3.6}%
+\contentsline {paragraph}{\numberline {6.17.3.7}GetLogModValue()}{45}{paragraph.6.17.3.7}%
+\contentsline {paragraph}{\numberline {6.17.3.8}GetOutputLog()}{46}{paragraph.6.17.3.8}%
+\contentsline {paragraph}{\numberline {6.17.3.9}GetSleepValue()}{46}{paragraph.6.17.3.9}%
+\contentsline {paragraph}{\numberline {6.17.3.10}IsBreakPointTriggered()}{47}{paragraph.6.17.3.10}%
+\contentsline {paragraph}{\numberline {6.17.3.11}OnClose()}{47}{paragraph.6.17.3.11}%
+\contentsline {paragraph}{\numberline {6.17.3.12}OnLoad()}{48}{paragraph.6.17.3.12}%
+\contentsline {paragraph}{\numberline {6.17.3.13}RemoveBreakPoint()}{48}{paragraph.6.17.3.13}%
+\contentsline {paragraph}{\numberline {6.17.3.14}Reset()}{48}{paragraph.6.17.3.14}%
+\contentsline {paragraph}{\numberline {6.17.3.15}RunPause()}{49}{paragraph.6.17.3.15}%
+\contentsline {paragraph}{\numberline {6.17.3.16}Settings()}{49}{paragraph.6.17.3.16}%
+\contentsline {paragraph}{\numberline {6.17.3.17}SettingsAppliedNotifcation()}{49}{paragraph.6.17.3.17}%
+\contentsline {paragraph}{\numberline {6.17.3.18}StateLoadedNotifcation()}{49}{paragraph.6.17.3.18}%
+\contentsline {paragraph}{\numberline {6.17.3.19}Step()}{50}{paragraph.6.17.3.19}%
+\contentsline {paragraph}{\numberline {6.17.3.20}StepProcessor()}{50}{paragraph.6.17.3.20}%
+\contentsline {paragraph}{\numberline {6.17.3.21}UpdateMemoryPage()}{50}{paragraph.6.17.3.21}%
+\contentsline {paragraph}{\numberline {6.17.3.22}UpdateUi()}{51}{paragraph.6.17.3.22}%
+\contentsline {subsubsection}{\numberline {6.17.4}Member Data Documentation}{51}{subsubsection.6.17.4}%
+\contentsline {paragraph}{\numberline {6.17.4.1}\_backgroundWorker}{51}{paragraph.6.17.4.1}%
+\contentsline {paragraph}{\numberline {6.17.4.2}\_breakpointTriggered}{51}{paragraph.6.17.4.2}%
+\contentsline {paragraph}{\numberline {6.17.4.3}\_memoryPageOffset}{51}{paragraph.6.17.4.3}%
+\contentsline {subsubsection}{\numberline {6.17.5}Property Documentation}{51}{subsubsection.6.17.5}%
+\contentsline {paragraph}{\numberline {6.17.5.1}AboutCommand}{51}{paragraph.6.17.5.1}%
+\contentsline {paragraph}{\numberline {6.17.5.2}AddBreakPointCommand}{51}{paragraph.6.17.5.2}%
+\contentsline {paragraph}{\numberline {6.17.5.3}AT28C010}{52}{paragraph.6.17.5.3}%
+\contentsline {paragraph}{\numberline {6.17.5.4}AT28C64}{52}{paragraph.6.17.5.4}%
+\contentsline {paragraph}{\numberline {6.17.5.5}Breakpoints}{52}{paragraph.6.17.5.5}%
+\contentsline {paragraph}{\numberline {6.17.5.6}CloseCommand}{52}{paragraph.6.17.5.6}%
+\contentsline {paragraph}{\numberline {6.17.5.7}CpuSpeed}{52}{paragraph.6.17.5.7}%
+\contentsline {paragraph}{\numberline {6.17.5.8}CurrentDisassembly}{53}{paragraph.6.17.5.8}%
+\contentsline {paragraph}{\numberline {6.17.5.9}CurrentSerialPort}{53}{paragraph.6.17.5.9}%
+\contentsline {paragraph}{\numberline {6.17.5.10}HM62256}{53}{paragraph.6.17.5.10}%
+\contentsline {paragraph}{\numberline {6.17.5.11}IsRomLoaded}{53}{paragraph.6.17.5.11}%
+\contentsline {paragraph}{\numberline {6.17.5.12}IsRunning}{53}{paragraph.6.17.5.12}%
+\contentsline {paragraph}{\numberline {6.17.5.13}MemoryPage}{54}{paragraph.6.17.5.13}%
+\contentsline {paragraph}{\numberline {6.17.5.14}MemoryPageOffset}{54}{paragraph.6.17.5.14}%
+\contentsline {paragraph}{\numberline {6.17.5.15}MM65SIB}{54}{paragraph.6.17.5.15}%
+\contentsline {paragraph}{\numberline {6.17.5.16}NumberOfCycles}{54}{paragraph.6.17.5.16}%
+\contentsline {paragraph}{\numberline {6.17.5.17}OutputLog}{54}{paragraph.6.17.5.17}%
+\contentsline {paragraph}{\numberline {6.17.5.18}RemoveBreakPointCommand}{55}{paragraph.6.17.5.18}%
+\contentsline {paragraph}{\numberline {6.17.5.19}ResetCommand}{55}{paragraph.6.17.5.19}%
+\contentsline {paragraph}{\numberline {6.17.5.20}RomFile}{55}{paragraph.6.17.5.20}%
+\contentsline {paragraph}{\numberline {6.17.5.21}RunPauseCommand}{55}{paragraph.6.17.5.21}%
+\contentsline {paragraph}{\numberline {6.17.5.22}SelectedBreakpoint}{55}{paragraph.6.17.5.22}%
+\contentsline {paragraph}{\numberline {6.17.5.23}SettingsCommand}{55}{paragraph.6.17.5.23}%
+\contentsline {paragraph}{\numberline {6.17.5.24}SettingsModel}{56}{paragraph.6.17.5.24}%
+\contentsline {paragraph}{\numberline {6.17.5.25}StepCommand}{56}{paragraph.6.17.5.25}%
+\contentsline {paragraph}{\numberline {6.17.5.26}UpdateMemoryMapCommand}{56}{paragraph.6.17.5.26}%
+\contentsline {paragraph}{\numberline {6.17.5.27}W65C02}{56}{paragraph.6.17.5.27}%
+\contentsline {paragraph}{\numberline {6.17.5.28}W65C22}{56}{paragraph.6.17.5.28}%
+\contentsline {paragraph}{\numberline {6.17.5.29}W65C51}{56}{paragraph.6.17.5.29}%
+\contentsline {paragraph}{\numberline {6.17.5.30}WindowTitle}{57}{paragraph.6.17.5.30}%
+\contentsline {subsection}{\numberline {6.18}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window Class Reference}{57}{subsection.6.18}%
+\contentsline {subsubsection}{\numberline {6.18.1}Detailed Description}{57}{subsubsection.6.18.1}%
+\contentsline {subsubsection}{\numberline {6.18.2}Constructor \& Destructor Documentation}{58}{subsubsection.6.18.2}%
+\contentsline {paragraph}{\numberline {6.18.2.1}MainWindow()}{58}{paragraph.6.18.2.1}%
+\contentsline {subsubsection}{\numberline {6.18.3}Member Function Documentation}{58}{subsubsection.6.18.3}%
+\contentsline {paragraph}{\numberline {6.18.3.1}CloseFile()}{58}{paragraph.6.18.3.1}%
+\contentsline {paragraph}{\numberline {6.18.3.2}Connect()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{58}{paragraph.6.18.3.2}%
+\contentsline {paragraph}{\numberline {6.18.3.3}Connect()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{60}{paragraph.6.18.3.3}%
+\contentsline {paragraph}{\numberline {6.18.3.4}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{62}{paragraph.6.18.3.4}%
+\contentsline {paragraph}{\numberline {6.18.3.5}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{62}{paragraph.6.18.3.5}%
+\contentsline {paragraph}{\numberline {6.18.3.6}LoadFile()}{63}{paragraph.6.18.3.6}%
+\contentsline {paragraph}{\numberline {6.18.3.7}NotificationMessageReceived()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{63}{paragraph.6.18.3.7}%
+\contentsline {paragraph}{\numberline {6.18.3.8}NotificationMessageReceived()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{63}{paragraph.6.18.3.8}%
+\contentsline {paragraph}{\numberline {6.18.3.9}NotificationMessageReceived()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{63}{paragraph.6.18.3.9}%
+\contentsline {paragraph}{\numberline {6.18.3.10}SaveFile()}{63}{paragraph.6.18.3.10}%
+\contentsline {paragraph}{\numberline {6.18.3.11}ToClose()}{64}{paragraph.6.18.3.11}%
+\contentsline {subsubsection}{\numberline {6.18.4}Member Data Documentation}{64}{subsubsection.6.18.4}%
+\contentsline {paragraph}{\numberline {6.18.4.1}\_contentLoaded}{64}{paragraph.6.18.4.1}%
+\contentsline {subsection}{\numberline {6.19}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map Class Reference}{64}{subsection.6.19}%
+\contentsline {subsubsection}{\numberline {6.19.1}Detailed Description}{65}{subsubsection.6.19.1}%
+\contentsline {subsubsection}{\numberline {6.19.2}Member Function Documentation}{65}{subsubsection.6.19.2}%
+\contentsline {paragraph}{\numberline {6.19.2.1}Init()}{65}{paragraph.6.19.2.1}%
+\contentsline {paragraph}{\numberline {6.19.2.2}Read()}{65}{paragraph.6.19.2.2}%
+\contentsline {paragraph}{\numberline {6.19.2.3}ReadWithoutCycle()}{66}{paragraph.6.19.2.3}%
+\contentsline {paragraph}{\numberline {6.19.2.4}Write()}{66}{paragraph.6.19.2.4}%
+\contentsline {paragraph}{\numberline {6.19.2.5}WriteWithoutCycle()}{67}{paragraph.6.19.2.5}%
+\contentsline {subsubsection}{\numberline {6.19.3}Member Data Documentation}{67}{subsubsection.6.19.3}%
+\contentsline {paragraph}{\numberline {6.19.3.1}Length}{67}{paragraph.6.19.3.1}%
+\contentsline {subsubsection}{\numberline {6.19.4}Property Documentation}{68}{subsubsection.6.19.4}%
+\contentsline {paragraph}{\numberline {6.19.4.1}ACIA}{68}{paragraph.6.19.4.1}%
+\contentsline {paragraph}{\numberline {6.19.4.2}BankedRAM}{68}{paragraph.6.19.4.2}%
+\contentsline {paragraph}{\numberline {6.19.4.3}BankedROM}{68}{paragraph.6.19.4.3}%
+\contentsline {paragraph}{\numberline {6.19.4.4}GPIO}{68}{paragraph.6.19.4.4}%
+\contentsline {paragraph}{\numberline {6.19.4.5}MM65SIB}{68}{paragraph.6.19.4.5}%
+\contentsline {paragraph}{\numberline {6.19.4.6}Processor}{68}{paragraph.6.19.4.6}%
+\contentsline {paragraph}{\numberline {6.19.4.7}SharedROM}{68}{paragraph.6.19.4.7}%
+\contentsline {subsection}{\numberline {6.20}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Row\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{69}{subsection.6.20}%
+\contentsline {subsubsection}{\numberline {6.20.1}Detailed Description}{69}{subsubsection.6.20.1}%
+\contentsline {subsubsection}{\numberline {6.20.2}Property Documentation}{70}{subsubsection.6.20.2}%
+\contentsline {paragraph}{\numberline {6.20.2.1}Location00}{70}{paragraph.6.20.2.1}%
+\contentsline {paragraph}{\numberline {6.20.2.2}Location01}{70}{paragraph.6.20.2.2}%
+\contentsline {paragraph}{\numberline {6.20.2.3}Location02}{70}{paragraph.6.20.2.3}%
+\contentsline {paragraph}{\numberline {6.20.2.4}Location03}{70}{paragraph.6.20.2.4}%
+\contentsline {paragraph}{\numberline {6.20.2.5}Location04}{70}{paragraph.6.20.2.5}%
+\contentsline {paragraph}{\numberline {6.20.2.6}Location05}{71}{paragraph.6.20.2.6}%
+\contentsline {paragraph}{\numberline {6.20.2.7}Location06}{71}{paragraph.6.20.2.7}%
+\contentsline {paragraph}{\numberline {6.20.2.8}Location07}{71}{paragraph.6.20.2.8}%
+\contentsline {paragraph}{\numberline {6.20.2.9}Location08}{71}{paragraph.6.20.2.9}%
+\contentsline {paragraph}{\numberline {6.20.2.10}Location09}{71}{paragraph.6.20.2.10}%
+\contentsline {paragraph}{\numberline {6.20.2.11}Location0A}{71}{paragraph.6.20.2.11}%
+\contentsline {paragraph}{\numberline {6.20.2.12}Location0B}{72}{paragraph.6.20.2.12}%
+\contentsline {paragraph}{\numberline {6.20.2.13}Location0C}{72}{paragraph.6.20.2.13}%
+\contentsline {paragraph}{\numberline {6.20.2.14}Location0D}{72}{paragraph.6.20.2.14}%
+\contentsline {paragraph}{\numberline {6.20.2.15}Location0E}{72}{paragraph.6.20.2.15}%
+\contentsline {paragraph}{\numberline {6.20.2.16}Location0F}{72}{paragraph.6.20.2.16}%
+\contentsline {paragraph}{\numberline {6.20.2.17}Offset}{72}{paragraph.6.20.2.17}%
+\contentsline {subsection}{\numberline {6.21}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Devices.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}MM65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}SIB Class Reference}{73}{subsection.6.21}%
+\contentsline {subsubsection}{\numberline {6.21.1}Detailed Description}{73}{subsubsection.6.21.1}%
+\contentsline {subsubsection}{\numberline {6.21.2}Member Data Documentation}{73}{subsubsection.6.21.2}%
+\contentsline {paragraph}{\numberline {6.21.2.1}Length}{73}{paragraph.6.21.2.1}%
+\contentsline {paragraph}{\numberline {6.21.2.2}Offset}{73}{paragraph.6.21.2.2}%
+\contentsline {subsection}{\numberline {6.22}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Multi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threaded\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Observable\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Collection$<$ T $>$ Class Template Reference}{73}{subsection.6.22}%
+\contentsline {subsubsection}{\numberline {6.22.1}Detailed Description}{74}{subsubsection.6.22.1}%
+\contentsline {subsubsection}{\numberline {6.22.2}Constructor \& Destructor Documentation}{74}{subsubsection.6.22.2}%
+\contentsline {paragraph}{\numberline {6.22.2.1}MultiThreadedObservableCollection()\hspace {0.1cm}{\footnotesize \ttfamily [1/3]}}{74}{paragraph.6.22.2.1}%
+\contentsline {paragraph}{\numberline {6.22.2.2}MultiThreadedObservableCollection()\hspace {0.1cm}{\footnotesize \ttfamily [2/3]}}{74}{paragraph.6.22.2.2}%
+\contentsline {paragraph}{\numberline {6.22.2.3}MultiThreadedObservableCollection()\hspace {0.1cm}{\footnotesize \ttfamily [3/3]}}{75}{paragraph.6.22.2.3}%
+\contentsline {subsubsection}{\numberline {6.22.3}Member Function Documentation}{75}{subsubsection.6.22.3}%
+\contentsline {paragraph}{\numberline {6.22.3.1}OnCollectionChanged()}{75}{paragraph.6.22.3.1}%
+\contentsline {subsubsection}{\numberline {6.22.4}Event Documentation}{75}{subsubsection.6.22.4}%
+\contentsline {paragraph}{\numberline {6.22.4.1}CollectionChanged}{76}{paragraph.6.22.4.1}%
+\contentsline {subsection}{\numberline {6.23}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Output\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log Class Reference}{76}{subsection.6.23}%
+\contentsline {subsubsection}{\numberline {6.23.1}Detailed Description}{76}{subsubsection.6.23.1}%
+\contentsline {subsubsection}{\numberline {6.23.2}Constructor \& Destructor Documentation}{77}{subsubsection.6.23.2}%
+\contentsline {paragraph}{\numberline {6.23.2.1}OutputLog()}{77}{paragraph.6.23.2.1}%
+\contentsline {subsubsection}{\numberline {6.23.3}Property Documentation}{77}{subsubsection.6.23.3}%
+\contentsline {paragraph}{\numberline {6.23.3.1}Accumulator}{77}{paragraph.6.23.3.1}%
+\contentsline {paragraph}{\numberline {6.23.3.2}CurrentOpCode}{77}{paragraph.6.23.3.2}%
+\contentsline {paragraph}{\numberline {6.23.3.3}NumberOfCycles}{77}{paragraph.6.23.3.3}%
+\contentsline {paragraph}{\numberline {6.23.3.4}ProgramCounter}{77}{paragraph.6.23.3.4}%
+\contentsline {paragraph}{\numberline {6.23.3.5}StackPointer}{78}{paragraph.6.23.3.5}%
+\contentsline {paragraph}{\numberline {6.23.3.6}XRegister}{78}{paragraph.6.23.3.6}%
+\contentsline {paragraph}{\numberline {6.23.3.7}YRegister}{78}{paragraph.6.23.3.7}%
+\contentsline {subsection}{\numberline {6.24}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Versioning.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Product Class Reference}{78}{subsection.6.24}%
+\contentsline {subsubsection}{\numberline {6.24.1}Detailed Description}{78}{subsubsection.6.24.1}%
+\contentsline {subsubsection}{\numberline {6.24.2}Member Data Documentation}{79}{subsubsection.6.24.2}%
+\contentsline {paragraph}{\numberline {6.24.2.1}Build}{79}{paragraph.6.24.2.1}%
+\contentsline {paragraph}{\numberline {6.24.2.2}Company}{79}{paragraph.6.24.2.2}%
+\contentsline {paragraph}{\numberline {6.24.2.3}Copyright}{79}{paragraph.6.24.2.3}%
+\contentsline {paragraph}{\numberline {6.24.2.4}Description}{79}{paragraph.6.24.2.4}%
+\contentsline {paragraph}{\numberline {6.24.2.5}Major}{79}{paragraph.6.24.2.5}%
+\contentsline {paragraph}{\numberline {6.24.2.6}Minor}{79}{paragraph.6.24.2.6}%
+\contentsline {paragraph}{\numberline {6.24.2.7}Name}{79}{paragraph.6.24.2.7}%
+\contentsline {paragraph}{\numberline {6.24.2.8}Revision}{80}{paragraph.6.24.2.8}%
+\contentsline {paragraph}{\numberline {6.24.2.9}Title}{80}{paragraph.6.24.2.9}%
+\contentsline {paragraph}{\numberline {6.24.2.10}VersionString}{80}{paragraph.6.24.2.10}%
+\contentsline {subsection}{\numberline {6.25}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Versioning.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Product Class Reference}{80}{subsection.6.25}%
+\contentsline {subsubsection}{\numberline {6.25.1}Detailed Description}{80}{subsubsection.6.25.1}%
+\contentsline {subsubsection}{\numberline {6.25.2}Member Data Documentation}{80}{subsubsection.6.25.2}%
+\contentsline {paragraph}{\numberline {6.25.2.1}Company}{80}{paragraph.6.25.2.1}%
+\contentsline {paragraph}{\numberline {6.25.2.2}Copyright}{81}{paragraph.6.25.2.2}%
+\contentsline {paragraph}{\numberline {6.25.2.3}Description}{81}{paragraph.6.25.2.3}%
+\contentsline {paragraph}{\numberline {6.25.2.4}Name}{81}{paragraph.6.25.2.4}%
+\contentsline {paragraph}{\numberline {6.25.2.5}Title}{81}{paragraph.6.25.2.5}%
+\contentsline {paragraph}{\numberline {6.25.2.6}Version}{81}{paragraph.6.25.2.6}%
+\contentsline {subsection}{\numberline {6.26}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{81}{subsection.6.26}%
+\contentsline {subsubsection}{\numberline {6.26.1}Detailed Description}{82}{subsubsection.6.26.1}%
+\contentsline {subsubsection}{\numberline {6.26.2}Property Documentation}{82}{subsubsection.6.26.2}%
+\contentsline {paragraph}{\numberline {6.26.2.1}Rom}{82}{paragraph.6.26.2.1}%
+\contentsline {paragraph}{\numberline {6.26.2.2}RomBanks}{82}{paragraph.6.26.2.2}%
+\contentsline {paragraph}{\numberline {6.26.2.3}RomBankSize}{82}{paragraph.6.26.2.3}%
+\contentsline {paragraph}{\numberline {6.26.2.4}RomFileName}{82}{paragraph.6.26.2.4}%
+\contentsline {paragraph}{\numberline {6.26.2.5}RomFilePath}{82}{paragraph.6.26.2.5}%
+\contentsline {subsection}{\numberline {6.27}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File Class Reference}{83}{subsection.6.27}%
+\contentsline {subsubsection}{\numberline {6.27.1}Detailed Description}{83}{subsubsection.6.27.1}%
+\contentsline {subsubsection}{\numberline {6.27.2}Constructor \& Destructor Documentation}{83}{subsubsection.6.27.2}%
+\contentsline {paragraph}{\numberline {6.27.2.1}SaveFile()}{83}{paragraph.6.27.2.1}%
+\contentsline {subsubsection}{\numberline {6.27.3}Member Function Documentation}{84}{subsubsection.6.27.3}%
+\contentsline {paragraph}{\numberline {6.27.3.1}Connect()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{84}{paragraph.6.27.3.1}%
+\contentsline {paragraph}{\numberline {6.27.3.2}Connect()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{84}{paragraph.6.27.3.2}%
+\contentsline {paragraph}{\numberline {6.27.3.3}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{85}{paragraph.6.27.3.3}%
+\contentsline {paragraph}{\numberline {6.27.3.4}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{85}{paragraph.6.27.3.4}%
+\contentsline {paragraph}{\numberline {6.27.3.5}NotificationMessageReceived()}{85}{paragraph.6.27.3.5}%
+\contentsline {subsubsection}{\numberline {6.27.4}Member Data Documentation}{85}{subsubsection.6.27.4}%
+\contentsline {paragraph}{\numberline {6.27.4.1}\_contentLoaded}{85}{paragraph.6.27.4.1}%
+\contentsline {subsection}{\numberline {6.28}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{86}{subsection.6.28}%
+\contentsline {subsubsection}{\numberline {6.28.1}Detailed Description}{87}{subsubsection.6.28.1}%
+\contentsline {subsubsection}{\numberline {6.28.2}Constructor \& Destructor Documentation}{87}{subsubsection.6.28.2}%
+\contentsline {paragraph}{\numberline {6.28.2.1}SaveFileViewModel()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{87}{paragraph.6.28.2.1}%
+\contentsline {paragraph}{\numberline {6.28.2.2}SaveFileViewModel()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{87}{paragraph.6.28.2.2}%
+\contentsline {subsubsection}{\numberline {6.28.3}Member Function Documentation}{87}{subsubsection.6.28.3}%
+\contentsline {paragraph}{\numberline {6.28.3.1}Close()}{87}{paragraph.6.28.3.1}%
+\contentsline {paragraph}{\numberline {6.28.3.2}Save()}{88}{paragraph.6.28.3.2}%
+\contentsline {paragraph}{\numberline {6.28.3.3}Select()}{88}{paragraph.6.28.3.3}%
+\contentsline {subsubsection}{\numberline {6.28.4}Member Data Documentation}{88}{subsubsection.6.28.4}%
+\contentsline {paragraph}{\numberline {6.28.4.1}\_stateFileModel}{88}{paragraph.6.28.4.1}%
+\contentsline {subsubsection}{\numberline {6.28.5}Property Documentation}{88}{subsubsection.6.28.5}%
+\contentsline {paragraph}{\numberline {6.28.5.1}CloseCommand}{88}{paragraph.6.28.5.1}%
+\contentsline {paragraph}{\numberline {6.28.5.2}Filename}{89}{paragraph.6.28.5.2}%
+\contentsline {paragraph}{\numberline {6.28.5.3}SaveEnabled}{89}{paragraph.6.28.5.3}%
+\contentsline {paragraph}{\numberline {6.28.5.4}SaveFileCommand}{89}{paragraph.6.28.5.4}%
+\contentsline {paragraph}{\numberline {6.28.5.5}SelectFileCommand}{89}{paragraph.6.28.5.5}%
+\contentsline {subsection}{\numberline {6.29}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings Class Reference}{89}{subsection.6.29}%
+\contentsline {subsubsection}{\numberline {6.29.1}Detailed Description}{90}{subsubsection.6.29.1}%
+\contentsline {subsubsection}{\numberline {6.29.2}Constructor \& Destructor Documentation}{90}{subsubsection.6.29.2}%
+\contentsline {paragraph}{\numberline {6.29.2.1}Settings()}{90}{paragraph.6.29.2.1}%
+\contentsline {subsubsection}{\numberline {6.29.3}Member Function Documentation}{90}{subsubsection.6.29.3}%
+\contentsline {paragraph}{\numberline {6.29.3.1}Connect()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{91}{paragraph.6.29.3.1}%
+\contentsline {paragraph}{\numberline {6.29.3.2}Connect()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{91}{paragraph.6.29.3.2}%
+\contentsline {paragraph}{\numberline {6.29.3.3}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{91}{paragraph.6.29.3.3}%
+\contentsline {paragraph}{\numberline {6.29.3.4}InitializeComponent()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{92}{paragraph.6.29.3.4}%
+\contentsline {paragraph}{\numberline {6.29.3.5}NotificationMessageReceived()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{92}{paragraph.6.29.3.5}%
+\contentsline {paragraph}{\numberline {6.29.3.6}NotificationMessageReceived()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{92}{paragraph.6.29.3.6}%
+\contentsline {paragraph}{\numberline {6.29.3.7}PortSelectionDropDownClosed()}{93}{paragraph.6.29.3.7}%
+\contentsline {subsubsection}{\numberline {6.29.4}Member Data Documentation}{93}{subsubsection.6.29.4}%
+\contentsline {paragraph}{\numberline {6.29.4.1}\_contentLoaded}{93}{paragraph.6.29.4.1}%
+\contentsline {subsection}{\numberline {6.30}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File Class Reference}{93}{subsection.6.30}%
+\contentsline {subsubsection}{\numberline {6.30.1}Detailed Description}{93}{subsubsection.6.30.1}%
+\contentsline {subsubsection}{\numberline {6.30.2}Member Function Documentation}{93}{subsubsection.6.30.2}%
+\contentsline {paragraph}{\numberline {6.30.2.1}CreateNew()}{93}{paragraph.6.30.2.1}%
+\contentsline {subsection}{\numberline {6.31}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Versioning.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File Class Reference}{94}{subsection.6.31}%
+\contentsline {subsubsection}{\numberline {6.31.1}Detailed Description}{94}{subsubsection.6.31.1}%
+\contentsline {subsubsection}{\numberline {6.31.2}Member Data Documentation}{94}{subsubsection.6.31.2}%
+\contentsline {paragraph}{\numberline {6.31.2.1}Build}{94}{paragraph.6.31.2.1}%
+\contentsline {paragraph}{\numberline {6.31.2.2}Major}{94}{paragraph.6.31.2.2}%
+\contentsline {paragraph}{\numberline {6.31.2.3}Minor}{94}{paragraph.6.31.2.3}%
+\contentsline {paragraph}{\numberline {6.31.2.4}Revision}{94}{paragraph.6.31.2.4}%
+\contentsline {subsection}{\numberline {6.32}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{94}{subsection.6.32}%
+\contentsline {subsubsection}{\numberline {6.32.1}Detailed Description}{95}{subsubsection.6.32.1}%
+\contentsline {subsubsection}{\numberline {6.32.2}Property Documentation}{95}{subsubsection.6.32.2}%
+\contentsline {paragraph}{\numberline {6.32.2.1}ComPortName}{95}{paragraph.6.32.2.1}%
+\contentsline {paragraph}{\numberline {6.32.2.2}SettingsVersionBuild}{95}{paragraph.6.32.2.2}%
+\contentsline {paragraph}{\numberline {6.32.2.3}SettingsVersionMajor}{95}{paragraph.6.32.2.3}%
+\contentsline {paragraph}{\numberline {6.32.2.4}SettingsVersionMinor}{96}{paragraph.6.32.2.4}%
+\contentsline {paragraph}{\numberline {6.32.2.5}SettingsVersionRevision}{96}{paragraph.6.32.2.5}%
+\contentsline {subsection}{\numberline {6.33}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{96}{subsection.6.33}%
+\contentsline {subsubsection}{\numberline {6.33.1}Detailed Description}{97}{subsubsection.6.33.1}%
+\contentsline {subsubsection}{\numberline {6.33.2}Constructor \& Destructor Documentation}{97}{subsubsection.6.33.2}%
+\contentsline {paragraph}{\numberline {6.33.2.1}SettingsViewModel()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{97}{paragraph.6.33.2.1}%
+\contentsline {paragraph}{\numberline {6.33.2.2}SettingsViewModel()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{97}{paragraph.6.33.2.2}%
+\contentsline {subsubsection}{\numberline {6.33.3}Member Function Documentation}{98}{subsubsection.6.33.3}%
+\contentsline {paragraph}{\numberline {6.33.3.1}Apply()}{98}{paragraph.6.33.3.1}%
+\contentsline {paragraph}{\numberline {6.33.3.2}Close()}{98}{paragraph.6.33.3.2}%
+\contentsline {paragraph}{\numberline {6.33.3.3}UpdatePortList()}{98}{paragraph.6.33.3.3}%
+\contentsline {subsubsection}{\numberline {6.33.4}Member Data Documentation}{98}{subsubsection.6.33.4}%
+\contentsline {paragraph}{\numberline {6.33.4.1}\_PortList}{98}{paragraph.6.33.4.1}%
+\contentsline {subsubsection}{\numberline {6.33.5}Property Documentation}{98}{subsubsection.6.33.5}%
+\contentsline {paragraph}{\numberline {6.33.5.1}ApplyCommand}{99}{paragraph.6.33.5.1}%
+\contentsline {paragraph}{\numberline {6.33.5.2}ApplyEnabled}{99}{paragraph.6.33.5.2}%
+\contentsline {paragraph}{\numberline {6.33.5.3}CloseCommand}{99}{paragraph.6.33.5.3}%
+\contentsline {paragraph}{\numberline {6.33.5.4}ComPortSelection}{99}{paragraph.6.33.5.4}%
+\contentsline {paragraph}{\numberline {6.33.5.5}PortList}{99}{paragraph.6.33.5.5}%
+\contentsline {paragraph}{\numberline {6.33.5.6}SettingsModel}{99}{paragraph.6.33.5.6}%
+\contentsline {subsection}{\numberline {6.34}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Shared\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rom Class Reference}{100}{subsection.6.34}%
+\contentsline {subsubsection}{\numberline {6.34.1}Detailed Description}{100}{subsubsection.6.34.1}%
+\contentsline {subsubsection}{\numberline {6.34.2}Member Data Documentation}{100}{subsubsection.6.34.2}%
+\contentsline {paragraph}{\numberline {6.34.2.1}\_Length}{100}{paragraph.6.34.2.1}%
+\contentsline {paragraph}{\numberline {6.34.2.2}\_Offset}{100}{paragraph.6.34.2.2}%
+\contentsline {paragraph}{\numberline {6.34.2.3}TotalBanks}{100}{paragraph.6.34.2.3}%
+\contentsline {subsubsection}{\numberline {6.34.3}Property Documentation}{100}{subsubsection.6.34.3}%
+\contentsline {paragraph}{\numberline {6.34.3.1}Length}{101}{paragraph.6.34.3.1}%
+\contentsline {paragraph}{\numberline {6.34.3.2}Offset}{101}{paragraph.6.34.3.2}%
+\contentsline {subsection}{\numberline {6.35}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model Class Reference}{101}{subsection.6.35}%
+\contentsline {subsubsection}{\numberline {6.35.1}Detailed Description}{101}{subsubsection.6.35.1}%
+\contentsline {subsubsection}{\numberline {6.35.2}Property Documentation}{101}{subsubsection.6.35.2}%
+\contentsline {paragraph}{\numberline {6.35.2.1}AT28C010}{102}{paragraph.6.35.2.1}%
+\contentsline {paragraph}{\numberline {6.35.2.2}AT28C64}{102}{paragraph.6.35.2.2}%
+\contentsline {paragraph}{\numberline {6.35.2.3}MM65SIB}{102}{paragraph.6.35.2.3}%
+\contentsline {paragraph}{\numberline {6.35.2.4}NumberOfCycles}{102}{paragraph.6.35.2.4}%
+\contentsline {paragraph}{\numberline {6.35.2.5}OutputLog}{102}{paragraph.6.35.2.5}%
+\contentsline {paragraph}{\numberline {6.35.2.6}W65C02}{102}{paragraph.6.35.2.6}%
+\contentsline {paragraph}{\numberline {6.35.2.7}W65C22}{103}{paragraph.6.35.2.7}%
+\contentsline {paragraph}{\numberline {6.35.2.8}W65C51}{103}{paragraph.6.35.2.8}%
+\contentsline {subsection}{\numberline {6.36}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utility Class Reference}{103}{subsection.6.36}%
+\contentsline {subsubsection}{\numberline {6.36.1}Detailed Description}{103}{subsubsection.6.36.1}%
+\contentsline {subsubsection}{\numberline {6.36.2}Member Function Documentation}{103}{subsubsection.6.36.2}%
+\contentsline {paragraph}{\numberline {6.36.2.1}ConvertOpCodeIntoString()}{104}{paragraph.6.36.2.1}%
+\contentsline {subsection}{\numberline {6.37}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Versioning Class Reference}{108}{subsection.6.37}%
+\contentsline {subsubsection}{\numberline {6.37.1}Detailed Description}{108}{subsubsection.6.37.1}%
+\contentsline {subsection}{\numberline {6.38}Emulator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locator Class Reference}{108}{subsection.6.38}%
+\contentsline {subsubsection}{\numberline {6.38.1}Detailed Description}{108}{subsubsection.6.38.1}%
+\contentsline {subsubsection}{\numberline {6.38.2}Constructor \& Destructor Documentation}{109}{subsubsection.6.38.2}%
+\contentsline {paragraph}{\numberline {6.38.2.1}ViewModelLocator()}{109}{paragraph.6.38.2.1}%
+\contentsline {subsubsection}{\numberline {6.38.3}Member Function Documentation}{109}{subsubsection.6.38.3}%
+\contentsline {paragraph}{\numberline {6.38.3.1}Cleanup()}{109}{paragraph.6.38.3.1}%
+\contentsline {subsubsection}{\numberline {6.38.4}Property Documentation}{109}{subsubsection.6.38.4}%
+\contentsline {paragraph}{\numberline {6.38.4.1}Main}{109}{paragraph.6.38.4.1}%
+\contentsline {paragraph}{\numberline {6.38.4.2}SaveFile}{110}{paragraph.6.38.4.2}%
+\contentsline {paragraph}{\numberline {6.38.4.3}Settings}{110}{paragraph.6.38.4.3}%
+\contentsline {subsection}{\numberline {6.39}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C02 Class Reference}{110}{subsection.6.39}%
+\contentsline {subsubsection}{\numberline {6.39.1}Detailed Description}{113}{subsubsection.6.39.1}%
+\contentsline {subsubsection}{\numberline {6.39.2}Constructor \& Destructor Documentation}{113}{subsubsection.6.39.2}%
+\contentsline {paragraph}{\numberline {6.39.2.1}W65C02()}{113}{paragraph.6.39.2.1}%
+\contentsline {subsubsection}{\numberline {6.39.3}Member Function Documentation}{113}{subsubsection.6.39.3}%
+\contentsline {paragraph}{\numberline {6.39.3.1}AddWithCarryOperation()}{113}{paragraph.6.39.3.1}%
+\contentsline {paragraph}{\numberline {6.39.3.2}AndOperation()}{114}{paragraph.6.39.3.2}%
+\contentsline {paragraph}{\numberline {6.39.3.3}AslOperation()}{115}{paragraph.6.39.3.3}%
+\contentsline {paragraph}{\numberline {6.39.3.4}BitOperation()}{115}{paragraph.6.39.3.4}%
+\contentsline {paragraph}{\numberline {6.39.3.5}BranchOperation()}{116}{paragraph.6.39.3.5}%
+\contentsline {paragraph}{\numberline {6.39.3.6}BreakOperation()}{116}{paragraph.6.39.3.6}%
+\contentsline {paragraph}{\numberline {6.39.3.7}ChangeMemoryByOne()}{116}{paragraph.6.39.3.7}%
+\contentsline {paragraph}{\numberline {6.39.3.8}ChangeRegisterByOne()}{117}{paragraph.6.39.3.8}%
+\contentsline {paragraph}{\numberline {6.39.3.9}CompareOperation()}{117}{paragraph.6.39.3.9}%
+\contentsline {paragraph}{\numberline {6.39.3.10}ConvertFlagsToByte()}{119}{paragraph.6.39.3.10}%
+\contentsline {paragraph}{\numberline {6.39.3.11}EorOperation()}{119}{paragraph.6.39.3.11}%
+\contentsline {paragraph}{\numberline {6.39.3.12}ExecuteOpCode()}{120}{paragraph.6.39.3.12}%
+\contentsline {paragraph}{\numberline {6.39.3.13}GetAddressByAddressingMode()}{132}{paragraph.6.39.3.13}%
+\contentsline {paragraph}{\numberline {6.39.3.14}GetAddressingMode()}{134}{paragraph.6.39.3.14}%
+\contentsline {paragraph}{\numberline {6.39.3.15}GetCycleCount()}{137}{paragraph.6.39.3.15}%
+\contentsline {paragraph}{\numberline {6.39.3.16}IncrementCycleCount()}{137}{paragraph.6.39.3.16}%
+\contentsline {paragraph}{\numberline {6.39.3.17}InterruptRequest()}{137}{paragraph.6.39.3.17}%
+\contentsline {paragraph}{\numberline {6.39.3.18}JumpToSubRoutineOperation()}{138}{paragraph.6.39.3.18}%
+\contentsline {paragraph}{\numberline {6.39.3.19}LsrOperation()}{138}{paragraph.6.39.3.19}%
+\contentsline {paragraph}{\numberline {6.39.3.20}MoveProgramCounterByRelativeValue()}{139}{paragraph.6.39.3.20}%
+\contentsline {paragraph}{\numberline {6.39.3.21}NextStep()}{139}{paragraph.6.39.3.21}%
+\contentsline {paragraph}{\numberline {6.39.3.22}OrOperation()}{139}{paragraph.6.39.3.22}%
+\contentsline {paragraph}{\numberline {6.39.3.23}PeekStack()}{140}{paragraph.6.39.3.23}%
+\contentsline {paragraph}{\numberline {6.39.3.24}PokeStack()}{140}{paragraph.6.39.3.24}%
+\contentsline {paragraph}{\numberline {6.39.3.25}ProcessIRQ()}{140}{paragraph.6.39.3.25}%
+\contentsline {paragraph}{\numberline {6.39.3.26}ProcessNMI()}{141}{paragraph.6.39.3.26}%
+\contentsline {paragraph}{\numberline {6.39.3.27}PullFlagsOperation()}{141}{paragraph.6.39.3.27}%
+\contentsline {paragraph}{\numberline {6.39.3.28}PushFlagsOperation()}{141}{paragraph.6.39.3.28}%
+\contentsline {paragraph}{\numberline {6.39.3.29}Reset()}{141}{paragraph.6.39.3.29}%
+\contentsline {paragraph}{\numberline {6.39.3.30}ResetCycleCount()}{142}{paragraph.6.39.3.30}%
+\contentsline {paragraph}{\numberline {6.39.3.31}ReturnFromInterruptOperation()}{142}{paragraph.6.39.3.31}%
+\contentsline {paragraph}{\numberline {6.39.3.32}ReturnFromSubRoutineOperation()}{142}{paragraph.6.39.3.32}%
+\contentsline {paragraph}{\numberline {6.39.3.33}RolOperation()}{142}{paragraph.6.39.3.33}%
+\contentsline {paragraph}{\numberline {6.39.3.34}RorOperation()}{143}{paragraph.6.39.3.34}%
+\contentsline {paragraph}{\numberline {6.39.3.35}SetDisassembly()}{144}{paragraph.6.39.3.35}%
+\contentsline {paragraph}{\numberline {6.39.3.36}SetNegativeFlag()}{146}{paragraph.6.39.3.36}%
+\contentsline {paragraph}{\numberline {6.39.3.37}SetZeroFlag()}{146}{paragraph.6.39.3.37}%
+\contentsline {paragraph}{\numberline {6.39.3.38}SubtractWithBorrowOperation()}{147}{paragraph.6.39.3.38}%
+\contentsline {paragraph}{\numberline {6.39.3.39}WrapProgramCounter()}{147}{paragraph.6.39.3.39}%
+\contentsline {subsubsection}{\numberline {6.39.4}Member Data Documentation}{147}{subsubsection.6.39.4}%
+\contentsline {paragraph}{\numberline {6.39.4.1}\_cycleCount}{147}{paragraph.6.39.4.1}%
+\contentsline {paragraph}{\numberline {6.39.4.2}\_interrupt}{148}{paragraph.6.39.4.2}%
+\contentsline {paragraph}{\numberline {6.39.4.3}\_logger}{148}{paragraph.6.39.4.3}%
+\contentsline {paragraph}{\numberline {6.39.4.4}\_previousInterrupt}{148}{paragraph.6.39.4.4}%
+\contentsline {paragraph}{\numberline {6.39.4.5}\_programCounter}{148}{paragraph.6.39.4.5}%
+\contentsline {paragraph}{\numberline {6.39.4.6}\_stackPointer}{148}{paragraph.6.39.4.6}%
+\contentsline {paragraph}{\numberline {6.39.4.7}isRunning}{148}{paragraph.6.39.4.7}%
+\contentsline {subsubsection}{\numberline {6.39.5}Property Documentation}{148}{subsubsection.6.39.5}%
+\contentsline {paragraph}{\numberline {6.39.5.1}Accumulator}{148}{paragraph.6.39.5.1}%
+\contentsline {paragraph}{\numberline {6.39.5.2}CarryFlag}{149}{paragraph.6.39.5.2}%
+\contentsline {paragraph}{\numberline {6.39.5.3}CurrentDisassembly}{149}{paragraph.6.39.5.3}%
+\contentsline {paragraph}{\numberline {6.39.5.4}CurrentOpCode}{149}{paragraph.6.39.5.4}%
+\contentsline {paragraph}{\numberline {6.39.5.5}CycleCountIncrementedAction}{149}{paragraph.6.39.5.5}%
+\contentsline {paragraph}{\numberline {6.39.5.6}DecimalFlag}{149}{paragraph.6.39.5.6}%
+\contentsline {paragraph}{\numberline {6.39.5.7}DisableInterruptFlag}{149}{paragraph.6.39.5.7}%
+\contentsline {paragraph}{\numberline {6.39.5.8}NegativeFlag}{150}{paragraph.6.39.5.8}%
+\contentsline {paragraph}{\numberline {6.39.5.9}OverflowFlag}{150}{paragraph.6.39.5.9}%
+\contentsline {paragraph}{\numberline {6.39.5.10}ProgramCounter}{150}{paragraph.6.39.5.10}%
+\contentsline {paragraph}{\numberline {6.39.5.11}StackPointer}{150}{paragraph.6.39.5.11}%
+\contentsline {paragraph}{\numberline {6.39.5.12}TriggerIRQ}{150}{paragraph.6.39.5.12}%
+\contentsline {paragraph}{\numberline {6.39.5.13}TriggerNmi}{151}{paragraph.6.39.5.13}%
+\contentsline {paragraph}{\numberline {6.39.5.14}XRegister}{151}{paragraph.6.39.5.14}%
+\contentsline {paragraph}{\numberline {6.39.5.15}YRegister}{151}{paragraph.6.39.5.15}%
+\contentsline {paragraph}{\numberline {6.39.5.16}ZeroFlag}{151}{paragraph.6.39.5.16}%
+\contentsline {subsection}{\numberline {6.40}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C22 Class Reference}{151}{subsection.6.40}%
+\contentsline {subsubsection}{\numberline {6.40.1}Detailed Description}{153}{subsubsection.6.40.1}%
+\contentsline {subsubsection}{\numberline {6.40.2}Constructor \& Destructor Documentation}{153}{subsubsection.6.40.2}%
+\contentsline {paragraph}{\numberline {6.40.2.1}W65C22()}{153}{paragraph.6.40.2.1}%
+\contentsline {subsubsection}{\numberline {6.40.3}Member Function Documentation}{153}{subsubsection.6.40.3}%
+\contentsline {paragraph}{\numberline {6.40.3.1}Init()}{153}{paragraph.6.40.3.1}%
+\contentsline {paragraph}{\numberline {6.40.3.2}OnT1Timeout()}{154}{paragraph.6.40.3.2}%
+\contentsline {paragraph}{\numberline {6.40.3.3}OnT2Timeout()}{154}{paragraph.6.40.3.3}%
+\contentsline {paragraph}{\numberline {6.40.3.4}Read()}{155}{paragraph.6.40.3.4}%
+\contentsline {paragraph}{\numberline {6.40.3.5}Reset()}{155}{paragraph.6.40.3.5}%
+\contentsline {paragraph}{\numberline {6.40.3.6}T1Init()}{155}{paragraph.6.40.3.6}%
+\contentsline {paragraph}{\numberline {6.40.3.7}T2Init()}{156}{paragraph.6.40.3.7}%
+\contentsline {paragraph}{\numberline {6.40.3.8}Write()}{156}{paragraph.6.40.3.8}%
+\contentsline {subsubsection}{\numberline {6.40.4}Member Data Documentation}{157}{subsubsection.6.40.4}%
+\contentsline {paragraph}{\numberline {6.40.4.1}ACR}{157}{paragraph.6.40.4.1}%
+\contentsline {paragraph}{\numberline {6.40.4.2}ACR\_T1TC}{157}{paragraph.6.40.4.2}%
+\contentsline {paragraph}{\numberline {6.40.4.3}ACR\_T2TC}{157}{paragraph.6.40.4.3}%
+\contentsline {paragraph}{\numberline {6.40.4.4}IER}{157}{paragraph.6.40.4.4}%
+\contentsline {paragraph}{\numberline {6.40.4.5}IER\_EN}{157}{paragraph.6.40.4.5}%
+\contentsline {paragraph}{\numberline {6.40.4.6}IER\_T1}{157}{paragraph.6.40.4.6}%
+\contentsline {paragraph}{\numberline {6.40.4.7}IER\_T2}{158}{paragraph.6.40.4.7}%
+\contentsline {paragraph}{\numberline {6.40.4.8}IFR}{158}{paragraph.6.40.4.8}%
+\contentsline {paragraph}{\numberline {6.40.4.9}IFR\_INT}{158}{paragraph.6.40.4.9}%
+\contentsline {paragraph}{\numberline {6.40.4.10}IFR\_T1}{158}{paragraph.6.40.4.10}%
+\contentsline {paragraph}{\numberline {6.40.4.11}IFR\_T2}{158}{paragraph.6.40.4.11}%
+\contentsline {paragraph}{\numberline {6.40.4.12}T1CH}{158}{paragraph.6.40.4.12}%
+\contentsline {paragraph}{\numberline {6.40.4.13}T1CL}{158}{paragraph.6.40.4.13}%
+\contentsline {paragraph}{\numberline {6.40.4.14}T1IsIRQ}{158}{paragraph.6.40.4.14}%
+\contentsline {paragraph}{\numberline {6.40.4.15}T2CH}{159}{paragraph.6.40.4.15}%
+\contentsline {paragraph}{\numberline {6.40.4.16}T2CL}{159}{paragraph.6.40.4.16}%
+\contentsline {paragraph}{\numberline {6.40.4.17}T2IsIRQ}{159}{paragraph.6.40.4.17}%
+\contentsline {subsubsection}{\numberline {6.40.5}Property Documentation}{159}{subsubsection.6.40.5}%
+\contentsline {paragraph}{\numberline {6.40.5.1}End}{159}{paragraph.6.40.5.1}%
+\contentsline {paragraph}{\numberline {6.40.5.2}Length}{159}{paragraph.6.40.5.2}%
+\contentsline {paragraph}{\numberline {6.40.5.3}Memory}{159}{paragraph.6.40.5.3}%
+\contentsline {paragraph}{\numberline {6.40.5.4}Offset}{160}{paragraph.6.40.5.4}%
+\contentsline {paragraph}{\numberline {6.40.5.5}Processor}{160}{paragraph.6.40.5.5}%
+\contentsline {paragraph}{\numberline {6.40.5.6}T1Interval}{160}{paragraph.6.40.5.6}%
+\contentsline {paragraph}{\numberline {6.40.5.7}T1IsEnabled}{160}{paragraph.6.40.5.7}%
+\contentsline {paragraph}{\numberline {6.40.5.8}T1Object}{160}{paragraph.6.40.5.8}%
+\contentsline {paragraph}{\numberline {6.40.5.9}T1TimerControl}{160}{paragraph.6.40.5.9}%
+\contentsline {paragraph}{\numberline {6.40.5.10}T2Interval}{161}{paragraph.6.40.5.10}%
+\contentsline {paragraph}{\numberline {6.40.5.11}T2IsEnabled}{161}{paragraph.6.40.5.11}%
+\contentsline {paragraph}{\numberline {6.40.5.12}T2Object}{161}{paragraph.6.40.5.12}%
+\contentsline {paragraph}{\numberline {6.40.5.13}T2TimerControl}{161}{paragraph.6.40.5.13}%
+\contentsline {subsection}{\numberline {6.41}Hardware.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C51 Class Reference}{161}{subsection.6.41}%
+\contentsline {subsubsection}{\numberline {6.41.1}Detailed Description}{163}{subsubsection.6.41.1}%
+\contentsline {subsubsection}{\numberline {6.41.2}Constructor \& Destructor Documentation}{163}{subsubsection.6.41.2}%
+\contentsline {paragraph}{\numberline {6.41.2.1}W65C51()}{163}{paragraph.6.41.2.1}%
+\contentsline {subsubsection}{\numberline {6.41.3}Member Function Documentation}{163}{subsubsection.6.41.3}%
+\contentsline {paragraph}{\numberline {6.41.3.1}BackgroundWorkerDoWork()}{163}{paragraph.6.41.3.1}%
+\contentsline {paragraph}{\numberline {6.41.3.2}ComFini()}{164}{paragraph.6.41.3.2}%
+\contentsline {paragraph}{\numberline {6.41.3.3}ComInit()}{164}{paragraph.6.41.3.3}%
+\contentsline {paragraph}{\numberline {6.41.3.4}CommandRegister()}{165}{paragraph.6.41.3.4}%
+\contentsline {paragraph}{\numberline {6.41.3.5}CommandRegisterUpdate()}{165}{paragraph.6.41.3.5}%
+\contentsline {paragraph}{\numberline {6.41.3.6}ControlRegister()}{166}{paragraph.6.41.3.6}%
+\contentsline {paragraph}{\numberline {6.41.3.7}ControlRegisterUpdate()}{167}{paragraph.6.41.3.7}%
+\contentsline {paragraph}{\numberline {6.41.3.8}Fini()}{169}{paragraph.6.41.3.8}%
+\contentsline {paragraph}{\numberline {6.41.3.9}HardwarePreRead()}{169}{paragraph.6.41.3.9}%
+\contentsline {paragraph}{\numberline {6.41.3.10}HardwarePreWrite()}{170}{paragraph.6.41.3.10}%
+\contentsline {paragraph}{\numberline {6.41.3.11}Init()\hspace {0.1cm}{\footnotesize \ttfamily [1/2]}}{170}{paragraph.6.41.3.11}%
+\contentsline {paragraph}{\numberline {6.41.3.12}Init()\hspace {0.1cm}{\footnotesize \ttfamily [2/2]}}{170}{paragraph.6.41.3.12}%
+\contentsline {paragraph}{\numberline {6.41.3.13}Read()}{171}{paragraph.6.41.3.13}%
+\contentsline {paragraph}{\numberline {6.41.3.14}Reset()}{171}{paragraph.6.41.3.14}%
+\contentsline {paragraph}{\numberline {6.41.3.15}SerialDataReceived()}{171}{paragraph.6.41.3.15}%
+\contentsline {paragraph}{\numberline {6.41.3.16}StatusRegisterUpdate()}{172}{paragraph.6.41.3.16}%
+\contentsline {paragraph}{\numberline {6.41.3.17}Write()}{173}{paragraph.6.41.3.17}%
+\contentsline {paragraph}{\numberline {6.41.3.18}WriteCOM()}{173}{paragraph.6.41.3.18}%
+\contentsline {subsubsection}{\numberline {6.41.4}Member Data Documentation}{173}{subsubsection.6.41.4}%
+\contentsline {paragraph}{\numberline {6.41.4.1}byteIn}{173}{paragraph.6.41.4.1}%
+\contentsline {paragraph}{\numberline {6.41.4.2}defaultBaudRate}{174}{paragraph.6.41.4.2}%
+\contentsline {subsubsection}{\numberline {6.41.5}Property Documentation}{174}{subsubsection.6.41.5}%
+\contentsline {paragraph}{\numberline {6.41.5.1}\_backgroundWorker}{174}{paragraph.6.41.5.1}%
+\contentsline {paragraph}{\numberline {6.41.5.2}DataRead}{174}{paragraph.6.41.5.2}%
+\contentsline {paragraph}{\numberline {6.41.5.3}EchoMode}{174}{paragraph.6.41.5.3}%
+\contentsline {paragraph}{\numberline {6.41.5.4}InterruptDisabled}{174}{paragraph.6.41.5.4}%
+\contentsline {paragraph}{\numberline {6.41.5.5}Interrupted}{174}{paragraph.6.41.5.5}%
+\contentsline {paragraph}{\numberline {6.41.5.6}IsEnabled}{174}{paragraph.6.41.5.6}%
+\contentsline {paragraph}{\numberline {6.41.5.7}Length}{175}{paragraph.6.41.5.7}%
+\contentsline {paragraph}{\numberline {6.41.5.8}Memory}{175}{paragraph.6.41.5.8}%
+\contentsline {paragraph}{\numberline {6.41.5.9}Object}{175}{paragraph.6.41.5.9}%
+\contentsline {paragraph}{\numberline {6.41.5.10}ObjectName}{175}{paragraph.6.41.5.10}%
+\contentsline {paragraph}{\numberline {6.41.5.11}Offset}{175}{paragraph.6.41.5.11}%
+\contentsline {paragraph}{\numberline {6.41.5.12}Overrun}{175}{paragraph.6.41.5.12}%
+\contentsline {paragraph}{\numberline {6.41.5.13}ParityEnabled}{175}{paragraph.6.41.5.13}%
+\contentsline {paragraph}{\numberline {6.41.5.14}Processor}{176}{paragraph.6.41.5.14}%
+\contentsline {paragraph}{\numberline {6.41.5.15}ReceiverFull}{176}{paragraph.6.41.5.15}%
+\contentsline {paragraph}{\numberline {6.41.5.16}RtsControl}{176}{paragraph.6.41.5.16}%
+\contentsline {section}{\numberline {7}File Documentation}{176}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App.xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{176}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}App.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{176}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Exit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Codes.cs File Reference}{177}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Exit\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Codes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{177}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locations.cs File Reference}{177}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{177}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locations.cs File Reference}{178}{subsection.7.7}%
+\contentsline {subsection}{\numberline {7.8}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locations.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{178}{subsection.7.8}%
+\contentsline {subsection}{\numberline {7.9}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.cs File Reference}{178}{subsection.7.9}%
+\contentsline {subsection}{\numberline {7.10}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{178}{subsection.7.10}%
+\contentsline {subsection}{\numberline {7.11}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Versioning.cs File Reference}{179}{subsection.7.11}%
+\contentsline {subsection}{\numberline {7.12}Versioning.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{179}{subsection.7.12}%
+\contentsline {subsection}{\numberline {7.13}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Versioning.cs File Reference}{179}{subsection.7.13}%
+\contentsline {subsection}{\numberline {7.14}Versioning.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{180}{subsection.7.14}%
+\contentsline {subsection}{\numberline {7.15}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Interfaces/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}IClosable.cs File Reference}{180}{subsection.7.15}%
+\contentsline {subsection}{\numberline {7.16}IClosable.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{180}{subsection.7.16}%
+\contentsline {subsection}{\numberline {7.17}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{180}{subsection.7.17}%
+\contentsline {subsection}{\numberline {7.18}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{181}{subsection.7.18}%
+\contentsline {subsection}{\numberline {7.19}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Breakpoint.cs File Reference}{182}{subsection.7.19}%
+\contentsline {subsection}{\numberline {7.20}Breakpoint.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{182}{subsection.7.20}%
+\contentsline {subsection}{\numberline {7.21}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Breakpoint\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type.cs File Reference}{182}{subsection.7.21}%
+\contentsline {subsection}{\numberline {7.22}Breakpoint\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.7.22}%
+\contentsline {subsection}{\numberline {7.23}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Row\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{183}{subsection.7.23}%
+\contentsline {subsection}{\numberline {7.24}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Row\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{183}{subsection.7.24}%
+\contentsline {subsection}{\numberline {7.25}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Output\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log.cs File Reference}{184}{subsection.7.25}%
+\contentsline {subsection}{\numberline {7.26}Output\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Log.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{185}{subsection.7.26}%
+\contentsline {subsection}{\numberline {7.27}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Rom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{185}{subsection.7.27}%
+\contentsline {subsection}{\numberline {7.28}Rom\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{186}{subsection.7.28}%
+\contentsline {subsection}{\numberline {7.29}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{186}{subsection.7.29}%
+\contentsline {subsection}{\numberline {7.30}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{186}{subsection.7.30}%
+\contentsline {subsection}{\numberline {7.31}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}State\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{187}{subsection.7.31}%
+\contentsline {subsection}{\numberline {7.32}State\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{187}{subsection.7.32}%
+\contentsline {subsection}{\numberline {7.33}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Multi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threaded\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Collection.cs File Reference}{188}{subsection.7.33}%
+\contentsline {subsection}{\numberline {7.34}Multi\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Threaded\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Collection.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{188}{subsection.7.34}%
+\contentsline {subsection}{\numberline {7.35}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/.NETFramework,Version=v4.8.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{189}{subsection.7.35}%
+\contentsline {subsection}{\numberline {7.36}.NETFramework,Version=v4.8.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{189}{subsection.7.36}%
+\contentsline {subsection}{\numberline {7.37}Hardware/obj/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/.NETFramework,Version=v4.8.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{189}{subsection.7.37}%
+\contentsline {subsection}{\numberline {7.38}.NETFramework,Version=v4.8.Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Attributes.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{189}{subsection.7.38}%
+\contentsline {subsection}{\numberline {7.39}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{190}{subsection.7.39}%
+\contentsline {subsection}{\numberline {7.40}App.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{190}{subsection.7.40}%
+\contentsline {subsection}{\numberline {7.41}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}App.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{191}{subsection.7.41}%
+\contentsline {subsection}{\numberline {7.42}App.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{191}{subsection.7.42}%
+\contentsline {subsection}{\numberline {7.43}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Emulator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{192}{subsection.7.43}%
+\contentsline {subsection}{\numberline {7.44}Emulator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{192}{subsection.7.44}%
+\contentsline {subsection}{\numberline {7.45}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Emulator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{193}{subsection.7.45}%
+\contentsline {subsection}{\numberline {7.46}Emulator\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\_\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Content.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{193}{subsection.7.46}%
+\contentsline {subsection}{\numberline {7.47}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Internal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{193}{subsection.7.47}%
+\contentsline {subsection}{\numberline {7.48}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Internal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{193}{subsection.7.48}%
+\contentsline {subsection}{\numberline {7.49}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Internal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{194}{subsection.7.49}%
+\contentsline {subsection}{\numberline {7.50}Generated\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Internal\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Type\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Helper.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{194}{subsection.7.50}%
+\contentsline {subsection}{\numberline {7.51}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{195}{subsection.7.51}%
+\contentsline {subsection}{\numberline {7.52}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{195}{subsection.7.52}%
+\contentsline {subsection}{\numberline {7.53}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{202}{subsection.7.53}%
+\contentsline {subsection}{\numberline {7.54}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Window.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{202}{subsection.7.54}%
+\contentsline {subsection}{\numberline {7.55}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{209}{subsection.7.55}%
+\contentsline {subsection}{\numberline {7.56}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{209}{subsection.7.56}%
+\contentsline {subsection}{\numberline {7.57}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{211}{subsection.7.57}%
+\contentsline {subsection}{\numberline {7.58}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{211}{subsection.7.58}%
+\contentsline {subsection}{\numberline {7.59}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{213}{subsection.7.59}%
+\contentsline {subsection}{\numberline {7.60}Settings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{213}{subsection.7.60}%
+\contentsline {subsection}{\numberline {7.61}Emulator/obj/x86/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Debug/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings.g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{215}{subsection.7.61}%
+\contentsline {subsection}{\numberline {7.62}Settings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}g.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}i.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{215}{subsection.7.62}%
+\contentsline {subsection}{\numberline {7.63}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Properties/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.cs File Reference}{217}{subsection.7.63}%
+\contentsline {subsection}{\numberline {7.64}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{217}{subsection.7.64}%
+\contentsline {subsection}{\numberline {7.65}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Properties/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.cs File Reference}{218}{subsection.7.65}%
+\contentsline {subsection}{\numberline {7.66}Assembly\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Info.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{218}{subsection.7.66}%
+\contentsline {subsection}{\numberline {7.67}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{218}{subsection.7.67}%
+\contentsline {subsection}{\numberline {7.68}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{219}{subsection.7.68}%
+\contentsline {subsection}{\numberline {7.69}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings.xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs File Reference}{219}{subsection.7.69}%
+\contentsline {subsection}{\numberline {7.70}Settings.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}xaml.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{219}{subsection.7.70}%
+\contentsline {subsection}{\numberline {7.71}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{220}{subsection.7.71}%
+\contentsline {subsubsection}{\numberline {7.71.1}Typedef Documentation}{220}{subsubsection.7.71.1}%
+\contentsline {paragraph}{\numberline {7.71.1.1}W65C02}{220}{paragraph.7.71.1.1}%
+\contentsline {paragraph}{\numberline {7.71.1.2}W65C22}{221}{paragraph.7.71.1.2}%
+\contentsline {paragraph}{\numberline {7.71.1.3}W65C51}{221}{paragraph.7.71.1.3}%
+\contentsline {subsection}{\numberline {7.72}Main\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{221}{subsection.7.72}%
+\contentsline {subsection}{\numberline {7.73}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{230}{subsection.7.73}%
+\contentsline {subsection}{\numberline {7.74}Save\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}File\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{231}{subsection.7.74}%
+\contentsline {subsection}{\numberline {7.75}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.cs File Reference}{232}{subsection.7.75}%
+\contentsline {subsection}{\numberline {7.76}Settings\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{232}{subsection.7.76}%
+\contentsline {subsection}{\numberline {7.77}Emulator/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locator.cs File Reference}{233}{subsection.7.77}%
+\contentsline {subsection}{\numberline {7.78}View\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Model\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Locator.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{234}{subsection.7.78}%
+\contentsline {subsection}{\numberline {7.79}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}AT28\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CXX.cs File Reference}{235}{subsection.7.79}%
+\contentsline {subsection}{\numberline {7.80}AT28\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}CXX.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{235}{subsection.7.80}%
+\contentsline {subsection}{\numberline {7.81}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Addressing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mode.cs File Reference}{237}{subsection.7.81}%
+\contentsline {subsection}{\numberline {7.82}Addressing\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Mode.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{237}{subsection.7.82}%
+\contentsline {subsection}{\numberline {7.83}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Disassembly.cs File Reference}{238}{subsection.7.83}%
+\contentsline {subsection}{\numberline {7.84}Disassembly.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{239}{subsection.7.84}%
+\contentsline {subsection}{\numberline {7.85}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.cs File Reference}{239}{subsection.7.85}%
+\contentsline {subsection}{\numberline {7.86}Memory\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Map.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{239}{subsection.7.86}%
+\contentsline {subsection}{\numberline {7.87}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Classes/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}Utility.cs File Reference}{242}{subsection.7.87}%
+\contentsline {subsection}{\numberline {7.88}Utility.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{242}{subsection.7.88}%
+\contentsline {subsection}{\numberline {7.89}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}HM62256.cs File Reference}{246}{subsection.7.89}%
+\contentsline {subsection}{\numberline {7.90}HM62256.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{246}{subsection.7.90}%
+\contentsline {subsection}{\numberline {7.91}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C02.cs File Reference}{248}{subsection.7.91}%
+\contentsline {subsection}{\numberline {7.92}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C02.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{248}{subsection.7.92}%
+\contentsline {subsection}{\numberline {7.93}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C22.cs File Reference}{277}{subsection.7.93}%
+\contentsline {subsection}{\numberline {7.94}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C22.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{277}{subsection.7.94}%
+\contentsline {subsection}{\numberline {7.95}Hardware/\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C51.cs File Reference}{281}{subsection.7.95}%
+\contentsline {subsection}{\numberline {7.96}W65\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}C51.\discretionary {\mbox {\scriptsize $\hookleftarrow $}}{}{}cs}{281}{subsection.7.96}%
+\contentsline {section}{Index}{291}{section*.190}%

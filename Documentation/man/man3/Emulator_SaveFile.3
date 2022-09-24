@@ -1,0 +1,189 @@
+.TH "Emulator.SaveFile" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.SaveFile \- \fBSaveFile\fP   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits System\&.Windows\&.Window, System\&.Windows\&.Markup\&.IComponentConnector, System\&.Windows\&.Window, and System\&.Windows\&.Markup\&.IComponentConnector\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBInitializeComponent\fP ()"
+.br
+.RI "InitializeComponent  "
+.ti -1c
+.RI "void \fBInitializeComponent\fP ()"
+.br
+.RI "InitializeComponent  "
+.ti -1c
+.RI "\fBSaveFile\fP ()"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void System\&.Windows\&.Markup\&.IComponentConnector\&. \fBConnect\fP (int connectionId, object target)"
+.br
+.ti -1c
+.RI "void System\&.Windows\&.Markup\&.IComponentConnector\&. \fBConnect\fP (int connectionId, object target)"
+.br
+.ti -1c
+.RI "void \fBNotificationMessageReceived\fP (NotificationMessage notificationMessage)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fB_contentLoaded\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBSaveFile\fP  
+
+Interaction logic for SaveState\&.xaml  
+.PP
+Definition at line \fB40\fP of file \fBSaveFile\&.g\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.SaveFile\&.SaveFile ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB10\fP of file \fBSaveFile\&.xaml\&.cs\fP\&.
+.PP
+.nf
+11         {
+12             InitializeComponent();
+13             Messenger\&.Default\&.Register<NotificationMessage>(this, NotificationMessageReceived);
+14         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void System\&.Windows\&.Markup\&.IComponentConnector\&. Emulator\&.SaveFile\&.Connect (int connectionId, object target)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB109\fP of file \fBSaveFile\&.g\&.cs\fP\&.
+.PP
+.nf
+109                                                                                                 {
+110             switch (connectionId)
+111             {
+112             case 1:
+113             this\&.SelectFile = ((System\&.Windows\&.Controls\&.Button)(target));
+114             return;
+115             case 2:
+116             this\&.FilePath = ((System\&.Windows\&.Controls\&.TextBox)(target));
+117             return;
+118             case 3:
+119             this\&.PathText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+120             return;
+121             case 4:
+122             this\&.CancelButton = ((System\&.Windows\&.Controls\&.Button)(target));
+123             return;
+124             case 5:
+125             this\&.LoadButton = ((System\&.Windows\&.Controls\&.Button)(target));
+126             return;
+127             }
+128             this\&._contentLoaded = true;
+129         }
+.fi
+.SS "void System\&.Windows\&.Markup\&.IComponentConnector\&. Emulator\&.SaveFile\&.Connect (int connectionId, object target)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB109\fP of file \fBSaveFile\&.g\&.i\&.cs\fP\&.
+.PP
+.nf
+109                                                                                                 {
+110             switch (connectionId)
+111             {
+112             case 1:
+113             this\&.SelectFile = ((System\&.Windows\&.Controls\&.Button)(target));
+114             return;
+115             case 2:
+116             this\&.FilePath = ((System\&.Windows\&.Controls\&.TextBox)(target));
+117             return;
+118             case 3:
+119             this\&.PathText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+120             return;
+121             case 4:
+122             this\&.CancelButton = ((System\&.Windows\&.Controls\&.Button)(target));
+123             return;
+124             case 5:
+125             this\&.LoadButton = ((System\&.Windows\&.Controls\&.Button)(target));
+126             return;
+127             }
+128             this\&._contentLoaded = true;
+129         }
+.fi
+.SS "void Emulator\&.SaveFile\&.InitializeComponent ()\fC [inline]\fP"
+
+.PP
+InitializeComponent  
+.PP
+Definition at line \fB89\fP of file \fBSaveFile\&.g\&.cs\fP\&.
+.PP
+.nf
+89                                           {
+90             if (_contentLoaded) {
+91                 return;
+92             }
+93             _contentLoaded = true;
+94             System\&.Uri resourceLocater = new System\&.Uri("/Emulator;component/savefile\&.xaml", System\&.UriKind\&.Relative);
+95             
+96             #line 1 "\&.\&.\\&.\&.\\&.\&.\SaveFile\&.xaml"
+97             System\&.Windows\&.Application\&.LoadComponent(this, resourceLocater);
+98             
+99             #line default
+100             #line hidden
+101         }
+.fi
+.SS "void Emulator\&.SaveFile\&.InitializeComponent ()\fC [inline]\fP"
+
+.PP
+InitializeComponent  
+.PP
+Definition at line \fB89\fP of file \fBSaveFile\&.g\&.i\&.cs\fP\&.
+.PP
+.nf
+89                                           {
+90             if (_contentLoaded) {
+91                 return;
+92             }
+93             _contentLoaded = true;
+94             System\&.Uri resourceLocater = new System\&.Uri("/Emulator;component/savefile\&.xaml", System\&.UriKind\&.Relative);
+95             
+96             #line 1 "\&.\&.\\&.\&.\\&.\&.\SaveFile\&.xaml"
+97             System\&.Windows\&.Application\&.LoadComponent(this, resourceLocater);
+98             
+99             #line default
+100             #line hidden
+101         }
+.fi
+.SS "void Emulator\&.SaveFile\&.NotificationMessageReceived (NotificationMessage notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB16\fP of file \fBSaveFile\&.xaml\&.cs\fP\&.
+.PP
+.nf
+17         {
+18             if (notificationMessage\&.Notification == "CloseSaveFileWindow")
+19                 Close();
+20         }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Emulator\&.SaveFile\&._contentLoaded\fC [private]\fP"
+
+.PP
+Definition at line \fB82\fP of file \fBSaveFile\&.g\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

@@ -1,0 +1,83 @@
+\hypertarget{_multi_threaded_collection_8cs_source}{}\doxysubsection{Multi\+Threaded\+Collection.\+cs}
+\label{_multi_threaded_collection_8cs_source}\index{Emulator/MultiThreadedCollection.cs@{Emulator/MultiThreadedCollection.cs}}
+\mbox{\hyperlink{_multi_threaded_collection_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00003}00003 \textcolor{keyword}{using }System.Collections.ObjectModel;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00004}00004 \textcolor{keyword}{using }System.Collections.Specialized;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00005}00005 \textcolor{keyword}{using }System.Windows.Threading;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00007}00007 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator}{Emulator}}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00008}00008 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00009}00009 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00010}00010 \textcolor{comment}{    /// A MultiThreaedObservableCollection. }}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00011}00011 \textcolor{comment}{    /// This allows multiple threads to access the same observable collection in a safe manner.}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00012}00012 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00013}00013 \textcolor{comment}{    /// <typeparam name="{}T"{}></typeparam>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00014}\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection}{00014}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection}{MultiThreadedObservableCollection}}<T> : ObservableCollection<T>}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00015}00015     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00016}00016 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00017}00017 \textcolor{comment}{        /// Instantiates a new instance of the MultiThreadedObservableCollection}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00018}00018 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00019}\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_aaef18c78d61ec2a393d44d43bb1993f3_aaef18c78d61ec2a393d44d43bb1993f3}{00019}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_aaef18c78d61ec2a393d44d43bb1993f3_aaef18c78d61ec2a393d44d43bb1993f3}{MultiThreadedObservableCollection}}()}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00020}00020         \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00021}00021             }
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00022}00022         \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00023}00023 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00024}00024 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00025}00025 \textcolor{comment}{        ///  Instantiates a new instance of the MultiThreadedObservableCollection}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00026}00026 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00027}00027 \textcolor{comment}{        /// <param name="{}collection"{}>The initial collection to be loaded</param>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00028}\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_af9d3c89bc7693009afe815790ca859f8_af9d3c89bc7693009afe815790ca859f8}{00028}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_af9d3c89bc7693009afe815790ca859f8_af9d3c89bc7693009afe815790ca859f8}{MultiThreadedObservableCollection}}(IEnumerable<T> collection)}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00029}00029             : base(collection)}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00030}00030         \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00031}00031             }
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00032}00032         \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00033}00033 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00034}00034 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00035}00035 \textcolor{comment}{        ///  Instantiates a new instance of the MultiThreadedObservableCollection}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00036}00036 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00037}00037 \textcolor{comment}{        /// <param name="{}list"{}>The initial list to be loaded</param>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00038}\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_a5dce342df94a539c820d7a7f312f796e_a5dce342df94a539c820d7a7f312f796e}{00038}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_a5dce342df94a539c820d7a7f312f796e_a5dce342df94a539c820d7a7f312f796e}{MultiThreadedObservableCollection}}(List<T> list)}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00039}00039             : base(list)}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00040}00040         \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00042}00042         \} }
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00043}00043 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00044}00044 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00045}00045 \textcolor{comment}{        /// The NotifyCollectionChangedEventHandler, Sends a notification anytime the collection has been modified.}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00046}00046 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00047}\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_ad91110b054ac387bf48ac05cc21f4d1b_ad91110b054ac387bf48ac05cc21f4d1b}{00047}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keyword}{override} \textcolor{keyword}{event} NotifyCollectionChangedEventHandler \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_ad91110b054ac387bf48ac05cc21f4d1b_ad91110b054ac387bf48ac05cc21f4d1b}{CollectionChanged}};}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00049}00049 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00050}00050 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00051}00051 \textcolor{comment}{        /// The NotifyCollectionChangedEventHandler, Notifies the listeners in a thread safe manner}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00052}00052 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00053}\mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_a03d04482d157194dbf2b5ee4cfe243d9_a03d04482d157194dbf2b5ee4cfe243d9}{00053}} \textcolor{comment}{}        \textcolor{keyword}{protected} \textcolor{keyword}{override} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_a03d04482d157194dbf2b5ee4cfe243d9_a03d04482d157194dbf2b5ee4cfe243d9}{OnCollectionChanged}}(NotifyCollectionChangedEventArgs e)}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00054}00054         \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00055}00055             var collectionChanged = \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection_ad91110b054ac387bf48ac05cc21f4d1b_ad91110b054ac387bf48ac05cc21f4d1b}{CollectionChanged}};}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00056}00056             \textcolor{keywordflow}{if} (collectionChanged != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00057}00057                 \textcolor{keywordflow}{foreach} (NotifyCollectionChangedEventHandler nh \textcolor{keywordflow}{in} collectionChanged.GetInvocationList())}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00058}00058                 \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00059}00059                     var dispObj = nh.Target as DispatcherObject;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00060}00060                     \textcolor{keywordflow}{if} (dispObj != \textcolor{keyword}{null})}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00061}00061                     \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00062}00062                         var dispatcher = dispObj.Dispatcher;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00063}00063                         \textcolor{keywordflow}{if} (dispatcher != \textcolor{keyword}{null} \&\& !dispatcher.CheckAccess())}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00064}00064                         \{}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00065}00065                             var nh1 = nh;}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00066}00066                             dispatcher.BeginInvoke(}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00067}00067                                 (Action)(() => nh1.Invoke(\textcolor{keyword}{this},}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00068}00068                                     \textcolor{keyword}{new} NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset))),}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00069}00069                                 DispatcherPriority.DataBind);}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00070}00070                             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00071}00071                         \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00072}00072                     \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00073}00073                     nh.Invoke(\textcolor{keyword}{this}, e);}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00074}00074             \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00075}00075         \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00076}00076     \}}
+\DoxyCodeLine{\Hypertarget{_multi_threaded_collection_8cs_source_l00077}00077 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,36 @@
+\hypertarget{_breakpoint_8cs_source}{}\doxysubsection{Breakpoint.\+cs}
+\label{_breakpoint_8cs_source}\index{Emulator/Model/Breakpoint.cs@{Emulator/Model/Breakpoint.cs}}
+\mbox{\hyperlink{_breakpoint_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00001}00001 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00003}\mbox{\hyperlink{namespace_emulator_1_1_model}{00003}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00004}00004 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00005}00005 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00006}00006 \textcolor{comment}{    /// A Representation of a Breakpoint}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00007}00007 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00008}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint}{00008}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint}{Breakpoint}}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00009}00009     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00010}00010 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00011}00011 \textcolor{comment}{        /// Is the Breakpoint enabled or disabled}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00012}00012 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00013}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a780fe0a61ad4c6f4afbc6f1fdb2b833c_a780fe0a61ad4c6f4afbc6f1fdb2b833c}{00013}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a780fe0a61ad4c6f4afbc6f1fdb2b833c_a780fe0a61ad4c6f4afbc6f1fdb2b833c}{IsEnabled}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00014}00014 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00015}00015 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00016}00016 \textcolor{comment}{        /// The Value of the Breakpoint}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00017}00017 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00018}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a01886fc4bfd37adc6a7e3ccf25b9bdf7_a01886fc4bfd37adc6a7e3ccf25b9bdf7}{00018}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a01886fc4bfd37adc6a7e3ccf25b9bdf7_a01886fc4bfd37adc6a7e3ccf25b9bdf7}{Value}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00019}00019 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00021}00021 \textcolor{comment}{        /// The Type of breakpoint being set}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00022}00022 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00023}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a2036e2a7090937c5806439f737f618bd_a2036e2a7090937c5806439f737f618bd}{00023}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a2036e2a7090937c5806439f737f618bd_a2036e2a7090937c5806439f737f618bd}{Type}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00025}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a7a9514c4ae133950ef2df0deb488969a_a7a9514c4ae133950ef2df0deb488969a}{00025}}         \textcolor{keyword}{public} List<string> \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_a7a9514c4ae133950ef2df0deb488969a_a7a9514c4ae133950ef2df0deb488969a}{AllTypes}}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00026}00026         \{}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00027}00027             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{BreakpointType}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a14594fda0042191a7327611afab8be63_a14594fda0042191a7327611afab8be63}{AllTypes}}; \}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00028}00028         \} }
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_8cs_source_l00030}00030 \}}
+
+\end{DoxyCode}

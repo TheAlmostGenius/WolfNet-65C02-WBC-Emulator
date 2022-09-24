@@ -1,0 +1,158 @@
+\hypertarget{class_emulator_1_1_view_model_1_1_view_model_locator}{}\doxysubsection{Emulator.\+View\+Model.\+View\+Model\+Locator Class Reference}
+\label{class_emulator_1_1_view_model_1_1_view_model_locator}\index{Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}}
+
+
+This class contains static references to all the view models in the application and provides an entry point for the bindings.   
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551_a5ef6c804ba7dc4bb72781c5530689551}{View\+Model\+Locator}} ()
+\begin{DoxyCompactList}\small\item\em Initializes a new instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator}{View\+Model\+Locator}} class.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a6367dbf92df09307aea16a539b9cfe75_a6367dbf92df09307aea16a539b9cfe75}{Cleanup}} ()
+\begin{DoxyCompactList}\small\item\em The Cleanup Method  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{Main\+View\+Model}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a79e7e4d50cffb44fb994718640c92f76_a79e7e4d50cffb44fb994718640c92f76}{Main}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{Main\+View\+Model}} Instance  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{Save\+File\+View\+Model}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c_adab2dfdfce934cee68d3a2db9cb1160c}{Save\+File}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{Save\+File\+View\+Model}} Instance  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{Settings\+View\+Model}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_afd98fea8ef52bd6c7610ecec5d667440_afd98fea8ef52bd6c7610ecec5d667440}{Settings}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{Save\+File\+View\+Model}} Instance  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+This class contains static references to all the view models in the application and provides an entry point for the bindings.  
+
+Definition at line \mbox{\hyperlink{_view_model_locator_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_view_model_locator_8cs_source}{View\+Model\+Locator.\+cs}}.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551_a5ef6c804ba7dc4bb72781c5530689551}\label{class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551_a5ef6c804ba7dc4bb72781c5530689551}} 
+\index{Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}!ViewModelLocator@{ViewModelLocator}}
+\index{ViewModelLocator@{ViewModelLocator}!Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}}
+\doxyparagraph{\texorpdfstring{ViewModelLocator()}{ViewModelLocator()}}
+{\footnotesize\ttfamily Emulator.\+View\+Model.\+View\+Model\+Locator.\+View\+Model\+Locator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializes a new instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator}{View\+Model\+Locator}} class.  
+
+
+
+Definition at line \mbox{\hyperlink{_view_model_locator_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_view_model_locator_8cs_source}{View\+Model\+Locator.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00030         \{}
+\DoxyCodeLine{00031             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);}
+\DoxyCodeLine{00032 }
+\DoxyCodeLine{00033             SimpleIoc.Default.Register<MainViewModel>();}
+\DoxyCodeLine{00034             SimpleIoc.Default.Register<SaveFileViewModel>();}
+\DoxyCodeLine{00035             SimpleIoc.Default.Register<SettingsViewModel>();}
+\DoxyCodeLine{00036         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_view_model_locator_a6367dbf92df09307aea16a539b9cfe75_a6367dbf92df09307aea16a539b9cfe75}\label{class_emulator_1_1_view_model_1_1_view_model_locator_a6367dbf92df09307aea16a539b9cfe75_a6367dbf92df09307aea16a539b9cfe75}} 
+\index{Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}}
+\doxyparagraph{\texorpdfstring{Cleanup()}{Cleanup()}}
+{\footnotesize\ttfamily static void Emulator.\+View\+Model.\+View\+Model\+Locator.\+Cleanup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The Cleanup Method  
+
+$<$todo$>$ Clear the View\+Models $<$/todo$>$
+
+Definition at line \mbox{\hyperlink{_view_model_locator_8cs_source_l00065}{65}} of file \mbox{\hyperlink{_view_model_locator_8cs_source}{View\+Model\+Locator.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00066         \{\textcolor{comment}{}}
+\DoxyCodeLine{00067 \textcolor{comment}{            /// <todo>}}
+\DoxyCodeLine{00068 \textcolor{comment}{            /// Clear the ViewModels}}
+\DoxyCodeLine{00069 \textcolor{comment}{            /// </todo>}}
+\DoxyCodeLine{00070 \textcolor{comment}{}        \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Property Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_view_model_locator_a79e7e4d50cffb44fb994718640c92f76_a79e7e4d50cffb44fb994718640c92f76}\label{class_emulator_1_1_view_model_1_1_view_model_locator_a79e7e4d50cffb44fb994718640c92f76_a79e7e4d50cffb44fb994718640c92f76}} 
+\index{Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}!Main@{Main}}
+\index{Main@{Main}!Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}}
+\doxyparagraph{\texorpdfstring{Main}{Main}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{Main\+View\+Model}} Emulator.\+View\+Model.\+View\+Model\+Locator.\+Main\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{Main\+View\+Model}} Instance  
+
+
+
+Definition at line \mbox{\hyperlink{_view_model_locator_8cs_source_l00041}{41}} of file \mbox{\hyperlink{_view_model_locator_8cs_source}{View\+Model\+Locator.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042         \{}
+\DoxyCodeLine{00043             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} ServiceLocator.Current.GetInstance<MainViewModel>(); \}}
+\DoxyCodeLine{00044         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c_adab2dfdfce934cee68d3a2db9cb1160c}\label{class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c_adab2dfdfce934cee68d3a2db9cb1160c}} 
+\index{Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}!SaveFile@{SaveFile}}
+\index{SaveFile@{SaveFile}!Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}}
+\doxyparagraph{\texorpdfstring{SaveFile}{SaveFile}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{Save\+File\+View\+Model}} Emulator.\+View\+Model.\+View\+Model\+Locator.\+Save\+File\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{Save\+File\+View\+Model}} Instance  
+
+
+
+Definition at line \mbox{\hyperlink{_view_model_locator_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_view_model_locator_8cs_source}{View\+Model\+Locator.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050         \{}
+\DoxyCodeLine{00051             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} ServiceLocator.Current.GetInstance<SaveFileViewModel>(); \}}
+\DoxyCodeLine{00052         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_view_model_locator_afd98fea8ef52bd6c7610ecec5d667440_afd98fea8ef52bd6c7610ecec5d667440}\label{class_emulator_1_1_view_model_1_1_view_model_locator_afd98fea8ef52bd6c7610ecec5d667440_afd98fea8ef52bd6c7610ecec5d667440}} 
+\index{Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}!Settings@{Settings}}
+\index{Settings@{Settings}!Emulator.ViewModel.ViewModelLocator@{Emulator.ViewModel.ViewModelLocator}}
+\doxyparagraph{\texorpdfstring{Settings}{Settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{Settings\+View\+Model}} Emulator.\+View\+Model.\+View\+Model\+Locator.\+Settings\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{Save\+File\+View\+Model}} Instance  
+
+
+
+Definition at line \mbox{\hyperlink{_view_model_locator_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_view_model_locator_8cs_source}{View\+Model\+Locator.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00058         \{}
+\DoxyCodeLine{00059             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} ServiceLocator.Current.GetInstance<SettingsViewModel>(); \}}
+\DoxyCodeLine{00060         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Emulator/\+View\+Model/\mbox{\hyperlink{_view_model_locator_8cs}{View\+Model\+Locator.\+cs}}\end{DoxyCompactItemize}

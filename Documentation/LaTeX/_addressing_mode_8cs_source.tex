@@ -1,0 +1,88 @@
+\hypertarget{_addressing_mode_8cs_source}{}\doxysubsection{Addressing\+Mode.\+cs}
+\label{_addressing_mode_8cs_source}\index{Hardware/Classes/AddressingMode.cs@{Hardware/Classes/AddressingMode.cs}}
+\mbox{\hyperlink{_addressing_mode_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00001}00001 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_hardware}{Hardware}}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00002}00002 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00003}00003 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00004}00004 \textcolor{comment}{    /// The addressing modes used by the 6502 Processor}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00005}00005 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00006}\mbox{\hyperlink{namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_a20ed8885928dd1f3f9eac50507a162fc}{00006}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{enum} \mbox{\hyperlink{namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_a20ed8885928dd1f3f9eac50507a162fc}{AddressingMode}}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00007}00007     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00008}00008 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00009}00009 \textcolor{comment}{        /// In this mode a full address is given to operation on IE: Memory byte[] \{ 0x60, 0x00, 0xFF \} }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00010}00010 \textcolor{comment}{        /// would perform an ADC operation and Add the value at ADDRESS 0xFF00 to the accumulator.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00011}00011 \textcolor{comment}{        /// The address is always LSB first}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00012}00012 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00013}00013 \textcolor{comment}{}        Absolute = 1,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00014}00014 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00015}00015 \textcolor{comment}{        /// In this mode a full address is given to operation on IE: Memory byte[] \{ 0x7D, 0x00, 0xFF \} The full value would then be added to the X Register.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00016}00016 \textcolor{comment}{        /// If the X register was 0x01 then the address would be 0xFF01. and the value stored there would have an ADC operation performed on it and the value would}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00017}00017 \textcolor{comment}{        /// be added to the accumulator.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00018}00018 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00019}00019 \textcolor{comment}{}        AbsoluteX = 2,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00021}00021 \textcolor{comment}{        /// In this mode a full address is given to operation on IE: Memory byte[] \{ 0x79, 0x00, 0xFF \} The full value would then be added to the Y Register.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00022}00022 \textcolor{comment}{        /// If the Y register was 0x01 then the address would be 0xFF01. and the value stored there would have an ADC operation performed on it and the value would}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00023}00023 \textcolor{comment}{        /// be added to the accumulator}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00024}00024 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00025}00025 \textcolor{comment}{}        AbsoluteY = 3,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00026}00026 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00027}00027 \textcolor{comment}{        /// In this mode the instruction operates on the accumulator. No operands are needed. }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00028}00028 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00029}00029 \textcolor{comment}{}        Accumulator = 4,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00030}00030 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00031}00031 \textcolor{comment}{        /// In this mode, the value to operate on immediately follows the instruction. IE: Memory byte[] \{ 0x69, 0x01 \} }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00032}00032 \textcolor{comment}{        /// would perform an ADC operation and Add 0x01 directly to the accumulator}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00033}00033 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00034}00034 \textcolor{comment}{}        Immediate = 5,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00035}00035 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00036}00036 \textcolor{comment}{        /// No address is needed for this mode. EX: BRK (Break), CLC (Clear Carry Flag) etc}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00037}00037 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00038}00038 \textcolor{comment}{}        Implied = 6,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00039}00039 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00040}00040 \textcolor{comment}{        /// In this mode assume the following}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00041}00041 \textcolor{comment}{        /// Memory = \{ 0x61, 0x02, 0x04, 0x00, 0x03 \}}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00042}00042 \textcolor{comment}{        /// RegisterX = 0x01}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00043}00043 \textcolor{comment}{        /// 1. Take the sum of the X Register and the value after the opcode 0x01 + 0x01 = 0x02. }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00044}00044 \textcolor{comment}{        /// 2. Starting at position 0x02 get an address (0x04,0x00) = 0x0004}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00045}00045 \textcolor{comment}{        /// 3. Perform the ADC operation and Add the value at 0x0005 to the accumulator}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00046}00046 \textcolor{comment}{        /// Note: if the Zero Page address is greater than 0xff then roll over the value. IE 0x101 rolls over to 0x01}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00047}00047 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00048}00048 \textcolor{comment}{}        IndirectX = 7,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00049}00049 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00050}00050 \textcolor{comment}{        /// In this mode assume the following}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00051}00051 \textcolor{comment}{        /// Memory = \{ 0x61, 0x02, 0x04, 0x00, 0x03 \}}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00052}00052 \textcolor{comment}{        /// RegisterY = 0x01}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00053}00053 \textcolor{comment}{        /// 1. Starting at position 0x02 get an address (0x04,0x00) = 0x0004 }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00054}00054 \textcolor{comment}{        /// 2. Take the sum of the Y Register and the absolute address 0x01+0x0004 = 0x0005}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00055}00055 \textcolor{comment}{        /// 3. Perform the ADC operation and Add the value at 0x0005 to the accumulator}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00056}00056 \textcolor{comment}{        /// Note: if the address is great that 0xffff then roll over IE: 0x10001 rolls over to 0x01}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00057}00057 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00058}00058 \textcolor{comment}{}        IndirectY = 8,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00059}00059 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00060}00060 \textcolor{comment}{        /// JMP is the only operation that uses this mode. In this mode an absolute address is specified that points to the location of the absolute address we want to jump to.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00061}00061 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00062}00062 \textcolor{comment}{}        Indirect = 9,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00063}00063 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00064}00064 \textcolor{comment}{        /// This Mode Changes the PC. It allows the program to change the location of the PC by 127 in either direction.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00065}00065 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00066}00066 \textcolor{comment}{}        Relative = 10,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00067}00067 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00068}00068 \textcolor{comment}{        /// In this mode, a zero page address of the value to operate on is specified. This mode can only operation on values between 0x0 and 0xFF, or those that sit on the zero page of memory. IE: Memory byte[] \{ 0x69, 0x02, 0x01 \} }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00069}00069 \textcolor{comment}{        /// would perform an ADC operation and Add 0x01 directly to the Accumulator}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00070}00070 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00071}00071 \textcolor{comment}{}        ZeroPage = 11,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00072}00072 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00073}00073 \textcolor{comment}{        /// In this mode, a zero page address of the value to operate on is specified, however the value of the X register is added to the address IE: Memory byte[] \{ 0x86, 0x02, 0x01, 0x67, 0x04, 0x01 \} }}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00074}00074 \textcolor{comment}{        /// In this example we store a value of 0x01 into the X register, then we would perform an ADC operation using the addres of 0x04+0x01=0x05 and Add the result of 0x01 directly to the Accumulator}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00075}00075 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00076}00076 \textcolor{comment}{}        ZeroPageX = 12,\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00077}00077 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00078}00078 \textcolor{comment}{        /// This works the same as ZeroPageX except it uses the Y register instead of the X register.}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00079}00079 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00080}00080 \textcolor{comment}{}        ZeroPageY = 13,}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00081}00081     \}}
+\DoxyCodeLine{\Hypertarget{_addressing_mode_8cs_source_l00082}00082 \}}
+
+\end{DoxyCode}

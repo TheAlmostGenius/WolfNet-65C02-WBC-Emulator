@@ -1,0 +1,75 @@
+.TH "Hardware.MemoryMap.BankedRom" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware.MemoryMap.BankedRom
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static byte \fBTotalBanks\fP = 16"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "static int \fBOffset\fP\fC [get]\fP"
+.br
+.ti -1c
+.RI "static int \fBLength\fP\fC [get]\fP"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static int \fB_Offset\fP = 0x8000"
+.br
+.ti -1c
+.RI "static int \fB_Length\fP = 0x3FFF"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB34\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int Hardware\&.MemoryMap\&.BankedRom\&._Length = 0x3FFF\fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB37\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "int Hardware\&.MemoryMap\&.BankedRom\&._Offset = 0x8000\fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB36\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "byte Hardware\&.MemoryMap\&.BankedRom\&.TotalBanks = 16\fC [static]\fP"
+
+.PP
+Definition at line \fB39\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "int Hardware\&.MemoryMap\&.BankedRom\&.Length\fC [static]\fP, \fC [get]\fP"
+
+.PP
+Definition at line \fB42\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+42 { get { return _Length; } }
+.fi
+.SS "int Hardware\&.MemoryMap\&.BankedRom\&.Offset\fC [static]\fP, \fC [get]\fP"
+
+.PP
+Definition at line \fB41\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+41 { get { return _Offset; } }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

@@ -1,0 +1,78 @@
+\hypertarget{_view_model_locator_8cs_source}{}\doxysubsection{View\+Model\+Locator.\+cs}
+\label{_view_model_locator_8cs_source}\index{Emulator/ViewModel/ViewModelLocator.cs@{Emulator/ViewModel/ViewModelLocator.cs}}
+\mbox{\hyperlink{_view_model_locator_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00001}00001 \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00002}00002 \textcolor{comment}{  In App.xaml:}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00003}00003 \textcolor{comment}{  <Application.Resources>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00004}00004 \textcolor{comment}{      <vm:ViewModelLocator xmlns:vm="{}clr-\/namespace:Emulator"{}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00005}00005 \textcolor{comment}{                           x:Key="{}Locator"{} />}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00006}00006 \textcolor{comment}{  </Application.Resources>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00007}00007 \textcolor{comment}{  }}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00008}00008 \textcolor{comment}{  In the View:}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00009}00009 \textcolor{comment}{  DataContext="{}\{Binding Source=\{StaticResource Locator\}, Path=ViewModelName\}"{}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00010}00010 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00011}00011 \textcolor{comment}{  You can also use Blend to do all this with the tool's support.}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00012}00012 \textcolor{comment}{  See http://www.galasoft.ch/mvvm}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00013}00013 \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00015}00015 \textcolor{keyword}{using }GalaSoft.MvvmLight.Ioc;}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00016}00016 \textcolor{keyword}{using }Microsoft.Practices.ServiceLocation;}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00017}00017 }
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00018}00018 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_view_model}{Emulator.ViewModel}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00019}00019 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00020}00020 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00021}00021 \textcolor{comment}{    /// This class contains static references to all the view models in the}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00022}00022 \textcolor{comment}{    /// application and provides an entry point for the bindings.}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00023}00023 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00024}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator}{00024}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator}{ViewModelLocator}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00025}00025     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00026}00026 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00027}00027 \textcolor{comment}{        /// Initializes a new instance of the ViewModelLocator class.}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00028}00028 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00029}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551_a5ef6c804ba7dc4bb72781c5530689551}{00029}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551_a5ef6c804ba7dc4bb72781c5530689551}{ViewModelLocator}}()}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00030}00030         \{}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00031}00031             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00032}00032 }
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00033}00033             SimpleIoc.Default.Register<\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{MainViewModel}}>();}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00034}00034             SimpleIoc.Default.Register<\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{SaveFileViewModel}}>();}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00035}00035             SimpleIoc.Default.Register<\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{SettingsViewModel}}>();}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00036}00036         \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00037}00037 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00038}00038 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00039}00039 \textcolor{comment}{        /// The MainViewModel Instance}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00040}00040 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00041}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a79e7e4d50cffb44fb994718640c92f76_a79e7e4d50cffb44fb994718640c92f76}{00041}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{MainViewModel}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a79e7e4d50cffb44fb994718640c92f76_a79e7e4d50cffb44fb994718640c92f76}{Main}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00042}00042         \{}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00043}00043             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} ServiceLocator.Current.GetInstance<\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model}{MainViewModel}}>(); \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00044}00044         \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00045}00045 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00046}00046 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00047}00047 \textcolor{comment}{        /// The SaveFileViewModel Instance}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00048}00048 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00049}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c_adab2dfdfce934cee68d3a2db9cb1160c}{00049}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{SaveFileViewModel}} \mbox{\hyperlink{class_emulator_1_1_save_file}{SaveFile}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00050}00050         \{}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00051}00051             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} ServiceLocator.Current.GetInstance<\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{SaveFileViewModel}}>(); \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00053}00053 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00054}00054 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00055}00055 \textcolor{comment}{        /// The SaveFileViewModel Instance}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00056}00056 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00057}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_afd98fea8ef52bd6c7610ecec5d667440_afd98fea8ef52bd6c7610ecec5d667440}{00057}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{SettingsViewModel}} \mbox{\hyperlink{class_emulator_1_1_settings}{Settings}}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00058}00058         \{}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00059}00059             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} ServiceLocator.Current.GetInstance<\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{SettingsViewModel}}>(); \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00060}00060         \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00061}00061 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00062}00062 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00063}00063 \textcolor{comment}{        /// The Cleanup Method}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00064}00064 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00065}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a6367dbf92df09307aea16a539b9cfe75_a6367dbf92df09307aea16a539b9cfe75}{00065}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_view_model_locator_a6367dbf92df09307aea16a539b9cfe75_a6367dbf92df09307aea16a539b9cfe75}{Cleanup}}()}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00066}00066         \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00067}00067 \textcolor{comment}{            /// <todo>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00068}00068 \textcolor{comment}{            /// Clear the ViewModels}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00069}00069 \textcolor{comment}{            /// </todo>}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00070}00070 \textcolor{comment}{}        \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_view_model_locator_8cs_source_l00072}00072 \}}
+
+\end{DoxyCode}

@@ -1,0 +1,89 @@
+.TH "Hardware.MemoryMap.BankedRam" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware.MemoryMap.BankedRam
+.SH SYNOPSIS
+.br
+.PP
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static int \fBTotalLength\fP = (\fBBankSize\fP * \fBTotalBanks\fP) \- 1"
+.br
+.ti -1c
+.RI "static int \fBBankSize\fP = (int)(\fBLength\fP + 1)"
+.br
+.ti -1c
+.RI "static byte \fBTotalBanks\fP = 16"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "static int \fBOffset\fP\fC [get]\fP"
+.br
+.ti -1c
+.RI "static int \fBLength\fP\fC [get]\fP"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static int \fB_Offset\fP = 0x0000"
+.br
+.ti -1c
+.RI "static int \fB_Length\fP = 0x7FFF"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB8\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int Hardware\&.MemoryMap\&.BankedRam\&._Length = 0x7FFF\fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB11\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "int Hardware\&.MemoryMap\&.BankedRam\&._Offset = 0x0000\fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB10\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "int Hardware\&.MemoryMap\&.BankedRam\&.BankSize = (int)(\fBLength\fP + 1)\fC [static]\fP"
+
+.PP
+Definition at line \fB14\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "byte Hardware\&.MemoryMap\&.BankedRam\&.TotalBanks = 16\fC [static]\fP"
+
+.PP
+Definition at line \fB15\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "int Hardware\&.MemoryMap\&.BankedRam\&.TotalLength = (\fBBankSize\fP * \fBTotalBanks\fP) \- 1\fC [static]\fP"
+
+.PP
+Definition at line \fB13\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "int Hardware\&.MemoryMap\&.BankedRam\&.Length\fC [static]\fP, \fC [get]\fP"
+
+.PP
+Definition at line \fB18\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+18 { get { return _Length; } }
+.fi
+.SS "int Hardware\&.MemoryMap\&.BankedRam\&.Offset\fC [static]\fP, \fC [get]\fP"
+
+.PP
+Definition at line \fB17\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+17 { get { return _Offset; } }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

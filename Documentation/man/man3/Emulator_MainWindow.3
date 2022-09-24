@@ -1,0 +1,541 @@
+.TH "Emulator.MainWindow" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.MainWindow \- Interaction logic for MainWindow\&.xaml   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits Window, \fBEmulator\&.IClosable\fP, System\&.Windows\&.Window, System\&.Windows\&.Markup\&.IComponentConnector, System\&.Windows\&.Window, and System\&.Windows\&.Markup\&.IComponentConnector\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP ()"
+.br
+.ti -1c
+.RI "void \fBInitializeComponent\fP ()"
+.br
+.RI "InitializeComponent  "
+.ti -1c
+.RI "void \fBInitializeComponent\fP ()"
+.br
+.RI "InitializeComponent  "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBToClose\fP (Object sender, EventArgs e)"
+.br
+.ti -1c
+.RI "void \fBLoadFile\fP (Object sender, EventArgs e)"
+.br
+.ti -1c
+.RI "void \fBSaveFile\fP (Object sender, EventArgs e)"
+.br
+.ti -1c
+.RI "void \fBCloseFile\fP (Object sender, EventArgs e)"
+.br
+.ti -1c
+.RI "void \fBNotificationMessageReceived\fP (NotificationMessage notificationMessage)"
+.br
+.ti -1c
+.RI "void \fBNotificationMessageReceived\fP (NotificationMessage< \fBStateFileModel\fP > notificationMessage)"
+.br
+.ti -1c
+.RI "void \fBNotificationMessageReceived\fP (NotificationMessage< \fBSettingsModel\fP > notificationMessage)"
+.br
+.ti -1c
+.RI "void System\&.Windows\&.Markup\&.IComponentConnector\&. \fBConnect\fP (int connectionId, object target)"
+.br
+.ti -1c
+.RI "void System\&.Windows\&.Markup\&.IComponentConnector\&. \fBConnect\fP (int connectionId, object target)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fB_contentLoaded\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Interaction logic for MainWindow\&.xaml  
+
+\fBMainWindow\fP  
+.PP
+Definition at line \fB16\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.MainWindow\&.MainWindow ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB18\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+19         {
+20             InitializeComponent();
+21             Messenger\&.Default\&.Register<NotificationMessage>(this, NotificationMessageReceived);
+22             Messenger\&.Default\&.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
+23             Messenger\&.Default\&.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
+24         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Emulator\&.MainWindow\&.CloseFile (Object sender, EventArgs e)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB41\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+42         {
+43             Messenger\&.Default\&.Send(new NotificationMessage("CloseFile"));
+44         }
+.fi
+.SS "void System\&.Windows\&.Markup\&.IComponentConnector\&. Emulator\&.MainWindow\&.Connect (int connectionId, object target)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB373\fP of file \fBMainWindow\&.g\&.cs\fP\&.
+.PP
+.nf
+373                                                                                                 {
+374             switch (connectionId)
+375             {
+376             case 1:
+377             this\&.EmulatorWindow = ((Emulator\&.MainWindow)(target));
+378             return;
+379             case 2:
+380             
+381             #line 72 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+382             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.LoadFile);
+383             
+384             #line default
+385             #line hidden
+386             return;
+387             case 3:
+388             
+389             #line 73 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+390             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.SaveFile);
+391             
+392             #line default
+393             #line hidden
+394             return;
+395             case 4:
+396             
+397             #line 74 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+398             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.CloseFile);
+399             
+400             #line default
+401             #line hidden
+402             return;
+403             case 5:
+404             
+405             #line 76 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+406             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.ToClose);
+407             
+408             #line default
+409             #line hidden
+410             return;
+411             case 6:
+412             this\&.OutputLog = ((System\&.Windows\&.Controls\&.DataGrid)(target));
+413             return;
+414             case 7:
+415             this\&.Run = ((System\&.Windows\&.Controls\&.Button)(target));
+416             return;
+417             case 8:
+418             this\&.Step = ((System\&.Windows\&.Controls\&.Button)(target));
+419             return;
+420             case 9:
+421             this\&.Reset = ((System\&.Windows\&.Controls\&.Button)(target));
+422             return;
+423             case 10:
+424             this\&.RomFileNameText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+425             return;
+426             case 11:
+427             this\&.ComPortNameText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+428             return;
+429             case 12:
+430             this\&.Breakpoints = ((System\&.Windows\&.Controls\&.DataGrid)(target));
+431             return;
+432             case 13:
+433             this\&.YRegister = ((System\&.Windows\&.Controls\&.TextBox)(target));
+434             return;
+435             case 14:
+436             this\&.XRegister = ((System\&.Windows\&.Controls\&.TextBox)(target));
+437             return;
+438             case 15:
+439             this\&.Accumulator = ((System\&.Windows\&.Controls\&.TextBox)(target));
+440             return;
+441             case 16:
+442             this\&.StackPointer = ((System\&.Windows\&.Controls\&.TextBox)(target));
+443             return;
+444             case 17:
+445             this\&.ProgramCounter = ((System\&.Windows\&.Controls\&.TextBox)(target));
+446             return;
+447             case 18:
+448             this\&.Dissambly = ((System\&.Windows\&.Controls\&.TextBox)(target));
+449             return;
+450             case 19:
+451             this\&.CycleCount = ((System\&.Windows\&.Controls\&.TextBox)(target));
+452             return;
+453             case 20:
+454             this\&.XRegisterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+455             return;
+456             case 21:
+457             this\&.YRegisterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+458             return;
+459             case 22:
+460             this\&.StackPointerRegisterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+461             return;
+462             case 23:
+463             this\&.AText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+464             return;
+465             case 24:
+466             this\&.CurrentInstructionText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+467             return;
+468             case 25:
+469             this\&.ProgramCounterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+470             return;
+471             case 26:
+472             this\&.CycleCountText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+473             return;
+474             case 27:
+475             this\&.CarryFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+476             return;
+477             case 28:
+478             this\&.CarryFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+479             return;
+480             case 29:
+481             this\&.ZeroFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+482             return;
+483             case 30:
+484             this\&.ZeroFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+485             return;
+486             case 31:
+487             this\&.InterrupFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+488             return;
+489             case 32:
+490             this\&.InterruptFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+491             return;
+492             case 33:
+493             this\&.BcdFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+494             return;
+495             case 34:
+496             this\&.BcdFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+497             return;
+498             case 35:
+499             this\&.BreakFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+500             return;
+501             case 36:
+502             this\&.BreakFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+503             return;
+504             case 37:
+505             this\&.OverflowFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+506             return;
+507             case 38:
+508             this\&.OverflowFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+509             return;
+510             case 39:
+511             this\&.NegativeFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+512             return;
+513             case 40:
+514             this\&.NegativeFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+515             return;
+516             case 41:
+517             this\&.CpuSpeed = ((System\&.Windows\&.Controls\&.Slider)(target));
+518             return;
+519             case 42:
+520             this\&.SpeedText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+521             return;
+522             }
+523             this\&._contentLoaded = true;
+524         }
+.fi
+.SS "void System\&.Windows\&.Markup\&.IComponentConnector\&. Emulator\&.MainWindow\&.Connect (int connectionId, object target)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB373\fP of file \fBMainWindow\&.g\&.i\&.cs\fP\&.
+.PP
+.nf
+373                                                                                                 {
+374             switch (connectionId)
+375             {
+376             case 1:
+377             this\&.EmulatorWindow = ((Emulator\&.MainWindow)(target));
+378             return;
+379             case 2:
+380             
+381             #line 72 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+382             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.LoadFile);
+383             
+384             #line default
+385             #line hidden
+386             return;
+387             case 3:
+388             
+389             #line 73 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+390             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.SaveFile);
+391             
+392             #line default
+393             #line hidden
+394             return;
+395             case 4:
+396             
+397             #line 74 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+398             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.CloseFile);
+399             
+400             #line default
+401             #line hidden
+402             return;
+403             case 5:
+404             
+405             #line 76 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+406             ((System\&.Windows\&.Controls\&.MenuItem)(target))\&.Click += new System\&.Windows\&.RoutedEventHandler(this\&.ToClose);
+407             
+408             #line default
+409             #line hidden
+410             return;
+411             case 6:
+412             this\&.OutputLog = ((System\&.Windows\&.Controls\&.DataGrid)(target));
+413             return;
+414             case 7:
+415             this\&.Run = ((System\&.Windows\&.Controls\&.Button)(target));
+416             return;
+417             case 8:
+418             this\&.Step = ((System\&.Windows\&.Controls\&.Button)(target));
+419             return;
+420             case 9:
+421             this\&.Reset = ((System\&.Windows\&.Controls\&.Button)(target));
+422             return;
+423             case 10:
+424             this\&.RomFileNameText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+425             return;
+426             case 11:
+427             this\&.ComPortNameText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+428             return;
+429             case 12:
+430             this\&.Breakpoints = ((System\&.Windows\&.Controls\&.DataGrid)(target));
+431             return;
+432             case 13:
+433             this\&.YRegister = ((System\&.Windows\&.Controls\&.TextBox)(target));
+434             return;
+435             case 14:
+436             this\&.XRegister = ((System\&.Windows\&.Controls\&.TextBox)(target));
+437             return;
+438             case 15:
+439             this\&.Accumulator = ((System\&.Windows\&.Controls\&.TextBox)(target));
+440             return;
+441             case 16:
+442             this\&.StackPointer = ((System\&.Windows\&.Controls\&.TextBox)(target));
+443             return;
+444             case 17:
+445             this\&.ProgramCounter = ((System\&.Windows\&.Controls\&.TextBox)(target));
+446             return;
+447             case 18:
+448             this\&.Dissambly = ((System\&.Windows\&.Controls\&.TextBox)(target));
+449             return;
+450             case 19:
+451             this\&.CycleCount = ((System\&.Windows\&.Controls\&.TextBox)(target));
+452             return;
+453             case 20:
+454             this\&.XRegisterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+455             return;
+456             case 21:
+457             this\&.YRegisterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+458             return;
+459             case 22:
+460             this\&.StackPointerRegisterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+461             return;
+462             case 23:
+463             this\&.AText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+464             return;
+465             case 24:
+466             this\&.CurrentInstructionText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+467             return;
+468             case 25:
+469             this\&.ProgramCounterText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+470             return;
+471             case 26:
+472             this\&.CycleCountText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+473             return;
+474             case 27:
+475             this\&.CarryFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+476             return;
+477             case 28:
+478             this\&.CarryFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+479             return;
+480             case 29:
+481             this\&.ZeroFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+482             return;
+483             case 30:
+484             this\&.ZeroFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+485             return;
+486             case 31:
+487             this\&.InterrupFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+488             return;
+489             case 32:
+490             this\&.InterruptFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+491             return;
+492             case 33:
+493             this\&.BcdFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+494             return;
+495             case 34:
+496             this\&.BcdFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+497             return;
+498             case 35:
+499             this\&.BreakFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+500             return;
+501             case 36:
+502             this\&.BreakFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+503             return;
+504             case 37:
+505             this\&.OverflowFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+506             return;
+507             case 38:
+508             this\&.OverflowFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+509             return;
+510             case 39:
+511             this\&.NegativeFlag = ((System\&.Windows\&.Controls\&.CheckBox)(target));
+512             return;
+513             case 40:
+514             this\&.NegativeFlagText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+515             return;
+516             case 41:
+517             this\&.CpuSpeed = ((System\&.Windows\&.Controls\&.Slider)(target));
+518             return;
+519             case 42:
+520             this\&.SpeedText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+521             return;
+522             }
+523             this\&._contentLoaded = true;
+524         }
+.fi
+.SS "void Emulator\&.MainWindow\&.InitializeComponent ()\fC [inline]\fP"
+
+.PP
+InitializeComponent  
+.PP
+Definition at line \fB353\fP of file \fBMainWindow\&.g\&.cs\fP\&.
+.PP
+.nf
+353                                           {
+354             if (_contentLoaded) {
+355                 return;
+356             }
+357             _contentLoaded = true;
+358             System\&.Uri resourceLocater = new System\&.Uri("/Emulator;component/mainwindow\&.xaml", System\&.UriKind\&.Relative);
+359             
+360             #line 1 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+361             System\&.Windows\&.Application\&.LoadComponent(this, resourceLocater);
+362             
+363             #line default
+364             #line hidden
+365         }
+.fi
+.SS "void Emulator\&.MainWindow\&.InitializeComponent ()\fC [inline]\fP"
+
+.PP
+InitializeComponent  
+.PP
+Definition at line \fB353\fP of file \fBMainWindow\&.g\&.i\&.cs\fP\&.
+.PP
+.nf
+353                                           {
+354             if (_contentLoaded) {
+355                 return;
+356             }
+357             _contentLoaded = true;
+358             System\&.Uri resourceLocater = new System\&.Uri("/Emulator;component/mainwindow\&.xaml", System\&.UriKind\&.Relative);
+359             
+360             #line 1 "\&.\&.\\&.\&.\\&.\&.\MainWindow\&.xaml"
+361             System\&.Windows\&.Application\&.LoadComponent(this, resourceLocater);
+362             
+363             #line default
+364             #line hidden
+365         }
+.fi
+.SS "void Emulator\&.MainWindow\&.LoadFile (Object sender, EventArgs e)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB31\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+32         {
+33             Messenger\&.Default\&.Send(new NotificationMessage("LoadFile"));
+34         }
+.fi
+.SS "void Emulator\&.MainWindow\&.NotificationMessageReceived (NotificationMessage notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB46\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+47         {
+48             if (notificationMessage\&.Notification == "CloseWindow")
+49             {
+50                 Close();
+51             }
+52         }
+.fi
+.SS "void Emulator\&.MainWindow\&.NotificationMessageReceived (NotificationMessage< \fBSettingsModel\fP > notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB63\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+64         {
+65             if (notificationMessage\&.Notification == "SettingsWindow")
+66             {
+67                 var settingsFile = new Settings { DataContext = new SettingsViewModel(notificationMessage\&.Content) };
+68                 settingsFile\&.ShowDialog();
+69             }
+70         }
+.fi
+.SS "void Emulator\&.MainWindow\&.NotificationMessageReceived (NotificationMessage< \fBStateFileModel\fP > notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB54\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+55         {
+56             if (notificationMessage\&.Notification == "SaveFileWindow")
+57             {
+58                 var saveFile = new SaveFile { DataContext = new SaveFileViewModel(notificationMessage\&.Content) };
+59                 saveFile\&.ShowDialog();
+60             }
+61         }
+.fi
+.SS "void Emulator\&.MainWindow\&.SaveFile (Object sender, EventArgs e)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB36\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+37         {
+38             Messenger\&.Default\&.Send(new NotificationMessage("SaveState"));
+39         }
+.fi
+.SS "void Emulator\&.MainWindow\&.ToClose (Object sender, EventArgs e)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB26\fP of file \fBMainWindow\&.xaml\&.cs\fP\&.
+.PP
+.nf
+27         {
+28             Close();
+29         }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Emulator\&.MainWindow\&._contentLoaded\fC [private]\fP"
+
+.PP
+Definition at line \fB346\fP of file \fBMainWindow\&.g\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

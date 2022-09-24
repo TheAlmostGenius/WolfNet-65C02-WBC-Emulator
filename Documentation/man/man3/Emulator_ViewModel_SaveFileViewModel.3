@@ -1,0 +1,222 @@
+.TH "Emulator.ViewModel.SaveFileViewModel" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.ViewModel.SaveFileViewModel \- The \fBViewModel\fP Used by the SaveFileView   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ViewModelBase\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSaveFileViewModel\fP ()"
+.br
+.RI "Instantiates a new instance of the \fBSaveFileViewModel\fP\&. This is used by the IOC to create the default instance\&.  "
+.ti -1c
+.RI "\fBSaveFileViewModel\fP (\fBStateFileModel\fP stateFileModel)"
+.br
+.RI "Instantiates a new instance of the \fBSaveFileViewModel\fP  "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "RelayCommand \fBSaveFileCommand\fP\fC [get, set]\fP"
+.br
+.RI "The Relay Command called when saving a file  "
+.ti -1c
+.RI "RelayCommand \fBCloseCommand\fP\fC [get, set]\fP"
+.br
+.RI "The Relay Command called when closing a file  "
+.ti -1c
+.RI "RelayCommand \fBSelectFileCommand\fP\fC [get, set]\fP"
+.br
+.RI "The Relay Command called when Selecting a file  "
+.ti -1c
+.RI "string \fBFilename\fP\fC [get, set]\fP"
+.br
+.RI "The file to be saved  "
+.ti -1c
+.RI "bool \fBSaveEnabled\fP\fC [get]\fP"
+.br
+.RI "Tells the UI that that a file has been selected and can be saved\&.  "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSave\fP ()"
+.br
+.ti -1c
+.RI "void \fBSelect\fP ()"
+.br
+.in -1c
+.SS "Static Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBClose\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "readonly \fBStateFileModel\fP \fB_stateFileModel\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBViewModel\fP Used by the SaveFileView  
+.PP
+Definition at line \fB15\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.ViewModel\&.SaveFileViewModel\&.SaveFileViewModel ()\fC [inline]\fP"
+
+.PP
+Instantiates a new instance of the \fBSaveFileViewModel\fP\&. This is used by the IOC to create the default instance\&.  
+.PP
+Definition at line \fB51\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+52         {
+53 
+54         }
+.fi
+.SS "Emulator\&.ViewModel\&.SaveFileViewModel\&.SaveFileViewModel (\fBStateFileModel\fP stateFileModel)\fC [inline]\fP"
+
+.PP
+Instantiates a new instance of the \fBSaveFileViewModel\fP  
+.PP
+\fBParameters\fP
+.RS 4
+\fIstateFileModel\fP The StateFileModel to be serialized to a file
+.RE
+.PP
+
+.PP
+Definition at line \fB60\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+61         {
+62             SaveFileCommand = new RelayCommand(Save);
+63             CloseCommand = new RelayCommand(Close);
+64             SelectFileCommand = new RelayCommand(Select);
+65             _stateFileModel = stateFileModel;
+66         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "static void Emulator\&.ViewModel\&.SaveFileViewModel\&.Close ()\fC [inline]\fP, \fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB80\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+81         {
+82             Messenger\&.Default\&.Send(new NotificationMessage("CloseSaveFileWindow"));
+83         }
+.fi
+.SS "void Emulator\&.ViewModel\&.SaveFileViewModel\&.Save ()\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB70\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+71         {
+72             var formatter = new BinaryFormatter();
+73             Stream stream = new FileStream(Filename, FileMode\&.Create, FileAccess\&.Write, FileShare\&.None);
+74             formatter\&.Serialize(stream, _stateFileModel);
+75             stream\&.Close();
+76 
+77             Close();
+78         }
+.fi
+.SS "void Emulator\&.ViewModel\&.SaveFileViewModel\&.Select ()\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB85\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+86         {
+87             var dialog = new SaveFileDialog { DefaultExt = "\&.6502", Filter = "WolfNet W65C02 Emulator Save State (*\&.6502)|*\&.6502" };
+88 
+89             var result = dialog\&.ShowDialog();
+90 
+91             if (result != true)
+92                 return;
+93 
+94             Filename = dialog\&.FileName;
+95             RaisePropertyChanged("Filename");
+96             RaisePropertyChanged("SaveEnabled");
+97 
+98         }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "readonly \fBStateFileModel\fP Emulator\&.ViewModel\&.SaveFileViewModel\&._stateFileModel\fC [private]\fP"
+
+.PP
+Definition at line \fB17\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "RelayCommand Emulator\&.ViewModel\&.SaveFileViewModel\&.CloseCommand\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Relay Command called when closing a file  
+.PP
+Definition at line \fB28\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+28 { get; set; }
+.fi
+.SS "string Emulator\&.ViewModel\&.SaveFileViewModel\&.Filename\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The file to be saved  
+.PP
+Definition at line \fB38\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+38 { get; set; }
+.fi
+.SS "bool Emulator\&.ViewModel\&.SaveFileViewModel\&.SaveEnabled\fC [get]\fP"
+
+.PP
+Tells the UI that that a file has been selected and can be saved\&.  
+.PP
+Definition at line \fB43\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+43 { get { return !string\&.IsNullOrEmpty(Filename); }}
+.fi
+.SS "RelayCommand Emulator\&.ViewModel\&.SaveFileViewModel\&.SaveFileCommand\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Relay Command called when saving a file  
+.PP
+Definition at line \fB23\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+23 { get; set; }
+.fi
+.SS "RelayCommand Emulator\&.ViewModel\&.SaveFileViewModel\&.SelectFileCommand\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Relay Command called when Selecting a file  
+.PP
+Definition at line \fB33\fP of file \fBSaveFileViewModel\&.cs\fP\&.
+.PP
+.nf
+33 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

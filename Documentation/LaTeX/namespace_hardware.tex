@@ -1,0 +1,122 @@
+\hypertarget{namespace_hardware}{}\doxysubsection{Hardware Namespace Reference}
+\label{namespace_hardware}\index{Hardware@{Hardware}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x}{AT28\+CXX}}
+\begin{DoxyCompactList}\small\item\em An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} Processor.  \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_hardware_1_1_disassembly}{Disassembly}}
+\begin{DoxyCompactList}\small\item\em Used to help simulating. This class contains the disassembly properties.  \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}
+\item 
+class \mbox{\hyperlink{class_hardware_1_1_memory_map}{Memory\+Map}}
+\item 
+class \mbox{\hyperlink{class_hardware_1_1_utility}{Utility}}
+\item 
+class \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}}
+\begin{DoxyCompactList}\small\item\em An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} Processor.  \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65\+C22}}
+\begin{DoxyCompactList}\small\item\em An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65\+C22}} VIA.  \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65\+C51}}
+\begin{DoxyCompactList}\small\item\em An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65\+C51}} ACIA.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_a20ed8885928dd1f3f9eac50507a162fc}{Addressing\+Mode}} 
+\begin{DoxyCompactList}\small\item\em The addressing modes used by the 6502 Processor  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_a20ed8885928dd1f3f9eac50507a162fc}\label{namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_a20ed8885928dd1f3f9eac50507a162fc}} 
+\index{Hardware@{Hardware}!AddressingMode@{AddressingMode}}
+\index{AddressingMode@{AddressingMode}!Hardware@{Hardware}}
+\doxyparagraph{\texorpdfstring{AddressingMode}{AddressingMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_a20ed8885928dd1f3f9eac50507a162fc}{Hardware.\+Addressing\+Mode}}}
+
+
+
+The addressing modes used by the 6502 Processor  
+
+
+
+Definition at line \mbox{\hyperlink{_addressing_mode_8cs_source_l00006}{6}} of file \mbox{\hyperlink{_addressing_mode_8cs_source}{Addressing\+Mode.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00007     \{\textcolor{comment}{}}
+\DoxyCodeLine{00008 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00009 \textcolor{comment}{        /// In this mode a full address is given to operation on IE: Memory byte[] \{ 0x60, 0x00, 0xFF \} }}
+\DoxyCodeLine{00010 \textcolor{comment}{        /// would perform an ADC operation and Add the value at ADDRESS 0xFF00 to the accumulator.}}
+\DoxyCodeLine{00011 \textcolor{comment}{        /// The address is always LSB first}}
+\DoxyCodeLine{00012 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00013 \textcolor{comment}{}        Absolute = 1,\textcolor{comment}{}}
+\DoxyCodeLine{00014 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00015 \textcolor{comment}{        /// In this mode a full address is given to operation on IE: Memory byte[] \{ 0x7D, 0x00, 0xFF \} The full value would then be added to the X Register.}}
+\DoxyCodeLine{00016 \textcolor{comment}{        /// If the X register was 0x01 then the address would be 0xFF01. and the value stored there would have an ADC operation performed on it and the value would}}
+\DoxyCodeLine{00017 \textcolor{comment}{        /// be added to the accumulator.}}
+\DoxyCodeLine{00018 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00019 \textcolor{comment}{}        AbsoluteX = 2,\textcolor{comment}{}}
+\DoxyCodeLine{00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00021 \textcolor{comment}{        /// In this mode a full address is given to operation on IE: Memory byte[] \{ 0x79, 0x00, 0xFF \} The full value would then be added to the Y Register.}}
+\DoxyCodeLine{00022 \textcolor{comment}{        /// If the Y register was 0x01 then the address would be 0xFF01. and the value stored there would have an ADC operation performed on it and the value would}}
+\DoxyCodeLine{00023 \textcolor{comment}{        /// be added to the accumulator}}
+\DoxyCodeLine{00024 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00025 \textcolor{comment}{}        AbsoluteY = 3,\textcolor{comment}{}}
+\DoxyCodeLine{00026 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00027 \textcolor{comment}{        /// In this mode the instruction operates on the accumulator. No operands are needed. }}
+\DoxyCodeLine{00028 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00029 \textcolor{comment}{}        Accumulator = 4,\textcolor{comment}{}}
+\DoxyCodeLine{00030 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00031 \textcolor{comment}{        /// In this mode, the value to operate on immediately follows the instruction. IE: Memory byte[] \{ 0x69, 0x01 \} }}
+\DoxyCodeLine{00032 \textcolor{comment}{        /// would perform an ADC operation and Add 0x01 directly to the accumulator}}
+\DoxyCodeLine{00033 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00034 \textcolor{comment}{}        Immediate = 5,\textcolor{comment}{}}
+\DoxyCodeLine{00035 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00036 \textcolor{comment}{        /// No address is needed for this mode. EX: BRK (Break), CLC (Clear Carry Flag) etc}}
+\DoxyCodeLine{00037 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00038 \textcolor{comment}{}        Implied = 6,\textcolor{comment}{}}
+\DoxyCodeLine{00039 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00040 \textcolor{comment}{        /// In this mode assume the following}}
+\DoxyCodeLine{00041 \textcolor{comment}{        /// Memory = \{ 0x61, 0x02, 0x04, 0x00, 0x03 \}}}
+\DoxyCodeLine{00042 \textcolor{comment}{        /// RegisterX = 0x01}}
+\DoxyCodeLine{00043 \textcolor{comment}{        /// 1. Take the sum of the X Register and the value after the opcode 0x01 + 0x01 = 0x02. }}
+\DoxyCodeLine{00044 \textcolor{comment}{        /// 2. Starting at position 0x02 get an address (0x04,0x00) = 0x0004}}
+\DoxyCodeLine{00045 \textcolor{comment}{        /// 3. Perform the ADC operation and Add the value at 0x0005 to the accumulator}}
+\DoxyCodeLine{00046 \textcolor{comment}{        /// Note: if the Zero Page address is greater than 0xff then roll over the value. IE 0x101 rolls over to 0x01}}
+\DoxyCodeLine{00047 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00048 \textcolor{comment}{}        IndirectX = 7,\textcolor{comment}{}}
+\DoxyCodeLine{00049 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00050 \textcolor{comment}{        /// In this mode assume the following}}
+\DoxyCodeLine{00051 \textcolor{comment}{        /// Memory = \{ 0x61, 0x02, 0x04, 0x00, 0x03 \}}}
+\DoxyCodeLine{00052 \textcolor{comment}{        /// RegisterY = 0x01}}
+\DoxyCodeLine{00053 \textcolor{comment}{        /// 1. Starting at position 0x02 get an address (0x04,0x00) = 0x0004 }}
+\DoxyCodeLine{00054 \textcolor{comment}{        /// 2. Take the sum of the Y Register and the absolute address 0x01+0x0004 = 0x0005}}
+\DoxyCodeLine{00055 \textcolor{comment}{        /// 3. Perform the ADC operation and Add the value at 0x0005 to the accumulator}}
+\DoxyCodeLine{00056 \textcolor{comment}{        /// Note: if the address is great that 0xffff then roll over IE: 0x10001 rolls over to 0x01}}
+\DoxyCodeLine{00057 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00058 \textcolor{comment}{}        IndirectY = 8,\textcolor{comment}{}}
+\DoxyCodeLine{00059 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00060 \textcolor{comment}{        /// JMP is the only operation that uses this mode. In this mode an absolute address is specified that points to the location of the absolute address we want to jump to.}}
+\DoxyCodeLine{00061 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00062 \textcolor{comment}{}        Indirect = 9,\textcolor{comment}{}}
+\DoxyCodeLine{00063 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00064 \textcolor{comment}{        /// This Mode Changes the PC. It allows the program to change the location of the PC by 127 in either direction.}}
+\DoxyCodeLine{00065 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00066 \textcolor{comment}{}        Relative = 10,\textcolor{comment}{}}
+\DoxyCodeLine{00067 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00068 \textcolor{comment}{        /// In this mode, a zero page address of the value to operate on is specified. This mode can only operation on values between 0x0 and 0xFF, or those that sit on the zero page of memory. IE: Memory byte[] \{ 0x69, 0x02, 0x01 \} }}
+\DoxyCodeLine{00069 \textcolor{comment}{        /// would perform an ADC operation and Add 0x01 directly to the Accumulator}}
+\DoxyCodeLine{00070 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00071 \textcolor{comment}{}        ZeroPage = 11,\textcolor{comment}{}}
+\DoxyCodeLine{00072 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00073 \textcolor{comment}{        /// In this mode, a zero page address of the value to operate on is specified, however the value of the X register is added to the address IE: Memory byte[] \{ 0x86, 0x02, 0x01, 0x67, 0x04, 0x01 \} }}
+\DoxyCodeLine{00074 \textcolor{comment}{        /// In this example we store a value of 0x01 into the X register, then we would perform an ADC operation using the addres of 0x04+0x01=0x05 and Add the result of 0x01 directly to the Accumulator}}
+\DoxyCodeLine{00075 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00076 \textcolor{comment}{}        ZeroPageX = 12,\textcolor{comment}{}}
+\DoxyCodeLine{00077 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{00078 \textcolor{comment}{        /// This works the same as ZeroPageX except it uses the Y register instead of the X register.}}
+\DoxyCodeLine{00079 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{00080 \textcolor{comment}{}        ZeroPageY = 13,}
+\DoxyCodeLine{00081     \}}
+
+\end{DoxyCode}

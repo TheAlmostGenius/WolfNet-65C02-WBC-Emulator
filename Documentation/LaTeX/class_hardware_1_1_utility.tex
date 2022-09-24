@@ -1,0 +1,366 @@
+\hypertarget{class_hardware_1_1_utility}{}\doxysubsection{Hardware.\+Utility Class Reference}
+\label{class_hardware_1_1_utility}\index{Hardware.Utility@{Hardware.Utility}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static string \mbox{\hyperlink{class_hardware_1_1_utility_a93aca4919b99624302f1761718856dfc_a93aca4919b99624302f1761718856dfc}{Convert\+Op\+Code\+Into\+String}} (this int i)
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_utility_8cs_source_l00005}{5}} of file \mbox{\hyperlink{_utility_8cs_source}{Utility.\+cs}}.
+
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_utility_a93aca4919b99624302f1761718856dfc_a93aca4919b99624302f1761718856dfc}\label{class_hardware_1_1_utility_a93aca4919b99624302f1761718856dfc_a93aca4919b99624302f1761718856dfc}} 
+\index{Hardware.Utility@{Hardware.Utility}!ConvertOpCodeIntoString@{ConvertOpCodeIntoString}}
+\index{ConvertOpCodeIntoString@{ConvertOpCodeIntoString}!Hardware.Utility@{Hardware.Utility}}
+\doxyparagraph{\texorpdfstring{ConvertOpCodeIntoString()}{ConvertOpCodeIntoString()}}
+{\footnotesize\ttfamily static string Hardware.\+Utility.\+Convert\+Op\+Code\+Into\+String (\begin{DoxyParamCaption}\item[{this int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_utility_8cs_source_l00007}{7}} of file \mbox{\hyperlink{_utility_8cs_source}{Utility.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00008         \{}
+\DoxyCodeLine{00009             \textcolor{keywordflow}{switch} (i)}
+\DoxyCodeLine{00010             \{}
+\DoxyCodeLine{00011                 \textcolor{keywordflow}{case} 0x69:  \textcolor{comment}{// ADC Immediate}}
+\DoxyCodeLine{00012                 \textcolor{keywordflow}{case} 0x65:  \textcolor{comment}{// ADC Zero Page}}
+\DoxyCodeLine{00013                 \textcolor{keywordflow}{case} 0x75:  \textcolor{comment}{// ADC Zero Page X}}
+\DoxyCodeLine{00014                 \textcolor{keywordflow}{case} 0x6D:  \textcolor{comment}{// ADC Absolute}}
+\DoxyCodeLine{00015                 \textcolor{keywordflow}{case} 0x7D:  \textcolor{comment}{// ADC Absolute X}}
+\DoxyCodeLine{00016                 \textcolor{keywordflow}{case} 0x79:  \textcolor{comment}{// ADC Absolute Y}}
+\DoxyCodeLine{00017                 \textcolor{keywordflow}{case} 0x61:  \textcolor{comment}{// ADC Indrect X}}
+\DoxyCodeLine{00018                 \textcolor{keywordflow}{case} 0x71:  \textcolor{comment}{// ADC Indirect Y}}
+\DoxyCodeLine{00019                     \{}
+\DoxyCodeLine{00020                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ADC"{}};}
+\DoxyCodeLine{00021                     \}}
+\DoxyCodeLine{00022                 \textcolor{keywordflow}{case} 0x29:  \textcolor{comment}{// AND Immediate}}
+\DoxyCodeLine{00023                 \textcolor{keywordflow}{case} 0x25:  \textcolor{comment}{// AND Zero Page}}
+\DoxyCodeLine{00024                 \textcolor{keywordflow}{case} 0x35:  \textcolor{comment}{// AND Zero Page X}}
+\DoxyCodeLine{00025                 \textcolor{keywordflow}{case} 0x2D:  \textcolor{comment}{// AND Absolute}}
+\DoxyCodeLine{00026                 \textcolor{keywordflow}{case} 0x3D:  \textcolor{comment}{// AND Absolute X}}
+\DoxyCodeLine{00027                 \textcolor{keywordflow}{case} 0x39:  \textcolor{comment}{// AND Absolute Y}}
+\DoxyCodeLine{00028                 \textcolor{keywordflow}{case} 0x21:  \textcolor{comment}{// AND Indirect X}}
+\DoxyCodeLine{00029                 \textcolor{keywordflow}{case} 0x31:  \textcolor{comment}{// AND Indirect Y}}
+\DoxyCodeLine{00030                     \{}
+\DoxyCodeLine{00031                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}AND"{}};}
+\DoxyCodeLine{00032                     \}}
+\DoxyCodeLine{00033                 \textcolor{keywordflow}{case} 0x0A:  \textcolor{comment}{// ASL Accumulator}}
+\DoxyCodeLine{00034                 \textcolor{keywordflow}{case} 0x06:  \textcolor{comment}{// ASL Zero Page}}
+\DoxyCodeLine{00035                 \textcolor{keywordflow}{case} 0x16:  \textcolor{comment}{// ASL Zero Page X}}
+\DoxyCodeLine{00036                 \textcolor{keywordflow}{case} 0x0E:  \textcolor{comment}{// ASL Absolute}}
+\DoxyCodeLine{00037                 \textcolor{keywordflow}{case} 0x1E:  \textcolor{comment}{// ASL Absolute X}}
+\DoxyCodeLine{00038                     \{}
+\DoxyCodeLine{00039                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ASL"{}};}
+\DoxyCodeLine{00040                     \}}
+\DoxyCodeLine{00041                 \textcolor{keywordflow}{case} 0x90:  \textcolor{comment}{// BCC Relative}}
+\DoxyCodeLine{00042                     \{}
+\DoxyCodeLine{00043                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BCC"{}};}
+\DoxyCodeLine{00044                     \}}
+\DoxyCodeLine{00045                 \textcolor{keywordflow}{case} 0xB0:  \textcolor{comment}{// BCS Relative}}
+\DoxyCodeLine{00046                     \{}
+\DoxyCodeLine{00047                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BCS"{}};}
+\DoxyCodeLine{00048                     \}}
+\DoxyCodeLine{00049                 \textcolor{keywordflow}{case} 0xF0:  \textcolor{comment}{// BEQ Relative}}
+\DoxyCodeLine{00050                     \{}
+\DoxyCodeLine{00051                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BEQ"{}};}
+\DoxyCodeLine{00052                     \}}
+\DoxyCodeLine{00053                 \textcolor{keywordflow}{case} 0x24:  \textcolor{comment}{// BIT Zero Page    }}
+\DoxyCodeLine{00054                 \textcolor{keywordflow}{case} 0x2C:  \textcolor{comment}{// BIT Absolute}}
+\DoxyCodeLine{00055                     \{}
+\DoxyCodeLine{00056                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BIT"{}};}
+\DoxyCodeLine{00057                     \}}
+\DoxyCodeLine{00058                 \textcolor{keywordflow}{case} 0x30:  \textcolor{comment}{// BMI Relative}}
+\DoxyCodeLine{00059                     \{}
+\DoxyCodeLine{00060                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BMI"{}};}
+\DoxyCodeLine{00061                     \}}
+\DoxyCodeLine{00062                 \textcolor{keywordflow}{case} 0xD0:  \textcolor{comment}{// BNE Relative}}
+\DoxyCodeLine{00063                     \{}
+\DoxyCodeLine{00064                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BNE"{}};}
+\DoxyCodeLine{00065                     \}}
+\DoxyCodeLine{00066                 \textcolor{keywordflow}{case} 0x10:  \textcolor{comment}{// BPL Relative}}
+\DoxyCodeLine{00067                     \{}
+\DoxyCodeLine{00068                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BPL"{}};}
+\DoxyCodeLine{00069                     \}}
+\DoxyCodeLine{00070                 \textcolor{keywordflow}{case} 0x00:  \textcolor{comment}{// BRK Implied}}
+\DoxyCodeLine{00071                     \{}
+\DoxyCodeLine{00072                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BRK"{}};}
+\DoxyCodeLine{00073                     \}}
+\DoxyCodeLine{00074                 \textcolor{keywordflow}{case} 0x50: \textcolor{comment}{// BVC Relative}}
+\DoxyCodeLine{00075                     \{}
+\DoxyCodeLine{00076                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BCV"{}};}
+\DoxyCodeLine{00077                     \}}
+\DoxyCodeLine{00078                 \textcolor{keywordflow}{case} 0x70: \textcolor{comment}{//BVS Relative}}
+\DoxyCodeLine{00079                     \{}
+\DoxyCodeLine{00080                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BVS"{}};}
+\DoxyCodeLine{00081                     \}}
+\DoxyCodeLine{00082                 \textcolor{keywordflow}{case} 0x18:  \textcolor{comment}{// CLC Implied}}
+\DoxyCodeLine{00083                     \{}
+\DoxyCodeLine{00084                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLC"{}};}
+\DoxyCodeLine{00085                     \}}
+\DoxyCodeLine{00086                 \textcolor{keywordflow}{case} 0xD8:  \textcolor{comment}{// CLD Implied}}
+\DoxyCodeLine{00087                     \{}
+\DoxyCodeLine{00088                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLD"{}};}
+\DoxyCodeLine{00089                     \}}
+\DoxyCodeLine{00090                 \textcolor{keywordflow}{case} 0x58:  \textcolor{comment}{// CLI Implied}}
+\DoxyCodeLine{00091                     \{}
+\DoxyCodeLine{00092                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLI"{}};}
+\DoxyCodeLine{00093                     \}}
+\DoxyCodeLine{00094                 \textcolor{keywordflow}{case} 0xB8:  \textcolor{comment}{// CLV Implied}}
+\DoxyCodeLine{00095                     \{}
+\DoxyCodeLine{00096                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLV"{}};}
+\DoxyCodeLine{00097                     \}}
+\DoxyCodeLine{00098                 \textcolor{keywordflow}{case} 0xC9:  \textcolor{comment}{// CMP Immediate}}
+\DoxyCodeLine{00099                 \textcolor{keywordflow}{case} 0xC5:  \textcolor{comment}{// CMP ZeroPage}}
+\DoxyCodeLine{00100                 \textcolor{keywordflow}{case} 0xD5:  \textcolor{comment}{// CMP Zero Page X}}
+\DoxyCodeLine{00101                 \textcolor{keywordflow}{case} 0xCD:  \textcolor{comment}{// CMP Absolute}}
+\DoxyCodeLine{00102                 \textcolor{keywordflow}{case} 0xDD:  \textcolor{comment}{// CMP Absolute X}}
+\DoxyCodeLine{00103                 \textcolor{keywordflow}{case} 0xD9:  \textcolor{comment}{// CMP Absolute Y}}
+\DoxyCodeLine{00104                 \textcolor{keywordflow}{case} 0xC1:  \textcolor{comment}{// CMP Indirect X}}
+\DoxyCodeLine{00105                 \textcolor{keywordflow}{case} 0xD1:  \textcolor{comment}{// CMP Indirect Y}}
+\DoxyCodeLine{00106                     \{}
+\DoxyCodeLine{00107                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CMP"{}};}
+\DoxyCodeLine{00108                     \}}
+\DoxyCodeLine{00109                 \textcolor{keywordflow}{case} 0xE0:  \textcolor{comment}{// CPX Immediate}}
+\DoxyCodeLine{00110                 \textcolor{keywordflow}{case} 0xE4:  \textcolor{comment}{// CPX ZeroPage}}
+\DoxyCodeLine{00111                 \textcolor{keywordflow}{case} 0xEC:  \textcolor{comment}{// CPX Absolute}}
+\DoxyCodeLine{00112                     \{}
+\DoxyCodeLine{00113                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CPX"{}};}
+\DoxyCodeLine{00114                     \}}
+\DoxyCodeLine{00115                 \textcolor{keywordflow}{case} 0xC0:  \textcolor{comment}{// CPY Immediate}}
+\DoxyCodeLine{00116                 \textcolor{keywordflow}{case} 0xC4:  \textcolor{comment}{// CPY ZeroPage}}
+\DoxyCodeLine{00117                 \textcolor{keywordflow}{case} 0xCC:  \textcolor{comment}{// CPY Absolute}}
+\DoxyCodeLine{00118                     \{}
+\DoxyCodeLine{00119                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CPY"{}};}
+\DoxyCodeLine{00120                     \}}
+\DoxyCodeLine{00121                 \textcolor{keywordflow}{case} 0xC6:  \textcolor{comment}{// DEC Zero Page}}
+\DoxyCodeLine{00122                 \textcolor{keywordflow}{case} 0xD6:  \textcolor{comment}{// DEC Zero Page X}}
+\DoxyCodeLine{00123                 \textcolor{keywordflow}{case} 0xCE:  \textcolor{comment}{// DEC Absolute}}
+\DoxyCodeLine{00124                 \textcolor{keywordflow}{case} 0xDE:  \textcolor{comment}{// DEC Absolute X}}
+\DoxyCodeLine{00125                     \{}
+\DoxyCodeLine{00126                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DEC"{}};}
+\DoxyCodeLine{00127                     \}}
+\DoxyCodeLine{00128                 \textcolor{keywordflow}{case} 0xCA:  \textcolor{comment}{// DEX Implied}}
+\DoxyCodeLine{00129                     \{}
+\DoxyCodeLine{00130                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DEX"{}};}
+\DoxyCodeLine{00131                     \}}
+\DoxyCodeLine{00132                 \textcolor{keywordflow}{case} 0x88:  \textcolor{comment}{// DEY Implied}}
+\DoxyCodeLine{00133                     \{}
+\DoxyCodeLine{00134                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DEY"{}};}
+\DoxyCodeLine{00135                     \}}
+\DoxyCodeLine{00136                 \textcolor{keywordflow}{case} 0x49:  \textcolor{comment}{// EOR Immediate}}
+\DoxyCodeLine{00137                 \textcolor{keywordflow}{case} 0x45:  \textcolor{comment}{// EOR Zero Page}}
+\DoxyCodeLine{00138                 \textcolor{keywordflow}{case} 0x55:  \textcolor{comment}{// EOR Zero Page X}}
+\DoxyCodeLine{00139                 \textcolor{keywordflow}{case} 0x4D:  \textcolor{comment}{// EOR Absolute}}
+\DoxyCodeLine{00140                 \textcolor{keywordflow}{case} 0x5D:  \textcolor{comment}{// EOR Absolute X}}
+\DoxyCodeLine{00141                 \textcolor{keywordflow}{case} 0x59:  \textcolor{comment}{// EOR Absolute Y}}
+\DoxyCodeLine{00142                 \textcolor{keywordflow}{case} 0x41:  \textcolor{comment}{// EOR Indrect X}}
+\DoxyCodeLine{00143                 \textcolor{keywordflow}{case} 0x51:  \textcolor{comment}{// EOR Indirect Y}}
+\DoxyCodeLine{00144                     \{}
+\DoxyCodeLine{00145                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EOR"{}};}
+\DoxyCodeLine{00146                     \}}
+\DoxyCodeLine{00147                 \textcolor{keywordflow}{case} 0xE6:  \textcolor{comment}{// INC Zero Page}}
+\DoxyCodeLine{00148                 \textcolor{keywordflow}{case} 0xF6:  \textcolor{comment}{// INC Zero Page X}}
+\DoxyCodeLine{00149                     \{}
+\DoxyCodeLine{00150                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INC"{}};}
+\DoxyCodeLine{00151                     \}}
+\DoxyCodeLine{00152                 \textcolor{keywordflow}{case} 0xE8:  \textcolor{comment}{// INX Implied}}
+\DoxyCodeLine{00153                     \{}
+\DoxyCodeLine{00154                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INX"{}};}
+\DoxyCodeLine{00155                     \}}
+\DoxyCodeLine{00156                 \textcolor{keywordflow}{case} 0xC8:  \textcolor{comment}{// INY Implied}}
+\DoxyCodeLine{00157                     \{}
+\DoxyCodeLine{00158                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INY"{}};}
+\DoxyCodeLine{00159                     \}}
+\DoxyCodeLine{00160                 \textcolor{keywordflow}{case} 0xEE:  \textcolor{comment}{// INC Absolute}}
+\DoxyCodeLine{00161                 \textcolor{keywordflow}{case} 0xFE:  \textcolor{comment}{// INC Absolute X}}
+\DoxyCodeLine{00162                     \{}
+\DoxyCodeLine{00163                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INC"{}};}
+\DoxyCodeLine{00164                     \}}
+\DoxyCodeLine{00165                 \textcolor{keywordflow}{case} 0x4C:  \textcolor{comment}{// JMP Absolute}}
+\DoxyCodeLine{00166                 \textcolor{keywordflow}{case} 0x6C:  \textcolor{comment}{// JMP Indirect}}
+\DoxyCodeLine{00167                     \{}
+\DoxyCodeLine{00168                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}JMP"{}};}
+\DoxyCodeLine{00169                     \}}
+\DoxyCodeLine{00170                 \textcolor{keywordflow}{case} 0x20:  \textcolor{comment}{// JSR Absolute}}
+\DoxyCodeLine{00171                     \{}
+\DoxyCodeLine{00172                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}JSR"{}};}
+\DoxyCodeLine{00173                     \}}
+\DoxyCodeLine{00174                 \textcolor{keywordflow}{case} 0xA9:  \textcolor{comment}{// LDA Immediate}}
+\DoxyCodeLine{00175                 \textcolor{keywordflow}{case} 0xA5:  \textcolor{comment}{// LDA Zero Page}}
+\DoxyCodeLine{00176                 \textcolor{keywordflow}{case} 0xB5:  \textcolor{comment}{// LDA Zero Page X}}
+\DoxyCodeLine{00177                 \textcolor{keywordflow}{case} 0xAD:  \textcolor{comment}{// LDA Absolute}}
+\DoxyCodeLine{00178                 \textcolor{keywordflow}{case} 0xBD:  \textcolor{comment}{// LDA Absolute X}}
+\DoxyCodeLine{00179                 \textcolor{keywordflow}{case} 0xB9:  \textcolor{comment}{// LDA Absolute Y}}
+\DoxyCodeLine{00180                 \textcolor{keywordflow}{case} 0xA1:  \textcolor{comment}{// LDA Indirect X}}
+\DoxyCodeLine{00181                 \textcolor{keywordflow}{case} 0xB1:  \textcolor{comment}{// LDA Indirect Y}}
+\DoxyCodeLine{00182                     \{}
+\DoxyCodeLine{00183                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LDA"{}};}
+\DoxyCodeLine{00184                     \}}
+\DoxyCodeLine{00185                 \textcolor{keywordflow}{case} 0xA2:  \textcolor{comment}{// LDX Immediate}}
+\DoxyCodeLine{00186                 \textcolor{keywordflow}{case} 0xA6:  \textcolor{comment}{// LDX Zero Page}}
+\DoxyCodeLine{00187                 \textcolor{keywordflow}{case} 0xB6:  \textcolor{comment}{// LDX Zero Page Y}}
+\DoxyCodeLine{00188                 \textcolor{keywordflow}{case} 0xAE:  \textcolor{comment}{// LDX Absolute}}
+\DoxyCodeLine{00189                 \textcolor{keywordflow}{case} 0xBE:  \textcolor{comment}{// LDX Absolute Y}}
+\DoxyCodeLine{00190                     \{}
+\DoxyCodeLine{00191                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LDX"{}};}
+\DoxyCodeLine{00192                     \}}
+\DoxyCodeLine{00193                 \textcolor{keywordflow}{case} 0xA0:  \textcolor{comment}{// LDY Immediate}}
+\DoxyCodeLine{00194                 \textcolor{keywordflow}{case} 0xA4:  \textcolor{comment}{// LDY Zero Page}}
+\DoxyCodeLine{00195                 \textcolor{keywordflow}{case} 0xB4:  \textcolor{comment}{// LDY Zero Page Y}}
+\DoxyCodeLine{00196                 \textcolor{keywordflow}{case} 0xAC:  \textcolor{comment}{// LDY Absolute}}
+\DoxyCodeLine{00197                 \textcolor{keywordflow}{case} 0xBC:  \textcolor{comment}{// LDY Absolute Y}}
+\DoxyCodeLine{00198                     \{}
+\DoxyCodeLine{00199                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LDY"{}};}
+\DoxyCodeLine{00200                     \}}
+\DoxyCodeLine{00201                 \textcolor{keywordflow}{case} 0x4A:  \textcolor{comment}{// LSR Accumulator}}
+\DoxyCodeLine{00202                 \textcolor{keywordflow}{case} 0x46:  \textcolor{comment}{// LSR Zero Page}}
+\DoxyCodeLine{00203                 \textcolor{keywordflow}{case} 0x56:  \textcolor{comment}{// LSR Zero Page X}}
+\DoxyCodeLine{00204                 \textcolor{keywordflow}{case} 0x4E:  \textcolor{comment}{// LSR Absolute}}
+\DoxyCodeLine{00205                 \textcolor{keywordflow}{case} 0x5E:  \textcolor{comment}{// LSR Absolute X}}
+\DoxyCodeLine{00206                     \{}
+\DoxyCodeLine{00207                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LSR"{}};}
+\DoxyCodeLine{00208                     \}}
+\DoxyCodeLine{00209                 \textcolor{keywordflow}{case} 0xEA:  \textcolor{comment}{// NOP Implied}}
+\DoxyCodeLine{00210                     \{}
+\DoxyCodeLine{00211                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}NOP"{}};}
+\DoxyCodeLine{00212                     \}}
+\DoxyCodeLine{00213                 \textcolor{keywordflow}{case} 0x09:  \textcolor{comment}{// ORA Immediate}}
+\DoxyCodeLine{00214                 \textcolor{keywordflow}{case} 0x05:  \textcolor{comment}{// ORA Zero Page}}
+\DoxyCodeLine{00215                 \textcolor{keywordflow}{case} 0x15:  \textcolor{comment}{// ORA Zero Page X}}
+\DoxyCodeLine{00216                 \textcolor{keywordflow}{case} 0x0D:  \textcolor{comment}{// ORA Absolute}}
+\DoxyCodeLine{00217                 \textcolor{keywordflow}{case} 0x1D:  \textcolor{comment}{// ORA Absolute X}}
+\DoxyCodeLine{00218                 \textcolor{keywordflow}{case} 0x19:  \textcolor{comment}{// ORA Absolute Y}}
+\DoxyCodeLine{00219                 \textcolor{keywordflow}{case} 0x01:  \textcolor{comment}{// ORA Indirect X}}
+\DoxyCodeLine{00220                 \textcolor{keywordflow}{case} 0x11:  \textcolor{comment}{// ORA Indirect Y}}
+\DoxyCodeLine{00221                     \{}
+\DoxyCodeLine{00222                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ORA"{}};}
+\DoxyCodeLine{00223                     \}}
+\DoxyCodeLine{00224                 \textcolor{keywordflow}{case} 0x48:  \textcolor{comment}{// PHA Implied}}
+\DoxyCodeLine{00225                     \{}
+\DoxyCodeLine{00226                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PHA"{}};}
+\DoxyCodeLine{00227                     \}}
+\DoxyCodeLine{00228                 \textcolor{keywordflow}{case} 0x08:  \textcolor{comment}{// PHP Implied}}
+\DoxyCodeLine{00229                     \{}
+\DoxyCodeLine{00230                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PHP"{}};}
+\DoxyCodeLine{00231                     \}}
+\DoxyCodeLine{00232                 \textcolor{keywordflow}{case} 0x68:  \textcolor{comment}{// PLA Implied}}
+\DoxyCodeLine{00233                     \{}
+\DoxyCodeLine{00234                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PLA"{}};}
+\DoxyCodeLine{00235                     \}}
+\DoxyCodeLine{00236                 \textcolor{keywordflow}{case} 0x28:  \textcolor{comment}{// PLP Implied}}
+\DoxyCodeLine{00237                     \{}
+\DoxyCodeLine{00238                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PLP"{}};}
+\DoxyCodeLine{00239                     \}}
+\DoxyCodeLine{00240                 \textcolor{keywordflow}{case} 0x2A:  \textcolor{comment}{// ROL Accumulator}}
+\DoxyCodeLine{00241                 \textcolor{keywordflow}{case} 0x26:  \textcolor{comment}{// ROL Zero Page}}
+\DoxyCodeLine{00242                 \textcolor{keywordflow}{case} 0x36:  \textcolor{comment}{// ROL Zero Page X}}
+\DoxyCodeLine{00243                 \textcolor{keywordflow}{case} 0x2E:  \textcolor{comment}{// ROL Absolute}}
+\DoxyCodeLine{00244                 \textcolor{keywordflow}{case} 0x3E:  \textcolor{comment}{// ROL Absolute X}}
+\DoxyCodeLine{00245                     \{}
+\DoxyCodeLine{00246                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ROL"{}};}
+\DoxyCodeLine{00247                     \}}
+\DoxyCodeLine{00248                 \textcolor{keywordflow}{case} 0x6A:  \textcolor{comment}{// ROR Accumulator}}
+\DoxyCodeLine{00249                 \textcolor{keywordflow}{case} 0x66:  \textcolor{comment}{// ROR Zero Page}}
+\DoxyCodeLine{00250                 \textcolor{keywordflow}{case} 0x76:  \textcolor{comment}{// ROR Zero Page X}}
+\DoxyCodeLine{00251                 \textcolor{keywordflow}{case} 0x6E:  \textcolor{comment}{// ROR Absolute}}
+\DoxyCodeLine{00252                 \textcolor{keywordflow}{case} 0x7E:  \textcolor{comment}{// ROR Absolute X}}
+\DoxyCodeLine{00253                     \{}
+\DoxyCodeLine{00254                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ROR"{}};}
+\DoxyCodeLine{00255                     \}}
+\DoxyCodeLine{00256                 \textcolor{keywordflow}{case} 0x40:  \textcolor{comment}{// RTI Implied}}
+\DoxyCodeLine{00257                     \{}
+\DoxyCodeLine{00258                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RTI"{}};}
+\DoxyCodeLine{00259                     \}}
+\DoxyCodeLine{00260                 \textcolor{keywordflow}{case} 0x60:  \textcolor{comment}{// RTS Implied}}
+\DoxyCodeLine{00261                     \{}
+\DoxyCodeLine{00262                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RTS"{}};}
+\DoxyCodeLine{00263                     \}}
+\DoxyCodeLine{00264                 \textcolor{keywordflow}{case} 0xE9:  \textcolor{comment}{// SBC Immediate}}
+\DoxyCodeLine{00265                 \textcolor{keywordflow}{case} 0xE5:  \textcolor{comment}{// SBC Zero Page}}
+\DoxyCodeLine{00266                 \textcolor{keywordflow}{case} 0xF5:  \textcolor{comment}{// SBC Zero Page X}}
+\DoxyCodeLine{00267                 \textcolor{keywordflow}{case} 0xED:  \textcolor{comment}{// SBC Absolute}}
+\DoxyCodeLine{00268                 \textcolor{keywordflow}{case} 0xFD:  \textcolor{comment}{// SBC Absolute X}}
+\DoxyCodeLine{00269                 \textcolor{keywordflow}{case} 0xF9:  \textcolor{comment}{// SBC Absolute Y}}
+\DoxyCodeLine{00270                 \textcolor{keywordflow}{case} 0xE1:  \textcolor{comment}{// SBC Indrect X}}
+\DoxyCodeLine{00271                 \textcolor{keywordflow}{case} 0xF1:  \textcolor{comment}{// SBC Indirect Y}}
+\DoxyCodeLine{00272                     \{}
+\DoxyCodeLine{00273                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SBC"{}};}
+\DoxyCodeLine{00274                     \}}
+\DoxyCodeLine{00275                 \textcolor{keywordflow}{case} 0x38:  \textcolor{comment}{// SEC Implied}}
+\DoxyCodeLine{00276                     \{}
+\DoxyCodeLine{00277                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEC"{}};}
+\DoxyCodeLine{00278                     \}}
+\DoxyCodeLine{00279                 \textcolor{keywordflow}{case} 0xF8:  \textcolor{comment}{// SED Implied}}
+\DoxyCodeLine{00280                     \{}
+\DoxyCodeLine{00281                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SED"{}};}
+\DoxyCodeLine{00282                     \}}
+\DoxyCodeLine{00283                 \textcolor{keywordflow}{case} 0x78:  \textcolor{comment}{// SEI Implied}}
+\DoxyCodeLine{00284                     \{}
+\DoxyCodeLine{00285                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEI"{}};}
+\DoxyCodeLine{00286                     \}}
+\DoxyCodeLine{00287                 \textcolor{keywordflow}{case} 0x85:  \textcolor{comment}{// STA ZeroPage}}
+\DoxyCodeLine{00288                 \textcolor{keywordflow}{case} 0x95:  \textcolor{comment}{// STA Zero Page X}}
+\DoxyCodeLine{00289                 \textcolor{keywordflow}{case} 0x8D:  \textcolor{comment}{// STA Absolute}}
+\DoxyCodeLine{00290                 \textcolor{keywordflow}{case} 0x9D:  \textcolor{comment}{// STA Absolute X}}
+\DoxyCodeLine{00291                 \textcolor{keywordflow}{case} 0x99:  \textcolor{comment}{// STA Absolute Y}}
+\DoxyCodeLine{00292                 \textcolor{keywordflow}{case} 0x81:  \textcolor{comment}{// STA Indirect X}}
+\DoxyCodeLine{00293                 \textcolor{keywordflow}{case} 0x91:  \textcolor{comment}{// STA Indirect Y}}
+\DoxyCodeLine{00294                     \{}
+\DoxyCodeLine{00295                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}STA"{}};}
+\DoxyCodeLine{00296                     \}}
+\DoxyCodeLine{00297                 \textcolor{keywordflow}{case} 0x86:  \textcolor{comment}{// STX Zero Page}}
+\DoxyCodeLine{00298                 \textcolor{keywordflow}{case} 0x96:  \textcolor{comment}{// STX Zero Page Y}}
+\DoxyCodeLine{00299                 \textcolor{keywordflow}{case} 0x8E:  \textcolor{comment}{// STX Absolute}}
+\DoxyCodeLine{00300                     \{}
+\DoxyCodeLine{00301                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}STX"{}};}
+\DoxyCodeLine{00302                     \}}
+\DoxyCodeLine{00303                 \textcolor{keywordflow}{case} 0x84:  \textcolor{comment}{// STY Zero Page}}
+\DoxyCodeLine{00304                 \textcolor{keywordflow}{case} 0x94:  \textcolor{comment}{// STY Zero Page X}}
+\DoxyCodeLine{00305                 \textcolor{keywordflow}{case} 0x8C:  \textcolor{comment}{// STY Absolute}}
+\DoxyCodeLine{00306                     \{}
+\DoxyCodeLine{00307                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}STY"{}};}
+\DoxyCodeLine{00308                     \}}
+\DoxyCodeLine{00309                 \textcolor{keywordflow}{case} 0xAA:  \textcolor{comment}{// TAX Implied}}
+\DoxyCodeLine{00310                     \{}
+\DoxyCodeLine{00311                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TAX"{}};}
+\DoxyCodeLine{00312                     \}}
+\DoxyCodeLine{00313                 \textcolor{keywordflow}{case} 0xA8:  \textcolor{comment}{// TAY Implied}}
+\DoxyCodeLine{00314                     \{}
+\DoxyCodeLine{00315                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TAY"{}};}
+\DoxyCodeLine{00316                     \}}
+\DoxyCodeLine{00317                 \textcolor{keywordflow}{case} 0xBA:  \textcolor{comment}{// TSX Implied}}
+\DoxyCodeLine{00318                     \{}
+\DoxyCodeLine{00319                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TSX"{}};}
+\DoxyCodeLine{00320                     \}}
+\DoxyCodeLine{00321                 \textcolor{keywordflow}{case} 0x8A:  \textcolor{comment}{// TXA Implied}}
+\DoxyCodeLine{00322                     \{}
+\DoxyCodeLine{00323                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TXA"{}};}
+\DoxyCodeLine{00324                     \}}
+\DoxyCodeLine{00325                 \textcolor{keywordflow}{case} 0x9A:  \textcolor{comment}{// TXS Implied}}
+\DoxyCodeLine{00326                     \{}
+\DoxyCodeLine{00327                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TXS"{}};}
+\DoxyCodeLine{00328                     \}}
+\DoxyCodeLine{00329                 \textcolor{keywordflow}{case} 0x98:  \textcolor{comment}{// TYA Implied}}
+\DoxyCodeLine{00330                     \{}
+\DoxyCodeLine{00331                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TYA"{}};}
+\DoxyCodeLine{00332                     \}}
+\DoxyCodeLine{00333                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00334                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidEnumArgumentException(\textcolor{keywordtype}{string}.Format(\textcolor{stringliteral}{"{}A Valid Conversion does not exist for OpCode \{0\}"{}}, i.ToString(\textcolor{stringliteral}{"{}X"{}})));}
+\DoxyCodeLine{00335 }
+\DoxyCodeLine{00336             \}}
+\DoxyCodeLine{00337         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hardware/\+Classes/\mbox{\hyperlink{_utility_8cs}{Utility.\+cs}}\end{DoxyCompactItemize}

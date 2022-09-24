@@ -1,0 +1,232 @@
+.TH "Emulator.Settings" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.Settings \- \fBSettings\fP   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits System\&.Windows\&.Window, System\&.Windows\&.Markup\&.IComponentConnector, System\&.Windows\&.Window, and System\&.Windows\&.Markup\&.IComponentConnector\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBInitializeComponent\fP ()"
+.br
+.RI "InitializeComponent  "
+.ti -1c
+.RI "void \fBInitializeComponent\fP ()"
+.br
+.RI "InitializeComponent  "
+.ti -1c
+.RI "\fBSettings\fP ()"
+.br
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void System\&.Windows\&.Markup\&.IComponentConnector\&. \fBConnect\fP (int connectionId, object target)"
+.br
+.ti -1c
+.RI "void System\&.Windows\&.Markup\&.IComponentConnector\&. \fBConnect\fP (int connectionId, object target)"
+.br
+.ti -1c
+.RI "void \fBNotificationMessageReceived\fP (NotificationMessage notificationMessage)"
+.br
+.ti -1c
+.RI "void \fBNotificationMessageReceived\fP (NotificationMessage< \fBSettingsModel\fP > notificationMessage)"
+.br
+.ti -1c
+.RI "void \fBPortSelectionDropDownClosed\fP (object sender, EventArgs e)"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fB_contentLoaded\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBSettings\fP  
+
+Interaction logic for Settings\&.xaml  
+.PP
+Definition at line \fB40\fP of file \fBSettings\&.g\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.Settings\&.Settings ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB14\fP of file \fBSettings\&.xaml\&.cs\fP\&.
+.PP
+.nf
+15         {
+16             InitializeComponent();
+17             Messenger\&.Default\&.Register<NotificationMessage>(this, NotificationMessageReceived);
+18             Messenger\&.Default\&.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
+19         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void System\&.Windows\&.Markup\&.IComponentConnector\&. Emulator\&.Settings\&.Connect (int connectionId, object target)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB101\fP of file \fBSettings\&.g\&.cs\fP\&.
+.PP
+.nf
+101                                                                                                 {
+102             switch (connectionId)
+103             {
+104             case 1:
+105             this\&.ComPortCombo = ((System\&.Windows\&.Controls\&.ComboBox)(target));
+106             
+107             #line 7 "\&.\&.\\&.\&.\\&.\&.\Settings\&.xaml"
+108             this\&.ComPortCombo\&.DropDownClosed += new System\&.EventHandler(this\&.PortSelectionDropDownClosed);
+109             
+110             #line default
+111             #line hidden
+112             return;
+113             case 2:
+114             this\&.PortText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+115             return;
+116             case 3:
+117             this\&.ApplyButton = ((System\&.Windows\&.Controls\&.Button)(target));
+118             return;
+119             case 4:
+120             this\&.CloseButton = ((System\&.Windows\&.Controls\&.Button)(target));
+121             return;
+122             }
+123             this\&._contentLoaded = true;
+124         }
+.fi
+.SS "void System\&.Windows\&.Markup\&.IComponentConnector\&. Emulator\&.Settings\&.Connect (int connectionId, object target)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB101\fP of file \fBSettings\&.g\&.i\&.cs\fP\&.
+.PP
+.nf
+101                                                                                                 {
+102             switch (connectionId)
+103             {
+104             case 1:
+105             this\&.ComPortCombo = ((System\&.Windows\&.Controls\&.ComboBox)(target));
+106             
+107             #line 7 "\&.\&.\\&.\&.\\&.\&.\Settings\&.xaml"
+108             this\&.ComPortCombo\&.DropDownClosed += new System\&.EventHandler(this\&.PortSelectionDropDownClosed);
+109             
+110             #line default
+111             #line hidden
+112             return;
+113             case 2:
+114             this\&.PortText = ((System\&.Windows\&.Controls\&.TextBlock)(target));
+115             return;
+116             case 3:
+117             this\&.ApplyButton = ((System\&.Windows\&.Controls\&.Button)(target));
+118             return;
+119             case 4:
+120             this\&.CloseButton = ((System\&.Windows\&.Controls\&.Button)(target));
+121             return;
+122             }
+123             this\&._contentLoaded = true;
+124         }
+.fi
+.SS "void Emulator\&.Settings\&.InitializeComponent ()\fC [inline]\fP"
+
+.PP
+InitializeComponent  
+.PP
+Definition at line \fB81\fP of file \fBSettings\&.g\&.cs\fP\&.
+.PP
+.nf
+81                                           {
+82             if (_contentLoaded) {
+83                 return;
+84             }
+85             _contentLoaded = true;
+86             System\&.Uri resourceLocater = new System\&.Uri("/Emulator;component/settings\&.xaml", System\&.UriKind\&.Relative);
+87             
+88             #line 1 "\&.\&.\\&.\&.\\&.\&.\Settings\&.xaml"
+89             System\&.Windows\&.Application\&.LoadComponent(this, resourceLocater);
+90             
+91             #line default
+92             #line hidden
+93         }
+.fi
+.SS "void Emulator\&.Settings\&.InitializeComponent ()\fC [inline]\fP"
+
+.PP
+InitializeComponent  
+.PP
+Definition at line \fB81\fP of file \fBSettings\&.g\&.i\&.cs\fP\&.
+.PP
+.nf
+81                                           {
+82             if (_contentLoaded) {
+83                 return;
+84             }
+85             _contentLoaded = true;
+86             System\&.Uri resourceLocater = new System\&.Uri("/Emulator;component/settings\&.xaml", System\&.UriKind\&.Relative);
+87             
+88             #line 1 "\&.\&.\\&.\&.\\&.\&.\Settings\&.xaml"
+89             System\&.Windows\&.Application\&.LoadComponent(this, resourceLocater);
+90             
+91             #line default
+92             #line hidden
+93         }
+.fi
+.SS "void Emulator\&.Settings\&.NotificationMessageReceived (NotificationMessage notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB21\fP of file \fBSettings\&.xaml\&.cs\fP\&.
+.PP
+.nf
+22         {
+23             if (notificationMessage\&.Notification == "CloseSettingsWindow")
+24             {
+25                 Close();
+26             }
+27         }
+.fi
+.SS "void Emulator\&.Settings\&.NotificationMessageReceived (NotificationMessage< \fBSettingsModel\fP > notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB29\fP of file \fBSettings\&.xaml\&.cs\fP\&.
+.PP
+.nf
+30         {
+31             if (notificationMessage\&.Notification == "SettingsWindow")
+32             {
+33                 SettingsViewModel\&.SettingsModel = notificationMessage\&.Content;
+34                 ComPortCombo\&.SelectedItem = notificationMessage\&.Content\&.ComPortName;
+35             }
+36         }
+.fi
+.SS "void Emulator\&.Settings\&.PortSelectionDropDownClosed (object sender, EventArgs e)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB38\fP of file \fBSettings\&.xaml\&.cs\fP\&.
+.PP
+.nf
+39         {
+40             if (!(ComPortCombo\&.SelectedValue == null))
+41             {
+42                 string port = ComPortCombo\&.SelectedValue\&.ToString();
+43                 SettingsViewModel\&.ComPortSelection = port;
+44             }
+45         }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "bool Emulator\&.Settings\&._contentLoaded\fC [private]\fP"
+
+.PP
+Definition at line \fB74\fP of file \fBSettings\&.g\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

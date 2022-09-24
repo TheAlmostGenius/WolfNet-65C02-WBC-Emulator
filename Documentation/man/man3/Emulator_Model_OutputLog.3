@@ -1,0 +1,147 @@
+.TH "Emulator.Model.OutputLog" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.Model.OutputLog \- The \fBOutputLog\fP \fBModel\fP\&. Used by the outputlog grid to show a history of operations performed by the CPU   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits \fBHardware\&.Disassembly\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOutputLog\fP (\fBDisassembly\fP disassembly)"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "string \fBProgramCounter\fP\fC [get, set]\fP"
+.br
+.RI "The Program Counter Value  "
+.ti -1c
+.RI "string \fBCurrentOpCode\fP\fC [get, set]\fP"
+.br
+.RI "The Current Ope Code  "
+.ti -1c
+.RI "string \fBXRegister\fP\fC [get, set]\fP"
+.br
+.RI "The X Register  "
+.ti -1c
+.RI "string \fBYRegister\fP\fC [get, set]\fP"
+.br
+.RI "The Y Register  "
+.ti -1c
+.RI "string \fBAccumulator\fP\fC [get, set]\fP"
+.br
+.RI "The Accummulator  "
+.ti -1c
+.RI "string \fBStackPointer\fP\fC [get, set]\fP"
+.br
+.RI "The Stack Pointer  "
+.ti -1c
+.RI "int \fBNumberOfCycles\fP\fC [get, set]\fP"
+.br
+.RI "The number of cycles executed since the last load or reset  "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBOutputLog\fP \fBModel\fP\&. Used by the outputlog grid to show a history of operations performed by the CPU  
+.PP
+Definition at line \fB10\fP of file \fBOutputLog\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.Model\&.OutputLog\&.OutputLog (\fBDisassembly\fP disassembly)\fC [inline]\fP"
+
+.PP
+Definition at line \fB12\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+13         {
+14             DisassemblyOutput = disassembly\&.DisassemblyOutput;
+15             HighAddress = disassembly\&.HighAddress;
+16             LowAddress = disassembly\&.LowAddress;
+17             OpCodeString = disassembly\&.OpCodeString;
+18         }
+.fi
+.SH "Property Documentation"
+.PP 
+.SS "string Emulator\&.Model\&.OutputLog\&.Accumulator\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Accummulator  
+.PP
+Definition at line \fB39\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+39 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.OutputLog\&.CurrentOpCode\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Current Ope Code  
+.PP
+Definition at line \fB27\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+27 { get; set; }
+.fi
+.SS "int Emulator\&.Model\&.OutputLog\&.NumberOfCycles\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The number of cycles executed since the last load or reset  
+.PP
+Definition at line \fB47\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+47 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.OutputLog\&.ProgramCounter\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Program Counter Value  
+.PP
+Definition at line \fB23\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+23 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.OutputLog\&.StackPointer\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Stack Pointer  
+.PP
+Definition at line \fB43\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+43 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.OutputLog\&.XRegister\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The X Register  
+.PP
+Definition at line \fB31\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+31 { get; set; }
+.fi
+.SS "string Emulator\&.Model\&.OutputLog\&.YRegister\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Y Register  
+.PP
+Definition at line \fB35\fP of file \fBOutputLog\&.cs\fP\&.
+.PP
+.nf
+35 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

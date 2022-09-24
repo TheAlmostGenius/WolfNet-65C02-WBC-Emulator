@@ -1,0 +1,311 @@
+\hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model}{}\doxysubsection{Emulator.\+View\+Model.\+Settings\+View\+Model Class Reference}
+\label{class_emulator_1_1_view_model_1_1_settings_view_model}\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+
+
+The \mbox{\hyperlink{namespace_emulator_1_1_view_model}{View\+Model}} Used by the Save\+File\+View   
+
+
+Inheritance diagram for Emulator.\+View\+Model.\+Settings\+View\+Model\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_emulator_1_1_view_model_1_1_settings_view_model}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_ab90c01e90ccdcab587c2e2af572ef6b0_ab90c01e90ccdcab587c2e2af572ef6b0}{Settings\+View\+Model}} ()
+\begin{DoxyCompactList}\small\item\em Instantiates a new instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{Settings\+View\+Model}}. This is used by the IOC to create the default instance.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_af546727e21fe3992b5733defbe7de0b2_af546727e21fe3992b5733defbe7de0b2}{Settings\+View\+Model}} (\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} settings\+Model)
+\begin{DoxyCompactList}\small\item\em Instantiates a new instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{Settings\+View\+Model}}  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a133a0dcf684c258a3399ede8e55a5116_a133a0dcf684c258a3399ede8e55a5116}{Update\+Port\+List}} ()
+\begin{DoxyCompactList}\small\item\em Updates Port\+List with the COM ports available to the computer  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Relay\+Command \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_abc2d632c061cb68b6a614d6dc4446eb6_abc2d632c061cb68b6a614d6dc4446eb6}{Apply\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The Relay Command called when saving a file  \end{DoxyCompactList}\item 
+Relay\+Command \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a8251e3104309a368c7f32552ec8f7566_a8251e3104309a368c7f32552ec8f7566}{Close\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The Relay Command called when closing a file  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a893f59bda9457c437eedeee55e315863_a893f59bda9457c437eedeee55e315863}{Apply\+Enabled}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Tells the UI that that a file has been selected and can be saved.  \end{DoxyCompactList}\item 
+Observable\+Collection$<$ string $>$ \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_ae5ca1115fafaae0104bbf6146fda2fa4_ae5ca1115fafaae0104bbf6146fda2fa4}{Port\+List}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Creates a new instance of Port\+List, the list of all COM ports available to the computer  \end{DoxyCompactList}\item 
+static string \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_abdb57e3ffac49e2f2958fb1d13d5cd8c_abdb57e3ffac49e2f2958fb1d13d5cd8c}{Com\+Port\+Selection}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\item 
+static \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a7ef3c41367c7fbdf0d0278321206b5f4_a7ef3c41367c7fbdf0d0278321206b5f4}{Settings\+Model}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a7c4042cc2920d6c7c63c1ce6607b9862_a7c4042cc2920d6c7c63c1ce6607b9862}{Apply}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_ab58f68dd3ca680b351574626bb8bdce0_ab58f68dd3ca680b351574626bb8bdce0}{Close}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly Observable\+Collection$<$ string $>$ \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a874817b40b2e9efb9f021693e122f9a6_a874817b40b2e9efb9f021693e122f9a6}{\+\_\+\+Port\+List}} = new Observable\+Collection$<$string$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+The \mbox{\hyperlink{namespace_emulator_1_1_view_model}{View\+Model}} Used by the Save\+File\+View  
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_ab90c01e90ccdcab587c2e2af572ef6b0_ab90c01e90ccdcab587c2e2af572ef6b0}\label{class_emulator_1_1_view_model_1_1_settings_view_model_ab90c01e90ccdcab587c2e2af572ef6b0_ab90c01e90ccdcab587c2e2af572ef6b0}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!SettingsViewModel@{SettingsViewModel}}
+\index{SettingsViewModel@{SettingsViewModel}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{SettingsViewModel()}{SettingsViewModel()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Emulator.\+View\+Model.\+Settings\+View\+Model.\+Settings\+View\+Model (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Instantiates a new instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{Settings\+View\+Model}}. This is used by the IOC to create the default instance.  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00051}{51}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00052         \{}
+\DoxyCodeLine{00053 }
+\DoxyCodeLine{00054         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_af546727e21fe3992b5733defbe7de0b2_af546727e21fe3992b5733defbe7de0b2}\label{class_emulator_1_1_view_model_1_1_settings_view_model_af546727e21fe3992b5733defbe7de0b2_af546727e21fe3992b5733defbe7de0b2}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!SettingsViewModel@{SettingsViewModel}}
+\index{SettingsViewModel@{SettingsViewModel}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{SettingsViewModel()}{SettingsViewModel()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Emulator.\+View\+Model.\+Settings\+View\+Model.\+Settings\+View\+Model (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}}}]{settings\+Model }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Instantiates a new instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{Settings\+View\+Model}}  
+
+
+\begin{DoxyParams}{Parameters}
+{\em settings\+Model} & The Settings\+File\+Model to be serialized to a file\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061         \{}
+\DoxyCodeLine{00062             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_abc2d632c061cb68b6a614d6dc4446eb6_abc2d632c061cb68b6a614d6dc4446eb6}{ApplyCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a7c4042cc2920d6c7c63c1ce6607b9862_a7c4042cc2920d6c7c63c1ce6607b9862}{Apply}});}
+\DoxyCodeLine{00063             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a8251e3104309a368c7f32552ec8f7566_a8251e3104309a368c7f32552ec8f7566}{CloseCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_ab58f68dd3ca680b351574626bb8bdce0_ab58f68dd3ca680b351574626bb8bdce0}{Close}});}
+\DoxyCodeLine{00064             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_abdb57e3ffac49e2f2958fb1d13d5cd8c_abdb57e3ffac49e2f2958fb1d13d5cd8c}{ComPortSelection}} = settingsModel.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_af3339a666134a772a14cb4937f05cf55_af3339a666134a772a14cb4937f05cf55}{ComPortName}};}
+\DoxyCodeLine{00065 }
+\DoxyCodeLine{00066             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a133a0dcf684c258a3399ede8e55a5116_a133a0dcf684c258a3399ede8e55a5116}{UpdatePortList}}();}
+\DoxyCodeLine{00067         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_a7c4042cc2920d6c7c63c1ce6607b9862_a7c4042cc2920d6c7c63c1ce6607b9862}\label{class_emulator_1_1_view_model_1_1_settings_view_model_a7c4042cc2920d6c7c63c1ce6607b9862_a7c4042cc2920d6c7c63c1ce6607b9862}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!Apply@{Apply}}
+\index{Apply@{Apply}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{Apply()}{Apply()}}
+{\footnotesize\ttfamily void Emulator.\+View\+Model.\+Settings\+View\+Model.\+Apply (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00084}{84}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085         \{}
+\DoxyCodeLine{00086             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<SettingsModel>(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}}
+\DoxyCodeLine{00087             \{}
+\DoxyCodeLine{00088                 SettingsVersionMajor = Versioning.SettingsFile.Major,}
+\DoxyCodeLine{00089                 SettingsVersionMinor = Versioning.SettingsFile.Minor,}
+\DoxyCodeLine{00090                 SettingsVersionBuild = Versioning.SettingsFile.Build,}
+\DoxyCodeLine{00091                 SettingsVersionRevision = Versioning.SettingsFile.Revision,}
+\DoxyCodeLine{00092                 ComPortName = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_abdb57e3ffac49e2f2958fb1d13d5cd8c_abdb57e3ffac49e2f2958fb1d13d5cd8c}{ComPortSelection}},}
+\DoxyCodeLine{00093             \}, \textcolor{stringliteral}{"{}SettingsApplied"{}}));}
+\DoxyCodeLine{00094             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}CloseSettingsWindow"{}}));}
+\DoxyCodeLine{00095         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_ab58f68dd3ca680b351574626bb8bdce0_ab58f68dd3ca680b351574626bb8bdce0}\label{class_emulator_1_1_view_model_1_1_settings_view_model_ab58f68dd3ca680b351574626bb8bdce0_ab58f68dd3ca680b351574626bb8bdce0}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!Close@{Close}}
+\index{Close@{Close}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{Close()}{Close()}}
+{\footnotesize\ttfamily static void Emulator.\+View\+Model.\+Settings\+View\+Model.\+Close (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00097}{97}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00098         \{}
+\DoxyCodeLine{00099             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}CloseSettingsWindow"{}}));}
+\DoxyCodeLine{00100         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_a133a0dcf684c258a3399ede8e55a5116_a133a0dcf684c258a3399ede8e55a5116}\label{class_emulator_1_1_view_model_1_1_settings_view_model_a133a0dcf684c258a3399ede8e55a5116_a133a0dcf684c258a3399ede8e55a5116}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!UpdatePortList@{UpdatePortList}}
+\index{UpdatePortList@{UpdatePortList}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{UpdatePortList()}{UpdatePortList()}}
+{\footnotesize\ttfamily void Emulator.\+View\+Model.\+Settings\+View\+Model.\+Update\+Port\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates Port\+List with the COM ports available to the computer  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00072}{72}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00073         \{}
+\DoxyCodeLine{00074             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_ae5ca1115fafaae0104bbf6146fda2fa4_ae5ca1115fafaae0104bbf6146fda2fa4}{PortList}}.Clear();}
+\DoxyCodeLine{00075             \textcolor{keywordflow}{foreach} (\textcolor{keywordtype}{string} s \textcolor{keywordflow}{in} SerialPort.GetPortNames())}
+\DoxyCodeLine{00076             \{}
+\DoxyCodeLine{00077                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_ae5ca1115fafaae0104bbf6146fda2fa4_ae5ca1115fafaae0104bbf6146fda2fa4}{PortList}}.Add(s);}
+\DoxyCodeLine{00078             \}}
+\DoxyCodeLine{00079             RaisePropertyChanged(\textcolor{stringliteral}{"{}PortList"{}});}
+\DoxyCodeLine{00080         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_a874817b40b2e9efb9f021693e122f9a6_a874817b40b2e9efb9f021693e122f9a6}\label{class_emulator_1_1_view_model_1_1_settings_view_model_a874817b40b2e9efb9f021693e122f9a6_a874817b40b2e9efb9f021693e122f9a6}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!\_PortList@{\_PortList}}
+\index{\_PortList@{\_PortList}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{\_PortList}{\_PortList}}
+{\footnotesize\ttfamily readonly Observable\+Collection$<$string$>$ Emulator.\+View\+Model.\+Settings\+View\+Model.\+\_\+\+Port\+List = new Observable\+Collection$<$string$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+
+\doxysubsubsection{Property Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_abc2d632c061cb68b6a614d6dc4446eb6_abc2d632c061cb68b6a614d6dc4446eb6}\label{class_emulator_1_1_view_model_1_1_settings_view_model_abc2d632c061cb68b6a614d6dc4446eb6_abc2d632c061cb68b6a614d6dc4446eb6}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!ApplyCommand@{ApplyCommand}}
+\index{ApplyCommand@{ApplyCommand}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{ApplyCommand}{ApplyCommand}}
+{\footnotesize\ttfamily Relay\+Command Emulator.\+View\+Model.\+Settings\+View\+Model.\+Apply\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The Relay Command called when saving a file  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00023 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_a893f59bda9457c437eedeee55e315863_a893f59bda9457c437eedeee55e315863}\label{class_emulator_1_1_view_model_1_1_settings_view_model_a893f59bda9457c437eedeee55e315863_a893f59bda9457c437eedeee55e315863}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!ApplyEnabled@{ApplyEnabled}}
+\index{ApplyEnabled@{ApplyEnabled}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{ApplyEnabled}{ApplyEnabled}}
+{\footnotesize\ttfamily bool Emulator.\+View\+Model.\+Settings\+View\+Model.\+Apply\+Enabled\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Tells the UI that that a file has been selected and can be saved.  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00033 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} !\textcolor{keywordtype}{string}.IsNullOrEmpty(\mbox{\hyperlink{namespace_emulator}{Emulator}}.\mbox{\hyperlink{class_emulator_1_1_file_locations}{FileLocations}}.SettingsFile); \} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_a8251e3104309a368c7f32552ec8f7566_a8251e3104309a368c7f32552ec8f7566}\label{class_emulator_1_1_view_model_1_1_settings_view_model_a8251e3104309a368c7f32552ec8f7566_a8251e3104309a368c7f32552ec8f7566}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!CloseCommand@{CloseCommand}}
+\index{CloseCommand@{CloseCommand}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{CloseCommand}{CloseCommand}}
+{\footnotesize\ttfamily Relay\+Command Emulator.\+View\+Model.\+Settings\+View\+Model.\+Close\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The Relay Command called when closing a file  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00028 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_abdb57e3ffac49e2f2958fb1d13d5cd8c_abdb57e3ffac49e2f2958fb1d13d5cd8c}\label{class_emulator_1_1_view_model_1_1_settings_view_model_abdb57e3ffac49e2f2958fb1d13d5cd8c_abdb57e3ffac49e2f2958fb1d13d5cd8c}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!ComPortSelection@{ComPortSelection}}
+\index{ComPortSelection@{ComPortSelection}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{ComPortSelection}{ComPortSelection}}
+{\footnotesize\ttfamily string Emulator.\+View\+Model.\+Settings\+View\+Model.\+Com\+Port\+Selection\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_ae5ca1115fafaae0104bbf6146fda2fa4_ae5ca1115fafaae0104bbf6146fda2fa4}\label{class_emulator_1_1_view_model_1_1_settings_view_model_ae5ca1115fafaae0104bbf6146fda2fa4_ae5ca1115fafaae0104bbf6146fda2fa4}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!PortList@{PortList}}
+\index{PortList@{PortList}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{PortList}{PortList}}
+{\footnotesize\ttfamily Observable\+Collection$<$string$>$ Emulator.\+View\+Model.\+Settings\+View\+Model.\+Port\+List\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Creates a new instance of Port\+List, the list of all COM ports available to the computer  
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00039 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model_a874817b40b2e9efb9f021693e122f9a6_a874817b40b2e9efb9f021693e122f9a6}{\_PortList}}; \} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_settings_view_model_a7ef3c41367c7fbdf0d0278321206b5f4_a7ef3c41367c7fbdf0d0278321206b5f4}\label{class_emulator_1_1_view_model_1_1_settings_view_model_a7ef3c41367c7fbdf0d0278321206b5f4_a7ef3c41367c7fbdf0d0278321206b5f4}} 
+\index{Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}!SettingsModel@{SettingsModel}}
+\index{SettingsModel@{SettingsModel}!Emulator.ViewModel.SettingsViewModel@{Emulator.ViewModel.SettingsViewModel}}
+\doxyparagraph{\texorpdfstring{SettingsModel}{SettingsModel}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} Emulator.\+View\+Model.\+Settings\+View\+Model.\+Settings\+Model\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_view_model_8cs_source_l00043}{43}} of file \mbox{\hyperlink{_settings_view_model_8cs_source}{Settings\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00043 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Emulator/\+View\+Model/\mbox{\hyperlink{_settings_view_model_8cs}{Settings\+View\+Model.\+cs}}\end{DoxyCompactItemize}

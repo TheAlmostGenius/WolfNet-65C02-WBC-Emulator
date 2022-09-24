@@ -1,0 +1,156 @@
+.TH "Emulator.MultiThreadedObservableCollection< T >" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.MultiThreadedObservableCollection< T > \- A MultiThreaedObservableCollection\&. This allows multiple threads to access the same observable collection in a safe manner\&.   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ObservableCollection< T >\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMultiThreadedObservableCollection\fP ()"
+.br
+.RI "Instantiates a new instance of the \fBMultiThreadedObservableCollection\fP  "
+.ti -1c
+.RI "\fBMultiThreadedObservableCollection\fP (IEnumerable< T > collection)"
+.br
+.RI "Instantiates a new instance of the \fBMultiThreadedObservableCollection\fP  "
+.ti -1c
+.RI "\fBMultiThreadedObservableCollection\fP (List< T > list)"
+.br
+.RI "Instantiates a new instance of the \fBMultiThreadedObservableCollection\fP  "
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "override void \fBOnCollectionChanged\fP (NotifyCollectionChangedEventArgs e)"
+.br
+.RI "The NotifyCollectionChangedEventHandler, Notifies the listeners in a thread safe manner  "
+.in -1c
+.SS "Events"
+
+.in +1c
+.ti -1c
+.RI "override NotifyCollectionChangedEventHandler \fBCollectionChanged\fP"
+.br
+.RI "The NotifyCollectionChangedEventHandler, Sends a notification anytime the collection has been modified\&.  "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A MultiThreaedObservableCollection\&. This allows multiple threads to access the same observable collection in a safe manner\&.  
+
+
+.PP
+\fBTemplate Parameters\fP
+.RS 4
+\fIT\fP 
+.RE
+.PP
+
+.PP
+Definition at line \fB14\fP of file \fBMultiThreadedCollection\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBEmulator\&.MultiThreadedObservableCollection\fP< T >\&.\fBMultiThreadedObservableCollection\fP ()\fC [inline]\fP"
+
+.PP
+Instantiates a new instance of the \fBMultiThreadedObservableCollection\fP  
+.PP
+Definition at line \fB19\fP of file \fBMultiThreadedCollection\&.cs\fP\&.
+.PP
+.nf
+20         {
+21             
+22         }
+.fi
+.SS "\fBEmulator\&.MultiThreadedObservableCollection\fP< T >\&.\fBMultiThreadedObservableCollection\fP (IEnumerable< T > collection)\fC [inline]\fP"
+
+.PP
+Instantiates a new instance of the \fBMultiThreadedObservableCollection\fP  
+.PP
+\fBParameters\fP
+.RS 4
+\fIcollection\fP The initial collection to be loaded
+.RE
+.PP
+
+.PP
+Definition at line \fB28\fP of file \fBMultiThreadedCollection\&.cs\fP\&.
+.PP
+.nf
+29             : base(collection)
+30         {
+31             
+32         }
+.fi
+.SS "\fBEmulator\&.MultiThreadedObservableCollection\fP< T >\&.\fBMultiThreadedObservableCollection\fP (List< T > list)\fC [inline]\fP"
+
+.PP
+Instantiates a new instance of the \fBMultiThreadedObservableCollection\fP  
+.PP
+\fBParameters\fP
+.RS 4
+\fIlist\fP The initial list to be loaded
+.RE
+.PP
+
+.PP
+Definition at line \fB38\fP of file \fBMultiThreadedCollection\&.cs\fP\&.
+.PP
+.nf
+39             : base(list)
+40         {
+41 
+42         } 
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "override void \fBEmulator\&.MultiThreadedObservableCollection\fP< T >\&.OnCollectionChanged (NotifyCollectionChangedEventArgs e)\fC [inline]\fP, \fC [protected]\fP"
+
+.PP
+The NotifyCollectionChangedEventHandler, Notifies the listeners in a thread safe manner  
+.PP
+Definition at line \fB53\fP of file \fBMultiThreadedCollection\&.cs\fP\&.
+.PP
+.nf
+54         {
+55             var collectionChanged = CollectionChanged;
+56             if (collectionChanged != null)
+57                 foreach (NotifyCollectionChangedEventHandler nh in collectionChanged\&.GetInvocationList())
+58                 {
+59                     var dispObj = nh\&.Target as DispatcherObject;
+60                     if (dispObj != null)
+61                     {
+62                         var dispatcher = dispObj\&.Dispatcher;
+63                         if (dispatcher != null && !dispatcher\&.CheckAccess())
+64                         {
+65                             var nh1 = nh;
+66                             dispatcher\&.BeginInvoke(
+67                                 (Action)(() => nh1\&.Invoke(this,
+68                                     new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction\&.Reset))),
+69                                 DispatcherPriority\&.DataBind);
+70                             continue;
+71                         }
+72                     }
+73                     nh\&.Invoke(this, e);
+74             }
+75         }
+.fi
+.SH "Event Documentation"
+.PP 
+.SS "override NotifyCollectionChangedEventHandler \fBEmulator\&.MultiThreadedObservableCollection\fP< T >\&.CollectionChanged"
+
+.PP
+The NotifyCollectionChangedEventHandler, Sends a notification anytime the collection has been modified\&.  
+.PP
+Definition at line \fB47\fP of file \fBMultiThreadedCollection\&.cs\fP\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

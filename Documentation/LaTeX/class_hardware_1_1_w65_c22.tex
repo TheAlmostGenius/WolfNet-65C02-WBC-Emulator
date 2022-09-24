@@ -1,0 +1,863 @@
+\hypertarget{class_hardware_1_1_w65_c22}{}\doxysubsection{Hardware.\+W65\+C22 Class Reference}
+\label{class_hardware_1_1_w65_c22}\index{Hardware.W65C22@{Hardware.W65C22}}
+
+
+An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65\+C22}} VIA.   
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hardware_1_1_w65_c22_a5f28a7b35217c8736be1b4e771fa81a4_a5f28a7b35217c8736be1b4e771fa81a4}{W65\+C22}} (\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} processor, byte offset, int length)
+\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}{Reset}} ()
+\begin{DoxyCompactList}\small\item\em Reset routine called whenever the emulated computer is reset.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}{Init}} (double timer)
+\begin{DoxyCompactList}\small\item\em Initialization routine for the VIA.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab061975c441f6ed96b961c17ef812abe_ab061975c441f6ed96b961c17ef812abe}{T1\+Init}} (double value)
+\begin{DoxyCompactList}\small\item\em T1 counter initialization routine.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_ad75ea9c91ed01ad54b05916c8a2d61f5_ad75ea9c91ed01ad54b05916c8a2d61f5}{T2\+Init}} (double value)
+\begin{DoxyCompactList}\small\item\em T2 counter initialization routine.  \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}{Read}} (int address)
+\begin{DoxyCompactList}\small\item\em Routine to read from local memory.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_af40f35c4f66f7f2bbe3683683afd0ebc_af40f35c4f66f7f2bbe3683683afd0ebc}{Write}} (int address, byte data)
+\begin{DoxyCompactList}\small\item\em Writes data to the specified address in local memory.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+readonly bool \mbox{\hyperlink{class_hardware_1_1_w65_c22_a0a5a4f5cf2bf29c9450a9ec3aab513db_a0a5a4f5cf2bf29c9450a9ec3aab513db}{T1\+Is\+IRQ}} = false
+\item 
+readonly bool \mbox{\hyperlink{class_hardware_1_1_w65_c22_a50c01b011e47e8628678b8c1522fe759_a50c01b011e47e8628678b8c1522fe759}{T2\+Is\+IRQ}} = true
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_ace9cc3cd5c041b8f4f9fb8c83aa25848_ace9cc3cd5c041b8f4f9fb8c83aa25848}{T1\+CL}} = 0x04
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_a6aa7c0a582bcafe127d39fd5db184f37_a6aa7c0a582bcafe127d39fd5db184f37}{T1\+CH}} = 0x05
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_a313dac503714194678bd2de24d911d84_a313dac503714194678bd2de24d911d84}{T2\+CL}} = 0x08
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_a4ccb8c2df99a6fe9387cffa0b2cbcc22_a4ccb8c2df99a6fe9387cffa0b2cbcc22}{T2\+CH}} = 0x09
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_aec5c7e207361acaf417d37ff15e9f0fc_aec5c7e207361acaf417d37ff15e9f0fc}{ACR}} = 0x0B
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_a1a09b3f5a9138c005d567c34d6ff2fa0_a1a09b3f5a9138c005d567c34d6ff2fa0}{IFR}} = 0x0D
+\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae1ec1ffcc908cfcfe30951fd0f580301_ae1ec1ffcc908cfcfe30951fd0f580301}{IER}} = 0x0E
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac927e3ccfaaffda46d00197eb4273253_ac927e3ccfaaffda46d00197eb4273253}{ACR\+\_\+\+T1\+TC}} = (byte)(1 $<$$<$ 7)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac7f22a57396de34558ce597f52c6e966_ac7f22a57396de34558ce597f52c6e966}{ACR\+\_\+\+T2\+TC}} = (byte)(1 $<$$<$ 6)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_a2bcd6a4de9bb725837a088bc40fc3634_a2bcd6a4de9bb725837a088bc40fc3634}{IFR\+\_\+\+T2}} = (byte)(1 $<$$<$ 5)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_a5236fbfadd8bb5da853ae733aafb4d29_a5236fbfadd8bb5da853ae733aafb4d29}{IFR\+\_\+\+T1}} = (byte)(1 $<$$<$ 6)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_a61d7939e295371b3482ee6b0aba00e60_a61d7939e295371b3482ee6b0aba00e60}{IFR\+\_\+\+INT}} = (byte)(1 $<$$<$ 7)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_a0727cf00fc30289d45c3a4708ae4f170_a0727cf00fc30289d45c3a4708ae4f170}{IER\+\_\+\+T2}} = (byte)(1 $<$$<$ 5)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_aa4a44e53f941fc51795bdcdb0672ca4b_aa4a44e53f941fc51795bdcdb0672ca4b}{IER\+\_\+\+T1}} = (byte)(1 $<$$<$ 6)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}{IER\+\_\+\+EN}} = (byte)(1 $<$$<$ 7)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae9b6f3d06d0c28d76aaf895c9300bbb9_ae9b6f3d06d0c28d76aaf895c9300bbb9}{Memory}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The memory area.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The memory offset of the device.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_aa979b86c2c11e59518861622ecf7e3ba_aa979b86c2c11e59518861622ecf7e3ba}{Length}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The length of the device memory.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae2e37f1002e16b12838561a84bb5321d_ae2e37f1002e16b12838561a84bb5321d}{End}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The end of memory  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}{T1\+Timer\+Control}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em T1 timer control  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}{T2\+Timer\+Control}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em T2 timer control.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hardware_1_1_w65_c22_a217bdbd334ea6f10ce5e588810d9ec8d_a217bdbd334ea6f10ce5e588810d9ec8d}{T1\+Is\+Enabled}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Enable or check whether timer 1 is enabled or not.  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_hardware_1_1_w65_c22_a8906e25547ca1c4ddbc6eb0080ffc789_a8906e25547ca1c4ddbc6eb0080ffc789}{T2\+Is\+Enabled}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Enable or check whether timer 2 is enabled or not.  \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_hardware_1_1_w65_c22_a7d9f663da45bf5733b7b409ffc57ae96_a7d9f663da45bf5733b7b409ffc57ae96}{T1\+Interval}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Set or check the timer 1 interval.  \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_hardware_1_1_w65_c22_ad43d18ecf4383f48889acc30efca07f6_ad43d18ecf4383f48889acc30efca07f6}{T2\+Interval}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Set or check the timer 2 interval.  \end{DoxyCompactList}\item 
+Timer \mbox{\hyperlink{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}{T1\+Object}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Set or get the timer 1 object.  \end{DoxyCompactList}\item 
+Timer \mbox{\hyperlink{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}{T2\+Object}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Set or get the timer 2 object.  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}{Processor}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Local referemce to the processor object.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_a90415fda9c35fd5c403826ef0dc8b73f_a90415fda9c35fd5c403826ef0dc8b73f}{On\+T1\+Timeout}} (object sender, Elapsed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Called whenever System.\+Timers.\+Timer event elapses.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_w65_c22_abef7c683e40b8b7bb9068b65eb6ccdfe_abef7c683e40b8b7bb9068b65eb6ccdfe}{On\+T2\+Timeout}} (object sender, Elapsed\+Event\+Args e)
+\begin{DoxyCompactList}\small\item\em Called whenever System.\+Timers.\+Timer event elapses  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65\+C22}} VIA.  
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00011}{11}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a5f28a7b35217c8736be1b4e771fa81a4_a5f28a7b35217c8736be1b4e771fa81a4}\label{class_hardware_1_1_w65_c22_a5f28a7b35217c8736be1b4e771fa81a4_a5f28a7b35217c8736be1b4e771fa81a4}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!W65C22@{W65C22}}
+\index{W65C22@{W65C22}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{W65C22()}{W65C22()}}
+{\footnotesize\ttfamily Hardware.\+W65\+C22.\+W65\+C22 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}}}]{processor,  }\item[{byte}]{offset,  }\item[{int}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00123}{123}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00124         \{}
+\DoxyCodeLine{00125             \textcolor{keywordflow}{if} (offset > MemoryMap.DeviceArea.Length)}
+\DoxyCodeLine{00126                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(String.Format(\textcolor{stringliteral}{"{}The offset: \{0\} is greater than the device area: \{1\}"{}}, offset, MemoryMap.DeviceArea.Length));}
+\DoxyCodeLine{00127             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab061975c441f6ed96b961c17ef812abe_ab061975c441f6ed96b961c17ef812abe}{T1Init}}(1000);}
+\DoxyCodeLine{00128             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ad75ea9c91ed01ad54b05916c8a2d61f5_ad75ea9c91ed01ad54b05916c8a2d61f5}{T2Init}}(1000);}
+\DoxyCodeLine{00129 }
+\DoxyCodeLine{00130             \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} = MemoryMap.DeviceArea.Offset | offset;}
+\DoxyCodeLine{00131             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae9b6f3d06d0c28d76aaf895c9300bbb9_ae9b6f3d06d0c28d76aaf895c9300bbb9}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length + 1];}
+\DoxyCodeLine{00132             \mbox{\hyperlink{class_hardware_1_1_w65_c22_aa979b86c2c11e59518861622ecf7e3ba_aa979b86c2c11e59518861622ecf7e3ba}{Length}} = length;}
+\DoxyCodeLine{00133             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}{Processor}} = processor;}
+\DoxyCodeLine{00134         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}\label{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Init@{Init}}
+\index{Init@{Init}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+Init (\begin{DoxyParamCaption}\item[{double}]{timer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initialization routine for the VIA.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Amount of time to set timers for.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00151}{151}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00152         \{}
+\DoxyCodeLine{00153             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab061975c441f6ed96b961c17ef812abe_ab061975c441f6ed96b961c17ef812abe}{T1Init}}(timer);}
+\DoxyCodeLine{00154             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ad75ea9c91ed01ad54b05916c8a2d61f5_ad75ea9c91ed01ad54b05916c8a2d61f5}{T2Init}}(timer);}
+\DoxyCodeLine{00155         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a90415fda9c35fd5c403826ef0dc8b73f_a90415fda9c35fd5c403826ef0dc8b73f}\label{class_hardware_1_1_w65_c22_a90415fda9c35fd5c403826ef0dc8b73f_a90415fda9c35fd5c403826ef0dc8b73f}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!OnT1Timeout@{OnT1Timeout}}
+\index{OnT1Timeout@{OnT1Timeout}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{OnT1Timeout()}{OnT1Timeout()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+On\+T1\+Timeout (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Elapsed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Called whenever System.\+Timers.\+Timer event elapses.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00248}{248}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00249         \{}
+\DoxyCodeLine{00250             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aea5bad1eb73459933b9baf077b80a69d_aea5bad1eb73459933b9baf077b80a69d}{isRunning}})}
+\DoxyCodeLine{00251             \{}
+\DoxyCodeLine{00252                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_a217bdbd334ea6f10ce5e588810d9ec8d_a217bdbd334ea6f10ce5e588810d9ec8d}{T1IsEnabled}})}
+\DoxyCodeLine{00253                 \{}
+\DoxyCodeLine{00254                     \mbox{\hyperlink{class_hardware_1_1_w65_c22_af40f35c4f66f7f2bbe3683683afd0ebc_af40f35c4f66f7f2bbe3683683afd0ebc}{Write}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a1a09b3f5a9138c005d567c34d6ff2fa0_a1a09b3f5a9138c005d567c34d6ff2fa0}{IFR}}, (\textcolor{keywordtype}{byte})(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a5236fbfadd8bb5da853ae733aafb4d29_a5236fbfadd8bb5da853ae733aafb4d29}{IFR\_T1}} \& \mbox{\hyperlink{class_hardware_1_1_w65_c22_a61d7939e295371b3482ee6b0aba00e60_a61d7939e295371b3482ee6b0aba00e60}{IFR\_INT}}));}
+\DoxyCodeLine{00255                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_a0a5a4f5cf2bf29c9450a9ec3aab513db_a0a5a4f5cf2bf29c9450a9ec3aab513db}{T1IsIRQ}})}
+\DoxyCodeLine{00256                     \{}
+\DoxyCodeLine{00257                         \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a21e519f1e532098b8d3441cd123cc891_a21e519f1e532098b8d3441cd123cc891}{InterruptRequest}}();}
+\DoxyCodeLine{00258                     \}}
+\DoxyCodeLine{00259                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00260                     \{}
+\DoxyCodeLine{00261                         Processor.TriggerNmi = \textcolor{keyword}{true};}
+\DoxyCodeLine{00262                     \}}
+\DoxyCodeLine{00263                 \}}
+\DoxyCodeLine{00264             \}}
+\DoxyCodeLine{00265         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_abef7c683e40b8b7bb9068b65eb6ccdfe_abef7c683e40b8b7bb9068b65eb6ccdfe}\label{class_hardware_1_1_w65_c22_abef7c683e40b8b7bb9068b65eb6ccdfe_abef7c683e40b8b7bb9068b65eb6ccdfe}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!OnT2Timeout@{OnT2Timeout}}
+\index{OnT2Timeout@{OnT2Timeout}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{OnT2Timeout()}{OnT2Timeout()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+On\+T2\+Timeout (\begin{DoxyParamCaption}\item[{object}]{sender,  }\item[{Elapsed\+Event\+Args}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Called whenever System.\+Timers.\+Timer event elapses  
+
+
+\begin{DoxyParams}{Parameters}
+{\em sender} & \\
+\hline
+{\em e} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00273}{273}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00274         \{}
+\DoxyCodeLine{00275             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aea5bad1eb73459933b9baf077b80a69d_aea5bad1eb73459933b9baf077b80a69d}{isRunning}})}
+\DoxyCodeLine{00276             \{}
+\DoxyCodeLine{00277                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_a8906e25547ca1c4ddbc6eb0080ffc789_a8906e25547ca1c4ddbc6eb0080ffc789}{T2IsEnabled}})}
+\DoxyCodeLine{00278                 \{}
+\DoxyCodeLine{00279                     \mbox{\hyperlink{class_hardware_1_1_w65_c22_af40f35c4f66f7f2bbe3683683afd0ebc_af40f35c4f66f7f2bbe3683683afd0ebc}{Write}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a1a09b3f5a9138c005d567c34d6ff2fa0_a1a09b3f5a9138c005d567c34d6ff2fa0}{IFR}}, (\textcolor{keywordtype}{byte})(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a2bcd6a4de9bb725837a088bc40fc3634_a2bcd6a4de9bb725837a088bc40fc3634}{IFR\_T2}} \& \mbox{\hyperlink{class_hardware_1_1_w65_c22_a61d7939e295371b3482ee6b0aba00e60_a61d7939e295371b3482ee6b0aba00e60}{IFR\_INT}}));}
+\DoxyCodeLine{00280                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_a50c01b011e47e8628678b8c1522fe759_a50c01b011e47e8628678b8c1522fe759}{T2IsIRQ}})}
+\DoxyCodeLine{00281                     \{}
+\DoxyCodeLine{00282                         \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a21e519f1e532098b8d3441cd123cc891_a21e519f1e532098b8d3441cd123cc891}{InterruptRequest}}();}
+\DoxyCodeLine{00283                     \}}
+\DoxyCodeLine{00284                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00285                     \{}
+\DoxyCodeLine{00286                         Processor.TriggerNmi = \textcolor{keyword}{true};}
+\DoxyCodeLine{00287                     \}}
+\DoxyCodeLine{00288                 \}}
+\DoxyCodeLine{00289             \}}
+\DoxyCodeLine{00290         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}\label{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Read@{Read}}
+\index{Read@{Read}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+Read (\begin{DoxyParamCaption}\item[{int}]{address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Routine to read from local memory.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Address to read from.\\
+\hline
+\end{DoxyParams}
+
+
+\begin{DoxyReturn}{Returns}
+Byte value stored in the local memory.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00192}{192}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00193         \{}
+\DoxyCodeLine{00194             \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} <= address) \&\& (address <= \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae2e37f1002e16b12838561a84bb5321d_ae2e37f1002e16b12838561a84bb5321d}{End}}))}
+\DoxyCodeLine{00195             \{}
+\DoxyCodeLine{00196                 \textcolor{keywordtype}{byte} data = 0x00;}
+\DoxyCodeLine{00197                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}{T1TimerControl}})}
+\DoxyCodeLine{00198                 \{}
+\DoxyCodeLine{00199                     data = (byte)(data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac927e3ccfaaffda46d00197eb4273253_ac927e3ccfaaffda46d00197eb4273253}{ACR\_T1TC}});}
+\DoxyCodeLine{00200                 \}}
+\DoxyCodeLine{00201                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}{T2TimerControl}})}
+\DoxyCodeLine{00202                 \{}
+\DoxyCodeLine{00203                     data = (byte)(data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac7f22a57396de34558ce597f52c6e966_ac7f22a57396de34558ce597f52c6e966}{ACR\_T2TC}});}
+\DoxyCodeLine{00204                 \}}
+\DoxyCodeLine{00205                 \textcolor{keywordflow}{return} data;}
+\DoxyCodeLine{00206             \}}
+\DoxyCodeLine{00207             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00208             \{}
+\DoxyCodeLine{00209                 \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae9b6f3d06d0c28d76aaf895c9300bbb9_ae9b6f3d06d0c28d76aaf895c9300bbb9}{Memory}}[address -\/ \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}}];}
+\DoxyCodeLine{00210             \}}
+\DoxyCodeLine{00211         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}\label{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Reset@{Reset}}
+\index{Reset@{Reset}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+Reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Reset routine called whenever the emulated computer is reset.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00139}{139}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00140         \{}
+\DoxyCodeLine{00141             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}{T1TimerControl}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00142             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a217bdbd334ea6f10ce5e588810d9ec8d_a217bdbd334ea6f10ce5e588810d9ec8d}{T1IsEnabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00143             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}{T2TimerControl}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00144             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a8906e25547ca1c4ddbc6eb0080ffc789_a8906e25547ca1c4ddbc6eb0080ffc789}{T2IsEnabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00145         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ab061975c441f6ed96b961c17ef812abe_ab061975c441f6ed96b961c17ef812abe}\label{class_hardware_1_1_w65_c22_ab061975c441f6ed96b961c17ef812abe_ab061975c441f6ed96b961c17ef812abe}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1Init@{T1Init}}
+\index{T1Init@{T1Init}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1Init()}{T1Init()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+T1\+Init (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+T1 counter initialization routine.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Timer initialization value in milliseconds.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00162}{162}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00163         \{}
+\DoxyCodeLine{00164             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}{T1Object}} = \textcolor{keyword}{new} Timer(value);}
+\DoxyCodeLine{00165             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}{T1Object}}.Start();}
+\DoxyCodeLine{00166             T1Object.Elapsed += \mbox{\hyperlink{class_hardware_1_1_w65_c22_a90415fda9c35fd5c403826ef0dc8b73f_a90415fda9c35fd5c403826ef0dc8b73f}{OnT1Timeout}};}
+\DoxyCodeLine{00167             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}{T1TimerControl}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00168             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a217bdbd334ea6f10ce5e588810d9ec8d_a217bdbd334ea6f10ce5e588810d9ec8d}{T1IsEnabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00169         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ad75ea9c91ed01ad54b05916c8a2d61f5_ad75ea9c91ed01ad54b05916c8a2d61f5}\label{class_hardware_1_1_w65_c22_ad75ea9c91ed01ad54b05916c8a2d61f5_ad75ea9c91ed01ad54b05916c8a2d61f5}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2Init@{T2Init}}
+\index{T2Init@{T2Init}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2Init()}{T2Init()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+T2\+Init (\begin{DoxyParamCaption}\item[{double}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+T2 counter initialization routine.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & Timer initialization value in milliseconds.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00176}{176}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00177         \{}
+\DoxyCodeLine{00178             \mbox{\hyperlink{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}{T2Object}} = \textcolor{keyword}{new} Timer(value);}
+\DoxyCodeLine{00179             \mbox{\hyperlink{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}{T2Object}}.Start();}
+\DoxyCodeLine{00180             T2Object.Elapsed += \mbox{\hyperlink{class_hardware_1_1_w65_c22_abef7c683e40b8b7bb9068b65eb6ccdfe_abef7c683e40b8b7bb9068b65eb6ccdfe}{OnT2Timeout}};}
+\DoxyCodeLine{00181             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}{T2TimerControl}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00182             \mbox{\hyperlink{class_hardware_1_1_w65_c22_a8906e25547ca1c4ddbc6eb0080ffc789_a8906e25547ca1c4ddbc6eb0080ffc789}{T2IsEnabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00183         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_af40f35c4f66f7f2bbe3683683afd0ebc_af40f35c4f66f7f2bbe3683683afd0ebc}\label{class_hardware_1_1_w65_c22_af40f35c4f66f7f2bbe3683683afd0ebc_af40f35c4f66f7f2bbe3683683afd0ebc}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Write@{Write}}
+\index{Write@{Write}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily void Hardware.\+W65\+C22.\+Write (\begin{DoxyParamCaption}\item[{int}]{address,  }\item[{byte}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes data to the specified address in local memory.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The address to write data to.\\
+\hline
+{\em data} & The data to be written.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00219}{219}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00220         \{}
+\DoxyCodeLine{00221             \textcolor{keywordflow}{if} ((address == \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_w65_c22_aec5c7e207361acaf417d37ff15e9f0fc_aec5c7e207361acaf417d37ff15e9f0fc}{ACR}}) \&\& ((data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac927e3ccfaaffda46d00197eb4273253_ac927e3ccfaaffda46d00197eb4273253}{ACR\_T1TC}}) == \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac927e3ccfaaffda46d00197eb4273253_ac927e3ccfaaffda46d00197eb4273253}{ACR\_T1TC}}))}
+\DoxyCodeLine{00222             \{}
+\DoxyCodeLine{00223                 \mbox{\hyperlink{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}{T1TimerControl}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00224             \}}
+\DoxyCodeLine{00225             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((address == \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_w65_c22_aec5c7e207361acaf417d37ff15e9f0fc_aec5c7e207361acaf417d37ff15e9f0fc}{ACR}}) \&\& ((data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac7f22a57396de34558ce597f52c6e966_ac7f22a57396de34558ce597f52c6e966}{ACR\_T2TC}}) == \mbox{\hyperlink{class_hardware_1_1_w65_c22_ac7f22a57396de34558ce597f52c6e966_ac7f22a57396de34558ce597f52c6e966}{ACR\_T2TC}}))}
+\DoxyCodeLine{00226             \{}
+\DoxyCodeLine{00227                 \mbox{\hyperlink{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}{T2TimerControl}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00228             \}}
+\DoxyCodeLine{00229             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((address == \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae1ec1ffcc908cfcfe30951fd0f580301_ae1ec1ffcc908cfcfe30951fd0f580301}{IER}}) \&\& ((data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_aa4a44e53f941fc51795bdcdb0672ca4b_aa4a44e53f941fc51795bdcdb0672ca4b}{IER\_T1}}) == \mbox{\hyperlink{class_hardware_1_1_w65_c22_aa4a44e53f941fc51795bdcdb0672ca4b_aa4a44e53f941fc51795bdcdb0672ca4b}{IER\_T1}}) \&\& ((data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}{IER\_EN}}) == \mbox{\hyperlink{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}{IER\_EN}}))}
+\DoxyCodeLine{00230             \{}
+\DoxyCodeLine{00231                 \mbox{\hyperlink{class_hardware_1_1_w65_c22_ab061975c441f6ed96b961c17ef812abe_ab061975c441f6ed96b961c17ef812abe}{T1Init}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a7d9f663da45bf5733b7b409ffc57ae96_a7d9f663da45bf5733b7b409ffc57ae96}{T1Interval}});}
+\DoxyCodeLine{00232             \}}
+\DoxyCodeLine{00233             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((address == \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae1ec1ffcc908cfcfe30951fd0f580301_ae1ec1ffcc908cfcfe30951fd0f580301}{IER}}) \&\& ((data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_a0727cf00fc30289d45c3a4708ae4f170_a0727cf00fc30289d45c3a4708ae4f170}{IER\_T2}}) == \mbox{\hyperlink{class_hardware_1_1_w65_c22_a0727cf00fc30289d45c3a4708ae4f170_a0727cf00fc30289d45c3a4708ae4f170}{IER\_T2}}) \&\& ((data | \mbox{\hyperlink{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}{IER\_EN}}) == \mbox{\hyperlink{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}{IER\_EN}}))}
+\DoxyCodeLine{00234             \{}
+\DoxyCodeLine{00235                 \mbox{\hyperlink{class_hardware_1_1_w65_c22_ad75ea9c91ed01ad54b05916c8a2d61f5_ad75ea9c91ed01ad54b05916c8a2d61f5}{T2Init}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_ad43d18ecf4383f48889acc30efca07f6_ad43d18ecf4383f48889acc30efca07f6}{T2Interval}});}
+\DoxyCodeLine{00236             \}}
+\DoxyCodeLine{00237             \mbox{\hyperlink{class_hardware_1_1_w65_c22_ae9b6f3d06d0c28d76aaf895c9300bbb9_ae9b6f3d06d0c28d76aaf895c9300bbb9}{Memory}}[address -\/ \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}}] = data;}
+\DoxyCodeLine{00238         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_aec5c7e207361acaf417d37ff15e9f0fc_aec5c7e207361acaf417d37ff15e9f0fc}\label{class_hardware_1_1_w65_c22_aec5c7e207361acaf417d37ff15e9f0fc_aec5c7e207361acaf417d37ff15e9f0fc}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!ACR@{ACR}}
+\index{ACR@{ACR}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{ACR}{ACR}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+ACR = 0x0B}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ac927e3ccfaaffda46d00197eb4273253_ac927e3ccfaaffda46d00197eb4273253}\label{class_hardware_1_1_w65_c22_ac927e3ccfaaffda46d00197eb4273253_ac927e3ccfaaffda46d00197eb4273253}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!ACR\_T1TC@{ACR\_T1TC}}
+\index{ACR\_T1TC@{ACR\_T1TC}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{ACR\_T1TC}{ACR\_T1TC}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+ACR\+\_\+\+T1\+TC = (byte)(1 $<$$<$ 7)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ac7f22a57396de34558ce597f52c6e966_ac7f22a57396de34558ce597f52c6e966}\label{class_hardware_1_1_w65_c22_ac7f22a57396de34558ce597f52c6e966_ac7f22a57396de34558ce597f52c6e966}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!ACR\_T2TC@{ACR\_T2TC}}
+\index{ACR\_T2TC@{ACR\_T2TC}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{ACR\_T2TC}{ACR\_T2TC}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+ACR\+\_\+\+T2\+TC = (byte)(1 $<$$<$ 6)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ae1ec1ffcc908cfcfe30951fd0f580301_ae1ec1ffcc908cfcfe30951fd0f580301}\label{class_hardware_1_1_w65_c22_ae1ec1ffcc908cfcfe30951fd0f580301_ae1ec1ffcc908cfcfe30951fd0f580301}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IER@{IER}}
+\index{IER@{IER}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IER}{IER}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+IER = 0x0E}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}\label{class_hardware_1_1_w65_c22_a051661506a213eaf9afab479fc016dcd_a051661506a213eaf9afab479fc016dcd}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IER\_EN@{IER\_EN}}
+\index{IER\_EN@{IER\_EN}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IER\_EN}{IER\_EN}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+IER\+\_\+\+EN = (byte)(1 $<$$<$ 7)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_aa4a44e53f941fc51795bdcdb0672ca4b_aa4a44e53f941fc51795bdcdb0672ca4b}\label{class_hardware_1_1_w65_c22_aa4a44e53f941fc51795bdcdb0672ca4b_aa4a44e53f941fc51795bdcdb0672ca4b}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IER\_T1@{IER\_T1}}
+\index{IER\_T1@{IER\_T1}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IER\_T1}{IER\_T1}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+IER\+\_\+\+T1 = (byte)(1 $<$$<$ 6)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a0727cf00fc30289d45c3a4708ae4f170_a0727cf00fc30289d45c3a4708ae4f170}\label{class_hardware_1_1_w65_c22_a0727cf00fc30289d45c3a4708ae4f170_a0727cf00fc30289d45c3a4708ae4f170}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IER\_T2@{IER\_T2}}
+\index{IER\_T2@{IER\_T2}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IER\_T2}{IER\_T2}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+IER\+\_\+\+T2 = (byte)(1 $<$$<$ 5)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a1a09b3f5a9138c005d567c34d6ff2fa0_a1a09b3f5a9138c005d567c34d6ff2fa0}\label{class_hardware_1_1_w65_c22_a1a09b3f5a9138c005d567c34d6ff2fa0_a1a09b3f5a9138c005d567c34d6ff2fa0}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IFR@{IFR}}
+\index{IFR@{IFR}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IFR}{IFR}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+IFR = 0x0D}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a61d7939e295371b3482ee6b0aba00e60_a61d7939e295371b3482ee6b0aba00e60}\label{class_hardware_1_1_w65_c22_a61d7939e295371b3482ee6b0aba00e60_a61d7939e295371b3482ee6b0aba00e60}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IFR\_INT@{IFR\_INT}}
+\index{IFR\_INT@{IFR\_INT}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IFR\_INT}{IFR\_INT}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+IFR\+\_\+\+INT = (byte)(1 $<$$<$ 7)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a5236fbfadd8bb5da853ae733aafb4d29_a5236fbfadd8bb5da853ae733aafb4d29}\label{class_hardware_1_1_w65_c22_a5236fbfadd8bb5da853ae733aafb4d29_a5236fbfadd8bb5da853ae733aafb4d29}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IFR\_T1@{IFR\_T1}}
+\index{IFR\_T1@{IFR\_T1}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IFR\_T1}{IFR\_T1}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+IFR\+\_\+\+T1 = (byte)(1 $<$$<$ 6)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a2bcd6a4de9bb725837a088bc40fc3634_a2bcd6a4de9bb725837a088bc40fc3634}\label{class_hardware_1_1_w65_c22_a2bcd6a4de9bb725837a088bc40fc3634_a2bcd6a4de9bb725837a088bc40fc3634}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!IFR\_T2@{IFR\_T2}}
+\index{IFR\_T2@{IFR\_T2}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{IFR\_T2}{IFR\_T2}}
+{\footnotesize\ttfamily byte Hardware.\+W65\+C22.\+IFR\+\_\+\+T2 = (byte)(1 $<$$<$ 5)}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a6aa7c0a582bcafe127d39fd5db184f37_a6aa7c0a582bcafe127d39fd5db184f37}\label{class_hardware_1_1_w65_c22_a6aa7c0a582bcafe127d39fd5db184f37_a6aa7c0a582bcafe127d39fd5db184f37}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1CH@{T1CH}}
+\index{T1CH@{T1CH}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1CH}{T1CH}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+T1\+CH = 0x05}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ace9cc3cd5c041b8f4f9fb8c83aa25848_ace9cc3cd5c041b8f4f9fb8c83aa25848}\label{class_hardware_1_1_w65_c22_ace9cc3cd5c041b8f4f9fb8c83aa25848_ace9cc3cd5c041b8f4f9fb8c83aa25848}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1CL@{T1CL}}
+\index{T1CL@{T1CL}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1CL}{T1CL}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+T1\+CL = 0x04}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a0a5a4f5cf2bf29c9450a9ec3aab513db_a0a5a4f5cf2bf29c9450a9ec3aab513db}\label{class_hardware_1_1_w65_c22_a0a5a4f5cf2bf29c9450a9ec3aab513db_a0a5a4f5cf2bf29c9450a9ec3aab513db}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1IsIRQ@{T1IsIRQ}}
+\index{T1IsIRQ@{T1IsIRQ}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1IsIRQ}{T1IsIRQ}}
+{\footnotesize\ttfamily readonly bool Hardware.\+W65\+C22.\+T1\+Is\+IRQ = false}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a4ccb8c2df99a6fe9387cffa0b2cbcc22_a4ccb8c2df99a6fe9387cffa0b2cbcc22}\label{class_hardware_1_1_w65_c22_a4ccb8c2df99a6fe9387cffa0b2cbcc22_a4ccb8c2df99a6fe9387cffa0b2cbcc22}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2CH@{T2CH}}
+\index{T2CH@{T2CH}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2CH}{T2CH}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+T2\+CH = 0x09}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a313dac503714194678bd2de24d911d84_a313dac503714194678bd2de24d911d84}\label{class_hardware_1_1_w65_c22_a313dac503714194678bd2de24d911d84_a313dac503714194678bd2de24d911d84}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2CL@{T2CL}}
+\index{T2CL@{T2CL}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2CL}{T2CL}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+T2\+CL = 0x08}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a50c01b011e47e8628678b8c1522fe759_a50c01b011e47e8628678b8c1522fe759}\label{class_hardware_1_1_w65_c22_a50c01b011e47e8628678b8c1522fe759_a50c01b011e47e8628678b8c1522fe759}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2IsIRQ@{T2IsIRQ}}
+\index{T2IsIRQ@{T2IsIRQ}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2IsIRQ}{T2IsIRQ}}
+{\footnotesize\ttfamily readonly bool Hardware.\+W65\+C22.\+T2\+Is\+IRQ = true}
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+
+\doxysubsubsection{Property Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ae2e37f1002e16b12838561a84bb5321d_ae2e37f1002e16b12838561a84bb5321d}\label{class_hardware_1_1_w65_c22_ae2e37f1002e16b12838561a84bb5321d_ae2e37f1002e16b12838561a84bb5321d}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!End@{End}}
+\index{End@{End}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{End}{End}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+End\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The end of memory  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00055}{55}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_w65_c22_aa979b86c2c11e59518861622ecf7e3ba_aa979b86c2c11e59518861622ecf7e3ba}{Length}}; \} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_aa979b86c2c11e59518861622ecf7e3ba_aa979b86c2c11e59518861622ecf7e3ba}\label{class_hardware_1_1_w65_c22_aa979b86c2c11e59518861622ecf7e3ba_aa979b86c2c11e59518861622ecf7e3ba}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Length@{Length}}
+\index{Length@{Length}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Length}{Length}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+Length\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The length of the device memory.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00050}{50}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00050 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ae9b6f3d06d0c28d76aaf895c9300bbb9_ae9b6f3d06d0c28d76aaf895c9300bbb9}\label{class_hardware_1_1_w65_c22_ae9b6f3d06d0c28d76aaf895c9300bbb9_ae9b6f3d06d0c28d76aaf895c9300bbb9}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Memory@{Memory}}
+\index{Memory@{Memory}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Memory}{Memory}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]} Hardware.\+W65\+C22.\+Memory\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The memory area.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00040 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}\label{class_hardware_1_1_w65_c22_af3b634570c74f65f68c39e8ef31404fd_af3b634570c74f65f68c39e8ef31404fd}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Offset@{Offset}}
+\index{Offset@{Offset}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Offset}{Offset}}
+{\footnotesize\ttfamily int Hardware.\+W65\+C22.\+Offset\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The memory offset of the device.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00045}{45}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00045 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}\label{class_hardware_1_1_w65_c22_ab0641962be33a5ff5842c3661bdc8b7b_ab0641962be33a5ff5842c3661bdc8b7b}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!Processor@{Processor}}
+\index{Processor@{Processor}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{Processor}{Processor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} Hardware.\+W65\+C22.\+Processor\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}, {\ttfamily [private]}}
+
+
+
+Local referemce to the processor object.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00119}{119}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00119 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a7d9f663da45bf5733b7b409ffc57ae96_a7d9f663da45bf5733b7b409ffc57ae96}\label{class_hardware_1_1_w65_c22_a7d9f663da45bf5733b7b409ffc57ae96_a7d9f663da45bf5733b7b409ffc57ae96}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1Interval@{T1Interval}}
+\index{T1Interval@{T1Interval}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1Interval}{T1Interval}}
+{\footnotesize\ttfamily double Hardware.\+W65\+C22.\+T1\+Interval\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Set or check the timer 1 interval.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00096}{96}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00096 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})(\mbox{\hyperlink{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}{Read}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_ace9cc3cd5c041b8f4f9fb8c83aa25848_ace9cc3cd5c041b8f4f9fb8c83aa25848}{T1CL}}) | (\mbox{\hyperlink{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}{Read}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a6aa7c0a582bcafe127d39fd5db184f37_a6aa7c0a582bcafe127d39fd5db184f37}{T1CH}}) << 8)); \} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a217bdbd334ea6f10ce5e588810d9ec8d_a217bdbd334ea6f10ce5e588810d9ec8d}\label{class_hardware_1_1_w65_c22_a217bdbd334ea6f10ce5e588810d9ec8d_a217bdbd334ea6f10ce5e588810d9ec8d}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1IsEnabled@{T1IsEnabled}}
+\index{T1IsEnabled@{T1IsEnabled}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1IsEnabled}{T1IsEnabled}}
+{\footnotesize\ttfamily bool Hardware.\+W65\+C22.\+T1\+Is\+Enabled\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Enable or check whether timer 1 is enabled or not.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00078}{78}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00079         \{}
+\DoxyCodeLine{00080             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}{T1Object}}.Enabled; \}}
+\DoxyCodeLine{00081             \textcolor{keyword}{set} \{ T1Object.Enabled = value; \}}
+\DoxyCodeLine{00082         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}\label{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1Object@{T1Object}}
+\index{T1Object@{T1Object}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1Object}{T1Object}}
+{\footnotesize\ttfamily Timer Hardware.\+W65\+C22.\+T1\+Object\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Set or get the timer 1 object.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00109}{109}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00109 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}\label{class_hardware_1_1_w65_c22_a4b006861169e778134675a01e34966a1_a4b006861169e778134675a01e34966a1}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T1TimerControl@{T1TimerControl}}
+\index{T1TimerControl@{T1TimerControl}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T1TimerControl}{T1TimerControl}}
+{\footnotesize\ttfamily bool Hardware.\+W65\+C22.\+T1\+Timer\+Control\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+T1 timer control  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00061         \{}
+\DoxyCodeLine{00062             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c22_a3412950c2f8840c0d4a8e39550af26f5_a3412950c2f8840c0d4a8e39550af26f5}{T1Object}}.AutoReset; \}}
+\DoxyCodeLine{00063             \textcolor{keyword}{set} \{ T1Object.AutoReset = value; \}}
+\DoxyCodeLine{00064         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_ad43d18ecf4383f48889acc30efca07f6_ad43d18ecf4383f48889acc30efca07f6}\label{class_hardware_1_1_w65_c22_ad43d18ecf4383f48889acc30efca07f6_ad43d18ecf4383f48889acc30efca07f6}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2Interval@{T2Interval}}
+\index{T2Interval@{T2Interval}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2Interval}{T2Interval}}
+{\footnotesize\ttfamily double Hardware.\+W65\+C22.\+T2\+Interval\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+Set or check the timer 2 interval.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00101}{101}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00102         \{}
+\DoxyCodeLine{00103             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} (\textcolor{keywordtype}{int})(\mbox{\hyperlink{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}{Read}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a313dac503714194678bd2de24d911d84_a313dac503714194678bd2de24d911d84}{T2CL}}) | (\mbox{\hyperlink{class_hardware_1_1_w65_c22_af926e58db124cf52245f69c2cdf3aff9_af926e58db124cf52245f69c2cdf3aff9}{Read}}(\mbox{\hyperlink{class_hardware_1_1_w65_c22_a4ccb8c2df99a6fe9387cffa0b2cbcc22_a4ccb8c2df99a6fe9387cffa0b2cbcc22}{T2CH}}) << 8)); \}}
+\DoxyCodeLine{00104         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a8906e25547ca1c4ddbc6eb0080ffc789_a8906e25547ca1c4ddbc6eb0080ffc789}\label{class_hardware_1_1_w65_c22_a8906e25547ca1c4ddbc6eb0080ffc789_a8906e25547ca1c4ddbc6eb0080ffc789}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2IsEnabled@{T2IsEnabled}}
+\index{T2IsEnabled@{T2IsEnabled}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2IsEnabled}{T2IsEnabled}}
+{\footnotesize\ttfamily bool Hardware.\+W65\+C22.\+T2\+Is\+Enabled\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Enable or check whether timer 2 is enabled or not.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00087}{87}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00088         \{}
+\DoxyCodeLine{00089             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}{T2Object}}.Enabled; \}}
+\DoxyCodeLine{00090             \textcolor{keyword}{set} \{ T2Object.Enabled = value; \}}
+\DoxyCodeLine{00091         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}\label{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2Object@{T2Object}}
+\index{T2Object@{T2Object}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2Object}{T2Object}}
+{\footnotesize\ttfamily Timer Hardware.\+W65\+C22.\+T2\+Object\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+Set or get the timer 2 object.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00114}{114}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00114 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}\label{class_hardware_1_1_w65_c22_a54e7a07c86a35a8aac04b5355f05ec9d_a54e7a07c86a35a8aac04b5355f05ec9d}} 
+\index{Hardware.W65C22@{Hardware.W65C22}!T2TimerControl@{T2TimerControl}}
+\index{T2TimerControl@{T2TimerControl}!Hardware.W65C22@{Hardware.W65C22}}
+\doxyparagraph{\texorpdfstring{T2TimerControl}{T2TimerControl}}
+{\footnotesize\ttfamily bool Hardware.\+W65\+C22.\+T2\+Timer\+Control\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+T2 timer control.  
+
+
+
+Definition at line \mbox{\hyperlink{_w65_c22_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_w65_c22_8cs_source}{W65\+C22.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00070         \{}
+\DoxyCodeLine{00071             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c22_aaa25c9e666021d92e927911a18bce845_aaa25c9e666021d92e927911a18bce845}{T2Object}}.AutoReset; \}}
+\DoxyCodeLine{00072             \textcolor{keyword}{set} \{ T2Object.AutoReset = value; \}}
+\DoxyCodeLine{00073         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hardware/\mbox{\hyperlink{_w65_c22_8cs}{W65\+C22.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,137 @@
+.TH "Emulator.Model.StateFileModel" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.Model.StateFileModel \- \fBModel\fP that contains the required information needed to save the current state of the processor to disk   
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "int \fBNumberOfCycles\fP\fC [get, set]\fP"
+.br
+.RI "The Number of Cycles the Program has Ran so Far  "
+.ti -1c
+.RI "IList< \fBOutputLog\fP > \fBOutputLog\fP\fC [get, set]\fP"
+.br
+.RI "The output of the program  "
+.ti -1c
+.RI "\fBHardware\&.W65C02\fP \fBW65C02\fP\fC [get, set]\fP"
+.br
+.RI "The Processor Object that is being saved  "
+.ti -1c
+.RI "\fBHardware\&.W65C22\fP \fBW65C22\fP\fC [get, set]\fP"
+.br
+.RI "The first VIA Object that is being saved  "
+.ti -1c
+.RI "\fBHardware\&.W65C22\fP \fBMM65SIB\fP\fC [get, set]\fP"
+.br
+.RI "The second VIA Object that is being saved  "
+.ti -1c
+.RI "\fBHardware\&.W65C51\fP \fBW65C51\fP\fC [get, set]\fP"
+.br
+.RI "The ACIA Object that is being saved  "
+.ti -1c
+.RI "\fBHardware\&.AT28CXX\fP \fBAT28C010\fP\fC [get, set]\fP"
+.br
+.RI "The Shared ROM Object that is being saved  "
+.ti -1c
+.RI "\fBHardware\&.AT28CXX\fP \fBAT28C64\fP\fC [get, set]\fP"
+.br
+.RI "The Banked ROM Object that is being saved  "
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBModel\fP that contains the required information needed to save the current state of the processor to disk  
+.PP
+Definition at line \fB10\fP of file \fBStateFileModel\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "\fBHardware\&.AT28CXX\fP Emulator\&.Model\&.StateFileModel\&.AT28C010\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Shared ROM Object that is being saved  
+.PP
+Definition at line \fB45\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+45 { get; set; }
+.fi
+.SS "\fBHardware\&.AT28CXX\fP Emulator\&.Model\&.StateFileModel\&.AT28C64\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Banked ROM Object that is being saved  
+.PP
+Definition at line \fB50\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+50 { get; set; }
+.fi
+.SS "\fBHardware\&.W65C22\fP Emulator\&.Model\&.StateFileModel\&.MM65SIB\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The second VIA Object that is being saved  
+.PP
+Definition at line \fB35\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+35 { get; set; }
+.fi
+.SS "int Emulator\&.Model\&.StateFileModel\&.NumberOfCycles\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Number of Cycles the Program has Ran so Far  
+.PP
+Definition at line \fB15\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+15 { get; set; }
+.fi
+.SS "IList<\fBOutputLog\fP> Emulator\&.Model\&.StateFileModel\&.OutputLog\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The output of the program  
+.PP
+Definition at line \fB20\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+20 { get; set; }
+.fi
+.SS "\fBHardware\&.W65C02\fP Emulator\&.Model\&.StateFileModel\&.W65C02\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Processor Object that is being saved  
+.PP
+Definition at line \fB25\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+25 { get; set; }
+.fi
+.SS "\fBHardware\&.W65C22\fP Emulator\&.Model\&.StateFileModel\&.W65C22\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The first VIA Object that is being saved  
+.PP
+Definition at line \fB30\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+30 { get; set; }
+.fi
+.SS "\fBHardware\&.W65C51\fP Emulator\&.Model\&.StateFileModel\&.W65C51\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The ACIA Object that is being saved  
+.PP
+Definition at line \fB40\fP of file \fBStateFileModel\&.cs\fP\&.
+.PP
+.nf
+40 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

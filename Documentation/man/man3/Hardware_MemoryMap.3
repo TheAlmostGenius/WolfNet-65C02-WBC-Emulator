@@ -1,0 +1,316 @@
+.TH "Hardware.MemoryMap" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware.MemoryMap
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBBankedRam\fP"
+.br
+.ti -1c
+.RI "class \fBBankedRom\fP"
+.br
+.ti -1c
+.RI "class \fBDeviceArea\fP"
+.br
+.ti -1c
+.RI "class \fBDevices\fP"
+.br
+.ti -1c
+.RI "class \fBSharedRom\fP"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBInit\fP (\fBW65C02\fP processor, \fBW65C22\fP gpio, \fBW65C22\fP mm65sib, \fBW65C51\fP acia, \fBHM62256\fP bankedRam, \fBAT28CXX\fP bankedRom, \fBAT28CXX\fP sharedRom)"
+.br
+.ti -1c
+.RI "static byte \fBRead\fP (int address)"
+.br
+.RI "Returns the byte at the given address\&.  "
+.ti -1c
+.RI "static byte \fBReadWithoutCycle\fP (int address)"
+.br
+.RI "Returns the byte at the given address without incrementing the cycle count\&.  "
+.ti -1c
+.RI "static void \fBWrite\fP (int address, byte data)"
+.br
+.RI "Writes data to the given address\&.  "
+.ti -1c
+.RI "static void \fBWriteWithoutCycle\fP (int address, byte data)"
+.br
+.RI "Writes data to the given address without incrementing the cycle count\&.  "
+.in -1c
+.SS "Static Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "static readonly int \fBLength\fP = 0xFFFF"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "static \fBW65C02\fP \fBProcessor\fP\fC [get, set]\fP"
+.br
+.ti -1c
+.RI "static \fBW65C22\fP \fBGPIO\fP\fC [get, set]\fP"
+.br
+.ti -1c
+.RI "static \fBW65C22\fP \fBMM65SIB\fP\fC [get, set]\fP"
+.br
+.ti -1c
+.RI "static \fBW65C51\fP \fBACIA\fP\fC [get, set]\fP"
+.br
+.ti -1c
+.RI "static \fBAT28CXX\fP \fBSharedROM\fP\fC [get, set]\fP"
+.br
+.ti -1c
+.RI "static \fBAT28CXX\fP \fBBankedROM\fP\fC [get, set]\fP"
+.br
+.ti -1c
+.RI "static \fBHM62256\fP \fBBankedRAM\fP\fC [get, set]\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB6\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static void Hardware\&.MemoryMap\&.Init (\fBW65C02\fP processor, \fBW65C22\fP gpio, \fBW65C22\fP mm65sib, \fBW65C51\fP acia, \fBHM62256\fP bankedRam, \fBAT28CXX\fP bankedRom, \fBAT28CXX\fP sharedRom)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Definition at line \fB87\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+88         {
+89             Processor = processor;
+90             GPIO = gpio;
+91             MM65SIB = mm65sib;
+92             ACIA = acia;
+93             SharedROM = sharedRom;
+94             BankedROM = bankedRom;
+95             BankedRAM = bankedRam;
+96         }
+.fi
+.SS "static byte Hardware\&.MemoryMap\&.Read (int address)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Returns the byte at the given address\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP The address to return
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the byte being returned
+.RE
+.PP
+
+.PP
+Definition at line \fB103\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+104         {
+105             var value = ReadWithoutCycle(address);
+106             Processor\&.IncrementCycleCount();
+107             return value;
+108         }
+.fi
+.SS "static byte Hardware\&.MemoryMap\&.ReadWithoutCycle (int address)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Returns the byte at the given address without incrementing the cycle count\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP The address to return
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the byte being returned
+.RE
+.PP
+
+.PP
+Definition at line \fB115\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+116         {
+117             int _address = address;
+118             if ((ACIA\&.Offset <= _address) && (_address <= (ACIA\&.Offset + ACIA\&.Length)))
+119             {
+120                 return ACIA\&.Read(address);
+121             }
+122             else if ((GPIO\&.Offset <= _address) && (_address <= (GPIO\&.Offset + GPIO\&.Length)))
+123             {
+124                 return GPIO\&.Read(_address);
+125             }
+126             else if ((DeviceArea\&.Offset <= _address) && (_address <= DeviceArea\&.End))
+127             {
+128                 throw new ArgumentOutOfRangeException("Device area accessed where there is no device!");
+129             }
+130             else if ((SharedROM\&.Offset <= _address) && (_address <= SharedROM\&.End))
+131             {
+132                 return SharedROM\&.Read(_address);
+133             }
+134             else if ((BankedROM\&.Offset <= _address) && (_address <= BankedROM\&.End))
+135             {
+136                 return BankedROM\&.Read(_address);
+137             }
+138             else if ((BankedRAM\&.Offset <= _address) && (_address <= BankedRAM\&.End))
+139             {
+140                 return BankedRAM\&.Read(_address);
+141             }
+142             else
+143             {
+144                 return 0x00;
+145             }
+146         }
+.fi
+.SS "static void Hardware\&.MemoryMap\&.Write (int address, byte data)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Writes data to the given address\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP The address to write data to\&.
+.br
+\fIdata\fP The data to write\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB153\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+154         {
+155             Processor\&.IncrementCycleCount();
+156             WriteWithoutCycle(address, data);
+157         }
+.fi
+.SS "static void Hardware\&.MemoryMap\&.WriteWithoutCycle (int address, byte data)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Writes data to the given address without incrementing the cycle count\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIaddress\fP The address to write data to\&.
+.br
+\fIdata\fP The data to write\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB164\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+165         {
+166             if ((ACIA\&.Offset <= address) && (address <= (ACIA\&.Offset + ACIA\&.Length)))
+167             {
+168                 ACIA\&.Write(address, data);
+169             }
+170             else if ((GPIO\&.Offset <= address) && (address <= (GPIO\&.Offset + GPIO\&.Length)))
+171             {
+172                 GPIO\&.Write(address, data);
+173             }
+174             else if ((SharedROM\&.Offset <= address) && (address <= (SharedROM\&.Offset + SharedROM\&.Length)))
+175             {
+176                 SharedROM\&.Write(address, data);
+177             }
+178             else if ((BankedROM\&.Offset <= address) && (address <= (BankedROM\&.Offset + BankedROM\&.Length)))
+179             {
+180                 BankedROM\&.Write(address, data);
+181             }
+182             else if ((BankedRAM\&.Offset <= address) && (address <= (BankedRAM\&.Offset + BankedRAM\&.Length)))
+183             {
+184                 BankedRAM\&.Write(address, data);
+185             }
+186             else
+187             {
+188                 throw new ApplicationException(String\&.Format("Cannot write to address: {0}", address));
+189             }
+190         }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "readonly int Hardware\&.MemoryMap\&.Length = 0xFFFF\fC [static]\fP"
+
+.PP
+Definition at line \fB77\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "\fBW65C51\fP Hardware\&.MemoryMap\&.ACIA\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB82\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+82 { get; set; }
+.fi
+.SS "\fBHM62256\fP Hardware\&.MemoryMap\&.BankedRAM\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB85\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+85 { get; set; }
+.fi
+.SS "\fBAT28CXX\fP Hardware\&.MemoryMap\&.BankedROM\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB84\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+84 { get; set; }
+.fi
+.SS "\fBW65C22\fP Hardware\&.MemoryMap\&.GPIO\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB80\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+80 { get; set; }
+.fi
+.SS "\fBW65C22\fP Hardware\&.MemoryMap\&.MM65SIB\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB81\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+81 { get; set; }
+.fi
+.SS "\fBW65C02\fP Hardware\&.MemoryMap\&.Processor\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB79\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+79 { get; set; }
+.fi
+.SS "\fBAT28CXX\fP Hardware\&.MemoryMap\&.SharedROM\fC [static]\fP, \fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB83\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+83 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

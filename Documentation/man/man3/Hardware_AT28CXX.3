@@ -1,0 +1,376 @@
+.TH "Hardware.AT28CXX" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware.AT28CXX \- An implementation of a \fBW65C02\fP Processor\&.   
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBAT28CXX\fP (int offset, int length, byte banks)"
+.br
+.RI "Default Constructor, Instantiates a new instance of the processor\&.  "
+.ti -1c
+.RI "void \fBLoad\fP (byte[][] data)"
+.br
+.RI "Loads a program into ROM\&.  "
+.ti -1c
+.RI "void \fBLoad\fP (byte bank, byte[] data)"
+.br
+.RI "Loads a program into ROM\&.  "
+.ti -1c
+.RI "byte[][] \fBReadFile\fP (string filename)"
+.br
+.ti -1c
+.RI "byte \fBRead\fP (int address)"
+.br
+.RI "Returns the byte at a given address without incrementing the cycle\&. Useful for test harness\&.  "
+.ti -1c
+.RI "void \fBWrite\fP (int address, byte data)"
+.br
+.RI "Writes data to the given address without incrementing the cycle\&.  "
+.ti -1c
+.RI "byte[][] \fBDumpMemory\fP ()"
+.br
+.RI "Dumps the entire memory object\&. Used when saving the memory state  "
+.ti -1c
+.RI "byte[] \fBDumpMemory\fP (byte bank)"
+.br
+.RI "Dumps the selected ROM bank\&.  "
+.ti -1c
+.RI "void \fBClear\fP ()"
+.br
+.RI "Clears the ROM\&.  "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "byte[][] \fBMemory\fP\fC [get, private set]\fP"
+.br
+.RI "The ROM\&.  "
+.ti -1c
+.RI "byte \fBBanks\fP\fC [get, private set]\fP"
+.br
+.RI "The total number of banks on the ROM\&.  "
+.ti -1c
+.RI "byte \fBCurrentBank\fP\fC [get, private set]\fP"
+.br
+.RI "The bank the ROM is currently using\&.  "
+.ti -1c
+.RI "int \fBOffset\fP\fC [get, private set]\fP"
+.br
+.RI "The memory offset  "
+.ti -1c
+.RI "int \fBEnd\fP\fC [get]\fP"
+.br
+.RI "The end of memory  "
+.ti -1c
+.RI "int \fBLength\fP\fC [get, private set]\fP"
+.br
+.RI "The memory length  "
+.ti -1c
+.RI "\fBW65C02\fP \fBProcessor\fP\fC [get, private set]\fP"
+.br
+.RI "The processor reference  "
+.in -1c
+.SH "Detailed Description"
+.PP 
+An implementation of a \fBW65C02\fP Processor\&.  
+.PP
+Definition at line \fB10\fP of file \fBAT28CXX\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Hardware\&.AT28CXX\&.AT28CXX (int offset, int length, byte banks)\fC [inline]\fP"
+
+.PP
+Default Constructor, Instantiates a new instance of the processor\&.  
+.PP
+Definition at line \fB54\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+55         {
+56             Memory = new byte[banks][];
+57             for (int i = 0; i < banks; i++)
+58             {
+59                 Memory[i] = new byte[length + 1];
+60             }
+61             Offset = offset;
+62             Length = length;
+63             Banks = banks;
+64             CurrentBank = 0;
+65         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Hardware\&.AT28CXX\&.Clear ()\fC [inline]\fP"
+
+.PP
+Clears the ROM\&.  
+.PP
+Definition at line \fB165\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+166         {
+167             for (byte i = 0; i < Banks; i++)
+168             {
+169                 for (int j = 0; j < Length; j++)
+170                 {
+171                     Memory[i][j] = 0x00;
+172                 }
+173             }
+174         }
+.fi
+.SS "byte[][] Hardware\&.AT28CXX\&.DumpMemory ()\fC [inline]\fP"
+
+.PP
+Dumps the entire memory object\&. Used when saving the memory state  
+.PP
+\fBReturns\fP
+.RS 4
+2 dimensional array of data analogous to the ROM of the computer\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB143\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+144         {
+145             return Memory;
+146         }
+.fi
+.SS "byte[] Hardware\&.AT28CXX\&.DumpMemory (byte bank)\fC [inline]\fP"
+
+.PP
+Dumps the selected ROM bank\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbank\fP The bank to dump data from\&.
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+Array that represents the selected ROM bank\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB153\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+154         {
+155             byte[] _tempMemory = new byte[MemoryMap\&.BankedRom\&.Length + 1];
+156             for (var i = 0; i < MemoryMap\&.BankedRom\&.Length; i++) {
+157                 _tempMemory[i] = Memory[bank][i];
+158             }
+159             return _tempMemory;
+160         }
+.fi
+.SS "void Hardware\&.AT28CXX\&.Load (byte bank, byte[] data)\fC [inline]\fP"
+
+.PP
+Loads a program into ROM\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbank\fP The bank to load data to\&.
+.br
+\fIdata\fP The data to be loaded to ROM\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB84\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+85         {
+86             for (int i = 0; i <= Length; i++)
+87             {
+88                 Memory[bank][i] = data[i];
+89             }
+90         }
+.fi
+.SS "void Hardware\&.AT28CXX\&.Load (byte data[][])\fC [inline]\fP"
+
+.PP
+Loads a program into ROM\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIdata\fP The program to be loaded
+.RE
+.PP
+
+.PP
+Definition at line \fB71\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+72         {
+73             for (byte i = 0; i < Banks; i++)
+74             {
+75                 Load(i, data[i]);
+76             }
+77         }
+.fi
+.SS "byte Hardware\&.AT28CXX\&.Read (int address)\fC [inline]\fP"
+
+.PP
+Returns the byte at a given address without incrementing the cycle\&. Useful for test harness\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbank\fP The bank to read data from\&.
+.br
+\fIaddress\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+the byte being returned
+.RE
+.PP
+
+.PP
+Definition at line \fB121\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+122         {
+123             return Memory[CurrentBank][address - Offset];
+124         }
+.fi
+.SS "byte[][] Hardware\&.AT28CXX\&.ReadFile (string filename)\fC [inline]\fP"
+
+.PP
+Definition at line \fB92\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+93         {
+94             byte[][] bios = new byte[Banks][];
+95             try
+96             {
+97                 FileStream file = new FileStream(filename, FileMode\&.Open, FileAccess\&.Read);
+98                 for (int i = 0; i < Banks; i++)
+99                 {
+100                     bios[i] = new byte[Length + 1];
+101                     for (int j = 0; j <= Length; j++)
+102                     {
+103                         bios[i][j] = new byte();
+104                         bios[i][j] = (byte)file\&.ReadByte();
+105                     }
+106                 }
+107             }
+108             catch (Exception)
+109             {
+110                 return null;
+111             }
+112             return bios;
+113         }
+.fi
+.SS "void Hardware\&.AT28CXX\&.Write (int address, byte data)\fC [inline]\fP"
+
+.PP
+Writes data to the given address without incrementing the cycle\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbank\fP The bank to load data to\&.
+.br
+\fIaddress\fP The address to write data to
+.br
+\fIdata\fP The data to write
+.RE
+.PP
+
+.PP
+Definition at line \fB132\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+133         {
+134             _ = address;
+135             _ = data;
+136             return;
+137         }
+.fi
+.SH "Property Documentation"
+.PP 
+.SS "byte Hardware\&.AT28CXX\&.Banks\fC [get]\fP, \fC [private set]\fP"
+
+.PP
+The total number of banks on the ROM\&.  
+.PP
+Definition at line \fB22\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+22 { get; private set; }
+.fi
+.SS "byte Hardware\&.AT28CXX\&.CurrentBank\fC [get]\fP, \fC [private set]\fP"
+
+.PP
+The bank the ROM is currently using\&.  
+.PP
+Definition at line \fB27\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+27 { get; private set; }
+.fi
+.SS "int Hardware\&.AT28CXX\&.End\fC [get]\fP"
+
+.PP
+The end of memory  
+.PP
+Definition at line \fB37\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+37 { get { return Offset + Length; } }
+.fi
+.SS "int Hardware\&.AT28CXX\&.Length\fC [get]\fP, \fC [private set]\fP"
+
+.PP
+The memory length  
+.PP
+Definition at line \fB42\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+42 { get; private set; }
+.fi
+.SS "byte [][] Hardware\&.AT28CXX\&.Memory\fC [get]\fP, \fC [private set]\fP"
+
+.PP
+The ROM\&.  
+.PP
+Definition at line \fB17\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+17 { get; private set; }
+.fi
+.SS "int Hardware\&.AT28CXX\&.Offset\fC [get]\fP, \fC [private set]\fP"
+
+.PP
+The memory offset  
+.PP
+Definition at line \fB32\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+32 { get; private set; }
+.fi
+.SS "\fBW65C02\fP Hardware\&.AT28CXX\&.Processor\fC [get]\fP, \fC [private set]\fP"
+
+.PP
+The processor reference  
+.PP
+Definition at line \fB47\fP of file \fBAT28CXX\&.cs\fP\&.
+.PP
+.nf
+47 { get; private set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

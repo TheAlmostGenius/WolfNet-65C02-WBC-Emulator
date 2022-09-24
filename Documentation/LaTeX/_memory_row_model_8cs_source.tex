@@ -1,0 +1,83 @@
+\hypertarget{_memory_row_model_8cs_source}{}\doxysubsection{Memory\+Row\+Model.\+cs}
+\label{_memory_row_model_8cs_source}\index{Emulator/Model/MemoryRowModel.cs@{Emulator/Model/MemoryRowModel.cs}}
+\mbox{\hyperlink{_memory_row_model_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00001}00001 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00002}00002 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00003}00003 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00004}00004 \textcolor{comment}{    /// A Model of a Single Page of memory}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00005}00005 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00006}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model}{00006}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model}{MemoryRowModel}}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00007}00007     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00008}00008 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00009}00009 \textcolor{comment}{        /// The offset of this row. Expressed in hex}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00010}00010 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00011}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a8fd272576983b093a1f847aead08dddd_a8fd272576983b093a1f847aead08dddd}{00011}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a8fd272576983b093a1f847aead08dddd_a8fd272576983b093a1f847aead08dddd}{Offset}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00012}00012 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00013}00013 \textcolor{comment}{        /// The memory at the location offset + 00}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00014}00014 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00015}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ae9e63b289f967c22f592fcf0916ce955_ae9e63b289f967c22f592fcf0916ce955}{00015}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ae9e63b289f967c22f592fcf0916ce955_ae9e63b289f967c22f592fcf0916ce955}{Location00}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00016}00016 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00017}00017 \textcolor{comment}{        /// The memory at the location offset + 01}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00018}00018 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00019}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a638964989863f2eb80486fe751823dcd_a638964989863f2eb80486fe751823dcd}{00019}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a638964989863f2eb80486fe751823dcd_a638964989863f2eb80486fe751823dcd}{Location01}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00021}00021 \textcolor{comment}{        /// The memory at the location offset + 02}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00022}00022 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00023}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a590bdd992109dd9d5a9db671cfaf2c20_a590bdd992109dd9d5a9db671cfaf2c20}{00023}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a590bdd992109dd9d5a9db671cfaf2c20_a590bdd992109dd9d5a9db671cfaf2c20}{Location02}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00024}00024 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00025}00025 \textcolor{comment}{        /// The memory at the location offset + 03}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00026}00026 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00027}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a6d829ac79917701ed2a66755800c6468_a6d829ac79917701ed2a66755800c6468}{00027}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a6d829ac79917701ed2a66755800c6468_a6d829ac79917701ed2a66755800c6468}{Location03}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00028}00028 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00029}00029 \textcolor{comment}{        /// The memory at the location offset + 04}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00030}00030 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00031}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a146c31acbc8c08c61e0881f84c84cc37_a146c31acbc8c08c61e0881f84c84cc37}{00031}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a146c31acbc8c08c61e0881f84c84cc37_a146c31acbc8c08c61e0881f84c84cc37}{Location04}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00032}00032 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00033}00033 \textcolor{comment}{        /// The memory at the location offset + 05}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00034}00034 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00035}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_aee3bb10916dfd03171b00e45fcf38fae_aee3bb10916dfd03171b00e45fcf38fae}{00035}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_aee3bb10916dfd03171b00e45fcf38fae_aee3bb10916dfd03171b00e45fcf38fae}{Location05}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00036}00036 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00037}00037 \textcolor{comment}{        /// The memory at the location offset + 06}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00038}00038 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00039}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a2245b5dad2929aab7975672cb5f09ec3_a2245b5dad2929aab7975672cb5f09ec3}{00039}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a2245b5dad2929aab7975672cb5f09ec3_a2245b5dad2929aab7975672cb5f09ec3}{Location06}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00040}00040 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00041}00041 \textcolor{comment}{        /// The memory at the location offset + 07}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00042}00042 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00043}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a50a826898e5a7bdd70b867d45940a229_a50a826898e5a7bdd70b867d45940a229}{00043}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a50a826898e5a7bdd70b867d45940a229_a50a826898e5a7bdd70b867d45940a229}{Location07}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00044}00044 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00045}00045 \textcolor{comment}{        /// The memory at the location offset + 08}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00046}00046 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00047}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_aa982e028c333fd76639aa5a7cd379391_aa982e028c333fd76639aa5a7cd379391}{00047}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_aa982e028c333fd76639aa5a7cd379391_aa982e028c333fd76639aa5a7cd379391}{Location08}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00048}00048 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00049}00049 \textcolor{comment}{        /// The memory at the location offset + 09}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00050}00050 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00051}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ab63c946d8c21e6113fa4512c2bca1dad_ab63c946d8c21e6113fa4512c2bca1dad}{00051}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ab63c946d8c21e6113fa4512c2bca1dad_ab63c946d8c21e6113fa4512c2bca1dad}{Location09}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00052}00052 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00053}00053 \textcolor{comment}{        /// The memory at the location offset + 0A}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00054}00054 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00055}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ae3600941bf3423660bbd864e1a0311ae_ae3600941bf3423660bbd864e1a0311ae}{00055}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ae3600941bf3423660bbd864e1a0311ae_ae3600941bf3423660bbd864e1a0311ae}{Location0A}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00056}00056 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00057}00057 \textcolor{comment}{        /// The memory at the location offset + 0B}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00058}00058 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00059}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a514004f42cb8be61b8bbc1ac32a6fe03_a514004f42cb8be61b8bbc1ac32a6fe03}{00059}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a514004f42cb8be61b8bbc1ac32a6fe03_a514004f42cb8be61b8bbc1ac32a6fe03}{Location0B}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00060}00060 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00061}00061 \textcolor{comment}{        /// The memory at the location offset + 0C}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00062}00062 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00063}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a0cafee4df1f0e82b568467c44c9a4ca9_a0cafee4df1f0e82b568467c44c9a4ca9}{00063}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a0cafee4df1f0e82b568467c44c9a4ca9_a0cafee4df1f0e82b568467c44c9a4ca9}{Location0C}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00064}00064 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00065}00065 \textcolor{comment}{        /// The memory at the location offset + 0D}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00066}00066 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00067}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ab24a1eca01a5bbebf2fe8c62454e2742_ab24a1eca01a5bbebf2fe8c62454e2742}{00067}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_ab24a1eca01a5bbebf2fe8c62454e2742_ab24a1eca01a5bbebf2fe8c62454e2742}{Location0D}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00068}00068 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00069}00069 \textcolor{comment}{        /// The memory at the location offset + 0E}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00070}00070 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00071}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a10b35dfe23f680676315ed606dfc2f22_a10b35dfe23f680676315ed606dfc2f22}{00071}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a10b35dfe23f680676315ed606dfc2f22_a10b35dfe23f680676315ed606dfc2f22}{Location0E}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00072}00072 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00073}00073 \textcolor{comment}{        /// The memory at the location offset + 0F}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00074}00074 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00075}\mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a88fc0f4c2cddc80f9b37cdb5f0b3e76d_a88fc0f4c2cddc80f9b37cdb5f0b3e76d}{00075}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model_a88fc0f4c2cddc80f9b37cdb5f0b3e76d_a88fc0f4c2cddc80f9b37cdb5f0b3e76d}{Location0F}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00076}00076     \}}
+\DoxyCodeLine{\Hypertarget{_memory_row_model_8cs_source_l00077}00077 \}}
+
+\end{DoxyCode}

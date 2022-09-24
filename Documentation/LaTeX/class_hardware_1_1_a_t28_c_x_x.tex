@@ -1,0 +1,470 @@
+\hypertarget{class_hardware_1_1_a_t28_c_x_x}{}\doxysubsection{Hardware.\+AT28\+CXX Class Reference}
+\label{class_hardware_1_1_a_t28_c_x_x}\index{Hardware.AT28CXX@{Hardware.AT28CXX}}
+
+
+An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} Processor.   
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_afd47fdf2ee3655f30835f36868edcf68_afd47fdf2ee3655f30835f36868edcf68}{AT28\+CXX}} (int offset, int length, byte banks)
+\begin{DoxyCompactList}\small\item\em Default Constructor, Instantiates a new instance of the processor.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}{Load}} (byte\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} data)
+\begin{DoxyCompactList}\small\item\em Loads a program into ROM.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a5a5bcbe33294e585a06c258e319f4db7_a5a5bcbe33294e585a06c258e319f4db7}{Load}} (byte bank, byte\mbox{[}$\,$\mbox{]} data)
+\begin{DoxyCompactList}\small\item\em Loads a program into ROM.  \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}{Read\+File}} (string filename)
+\item 
+byte \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_ad924389ebe6a5d3f529ccb753c8ef3a4_ad924389ebe6a5d3f529ccb753c8ef3a4}{Read}} (int address)
+\begin{DoxyCompactList}\small\item\em Returns the byte at a given address without incrementing the cycle. Useful for test harness.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_ae8f2806729570d3dd8b265d3abd1b9f5_ae8f2806729570d3dd8b265d3abd1b9f5}{Write}} (int address, byte data)
+\begin{DoxyCompactList}\small\item\em Writes data to the given address without incrementing the cycle.  \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_ab7f9e538b53d617c57171554102edcaa_ab7f9e538b53d617c57171554102edcaa}{Dump\+Memory}} ()
+\begin{DoxyCompactList}\small\item\em Dumps the entire memory object. Used when saving the memory state  \end{DoxyCompactList}\item 
+byte\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_af5d84d7784ea0f4b0539fa54ae1aff62_af5d84d7784ea0f4b0539fa54ae1aff62}{Dump\+Memory}} (byte bank)
+\begin{DoxyCompactList}\small\item\em Dumps the selected ROM bank.  \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{Clear}} ()
+\begin{DoxyCompactList}\small\item\em Clears the ROM.  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+byte\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The ROM.  \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The total number of banks on the ROM.  \end{DoxyCompactList}\item 
+byte \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_ac136e40be260eae6bed2f17b5f6cc10d_ac136e40be260eae6bed2f17b5f6cc10d}{Current\+Bank}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The bank the ROM is currently using.  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a72e1bf0f1d0d0cc948f5dfd4117fce0e_a72e1bf0f1d0d0cc948f5dfd4117fce0e}{Offset}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The memory offset  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_adb8e2ad623ff794913779078d13b7384_adb8e2ad623ff794913779078d13b7384}{End}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The end of memory  \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The memory length  \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}{Processor}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em The processor reference  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} Processor.  
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+
+\doxysubsubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_afd47fdf2ee3655f30835f36868edcf68_afd47fdf2ee3655f30835f36868edcf68}\label{class_hardware_1_1_a_t28_c_x_x_afd47fdf2ee3655f30835f36868edcf68_afd47fdf2ee3655f30835f36868edcf68}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!AT28CXX@{AT28CXX}}
+\index{AT28CXX@{AT28CXX}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{AT28CXX()}{AT28CXX()}}
+{\footnotesize\ttfamily Hardware.\+AT28\+CXX.\+AT28\+CXX (\begin{DoxyParamCaption}\item[{int}]{offset,  }\item[{int}]{length,  }\item[{byte}]{banks }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default Constructor, Instantiates a new instance of the processor.  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00054}{54}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00055         \{}
+\DoxyCodeLine{00056             \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[banks][];}
+\DoxyCodeLine{00057             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < banks; i++)}
+\DoxyCodeLine{00058             \{}
+\DoxyCodeLine{00059                 \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length + 1];}
+\DoxyCodeLine{00060             \}}
+\DoxyCodeLine{00061             \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a72e1bf0f1d0d0cc948f5dfd4117fce0e_a72e1bf0f1d0d0cc948f5dfd4117fce0e}{Offset}} = offset;}
+\DoxyCodeLine{00062             \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}} = length;}
+\DoxyCodeLine{00063             \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}} = banks;}
+\DoxyCodeLine{00064             \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_ac136e40be260eae6bed2f17b5f6cc10d_ac136e40be260eae6bed2f17b5f6cc10d}{CurrentBank}} = 0;}
+\DoxyCodeLine{00065         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}\label{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Clear@{Clear}}
+\index{Clear@{Clear}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void Hardware.\+AT28\+CXX.\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears the ROM.  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00165}{165}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00166         \{}
+\DoxyCodeLine{00167             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
+\DoxyCodeLine{00168             \{}
+\DoxyCodeLine{00169                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; j++)}
+\DoxyCodeLine{00170                 \{}
+\DoxyCodeLine{00171                     \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[i][j] = 0x00;}
+\DoxyCodeLine{00172                 \}}
+\DoxyCodeLine{00173             \}}
+\DoxyCodeLine{00174         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_ab7f9e538b53d617c57171554102edcaa_ab7f9e538b53d617c57171554102edcaa}\label{class_hardware_1_1_a_t28_c_x_x_ab7f9e538b53d617c57171554102edcaa_ab7f9e538b53d617c57171554102edcaa}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!DumpMemory@{DumpMemory}}
+\index{DumpMemory@{DumpMemory}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{DumpMemory()}{DumpMemory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Hardware.\+AT28\+CXX.\+Dump\+Memory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dumps the entire memory object. Used when saving the memory state  
+
+\begin{DoxyReturn}{Returns}
+2 dimensional array of data analogous to the ROM of the computer.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00143}{143}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00144         \{}
+\DoxyCodeLine{00145             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}};}
+\DoxyCodeLine{00146         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_af5d84d7784ea0f4b0539fa54ae1aff62_af5d84d7784ea0f4b0539fa54ae1aff62}\label{class_hardware_1_1_a_t28_c_x_x_af5d84d7784ea0f4b0539fa54ae1aff62_af5d84d7784ea0f4b0539fa54ae1aff62}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!DumpMemory@{DumpMemory}}
+\index{DumpMemory@{DumpMemory}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{DumpMemory()}{DumpMemory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]} Hardware.\+AT28\+CXX.\+Dump\+Memory (\begin{DoxyParamCaption}\item[{byte}]{bank }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dumps the selected ROM bank.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & The bank to dump data from.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array that represents the selected ROM bank.
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00153}{153}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00154         \{}
+\DoxyCodeLine{00155             \textcolor{keywordtype}{byte}[] \_tempMemory = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[MemoryMap.BankedRom.Length + 1];}
+\DoxyCodeLine{00156             \textcolor{keywordflow}{for} (var i = 0; i < MemoryMap.BankedRom.Length; i++) \{}
+\DoxyCodeLine{00157                 \_tempMemory[i] = \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[bank][i];}
+\DoxyCodeLine{00158             \}}
+\DoxyCodeLine{00159             \textcolor{keywordflow}{return} \_tempMemory;}
+\DoxyCodeLine{00160         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a5a5bcbe33294e585a06c258e319f4db7_a5a5bcbe33294e585a06c258e319f4db7}\label{class_hardware_1_1_a_t28_c_x_x_a5a5bcbe33294e585a06c258e319f4db7_a5a5bcbe33294e585a06c258e319f4db7}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Load@{Load}}
+\index{Load@{Load}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Load()}{Load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Hardware.\+AT28\+CXX.\+Load (\begin{DoxyParamCaption}\item[{byte}]{bank,  }\item[{byte\mbox{[}$\,$\mbox{]}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads a program into ROM.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & The bank to load data to.\\
+\hline
+{\em data} & The data to be loaded to ROM.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00084}{84}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00085         \{}
+\DoxyCodeLine{00086             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i <= \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; i++)}
+\DoxyCodeLine{00087             \{}
+\DoxyCodeLine{00088                 \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[bank][i] = data[i];}
+\DoxyCodeLine{00089             \}}
+\DoxyCodeLine{00090         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}\label{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Load@{Load}}
+\index{Load@{Load}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Load()}{Load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Hardware.\+AT28\+CXX.\+Load (\begin{DoxyParamCaption}\item[{byte}]{data\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Loads a program into ROM.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The program to be loaded\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00071}{71}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00072         \{}
+\DoxyCodeLine{00073             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
+\DoxyCodeLine{00074             \{}
+\DoxyCodeLine{00075                 \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}{Load}}(i, data[i]);}
+\DoxyCodeLine{00076             \}}
+\DoxyCodeLine{00077         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_ad924389ebe6a5d3f529ccb753c8ef3a4_ad924389ebe6a5d3f529ccb753c8ef3a4}\label{class_hardware_1_1_a_t28_c_x_x_ad924389ebe6a5d3f529ccb753c8ef3a4_ad924389ebe6a5d3f529ccb753c8ef3a4}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Read@{Read}}
+\index{Read@{Read}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Read()}{Read()}}
+{\footnotesize\ttfamily byte Hardware.\+AT28\+CXX.\+Read (\begin{DoxyParamCaption}\item[{int}]{address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the byte at a given address without incrementing the cycle. Useful for test harness.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & The bank to read data from.\\
+\hline
+{\em address} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the byte being returned
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00121}{121}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00122         \{}
+\DoxyCodeLine{00123             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_ac136e40be260eae6bed2f17b5f6cc10d_ac136e40be260eae6bed2f17b5f6cc10d}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a72e1bf0f1d0d0cc948f5dfd4117fce0e_a72e1bf0f1d0d0cc948f5dfd4117fce0e}{Offset}}];}
+\DoxyCodeLine{00124         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}\label{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!ReadFile@{ReadFile}}
+\index{ReadFile@{ReadFile}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{ReadFile()}{ReadFile()}}
+{\footnotesize\ttfamily byte\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Hardware.\+AT28\+CXX.\+Read\+File (\begin{DoxyParamCaption}\item[{string}]{filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00092}{92}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00093         \{}
+\DoxyCodeLine{00094             \textcolor{keywordtype}{byte}[][] bios = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}][];}
+\DoxyCodeLine{00095             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00096             \{}
+\DoxyCodeLine{00097                 FileStream file = \textcolor{keyword}{new} FileStream(filename, FileMode.Open, FileAccess.Read);}
+\DoxyCodeLine{00098                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
+\DoxyCodeLine{00099                 \{}
+\DoxyCodeLine{00100                     bios[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}} + 1];}
+\DoxyCodeLine{00101                     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j <= \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; j++)}
+\DoxyCodeLine{00102                     \{}
+\DoxyCodeLine{00103                         bios[i][j] = \textcolor{keyword}{new} byte();}
+\DoxyCodeLine{00104                         bios[i][j] = (byte)file.ReadByte();}
+\DoxyCodeLine{00105                     \}}
+\DoxyCodeLine{00106                 \}}
+\DoxyCodeLine{00107             \}}
+\DoxyCodeLine{00108             \textcolor{keywordflow}{catch} (Exception)}
+\DoxyCodeLine{00109             \{}
+\DoxyCodeLine{00110                 \textcolor{keywordflow}{return} \textcolor{keyword}{null};}
+\DoxyCodeLine{00111             \}}
+\DoxyCodeLine{00112             \textcolor{keywordflow}{return} bios;}
+\DoxyCodeLine{00113         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_ae8f2806729570d3dd8b265d3abd1b9f5_ae8f2806729570d3dd8b265d3abd1b9f5}\label{class_hardware_1_1_a_t28_c_x_x_ae8f2806729570d3dd8b265d3abd1b9f5_ae8f2806729570d3dd8b265d3abd1b9f5}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Write@{Write}}
+\index{Write@{Write}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Write()}{Write()}}
+{\footnotesize\ttfamily void Hardware.\+AT28\+CXX.\+Write (\begin{DoxyParamCaption}\item[{int}]{address,  }\item[{byte}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes data to the given address without incrementing the cycle.  
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank} & The bank to load data to.\\
+\hline
+{\em address} & The address to write data to\\
+\hline
+{\em data} & The data to write\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00132}{132}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00133         \{}
+\DoxyCodeLine{00134             \_ = address;}
+\DoxyCodeLine{00135             \_ = data;}
+\DoxyCodeLine{00136             \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00137         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsubsection{Property Documentation}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}\label{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Banks@{Banks}}
+\index{Banks@{Banks}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Banks}{Banks}}
+{\footnotesize\ttfamily byte Hardware.\+AT28\+CXX.\+Banks\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The total number of banks on the ROM.  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00022 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_ac136e40be260eae6bed2f17b5f6cc10d_ac136e40be260eae6bed2f17b5f6cc10d}\label{class_hardware_1_1_a_t28_c_x_x_ac136e40be260eae6bed2f17b5f6cc10d_ac136e40be260eae6bed2f17b5f6cc10d}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!CurrentBank@{CurrentBank}}
+\index{CurrentBank@{CurrentBank}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{CurrentBank}{CurrentBank}}
+{\footnotesize\ttfamily byte Hardware.\+AT28\+CXX.\+Current\+Bank\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The bank the ROM is currently using.  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00027 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_adb8e2ad623ff794913779078d13b7384_adb8e2ad623ff794913779078d13b7384}\label{class_hardware_1_1_a_t28_c_x_x_adb8e2ad623ff794913779078d13b7384_adb8e2ad623ff794913779078d13b7384}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!End@{End}}
+\index{End@{End}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{End}{End}}
+{\footnotesize\ttfamily int Hardware.\+AT28\+CXX.\+End\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The end of memory  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00037}{37}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00037 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a72e1bf0f1d0d0cc948f5dfd4117fce0e_a72e1bf0f1d0d0cc948f5dfd4117fce0e}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; \} \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}\label{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Length@{Length}}
+\index{Length@{Length}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Length}{Length}}
+{\footnotesize\ttfamily int Hardware.\+AT28\+CXX.\+Length\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The memory length  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00042 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}\label{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Memory@{Memory}}
+\index{Memory@{Memory}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Memory}{Memory}}
+{\footnotesize\ttfamily byte \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Hardware.\+AT28\+CXX.\+Memory\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The ROM.  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00017 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a72e1bf0f1d0d0cc948f5dfd4117fce0e_a72e1bf0f1d0d0cc948f5dfd4117fce0e}\label{class_hardware_1_1_a_t28_c_x_x_a72e1bf0f1d0d0cc948f5dfd4117fce0e_a72e1bf0f1d0d0cc948f5dfd4117fce0e}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Offset@{Offset}}
+\index{Offset@{Offset}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Offset}{Offset}}
+{\footnotesize\ttfamily int Hardware.\+AT28\+CXX.\+Offset\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The memory offset  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00032 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}\label{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}} 
+\index{Hardware.AT28CXX@{Hardware.AT28CXX}!Processor@{Processor}}
+\index{Processor@{Processor}!Hardware.AT28CXX@{Hardware.AT28CXX}}
+\doxyparagraph{\texorpdfstring{Processor}{Processor}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65\+C02}} Hardware.\+AT28\+CXX.\+Processor\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private set]}}
+
+
+
+The processor reference  
+
+
+
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00047}{47}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00047 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hardware/\mbox{\hyperlink{_a_t28_c_x_x_8cs}{AT28\+CXX.\+cs}}\end{DoxyCompactItemize}

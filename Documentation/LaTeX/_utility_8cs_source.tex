@@ -1,0 +1,345 @@
+\hypertarget{_utility_8cs_source}{}\doxysubsection{Utility.\+cs}
+\label{_utility_8cs_source}\index{Hardware/Classes/Utility.cs@{Hardware/Classes/Utility.cs}}
+\mbox{\hyperlink{_utility_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00001}00001 \textcolor{keyword}{using }System.ComponentModel;}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00003}00003 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_hardware}{Hardware}}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00004}00004 \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00005}\mbox{\hyperlink{class_hardware_1_1_utility}{00005}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }\mbox{\hyperlink{class_hardware_1_1_utility}{Utility}}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00006}00006     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00007}\mbox{\hyperlink{class_hardware_1_1_utility_a93aca4919b99624302f1761718856dfc_a93aca4919b99624302f1761718856dfc}{00007}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_hardware_1_1_utility_a93aca4919b99624302f1761718856dfc_a93aca4919b99624302f1761718856dfc}{ConvertOpCodeIntoString}}(\textcolor{keyword}{this} \textcolor{keywordtype}{int} i)}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00008}00008         \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00009}00009             \textcolor{keywordflow}{switch} (i)}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00010}00010             \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00011}00011                 \textcolor{keywordflow}{case} 0x69:  \textcolor{comment}{// ADC Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00012}00012                 \textcolor{keywordflow}{case} 0x65:  \textcolor{comment}{// ADC Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00013}00013                 \textcolor{keywordflow}{case} 0x75:  \textcolor{comment}{// ADC Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00014}00014                 \textcolor{keywordflow}{case} 0x6D:  \textcolor{comment}{// ADC Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00015}00015                 \textcolor{keywordflow}{case} 0x7D:  \textcolor{comment}{// ADC Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00016}00016                 \textcolor{keywordflow}{case} 0x79:  \textcolor{comment}{// ADC Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00017}00017                 \textcolor{keywordflow}{case} 0x61:  \textcolor{comment}{// ADC Indrect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00018}00018                 \textcolor{keywordflow}{case} 0x71:  \textcolor{comment}{// ADC Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00019}00019                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00020}00020                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ADC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00021}00021                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00022}00022                 \textcolor{keywordflow}{case} 0x29:  \textcolor{comment}{// AND Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00023}00023                 \textcolor{keywordflow}{case} 0x25:  \textcolor{comment}{// AND Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00024}00024                 \textcolor{keywordflow}{case} 0x35:  \textcolor{comment}{// AND Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00025}00025                 \textcolor{keywordflow}{case} 0x2D:  \textcolor{comment}{// AND Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00026}00026                 \textcolor{keywordflow}{case} 0x3D:  \textcolor{comment}{// AND Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00027}00027                 \textcolor{keywordflow}{case} 0x39:  \textcolor{comment}{// AND Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00028}00028                 \textcolor{keywordflow}{case} 0x21:  \textcolor{comment}{// AND Indirect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00029}00029                 \textcolor{keywordflow}{case} 0x31:  \textcolor{comment}{// AND Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00030}00030                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00031}00031                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}AND"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00032}00032                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00033}00033                 \textcolor{keywordflow}{case} 0x0A:  \textcolor{comment}{// ASL Accumulator}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00034}00034                 \textcolor{keywordflow}{case} 0x06:  \textcolor{comment}{// ASL Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00035}00035                 \textcolor{keywordflow}{case} 0x16:  \textcolor{comment}{// ASL Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00036}00036                 \textcolor{keywordflow}{case} 0x0E:  \textcolor{comment}{// ASL Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00037}00037                 \textcolor{keywordflow}{case} 0x1E:  \textcolor{comment}{// ASL Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00038}00038                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00039}00039                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ASL"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00040}00040                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00041}00041                 \textcolor{keywordflow}{case} 0x90:  \textcolor{comment}{// BCC Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00042}00042                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00043}00043                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BCC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00044}00044                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00045}00045                 \textcolor{keywordflow}{case} 0xB0:  \textcolor{comment}{// BCS Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00046}00046                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00047}00047                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BCS"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00048}00048                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00049}00049                 \textcolor{keywordflow}{case} 0xF0:  \textcolor{comment}{// BEQ Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00050}00050                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00051}00051                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BEQ"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00052}00052                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00053}00053                 \textcolor{keywordflow}{case} 0x24:  \textcolor{comment}{// BIT Zero Page    }}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00054}00054                 \textcolor{keywordflow}{case} 0x2C:  \textcolor{comment}{// BIT Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00055}00055                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00056}00056                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BIT"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00057}00057                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00058}00058                 \textcolor{keywordflow}{case} 0x30:  \textcolor{comment}{// BMI Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00059}00059                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00060}00060                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BMI"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00061}00061                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00062}00062                 \textcolor{keywordflow}{case} 0xD0:  \textcolor{comment}{// BNE Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00063}00063                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00064}00064                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BNE"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00065}00065                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00066}00066                 \textcolor{keywordflow}{case} 0x10:  \textcolor{comment}{// BPL Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00067}00067                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00068}00068                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BPL"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00069}00069                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00070}00070                 \textcolor{keywordflow}{case} 0x00:  \textcolor{comment}{// BRK Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00071}00071                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00072}00072                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BRK"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00073}00073                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00074}00074                 \textcolor{keywordflow}{case} 0x50: \textcolor{comment}{// BVC Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00075}00075                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00076}00076                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BCV"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00077}00077                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00078}00078                 \textcolor{keywordflow}{case} 0x70: \textcolor{comment}{//BVS Relative}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00079}00079                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00080}00080                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}BVS"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00081}00081                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00082}00082                 \textcolor{keywordflow}{case} 0x18:  \textcolor{comment}{// CLC Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00083}00083                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00084}00084                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00085}00085                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00086}00086                 \textcolor{keywordflow}{case} 0xD8:  \textcolor{comment}{// CLD Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00087}00087                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00088}00088                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLD"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00089}00089                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00090}00090                 \textcolor{keywordflow}{case} 0x58:  \textcolor{comment}{// CLI Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00091}00091                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00092}00092                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLI"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00093}00093                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00094}00094                 \textcolor{keywordflow}{case} 0xB8:  \textcolor{comment}{// CLV Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00095}00095                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00096}00096                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CLV"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00097}00097                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00098}00098                 \textcolor{keywordflow}{case} 0xC9:  \textcolor{comment}{// CMP Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00099}00099                 \textcolor{keywordflow}{case} 0xC5:  \textcolor{comment}{// CMP ZeroPage}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00100}00100                 \textcolor{keywordflow}{case} 0xD5:  \textcolor{comment}{// CMP Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00101}00101                 \textcolor{keywordflow}{case} 0xCD:  \textcolor{comment}{// CMP Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00102}00102                 \textcolor{keywordflow}{case} 0xDD:  \textcolor{comment}{// CMP Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00103}00103                 \textcolor{keywordflow}{case} 0xD9:  \textcolor{comment}{// CMP Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00104}00104                 \textcolor{keywordflow}{case} 0xC1:  \textcolor{comment}{// CMP Indirect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00105}00105                 \textcolor{keywordflow}{case} 0xD1:  \textcolor{comment}{// CMP Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00106}00106                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00107}00107                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CMP"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00108}00108                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00109}00109                 \textcolor{keywordflow}{case} 0xE0:  \textcolor{comment}{// CPX Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00110}00110                 \textcolor{keywordflow}{case} 0xE4:  \textcolor{comment}{// CPX ZeroPage}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00111}00111                 \textcolor{keywordflow}{case} 0xEC:  \textcolor{comment}{// CPX Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00112}00112                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00113}00113                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CPX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00114}00114                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00115}00115                 \textcolor{keywordflow}{case} 0xC0:  \textcolor{comment}{// CPY Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00116}00116                 \textcolor{keywordflow}{case} 0xC4:  \textcolor{comment}{// CPY ZeroPage}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00117}00117                 \textcolor{keywordflow}{case} 0xCC:  \textcolor{comment}{// CPY Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00118}00118                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00119}00119                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}CPY"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00120}00120                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00121}00121                 \textcolor{keywordflow}{case} 0xC6:  \textcolor{comment}{// DEC Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00122}00122                 \textcolor{keywordflow}{case} 0xD6:  \textcolor{comment}{// DEC Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00123}00123                 \textcolor{keywordflow}{case} 0xCE:  \textcolor{comment}{// DEC Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00124}00124                 \textcolor{keywordflow}{case} 0xDE:  \textcolor{comment}{// DEC Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00125}00125                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00126}00126                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DEC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00127}00127                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00128}00128                 \textcolor{keywordflow}{case} 0xCA:  \textcolor{comment}{// DEX Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00129}00129                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00130}00130                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DEX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00131}00131                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00132}00132                 \textcolor{keywordflow}{case} 0x88:  \textcolor{comment}{// DEY Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00133}00133                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00134}00134                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}DEY"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00135}00135                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00136}00136                 \textcolor{keywordflow}{case} 0x49:  \textcolor{comment}{// EOR Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00137}00137                 \textcolor{keywordflow}{case} 0x45:  \textcolor{comment}{// EOR Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00138}00138                 \textcolor{keywordflow}{case} 0x55:  \textcolor{comment}{// EOR Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00139}00139                 \textcolor{keywordflow}{case} 0x4D:  \textcolor{comment}{// EOR Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00140}00140                 \textcolor{keywordflow}{case} 0x5D:  \textcolor{comment}{// EOR Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00141}00141                 \textcolor{keywordflow}{case} 0x59:  \textcolor{comment}{// EOR Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00142}00142                 \textcolor{keywordflow}{case} 0x41:  \textcolor{comment}{// EOR Indrect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00143}00143                 \textcolor{keywordflow}{case} 0x51:  \textcolor{comment}{// EOR Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00144}00144                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00145}00145                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}EOR"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00146}00146                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00147}00147                 \textcolor{keywordflow}{case} 0xE6:  \textcolor{comment}{// INC Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00148}00148                 \textcolor{keywordflow}{case} 0xF6:  \textcolor{comment}{// INC Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00149}00149                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00150}00150                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00151}00151                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00152}00152                 \textcolor{keywordflow}{case} 0xE8:  \textcolor{comment}{// INX Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00153}00153                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00154}00154                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00155}00155                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00156}00156                 \textcolor{keywordflow}{case} 0xC8:  \textcolor{comment}{// INY Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00157}00157                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00158}00158                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INY"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00159}00159                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00160}00160                 \textcolor{keywordflow}{case} 0xEE:  \textcolor{comment}{// INC Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00161}00161                 \textcolor{keywordflow}{case} 0xFE:  \textcolor{comment}{// INC Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00162}00162                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00163}00163                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}INC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00164}00164                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00165}00165                 \textcolor{keywordflow}{case} 0x4C:  \textcolor{comment}{// JMP Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00166}00166                 \textcolor{keywordflow}{case} 0x6C:  \textcolor{comment}{// JMP Indirect}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00167}00167                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00168}00168                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}JMP"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00169}00169                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00170}00170                 \textcolor{keywordflow}{case} 0x20:  \textcolor{comment}{// JSR Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00171}00171                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00172}00172                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}JSR"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00173}00173                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00174}00174                 \textcolor{keywordflow}{case} 0xA9:  \textcolor{comment}{// LDA Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00175}00175                 \textcolor{keywordflow}{case} 0xA5:  \textcolor{comment}{// LDA Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00176}00176                 \textcolor{keywordflow}{case} 0xB5:  \textcolor{comment}{// LDA Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00177}00177                 \textcolor{keywordflow}{case} 0xAD:  \textcolor{comment}{// LDA Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00178}00178                 \textcolor{keywordflow}{case} 0xBD:  \textcolor{comment}{// LDA Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00179}00179                 \textcolor{keywordflow}{case} 0xB9:  \textcolor{comment}{// LDA Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00180}00180                 \textcolor{keywordflow}{case} 0xA1:  \textcolor{comment}{// LDA Indirect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00181}00181                 \textcolor{keywordflow}{case} 0xB1:  \textcolor{comment}{// LDA Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00182}00182                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00183}00183                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LDA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00184}00184                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00185}00185                 \textcolor{keywordflow}{case} 0xA2:  \textcolor{comment}{// LDX Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00186}00186                 \textcolor{keywordflow}{case} 0xA6:  \textcolor{comment}{// LDX Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00187}00187                 \textcolor{keywordflow}{case} 0xB6:  \textcolor{comment}{// LDX Zero Page Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00188}00188                 \textcolor{keywordflow}{case} 0xAE:  \textcolor{comment}{// LDX Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00189}00189                 \textcolor{keywordflow}{case} 0xBE:  \textcolor{comment}{// LDX Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00190}00190                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00191}00191                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LDX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00192}00192                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00193}00193                 \textcolor{keywordflow}{case} 0xA0:  \textcolor{comment}{// LDY Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00194}00194                 \textcolor{keywordflow}{case} 0xA4:  \textcolor{comment}{// LDY Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00195}00195                 \textcolor{keywordflow}{case} 0xB4:  \textcolor{comment}{// LDY Zero Page Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00196}00196                 \textcolor{keywordflow}{case} 0xAC:  \textcolor{comment}{// LDY Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00197}00197                 \textcolor{keywordflow}{case} 0xBC:  \textcolor{comment}{// LDY Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00198}00198                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00199}00199                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LDY"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00200}00200                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00201}00201                 \textcolor{keywordflow}{case} 0x4A:  \textcolor{comment}{// LSR Accumulator}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00202}00202                 \textcolor{keywordflow}{case} 0x46:  \textcolor{comment}{// LSR Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00203}00203                 \textcolor{keywordflow}{case} 0x56:  \textcolor{comment}{// LSR Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00204}00204                 \textcolor{keywordflow}{case} 0x4E:  \textcolor{comment}{// LSR Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00205}00205                 \textcolor{keywordflow}{case} 0x5E:  \textcolor{comment}{// LSR Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00206}00206                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00207}00207                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}LSR"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00208}00208                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00209}00209                 \textcolor{keywordflow}{case} 0xEA:  \textcolor{comment}{// NOP Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00210}00210                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00211}00211                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}NOP"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00212}00212                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00213}00213                 \textcolor{keywordflow}{case} 0x09:  \textcolor{comment}{// ORA Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00214}00214                 \textcolor{keywordflow}{case} 0x05:  \textcolor{comment}{// ORA Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00215}00215                 \textcolor{keywordflow}{case} 0x15:  \textcolor{comment}{// ORA Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00216}00216                 \textcolor{keywordflow}{case} 0x0D:  \textcolor{comment}{// ORA Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00217}00217                 \textcolor{keywordflow}{case} 0x1D:  \textcolor{comment}{// ORA Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00218}00218                 \textcolor{keywordflow}{case} 0x19:  \textcolor{comment}{// ORA Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00219}00219                 \textcolor{keywordflow}{case} 0x01:  \textcolor{comment}{// ORA Indirect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00220}00220                 \textcolor{keywordflow}{case} 0x11:  \textcolor{comment}{// ORA Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00221}00221                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00222}00222                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ORA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00223}00223                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00224}00224                 \textcolor{keywordflow}{case} 0x48:  \textcolor{comment}{// PHA Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00225}00225                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00226}00226                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PHA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00227}00227                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00228}00228                 \textcolor{keywordflow}{case} 0x08:  \textcolor{comment}{// PHP Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00229}00229                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00230}00230                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PHP"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00231}00231                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00232}00232                 \textcolor{keywordflow}{case} 0x68:  \textcolor{comment}{// PLA Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00233}00233                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00234}00234                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PLA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00235}00235                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00236}00236                 \textcolor{keywordflow}{case} 0x28:  \textcolor{comment}{// PLP Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00237}00237                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00238}00238                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}PLP"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00239}00239                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00240}00240                 \textcolor{keywordflow}{case} 0x2A:  \textcolor{comment}{// ROL Accumulator}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00241}00241                 \textcolor{keywordflow}{case} 0x26:  \textcolor{comment}{// ROL Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00242}00242                 \textcolor{keywordflow}{case} 0x36:  \textcolor{comment}{// ROL Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00243}00243                 \textcolor{keywordflow}{case} 0x2E:  \textcolor{comment}{// ROL Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00244}00244                 \textcolor{keywordflow}{case} 0x3E:  \textcolor{comment}{// ROL Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00245}00245                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00246}00246                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ROL"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00247}00247                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00248}00248                 \textcolor{keywordflow}{case} 0x6A:  \textcolor{comment}{// ROR Accumulator}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00249}00249                 \textcolor{keywordflow}{case} 0x66:  \textcolor{comment}{// ROR Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00250}00250                 \textcolor{keywordflow}{case} 0x76:  \textcolor{comment}{// ROR Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00251}00251                 \textcolor{keywordflow}{case} 0x6E:  \textcolor{comment}{// ROR Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00252}00252                 \textcolor{keywordflow}{case} 0x7E:  \textcolor{comment}{// ROR Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00253}00253                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00254}00254                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}ROR"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00255}00255                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00256}00256                 \textcolor{keywordflow}{case} 0x40:  \textcolor{comment}{// RTI Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00257}00257                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00258}00258                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RTI"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00259}00259                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00260}00260                 \textcolor{keywordflow}{case} 0x60:  \textcolor{comment}{// RTS Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00261}00261                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00262}00262                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}RTS"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00263}00263                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00264}00264                 \textcolor{keywordflow}{case} 0xE9:  \textcolor{comment}{// SBC Immediate}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00265}00265                 \textcolor{keywordflow}{case} 0xE5:  \textcolor{comment}{// SBC Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00266}00266                 \textcolor{keywordflow}{case} 0xF5:  \textcolor{comment}{// SBC Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00267}00267                 \textcolor{keywordflow}{case} 0xED:  \textcolor{comment}{// SBC Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00268}00268                 \textcolor{keywordflow}{case} 0xFD:  \textcolor{comment}{// SBC Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00269}00269                 \textcolor{keywordflow}{case} 0xF9:  \textcolor{comment}{// SBC Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00270}00270                 \textcolor{keywordflow}{case} 0xE1:  \textcolor{comment}{// SBC Indrect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00271}00271                 \textcolor{keywordflow}{case} 0xF1:  \textcolor{comment}{// SBC Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00272}00272                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00273}00273                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SBC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00274}00274                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00275}00275                 \textcolor{keywordflow}{case} 0x38:  \textcolor{comment}{// SEC Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00276}00276                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00277}00277                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEC"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00278}00278                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00279}00279                 \textcolor{keywordflow}{case} 0xF8:  \textcolor{comment}{// SED Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00280}00280                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00281}00281                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SED"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00282}00282                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00283}00283                 \textcolor{keywordflow}{case} 0x78:  \textcolor{comment}{// SEI Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00284}00284                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00285}00285                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}SEI"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00286}00286                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00287}00287                 \textcolor{keywordflow}{case} 0x85:  \textcolor{comment}{// STA ZeroPage}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00288}00288                 \textcolor{keywordflow}{case} 0x95:  \textcolor{comment}{// STA Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00289}00289                 \textcolor{keywordflow}{case} 0x8D:  \textcolor{comment}{// STA Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00290}00290                 \textcolor{keywordflow}{case} 0x9D:  \textcolor{comment}{// STA Absolute X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00291}00291                 \textcolor{keywordflow}{case} 0x99:  \textcolor{comment}{// STA Absolute Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00292}00292                 \textcolor{keywordflow}{case} 0x81:  \textcolor{comment}{// STA Indirect X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00293}00293                 \textcolor{keywordflow}{case} 0x91:  \textcolor{comment}{// STA Indirect Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00294}00294                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00295}00295                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}STA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00296}00296                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00297}00297                 \textcolor{keywordflow}{case} 0x86:  \textcolor{comment}{// STX Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00298}00298                 \textcolor{keywordflow}{case} 0x96:  \textcolor{comment}{// STX Zero Page Y}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00299}00299                 \textcolor{keywordflow}{case} 0x8E:  \textcolor{comment}{// STX Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00300}00300                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00301}00301                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}STX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00302}00302                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00303}00303                 \textcolor{keywordflow}{case} 0x84:  \textcolor{comment}{// STY Zero Page}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00304}00304                 \textcolor{keywordflow}{case} 0x94:  \textcolor{comment}{// STY Zero Page X}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00305}00305                 \textcolor{keywordflow}{case} 0x8C:  \textcolor{comment}{// STY Absolute}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00306}00306                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00307}00307                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}STY"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00308}00308                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00309}00309                 \textcolor{keywordflow}{case} 0xAA:  \textcolor{comment}{// TAX Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00310}00310                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00311}00311                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TAX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00312}00312                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00313}00313                 \textcolor{keywordflow}{case} 0xA8:  \textcolor{comment}{// TAY Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00314}00314                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00315}00315                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TAY"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00316}00316                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00317}00317                 \textcolor{keywordflow}{case} 0xBA:  \textcolor{comment}{// TSX Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00318}00318                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00319}00319                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TSX"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00320}00320                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00321}00321                 \textcolor{keywordflow}{case} 0x8A:  \textcolor{comment}{// TXA Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00322}00322                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00323}00323                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TXA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00324}00324                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00325}00325                 \textcolor{keywordflow}{case} 0x9A:  \textcolor{comment}{// TXS Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00326}00326                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00327}00327                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TXS"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00328}00328                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00329}00329                 \textcolor{keywordflow}{case} 0x98:  \textcolor{comment}{// TYA Implied}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00330}00330                     \{}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00331}00331                         \textcolor{keywordflow}{return} \textcolor{stringliteral}{"{}TYA"{}};}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00332}00332                     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00333}00333                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00334}00334                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} InvalidEnumArgumentException(\textcolor{keywordtype}{string}.Format(\textcolor{stringliteral}{"{}A Valid Conversion does not exist for OpCode \{0\}"{}}, i.ToString(\textcolor{stringliteral}{"{}X"{}})));}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00335}00335 }
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00336}00336             \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00337}00337         \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00338}00338     \}}
+\DoxyCodeLine{\Hypertarget{_utility_8cs_source_l00339}00339 \}}
+
+\end{DoxyCode}

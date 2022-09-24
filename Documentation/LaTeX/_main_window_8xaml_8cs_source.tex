@@ -1,0 +1,78 @@
+\hypertarget{_main_window_8xaml_8cs_source}{}\doxysubsection{Main\+Window.\+xaml.\+cs}
+\label{_main_window_8xaml_8cs_source}\index{Emulator/MainWindow.xaml.cs@{Emulator/MainWindow.xaml.cs}}
+\mbox{\hyperlink{_main_window_8xaml_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00001}00001 \textcolor{keyword}{using }GalaSoft.MvvmLight.Messaging;}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00002}00002 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}};}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_emulator_1_1_view_model}{Emulator.ViewModel}};}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00004}00004 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00005}00005 \textcolor{keyword}{using }System.ComponentModel;}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00006}00006 \textcolor{keyword}{using }System.Windows;}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00007}00007 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_hardware}{Hardware}};}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00008}00008 \textcolor{keyword}{using }System.IO;}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00009}00009 \textcolor{keyword}{using }System.Xml.Serialization;}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00011}00011 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator}{Emulator}}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00012}00012 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00013}00013 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00014}00014 \textcolor{comment}{    /// Interaction logic for MainWindow.xaml}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00015}00015 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00016}\mbox{\hyperlink{class_emulator_1_1_main_window}{00016}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{partial class }\mbox{\hyperlink{class_emulator_1_1_main_window}{MainWindow}} : Window, \mbox{\hyperlink{interface_emulator_1_1_i_closable}{IClosable}}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00017}00017     \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00018}\mbox{\hyperlink{class_emulator_1_1_main_window_a782333cc52d13791f9c6b0780276d2e3_a782333cc52d13791f9c6b0780276d2e3}{00018}}         \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_main_window_a782333cc52d13791f9c6b0780276d2e3_a782333cc52d13791f9c6b0780276d2e3}{MainWindow}}()}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00019}00019         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00020}00020             \mbox{\hyperlink{class_emulator_1_1_main_window_a937b0e22a82f9713513fea23b662db92_a937b0e22a82f9713513fea23b662db92}{InitializeComponent}}();}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00021}00021             Messenger.Default.Register<NotificationMessage>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_main_window_a247ccc2fa170c437913006d5eb3dfcbf_a247ccc2fa170c437913006d5eb3dfcbf}{NotificationMessageReceived}});}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00022}00022             Messenger.Default.Register<NotificationMessage<StateFileModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_main_window_a247ccc2fa170c437913006d5eb3dfcbf_a247ccc2fa170c437913006d5eb3dfcbf}{NotificationMessageReceived}});}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00023}00023             Messenger.Default.Register<NotificationMessage<SettingsModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_main_window_a247ccc2fa170c437913006d5eb3dfcbf_a247ccc2fa170c437913006d5eb3dfcbf}{NotificationMessageReceived}});}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00024}00024         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00026}\mbox{\hyperlink{class_emulator_1_1_main_window_a0bca9d474934fcdc52a05eacbf98758b_a0bca9d474934fcdc52a05eacbf98758b}{00026}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a0bca9d474934fcdc52a05eacbf98758b_a0bca9d474934fcdc52a05eacbf98758b}{ToClose}}(Object sender, EventArgs e)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00027}00027         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00028}00028             \mbox{\hyperlink{interface_emulator_1_1_i_closable_a4f7ce2465652148541730ab6880ce878_a4f7ce2465652148541730ab6880ce878}{Close}}();}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00029}00029         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00031}\mbox{\hyperlink{class_emulator_1_1_main_window_a3606e9349c204ccd0ba913ffc6f891a1_a3606e9349c204ccd0ba913ffc6f891a1}{00031}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a3606e9349c204ccd0ba913ffc6f891a1_a3606e9349c204ccd0ba913ffc6f891a1}{LoadFile}}(Object sender, EventArgs e)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00032}00032         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00033}00033             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}LoadFile"{}}));}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00034}00034         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00036}\mbox{\hyperlink{class_emulator_1_1_main_window_a4284bd93fa26aa57d9aa7519f790fc53_a4284bd93fa26aa57d9aa7519f790fc53}{00036}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a4284bd93fa26aa57d9aa7519f790fc53_a4284bd93fa26aa57d9aa7519f790fc53}{SaveFile}}(Object sender, EventArgs e)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00037}00037         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00038}00038             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}SaveState"{}}));}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00039}00039         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00041}\mbox{\hyperlink{class_emulator_1_1_main_window_a2c1bcf7068f2752e71427ed40a993c13_a2c1bcf7068f2752e71427ed40a993c13}{00041}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a2c1bcf7068f2752e71427ed40a993c13_a2c1bcf7068f2752e71427ed40a993c13}{CloseFile}}(Object sender, EventArgs e)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00042}00042         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00043}00043             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}CloseFile"{}}));}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00044}00044         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00046}\mbox{\hyperlink{class_emulator_1_1_main_window_a247ccc2fa170c437913006d5eb3dfcbf_a247ccc2fa170c437913006d5eb3dfcbf}{00046}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a247ccc2fa170c437913006d5eb3dfcbf_a247ccc2fa170c437913006d5eb3dfcbf}{NotificationMessageReceived}}(NotificationMessage notificationMessage)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00047}00047         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00048}00048             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}CloseWindow"{}})}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00049}00049             \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00050}00050                 \mbox{\hyperlink{interface_emulator_1_1_i_closable_a4f7ce2465652148541730ab6880ce878_a4f7ce2465652148541730ab6880ce878}{Close}}();}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00051}00051             \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00053}00053 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00054}\mbox{\hyperlink{class_emulator_1_1_main_window_a6a6a233204dfc136721b60b296f01ba2_a6a6a233204dfc136721b60b296f01ba2}{00054}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a6a6a233204dfc136721b60b296f01ba2_a6a6a233204dfc136721b60b296f01ba2}{NotificationMessageReceived}}(NotificationMessage<StateFileModel> notificationMessage)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00055}00055         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00056}00056             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}SaveFileWindow"{}})}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00057}00057             \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00058}00058                 var saveFile = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_save_file}{SaveFile}} \{ DataContext = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{SaveFileViewModel}}(notificationMessage.Content) \};}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00059}00059                 saveFile.ShowDialog();}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00060}00060             \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00061}00061         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00062}00062 }
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00063}\mbox{\hyperlink{class_emulator_1_1_main_window_a9081b45a59859564c5d5e173faa0721b_a9081b45a59859564c5d5e173faa0721b}{00063}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_main_window_a9081b45a59859564c5d5e173faa0721b_a9081b45a59859564c5d5e173faa0721b}{NotificationMessageReceived}}(NotificationMessage<SettingsModel> notificationMessage)}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00064}00064         \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00065}00065             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}SettingsWindow"{}})}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00066}00066             \{}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00067}00067                 var settingsFile = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_settings}{Settings}} \{ DataContext = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_settings_view_model}{SettingsViewModel}}(notificationMessage.Content) \};}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00068}00068                 settingsFile.ShowDialog();}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00069}00069             \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00070}00070         \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_main_window_8xaml_8cs_source_l00072}00072 \}}
+
+\end{DoxyCode}

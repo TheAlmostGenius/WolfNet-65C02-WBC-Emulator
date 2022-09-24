@@ -1,0 +1,44 @@
+\hypertarget{_settings_model_8cs_source}{}\doxysubsection{Settings\+Model.\+cs}
+\label{_settings_model_8cs_source}\index{Emulator/Model/SettingsModel.cs@{Emulator/Model/SettingsModel.cs}}
+\mbox{\hyperlink{_settings_model_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Xml.Serialization;}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00005}00005 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00006}00006 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00007}00007 \textcolor{comment}{    /// Model that contains the required information needed to save the current settings to disk}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00008}00008 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00009}00009 \textcolor{comment}{}    [Serializable]}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00010}00010     [XmlRootAttribute(\textcolor{stringliteral}{"{}SettingsFileModel"{}}, Namespace=\textcolor{stringliteral}{"{}Emulator.Model"{}}, IsNullable = \textcolor{keyword}{false})]}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00011}\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{00011}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00012}00012     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00013}00013 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00014}00014 \textcolor{comment}{        /// The version of the file that is being saved}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00015}00015 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00016}\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a28eb1608f1932ff197a96cd8bfb92309_a28eb1608f1932ff197a96cd8bfb92309}{00016}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a28eb1608f1932ff197a96cd8bfb92309_a28eb1608f1932ff197a96cd8bfb92309}{SettingsVersionMajor}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00017}00017 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00018}00018 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00019}00019 \textcolor{comment}{        /// The version of the file that is being saved}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00020}00020 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00021}\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a52364402241efc3643bbd3dc3cb9004e_a52364402241efc3643bbd3dc3cb9004e}{00021}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a52364402241efc3643bbd3dc3cb9004e_a52364402241efc3643bbd3dc3cb9004e}{SettingsVersionMinor}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00022}00022 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00023}00023 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00024}00024 \textcolor{comment}{        /// The version of the file that is being saved}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00025}00025 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00026}\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a2e6371500222d09bf5c05dbcf969e47b_a2e6371500222d09bf5c05dbcf969e47b}{00026}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a2e6371500222d09bf5c05dbcf969e47b_a2e6371500222d09bf5c05dbcf969e47b}{SettingsVersionBuild}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00027}00027 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00028}00028 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00029}00029 \textcolor{comment}{        /// The version of the file that is being saved}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00030}00030 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00031}\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_ab77d1d162e6c4f77b83ce257df69111d_ab77d1d162e6c4f77b83ce257df69111d}{00031}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_ab77d1d162e6c4f77b83ce257df69111d_ab77d1d162e6c4f77b83ce257df69111d}{SettingsVersionRevision}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00032}00032 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00033}00033 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00034}00034 \textcolor{comment}{        /// The PC port that is being saved}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00035}00035 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00036}\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_af3339a666134a772a14cb4937f05cf55_af3339a666134a772a14cb4937f05cf55}{00036}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_af3339a666134a772a14cb4937f05cf55_af3339a666134a772a14cb4937f05cf55}{ComPortName}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00037}00037     \}}
+\DoxyCodeLine{\Hypertarget{_settings_model_8cs_source_l00038}00038 \}}
+
+\end{DoxyCode}

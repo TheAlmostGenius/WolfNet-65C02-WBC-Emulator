@@ -1,0 +1,36 @@
+\hypertarget{_breakpoint_type_8cs_source}{}\doxysubsection{Breakpoint\+Type.\+cs}
+\label{_breakpoint_type_8cs_source}\index{Emulator/Model/BreakpointType.cs@{Emulator/Model/BreakpointType.cs}}
+\mbox{\hyperlink{_breakpoint_type_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00001}00001 \textcolor{keyword}{using }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00003}00003 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00004}00004 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00005}00005 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00006}00006 \textcolor{comment}{    /// The Type of Breakpoint}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00007}00007 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00008}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{00008}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{BreakpointType}}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00009}00009     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00010}00010 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00011}00011 \textcolor{comment}{        /// A Listing of all of the Current Types}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00012}00012 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00013}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a14594fda0042191a7327611afab8be63_a14594fda0042191a7327611afab8be63}{00013}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keyword}{static} List<string> \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a14594fda0042191a7327611afab8be63_a14594fda0042191a7327611afab8be63}{AllTypes}} = \textcolor{keyword}{new} List<string>}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00014}00014             \{}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00015}00015                 \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a9826dcf087cab16fb97f0541e8b358e0_a9826dcf087cab16fb97f0541e8b358e0}{ProgramCounterType}},}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00016}00016                 \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a703169811aff4940b3509ed680e6bc7a_a703169811aff4940b3509ed680e6bc7a}{NumberOfCycleType}}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00017}00017             \};}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00018}00018 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00019}00019 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00020}00020 \textcolor{comment}{        /// The ProgamCounter Breakpoint Type}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00021}00021 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00022}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a9826dcf087cab16fb97f0541e8b358e0_a9826dcf087cab16fb97f0541e8b358e0}{00022}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keyword}{const} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a9826dcf087cab16fb97f0541e8b358e0_a9826dcf087cab16fb97f0541e8b358e0}{ProgramCounterType}} = \textcolor{stringliteral}{"{}Program Counter"{}};}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00023}00023 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00024}00024 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00025}00025 \textcolor{comment}{        /// The CycleCount Breakpoint Type}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00026}00026 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00027}\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a703169811aff4940b3509ed680e6bc7a_a703169811aff4940b3509ed680e6bc7a}{00027}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keyword}{const} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a703169811aff4940b3509ed680e6bc7a_a703169811aff4940b3509ed680e6bc7a}{NumberOfCycleType}} = \textcolor{stringliteral}{"{}Number of Cycles"{}};}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00029}00029     \}}
+\DoxyCodeLine{\Hypertarget{_breakpoint_type_8cs_source_l00030}00030 \}}
+
+\end{DoxyCode}

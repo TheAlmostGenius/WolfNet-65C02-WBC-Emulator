@@ -1,0 +1,267 @@
+.TH "Hardware.HM62256" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware.HM62256
+.SH SYNOPSIS
+.br
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHM62256\fP (byte banks, int offset, int length)"
+.br
+.RI "Called whenever a new 62256 object is required\&.  "
+.ti -1c
+.RI "void \fBReset\fP ()"
+.br
+.RI "Called whenever the emulated computer is reset\&.  "
+.ti -1c
+.RI "void \fBClear\fP ()"
+.br
+.RI "Clears the memory\&.  "
+.ti -1c
+.RI "byte \fBRead\fP (int address)"
+.br
+.RI "Returns the byte at a given address without incrementing the cycle\&. Useful for test harness\&.  "
+.ti -1c
+.RI "void \fBWrite\fP (int address, byte data)"
+.br
+.RI "Writes data to the given address without incrementing the cycle\&.  "
+.ti -1c
+.RI "byte[][] \fBDumpMemory\fP ()"
+.br
+.RI "Dumps the entire memory object\&. Used when saving the memory state  "
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "byte[][] \fBMemory\fP\fC [get, set]\fP"
+.br
+.RI "The memory area\&.  "
+.ti -1c
+.RI "int \fBOffset\fP\fC [get, set]\fP"
+.br
+.RI "The memory offset\&.  "
+.ti -1c
+.RI "int \fBLength\fP\fC [get, set]\fP"
+.br
+.RI "The memory length\&.  "
+.ti -1c
+.RI "int \fBEnd\fP\fC [get]\fP"
+.br
+.RI "The location of the end of memory\&.  "
+.ti -1c
+.RI "byte \fBBanks\fP\fC [get, set]\fP"
+.br
+.RI "The number of banks the memory has\&.  "
+.ti -1c
+.RI "byte \fBCurrentBank\fP\fC [get, set]\fP"
+.br
+.RI "The currently selected bank\&.  "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB5\fP of file \fBHM62256\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Hardware\&.HM62256\&.HM62256 (byte banks, int offset, int length)\fC [inline]\fP"
+
+.PP
+Called whenever a new 62256 object is required\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbanks\fP Number of banks the new memory will have\&.
+.br
+\fIoffset\fP Offset of the new memory in the address space\&.
+.br
+\fIlength\fP Length of each bank of memory\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB43\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+44         {
+45             Memory = new byte[banks][];
+46             for (int i = 0; i < banks; i++)
+47             {
+48                 Memory[i] = new byte[length + 1];
+49             }
+50             Length = length;
+51             Banks = banks;
+52             Offset = offset;
+53             CurrentBank = 0;
+54         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Hardware\&.HM62256\&.Clear ()\fC [inline]\fP"
+
+.PP
+Clears the memory\&.  
+.PP
+Definition at line \fB67\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+68         {
+69             for (var i = 0; i < Banks; i++)
+70             {
+71                 for (var j = 0; j < Memory\&.Length; j++)
+72                 {
+73                     Memory[i][j] = 0x00;
+74                 }
+75             }
+76         }
+.fi
+.SS "byte[][] Hardware\&.HM62256\&.DumpMemory ()\fC [inline]\fP"
+
+.PP
+Dumps the entire memory object\&. Used when saving the memory state  
+.PP
+\fBReturns\fP
+.RS 4
+Jagged array representing the banked memory\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB104\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+105         {
+106             return Memory;
+107         }
+.fi
+.SS "byte Hardware\&.HM62256\&.Read (int address)\fC [inline]\fP"
+
+.PP
+Returns the byte at a given address without incrementing the cycle\&. Useful for test harness\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbank\fP The bank to read data from\&.
+.br
+\fIaddress\fP 
+.RE
+.PP
+\fBReturns\fP
+.RS 4
+The byte being read\&.
+.RE
+.PP
+
+.PP
+Definition at line \fB84\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+85         {
+86             return Memory[CurrentBank][address - Offset];
+87         }
+.fi
+.SS "void Hardware\&.HM62256\&.Reset ()\fC [inline]\fP"
+
+.PP
+Called whenever the emulated computer is reset\&.  
+.PP
+Definition at line \fB59\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+60         {
+61             Clear();
+62         }
+.fi
+.SS "void Hardware\&.HM62256\&.Write (int address, byte data)\fC [inline]\fP"
+
+.PP
+Writes data to the given address without incrementing the cycle\&.  
+.PP
+\fBParameters\fP
+.RS 4
+\fIbank\fP The bank to load data to\&.
+.br
+\fIaddress\fP The address to write data to
+.br
+\fIdata\fP The data to write
+.RE
+.PP
+
+.PP
+Definition at line \fB95\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+96         {
+97             Memory[CurrentBank][address - Offset] = data;
+98         }
+.fi
+.SH "Property Documentation"
+.PP 
+.SS "byte Hardware\&.HM62256\&.Banks\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The number of banks the memory has\&.  
+.PP
+Definition at line \fB30\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+30 { get; set; }
+.fi
+.SS "byte Hardware\&.HM62256\&.CurrentBank\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The currently selected bank\&.  
+.PP
+Definition at line \fB35\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+35 { get; set; }
+.fi
+.SS "int Hardware\&.HM62256\&.End\fC [get]\fP"
+
+.PP
+The location of the end of memory\&.  
+.PP
+Definition at line \fB25\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+25 { get { return Offset + Length; } }
+.fi
+.SS "int Hardware\&.HM62256\&.Length\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The memory length\&.  
+.PP
+Definition at line \fB20\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+20 { get; set; }
+.fi
+.SS "byte [][] Hardware\&.HM62256\&.Memory\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The memory area\&.  
+.PP
+Definition at line \fB10\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+10 { get; set; }
+.fi
+.SS "int Hardware\&.HM62256\&.Offset\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The memory offset\&.  
+.PP
+Definition at line \fB15\fP of file \fBHM62256\&.cs\fP\&.
+.PP
+.nf
+15 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

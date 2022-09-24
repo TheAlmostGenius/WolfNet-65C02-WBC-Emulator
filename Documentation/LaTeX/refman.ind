@@ -1,0 +1,1295 @@
+\begin{theindex}
+
+  \item {\_Length}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{18}
+    \subitem {Hardware.MemoryMap.BankedRom}, \hyperpage{20}
+    \subitem {Hardware.MemoryMap.DeviceArea}, \hyperpage{23}
+    \subitem {Hardware.MemoryMap.SharedRom}, \hyperpage{100}
+  \item {\_Offset}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{18}
+    \subitem {Hardware.MemoryMap.BankedRom}, \hyperpage{20}
+    \subitem {Hardware.MemoryMap.DeviceArea}, \hyperpage{23}
+    \subitem {Hardware.MemoryMap.SharedRom}, \hyperpage{100}
+  \item {\_PortList}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{98}
+  \item {\_backgroundWorker}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{51}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {\_breakpointTriggered}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{51}
+  \item {\_contentLoaded}
+    \subitem {Emulator.MainWindow}, \hyperpage{64}
+    \subitem {Emulator.SaveFile}, \hyperpage{85}
+    \subitem {Emulator.Settings}, \hyperpage{93}
+    \subitem {XamlGeneratedNamespace.GeneratedApplication}, 
+		\hyperpage{30}
+  \item {\_cycleCount}
+    \subitem {Hardware.W65C02}, \hyperpage{147}
+  \item {\_interrupt}
+    \subitem {Hardware.W65C02}, \hyperpage{147}
+  \item {\_logger}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+  \item {\_memoryPageOffset}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{51}
+  \item {\_previousInterrupt}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+  \item {\_programCounter}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+  \item {\_stackPointer}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+  \item {\_stateFileModel}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{88}
+
+  \indexspace
+
+  \item {About}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{43}
+  \item {AboutCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{51}
+  \item {Accumulator}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{77}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+  \item {ACIA}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+  \item {ACR}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {ACR\_T1TC}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {ACR\_T2TC}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {AddBreakPoint}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{43}
+  \item {AddBreakPointCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{51}
+  \item {AddEventHandler}
+    \subitem {XamlGeneratedNamespace.GeneratedInternalTypeHelper}, 
+		\hyperpage{31}
+  \item {AddressingMode}
+    \subitem {Hardware}, \hyperpage{9}
+  \item {AddWithCarryOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{113}
+  \item {AllTypes}
+    \subitem {Emulator.Model.Breakpoint}, \hyperpage{21}
+    \subitem {Emulator.Model.BreakpointType}, \hyperpage{22}
+  \item {AndOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{114}
+  \item {Apply}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{98}
+  \item {ApplyCommand}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{98}
+  \item {ApplyEnabled}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{99}
+  \item {AslOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{114}
+  \item {AT28C010}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{101}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{51}
+  \item {AT28C64}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{102}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{52}
+  \item {AT28CXX}
+    \subitem {Hardware.AT28CXX}, \hyperpage{12}
+
+  \indexspace
+
+  \item {BackgroundWorkerDoWork}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{43}
+    \subitem {Hardware.W65C51}, \hyperpage{163}
+  \item {BankedRAM}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+  \item {BankedROM}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+  \item {Banks}
+    \subitem {Hardware.AT28CXX}, \hyperpage{16}
+    \subitem {Hardware.HM62256}, \hyperpage{37}
+  \item {BankSize}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{18}
+  \item {BinaryLoadedNotification}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{44}
+  \item {BIOS\_LOADPROGRAM\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{26}
+  \item {BitOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{115}
+  \item {BranchOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{116}
+  \item {BreakOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{116}
+  \item {Breakpoints}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{52}
+  \item {Build}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Emulator.Versioning.SettingsFile}, \hyperpage{94}
+  \item {byteIn}
+    \subitem {Hardware.W65C51}, \hyperpage{173}
+
+  \indexspace
+
+  \item {CarryFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+  \item {ChangeMemoryByOne}
+    \subitem {Hardware.W65C02}, \hyperpage{116}
+  \item {ChangeRegisterByOne}
+    \subitem {Hardware.W65C02}, \hyperpage{117}
+  \item {Cleanup}
+    \subitem {Emulator.ViewModel.ViewModelLocator}, \hyperpage{109}
+  \item {Clear}
+    \subitem {Hardware.AT28CXX}, \hyperpage{12}
+    \subitem {Hardware.HM62256}, \hyperpage{36}
+  \item {Close}
+    \subitem {Emulator.IClosable}, \hyperpage{39}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{44}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{87}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{98}
+  \item {CloseCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{52}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{88}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{99}
+  \item {CloseFile}
+    \subitem {Emulator.MainWindow}, \hyperpage{58}
+  \item {CollectionChanged}
+    \subitem {Emulator.MultiThreadedObservableCollection$<$ T $>$}, 
+		\hyperpage{75}
+  \item {ComFini}
+    \subitem {Hardware.W65C51}, \hyperpage{163}
+  \item {ComInit}
+    \subitem {Hardware.W65C51}, \hyperpage{164}
+  \item {CommandRegister}
+    \subitem {Hardware.W65C51}, \hyperpage{165}
+  \item {CommandRegisterUpdate}
+    \subitem {Hardware.W65C51}, \hyperpage{165}
+  \item {Company}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Hardware.Versioning.Product}, \hyperpage{80}
+  \item {CompareOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{117}
+  \item {ComPortName}
+    \subitem {Emulator.Model.SettingsModel}, \hyperpage{95}
+  \item {ComPortSelection}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{99}
+  \item {Connect}
+    \subitem {Emulator.MainWindow}, \hyperpage{58}, \hyperpage{60}
+    \subitem {Emulator.SaveFile}, \hyperpage{84}
+    \subitem {Emulator.Settings}, \hyperpage{90, 91}
+  \item {ControlRegister}
+    \subitem {Hardware.W65C51}, \hyperpage{166}
+  \item {ControlRegisterUpdate}
+    \subitem {Hardware.W65C51}, \hyperpage{167}
+  \item {ConvertFlagsToByte}
+    \subitem {Hardware.W65C02}, \hyperpage{119}
+  \item {ConvertOpCodeIntoString}
+    \subitem {Hardware.Utility}, \hyperpage{103}
+  \item {Copyright}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Hardware.Versioning.Product}, \hyperpage{80}
+  \item {CpuSpeed}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{52}
+  \item {CreateDelegate}
+    \subitem {XamlGeneratedNamespace.GeneratedInternalTypeHelper}, 
+		\hyperpage{31, 32}
+  \item {CreateInstance}
+    \subitem {XamlGeneratedNamespace.GeneratedInternalTypeHelper}, 
+		\hyperpage{32}
+  \item {CreateNew}
+    \subitem {Emulator.SettingsFile}, \hyperpage{93}
+  \item {CurrentBank}
+    \subitem {Hardware.AT28CXX}, \hyperpage{16}
+    \subitem {Hardware.HM62256}, \hyperpage{37}
+  \item {CurrentDisassembly}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{52}
+    \subitem {Hardware.W65C02}, \hyperpage{149}
+  \item {CurrentOpCode}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{77}
+    \subitem {Hardware.W65C02}, \hyperpage{149}
+  \item {CurrentSerialPort}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{53}
+  \item {CycleCountIncrementedAction}
+    \subitem {Hardware.W65C02}, \hyperpage{149}
+
+  \indexspace
+
+  \item {DataRead}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {DecimalFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{149}
+  \item {defaultBaudRate}
+    \subitem {Hardware.W65C51}, \hyperpage{173}
+  \item {Description}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Hardware.Versioning.Product}, \hyperpage{81}
+  \item {DisableInterruptFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{149}
+  \item {DisassemblyOutput}
+    \subitem {Hardware.Disassembly}, \hyperpage{25}
+  \item {DumpMemory}
+    \subitem {Hardware.AT28CXX}, \hyperpage{13}
+    \subitem {Hardware.HM62256}, \hyperpage{36}
+
+  \indexspace
+
+  \item {EchoMode}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {Emulator}, \hyperpage{7}
+  \item {Emulator.App}, \hyperpage{11}
+  \item {Emulator.ExitCodes}, \hyperpage{26}
+    \subitem {BIOS\_LOADPROGRAM\_ERROR}, \hyperpage{26}
+    \subitem {LOAD\_BIOS\_FILE\_ERROR}, \hyperpage{26}
+    \subitem {LOAD\_ROM\_FILE\_ERROR}, \hyperpage{27}
+    \subitem {LOAD\_STATE\_ERROR}, \hyperpage{27}
+    \subitem {NO\_BIOS}, \hyperpage{27}
+    \subitem {NO\_ERROR}, \hyperpage{27}
+    \subitem {ROM\_LOADPROGRAM\_ERROR}, \hyperpage{27}
+    \subitem {USER\_ERROR}, \hyperpage{27}
+  \item {Emulator.IClosable}, \hyperpage{38}
+    \subitem {Close}, \hyperpage{39}
+  \item {Emulator.MainWindow}, \hyperpage{57}
+    \subitem {\_contentLoaded}, \hyperpage{64}
+    \subitem {CloseFile}, \hyperpage{58}
+    \subitem {Connect}, \hyperpage{58}, \hyperpage{60}
+    \subitem {InitializeComponent}, \hyperpage{62}
+    \subitem {LoadFile}, \hyperpage{62}
+    \subitem {MainWindow}, \hyperpage{58}
+    \subitem {NotificationMessageReceived}, \hyperpage{63}
+    \subitem {SaveFile}, \hyperpage{63}
+    \subitem {ToClose}, \hyperpage{63}
+  \item {Emulator.Model}, \hyperpage{8}
+  \item {Emulator.Model.Breakpoint}, \hyperpage{20}
+    \subitem {AllTypes}, \hyperpage{21}
+    \subitem {IsEnabled}, \hyperpage{21}
+    \subitem {Type}, \hyperpage{21}
+    \subitem {Value}, \hyperpage{21}
+  \item {Emulator.Model.BreakpointType}, \hyperpage{22}
+    \subitem {AllTypes}, \hyperpage{22}
+    \subitem {NumberOfCycleType}, \hyperpage{22}
+    \subitem {ProgramCounterType}, \hyperpage{23}
+  \item {Emulator.Model.MemoryRowModel}, \hyperpage{69}
+    \subitem {Location00}, \hyperpage{70}
+    \subitem {Location01}, \hyperpage{70}
+    \subitem {Location02}, \hyperpage{70}
+    \subitem {Location03}, \hyperpage{70}
+    \subitem {Location04}, \hyperpage{70}
+    \subitem {Location05}, \hyperpage{70}
+    \subitem {Location06}, \hyperpage{71}
+    \subitem {Location07}, \hyperpage{71}
+    \subitem {Location08}, \hyperpage{71}
+    \subitem {Location09}, \hyperpage{71}
+    \subitem {Location0A}, \hyperpage{71}
+    \subitem {Location0B}, \hyperpage{71}
+    \subitem {Location0C}, \hyperpage{72}
+    \subitem {Location0D}, \hyperpage{72}
+    \subitem {Location0E}, \hyperpage{72}
+    \subitem {Location0F}, \hyperpage{72}
+    \subitem {Offset}, \hyperpage{72}
+  \item {Emulator.Model.OutputLog}, \hyperpage{76}
+    \subitem {Accumulator}, \hyperpage{77}
+    \subitem {CurrentOpCode}, \hyperpage{77}
+    \subitem {NumberOfCycles}, \hyperpage{77}
+    \subitem {OutputLog}, \hyperpage{77}
+    \subitem {ProgramCounter}, \hyperpage{77}
+    \subitem {StackPointer}, \hyperpage{77}
+    \subitem {XRegister}, \hyperpage{78}
+    \subitem {YRegister}, \hyperpage{78}
+  \item {Emulator.Model.RomFileModel}, \hyperpage{81}
+    \subitem {Rom}, \hyperpage{82}
+    \subitem {RomBanks}, \hyperpage{82}
+    \subitem {RomBankSize}, \hyperpage{82}
+    \subitem {RomFileName}, \hyperpage{82}
+    \subitem {RomFilePath}, \hyperpage{82}
+  \item {Emulator.Model.SettingsModel}, \hyperpage{94}
+    \subitem {ComPortName}, \hyperpage{95}
+    \subitem {SettingsVersionBuild}, \hyperpage{95}
+    \subitem {SettingsVersionMajor}, \hyperpage{95}
+    \subitem {SettingsVersionMinor}, \hyperpage{95}
+    \subitem {SettingsVersionRevision}, \hyperpage{96}
+  \item {Emulator.Model.StateFileModel}, \hyperpage{101}
+    \subitem {AT28C010}, \hyperpage{101}
+    \subitem {AT28C64}, \hyperpage{102}
+    \subitem {MM65SIB}, \hyperpage{102}
+    \subitem {NumberOfCycles}, \hyperpage{102}
+    \subitem {OutputLog}, \hyperpage{102}
+    \subitem {W65C02}, \hyperpage{102}
+    \subitem {W65C22}, \hyperpage{102}
+    \subitem {W65C51}, \hyperpage{103}
+  \item {Emulator.MultiThreadedObservableCollection$<$ T $>$}, 
+		\hyperpage{73}
+    \subitem {CollectionChanged}, \hyperpage{75}
+    \subitem {MultiThreadedObservableCollection}, \hyperpage{74, 75}
+    \subitem {OnCollectionChanged}, \hyperpage{75}
+  \item {Emulator.SaveFile}, \hyperpage{83}
+    \subitem {\_contentLoaded}, \hyperpage{85}
+    \subitem {Connect}, \hyperpage{84}
+    \subitem {InitializeComponent}, \hyperpage{84, 85}
+    \subitem {NotificationMessageReceived}, \hyperpage{85}
+    \subitem {SaveFile}, \hyperpage{83}
+  \item {Emulator.Settings}, \hyperpage{89}
+    \subitem {\_contentLoaded}, \hyperpage{93}
+    \subitem {Connect}, \hyperpage{90, 91}
+    \subitem {InitializeComponent}, \hyperpage{91, 92}
+    \subitem {NotificationMessageReceived}, \hyperpage{92}
+    \subitem {PortSelectionDropDownClosed}, \hyperpage{92}
+    \subitem {Settings}, \hyperpage{90}
+  \item {Emulator.SettingsFile}, \hyperpage{93}
+    \subitem {CreateNew}, \hyperpage{93}
+  \item {Emulator.Versioning}, \hyperpage{108}
+  \item {Emulator.Versioning.Product}, \hyperpage{78}
+    \subitem {Build}, \hyperpage{79}
+    \subitem {Company}, \hyperpage{79}
+    \subitem {Copyright}, \hyperpage{79}
+    \subitem {Description}, \hyperpage{79}
+    \subitem {Major}, \hyperpage{79}
+    \subitem {Minor}, \hyperpage{79}
+    \subitem {Name}, \hyperpage{79}
+    \subitem {Revision}, \hyperpage{79}
+    \subitem {Title}, \hyperpage{80}
+    \subitem {VersionString}, \hyperpage{80}
+  \item {Emulator.Versioning.SettingsFile}, \hyperpage{94}
+    \subitem {Build}, \hyperpage{94}
+    \subitem {Major}, \hyperpage{94}
+    \subitem {Minor}, \hyperpage{94}
+    \subitem {Revision}, \hyperpage{94}
+  \item {Emulator.ViewModel}, \hyperpage{8}
+  \item {Emulator.ViewModel.MainViewModel}, \hyperpage{39}
+    \subitem {\_backgroundWorker}, \hyperpage{51}
+    \subitem {\_breakpointTriggered}, \hyperpage{51}
+    \subitem {\_memoryPageOffset}, \hyperpage{51}
+    \subitem {About}, \hyperpage{43}
+    \subitem {AboutCommand}, \hyperpage{51}
+    \subitem {AddBreakPoint}, \hyperpage{43}
+    \subitem {AddBreakPointCommand}, \hyperpage{51}
+    \subitem {AT28C010}, \hyperpage{51}
+    \subitem {AT28C64}, \hyperpage{52}
+    \subitem {BackgroundWorkerDoWork}, \hyperpage{43}
+    \subitem {BinaryLoadedNotification}, \hyperpage{44}
+    \subitem {Breakpoints}, \hyperpage{52}
+    \subitem {Close}, \hyperpage{44}
+    \subitem {CloseCommand}, \hyperpage{52}
+    \subitem {CpuSpeed}, \hyperpage{52}
+    \subitem {CurrentDisassembly}, \hyperpage{52}
+    \subitem {CurrentSerialPort}, \hyperpage{53}
+    \subitem {GenericNotifcation}, \hyperpage{44}
+    \subitem {GetLogModValue}, \hyperpage{45}
+    \subitem {GetOutputLog}, \hyperpage{46}
+    \subitem {GetSleepValue}, \hyperpage{46}
+    \subitem {HM62256}, \hyperpage{53}
+    \subitem {IsBreakPointTriggered}, \hyperpage{46}
+    \subitem {IsRomLoaded}, \hyperpage{53}
+    \subitem {IsRunning}, \hyperpage{53}
+    \subitem {MainViewModel}, \hyperpage{41}
+    \subitem {MemoryPage}, \hyperpage{53}
+    \subitem {MemoryPageOffset}, \hyperpage{54}
+    \subitem {MM65SIB}, \hyperpage{54}
+    \subitem {NumberOfCycles}, \hyperpage{54}
+    \subitem {OnClose}, \hyperpage{47}
+    \subitem {OnLoad}, \hyperpage{47}
+    \subitem {OutputLog}, \hyperpage{54}
+    \subitem {RemoveBreakPoint}, \hyperpage{48}
+    \subitem {RemoveBreakPointCommand}, \hyperpage{54}
+    \subitem {Reset}, \hyperpage{48}
+    \subitem {ResetCommand}, \hyperpage{55}
+    \subitem {RomFile}, \hyperpage{55}
+    \subitem {RunPause}, \hyperpage{48}
+    \subitem {RunPauseCommand}, \hyperpage{55}
+    \subitem {SelectedBreakpoint}, \hyperpage{55}
+    \subitem {Settings}, \hyperpage{49}
+    \subitem {SettingsAppliedNotifcation}, \hyperpage{49}
+    \subitem {SettingsCommand}, \hyperpage{55}
+    \subitem {SettingsModel}, \hyperpage{55}
+    \subitem {StateLoadedNotifcation}, \hyperpage{49}
+    \subitem {Step}, \hyperpage{50}
+    \subitem {StepCommand}, \hyperpage{56}
+    \subitem {StepProcessor}, \hyperpage{50}
+    \subitem {UpdateMemoryMapCommand}, \hyperpage{56}
+    \subitem {UpdateMemoryPage}, \hyperpage{50}
+    \subitem {UpdateUi}, \hyperpage{50}
+    \subitem {W65C02}, \hyperpage{56}
+    \subitem {W65C22}, \hyperpage{56}
+    \subitem {W65C51}, \hyperpage{56}
+    \subitem {WindowTitle}, \hyperpage{56}
+  \item {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{86}
+    \subitem {\_stateFileModel}, \hyperpage{88}
+    \subitem {Close}, \hyperpage{87}
+    \subitem {CloseCommand}, \hyperpage{88}
+    \subitem {Filename}, \hyperpage{88}
+    \subitem {Save}, \hyperpage{87}
+    \subitem {SaveEnabled}, \hyperpage{89}
+    \subitem {SaveFileCommand}, \hyperpage{89}
+    \subitem {SaveFileViewModel}, \hyperpage{87}
+    \subitem {Select}, \hyperpage{88}
+    \subitem {SelectFileCommand}, \hyperpage{89}
+  \item {Emulator.ViewModel.SettingsViewModel}, \hyperpage{96}
+    \subitem {\_PortList}, \hyperpage{98}
+    \subitem {Apply}, \hyperpage{98}
+    \subitem {ApplyCommand}, \hyperpage{98}
+    \subitem {ApplyEnabled}, \hyperpage{99}
+    \subitem {Close}, \hyperpage{98}
+    \subitem {CloseCommand}, \hyperpage{99}
+    \subitem {ComPortSelection}, \hyperpage{99}
+    \subitem {PortList}, \hyperpage{99}
+    \subitem {SettingsModel}, \hyperpage{99}
+    \subitem {SettingsViewModel}, \hyperpage{97}
+    \subitem {UpdatePortList}, \hyperpage{98}
+  \item {Emulator.ViewModel.ViewModelLocator}, \hyperpage{108}
+    \subitem {Cleanup}, \hyperpage{109}
+    \subitem {Main}, \hyperpage{109}
+    \subitem {SaveFile}, \hyperpage{109}
+    \subitem {Settings}, \hyperpage{110}
+    \subitem {ViewModelLocator}, \hyperpage{109}
+  \item {Emulator/App.xaml.cs}, \hyperpage{176}
+  \item {Emulator/Classes/ExitCodes.cs}, \hyperpage{177}
+  \item {Emulator/Classes/FileLocations.cs}, \hyperpage{177}
+  \item {Emulator/Classes/SettingsFile.cs}, \hyperpage{178}
+  \item {Emulator/Classes/Versioning.cs}, \hyperpage{179}
+  \item {Emulator/Interfaces/IClosable.cs}, \hyperpage{180}
+  \item {Emulator/MainWindow.xaml.cs}, \hyperpage{180, 181}
+  \item {Emulator/Model/Breakpoint.cs}, \hyperpage{182}
+  \item {Emulator/Model/BreakpointType.cs}, \hyperpage{182, 183}
+  \item {Emulator/Model/MemoryRowModel.cs}, \hyperpage{183}
+  \item {Emulator/Model/OutputLog.cs}, \hyperpage{184, 185}
+  \item {Emulator/Model/RomFileModel.cs}, \hyperpage{185, 186}
+  \item {Emulator/Model/SettingsModel.cs}, \hyperpage{186}
+  \item {Emulator/Model/StateFileModel.cs}, \hyperpage{187}
+  \item {Emulator/MultiThreadedCollection.cs}, \hyperpage{188}
+  \item {Emulator/obj/x86/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs}, 
+		\hyperpage{189}
+  \item {Emulator/obj/x86/Debug/App.g.cs}, \hyperpage{190}
+  \item {Emulator/obj/x86/Debug/App.g.i.cs}, \hyperpage{191}
+  \item {Emulator/obj/x86/Debug/Emulator\_Content.g.cs}, 
+		\hyperpage{192}
+  \item {Emulator/obj/x86/Debug/Emulator\_Content.g.i.cs}, 
+		\hyperpage{193}
+  \item {Emulator/obj/x86/Debug/GeneratedInternalTypeHelper.g.cs}, 
+		\hyperpage{193}
+  \item {Emulator/obj/x86/Debug/GeneratedInternalTypeHelper.g.i.cs}, 
+		\hyperpage{194}
+  \item {Emulator/obj/x86/Debug/MainWindow.g.cs}, \hyperpage{195}
+  \item {Emulator/obj/x86/Debug/MainWindow.g.i.cs}, \hyperpage{202}
+  \item {Emulator/obj/x86/Debug/SaveFile.g.cs}, \hyperpage{209}
+  \item {Emulator/obj/x86/Debug/SaveFile.g.i.cs}, \hyperpage{211}
+  \item {Emulator/obj/x86/Debug/Settings.g.cs}, \hyperpage{213}
+  \item {Emulator/obj/x86/Debug/Settings.g.i.cs}, \hyperpage{215}
+  \item {Emulator/Properties/AssemblyInfo.cs}, \hyperpage{217}
+  \item {Emulator/SaveFile.xaml.cs}, \hyperpage{218, 219}
+  \item {Emulator/Settings.xaml.cs}, \hyperpage{219}
+  \item {Emulator/ViewModel/MainViewModel.cs}, \hyperpage{220, 221}
+  \item {Emulator/ViewModel/SaveFileViewModel.cs}, \hyperpage{230, 231}
+  \item {Emulator/ViewModel/SettingsViewModel.cs}, \hyperpage{232}
+  \item {Emulator/ViewModel/ViewModelLocator.cs}, \hyperpage{233, 234}
+  \item {End}
+    \subitem {Hardware.AT28CXX}, \hyperpage{17}
+    \subitem {Hardware.HM62256}, \hyperpage{38}
+    \subitem {Hardware.MemoryMap.DeviceArea}, \hyperpage{24}
+    \subitem {Hardware.W65C22}, \hyperpage{159}
+  \item {EorOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{119}
+  \item {ExecuteOpCode}
+    \subitem {Hardware.W65C02}, \hyperpage{120}
+
+  \indexspace
+
+  \item {Filename}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{88}
+  \item {Fini}
+    \subitem {Hardware.W65C51}, \hyperpage{169}
+
+  \indexspace
+
+  \item {GenericNotifcation}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{44}
+  \item {GetAddressByAddressingMode}
+    \subitem {Hardware.W65C02}, \hyperpage{132}
+  \item {GetAddressingMode}
+    \subitem {Hardware.W65C02}, \hyperpage{134}
+  \item {GetCycleCount}
+    \subitem {Hardware.W65C02}, \hyperpage{137}
+  \item {GetLogModValue}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{45}
+  \item {GetOutputLog}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{46}
+  \item {GetPropertyValue}
+    \subitem {XamlGeneratedNamespace.GeneratedInternalTypeHelper}, 
+		\hyperpage{33}
+  \item {GetSleepValue}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{46}
+  \item {GPIO}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+
+  \indexspace
+
+  \item {Hardware}, \hyperpage{8}
+    \subitem {AddressingMode}, \hyperpage{9}
+  \item {Hardware.AT28CXX}, \hyperpage{11}
+    \subitem {AT28CXX}, \hyperpage{12}
+    \subitem {Banks}, \hyperpage{16}
+    \subitem {Clear}, \hyperpage{12}
+    \subitem {CurrentBank}, \hyperpage{16}
+    \subitem {DumpMemory}, \hyperpage{13}
+    \subitem {End}, \hyperpage{17}
+    \subitem {Length}, \hyperpage{17}
+    \subitem {Load}, \hyperpage{13}, \hyperpage{15}
+    \subitem {Memory}, \hyperpage{17}
+    \subitem {Offset}, \hyperpage{17}
+    \subitem {Processor}, \hyperpage{17}
+    \subitem {Read}, \hyperpage{15}
+    \subitem {ReadFile}, \hyperpage{15}
+    \subitem {Write}, \hyperpage{16}
+  \item {Hardware.Disassembly}, \hyperpage{25}
+    \subitem {DisassemblyOutput}, \hyperpage{25}
+    \subitem {HighAddress}, \hyperpage{25}
+    \subitem {LowAddress}, \hyperpage{25}
+    \subitem {OpCodeString}, \hyperpage{26}
+  \item {Hardware.HM62256}, \hyperpage{35}
+    \subitem {Banks}, \hyperpage{37}
+    \subitem {Clear}, \hyperpage{36}
+    \subitem {CurrentBank}, \hyperpage{37}
+    \subitem {DumpMemory}, \hyperpage{36}
+    \subitem {End}, \hyperpage{38}
+    \subitem {HM62256}, \hyperpage{35}
+    \subitem {Length}, \hyperpage{38}
+    \subitem {Memory}, \hyperpage{38}
+    \subitem {Offset}, \hyperpage{38}
+    \subitem {Read}, \hyperpage{36}
+    \subitem {Reset}, \hyperpage{37}
+    \subitem {Write}, \hyperpage{37}
+  \item {Hardware.MemoryMap}, \hyperpage{64}
+    \subitem {ACIA}, \hyperpage{68}
+    \subitem {BankedRAM}, \hyperpage{68}
+    \subitem {BankedROM}, \hyperpage{68}
+    \subitem {GPIO}, \hyperpage{68}
+    \subitem {Init}, \hyperpage{65}
+    \subitem {Length}, \hyperpage{67}
+    \subitem {MM65SIB}, \hyperpage{68}
+    \subitem {Processor}, \hyperpage{68}
+    \subitem {Read}, \hyperpage{65}
+    \subitem {ReadWithoutCycle}, \hyperpage{66}
+    \subitem {SharedROM}, \hyperpage{68}
+    \subitem {Write}, \hyperpage{66}
+    \subitem {WriteWithoutCycle}, \hyperpage{67}
+  \item {Hardware.MemoryMap.BankedRam}, \hyperpage{18}
+    \subitem {\_Length}, \hyperpage{18}
+    \subitem {\_Offset}, \hyperpage{18}
+    \subitem {BankSize}, \hyperpage{18}
+    \subitem {Length}, \hyperpage{19}
+    \subitem {Offset}, \hyperpage{19}
+    \subitem {TotalBanks}, \hyperpage{18}
+    \subitem {TotalLength}, \hyperpage{19}
+  \item {Hardware.MemoryMap.BankedRom}, \hyperpage{19}
+    \subitem {\_Length}, \hyperpage{20}
+    \subitem {\_Offset}, \hyperpage{20}
+    \subitem {Length}, \hyperpage{20}
+    \subitem {Offset}, \hyperpage{20}
+    \subitem {TotalBanks}, \hyperpage{20}
+  \item {Hardware.MemoryMap.DeviceArea}, \hyperpage{23}
+    \subitem {\_Length}, \hyperpage{23}
+    \subitem {\_Offset}, \hyperpage{23}
+    \subitem {End}, \hyperpage{24}
+    \subitem {Length}, \hyperpage{24}
+    \subitem {Offset}, \hyperpage{24}
+  \item {Hardware.MemoryMap.Devices}, \hyperpage{24}
+  \item {Hardware.MemoryMap.Devices.ACIA}, \hyperpage{10}
+    \subitem {Length}, \hyperpage{10}
+    \subitem {Offset}, \hyperpage{10}
+  \item {Hardware.MemoryMap.Devices.GPIO}, \hyperpage{34}
+    \subitem {Length}, \hyperpage{34}
+    \subitem {Offset}, \hyperpage{34}
+  \item {Hardware.MemoryMap.Devices.MM65SIB}, \hyperpage{73}
+    \subitem {Length}, \hyperpage{73}
+    \subitem {Offset}, \hyperpage{73}
+  \item {Hardware.MemoryMap.SharedRom}, \hyperpage{100}
+    \subitem {\_Length}, \hyperpage{100}
+    \subitem {\_Offset}, \hyperpage{100}
+    \subitem {Length}, \hyperpage{100}
+    \subitem {Offset}, \hyperpage{101}
+    \subitem {TotalBanks}, \hyperpage{100}
+  \item {Hardware.Utility}, \hyperpage{103}
+    \subitem {ConvertOpCodeIntoString}, \hyperpage{103}
+  \item {Hardware.Versioning.Product}, \hyperpage{80}
+    \subitem {Company}, \hyperpage{80}
+    \subitem {Copyright}, \hyperpage{80}
+    \subitem {Description}, \hyperpage{81}
+    \subitem {Name}, \hyperpage{81}
+    \subitem {Title}, \hyperpage{81}
+    \subitem {Version}, \hyperpage{81}
+  \item {Hardware.W65C02}, \hyperpage{110}
+    \subitem {\_cycleCount}, \hyperpage{147}
+    \subitem {\_interrupt}, \hyperpage{147}
+    \subitem {\_logger}, \hyperpage{148}
+    \subitem {\_previousInterrupt}, \hyperpage{148}
+    \subitem {\_programCounter}, \hyperpage{148}
+    \subitem {\_stackPointer}, \hyperpage{148}
+    \subitem {Accumulator}, \hyperpage{148}
+    \subitem {AddWithCarryOperation}, \hyperpage{113}
+    \subitem {AndOperation}, \hyperpage{114}
+    \subitem {AslOperation}, \hyperpage{114}
+    \subitem {BitOperation}, \hyperpage{115}
+    \subitem {BranchOperation}, \hyperpage{116}
+    \subitem {BreakOperation}, \hyperpage{116}
+    \subitem {CarryFlag}, \hyperpage{148}
+    \subitem {ChangeMemoryByOne}, \hyperpage{116}
+    \subitem {ChangeRegisterByOne}, \hyperpage{117}
+    \subitem {CompareOperation}, \hyperpage{117}
+    \subitem {ConvertFlagsToByte}, \hyperpage{119}
+    \subitem {CurrentDisassembly}, \hyperpage{149}
+    \subitem {CurrentOpCode}, \hyperpage{149}
+    \subitem {CycleCountIncrementedAction}, \hyperpage{149}
+    \subitem {DecimalFlag}, \hyperpage{149}
+    \subitem {DisableInterruptFlag}, \hyperpage{149}
+    \subitem {EorOperation}, \hyperpage{119}
+    \subitem {ExecuteOpCode}, \hyperpage{120}
+    \subitem {GetAddressByAddressingMode}, \hyperpage{132}
+    \subitem {GetAddressingMode}, \hyperpage{134}
+    \subitem {GetCycleCount}, \hyperpage{137}
+    \subitem {IncrementCycleCount}, \hyperpage{137}
+    \subitem {InterruptRequest}, \hyperpage{137}
+    \subitem {isRunning}, \hyperpage{148}
+    \subitem {JumpToSubRoutineOperation}, \hyperpage{137}
+    \subitem {LsrOperation}, \hyperpage{138}
+    \subitem {MoveProgramCounterByRelativeValue}, \hyperpage{138}
+    \subitem {NegativeFlag}, \hyperpage{149}
+    \subitem {NextStep}, \hyperpage{139}
+    \subitem {OrOperation}, \hyperpage{139}
+    \subitem {OverflowFlag}, \hyperpage{150}
+    \subitem {PeekStack}, \hyperpage{140}
+    \subitem {PokeStack}, \hyperpage{140}
+    \subitem {ProcessIRQ}, \hyperpage{140}
+    \subitem {ProcessNMI}, \hyperpage{140}
+    \subitem {ProgramCounter}, \hyperpage{150}
+    \subitem {PullFlagsOperation}, \hyperpage{141}
+    \subitem {PushFlagsOperation}, \hyperpage{141}
+    \subitem {Reset}, \hyperpage{141}
+    \subitem {ResetCycleCount}, \hyperpage{141}
+    \subitem {ReturnFromInterruptOperation}, \hyperpage{142}
+    \subitem {ReturnFromSubRoutineOperation}, \hyperpage{142}
+    \subitem {RolOperation}, \hyperpage{142}
+    \subitem {RorOperation}, \hyperpage{143}
+    \subitem {SetDisassembly}, \hyperpage{144}
+    \subitem {SetNegativeFlag}, \hyperpage{146}
+    \subitem {SetZeroFlag}, \hyperpage{146}
+    \subitem {StackPointer}, \hyperpage{150}
+    \subitem {SubtractWithBorrowOperation}, \hyperpage{147}
+    \subitem {TriggerIRQ}, \hyperpage{150}
+    \subitem {TriggerNmi}, \hyperpage{150}
+    \subitem {W65C02}, \hyperpage{113}
+    \subitem {WrapProgramCounter}, \hyperpage{147}
+    \subitem {XRegister}, \hyperpage{151}
+    \subitem {YRegister}, \hyperpage{151}
+    \subitem {ZeroFlag}, \hyperpage{151}
+  \item {Hardware.W65C22}, \hyperpage{151}
+    \subitem {ACR}, \hyperpage{157}
+    \subitem {ACR\_T1TC}, \hyperpage{157}
+    \subitem {ACR\_T2TC}, \hyperpage{157}
+    \subitem {End}, \hyperpage{159}
+    \subitem {IER}, \hyperpage{157}
+    \subitem {IER\_EN}, \hyperpage{157}
+    \subitem {IER\_T1}, \hyperpage{157}
+    \subitem {IER\_T2}, \hyperpage{157}
+    \subitem {IFR}, \hyperpage{158}
+    \subitem {IFR\_INT}, \hyperpage{158}
+    \subitem {IFR\_T1}, \hyperpage{158}
+    \subitem {IFR\_T2}, \hyperpage{158}
+    \subitem {Init}, \hyperpage{153}
+    \subitem {Length}, \hyperpage{159}
+    \subitem {Memory}, \hyperpage{159}
+    \subitem {Offset}, \hyperpage{159}
+    \subitem {OnT1Timeout}, \hyperpage{154}
+    \subitem {OnT2Timeout}, \hyperpage{154}
+    \subitem {Processor}, \hyperpage{160}
+    \subitem {Read}, \hyperpage{155}
+    \subitem {Reset}, \hyperpage{155}
+    \subitem {T1CH}, \hyperpage{158}
+    \subitem {T1CL}, \hyperpage{158}
+    \subitem {T1Init}, \hyperpage{155}
+    \subitem {T1Interval}, \hyperpage{160}
+    \subitem {T1IsEnabled}, \hyperpage{160}
+    \subitem {T1IsIRQ}, \hyperpage{158}
+    \subitem {T1Object}, \hyperpage{160}
+    \subitem {T1TimerControl}, \hyperpage{160}
+    \subitem {T2CH}, \hyperpage{158}
+    \subitem {T2CL}, \hyperpage{159}
+    \subitem {T2Init}, \hyperpage{156}
+    \subitem {T2Interval}, \hyperpage{160}
+    \subitem {T2IsEnabled}, \hyperpage{161}
+    \subitem {T2IsIRQ}, \hyperpage{159}
+    \subitem {T2Object}, \hyperpage{161}
+    \subitem {T2TimerControl}, \hyperpage{161}
+    \subitem {W65C22}, \hyperpage{153}
+    \subitem {Write}, \hyperpage{156}
+  \item {Hardware.W65C51}, \hyperpage{161}
+    \subitem {\_backgroundWorker}, \hyperpage{174}
+    \subitem {BackgroundWorkerDoWork}, \hyperpage{163}
+    \subitem {byteIn}, \hyperpage{173}
+    \subitem {ComFini}, \hyperpage{163}
+    \subitem {ComInit}, \hyperpage{164}
+    \subitem {CommandRegister}, \hyperpage{165}
+    \subitem {CommandRegisterUpdate}, \hyperpage{165}
+    \subitem {ControlRegister}, \hyperpage{166}
+    \subitem {ControlRegisterUpdate}, \hyperpage{167}
+    \subitem {DataRead}, \hyperpage{174}
+    \subitem {defaultBaudRate}, \hyperpage{173}
+    \subitem {EchoMode}, \hyperpage{174}
+    \subitem {Fini}, \hyperpage{169}
+    \subitem {HardwarePreRead}, \hyperpage{169}
+    \subitem {HardwarePreWrite}, \hyperpage{169}
+    \subitem {Init}, \hyperpage{170}
+    \subitem {InterruptDisabled}, \hyperpage{174}
+    \subitem {Interrupted}, \hyperpage{174}
+    \subitem {IsEnabled}, \hyperpage{174}
+    \subitem {Length}, \hyperpage{174}
+    \subitem {Memory}, \hyperpage{175}
+    \subitem {Object}, \hyperpage{175}
+    \subitem {ObjectName}, \hyperpage{175}
+    \subitem {Offset}, \hyperpage{175}
+    \subitem {Overrun}, \hyperpage{175}
+    \subitem {ParityEnabled}, \hyperpage{175}
+    \subitem {Processor}, \hyperpage{175}
+    \subitem {Read}, \hyperpage{171}
+    \subitem {ReceiverFull}, \hyperpage{176}
+    \subitem {Reset}, \hyperpage{171}
+    \subitem {RtsControl}, \hyperpage{176}
+    \subitem {SerialDataReceived}, \hyperpage{171}
+    \subitem {StatusRegisterUpdate}, \hyperpage{172}
+    \subitem {W65C51}, \hyperpage{163}
+    \subitem {Write}, \hyperpage{173}
+    \subitem {WriteCOM}, \hyperpage{173}
+  \item {Hardware/AT28CXX.cs}, \hyperpage{235}
+  \item {Hardware/Classes/AddressingMode.cs}, \hyperpage{237}
+  \item {Hardware/Classes/Disassembly.cs}, \hyperpage{238, 239}
+  \item {Hardware/Classes/FileLocations.cs}, \hyperpage{178}
+  \item {Hardware/Classes/MemoryMap.cs}, \hyperpage{239}
+  \item {Hardware/Classes/Utility.cs}, \hyperpage{242}
+  \item {Hardware/Classes/Versioning.cs}, \hyperpage{179, 180}
+  \item {Hardware/HM62256.cs}, \hyperpage{246}
+  \item {Hardware/obj/Debug/.NETFramework,Version=v4.8.AssemblyAttributes.cs}, 
+		\hyperpage{189}
+  \item {Hardware/Properties/AssemblyInfo.cs}, \hyperpage{218}
+  \item {Hardware/W65C02.cs}, \hyperpage{248}
+  \item {Hardware/W65C22.cs}, \hyperpage{277}
+  \item {Hardware/W65C51.cs}, \hyperpage{281}
+  \item {HardwarePreRead}
+    \subitem {Hardware.W65C51}, \hyperpage{169}
+  \item {HardwarePreWrite}
+    \subitem {Hardware.W65C51}, \hyperpage{169}
+  \item {HighAddress}
+    \subitem {Hardware.Disassembly}, \hyperpage{25}
+  \item {HM62256}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{53}
+    \subitem {Hardware.HM62256}, \hyperpage{35}
+
+  \indexspace
+
+  \item {IER}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {IER\_EN}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {IER\_T1}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {IER\_T2}
+    \subitem {Hardware.W65C22}, \hyperpage{157}
+  \item {IFR}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {IFR\_INT}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {IFR\_T1}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {IFR\_T2}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {IncrementCycleCount}
+    \subitem {Hardware.W65C02}, \hyperpage{137}
+  \item {Init}
+    \subitem {Hardware.MemoryMap}, \hyperpage{65}
+    \subitem {Hardware.W65C22}, \hyperpage{153}
+    \subitem {Hardware.W65C51}, \hyperpage{170}
+  \item {InitializeComponent}
+    \subitem {Emulator.MainWindow}, \hyperpage{62}
+    \subitem {Emulator.SaveFile}, \hyperpage{84, 85}
+    \subitem {Emulator.Settings}, \hyperpage{91, 92}
+    \subitem {XamlGeneratedNamespace.GeneratedApplication}, 
+		\hyperpage{28, 29}
+  \item {InterruptDisabled}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {Interrupted}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {InterruptRequest}
+    \subitem {Hardware.W65C02}, \hyperpage{137}
+  \item {IsBreakPointTriggered}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{46}
+  \item {IsEnabled}
+    \subitem {Emulator.Model.Breakpoint}, \hyperpage{21}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {IsRomLoaded}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{53}
+  \item {IsRunning}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{53}
+  \item {isRunning}
+    \subitem {Hardware.W65C02}, \hyperpage{148}
+
+  \indexspace
+
+  \item {JumpToSubRoutineOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{137}
+
+  \indexspace
+
+  \item {Length}
+    \subitem {Hardware.AT28CXX}, \hyperpage{17}
+    \subitem {Hardware.HM62256}, \hyperpage{38}
+    \subitem {Hardware.MemoryMap}, \hyperpage{67}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{19}
+    \subitem {Hardware.MemoryMap.BankedRom}, \hyperpage{20}
+    \subitem {Hardware.MemoryMap.DeviceArea}, \hyperpage{24}
+    \subitem {Hardware.MemoryMap.Devices.ACIA}, \hyperpage{10}
+    \subitem {Hardware.MemoryMap.Devices.GPIO}, \hyperpage{34}
+    \subitem {Hardware.MemoryMap.Devices.MM65SIB}, \hyperpage{73}
+    \subitem {Hardware.MemoryMap.SharedRom}, \hyperpage{100}
+    \subitem {Hardware.W65C22}, \hyperpage{159}
+    \subitem {Hardware.W65C51}, \hyperpage{174}
+  \item {Load}
+    \subitem {Hardware.AT28CXX}, \hyperpage{13}, \hyperpage{15}
+  \item {LOAD\_BIOS\_FILE\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{26}
+  \item {LOAD\_ROM\_FILE\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{27}
+  \item {LOAD\_STATE\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{27}
+  \item {LoadFile}
+    \subitem {Emulator.MainWindow}, \hyperpage{62}
+  \item {Location00}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{70}
+  \item {Location01}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{70}
+  \item {Location02}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{70}
+  \item {Location03}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{70}
+  \item {Location04}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{70}
+  \item {Location05}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{70}
+  \item {Location06}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{71}
+  \item {Location07}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{71}
+  \item {Location08}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{71}
+  \item {Location09}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{71}
+  \item {Location0A}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{71}
+  \item {Location0B}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{71}
+  \item {Location0C}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{72}
+  \item {Location0D}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{72}
+  \item {Location0E}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{72}
+  \item {Location0F}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{72}
+  \item {LowAddress}
+    \subitem {Hardware.Disassembly}, \hyperpage{25}
+  \item {LsrOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{138}
+
+  \indexspace
+
+  \item {Main}
+    \subitem {Emulator.ViewModel.ViewModelLocator}, \hyperpage{109}
+    \subitem {XamlGeneratedNamespace.GeneratedApplication}, 
+		\hyperpage{29}
+  \item {MainViewModel}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{41}
+  \item {MainViewModel.cs}
+    \subitem {W65C02}, \hyperpage{220}
+    \subitem {W65C22}, \hyperpage{220}
+    \subitem {W65C51}, \hyperpage{221}
+  \item {MainWindow}
+    \subitem {Emulator.MainWindow}, \hyperpage{58}
+  \item {Major}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Emulator.Versioning.SettingsFile}, \hyperpage{94}
+  \item {Memory}
+    \subitem {Hardware.AT28CXX}, \hyperpage{17}
+    \subitem {Hardware.HM62256}, \hyperpage{38}
+    \subitem {Hardware.W65C22}, \hyperpage{159}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+  \item {MemoryPage}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{53}
+  \item {MemoryPageOffset}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{54}
+  \item {Minor}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Emulator.Versioning.SettingsFile}, \hyperpage{94}
+  \item {MM65SIB}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{102}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{54}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+  \item {MoveProgramCounterByRelativeValue}
+    \subitem {Hardware.W65C02}, \hyperpage{138}
+  \item {MultiThreadedObservableCollection}
+    \subitem {Emulator.MultiThreadedObservableCollection$<$ T $>$}, 
+		\hyperpage{74, 75}
+
+  \indexspace
+
+  \item {Name}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Hardware.Versioning.Product}, \hyperpage{81}
+  \item {NegativeFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{149}
+  \item {NextStep}
+    \subitem {Hardware.W65C02}, \hyperpage{139}
+  \item {NO\_BIOS}
+    \subitem {Emulator.ExitCodes}, \hyperpage{27}
+  \item {NO\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{27}
+  \item {NotificationMessageReceived}
+    \subitem {Emulator.MainWindow}, \hyperpage{63}
+    \subitem {Emulator.SaveFile}, \hyperpage{85}
+    \subitem {Emulator.Settings}, \hyperpage{92}
+  \item {NumberOfCycles}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{77}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{102}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{54}
+  \item {NumberOfCycleType}
+    \subitem {Emulator.Model.BreakpointType}, \hyperpage{22}
+
+  \indexspace
+
+  \item {Object}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+  \item {ObjectName}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+  \item {Offset}
+    \subitem {Emulator.Model.MemoryRowModel}, \hyperpage{72}
+    \subitem {Hardware.AT28CXX}, \hyperpage{17}
+    \subitem {Hardware.HM62256}, \hyperpage{38}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{19}
+    \subitem {Hardware.MemoryMap.BankedRom}, \hyperpage{20}
+    \subitem {Hardware.MemoryMap.DeviceArea}, \hyperpage{24}
+    \subitem {Hardware.MemoryMap.Devices.ACIA}, \hyperpage{10}
+    \subitem {Hardware.MemoryMap.Devices.GPIO}, \hyperpage{34}
+    \subitem {Hardware.MemoryMap.Devices.MM65SIB}, \hyperpage{73}
+    \subitem {Hardware.MemoryMap.SharedRom}, \hyperpage{101}
+    \subitem {Hardware.W65C22}, \hyperpage{159}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+  \item {OnClose}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{47}
+  \item {OnCollectionChanged}
+    \subitem {Emulator.MultiThreadedObservableCollection$<$ T $>$}, 
+		\hyperpage{75}
+  \item {OnLoad}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{47}
+  \item {OnT1Timeout}
+    \subitem {Hardware.W65C22}, \hyperpage{154}
+  \item {OnT2Timeout}
+    \subitem {Hardware.W65C22}, \hyperpage{154}
+  \item {OpCodeString}
+    \subitem {Hardware.Disassembly}, \hyperpage{26}
+  \item {OrOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{139}
+  \item {OutputLog}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{77}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{102}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{54}
+  \item {OverflowFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{150}
+  \item {Overrun}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+
+  \indexspace
+
+  \item {ParityEnabled}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+  \item {PeekStack}
+    \subitem {Hardware.W65C02}, \hyperpage{140}
+  \item {PokeStack}
+    \subitem {Hardware.W65C02}, \hyperpage{140}
+  \item {PortList}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{99}
+  \item {PortSelectionDropDownClosed}
+    \subitem {Emulator.Settings}, \hyperpage{92}
+  \item {ProcessIRQ}
+    \subitem {Hardware.W65C02}, \hyperpage{140}
+  \item {ProcessNMI}
+    \subitem {Hardware.W65C02}, \hyperpage{140}
+  \item {Processor}
+    \subitem {Hardware.AT28CXX}, \hyperpage{17}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+    \subitem {Hardware.W65C22}, \hyperpage{160}
+    \subitem {Hardware.W65C51}, \hyperpage{175}
+  \item {ProgramCounter}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{77}
+    \subitem {Hardware.W65C02}, \hyperpage{150}
+  \item {ProgramCounterType}
+    \subitem {Emulator.Model.BreakpointType}, \hyperpage{23}
+  \item {PullFlagsOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{141}
+  \item {PushFlagsOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{141}
+
+  \indexspace
+
+  \item {Read}
+    \subitem {Hardware.AT28CXX}, \hyperpage{15}
+    \subitem {Hardware.HM62256}, \hyperpage{36}
+    \subitem {Hardware.MemoryMap}, \hyperpage{65}
+    \subitem {Hardware.W65C22}, \hyperpage{155}
+    \subitem {Hardware.W65C51}, \hyperpage{171}
+  \item {ReadFile}
+    \subitem {Hardware.AT28CXX}, \hyperpage{15}
+  \item {ReadWithoutCycle}
+    \subitem {Hardware.MemoryMap}, \hyperpage{66}
+  \item {ReceiverFull}
+    \subitem {Hardware.W65C51}, \hyperpage{176}
+  \item {RemoveBreakPoint}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{48}
+  \item {RemoveBreakPointCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{54}
+  \item {Reset}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{48}
+    \subitem {Hardware.HM62256}, \hyperpage{37}
+    \subitem {Hardware.W65C02}, \hyperpage{141}
+    \subitem {Hardware.W65C22}, \hyperpage{155}
+    \subitem {Hardware.W65C51}, \hyperpage{171}
+  \item {ResetCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{55}
+  \item {ResetCycleCount}
+    \subitem {Hardware.W65C02}, \hyperpage{141}
+  \item {ReturnFromInterruptOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{142}
+  \item {ReturnFromSubRoutineOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{142}
+  \item {Revision}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{79}
+    \subitem {Emulator.Versioning.SettingsFile}, \hyperpage{94}
+  \item {RolOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{142}
+  \item {Rom}
+    \subitem {Emulator.Model.RomFileModel}, \hyperpage{82}
+  \item {ROM\_LOADPROGRAM\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{27}
+  \item {RomBanks}
+    \subitem {Emulator.Model.RomFileModel}, \hyperpage{82}
+  \item {RomBankSize}
+    \subitem {Emulator.Model.RomFileModel}, \hyperpage{82}
+  \item {RomFile}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{55}
+  \item {RomFileName}
+    \subitem {Emulator.Model.RomFileModel}, \hyperpage{82}
+  \item {RomFilePath}
+    \subitem {Emulator.Model.RomFileModel}, \hyperpage{82}
+  \item {RorOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{143}
+  \item {RtsControl}
+    \subitem {Hardware.W65C51}, \hyperpage{176}
+  \item {RunPause}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{48}
+  \item {RunPauseCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{55}
+
+  \indexspace
+
+  \item {Save}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{87}
+  \item {SaveEnabled}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{89}
+  \item {SaveFile}
+    \subitem {Emulator.MainWindow}, \hyperpage{63}
+    \subitem {Emulator.SaveFile}, \hyperpage{83}
+    \subitem {Emulator.ViewModel.ViewModelLocator}, \hyperpage{109}
+  \item {SaveFileCommand}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{89}
+  \item {SaveFileViewModel}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{87}
+  \item {Select}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{88}
+  \item {SelectedBreakpoint}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{55}
+  \item {SelectFileCommand}
+    \subitem {Emulator.ViewModel.SaveFileViewModel}, \hyperpage{89}
+  \item {SerialDataReceived}
+    \subitem {Hardware.W65C51}, \hyperpage{171}
+  \item {SetDisassembly}
+    \subitem {Hardware.W65C02}, \hyperpage{144}
+  \item {SetNegativeFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{146}
+  \item {SetPropertyValue}
+    \subitem {XamlGeneratedNamespace.GeneratedInternalTypeHelper}, 
+		\hyperpage{33}
+  \item {Settings}
+    \subitem {Emulator.Settings}, \hyperpage{90}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{49}
+    \subitem {Emulator.ViewModel.ViewModelLocator}, \hyperpage{110}
+  \item {SettingsAppliedNotifcation}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{49}
+  \item {SettingsCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{55}
+  \item {SettingsModel}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{55}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{99}
+  \item {SettingsVersionBuild}
+    \subitem {Emulator.Model.SettingsModel}, \hyperpage{95}
+  \item {SettingsVersionMajor}
+    \subitem {Emulator.Model.SettingsModel}, \hyperpage{95}
+  \item {SettingsVersionMinor}
+    \subitem {Emulator.Model.SettingsModel}, \hyperpage{95}
+  \item {SettingsVersionRevision}
+    \subitem {Emulator.Model.SettingsModel}, \hyperpage{96}
+  \item {SettingsViewModel}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{97}
+  \item {SetZeroFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{146}
+  \item {SharedROM}
+    \subitem {Hardware.MemoryMap}, \hyperpage{68}
+  \item {StackPointer}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{77}
+    \subitem {Hardware.W65C02}, \hyperpage{150}
+  \item {StateLoadedNotifcation}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{49}
+  \item {StatusRegisterUpdate}
+    \subitem {Hardware.W65C51}, \hyperpage{172}
+  \item {Step}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{50}
+  \item {StepCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{56}
+  \item {StepProcessor}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{50}
+  \item {SubtractWithBorrowOperation}
+    \subitem {Hardware.W65C02}, \hyperpage{147}
+
+  \indexspace
+
+  \item {T1CH}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {T1CL}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {T1Init}
+    \subitem {Hardware.W65C22}, \hyperpage{155}
+  \item {T1Interval}
+    \subitem {Hardware.W65C22}, \hyperpage{160}
+  \item {T1IsEnabled}
+    \subitem {Hardware.W65C22}, \hyperpage{160}
+  \item {T1IsIRQ}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {T1Object}
+    \subitem {Hardware.W65C22}, \hyperpage{160}
+  \item {T1TimerControl}
+    \subitem {Hardware.W65C22}, \hyperpage{160}
+  \item {T2CH}
+    \subitem {Hardware.W65C22}, \hyperpage{158}
+  \item {T2CL}
+    \subitem {Hardware.W65C22}, \hyperpage{159}
+  \item {T2Init}
+    \subitem {Hardware.W65C22}, \hyperpage{156}
+  \item {T2Interval}
+    \subitem {Hardware.W65C22}, \hyperpage{160}
+  \item {T2IsEnabled}
+    \subitem {Hardware.W65C22}, \hyperpage{161}
+  \item {T2IsIRQ}
+    \subitem {Hardware.W65C22}, \hyperpage{159}
+  \item {T2Object}
+    \subitem {Hardware.W65C22}, \hyperpage{161}
+  \item {T2TimerControl}
+    \subitem {Hardware.W65C22}, \hyperpage{161}
+  \item {Title}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{80}
+    \subitem {Hardware.Versioning.Product}, \hyperpage{81}
+  \item {ToClose}
+    \subitem {Emulator.MainWindow}, \hyperpage{63}
+  \item {TotalBanks}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{18}
+    \subitem {Hardware.MemoryMap.BankedRom}, \hyperpage{20}
+    \subitem {Hardware.MemoryMap.SharedRom}, \hyperpage{100}
+  \item {TotalLength}
+    \subitem {Hardware.MemoryMap.BankedRam}, \hyperpage{19}
+  \item {TriggerIRQ}
+    \subitem {Hardware.W65C02}, \hyperpage{150}
+  \item {TriggerNmi}
+    \subitem {Hardware.W65C02}, \hyperpage{150}
+  \item {Type}
+    \subitem {Emulator.Model.Breakpoint}, \hyperpage{21}
+
+  \indexspace
+
+  \item {UpdateMemoryMapCommand}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{56}
+  \item {UpdateMemoryPage}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{50}
+  \item {UpdatePortList}
+    \subitem {Emulator.ViewModel.SettingsViewModel}, \hyperpage{98}
+  \item {UpdateUi}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{50}
+  \item {USER\_ERROR}
+    \subitem {Emulator.ExitCodes}, \hyperpage{27}
+
+  \indexspace
+
+  \item {Value}
+    \subitem {Emulator.Model.Breakpoint}, \hyperpage{21}
+  \item {Version}
+    \subitem {Hardware.Versioning.Product}, \hyperpage{81}
+  \item {VersionString}
+    \subitem {Emulator.Versioning.Product}, \hyperpage{80}
+  \item {ViewModelLocator}
+    \subitem {Emulator.ViewModel.ViewModelLocator}, \hyperpage{109}
+
+  \indexspace
+
+  \item {W65C02}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{102}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{56}
+    \subitem {Hardware.W65C02}, \hyperpage{113}
+    \subitem {MainViewModel.cs}, \hyperpage{220}
+  \item {W65C22}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{102}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{56}
+    \subitem {Hardware.W65C22}, \hyperpage{153}
+    \subitem {MainViewModel.cs}, \hyperpage{220}
+  \item {W65C51}
+    \subitem {Emulator.Model.StateFileModel}, \hyperpage{103}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{56}
+    \subitem {Hardware.W65C51}, \hyperpage{163}
+    \subitem {MainViewModel.cs}, \hyperpage{221}
+  \item {WindowTitle}
+    \subitem {Emulator.ViewModel.MainViewModel}, \hyperpage{56}
+  \item {WrapProgramCounter}
+    \subitem {Hardware.W65C02}, \hyperpage{147}
+  \item {Write}
+    \subitem {Hardware.AT28CXX}, \hyperpage{16}
+    \subitem {Hardware.HM62256}, \hyperpage{37}
+    \subitem {Hardware.MemoryMap}, \hyperpage{66}
+    \subitem {Hardware.W65C22}, \hyperpage{156}
+    \subitem {Hardware.W65C51}, \hyperpage{173}
+  \item {WriteCOM}
+    \subitem {Hardware.W65C51}, \hyperpage{173}
+  \item {WriteWithoutCycle}
+    \subitem {Hardware.MemoryMap}, \hyperpage{67}
+
+  \indexspace
+
+  \item {XamlGeneratedNamespace}, \hyperpage{10}
+  \item {XamlGeneratedNamespace.GeneratedApplication}, \hyperpage{28}
+    \subitem {\_contentLoaded}, \hyperpage{30}
+    \subitem {InitializeComponent}, \hyperpage{28, 29}
+    \subitem {Main}, \hyperpage{29}
+  \item {XamlGeneratedNamespace.GeneratedInternalTypeHelper}, 
+		\hyperpage{30}
+    \subitem {AddEventHandler}, \hyperpage{31}
+    \subitem {CreateDelegate}, \hyperpage{31, 32}
+    \subitem {CreateInstance}, \hyperpage{32}
+    \subitem {GetPropertyValue}, \hyperpage{33}
+    \subitem {SetPropertyValue}, \hyperpage{33}
+  \item {XRegister}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{78}
+    \subitem {Hardware.W65C02}, \hyperpage{151}
+
+  \indexspace
+
+  \item {YRegister}
+    \subitem {Emulator.Model.OutputLog}, \hyperpage{78}
+    \subitem {Hardware.W65C02}, \hyperpage{151}
+
+  \indexspace
+
+  \item {ZeroFlag}
+    \subitem {Hardware.W65C02}, \hyperpage{151}
+
+\end{theindex}

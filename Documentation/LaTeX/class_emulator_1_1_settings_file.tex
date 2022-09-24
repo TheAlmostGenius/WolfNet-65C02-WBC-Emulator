@@ -1,0 +1,52 @@
+\hypertarget{class_emulator_1_1_settings_file}{}\doxysubsection{Emulator.\+Settings\+File Class Reference}
+\label{class_emulator_1_1_settings_file}\index{Emulator.SettingsFile@{Emulator.SettingsFile}}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} \mbox{\hyperlink{class_emulator_1_1_settings_file_afe93b14b0290d864580b52d0310abdd6_afe93b14b0290d864580b52d0310abdd6}{Create\+New}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{_settings_file_8cs_source_l00006}{6}} of file \mbox{\hyperlink{_settings_file_8cs_source}{Settings\+File.\+cs}}.
+
+
+
+\doxysubsubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_emulator_1_1_settings_file_afe93b14b0290d864580b52d0310abdd6_afe93b14b0290d864580b52d0310abdd6}\label{class_emulator_1_1_settings_file_afe93b14b0290d864580b52d0310abdd6_afe93b14b0290d864580b52d0310abdd6}} 
+\index{Emulator.SettingsFile@{Emulator.SettingsFile}!CreateNew@{CreateNew}}
+\index{CreateNew@{CreateNew}!Emulator.SettingsFile@{Emulator.SettingsFile}}
+\doxyparagraph{\texorpdfstring{CreateNew()}{CreateNew()}}
+{\footnotesize\ttfamily static \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} Emulator.\+Settings\+File.\+Create\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{_settings_file_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_settings_file_8cs_source}{Settings\+File.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00009         \{}
+\DoxyCodeLine{00010             \textcolor{comment}{// Create new settings file.}}
+\DoxyCodeLine{00011             \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} \_settings = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}}
+\DoxyCodeLine{00012             \{}
+\DoxyCodeLine{00013                 SettingsVersionMajor = Versioning.SettingsFile.Major,}
+\DoxyCodeLine{00014                 SettingsVersionMinor = Versioning.SettingsFile.Minor,}
+\DoxyCodeLine{00015                 SettingsVersionBuild = Versioning.SettingsFile.Build,}
+\DoxyCodeLine{00016                 SettingsVersionRevision = Versioning.SettingsFile.Revision,}
+\DoxyCodeLine{00017 \textcolor{preprocessor}{\#if DEBUG}}
+\DoxyCodeLine{00018                 ComPortName = \textcolor{stringliteral}{"{}COM9"{}},}
+\DoxyCodeLine{00019 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00020                 ComPortName = \textcolor{stringliteral}{"{}COM1"{}},}
+\DoxyCodeLine{00021 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00022             \};}
+\DoxyCodeLine{00023             \textcolor{keywordflow}{return} \_settings;}
+\DoxyCodeLine{00024         \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Emulator/\+Classes/\mbox{\hyperlink{_settings_file_8cs}{Settings\+File.\+cs}}\end{DoxyCompactItemize}

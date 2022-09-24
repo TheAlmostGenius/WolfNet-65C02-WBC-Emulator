@@ -1,0 +1,78 @@
+.TH "Hardware.MemoryMap.DeviceArea" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Hardware.MemoryMap.DeviceArea
+.SH SYNOPSIS
+.br
+.PP
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "static int \fBEnd\fP\fC [get]\fP"
+.br
+.RI "The end of memory  "
+.ti -1c
+.RI "static int \fBOffset\fP\fC [get]\fP"
+.br
+.ti -1c
+.RI "static int \fBLength\fP\fC [get]\fP"
+.br
+.in -1c
+.SS "Static Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "static int \fB_Offset\fP = 0xD000"
+.br
+.ti -1c
+.RI "static int \fB_Length\fP = 0x00FF"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line \fB21\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Member Data Documentation"
+.PP 
+.SS "int Hardware\&.MemoryMap\&.DeviceArea\&._Length = 0x00FF\fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB24\fP of file \fBMemoryMap\&.cs\fP\&.
+.SS "int Hardware\&.MemoryMap\&.DeviceArea\&._Offset = 0xD000\fC [static]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBMemoryMap\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "int Hardware\&.MemoryMap\&.DeviceArea\&.End\fC [static]\fP, \fC [get]\fP"
+
+.PP
+The end of memory  
+.PP
+Definition at line \fB29\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+29 { get { return Offset + Length; } }
+.fi
+.SS "int Hardware\&.MemoryMap\&.DeviceArea\&.Length\fC [static]\fP, \fC [get]\fP"
+
+.PP
+Definition at line \fB31\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+31 { get { return _Length; } }
+.fi
+.SS "int Hardware\&.MemoryMap\&.DeviceArea\&.Offset\fC [static]\fP, \fC [get]\fP"
+
+.PP
+Definition at line \fB30\fP of file \fBMemoryMap\&.cs\fP\&.
+.PP
+.nf
+30 { get { return _Offset; } }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

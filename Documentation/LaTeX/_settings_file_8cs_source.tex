@@ -1,0 +1,32 @@
+\hypertarget{_settings_file_8cs_source}{}\doxysubsection{Settings\+File.\+cs}
+\label{_settings_file_8cs_source}\index{Emulator/Classes/SettingsFile.cs@{Emulator/Classes/SettingsFile.cs}}
+\mbox{\hyperlink{_settings_file_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}};}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00002}00002 \textcolor{keyword}{using }GalaSoft.MvvmLight.Messaging;}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator}{Emulator}}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00005}00005 \{}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00006}\mbox{\hyperlink{class_emulator_1_1_settings_file}{00006}}     \textcolor{keyword}{public} \textcolor{keyword}{static} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_settings_file}{SettingsFile}}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00007}00007     \{}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00008}\mbox{\hyperlink{class_emulator_1_1_settings_file_afe93b14b0290d864580b52d0310abdd6_afe93b14b0290d864580b52d0310abdd6}{00008}}         \textcolor{keyword}{public} \textcolor{keyword}{static} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} \mbox{\hyperlink{class_emulator_1_1_settings_file_afe93b14b0290d864580b52d0310abdd6_afe93b14b0290d864580b52d0310abdd6}{CreateNew}}()}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00009}00009         \{}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00010}00010             \textcolor{comment}{// Create new settings file.}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00011}00011             \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} \_settings = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00012}00012             \{}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00013}00013                 SettingsVersionMajor = \mbox{\hyperlink{class_emulator_1_1_versioning}{Versioning}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file}{SettingsFile}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file_a16ae1ea60356922dd2af3988ebd461eb_a16ae1ea60356922dd2af3988ebd461eb}{Major}},}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00014}00014                 SettingsVersionMinor = \mbox{\hyperlink{class_emulator_1_1_versioning}{Versioning}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file}{SettingsFile}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file_aca5c0825d17dc3899995bf518c119171_aca5c0825d17dc3899995bf518c119171}{Minor}},}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00015}00015                 SettingsVersionBuild = \mbox{\hyperlink{class_emulator_1_1_versioning}{Versioning}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file}{SettingsFile}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file_a32a279b4047d0635af16abc3b6a9621e_a32a279b4047d0635af16abc3b6a9621e}{Build}},}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00016}00016                 SettingsVersionRevision = \mbox{\hyperlink{class_emulator_1_1_versioning}{Versioning}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file}{SettingsFile}}.\mbox{\hyperlink{class_emulator_1_1_versioning_1_1_settings_file_a1e3c241f3dc221f636030a40b6ef3fc3_a1e3c241f3dc221f636030a40b6ef3fc3}{Revision}},}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00017}00017 \textcolor{preprocessor}{\#if DEBUG}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00018}00018                 ComPortName = \textcolor{stringliteral}{"{}COM9"{}},}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00019}00019 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00020}00020                 ComPortName = \textcolor{stringliteral}{"{}COM1"{}},}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00021}00021 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00022}00022             \};}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00023}00023             \textcolor{keywordflow}{return} \_settings;}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00024}00024         \}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00025}00025     \}}
+\DoxyCodeLine{\Hypertarget{_settings_file_8cs_source_l00026}00026 \}}
+
+\end{DoxyCode}
