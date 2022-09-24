@@ -110,7 +110,7 @@ sql
 TestResults
 TestResult.xml
 CoverageReports/*
-Documentation/*
+#Documentation/*
 *.Cache
 ClientBin
 stylecop.*
@@ -172,7 +172,7 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
-Reference/
+Reference/*
 Settings.xml
 *.log
 *.bin
