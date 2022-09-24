@@ -172,6 +172,7 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
+./Reference
 Settings.xml
 *.log
 *.bin

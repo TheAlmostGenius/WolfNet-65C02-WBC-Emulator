@@ -101,21 +101,21 @@ namespace Hardware
         /// Returns the byte at a given address.
         /// </summary>
         /// 
-        /// <param name="bank">The bank to read data from.</param>
         /// <param name="address"></param>
         /// 
         /// <returns>the byte being returned</returns>
         public byte Read(int address)
         {
             HardwarePreRead(address);
-            return Memory[address - Offset];
+            byte data = Memory[address - Offset];
+            DataRead = true;
+            return data;
         }
 
         /// <summary>
         /// Writes data to the given address.
         /// </summary>
         /// 
-        /// <param name="bank">The bank to load data to.</param>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
         public void Write(int address, byte data)
@@ -278,7 +278,6 @@ namespace Hardware
                 Interrupted = false;
                 Overrun = false;
                 ReceiverFull = false;
-                DataRead = true;
 
             }
             else if (address == Offset + 1)
@@ -688,19 +687,22 @@ namespace Hardware
                     return;
                 }
 
-                if (ReceiverFull || Overrun)
+                if (Processor.isRunning)
                 {
-                    Memory[Offset + 1] = (byte)(Memory[Offset + 1] | 0x80);
-                    Interrupted = true;
-                    Processor.InterruptRequest();
-                }
+                    if (ReceiverFull || Overrun)
+                    {
+                        Memory[Offset + 1] = (byte)(Memory[Offset + 1] | 0x80);
+                        Interrupted = true;
+                        Processor.InterruptRequest();
+                    }
 
-                if (DataRead)
-                {
-                    System.Threading.Thread.Sleep(5);
-                    ReceiverFull = false;
-                    Interrupted = false;
-                    Overrun = false;
+                    if (DataRead)
+                    {
+                        ReceiverFull = false;
+                        Interrupted = false;
+                        Overrun = false;
+                        DataRead = false;
+                    }
                 }
             }
         }

@@ -261,16 +261,16 @@ namespace Emulator.ViewModel
             _stream.Close();
 
             HM62256 = new HM62256(MemoryMap.BankedRam.TotalBanks, MemoryMap.BankedRam.Offset, MemoryMap.BankedRam.Length);
+            AT28C64 = new AT28CXX(MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length, 1);
+            AT28C010 = new AT28CXX(MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.Length, MemoryMap.BankedRom.TotalBanks);
+            W65C02 = new W65C02();
             W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset);
             W65C51.Init(SettingsModel.ComPortName.ToString());
             W65C22 = new W65C22(W65C02, MemoryMap.Devices.GPIO.Offset, MemoryMap.Devices.GPIO.Length);
             W65C22.Init(1000);
             MM65SIB = new W65C22(W65C02, MemoryMap.Devices.MM65SIB.Offset, MemoryMap.Devices.MM65SIB.Length);
             MM65SIB.Init(1000);
-            AT28C64 = new AT28CXX(MemoryMap.SharedRom.Offset, MemoryMap.SharedRom.Length, 1);
-            AT28C010 = new AT28CXX(MemoryMap.BankedRom.Offset, MemoryMap.BankedRom.Length, MemoryMap.BankedRom.TotalBanks);
 
-            W65C02 = new W65C02();
             MemoryMap.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
 
 			// Now we can load the BIOS.

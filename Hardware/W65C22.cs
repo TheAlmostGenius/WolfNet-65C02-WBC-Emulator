@@ -37,7 +37,7 @@ namespace Hardware
         /// <summary>
         /// The memory area.
         /// </summary>
-        public byte[][] Memory { get; set; }
+        public byte[] Memory { get; set; }
 
         /// <summary>
         /// The memory offset of the device.
@@ -128,12 +128,14 @@ namespace Hardware
             T2Init(1000);
 
             Offset = MemoryMap.DeviceArea.Offset | offset;
-            Memory = new byte[1][];
-            Memory[0] = new byte[length + 1];
+            Memory = new byte[length + 1];
             Length = length;
             Processor = processor;
         }
 
+        /// <summary>
+        /// Reset routine called whenever the emulated computer is reset.
+        /// </summary>
         public void Reset()
         {
             T1TimerControl = false;
@@ -142,6 +144,10 @@ namespace Hardware
             T2IsEnabled = false;
         }
 
+        /// <summary>
+        /// Initialization routine for the VIA.
+        /// </summary>
+        /// <param name="timer">Amount of time to set timers for.</param>
         public void Init(double timer)
         {
             T1Init(timer);
@@ -152,7 +158,7 @@ namespace Hardware
         /// T1 counter initialization routine.
         /// </summary>
         /// 
-        /// <param name="value">Timer initialization value in milliseconds</param>
+        /// <param name="value">Timer initialization value in milliseconds.</param>
         public void T1Init(double value)
         {
             T1Object = new Timer(value);
@@ -166,7 +172,7 @@ namespace Hardware
         /// T2 counter initialization routine.
         /// </summary>
         /// 
-        /// <param name="value">Timer initialization value in milliseconds</param>
+        /// <param name="value">Timer initialization value in milliseconds.</param>
         public void T2Init(double value)
         {
             T2Object = new Timer(value);
@@ -180,7 +186,7 @@ namespace Hardware
         /// Routine to read from local memory.
         /// </summary>
         /// 
-        /// <param name="address">Address to read from</param>
+        /// <param name="address">Address to read from.</param>
         /// 
         /// <returns>Byte value stored in the local memory.</returns>
         public byte Read(int address)
@@ -200,7 +206,7 @@ namespace Hardware
             }
             else
             {
-                return Memory[0][address - Offset];
+                return Memory[address - Offset];
             }
         }
 
@@ -228,7 +234,7 @@ namespace Hardware
             {
                 T2Init(T2Interval);
             }
-            Memory[0][address - Offset] = data;
+            Memory[address - Offset] = data;
         }
         #endregion
 
@@ -245,7 +251,7 @@ namespace Hardware
             {
                 if (T1IsEnabled)
                 {
-                    MemoryMap.WriteWithoutCycle(IFR, (byte)(IFR_T1 & IFR_INT));
+                    Write(IFR, (byte)(IFR_T1 & IFR_INT));
                     if (T1IsIRQ)
                     {
                         Processor.InterruptRequest();
@@ -270,7 +276,7 @@ namespace Hardware
             {
                 if (T2IsEnabled)
                 {
-                    MemoryMap.WriteWithoutCycle(IFR, (byte)(IFR_T2 & IFR_INT));
+                    Write(IFR, (byte)(IFR_T2 & IFR_INT));
                     if (T2IsIRQ)
                     {
                         Processor.InterruptRequest();
