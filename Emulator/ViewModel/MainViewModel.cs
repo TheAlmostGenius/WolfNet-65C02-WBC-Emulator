@@ -240,9 +240,6 @@ namespace Emulator.ViewModel
 					(SettingsModel.SettingsVersionBuild < Versioning.SettingsFile.Build) ||
 					(SettingsModel.SettingsVersionRevision < Versioning.SettingsFile.Revision))
                 {
-#if !DEBUG
-                    throw new NotImplementedException(String.Format("Unable to handle problem: Settings File version is less than {0}.{1}.{2}.{3}", Versioning.SettingsFile.Major, Versioning.SettingsFile.Minor, Versioning.SettingsFile.Revision, Versioning.SettingsFile.Build));
-#else
 					MessageBox.Show("Settings file contains old information...\nDeleting old settings file...",
 									"Settings file stale!", MessageBoxButton.OKCancel, MessageBoxImage.Warning,
 									MessageBoxResult.OK);
@@ -250,7 +247,6 @@ namespace Emulator.ViewModel
 					_stream.Close();
 					File.Delete(FileLocations.SettingsFile);
 					SettingsModel = SettingsFile.CreateNew();
-#endif
                 }
             }
             else

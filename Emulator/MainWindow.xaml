@@ -65,7 +65,7 @@
     </Window.Resources>
 
     <Grid Width="1024" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-        
+
         <Grid Height="23" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
             <Menu Height="23" Width="1024" >
                 <MenuItem Header="File" VerticalAlignment="Top" HorizontalAlignment="Left" >
@@ -165,6 +165,6 @@
         <Slider Height="23" HorizontalAlignment="Left" Margin="826,331,0,0" x:Name="CpuSpeed" VerticalAlignment="Top" Width="100" Value="{Binding CpuSpeed}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="826,312,0,0" x:Name="SpeedText" Text="CPU Speed" VerticalAlignment="Top" />
         <Image HorizontalAlignment="Left" Height="253" Margin="753,434,0,0" VerticalAlignment="Top" Width="244" Stretch="UniformToFill" Source="/Images/wolf_logo_white.png" />
-        <Image HorizontalAlignment="Left" Height="79" Margin="926,38,0,0" VerticalAlignment="Top" Width="71" Source="/Images/oshw-logo-outline.png"/>
+        <Image HorizontalAlignment="Left" Height="79" Margin="10,30,0,0" VerticalAlignment="Top" Width="71" Source="/Images/oshw-logo-outline.png" RenderTransformOrigin="-3.979,0.376"/>
     </Grid>
 </Window>
