@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Timers;
 using static Hardware.MemoryMap.Devices;
 
@@ -13,13 +14,13 @@ namespace Hardware
         #region Fields
         public readonly bool T1IsIRQ = false;
         public readonly bool T2IsIRQ = true;
-        public int T1CL = 0xD024;
-        public int T1CH = 0xD025;
-        public int T2CL = 0xD028;
-        public int T2CH = 0xD029;
-        public int ACR = 0xD02B;
-        public int IFR = 0xD02D;
-        public int IER = 0xD02E;
+        public int T1CL = 0x04;
+        public int T1CH = 0x05;
+        public int T2CL = 0x08;
+        public int T2CH = 0x09;
+        public int ACR = 0x0B;
+        public int IFR = 0x0D;
+        public int IER = 0x0E;
 
         public byte ACR_T1TC = (byte)(1 << 7);
         public byte ACR_T2TC = (byte)(1 << 6);
@@ -34,8 +35,14 @@ namespace Hardware
         #endregion
 
         #region Properties
+        public byte[][] Memory { get; set; }
         public int Offset { get; set; }
         public int Length { get; set; }
+
+        /// <summary>
+        /// The end of memory
+        /// </summary>
+        public int End { get { return Offset + Length; } }
 
         /// <summary>
         /// T1 timer control
@@ -76,14 +83,14 @@ namespace Hardware
         /// <summary>
         /// Set or check the timer 1 interval.
         /// </summary>
-        public double T1Interval { get { return (int)(MemoryMap.ReadWithoutCycle(T1CL) | (MemoryMap.ReadWithoutCycle(T1CH) << 8)); } }
+        public double T1Interval { get { return (int)(Read(T1CL) | (Read(T1CH) << 8)); } }
 
         /// <summary>
         /// Set or check the timer 2 interval.
         /// </summary>
         public double T2Interval
         {
-            get { return (int)(MemoryMap.ReadWithoutCycle(T2CL) | (MemoryMap.ReadWithoutCycle(T2CH) << 8)); }
+            get { return (int)(Read(T2CL) | (Read(T2CH) << 8)); }
         }
 
         /// <summary>
@@ -96,15 +103,13 @@ namespace Hardware
         /// </summary>
         public Timer T2Object { get; set; }
         
+        /// <summary>
+        /// Local referemce to the processor object.
+        /// </summary>
         private W65C02 Processor { get; set; }
         #endregion
 
         #region Public Methods
-        public W65C22(W65C02 processor)
-        {
-            Processor = processor;
-        }
-
         public W65C22(W65C02 processor, byte offset, int length)
         {
             if (offset > MemoryMap.DeviceArea.Length)
@@ -112,7 +117,9 @@ namespace Hardware
             T1Init(1000);
             T2Init(1000);
 
-            Offset = (int)(MemoryMap.DeviceArea.Offset | offset);
+            Offset = MemoryMap.DeviceArea.Offset | offset;
+            Memory = new byte[1][];
+            Memory[0] = new byte[length + 1];
             Length = length;
             Processor = processor;
         }
@@ -148,7 +155,6 @@ namespace Hardware
         /// <summary>
         /// T2 counter initialization routine.
         /// </summary>
-        /// 
         /// <param name="value">Timer initialization value in milliseconds</param>
         public void T2Init(double value)
         {
@@ -159,50 +165,63 @@ namespace Hardware
             T2IsEnabled = false;
         }
 
+        /// <summary>
+        /// Routine to read from local memory.
+        /// </summary>
+        /// <param name="address">Address to read from</param>
+        /// <returns>Byte value stored in the local memory.</returns>
         public byte Read(int address)
         {
-            byte data = 0x00;
-            if (T1TimerControl)
+            if ((Offset <= address) && (address <= End))
             {
-                data = (byte)(data | ACR_T1TC);
-            }
-            else if (T2TimerControl)
-            {
-                data = (byte)(data | ACR_T2TC);
-            }
-            return data;
-        }
-
-        public void Write(int address, byte data)
-        {
-            if ((address == ACR) && ((data | ACR_T1TC) == ACR_T1TC))
-            {
-                T1TimerControl = true;
-            }
-            else if ((address == ACR) && ((data | ACR_T2TC) == ACR_T2TC))
-            {
-                T2TimerControl = true;
-            }
-            else if ((address == IER) && ((data | IER_T1) == IER_T1) && ((data | IER_EN) == IER_EN))
-            {
-                T1Init(T1Interval);
-            }
-            else if ((address == IER) && ((data | IER_T2) == IER_T2) && ((data | IER_EN) == IER_EN))
-            {
-                T2Init(T2Interval);
+                byte data = 0x00;
+                if (T1TimerControl)
+                {
+                    data = (byte)(data | ACR_T1TC);
+                }
+                else if (T2TimerControl)
+                {
+                    data = (byte)(data | ACR_T2TC);
+                }
+                return data;
             }
             else
             {
-                return;
+                return Memory[0][address - Offset];
             }
+        }
+
+        /// <summary>
+        /// Writes data to the specified address in local memory.
+        /// </summary>
+        /// <param name="address">The address to write data to.</param>
+        /// <param name="data">The data to be written.</param>
+        public void Write(int address, byte data)
+        {
+            if ((address == Offset + ACR) && ((data | ACR_T1TC) == ACR_T1TC))
+            {
+                T1TimerControl = true;
+            }
+            else if ((address == Offset + ACR) && ((data | ACR_T2TC) == ACR_T2TC))
+            {
+                T2TimerControl = true;
+            }
+            else if ((address == Offset + IER) && ((data | IER_T1) == IER_T1) && ((data | IER_EN) == IER_EN))
+            {
+                T1Init(T1Interval);
+            }
+            else if ((address == Offset + IER) && ((data | IER_T2) == IER_T2) && ((data | IER_EN) == IER_EN))
+            {
+                T2Init(T2Interval);
+            }
+            Memory[0][address - Offset] = data;
         }
         #endregion
 
         #region Private Methods
         /// <summary>
-        /// Called whenever System.Timers.Timer event elapses
+        /// Called whenever System.Timers.Timer event elapses.
         /// </summary>
-        /// 
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnT1Timeout(object sender, ElapsedEventArgs e)
@@ -227,7 +246,6 @@ namespace Hardware
         /// <summary>
         /// Called whenever System.Timers.Timer event elapses
         /// </summary>
-        /// 
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void OnT2Timeout(object sender, ElapsedEventArgs e)

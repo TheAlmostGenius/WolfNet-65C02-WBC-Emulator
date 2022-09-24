@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
-using System.Xml.Schema;
 
 namespace Hardware
 {
@@ -13,9 +12,7 @@ namespace Hardware
     public class W65C51
     {
         #region Fields
-        public int address = 0xD010;
-        public byte data = 0b00000000;
-        public readonly int defaultBaudRate = 9600;
+        public readonly int defaultBaudRate = 115200;
         public byte byteIn;
         #endregion
 
@@ -27,18 +24,26 @@ namespace Hardware
         private W65C02 Processor { get; set; }
         public int Offset { get; set; }
         public int Length { get; set; }
+
+        private byte StatusRegister { get; set; }
+
+        private bool EchoMode { get; set; }
+        private byte RtsControl { get; set; }
+        private bool InterruptDisabled { get; set; }
+        private bool DTR { get; set; }
+        private bool ParityEnabled { get; set; }
         #endregion
 
         #region Public Methods
-        public W65C51(W65C02 processor, byte offset, int length)
+        public W65C51(W65C02 processor, byte offset)
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
             Processor = processor;
-           
-            Offset = (int)(MemoryMap.DeviceArea.Offset | offset);
-            Length = length;
-            Memory = new byte[length];
+
+            Offset = MemoryMap.DeviceArea.Offset | offset;
+            Length = 0x05;
+            Memory = new byte[Length + 1];
         }
 
         public void Reset()
@@ -80,25 +85,30 @@ namespace Hardware
         }
 
         /// <summary>
-        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
+        /// Returns the byte at a given address.
         /// </summary>
         /// <param name="bank">The bank to read data from.</param>
         /// <param name="address"></param>
         /// <returns>the byte being returned</returns>
         public byte Read(int address)
         {
+            HardwarePreRead(address);
             return Memory[address - Offset];
         }
 
         /// <summary>
-        /// Writes data to the given address without incrementing the cycle.
+        /// Writes data to the given address.
         /// </summary>
         /// <param name="bank">The bank to load data to.</param>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
         public void Write(int address, byte data)
         {
-            Memory[address - Offset] = data;
+            HardwarePreWrite(address, data);
+            if (!((address == Offset) || (address == Offset + 1)))
+            {
+                Memory[address - Offset] = data;
+            }
         }
 
         /// <summary>
@@ -114,6 +124,10 @@ namespace Hardware
         #endregion
 
         #region Private Methods
+        /// <summary>
+        /// Called whenever the ACIA is initialized.
+        /// </summary>
+        /// <param name="serialPort">SerialPort object to initialize.</param>
         private void ComInit(SerialPort serialPort)
         {
             try
@@ -180,9 +194,19 @@ namespace Hardware
         {
             try
             {
-                byteIn = Convert.ToByte(Object.ReadByte());
-                MemoryMap.WriteWithoutCycle(0xD011, data);
-                Processor.InterruptRequest();
+                if (EchoMode)
+                {
+                    WriteCOM(Convert.ToByte(Object.ReadByte()));
+                }
+                else
+                {
+                    Memory[0] = Convert.ToByte(Object.ReadByte());
+                }
+
+                if (!InterruptDisabled)
+                {
+                    Processor.InterruptRequest();
+                }
             }
             catch (Win32Exception w)
             {
@@ -196,6 +220,372 @@ namespace Hardware
                 file.Flush();
                 file.Close();
             }
+        }
+
+        /// <summary>
+        /// Pre-Write function for handling the usually background or instantaneous functions of the ACIA.
+        /// </summary>
+        /// <param name="address">The address that will be written to.</param>
+        /// <param name="data">The Data to write.</param>
+        private void HardwarePreWrite(int address, byte data)
+        {
+            if (address == Offset)
+            {
+                WriteCOM(data);
+            }
+            else if (address == Offset + 1)
+            {
+                Reset();
+            }
+            else if (address == Offset + 2)
+            {
+                CommandRegister(data);
+            }
+            else if (address == Offset + 3)
+            {
+                ControlRegister(data);
+            }
+        }
+
+        private void HardwarePreRead(int address)
+        {
+            if (address == Offset + 1)
+            {
+                StatusRegisterUpdate();
+            }
+            else if (address == Offset + 2)
+            {
+                CommandRegisterUpdate();
+            }
+            else if (address == Offset + 3)
+            {
+                ControlRegisterUpdate();
+            }
+        }
+
+        private void CommandRegister(byte data)
+        {
+            byte test = (byte)(data & 0x20);
+            if (test == 0x20)
+            {
+                throw new ArgumentException("Parity must NEVER be enabled!");
+            }
+
+            test = (byte)(data & 0x10);
+            if (test == 0x10)
+            {
+                EchoMode = true;
+            }
+            else
+            {
+                EchoMode = false;
+            }
+
+            test = (byte)(data & 0x0C);
+            if (test == 0x00)
+            {
+                Object.Handshake = Handshake.None;
+                Object.RtsEnable = true;
+                Object.Handshake = Handshake.RequestToSend;
+            }
+            else if (test == 0x04)
+            {
+                Object.Handshake = Handshake.None;
+                Object.RtsEnable = false;
+            }
+            else if ((test == 0x08) || (test == 0x0C))
+            {
+                throw new NotImplementedException("This cannot be emulated on windows!");
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("RtsControl is invalid!");
+            }
+
+            test = (byte)(data & 0x02);
+            if (test == 0x02)
+            {
+                InterruptDisabled = true;
+            }
+            else
+            {
+                InterruptDisabled = false;
+            }
+
+            test = (byte)(data & 0x01);
+            if (test == 0x01)
+            {
+                Object.DtrEnable = true;
+            }
+            else
+            {
+                Object.DtrEnable= false;
+            }
+        }
+
+        private void CommandRegisterUpdate()
+        {
+            byte data = StatusRegister;
+
+            if (ParityEnabled)
+            {
+                data |= 0x20;
+            }
+            else
+            {
+                data &= 0xD0;
+            }
+
+            if (EchoMode)
+            {
+                data |= 0x10;
+            }
+            else
+            {
+                data &= 0xE0;
+            }
+
+            data &= RtsControl;
+
+            if (InterruptDisabled)
+            {
+                data |= 0x02;
+            }
+            else
+            {
+                data &= 0x0D;
+            }
+            if (Object.DtrEnable)
+            {
+                data |= 0x01;
+            }
+            else
+            {
+                data &= 0x0E;
+            }
+
+            StatusRegister = data;
+        }
+
+        private void ControlRegister(byte data)
+        {
+            byte test = (byte)(data & 0x80);
+            if (test == 0x80)
+            {
+                test = (byte)(data & 0x60);
+                if (test == 0x60)
+                {
+                    Object.StopBits = StopBits.OnePointFive;
+                }
+                else
+                {
+                    Object.StopBits = StopBits.Two;
+                }
+            }
+            else
+            {
+                Object.StopBits = StopBits.One;
+            }
+
+            test = (byte)(data & 0x60);
+            if (test == 0x20)
+            {
+                Object.DataBits = 7;
+            }
+            else if (test == 0x40)
+            {
+                Object.DataBits = 6;
+            }
+            else if (test == 0x60)
+            {
+                Object.DataBits = 5;
+            }
+            else
+            {
+                Object.DataBits = 8;
+            }
+
+            test = (byte)(data & 0x10);
+            if (!(test == 0x10))
+            {
+                throw new ArgumentException("External clock rate not available on the WolfNet 65C02 WBC!");
+            }
+
+            test = (byte)(data & 0x0F);
+            if (test == 0x00)
+            {
+                Object.BaudRate = 115200;
+            }
+            else if (test == 0x01)
+            {
+                Object.BaudRate = 50;
+            }
+            else if (test == 0x02)
+            {
+                Object.BaudRate = 75;
+            }
+            else if (test == 0x03)
+            {
+                Object.BaudRate = 110;
+            }
+            else if (test == 0x04)
+            {
+                Object.BaudRate = 135;
+            }
+            else if (test == 0x05)
+            {
+                Object.BaudRate = 150;
+            }
+            else if (test == 0x06)
+            {
+                Object.BaudRate = 300;
+            }
+            else if (test == 0x07)
+            {
+                Object.BaudRate = 600;
+            }
+            else if (test == 0x08)
+            {
+                Object.BaudRate = 1200;
+            }
+            else if (test == 0x09)
+            {
+                Object.BaudRate = 1800;
+            }
+            else if (test == 0x0A)
+            {
+                Object.BaudRate = 2400;
+            }
+            else if (test == 0x0B)
+            {
+                Object.BaudRate = 3600;
+            }
+            else if (test == 0x0C)
+            {
+                Object.BaudRate = 4800;
+            }
+            else if (test == 0x0D)
+            {
+                Object.BaudRate = 7200;
+            }
+            else if (test == 0x0E)
+            {
+                Object.BaudRate = 9600;
+            }
+            else
+            {
+                Object.BaudRate = 19200;
+            }
+        }
+
+        private void ControlRegisterUpdate()
+        {
+            byte controlRegister = Memory[Offset + 3];
+
+            if (Object.StopBits == StopBits.Two)
+            {
+                controlRegister |= 0x80;
+            }
+            else if ((Object.StopBits == StopBits.OnePointFive) && (Object.DataBits == 5) || (Object.StopBits == StopBits.One))
+            {
+                controlRegister &= 0x7F;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("StopBits or combination of StopBits and DataBits is invalid!");
+            }
+
+            if (Object.DataBits == 8)
+            {
+                controlRegister &= 0x9F;
+            }
+            else if (Object.DataBits == 7)
+            {
+                controlRegister |= 0x20;
+            }
+            else if (Object.DataBits == 6)
+            {
+                controlRegister |= 0x40;
+            }
+            else if (Object.DataBits == 5)
+            {
+                controlRegister |= 0x60;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("DataBits is out of range!");
+            }
+
+            if (Object.BaudRate == 115200)
+            {
+                controlRegister &= 0xF0;
+            }
+            else if (Object.BaudRate == 50)
+            {
+                controlRegister |= 0x01;
+            }
+            else if (Object.BaudRate == 75)
+            {
+                controlRegister |= 0x02;
+            }
+            else if (Object.BaudRate == 110)
+            {
+                controlRegister |= 0x03;
+            }
+            else if (Object.BaudRate == 135)
+            {
+                controlRegister |= 0x04;
+            }
+            else if (Object.BaudRate == 150)
+            {
+                controlRegister |= 0x05;
+            }
+            else if (Object.BaudRate == 300)
+            {
+                controlRegister |= 0x06;
+            }
+            else if (Object.BaudRate == 600)
+            {
+                controlRegister |= 0x07;
+            }
+            else if (Object.BaudRate == 1200)
+            {
+                controlRegister |= 0x08;
+            }
+            else if (Object.BaudRate == 1800)
+            {
+                controlRegister |= 0x09;
+            }
+            else if (Object.BaudRate == 2400)
+            {
+                controlRegister |= 0x0A;
+            }
+            else if (Object.BaudRate == 3600)
+            {
+                controlRegister |= 0x0B;
+            }
+            else if (Object.BaudRate == 4800)
+            {
+                controlRegister |= 0x0C;
+            }
+            else if (Object.BaudRate == 7200)
+            {
+                controlRegister |= 0x0D;
+            }
+            else if (Object.BaudRate == 9600)
+            {
+                controlRegister |= 0x0E;
+            }
+            else if (Object.BaudRate == 19200)
+            {
+                controlRegister |= 0x0F;
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException("BaudRate is outside the range of Baud Rates supported by the W65C51!");
+            }
+
+            Memory[Offset + 3] = controlRegister;
         }
         #endregion
     }

@@ -13,7 +13,22 @@ namespace Emulator.Model
         /// <summary>
         /// The version of the file that is being saved
         /// </summary>
-        public string SettingsVersion { get; set; }
+        public byte SettingsVersionMajor { get; set; }
+
+        /// <summary>
+        /// The version of the file that is being saved
+        /// </summary>
+        public byte SettingsVersionMinor { get; set; }
+
+        /// <summary>
+        /// The version of the file that is being saved
+        /// </summary>
+        public byte SettingsVersionBuild { get; set; }
+
+        /// <summary>
+        /// The version of the file that is being saved
+        /// </summary>
+        public byte SettingsVersionRevision { get; set; }
 
         /// <summary>
         /// The PC port that is being saved

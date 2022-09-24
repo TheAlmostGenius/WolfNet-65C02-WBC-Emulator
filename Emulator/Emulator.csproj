@@ -115,6 +115,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\SettingsFile.cs" />
     <Compile Include="Classes\Versioning.cs" />
     <Compile Include="Classes\FileLocations.cs" />
     <Compile Include="Classes\ExitCodes.cs" />

@@ -4,18 +4,42 @@ namespace Hardware
 {
     public class HM62256
     {
+        /// <summary>
+        /// The memory area.
+        /// </summary>
         public byte[][] Memory { get; set; }
 
+        /// <summary>
+        /// The memory offset.
+        /// </summary>
         public int Offset { get; set; }
 
+        /// <summary>
+        /// The memory length.
+        /// </summary>
         public int Length { get; set; }
 
+        /// <summary>
+        /// The location of the end of memory.
+        /// </summary>
         public int End { get { return Offset + Length; } }
 
+        /// <summary>
+        /// The number of banks the memory has.
+        /// </summary>
         public byte Banks { get; set; }
 
+        /// <summary>
+        /// The currently selected bank.
+        /// </summary>
         public byte CurrentBank { get; set; }
 
+        /// <summary>
+        /// Called whenever a new 62256 object is required.
+        /// </summary>
+        /// <param name="banks">Number of banks the new memory will have.</param>
+        /// <param name="offset">Offset of the new memory in the address space.</param>
+        /// <param name="length">Length of each bank of memory.</param>
         public HM62256(byte banks, int offset, int length)
         {
             Memory = new byte[banks][];
@@ -29,13 +53,16 @@ namespace Hardware
             CurrentBank = 0;
         }
 
+        /// <summary>
+        /// Called whenever the emulated computer is reset.
+        /// </summary>
         public void Reset()
         {
             Clear();
         }
 
         /// <summary>
-        /// Clears the memory
+        /// Clears the memory.
         /// </summary>
         public void Clear()
         {
@@ -53,7 +80,7 @@ namespace Hardware
         /// </summary>
         /// <param name="bank">The bank to read data from.</param>
         /// <param name="address"></param>
-        /// <returns>the byte being returned</returns>
+        /// <returns>The byte being read.</returns>
         public byte Read(int address)
         {
             return Memory[CurrentBank][address - Offset];
@@ -73,7 +100,7 @@ namespace Hardware
         /// <summary>
         /// Dumps the entire memory object. Used when saving the memory state
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Jagged array representing the banked memory.</returns>
         public byte[][] DumpMemory()
         {
             return Memory;

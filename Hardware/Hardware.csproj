@@ -62,15 +62,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddressingMode.cs" />
+    <Compile Include="Classes\AddressingMode.cs" />
     <Compile Include="HM62256.cs" />
-    <Compile Include="Disassembly.cs" />
-    <Compile Include="FileLocations.cs" />
+    <Compile Include="Classes\Disassembly.cs" />
+    <Compile Include="Classes\FileLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MemoryMap.cs" />
-    <Compile Include="Utility.cs" />
+    <Compile Include="Classes\MemoryMap.cs" />
+    <Compile Include="Classes\Utility.cs" />
     <Compile Include="AT28CXX.cs" />
-    <Compile Include="Versioning.cs" />
+    <Compile Include="Classes\Versioning.cs" />
     <Compile Include="W65C02.cs" />
     <Compile Include="W65C22.cs" />
     <Compile Include="W65C51.cs" />

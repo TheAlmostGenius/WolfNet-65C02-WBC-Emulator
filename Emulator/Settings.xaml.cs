@@ -7,7 +7,7 @@ using System.Windows;
 namespace Emulator
 {
 	/// <summary>
-	/// Interaction logic for SaveState.xaml
+	/// Interaction logic for Settings.xaml
 	/// </summary>
 	public partial class Settings
 	{

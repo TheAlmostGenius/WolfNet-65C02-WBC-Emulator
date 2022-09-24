@@ -65,22 +65,6 @@ namespace Hardware
         }
 
         /// <summary>
-        /// Initializes the ROM to its default state.
-        /// </summary>
-        public void Reset()
-		{
-            throw new NotImplementedException("Reset signal not valid for simulated ROM!");
-        }
-
-        /// <summary>
-        /// 28CXX family initialization routine.
-        /// </summary>
-        public void Init()
-        {
-            throw new NotImplementedException("28CXX should not be initialised through this routine!");
-        }
-
-        /// <summary>
         /// Loads a program into ROM.
         /// </summary>
         /// <param name="data">The program to be loaded</param>
@@ -105,7 +89,7 @@ namespace Hardware
             }
         }
 
-        public byte[][] TryRead(string filename)
+        public byte[][] ReadFile(string filename)
         {
             byte[][] bios = new byte[Banks][];
             try

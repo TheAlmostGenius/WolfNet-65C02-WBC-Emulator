@@ -17,7 +17,7 @@ using W65C02 = Hardware.W65C02;
 using W65C22 = Hardware.W65C22;
 using W65C51 = Hardware.W65C51;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Windows.Interop;
+using System.Windows.Navigation;
 
 namespace Emulator.ViewModel
 {
@@ -217,6 +217,11 @@ namespace Emulator.ViewModel
 				return W65C51.ObjectName;
 			}
 		}
+
+		/// <summary>
+		/// The title for the main window.
+		/// </summary>
+		public string WindowTitle { get { return Versioning.Product.Title; } }
 		#endregion
 
         #region public Methods
@@ -230,21 +235,33 @@ namespace Emulator.ViewModel
             if (!((_stream == null) || (0 >= _stream.Length)))
             {
                 SettingsModel = (SettingsModel)_formatter.Deserialize(_stream);
+				if ((SettingsModel.SettingsVersionMajor < Versioning.SettingsFile.Major) ||
+					(SettingsModel.SettingsVersionMinor < Versioning.SettingsFile.Minor) ||
+					(SettingsModel.SettingsVersionBuild < Versioning.SettingsFile.Build) ||
+					(SettingsModel.SettingsVersionRevision < Versioning.SettingsFile.Revision))
+                {
+#if !DEBUG
+                    throw new NotImplementedException(String.Format("Unable to handle problem: Settings File version is less than {0}.{1}.{2}.{3}", Versioning.SettingsFile.Major, Versioning.SettingsFile.Minor, Versioning.SettingsFile.Revision, Versioning.SettingsFile.Build));
+#else
+					MessageBox.Show("Settings file contains old information...\nDeleting old settings file...",
+									"Settings file stale!", MessageBoxButton.OKCancel, MessageBoxImage.Warning,
+									MessageBoxResult.OK);
+					// Close the file, then delete it.
+					_stream.Close();
+					File.Delete(FileLocations.SettingsFile);
+					SettingsModel = SettingsFile.CreateNew();
+#endif
+                }
             }
             else
             {
                 MessageBox.Show("Creating new settings file...");
-                SettingsModel = new SettingsModel
-                {
-                    SettingsVersion = Versioning.SettingsFile,
-                    ComPortName = "COM10",
-                };
-                Messenger.Default.Send("SaveSettings");
+                SettingsModel = SettingsFile.CreateNew();
             }
             _stream.Close();
 
             HM62256 = new HM62256(MemoryMap.BankedRam.TotalBanks, MemoryMap.BankedRam.Offset, MemoryMap.BankedRam.Length);
-            W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset, MemoryMap.Devices.ACIA.Length);
+            W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset);
             W65C51.Init(SettingsModel.ComPortName.ToString());
             W65C22 = new W65C22(W65C02, MemoryMap.Devices.GPIO.Offset, MemoryMap.Devices.GPIO.Length);
             W65C22.Init(1000);
@@ -257,7 +274,7 @@ namespace Emulator.ViewModel
             MemoryMap.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
 
 			// Now we can load the BIOS.
-			byte[][] _bios = AT28C64.TryRead(FileLocations.BiosFile);
+			byte[][] _bios = AT28C64.ReadFile(FileLocations.BiosFile);
 			if (_bios == null)
 			{
                 Environment.Exit(ExitCodes.NO_BIOS);
@@ -288,27 +305,54 @@ namespace Emulator.ViewModel
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
             Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
+            Application.Current.MainWindow.Loaded += new RoutedEventHandler(OnLoad);
 
             Reset();
         }
+
+		public void OnLoad(Object sender, RoutedEventArgs e)
+		{
+#if !DEBUG
+			if (Versioning.Product.Major < 1)
+			{
+                var result = MessageBox.Show(String.Format("Thank you for using {0}\n" +
+                                                        "Be warned that this is a beta build.\n" +
+                                                        "It may break or have bugs.", Versioning.Product.Name),
+                                                        Versioning.Product.Title, MessageBoxButton.OKCancel,
+                                                        MessageBoxImage.Warning, MessageBoxResult.None);
+                if (result == MessageBoxResult.Cancel)
+                {
+                    // Exit without making any changes.
+                    Environment.Exit(ExitCodes.NO_ERROR);
+                }
+            }
+#endif
+		}
 
         public void OnClose(Object sender, CancelEventArgs e)
         {
             e.Cancel = false;
             if (IsRunning)
             {
+				MessageBox.Show("You can't quit the emulator while it is actively running!",
+								"You can't do that!", MessageBoxButton.OK, MessageBoxImage.Stop);
                 e.Cancel = true;
                 return;
             }
+#if !DEBUG
 			else
 			{
-				var result = MessageBox.Show("Are you sure you want to quit the emulator?", "To quit, or not to quit.", MessageBoxButton.YesNo, MessageBoxImage.Question);
+				var result = MessageBox.Show(	"Are you sure you want to quit the emulator?",
+												"To quit, or not to quit -- that is the question.",
+												MessageBoxButton.YesNo, MessageBoxImage.Question,
+												MessageBoxResult.No);
 				if (result == MessageBoxResult.No)
 				{
 					e.Cancel = true;
 					return;
 				}
 			}
+#endif
             Stream stream = new FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
             XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
             XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);
@@ -316,10 +360,9 @@ namespace Emulator.ViewModel
             stream.Close();
             W65C51.Fini();
         }
+#endregion
 
-        #endregion
-
-        #region Private Methods
+#region Private Methods
         private void Close(IClosable window)
         {
             if ((window != null) && (!IsRunning))
@@ -335,12 +378,8 @@ namespace Emulator.ViewModel
                 return;
             }
 
-			//Initialize the RomFile.Rom memory area.
-			RomFile = notificationMessage.Content;
-
             // Load Banked ROM
             AT28C010.Load(notificationMessage.Content.Rom);
-
             IsRomLoaded = true;
             RaisePropertyChanged("IsRomLoaded");
 
@@ -376,9 +415,19 @@ namespace Emulator.ViewModel
 
         private void GenericNotifcation(NotificationMessage notificationMessage)
         {
-			if (notificationMessage.Notification == "LoadFile")
+			if (notificationMessage.Notification == "CloseFile")
 			{
-                var dialog = new OpenFileDialog { DefaultExt = ".bin", Filter = "All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
+				AT28C010.Clear();
+				if (IsRunning) { RunPause(); }
+				IsRomLoaded = false;
+				RaisePropertyChanged("IsRomLoaded");
+				return;
+			}
+			else if (notificationMessage.Notification == "LoadFile")
+			{
+                var dialog = new OpenFileDialog {	DefaultExt = ".bin", Filter =
+													"All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|" +
+                                                    "*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02" };
                 var result = dialog.ShowDialog();
                 if (result != true)
                 {
@@ -387,7 +436,7 @@ namespace Emulator.ViewModel
 
                 if (Path.GetExtension(dialog.FileName.ToUpper()) == ".BIN")
                 {
-                    byte[][] _rom = AT28C010.DumpMemory();
+                    byte[][] _rom = AT28C010.ReadFile(dialog.FileName);
 
                     Messenger.Default.Send(new NotificationMessage<RomFileModel>(new RomFileModel
                     {
@@ -411,7 +460,8 @@ namespace Emulator.ViewModel
             }
             else if (notificationMessage.Notification == "SaveState")
             {
-                var dialog = new SaveFileDialog { DefaultExt = ".65C02", Filter = "WolfNet W65C02 Emulator Save State (*.65C02)|*.65C02" };
+                var dialog = new SaveFileDialog {	DefaultExt = ".65C02", Filter =
+													"WolfNet W65C02 Emulator Save State (*.65C02)|*.65C02" };
                 var result = dialog.ShowDialog();
 
                 if (result != true)
@@ -447,6 +497,7 @@ namespace Emulator.ViewModel
             {
                 return;
             }
+
 			SettingsModel = notificationMessage.Content;
             W65C51.Init(notificationMessage.Content.ComPortName);
 			RaisePropertyChanged("SettingsModel");
@@ -456,7 +507,7 @@ namespace Emulator.ViewModel
 		private void UpdateMemoryPage()
 		{
 			MemoryPage.Clear();
-			var offset = (_memoryPageOffset * 256);
+			var offset = _memoryPageOffset * 256;
 			
 			var multiplyer = 0;
 			for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
@@ -709,7 +760,7 @@ namespace Emulator.ViewModel
             if (_backgroundWorker.IsBusy)
                 _backgroundWorker.CancelAsync();
 
-			MessageBox.Show(string.Format("{0}\n{1}\nVersion: {2}\nCompany: {3}", Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.Version, Versioning.Product.Company), Versioning.Product.Title);
+			MessageBox.Show(string.Format("{0}\n{1}\nVersion: {2}\nCompany: {3}", Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.VersionString, Versioning.Product.Company), Versioning.Product.Title);
         }
 
         private void Settings()
@@ -737,6 +788,6 @@ namespace Emulator.ViewModel
 			SelectedBreakpoint = null;
 			RaisePropertyChanged("SelectedBreakpoint");
 		}
-		#endregion
+#endregion
 	}
 }

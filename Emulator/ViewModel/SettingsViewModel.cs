@@ -85,7 +85,10 @@ namespace Emulator.ViewModel
 		{
             Messenger.Default.Send(new NotificationMessage<SettingsModel>(new SettingsModel
             {
-                SettingsVersion = Versioning.SettingsFile,
+                SettingsVersionMajor = Versioning.SettingsFile.Major,
+                SettingsVersionMinor = Versioning.SettingsFile.Minor,
+                SettingsVersionBuild = Versioning.SettingsFile.Build,
+                SettingsVersionRevision = Versioning.SettingsFile.Revision,
                 ComPortName = ComPortSelection,
             }, "SettingsApplied"));
             Messenger.Default.Send(new NotificationMessage("CloseSettingsWindow"));

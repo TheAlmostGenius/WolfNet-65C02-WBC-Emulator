@@ -15,21 +15,17 @@ namespace Emulator
 	/// </summary>
 	public partial class MainWindow : Window, IClosable
     {
-        public DependencyProperty CurrentHeight
-        {
-            get { return Window.ActualHeightProperty; }
-        }
-
-        public DependencyProperty CurrentWidth
-        {
-            get { return Window.ActualWidthProperty; }
-        }
-
         public MainWindow()
 		{
 			InitializeComponent();
-			Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
+            Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
+            Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
+        }
+
+        private void ToClose(Object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void LoadFile(Object sender, EventArgs e)
@@ -40,6 +36,19 @@ namespace Emulator
         private void SaveFile(Object sender, EventArgs e)
         {
             Messenger.Default.Send(new NotificationMessage("SaveState"));
+        }
+
+        private void CloseFile(Object sender, EventArgs e)
+        {
+            Messenger.Default.Send(new NotificationMessage("CloseFile"));
+        }
+
+        private void NotificationMessageReceived(NotificationMessage notificationMessage)
+        {
+            if (notificationMessage.Notification == "CloseWindow")
+            {
+                Close();
+            }
         }
 
         private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)

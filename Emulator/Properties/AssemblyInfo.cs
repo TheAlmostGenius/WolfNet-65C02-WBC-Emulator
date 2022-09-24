@@ -51,6 +51,6 @@ using Emulator;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion(Versioning.Product.Version)]
-[assembly: AssemblyFileVersion(Versioning.Product.Version)]
+[assembly: AssemblyVersion(Versioning.Product.VersionString)]
+[assembly: AssemblyFileVersion(Versioning.Product.VersionString)]
 [assembly: NeutralResourcesLanguage("en-GB")]
