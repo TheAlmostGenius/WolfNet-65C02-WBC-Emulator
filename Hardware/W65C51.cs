@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
@@ -22,16 +23,18 @@ namespace Hardware
         public SerialPort Object { get; set; }
         public string ObjectName { get; set; }
         private W65C02 Processor { get; set; }
+        private BackgroundWorker _backgroundWorker { get; set; }
         public int Offset { get; set; }
         public int Length { get; set; }
 
-        private byte StatusRegister { get; set; }
-
+        private bool DataRead { get; set; }
         private bool EchoMode { get; set; }
-        private byte RtsControl { get; set; }
         private bool InterruptDisabled { get; set; }
-        private bool DTR { get; set; }
+        private bool Interrupted { get; set; }
+        private bool Overrun { get; set; }
         private bool ParityEnabled { get; set; }
+        private bool ReceiverFull { get; set; }
+        private byte RtsControl { get; set; }
         #endregion
 
         #region Public Methods
@@ -39,11 +42,19 @@ namespace Hardware
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
+            
             Processor = processor;
 
             Offset = MemoryMap.DeviceArea.Offset | offset;
-            Length = 0x05;
+            Length = 0x04;
             Memory = new byte[Length + 1];
+
+            _backgroundWorker = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+            _backgroundWorker.DoWork += BackgroundWorkerDoWork;
+            _backgroundWorker.RunWorkerAsync();
         }
 
         public void Reset()
@@ -54,6 +65,7 @@ namespace Hardware
         /// <summary>
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
+        /// 
         /// <param name="port"> COM Port to use for I/O</param>
         public void Init(string port)
         {
@@ -66,6 +78,7 @@ namespace Hardware
         /// <summary>
         /// Default Constructor, Instantiates a new instance of COM Port I/O.
         /// </summary>
+        /// 
         /// <param name="port">COM Port to use for I/O</param>
         /// <param name="baudRate">Baud Rate to use for I/O</param>
         public void Init(string port, int baudRate)
@@ -87,8 +100,10 @@ namespace Hardware
         /// <summary>
         /// Returns the byte at a given address.
         /// </summary>
+        /// 
         /// <param name="bank">The bank to read data from.</param>
         /// <param name="address"></param>
+        /// 
         /// <returns>the byte being returned</returns>
         public byte Read(int address)
         {
@@ -99,6 +114,7 @@ namespace Hardware
         /// <summary>
         /// Writes data to the given address.
         /// </summary>
+        /// 
         /// <param name="bank">The bank to load data to.</param>
         /// <param name="address">The address to write data to</param>
         /// <param name="data">The data to write</param>
@@ -127,6 +143,7 @@ namespace Hardware
         /// <summary>
         /// Called whenever the ACIA is initialized.
         /// </summary>
+        /// 
         /// <param name="serialPort">SerialPort object to initialize.</param>
         private void ComInit(SerialPort serialPort)
         {
@@ -182,6 +199,9 @@ namespace Hardware
             {
                 serialPort.Close();
             }
+
+            _backgroundWorker.CancelAsync();
+            _backgroundWorker.DoWork -= BackgroundWorkerDoWork;
         }
 
         /// <summary>
@@ -200,11 +220,20 @@ namespace Hardware
                 }
                 else
                 {
+                    if (!ReceiverFull)
+                    {
+                        ReceiverFull = true;
+                    }
+                    else
+                    {
+                        Overrun = true;
+                    }
                     Memory[0] = Convert.ToByte(Object.ReadByte());
                 }
 
                 if (!InterruptDisabled)
                 {
+                    Interrupted = true;
                     Processor.InterruptRequest();
                 }
             }
@@ -222,11 +251,6 @@ namespace Hardware
             }
         }
 
-        /// <summary>
-        /// Pre-Write function for handling the usually background or instantaneous functions of the ACIA.
-        /// </summary>
-        /// <param name="address">The address that will be written to.</param>
-        /// <param name="data">The Data to write.</param>
         private void HardwarePreWrite(int address, byte data)
         {
             if (address == Offset)
@@ -249,7 +273,15 @@ namespace Hardware
 
         private void HardwarePreRead(int address)
         {
-            if (address == Offset + 1)
+            if (address == Offset)
+            {
+                Interrupted = false;
+                Overrun = false;
+                ReceiverFull = false;
+                DataRead = true;
+
+            }
+            else if (address == Offset + 1)
             {
                 StatusRegisterUpdate();
             }
@@ -325,7 +357,7 @@ namespace Hardware
 
         private void CommandRegisterUpdate()
         {
-            byte data = StatusRegister;
+            byte data = Memory[Offset + 2];
 
             if (ParityEnabled)
             {
@@ -364,7 +396,7 @@ namespace Hardware
                 data &= 0x0E;
             }
 
-            StatusRegister = data;
+            Memory[Offset + 2] = data;
         }
 
         private void ControlRegister(byte data)
@@ -586,6 +618,91 @@ namespace Hardware
             }
 
             Memory[Offset + 3] = controlRegister;
+        }
+
+        private void StatusRegisterUpdate()
+        {
+            byte statusRegister = Memory[Offset + 1];
+
+            if (Interrupted)
+            {
+                statusRegister |= 0x80;
+            }
+            else
+            {
+                statusRegister &= 0x7F;
+            }
+
+            if (Object.DsrHolding == false)
+            {
+                statusRegister |= 0x40;
+            }
+            else
+            {
+                statusRegister &= 0xBF;
+            }
+
+            if (Object.CDHolding)
+            {
+                statusRegister |= 0x20;
+            }
+            else
+            {
+                statusRegister &= 0xDF;
+            }
+
+            statusRegister |= 0x10;
+
+            if (ReceiverFull)
+            {
+                statusRegister |= 0x08;
+            }
+            else
+            {
+                statusRegister &= 0xF7;
+            }
+
+            if (Overrun)
+            {
+                statusRegister |= 0x04;
+            }
+            else
+            {
+                statusRegister &= 0xFB;
+            }
+
+            statusRegister &= 0xFC;
+
+            Memory[Offset + 1] = statusRegister;
+        }
+
+        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        {
+            var worker = sender as BackgroundWorker;
+
+            while (true)
+            {
+                if (worker != null && worker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (ReceiverFull || Overrun)
+                {
+                    Memory[Offset + 1] = (byte)(Memory[Offset + 1] | 0x80);
+                    Interrupted = true;
+                    Processor.InterruptRequest();
+                }
+
+                if (DataRead)
+                {
+                    System.Threading.Thread.Sleep(5);
+                    ReceiverFull = false;
+                    Interrupted = false;
+                    Overrun = false;
+                }
+            }
         }
         #endregion
     }
