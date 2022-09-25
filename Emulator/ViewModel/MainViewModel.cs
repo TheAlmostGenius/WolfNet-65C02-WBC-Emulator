@@ -300,6 +300,7 @@ namespace Emulator.ViewModel
 
 			_backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
 			_backgroundWorker.DoWork += BackgroundWorkerDoWork;
+			Application.Current.MainWindow.Title = Versioning.Product.Title;
             Application.Current.MainWindow.Closing += new CancelEventHandler(OnClose);
             Application.Current.MainWindow.Loaded += new RoutedEventHandler(OnLoad);
 
