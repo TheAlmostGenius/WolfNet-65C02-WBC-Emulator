@@ -2,21 +2,21 @@
 
 namespace Emulator
 {
-	/// <summary>
-	/// Interaction logic for SaveState.xaml
-	/// </summary>
-	public partial class SaveFile
-	{
-		public SaveFile()
-		{
-			InitializeComponent();
-			Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
-		}
+    /// <summary>
+    /// Interaction logic for SaveState.xaml
+    /// </summary>
+    public partial class SaveFile
+    {
+        public SaveFile()
+        {
+            InitializeComponent();
+            Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
+        }
 
-		private void NotificationMessageReceived(NotificationMessage notificationMessage)
-		{
-			if (notificationMessage.Notification == "CloseSaveFileWindow")
-				Close();
-		}
-	}
+        private void NotificationMessageReceived(NotificationMessage notificationMessage)
+        {
+            if (notificationMessage.Notification == "CloseSaveFileWindow")
+                Close();
+        }
+    }
 }

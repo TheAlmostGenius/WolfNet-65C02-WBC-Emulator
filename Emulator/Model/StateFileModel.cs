@@ -3,21 +3,21 @@ using System.Collections.Generic;
 
 namespace Emulator.Model
 {
-	/// <summary>
-	/// Model that contains the required information needed to save the current state of the processor to disk
-	/// </summary>
-	[Serializable]
-	public class StateFileModel
-	{
-		/// <summary>
-		/// The Number of Cycles the Program has Ran so Far
-		/// </summary>
-		public int NumberOfCycles { get; set; }
+    /// <summary>
+    /// Model that contains the required information needed to save the current state of the processor to disk
+    /// </summary>
+    [Serializable]
+    public class StateFileModel
+    {
+        /// <summary>
+        /// The Number of Cycles the Program has Ran so Far
+        /// </summary>
+        public int NumberOfCycles { get; set; }
 
-		/// <summary>
-		/// The output of the program
-		/// </summary>
-		public IList<OutputLog> OutputLog { get; set; }
+        /// <summary>
+        /// The output of the program
+        /// </summary>
+        public IList<OutputLog> OutputLog { get; set; }
 
         /// <summary>
         /// The Processor Object that is being saved

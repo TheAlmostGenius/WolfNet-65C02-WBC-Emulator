@@ -1,5 +1,4 @@
 ﻿using Emulator.Model;
-using GalaSoft.MvvmLight.Messaging;
 
 namespace Emulator
 {
@@ -17,7 +16,7 @@ namespace Emulator
 #if DEBUG
                 ComPortName = "COM9",
 #else
-				ComPortName = "COM1",
+                ComPortName = "COM1",
 #endif
             };
             return _settings;

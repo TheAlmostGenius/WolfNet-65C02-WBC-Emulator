@@ -1,9 +1,9 @@
 ﻿namespace Emulator.Model
 {
-	/// <summary>
-	/// The Model used when Loading a Program.
-	/// </summary>
-	public class RomFileModel
+    /// <summary>
+    /// The Model used when Loading a Program.
+    /// </summary>
+    public class RomFileModel
     {
         /// <summary>
         /// The Program Converted into Hex.

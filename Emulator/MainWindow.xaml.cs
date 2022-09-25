@@ -1,25 +1,20 @@
-﻿using GalaSoft.MvvmLight.Messaging;
-using Emulator.Model;
+﻿using Emulator.Model;
 using Emulator.ViewModel;
+using GalaSoft.MvvmLight.Messaging;
 using System;
-using System.ComponentModel;
 using System.Windows;
-using Hardware;
-using System.IO;
-using System.Xml.Serialization;
 
 namespace Emulator
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window, IClosable
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window, IClosable
     {
         public MainWindow()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
-            Messenger.Default.Register<NotificationMessage<StateFileModel>>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
         }
 
@@ -49,14 +44,10 @@ namespace Emulator
             {
                 Close();
             }
-        }
-
-        private void NotificationMessageReceived(NotificationMessage<StateFileModel> notificationMessage)
-        {
-            if (notificationMessage.Notification == "SaveFileWindow")
+            else if (notificationMessage.Notification == "MemoryVisualWindow")
             {
-                var saveFile = new SaveFile { DataContext = new SaveFileViewModel(notificationMessage.Content) };
-                saveFile.ShowDialog();
+                var memoryVisual = new MemoryVisual { DataContext = new MemoryVisualViewModel() };
+                memoryVisual.ShowDialog();
             }
         }
 
@@ -67,6 +58,11 @@ namespace Emulator
                 var settingsFile = new Settings { DataContext = new SettingsViewModel(notificationMessage.Content) };
                 settingsFile.ShowDialog();
             }
+        }
+
+        private void MemoryView(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

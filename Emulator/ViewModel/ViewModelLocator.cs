@@ -31,32 +31,32 @@ namespace Emulator.ViewModel
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<SaveFileViewModel>();
             SimpleIoc.Default.Register<SettingsViewModel>();
+            SimpleIoc.Default.Register<MemoryVisualViewModel>();
         }
 
-		/// <summary>
-		/// The MainViewModel Instance
-		/// </summary>
+        /// <summary>
+        /// The MainViewModel Instance
+        /// </summary>
         public MainViewModel Main
         {
             get { return ServiceLocator.Current.GetInstance<MainViewModel>(); }
         }
 
         /// <summary>
-        /// The SaveFileViewModel Instance
+        /// The SettingsViewModel Instance
         /// </summary>
-        public SaveFileViewModel SaveFile
+        public SettingsViewModel Settings
         {
-            get { return ServiceLocator.Current.GetInstance<SaveFileViewModel>(); }
+            get { return ServiceLocator.Current.GetInstance<SettingsViewModel>(); }
         }
 
         /// <summary>
         /// The SaveFileViewModel Instance
         /// </summary>
-        public SettingsViewModel Settings
+        public MemoryVisualViewModel MemoryVisual
         {
-            get { return ServiceLocator.Current.GetInstance<SettingsViewModel>(); }
+            get { return ServiceLocator.Current.GetInstance<MemoryVisualViewModel>(); }
         }
 
         /// <summary>

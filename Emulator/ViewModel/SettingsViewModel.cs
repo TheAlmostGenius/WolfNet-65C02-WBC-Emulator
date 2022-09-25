@@ -1,36 +1,33 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.IO.Ports;
-using System.Xml.Serialization;
+﻿using Emulator.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
-using Emulator.Model;
+using System.Collections.ObjectModel;
+using System.IO.Ports;
 
 namespace Emulator.ViewModel
 {
-	/// <summary>
-	/// The ViewModel Used by the SaveFileView
-	/// </summary>
-	public class SettingsViewModel : ViewModelBase
-	{
+    /// <summary>
+    /// The ViewModel Used by the SaveFileView
+    /// </summary>
+    public class SettingsViewModel : ViewModelBase
+    {
         #region Properties
         /// <summary>
         /// The Relay Command called when saving a file
         /// </summary>
         public RelayCommand ApplyCommand { get; set; }
-		
-		/// <summary>
-		/// The Relay Command called when closing a file
-		/// </summary>
-		public RelayCommand CloseCommand { get; set; }
 
-		/// <summary>
-		/// Tells the UI that that a file has been selected and can be saved.
-		/// </summary>
-		public bool ApplyEnabled { get { return !string.IsNullOrEmpty(Emulator.FileLocations.SettingsFile); } }
+        /// <summary>
+        /// The Relay Command called when closing a file
+        /// </summary>
+        public RelayCommand CloseCommand { get; set; }
+
+        /// <summary>
+        /// Tells the UI that that a file has been selected and can be saved.
+        /// </summary>
+        public bool ApplyEnabled { get { return !string.IsNullOrEmpty(Emulator.FileLocations.SettingsFile); } }
 
         /// <summary>
         /// Creates a new instance of PortList, the list of all COM ports available to the computer
@@ -48,19 +45,19 @@ namespace Emulator.ViewModel
         /// Instantiates a new instance of the SettingsViewModel. This is used by the IOC to create the default instance.
         /// </summary>
         [PreferredConstructor]
-		public SettingsViewModel()
-		{
+        public SettingsViewModel()
+        {
 
-		}
+        }
 
-		/// <summary>
-		/// Instantiates a new instance of the SettingsViewModel
-		/// </summary>
-		/// <param name="settingsModel">The SettingsFileModel to be serialized to a file</param>
-		public SettingsViewModel(SettingsModel settingsModel)
-		{
-			ApplyCommand = new RelayCommand(Apply);
-			CloseCommand = new RelayCommand(Close);
+        /// <summary>
+        /// Instantiates a new instance of the SettingsViewModel
+        /// </summary>
+        /// <param name="settingsModel">The SettingsFileModel to be serialized to a file</param>
+        public SettingsViewModel(SettingsModel settingsModel)
+        {
+            ApplyCommand = new RelayCommand(Apply);
+            CloseCommand = new RelayCommand(Close);
             ComPortSelection = settingsModel.ComPortName;
 
             UpdatePortList();
@@ -82,7 +79,7 @@ namespace Emulator.ViewModel
 
         #region Private Methods
         private void Apply()
-		{
+        {
             Messenger.Default.Send(new NotificationMessage<SettingsModel>(new SettingsModel
             {
                 SettingsVersionMajor = Versioning.SettingsFile.Major,
@@ -94,10 +91,10 @@ namespace Emulator.ViewModel
             Messenger.Default.Send(new NotificationMessage("CloseSettingsWindow"));
         }
 
-		private static void Close()
-		{
-			Messenger.Default.Send(new NotificationMessage("CloseSettingsWindow"));
-		}
-		#endregion
-	}
+        private static void Close()
+        {
+            Messenger.Default.Send(new NotificationMessage("CloseSettingsWindow"));
+        }
+        #endregion
+    }
 }

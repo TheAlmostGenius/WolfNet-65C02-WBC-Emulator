@@ -1,19 +1,18 @@
-﻿using GalaSoft.MvvmLight.Messaging;
-using Emulator.Model;
+﻿using Emulator.Model;
 using Emulator.ViewModel;
+using GalaSoft.MvvmLight.Messaging;
 using System;
-using System.Windows;
 
 namespace Emulator
 {
-	/// <summary>
-	/// Interaction logic for Settings.xaml
-	/// </summary>
-	public partial class Settings
-	{
-		public Settings()
-		{
-			InitializeComponent();
+    /// <summary>
+    /// Interaction logic for Settings.xaml
+    /// </summary>
+    public partial class Settings
+    {
+        public Settings()
+        {
+            InitializeComponent();
             Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
             Messenger.Default.Register<NotificationMessage<SettingsModel>>(this, NotificationMessageReceived);
         }

@@ -1,8 +1,4 @@
-﻿using System.Deployment;
-using System.Reflection;
-using System;
-
-namespace Emulator
+﻿namespace Emulator
 {
     public static class Versioning
     {
@@ -25,7 +21,7 @@ namespace Emulator
             public const byte Minor = 0;
             public const byte Build = 0;
             public const byte Revision = 0;
-            
+
         }
     }
 }
