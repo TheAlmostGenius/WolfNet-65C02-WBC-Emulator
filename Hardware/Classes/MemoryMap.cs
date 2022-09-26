@@ -123,9 +123,13 @@ namespace Hardware
             {
                 return GPIO.Read(_address);
             }
+            else if ((MM65SIB.Offset <= _address) && (_address <= (MM65SIB.Offset + MM65SIB.Length)))
+            {
+                return MM65SIB.Read(_address);
+            }
             else if ((DeviceArea.Offset <= _address) && (_address <= DeviceArea.End))
             {
-                throw new ArgumentOutOfRangeException("Device area accessed where there is no device!");
+                return 0x00;
             }
             else if ((SharedROM.Offset <= _address) && (_address <= SharedROM.End))
             {
