@@ -731,7 +731,7 @@ namespace Emulator.ViewModel
 
         private void UpdateMemoryPage()
         {
-            Messenger.Default.Send("UpdateMemoryPage");
+            Messenger.Default.Send(new NotificationMessage("UpdateMemoryPage"));
         }
 
         private void About()
