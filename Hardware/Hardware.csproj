@@ -65,17 +65,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\AddressingMode.cs" />
-    <Compile Include="HM62256.cs" />
+    <Compile Include="Hardware\HM62256.cs" />
     <Compile Include="Classes\Disassembly.cs" />
     <Compile Include="Classes\FileLocations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\MemoryMap.cs" />
     <Compile Include="Classes\Utility.cs" />
-    <Compile Include="AT28CXX.cs" />
+    <Compile Include="Hardware\AT28CXX.cs" />
     <Compile Include="Classes\Versioning.cs" />
-    <Compile Include="W65C02.cs" />
-    <Compile Include="W65C22.cs" />
-    <Compile Include="W65C51.cs" />
+    <Compile Include="Hardware\W65C02.cs" />
+    <Compile Include="Hardware\W65C22.cs" />
+    <Compile Include="Hardware\W65C51.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
