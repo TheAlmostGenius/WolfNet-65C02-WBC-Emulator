@@ -54,18 +54,20 @@ namespace Emulator.ViewModel
         {
             UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
 
-            Messenger.Default.Register<NotificationMessage>(this, GenericNotifcation);
+            Messenger.Default.Register<NotificationMessage>(this, GenericNotification);
 
             MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
 
             UpdateMemoryPage();
+            UpdateUi();
         }
 
-        private void GenericNotifcation(NotificationMessage notificationMessage)
+        private void GenericNotification(NotificationMessage notificationMessage)
         {
             if (notificationMessage.Notification == "UpdateMemoryPage")
             {
                 UpdateMemoryPage();
+                UpdateUi();
             }
         }
 
@@ -77,7 +79,6 @@ namespace Emulator.ViewModel
             var multiplyer = 0;
             for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
             {
-
                 MemoryPage.Add(new MemoryRowModel
                 {
                     Offset = ((16 * multiplyer) + offset).ToString("X").PadLeft(4, '0'),
@@ -106,9 +107,6 @@ namespace Emulator.ViewModel
         #region Private Methods
         private void UpdateUi()
         {
-            RaisePropertyChanged("W65C02");
-            RaisePropertyChanged("NumberOfCycles");
-            RaisePropertyChanged("CurrentDisassembly");
             RaisePropertyChanged("MemoryPage");
         }
         #endregion
