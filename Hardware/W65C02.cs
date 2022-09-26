@@ -1,7 +1,6 @@
 ﻿using NLog;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Globalization;
 
 namespace Hardware
@@ -1525,12 +1524,8 @@ namespace Hardware
                 (DecimalFlag ? 8 : 0) + (setBreak ? 0x10 : 0) + 0x20 + (OverflowFlag ? 0x40 : 0) + (NegativeFlag ? 0x80 : 0));
         }
 
-        [Conditional("DEBUG")]
         private void SetDisassembly()
         {
-            if (!_logger.IsDebugEnabled)
-                return;
-
             var addressMode = GetAddressingMode();
 
             var currentProgramCounter = ProgramCounter;

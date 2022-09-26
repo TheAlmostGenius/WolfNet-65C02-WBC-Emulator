@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Hardware
+﻿namespace Hardware
 {
     public class HM62256
     {
@@ -74,7 +72,7 @@ namespace Hardware
                 }
             }
         }
-        
+
         /// <summary>
         /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. 
         /// </summary>

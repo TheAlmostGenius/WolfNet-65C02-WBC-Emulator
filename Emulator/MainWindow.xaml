@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 		DataContext="{Binding Main, Source={StaticResource Locator}}"
         Height="768" Width="1024" ResizeMode="CanMinimize"  WindowStartupLocation="CenterScreen"
-        WindowState="Normal" Foreground="AntiqueWhite" Background="Black" >
+        WindowState="Normal" Foreground="AntiqueWhite" Background="Black" FontFamily="Comic Sans MS" >
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
@@ -67,7 +67,7 @@
     <Grid Width="1024" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
 
         <Grid Height="23" VerticalAlignment="Top" HorizontalAlignment="Stretch" >
-            <Menu Height="23" Width="1024" >
+            <Menu Height="23" Width="1024" FontFamily="Comic Sans MS" >
                 <MenuItem Header="File" VerticalAlignment="Top" HorizontalAlignment="Left" >
                     <MenuItem Header="_Open" Click="LoadFile" />
                     <MenuItem Header="_Save" Click="SaveFile" IsEnabled="{Binding Path=IsRomLoaded}" />

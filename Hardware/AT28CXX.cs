@@ -3,12 +3,12 @@ using System.IO;
 
 namespace Hardware
 {
-	/// <summary>
+    /// <summary>
     /// An implementation of a W65C02 Processor.
     /// </summary>
     [Serializable]
-	public class AT28CXX
-	{
+    public class AT28CXX
+    {
         //All of the properties here are public and read only to facilitate ease of debugging and testing.
         #region Properties
         /// <summary>
@@ -44,7 +44,7 @@ namespace Hardware
         /// <summary>
         /// The processor reference
         /// </summary>
-        public W65C02 Processor{ get; private set; }
+        public W65C02 Processor { get; private set; }
         #endregion
 
         #region Public Methods
@@ -153,7 +153,8 @@ namespace Hardware
         public byte[] DumpMemory(byte bank)
         {
             byte[] _tempMemory = new byte[MemoryMap.BankedRom.Length + 1];
-            for (var i = 0; i < MemoryMap.BankedRom.Length; i++) {
+            for (var i = 0; i < MemoryMap.BankedRom.Length; i++)
+            {
                 _tempMemory[i] = Memory[bank][i];
             }
             return _tempMemory;
@@ -172,6 +173,6 @@ namespace Hardware
                 }
             }
         }
-#endregion
+        #endregion
     }
 }

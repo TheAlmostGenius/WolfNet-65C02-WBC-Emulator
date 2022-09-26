@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.IO.Ports;
@@ -42,7 +41,7 @@ namespace Hardware
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
-            
+
             Processor = processor;
 
             Offset = MemoryMap.DeviceArea.Offset | offset;
@@ -350,7 +349,7 @@ namespace Hardware
             }
             else
             {
-                Object.DtrEnable= false;
+                Object.DtrEnable = false;
             }
         }
 

@@ -47,7 +47,7 @@ namespace Emulator
             else if (notificationMessage.Notification == "MemoryVisualWindow")
             {
                 var memoryVisual = new MemoryVisual { DataContext = new MemoryVisualViewModel() };
-                memoryVisual.ShowDialog();
+                memoryVisual.Show();
             }
         }
 
@@ -58,11 +58,6 @@ namespace Emulator
                 var settingsFile = new Settings { DataContext = new SettingsViewModel(notificationMessage.Content) };
                 settingsFile.ShowDialog();
             }
-        }
-
-        private void MemoryView(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

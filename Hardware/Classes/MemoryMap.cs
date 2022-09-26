@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace Hardware
 {
@@ -114,34 +113,33 @@ namespace Hardware
         /// <returns>the byte being returned</returns>
         public static byte ReadWithoutCycle(int address)
         {
-            int _address = address;
-            if ((ACIA.Offset <= _address) && (_address <= (ACIA.Offset + ACIA.Length)))
+            if ((ACIA.Offset <= address) && (address <= (ACIA.Offset + ACIA.Length)))
             {
                 return ACIA.Read(address);
             }
-            else if ((GPIO.Offset <= _address) && (_address <= (GPIO.Offset + GPIO.Length)))
+            else if ((GPIO.Offset <= address) && (address <= (GPIO.Offset + GPIO.Length)))
             {
-                return GPIO.Read(_address);
+                return GPIO.Read(address);
             }
-            else if ((MM65SIB.Offset <= _address) && (_address <= (MM65SIB.Offset + MM65SIB.Length)))
+            else if ((MM65SIB.Offset <= address) && (address <= (MM65SIB.Offset + MM65SIB.Length)))
             {
-                return MM65SIB.Read(_address);
+                return MM65SIB.Read(address);
             }
-            else if ((DeviceArea.Offset <= _address) && (_address <= DeviceArea.End))
+            else if ((DeviceArea.Offset <= address) && (address <= DeviceArea.End))
             {
                 return 0x00;
             }
-            else if ((SharedROM.Offset <= _address) && (_address <= SharedROM.End))
+            else if ((SharedROM.Offset <= address) && (address <= SharedROM.End))
             {
-                return SharedROM.Read(_address);
+                return SharedROM.Read(address);
             }
-            else if ((BankedROM.Offset <= _address) && (_address <= BankedROM.End))
+            else if ((BankedROM.Offset <= address) && (address <= BankedROM.End))
             {
-                return BankedROM.Read(_address);
+                return BankedROM.Read(address);
             }
-            else if ((BankedRAM.Offset <= _address) && (_address <= BankedRAM.End))
+            else if ((BankedRAM.Offset <= address) && (address <= BankedRAM.End))
             {
-                return BankedRAM.Read(_address);
+                return BankedRAM.Read(address);
             }
             else
             {
@@ -174,6 +172,10 @@ namespace Hardware
             else if ((GPIO.Offset <= address) && (address <= (GPIO.Offset + GPIO.Length)))
             {
                 GPIO.Write(address, data);
+            }
+            else if ((MM65SIB.Offset <= address) && (address <= (MM65SIB.Offset + MM65SIB.Length)))
+            {
+                MM65SIB.Write(address, data);
             }
             else if ((SharedROM.Offset <= address) && (address <= (SharedROM.Offset + SharedROM.Length)))
             {

@@ -26,7 +26,6 @@ namespace Emulator.ViewModel
     public class MainViewModel : ViewModelBase
     {
         #region Fields
-        private int _memoryPageOffset;
         private readonly BackgroundWorker _backgroundWorker;
         private bool _breakpointTriggered;
         #endregion
@@ -114,24 +113,6 @@ namespace Emulator.ViewModel
         /// The number of cycles.
         /// </summary>
         public int NumberOfCycles { get; private set; }
-
-        /// <summary>
-        /// The Memory Page number.
-        /// </summary>
-        public string MemoryPageOffset
-        {
-            get { return _memoryPageOffset.ToString("X"); }
-            set
-            {
-                if (string.IsNullOrEmpty(value))
-                    return;
-                try
-                {
-                    _memoryPageOffset = Convert.ToInt32(value, 16);
-                }
-                catch { }
-            }
-        }
 
         /// <summary>
         ///  Is the Prorgam Running

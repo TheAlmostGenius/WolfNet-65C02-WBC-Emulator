@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 using System.Timers;
 
 namespace Hardware
@@ -112,7 +111,7 @@ namespace Hardware
         /// Set or get the timer 2 object.
         /// </summary>
         public Timer T2Object { get; set; }
-        
+
         /// <summary>
         /// Local referemce to the processor object.
         /// </summary>
