@@ -335,6 +335,7 @@ namespace Emulator.ViewModel
                 }
             }
 #endif
+            Messenger.Default.Send(new NotificationMessage("CloseAll"));
             Stream stream = new FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);
             XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
             XmlFormatter.Serialize(stream, MainViewModel.SettingsModel);

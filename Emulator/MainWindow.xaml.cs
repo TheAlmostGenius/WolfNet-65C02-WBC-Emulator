@@ -2,6 +2,7 @@
 using Emulator.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
 using System;
+using System.ComponentModel;
 using System.Windows;
 
 namespace Emulator

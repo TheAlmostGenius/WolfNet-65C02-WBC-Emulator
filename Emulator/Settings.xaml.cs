@@ -23,6 +23,10 @@ namespace Emulator
             {
                 Close();
             }
+            else if (notificationMessage.Notification == "CloseAll")
+            {
+                Close();
+            }
         }
 
         private void NotificationMessageReceived(NotificationMessage<SettingsModel> notificationMessage)

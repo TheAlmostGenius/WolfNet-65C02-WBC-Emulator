@@ -137,26 +137,22 @@
     <Compile Include="Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SaveFile.xaml.cs">
-      <DependentUpon>SaveFile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\MemoryRowModel.cs" />
     <Compile Include="Model\RomFileModel.cs" />
     <Compile Include="Model\OutputLog.cs" />
     <Compile Include="MultiThreadedCollection.cs" />
     <Compile Include="ViewModel\MemoryVisualViewModel.cs" />
+    <Compile Include="ViewModel\GpioControlViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
-    <Compile Include="ViewModel\SaveFileViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="MemoryVisual.xaml.cs">
       <DependentUpon>MemoryVisual.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GpioControl.xaml.cs">
+      <DependentUpon>GpioControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="Settings.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="SaveFile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -173,6 +169,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MemoryVisual.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GpioControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

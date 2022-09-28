@@ -9,7 +9,7 @@
             <Setter Property="FontSize" Value="14"/>
         </Style>
 
-        <Style x:Key="MemoryMapColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}" BasedOn="{ StaticResource ColumnHeaderStyle}">
+        <Style x:Key="MemoryMapColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}" BasedOn="{StaticResource ColumnHeaderStyle}">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">

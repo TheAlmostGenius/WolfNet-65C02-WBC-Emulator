@@ -1,13 +1,14 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using System.Windows;
 
 namespace Emulator
 {
     /// <summary>
-    /// Interaction logic for SaveState.xaml
+    /// Interaction logic for Window1.xaml
     /// </summary>
-    public partial class SaveFile
+    public partial class GpioControl : Window
     {
-        public SaveFile()
+        public GpioControl()
         {
             InitializeComponent();
             Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
@@ -15,8 +16,14 @@ namespace Emulator
 
         private void NotificationMessageReceived(NotificationMessage notificationMessage)
         {
-            if (notificationMessage.Notification == "CloseSaveFileWindow")
+            if (notificationMessage.Notification == "CloseGpioControlWindow")
+            {
                 Close();
+            }
+            else if (notificationMessage.Notification == "CloseAll")
+            {
+                Close();
+            }
         }
     }
 }
