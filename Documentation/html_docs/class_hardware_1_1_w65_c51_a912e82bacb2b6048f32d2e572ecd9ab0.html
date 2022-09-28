@@ -113,116 +113,116 @@
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00401">401</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  402</span>        {</div>
-<div class="line"><span class="lineno">  403</span>            <span class="keywordtype">byte</span> test = (byte)(data &amp; 0x80);</div>
-<div class="line"><span class="lineno">  404</span>            <span class="keywordflow">if</span> (test == 0x80)</div>
-<div class="line"><span class="lineno">  405</span>            {</div>
-<div class="line"><span class="lineno">  406</span>                test = (byte)(data &amp; 0x60);</div>
-<div class="line"><span class="lineno">  407</span>                <span class="keywordflow">if</span> (test == 0x60)</div>
-<div class="line"><span class="lineno">  408</span>                {</div>
-<div class="line"><span class="lineno">  409</span>                    Object.StopBits = StopBits.OnePointFive;</div>
-<div class="line"><span class="lineno">  410</span>                }</div>
-<div class="line"><span class="lineno">  411</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  412</span>                {</div>
-<div class="line"><span class="lineno">  413</span>                    Object.StopBits = StopBits.Two;</div>
-<div class="line"><span class="lineno">  414</span>                }</div>
-<div class="line"><span class="lineno">  415</span>            }</div>
-<div class="line"><span class="lineno">  416</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  417</span>            {</div>
-<div class="line"><span class="lineno">  418</span>                Object.StopBits = StopBits.One;</div>
-<div class="line"><span class="lineno">  419</span>            }</div>
-<div class="line"><span class="lineno">  420</span> </div>
-<div class="line"><span class="lineno">  421</span>            test = (byte)(data &amp; 0x60);</div>
-<div class="line"><span class="lineno">  422</span>            <span class="keywordflow">if</span> (test == 0x20)</div>
-<div class="line"><span class="lineno">  423</span>            {</div>
-<div class="line"><span class="lineno">  424</span>                Object.DataBits = 7;</div>
-<div class="line"><span class="lineno">  425</span>            }</div>
-<div class="line"><span class="lineno">  426</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x40)</div>
-<div class="line"><span class="lineno">  427</span>            {</div>
-<div class="line"><span class="lineno">  428</span>                Object.DataBits = 6;</div>
-<div class="line"><span class="lineno">  429</span>            }</div>
-<div class="line"><span class="lineno">  430</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x60)</div>
-<div class="line"><span class="lineno">  431</span>            {</div>
-<div class="line"><span class="lineno">  432</span>                Object.DataBits = 5;</div>
-<div class="line"><span class="lineno">  433</span>            }</div>
-<div class="line"><span class="lineno">  434</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  435</span>            {</div>
-<div class="line"><span class="lineno">  436</span>                Object.DataBits = 8;</div>
-<div class="line"><span class="lineno">  437</span>            }</div>
-<div class="line"><span class="lineno">  438</span> </div>
-<div class="line"><span class="lineno">  439</span>            test = (byte)(data &amp; 0x10);</div>
-<div class="line"><span class="lineno">  440</span>            <span class="keywordflow">if</span> (!(test == 0x10))</div>
-<div class="line"><span class="lineno">  441</span>            {</div>
-<div class="line"><span class="lineno">  442</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;External clock rate not available on the WolfNet 65C02 WBC!&quot;</span>);</div>
-<div class="line"><span class="lineno">  443</span>            }</div>
-<div class="line"><span class="lineno">  444</span> </div>
-<div class="line"><span class="lineno">  445</span>            test = (byte)(data &amp; 0x0F);</div>
-<div class="line"><span class="lineno">  446</span>            <span class="keywordflow">if</span> (test == 0x00)</div>
-<div class="line"><span class="lineno">  447</span>            {</div>
-<div class="line"><span class="lineno">  448</span>                Object.BaudRate = 115200;</div>
-<div class="line"><span class="lineno">  449</span>            }</div>
-<div class="line"><span class="lineno">  450</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x01)</div>
-<div class="line"><span class="lineno">  451</span>            {</div>
-<div class="line"><span class="lineno">  452</span>                Object.BaudRate = 50;</div>
-<div class="line"><span class="lineno">  453</span>            }</div>
-<div class="line"><span class="lineno">  454</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x02)</div>
-<div class="line"><span class="lineno">  455</span>            {</div>
-<div class="line"><span class="lineno">  456</span>                Object.BaudRate = 75;</div>
-<div class="line"><span class="lineno">  457</span>            }</div>
-<div class="line"><span class="lineno">  458</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x03)</div>
-<div class="line"><span class="lineno">  459</span>            {</div>
-<div class="line"><span class="lineno">  460</span>                Object.BaudRate = 110;</div>
-<div class="line"><span class="lineno">  461</span>            }</div>
-<div class="line"><span class="lineno">  462</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x04)</div>
-<div class="line"><span class="lineno">  463</span>            {</div>
-<div class="line"><span class="lineno">  464</span>                Object.BaudRate = 135;</div>
-<div class="line"><span class="lineno">  465</span>            }</div>
-<div class="line"><span class="lineno">  466</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x05)</div>
-<div class="line"><span class="lineno">  467</span>            {</div>
-<div class="line"><span class="lineno">  468</span>                Object.BaudRate = 150;</div>
-<div class="line"><span class="lineno">  469</span>            }</div>
-<div class="line"><span class="lineno">  470</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x06)</div>
-<div class="line"><span class="lineno">  471</span>            {</div>
-<div class="line"><span class="lineno">  472</span>                Object.BaudRate = 300;</div>
-<div class="line"><span class="lineno">  473</span>            }</div>
-<div class="line"><span class="lineno">  474</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x07)</div>
-<div class="line"><span class="lineno">  475</span>            {</div>
-<div class="line"><span class="lineno">  476</span>                Object.BaudRate = 600;</div>
-<div class="line"><span class="lineno">  477</span>            }</div>
-<div class="line"><span class="lineno">  478</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x08)</div>
-<div class="line"><span class="lineno">  479</span>            {</div>
-<div class="line"><span class="lineno">  480</span>                Object.BaudRate = 1200;</div>
-<div class="line"><span class="lineno">  481</span>            }</div>
-<div class="line"><span class="lineno">  482</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x09)</div>
-<div class="line"><span class="lineno">  483</span>            {</div>
-<div class="line"><span class="lineno">  484</span>                Object.BaudRate = 1800;</div>
-<div class="line"><span class="lineno">  485</span>            }</div>
-<div class="line"><span class="lineno">  486</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0A)</div>
-<div class="line"><span class="lineno">  487</span>            {</div>
-<div class="line"><span class="lineno">  488</span>                Object.BaudRate = 2400;</div>
-<div class="line"><span class="lineno">  489</span>            }</div>
-<div class="line"><span class="lineno">  490</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0B)</div>
-<div class="line"><span class="lineno">  491</span>            {</div>
-<div class="line"><span class="lineno">  492</span>                Object.BaudRate = 3600;</div>
-<div class="line"><span class="lineno">  493</span>            }</div>
-<div class="line"><span class="lineno">  494</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0C)</div>
-<div class="line"><span class="lineno">  495</span>            {</div>
-<div class="line"><span class="lineno">  496</span>                Object.BaudRate = 4800;</div>
-<div class="line"><span class="lineno">  497</span>            }</div>
-<div class="line"><span class="lineno">  498</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0D)</div>
-<div class="line"><span class="lineno">  499</span>            {</div>
-<div class="line"><span class="lineno">  500</span>                Object.BaudRate = 7200;</div>
-<div class="line"><span class="lineno">  501</span>            }</div>
-<div class="line"><span class="lineno">  502</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0E)</div>
-<div class="line"><span class="lineno">  503</span>            {</div>
-<div class="line"><span class="lineno">  504</span>                Object.BaudRate = 9600;</div>
-<div class="line"><span class="lineno">  505</span>            }</div>
-<div class="line"><span class="lineno">  506</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  507</span>            {</div>
-<div class="line"><span class="lineno">  508</span>                Object.BaudRate = 19200;</div>
-<div class="line"><span class="lineno">  509</span>            }</div>
-<div class="line"><span class="lineno">  510</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00400">400</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  401</span>        {</div>
+<div class="line"><span class="lineno">  402</span>            <span class="keywordtype">byte</span> test = (byte)(data &amp; 0x80);</div>
+<div class="line"><span class="lineno">  403</span>            <span class="keywordflow">if</span> (test == 0x80)</div>
+<div class="line"><span class="lineno">  404</span>            {</div>
+<div class="line"><span class="lineno">  405</span>                test = (byte)(data &amp; 0x60);</div>
+<div class="line"><span class="lineno">  406</span>                <span class="keywordflow">if</span> (test == 0x60)</div>
+<div class="line"><span class="lineno">  407</span>                {</div>
+<div class="line"><span class="lineno">  408</span>                    Object.StopBits = StopBits.OnePointFive;</div>
+<div class="line"><span class="lineno">  409</span>                }</div>
+<div class="line"><span class="lineno">  410</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  411</span>                {</div>
+<div class="line"><span class="lineno">  412</span>                    Object.StopBits = StopBits.Two;</div>
+<div class="line"><span class="lineno">  413</span>                }</div>
+<div class="line"><span class="lineno">  414</span>            }</div>
+<div class="line"><span class="lineno">  415</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  416</span>            {</div>
+<div class="line"><span class="lineno">  417</span>                Object.StopBits = StopBits.One;</div>
+<div class="line"><span class="lineno">  418</span>            }</div>
+<div class="line"><span class="lineno">  419</span> </div>
+<div class="line"><span class="lineno">  420</span>            test = (byte)(data &amp; 0x60);</div>
+<div class="line"><span class="lineno">  421</span>            <span class="keywordflow">if</span> (test == 0x20)</div>
+<div class="line"><span class="lineno">  422</span>            {</div>
+<div class="line"><span class="lineno">  423</span>                Object.DataBits = 7;</div>
+<div class="line"><span class="lineno">  424</span>            }</div>
+<div class="line"><span class="lineno">  425</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x40)</div>
+<div class="line"><span class="lineno">  426</span>            {</div>
+<div class="line"><span class="lineno">  427</span>                Object.DataBits = 6;</div>
+<div class="line"><span class="lineno">  428</span>            }</div>
+<div class="line"><span class="lineno">  429</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x60)</div>
+<div class="line"><span class="lineno">  430</span>            {</div>
+<div class="line"><span class="lineno">  431</span>                Object.DataBits = 5;</div>
+<div class="line"><span class="lineno">  432</span>            }</div>
+<div class="line"><span class="lineno">  433</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  434</span>            {</div>
+<div class="line"><span class="lineno">  435</span>                Object.DataBits = 8;</div>
+<div class="line"><span class="lineno">  436</span>            }</div>
+<div class="line"><span class="lineno">  437</span> </div>
+<div class="line"><span class="lineno">  438</span>            test = (byte)(data &amp; 0x10);</div>
+<div class="line"><span class="lineno">  439</span>            <span class="keywordflow">if</span> (!(test == 0x10))</div>
+<div class="line"><span class="lineno">  440</span>            {</div>
+<div class="line"><span class="lineno">  441</span>                <span class="keywordflow">throw</span> <span class="keyword">new</span> ArgumentException(<span class="stringliteral">&quot;External clock rate not available on the WolfNet 65C02 WBC!&quot;</span>);</div>
+<div class="line"><span class="lineno">  442</span>            }</div>
+<div class="line"><span class="lineno">  443</span> </div>
+<div class="line"><span class="lineno">  444</span>            test = (byte)(data &amp; 0x0F);</div>
+<div class="line"><span class="lineno">  445</span>            <span class="keywordflow">if</span> (test == 0x00)</div>
+<div class="line"><span class="lineno">  446</span>            {</div>
+<div class="line"><span class="lineno">  447</span>                Object.BaudRate = 115200;</div>
+<div class="line"><span class="lineno">  448</span>            }</div>
+<div class="line"><span class="lineno">  449</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x01)</div>
+<div class="line"><span class="lineno">  450</span>            {</div>
+<div class="line"><span class="lineno">  451</span>                Object.BaudRate = 50;</div>
+<div class="line"><span class="lineno">  452</span>            }</div>
+<div class="line"><span class="lineno">  453</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x02)</div>
+<div class="line"><span class="lineno">  454</span>            {</div>
+<div class="line"><span class="lineno">  455</span>                Object.BaudRate = 75;</div>
+<div class="line"><span class="lineno">  456</span>            }</div>
+<div class="line"><span class="lineno">  457</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x03)</div>
+<div class="line"><span class="lineno">  458</span>            {</div>
+<div class="line"><span class="lineno">  459</span>                Object.BaudRate = 110;</div>
+<div class="line"><span class="lineno">  460</span>            }</div>
+<div class="line"><span class="lineno">  461</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x04)</div>
+<div class="line"><span class="lineno">  462</span>            {</div>
+<div class="line"><span class="lineno">  463</span>                Object.BaudRate = 135;</div>
+<div class="line"><span class="lineno">  464</span>            }</div>
+<div class="line"><span class="lineno">  465</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x05)</div>
+<div class="line"><span class="lineno">  466</span>            {</div>
+<div class="line"><span class="lineno">  467</span>                Object.BaudRate = 150;</div>
+<div class="line"><span class="lineno">  468</span>            }</div>
+<div class="line"><span class="lineno">  469</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x06)</div>
+<div class="line"><span class="lineno">  470</span>            {</div>
+<div class="line"><span class="lineno">  471</span>                Object.BaudRate = 300;</div>
+<div class="line"><span class="lineno">  472</span>            }</div>
+<div class="line"><span class="lineno">  473</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x07)</div>
+<div class="line"><span class="lineno">  474</span>            {</div>
+<div class="line"><span class="lineno">  475</span>                Object.BaudRate = 600;</div>
+<div class="line"><span class="lineno">  476</span>            }</div>
+<div class="line"><span class="lineno">  477</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x08)</div>
+<div class="line"><span class="lineno">  478</span>            {</div>
+<div class="line"><span class="lineno">  479</span>                Object.BaudRate = 1200;</div>
+<div class="line"><span class="lineno">  480</span>            }</div>
+<div class="line"><span class="lineno">  481</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x09)</div>
+<div class="line"><span class="lineno">  482</span>            {</div>
+<div class="line"><span class="lineno">  483</span>                Object.BaudRate = 1800;</div>
+<div class="line"><span class="lineno">  484</span>            }</div>
+<div class="line"><span class="lineno">  485</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0A)</div>
+<div class="line"><span class="lineno">  486</span>            {</div>
+<div class="line"><span class="lineno">  487</span>                Object.BaudRate = 2400;</div>
+<div class="line"><span class="lineno">  488</span>            }</div>
+<div class="line"><span class="lineno">  489</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0B)</div>
+<div class="line"><span class="lineno">  490</span>            {</div>
+<div class="line"><span class="lineno">  491</span>                Object.BaudRate = 3600;</div>
+<div class="line"><span class="lineno">  492</span>            }</div>
+<div class="line"><span class="lineno">  493</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0C)</div>
+<div class="line"><span class="lineno">  494</span>            {</div>
+<div class="line"><span class="lineno">  495</span>                Object.BaudRate = 4800;</div>
+<div class="line"><span class="lineno">  496</span>            }</div>
+<div class="line"><span class="lineno">  497</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0D)</div>
+<div class="line"><span class="lineno">  498</span>            {</div>
+<div class="line"><span class="lineno">  499</span>                Object.BaudRate = 7200;</div>
+<div class="line"><span class="lineno">  500</span>            }</div>
+<div class="line"><span class="lineno">  501</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (test == 0x0E)</div>
+<div class="line"><span class="lineno">  502</span>            {</div>
+<div class="line"><span class="lineno">  503</span>                Object.BaudRate = 9600;</div>
+<div class="line"><span class="lineno">  504</span>            }</div>
+<div class="line"><span class="lineno">  505</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  506</span>            {</div>
+<div class="line"><span class="lineno">  507</span>                Object.BaudRate = 19200;</div>
+<div class="line"><span class="lineno">  508</span>            }</div>
+<div class="line"><span class="lineno">  509</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>

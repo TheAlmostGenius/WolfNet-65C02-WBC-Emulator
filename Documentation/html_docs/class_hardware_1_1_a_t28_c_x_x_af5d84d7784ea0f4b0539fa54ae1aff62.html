@@ -104,11 +104,12 @@
 <p class="definition">Definition at line <a class="el" href="_a_t28_c_x_x_8cs_source.html#l00153">153</a> of file <a class="el" href="_a_t28_c_x_x_8cs_source.html">AT28CXX.cs</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  154</span>        {</div>
 <div class="line"><span class="lineno">  155</span>            <span class="keywordtype">byte</span>[] _tempMemory = <span class="keyword">new</span> <span class="keywordtype">byte</span>[MemoryMap.BankedRom.Length + 1];</div>
-<div class="line"><span class="lineno">  156</span>            <span class="keywordflow">for</span> (var i = 0; i &lt; MemoryMap.BankedRom.Length; i++) {</div>
-<div class="line"><span class="lineno">  157</span>                _tempMemory[i] = <a class="code hl_property" href="class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf.html#aeaee9f6edadb2e8905bfc8203fb40daf">Memory</a>[bank][i];</div>
-<div class="line"><span class="lineno">  158</span>            }</div>
-<div class="line"><span class="lineno">  159</span>            <span class="keywordflow">return</span> _tempMemory;</div>
-<div class="line"><span class="lineno">  160</span>        }</div>
+<div class="line"><span class="lineno">  156</span>            <span class="keywordflow">for</span> (var i = 0; i &lt; MemoryMap.BankedRom.Length; i++)</div>
+<div class="line"><span class="lineno">  157</span>            {</div>
+<div class="line"><span class="lineno">  158</span>                _tempMemory[i] = <a class="code hl_property" href="class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf.html#aeaee9f6edadb2e8905bfc8203fb40daf">Memory</a>[bank][i];</div>
+<div class="line"><span class="lineno">  159</span>            }</div>
+<div class="line"><span class="lineno">  160</span>            <span class="keywordflow">return</span> _tempMemory;</div>
+<div class="line"><span class="lineno">  161</span>        }</div>
 <div class="ttc" id="aclass_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_html_aeaee9f6edadb2e8905bfc8203fb40daf"><div class="ttname"><a href="class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf.html#aeaee9f6edadb2e8905bfc8203fb40daf">Hardware.AT28CXX.Memory</a></div><div class="ttdeci">byte[][] Memory</div><div class="ttdoc">The ROM.</div><div class="ttdef"><b>Definition:</b> <a href="_a_t28_c_x_x_8cs_source.html#l00017">AT28CXX.cs:17</a></div></div>
 </div><!-- fragment -->
 </div>

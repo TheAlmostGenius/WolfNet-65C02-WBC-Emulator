@@ -1,0 +1,120 @@
+\hypertarget{_memory_visual_view_model_8cs_source}{}\doxysubsection{Memory\+Visual\+View\+Model.\+cs}
+\label{_memory_visual_view_model_8cs_source}\index{Emulator/ViewModel/MemoryVisualViewModel.cs@{Emulator/ViewModel/MemoryVisualViewModel.cs}}
+\mbox{\hyperlink{_memory_visual_view_model_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}};}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }GalaSoft.MvvmLight;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00003}00003 \textcolor{keyword}{using }GalaSoft.MvvmLight.Command;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00004}00004 \textcolor{keyword}{using }GalaSoft.MvvmLight.Messaging;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00005}00005 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_hardware}{Hardware}};}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00006}00006 \textcolor{keyword}{using }System;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00007}00007 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00008}00008 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_view_model}{Emulator.ViewModel}}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00009}00009 \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00010}00010 \textcolor{comment}{    /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00011}00011 \textcolor{comment}{    /// The Main ViewModel}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00012}00012 \textcolor{comment}{    /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00013}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model}{00013}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model}{MemoryVisualViewModel}} : ViewModelBase}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00014}00014     \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00015}00015 \textcolor{preprocessor}{        \#region Fields}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00016}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2_ada11919488b9adda19bcce2ee1fb30b2}{00016}}         \textcolor{keyword}{private} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2_ada11919488b9adda19bcce2ee1fb30b2}{\_memoryPageOffset}};}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00017}00017 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00019}00019 \textcolor{preprocessor}{        \#region Properties}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00021}00021 \textcolor{comment}{        /// The Current Memory Page}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00022}00022 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00023}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2_ae1afb856ffca32ca1f707563d1d1d9b2}{00023}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection}{MultiThreadedObservableCollection<MemoryRowModel>}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2_ae1afb856ffca32ca1f707563d1d1d9b2}{MemoryPage}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00024}00024 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00025}00025 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00026}00026 \textcolor{comment}{        /// The Memory Page number.}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00027}00027 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00028}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aea9071d5d088cdcdf443a26a601ab84a_aea9071d5d088cdcdf443a26a601ab84a}{00028}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{string} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aea9071d5d088cdcdf443a26a601ab84a_aea9071d5d088cdcdf443a26a601ab84a}{MemoryPageOffset}}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00029}00029         \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00030}00030             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2_ada11919488b9adda19bcce2ee1fb30b2}{\_memoryPageOffset}}.ToString(\textcolor{stringliteral}{"{}X"{}}); \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00031}00031             \textcolor{keyword}{set}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00032}00032             \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00033}00033                 \textcolor{keywordflow}{if} (\textcolor{keywordtype}{string}.IsNullOrEmpty(value))}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00034}00034                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00035}00035                 \textcolor{keywordflow}{try}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00036}00036                 \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00037}00037                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2_ada11919488b9adda19bcce2ee1fb30b2}{\_memoryPageOffset}} = Convert.ToInt32(value, 16);}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00038}00038                 \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00039}00039                 \textcolor{keywordflow}{catch} \{ \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00040}00040             \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00041}00041         \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00042}00042 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00043}00043 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00044}00044 \textcolor{comment}{        /// Relay Command that updates the Memory Map when the Page changes}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00045}00045 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00046}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba_aed488880cecb97345853fc6b3916d3ba}{00046}} \textcolor{comment}{}        \textcolor{keyword}{public} RelayCommand \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba_aed488880cecb97345853fc6b3916d3ba}{UpdateMemoryMapCommand}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00047}00047 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00049}00049 \textcolor{preprocessor}{        \#region public Methods}\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00050}00050 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00051}00051 \textcolor{comment}{        /// Creates a new Instance of the MemoryVisualViewModel.}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00052}00052 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00053}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_acba7dc8aa7337551dcc41b9895f9fa81_acba7dc8aa7337551dcc41b9895f9fa81}{00053}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_acba7dc8aa7337551dcc41b9895f9fa81_acba7dc8aa7337551dcc41b9895f9fa81}{MemoryVisualViewModel}}()}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00054}00054         \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00055}00055             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba_aed488880cecb97345853fc6b3916d3ba}{UpdateMemoryMapCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3_a1757c6638529648cb3c3b0037e50dfa3}{UpdateMemoryPage}});}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00057}00057             Messenger.Default.Register<NotificationMessage>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aaca3710eacbe6076d17d9c4af0c4fe9a_aaca3710eacbe6076d17d9c4af0c4fe9a}{GenericNotification}});}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00059}00059             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2_ae1afb856ffca32ca1f707563d1d1d9b2}{MemoryPage}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_multi_threaded_observable_collection}{MultiThreadedObservableCollection<MemoryRowModel>}}();}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00061}00061             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3_a1757c6638529648cb3c3b0037e50dfa3}{UpdateMemoryPage}}();}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00062}00062             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4_afa92b335f9e4b806b6e70778fa3209d4}{UpdateUi}}();}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00063}00063         \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00065}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aaca3710eacbe6076d17d9c4af0c4fe9a_aaca3710eacbe6076d17d9c4af0c4fe9a}{00065}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_aaca3710eacbe6076d17d9c4af0c4fe9a_aaca3710eacbe6076d17d9c4af0c4fe9a}{GenericNotification}}(NotificationMessage notificationMessage)}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00066}00066         \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00067}00067             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}UpdateMemoryPage"{}})}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00068}00068             \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00069}00069                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3_a1757c6638529648cb3c3b0037e50dfa3}{UpdateMemoryPage}}();}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00070}00070                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4_afa92b335f9e4b806b6e70778fa3209d4}{UpdateUi}}();}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00071}00071             \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00072}00072         \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00073}00073 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00074}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3_a1757c6638529648cb3c3b0037e50dfa3}{00074}}         \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3_a1757c6638529648cb3c3b0037e50dfa3}{UpdateMemoryPage}}()}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00075}00075         \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00076}00076             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2_ae1afb856ffca32ca1f707563d1d1d9b2}{MemoryPage}}.Clear();}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00077}00077             var offset = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2_ada11919488b9adda19bcce2ee1fb30b2}{\_memoryPageOffset}} * 256;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00078}00078 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00079}00079             var multiplyer = 0;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00080}00080             \textcolor{keywordflow}{for} (ushort i = (ushort)offset; i < 256 * (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2_ada11919488b9adda19bcce2ee1fb30b2}{\_memoryPageOffset}} + 1); i++)}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00081}00081             \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00082}00082                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2_ae1afb856ffca32ca1f707563d1d1d9b2}{MemoryPage}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model}{MemoryRowModel}}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00083}00083                 \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00084}00084                     Offset = ((16 * multiplyer) + offset).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(4, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00085}00085                     Location00 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00086}00086                     Location01 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00087}00087                     Location02 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00088}00088                     Location03 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00089}00089                     Location04 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00090}00090                     Location05 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00091}00091                     Location06 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00092}00092                     Location07 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00093}00093                     Location08 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00094}00094                     Location09 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00095}00095                     Location0A = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00096}00096                     Location0B = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00097}00097                     Location0C = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00098}00098                     Location0D = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00099}00099                     Location0E = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00100}00100                     Location0F = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00101}00101                 \});}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00102}00102                 multiplyer++;}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00103}00103             \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00104}00104         \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00105}00105 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00106}00106 }
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00107}00107 \textcolor{preprocessor}{        \#region Private Methods}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00108}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4_afa92b335f9e4b806b6e70778fa3209d4}{00108}}         \textcolor{keyword}{private} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4_afa92b335f9e4b806b6e70778fa3209d4}{UpdateUi}}()}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00109}00109         \{}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00110}00110             RaisePropertyChanged(\textcolor{stringliteral}{"{}MemoryPage"{}});}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00111}00111         \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00112}00112 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{_memory_visual_view_model_8cs_source_l00114}00114 \}}
+
+\end{DoxyCode}

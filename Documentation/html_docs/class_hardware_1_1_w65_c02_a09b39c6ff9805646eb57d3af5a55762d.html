@@ -141,27 +141,27 @@
 
 <p>Moves the ProgramCounter in a given direction based on the value inputted </p>
 
-<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l01476">1476</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1477</span>        {</div>
-<div class="line"><span class="lineno"> 1478</span>            var movement = valueToMove &gt; 127 ? (valueToMove - 255) : valueToMove;</div>
-<div class="line"><span class="lineno"> 1479</span> </div>
-<div class="line"><span class="lineno"> 1480</span>            var newProgramCounter = <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> + movement;</div>
-<div class="line"><span class="lineno"> 1481</span> </div>
-<div class="line"><span class="lineno"> 1482</span>            <span class="comment">//This makes sure that we always land on the correct spot for a positive number</span></div>
-<div class="line"><span class="lineno"> 1483</span>            <span class="keywordflow">if</span> (movement &gt;= 0)</div>
-<div class="line"><span class="lineno"> 1484</span>                newProgramCounter++;</div>
-<div class="line"><span class="lineno"> 1485</span> </div>
-<div class="line"><span class="lineno"> 1486</span>            <span class="comment">//We Crossed a Page Boundary. So we increment the cycle counter by one. The +1 is because we always check from the end of the instruction not the beginning</span></div>
-<div class="line"><span class="lineno"> 1487</span>            <span class="keywordflow">if</span> (((<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> + 1 ^ newProgramCounter) &amp; 0xff00) != 0x0000)</div>
-<div class="line"><span class="lineno"> 1488</span>            {</div>
-<div class="line"><span class="lineno"> 1489</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">IncrementCycleCount</a>();</div>
-<div class="line"><span class="lineno"> 1490</span>            }</div>
-<div class="line"><span class="lineno"> 1491</span> </div>
-<div class="line"><span class="lineno"> 1492</span>            <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> = newProgramCounter;</div>
-<div class="line"><span class="lineno"> 1493</span>            MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>);</div>
-<div class="line"><span class="lineno"> 1494</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_html_ad953847ee02d563ea055be5f70976247"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">Hardware.W65C02.ProgramCounter</a></div><div class="ttdeci">int ProgramCounter</div><div class="ttdoc">Points to the Current Address of the instruction being executed by the system. The PC wraps when the ...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00060">W65C02.cs:61</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245_html_aeed967d6db628ec61f047dd0d79ca245"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">Hardware.W65C02.IncrementCycleCount</a></div><div class="ttdeci">void IncrementCycleCount()</div><div class="ttdoc">Increments the Cycle Count, causes a CycleCountIncrementedAction to fire.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00217">W65C02.cs:217</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l01475">1475</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1476</span>        {</div>
+<div class="line"><span class="lineno"> 1477</span>            var movement = valueToMove &gt; 127 ? (valueToMove - 255) : valueToMove;</div>
+<div class="line"><span class="lineno"> 1478</span> </div>
+<div class="line"><span class="lineno"> 1479</span>            var newProgramCounter = <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> + movement;</div>
+<div class="line"><span class="lineno"> 1480</span> </div>
+<div class="line"><span class="lineno"> 1481</span>            <span class="comment">//This makes sure that we always land on the correct spot for a positive number</span></div>
+<div class="line"><span class="lineno"> 1482</span>            <span class="keywordflow">if</span> (movement &gt;= 0)</div>
+<div class="line"><span class="lineno"> 1483</span>                newProgramCounter++;</div>
+<div class="line"><span class="lineno"> 1484</span> </div>
+<div class="line"><span class="lineno"> 1485</span>            <span class="comment">//We Crossed a Page Boundary. So we increment the cycle counter by one. The +1 is because we always check from the end of the instruction not the beginning</span></div>
+<div class="line"><span class="lineno"> 1486</span>            <span class="keywordflow">if</span> (((<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> + 1 ^ newProgramCounter) &amp; 0xff00) != 0x0000)</div>
+<div class="line"><span class="lineno"> 1487</span>            {</div>
+<div class="line"><span class="lineno"> 1488</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">IncrementCycleCount</a>();</div>
+<div class="line"><span class="lineno"> 1489</span>            }</div>
+<div class="line"><span class="lineno"> 1490</span> </div>
+<div class="line"><span class="lineno"> 1491</span>            <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> = newProgramCounter;</div>
+<div class="line"><span class="lineno"> 1492</span>            MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>);</div>
+<div class="line"><span class="lineno"> 1493</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_html_ad953847ee02d563ea055be5f70976247"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">Hardware.W65C02.ProgramCounter</a></div><div class="ttdeci">int ProgramCounter</div><div class="ttdoc">Points to the Current Address of the instruction being executed by the system. The PC wraps when the ...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00059">W65C02.cs:60</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245_html_aeed967d6db628ec61f047dd0d79ca245"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">Hardware.W65C02.IncrementCycleCount</a></div><div class="ttdeci">void IncrementCycleCount()</div><div class="ttdoc">Increments the Cycle Count, causes a CycleCountIncrementedAction to fire.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00216">W65C02.cs:216</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

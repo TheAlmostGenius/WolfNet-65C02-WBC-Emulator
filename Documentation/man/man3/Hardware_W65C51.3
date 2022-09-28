@@ -1,4 +1,4 @@
-.TH "Hardware.W65C51" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Hardware.W65C51" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -147,71 +147,71 @@ Hardware.W65C51 \- An implementation of a \fBW65C51\fP ACIA\&.
 .PP 
 An implementation of a \fBW65C51\fP ACIA\&.  
 .PP
-Definition at line \fB13\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB12\fP of file \fBW65C51\&.cs\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Hardware\&.W65C51\&.W65C51 (\fBW65C02\fP processor, byte offset)\fC [inline]\fP"
 
 .PP
-Definition at line \fB41\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB40\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-42         {
-43             if (offset > MemoryMap\&.DeviceArea\&.Length)
-44                 throw new ArgumentException(String\&.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap\&.DeviceArea\&.Length));
-45             
-46             Processor = processor;
-47 
-48             Offset = MemoryMap\&.DeviceArea\&.Offset | offset;
-49             Length = 0x04;
-50             Memory = new byte[Length + 1];
-51 
-52             _backgroundWorker = new BackgroundWorker
-53             {
-54                 WorkerSupportsCancellation = true
-55             };
-56             _backgroundWorker\&.DoWork += BackgroundWorkerDoWork;
-57             _backgroundWorker\&.RunWorkerAsync();
-58         }
+41         {
+42             if (offset > MemoryMap\&.DeviceArea\&.Length)
+43                 throw new ArgumentException(String\&.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap\&.DeviceArea\&.Length));
+44 
+45             Processor = processor;
+46 
+47             Offset = MemoryMap\&.DeviceArea\&.Offset | offset;
+48             Length = 0x04;
+49             Memory = new byte[Length + 1];
+50 
+51             _backgroundWorker = new BackgroundWorker
+52             {
+53                 WorkerSupportsCancellation = true
+54             };
+55             _backgroundWorker\&.DoWork += BackgroundWorkerDoWork;
+56             _backgroundWorker\&.RunWorkerAsync();
+57         }
 .fi
 .SH "Member Function Documentation"
 .PP 
 .SS "void Hardware\&.W65C51\&.BackgroundWorkerDoWork (object sender, DoWorkEventArgs e)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB678\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB677\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-679         {
-680             var worker = sender as BackgroundWorker;
-681 
-682             while (true)
-683             {
-684                 if (worker != null && worker\&.CancellationPending)
-685                 {
-686                     e\&.Cancel = true;
-687                     return;
-688                 }
-689 
-690                 if (Processor\&.isRunning)
-691                 {
-692                     if (ReceiverFull || Overrun)
-693                     {
-694                         Memory[Offset + 1] = (byte)(Memory[Offset + 1] | 0x80);
-695                         Interrupted = true;
-696                         Processor\&.InterruptRequest();
-697                     }
-698 
-699                     if (DataRead)
-700                     {
-701                         ReceiverFull = false;
-702                         Interrupted = false;
-703                         Overrun = false;
-704                         DataRead = false;
-705                     }
-706                 }
-707             }
-708         }
+678         {
+679             var worker = sender as BackgroundWorker;
+680 
+681             while (true)
+682             {
+683                 if (worker != null && worker\&.CancellationPending)
+684                 {
+685                     e\&.Cancel = true;
+686                     return;
+687                 }
+688 
+689                 if (Processor\&.isRunning)
+690                 {
+691                     if (ReceiverFull || Overrun)
+692                     {
+693                         Memory[Offset + 1] = (byte)(Memory[Offset + 1] | 0x80);
+694                         Interrupted = true;
+695                         Processor\&.InterruptRequest();
+696                     }
+697 
+698                     if (DataRead)
+699                     {
+700                         ReceiverFull = false;
+701                         Interrupted = false;
+702                         Overrun = false;
+703                         DataRead = false;
+704                     }
+705                 }
+706             }
+707         }
 .fi
 .SS "void Hardware\&.W65C51\&.ComFini (SerialPort serialPort)\fC [inline]\fP, \fC [private]\fP"
 
@@ -225,18 +225,18 @@ Called when the window is closed\&.
 .PP
 
 .PP
-Definition at line \fB196\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB195\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-197         {
-198             if (serialPort != null)
-199             {
-200                 serialPort\&.Close();
-201             }
-202 
-203             _backgroundWorker\&.CancelAsync();
-204             _backgroundWorker\&.DoWork -= BackgroundWorkerDoWork;
-205         }
+196         {
+197             if (serialPort != null)
+198             {
+199                 serialPort\&.Close();
+200             }
+201 
+202             _backgroundWorker\&.CancelAsync();
+203             _backgroundWorker\&.DoWork -= BackgroundWorkerDoWork;
+204         }
 .fi
 .SS "void Hardware\&.W65C51\&.ComInit (SerialPort serialPort)\fC [inline]\fP, \fC [private]\fP"
 
@@ -250,460 +250,460 @@ Called whenever the ACIA is initialized\&.
 .PP
 
 .PP
-Definition at line \fB148\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB147\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-149         {
-150             try
-151             {
-152                 serialPort\&.Open();
-153             }
-154             catch (UnauthorizedAccessException w)
-155             {
-156                 FileStream file = new FileStream(FileLocations\&.ErrorFile, FileMode\&.OpenOrCreate, FileAccess\&.ReadWrite);
-157                 StreamWriter stream = new StreamWriter(file);
-158                 stream\&.WriteLine(w\&.Message);
-159                 stream\&.WriteLine(w\&.Source);
-160                 stream\&.Flush();
-161                 file\&.Flush();
-162                 stream\&.Close();
-163                 file\&.Close();
-164                 return;
-165             }
-166             serialPort\&.ReadTimeout = 50;
-167             serialPort\&.WriteTimeout = 50;
-168             serialPort\&.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceived);
-169             try
-170             {
-171                 serialPort\&.Write("---------------------------\r\n");
-172                 serialPort\&.Write(" WolfNet 6502 WBC Emulator\r\n");
-173                 serialPort\&.Write("---------------------------\r\n");
-174                 serialPort\&.Write("\r\n");
-175             }
-176             catch (TimeoutException t)
-177             {
-178                 _ = t;
-179                 FileStream file = new FileStream(FileLocations\&.ErrorFile, FileMode\&.OpenOrCreate, FileAccess\&.ReadWrite);
-180                 StreamWriter stream = new StreamWriter(file);
-181                 stream\&.WriteLine("Read/Write error: Port timed out!");
-182                 stream\&.WriteLine("Please ensure all cables are connected properly!");
-183                 stream\&.Flush();
-184                 file\&.Flush();
-185                 stream\&.Close();
-186                 file\&.Close();
-187                 return;
-188             }
-189         }
+148         {
+149             try
+150             {
+151                 serialPort\&.Open();
+152             }
+153             catch (UnauthorizedAccessException w)
+154             {
+155                 FileStream file = new FileStream(FileLocations\&.ErrorFile, FileMode\&.OpenOrCreate, FileAccess\&.ReadWrite);
+156                 StreamWriter stream = new StreamWriter(file);
+157                 stream\&.WriteLine(w\&.Message);
+158                 stream\&.WriteLine(w\&.Source);
+159                 stream\&.Flush();
+160                 file\&.Flush();
+161                 stream\&.Close();
+162                 file\&.Close();
+163                 return;
+164             }
+165             serialPort\&.ReadTimeout = 50;
+166             serialPort\&.WriteTimeout = 50;
+167             serialPort\&.DataReceived += new SerialDataReceivedEventHandler(SerialDataReceived);
+168             try
+169             {
+170                 serialPort\&.Write("---------------------------\r\n");
+171                 serialPort\&.Write(" WolfNet 6502 WBC Emulator\r\n");
+172                 serialPort\&.Write("---------------------------\r\n");
+173                 serialPort\&.Write("\r\n");
+174             }
+175             catch (TimeoutException t)
+176             {
+177                 _ = t;
+178                 FileStream file = new FileStream(FileLocations\&.ErrorFile, FileMode\&.OpenOrCreate, FileAccess\&.ReadWrite);
+179                 StreamWriter stream = new StreamWriter(file);
+180                 stream\&.WriteLine("Read/Write error: Port timed out!");
+181                 stream\&.WriteLine("Please ensure all cables are connected properly!");
+182                 stream\&.Flush();
+183                 file\&.Flush();
+184                 stream\&.Close();
+185                 file\&.Close();
+186                 return;
+187             }
+188         }
 .fi
 .SS "void Hardware\&.W65C51\&.CommandRegister (byte data)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB297\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB296\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-298         {
-299             byte test = (byte)(data & 0x20);
-300             if (test == 0x20)
-301             {
-302                 throw new ArgumentException("Parity must NEVER be enabled!");
-303             }
-304 
-305             test = (byte)(data & 0x10);
-306             if (test == 0x10)
-307             {
-308                 EchoMode = true;
-309             }
-310             else
-311             {
-312                 EchoMode = false;
-313             }
-314 
-315             test = (byte)(data & 0x0C);
-316             if (test == 0x00)
-317             {
-318                 Object\&.Handshake = Handshake\&.None;
-319                 Object\&.RtsEnable = true;
-320                 Object\&.Handshake = Handshake\&.RequestToSend;
-321             }
-322             else if (test == 0x04)
-323             {
-324                 Object\&.Handshake = Handshake\&.None;
-325                 Object\&.RtsEnable = false;
-326             }
-327             else if ((test == 0x08) || (test == 0x0C))
-328             {
-329                 throw new NotImplementedException("This cannot be emulated on windows!");
-330             }
-331             else
-332             {
-333                 throw new ArgumentOutOfRangeException("RtsControl is invalid!");
-334             }
-335 
-336             test = (byte)(data & 0x02);
-337             if (test == 0x02)
-338             {
-339                 InterruptDisabled = true;
-340             }
-341             else
-342             {
-343                 InterruptDisabled = false;
-344             }
-345 
-346             test = (byte)(data & 0x01);
-347             if (test == 0x01)
-348             {
-349                 Object\&.DtrEnable = true;
-350             }
-351             else
-352             {
-353                 Object\&.DtrEnable= false;
-354             }
-355         }
+297         {
+298             byte test = (byte)(data & 0x20);
+299             if (test == 0x20)
+300             {
+301                 throw new ArgumentException("Parity must NEVER be enabled!");
+302             }
+303 
+304             test = (byte)(data & 0x10);
+305             if (test == 0x10)
+306             {
+307                 EchoMode = true;
+308             }
+309             else
+310             {
+311                 EchoMode = false;
+312             }
+313 
+314             test = (byte)(data & 0x0C);
+315             if (test == 0x00)
+316             {
+317                 Object\&.Handshake = Handshake\&.None;
+318                 Object\&.RtsEnable = true;
+319                 Object\&.Handshake = Handshake\&.RequestToSend;
+320             }
+321             else if (test == 0x04)
+322             {
+323                 Object\&.Handshake = Handshake\&.None;
+324                 Object\&.RtsEnable = false;
+325             }
+326             else if ((test == 0x08) || (test == 0x0C))
+327             {
+328                 throw new NotImplementedException("This cannot be emulated on windows!");
+329             }
+330             else
+331             {
+332                 throw new ArgumentOutOfRangeException("RtsControl is invalid!");
+333             }
+334 
+335             test = (byte)(data & 0x02);
+336             if (test == 0x02)
+337             {
+338                 InterruptDisabled = true;
+339             }
+340             else
+341             {
+342                 InterruptDisabled = false;
+343             }
+344 
+345             test = (byte)(data & 0x01);
+346             if (test == 0x01)
+347             {
+348                 Object\&.DtrEnable = true;
+349             }
+350             else
+351             {
+352                 Object\&.DtrEnable = false;
+353             }
+354         }
 .fi
 .SS "void Hardware\&.W65C51\&.CommandRegisterUpdate ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB357\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB356\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-358         {
-359             byte data = Memory[Offset + 2];
-360 
-361             if (ParityEnabled)
-362             {
-363                 data |= 0x20;
-364             }
-365             else
-366             {
-367                 data &= 0xD0;
-368             }
-369 
-370             if (EchoMode)
-371             {
-372                 data |= 0x10;
-373             }
-374             else
-375             {
-376                 data &= 0xE0;
-377             }
-378 
-379             data &= RtsControl;
-380 
-381             if (InterruptDisabled)
-382             {
-383                 data |= 0x02;
-384             }
-385             else
-386             {
-387                 data &= 0x0D;
-388             }
-389             if (Object\&.DtrEnable)
-390             {
-391                 data |= 0x01;
-392             }
-393             else
-394             {
-395                 data &= 0x0E;
-396             }
-397 
-398             Memory[Offset + 2] = data;
-399         }
+357         {
+358             byte data = Memory[Offset + 2];
+359 
+360             if (ParityEnabled)
+361             {
+362                 data |= 0x20;
+363             }
+364             else
+365             {
+366                 data &= 0xD0;
+367             }
+368 
+369             if (EchoMode)
+370             {
+371                 data |= 0x10;
+372             }
+373             else
+374             {
+375                 data &= 0xE0;
+376             }
+377 
+378             data &= RtsControl;
+379 
+380             if (InterruptDisabled)
+381             {
+382                 data |= 0x02;
+383             }
+384             else
+385             {
+386                 data &= 0x0D;
+387             }
+388             if (Object\&.DtrEnable)
+389             {
+390                 data |= 0x01;
+391             }
+392             else
+393             {
+394                 data &= 0x0E;
+395             }
+396 
+397             Memory[Offset + 2] = data;
+398         }
 .fi
 .SS "void Hardware\&.W65C51\&.ControlRegister (byte data)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB401\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB400\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-402         {
-403             byte test = (byte)(data & 0x80);
-404             if (test == 0x80)
-405             {
-406                 test = (byte)(data & 0x60);
-407                 if (test == 0x60)
-408                 {
-409                     Object\&.StopBits = StopBits\&.OnePointFive;
-410                 }
-411                 else
-412                 {
-413                     Object\&.StopBits = StopBits\&.Two;
-414                 }
-415             }
-416             else
-417             {
-418                 Object\&.StopBits = StopBits\&.One;
-419             }
-420 
-421             test = (byte)(data & 0x60);
-422             if (test == 0x20)
-423             {
-424                 Object\&.DataBits = 7;
-425             }
-426             else if (test == 0x40)
-427             {
-428                 Object\&.DataBits = 6;
-429             }
-430             else if (test == 0x60)
-431             {
-432                 Object\&.DataBits = 5;
-433             }
-434             else
-435             {
-436                 Object\&.DataBits = 8;
-437             }
-438 
-439             test = (byte)(data & 0x10);
-440             if (!(test == 0x10))
-441             {
-442                 throw new ArgumentException("External clock rate not available on the WolfNet 65C02 WBC!");
-443             }
-444 
-445             test = (byte)(data & 0x0F);
-446             if (test == 0x00)
-447             {
-448                 Object\&.BaudRate = 115200;
-449             }
-450             else if (test == 0x01)
-451             {
-452                 Object\&.BaudRate = 50;
-453             }
-454             else if (test == 0x02)
-455             {
-456                 Object\&.BaudRate = 75;
-457             }
-458             else if (test == 0x03)
-459             {
-460                 Object\&.BaudRate = 110;
-461             }
-462             else if (test == 0x04)
-463             {
-464                 Object\&.BaudRate = 135;
-465             }
-466             else if (test == 0x05)
-467             {
-468                 Object\&.BaudRate = 150;
-469             }
-470             else if (test == 0x06)
-471             {
-472                 Object\&.BaudRate = 300;
-473             }
-474             else if (test == 0x07)
-475             {
-476                 Object\&.BaudRate = 600;
-477             }
-478             else if (test == 0x08)
-479             {
-480                 Object\&.BaudRate = 1200;
-481             }
-482             else if (test == 0x09)
-483             {
-484                 Object\&.BaudRate = 1800;
-485             }
-486             else if (test == 0x0A)
-487             {
-488                 Object\&.BaudRate = 2400;
-489             }
-490             else if (test == 0x0B)
-491             {
-492                 Object\&.BaudRate = 3600;
-493             }
-494             else if (test == 0x0C)
-495             {
-496                 Object\&.BaudRate = 4800;
-497             }
-498             else if (test == 0x0D)
-499             {
-500                 Object\&.BaudRate = 7200;
-501             }
-502             else if (test == 0x0E)
-503             {
-504                 Object\&.BaudRate = 9600;
-505             }
-506             else
-507             {
-508                 Object\&.BaudRate = 19200;
-509             }
-510         }
+401         {
+402             byte test = (byte)(data & 0x80);
+403             if (test == 0x80)
+404             {
+405                 test = (byte)(data & 0x60);
+406                 if (test == 0x60)
+407                 {
+408                     Object\&.StopBits = StopBits\&.OnePointFive;
+409                 }
+410                 else
+411                 {
+412                     Object\&.StopBits = StopBits\&.Two;
+413                 }
+414             }
+415             else
+416             {
+417                 Object\&.StopBits = StopBits\&.One;
+418             }
+419 
+420             test = (byte)(data & 0x60);
+421             if (test == 0x20)
+422             {
+423                 Object\&.DataBits = 7;
+424             }
+425             else if (test == 0x40)
+426             {
+427                 Object\&.DataBits = 6;
+428             }
+429             else if (test == 0x60)
+430             {
+431                 Object\&.DataBits = 5;
+432             }
+433             else
+434             {
+435                 Object\&.DataBits = 8;
+436             }
+437 
+438             test = (byte)(data & 0x10);
+439             if (!(test == 0x10))
+440             {
+441                 throw new ArgumentException("External clock rate not available on the WolfNet 65C02 WBC!");
+442             }
+443 
+444             test = (byte)(data & 0x0F);
+445             if (test == 0x00)
+446             {
+447                 Object\&.BaudRate = 115200;
+448             }
+449             else if (test == 0x01)
+450             {
+451                 Object\&.BaudRate = 50;
+452             }
+453             else if (test == 0x02)
+454             {
+455                 Object\&.BaudRate = 75;
+456             }
+457             else if (test == 0x03)
+458             {
+459                 Object\&.BaudRate = 110;
+460             }
+461             else if (test == 0x04)
+462             {
+463                 Object\&.BaudRate = 135;
+464             }
+465             else if (test == 0x05)
+466             {
+467                 Object\&.BaudRate = 150;
+468             }
+469             else if (test == 0x06)
+470             {
+471                 Object\&.BaudRate = 300;
+472             }
+473             else if (test == 0x07)
+474             {
+475                 Object\&.BaudRate = 600;
+476             }
+477             else if (test == 0x08)
+478             {
+479                 Object\&.BaudRate = 1200;
+480             }
+481             else if (test == 0x09)
+482             {
+483                 Object\&.BaudRate = 1800;
+484             }
+485             else if (test == 0x0A)
+486             {
+487                 Object\&.BaudRate = 2400;
+488             }
+489             else if (test == 0x0B)
+490             {
+491                 Object\&.BaudRate = 3600;
+492             }
+493             else if (test == 0x0C)
+494             {
+495                 Object\&.BaudRate = 4800;
+496             }
+497             else if (test == 0x0D)
+498             {
+499                 Object\&.BaudRate = 7200;
+500             }
+501             else if (test == 0x0E)
+502             {
+503                 Object\&.BaudRate = 9600;
+504             }
+505             else
+506             {
+507                 Object\&.BaudRate = 19200;
+508             }
+509         }
 .fi
 .SS "void Hardware\&.W65C51\&.ControlRegisterUpdate ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB512\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB511\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-513         {
-514             byte controlRegister = Memory[Offset + 3];
-515 
-516             if (Object\&.StopBits == StopBits\&.Two)
-517             {
-518                 controlRegister |= 0x80;
-519             }
-520             else if ((Object\&.StopBits == StopBits\&.OnePointFive) && (Object\&.DataBits == 5) || (Object\&.StopBits == StopBits\&.One))
-521             {
-522                 controlRegister &= 0x7F;
-523             }
-524             else
-525             {
-526                 throw new ArgumentOutOfRangeException("StopBits or combination of StopBits and DataBits is invalid!");
-527             }
-528 
-529             if (Object\&.DataBits == 8)
-530             {
-531                 controlRegister &= 0x9F;
-532             }
-533             else if (Object\&.DataBits == 7)
-534             {
-535                 controlRegister |= 0x20;
-536             }
-537             else if (Object\&.DataBits == 6)
-538             {
-539                 controlRegister |= 0x40;
-540             }
-541             else if (Object\&.DataBits == 5)
-542             {
-543                 controlRegister |= 0x60;
-544             }
-545             else
-546             {
-547                 throw new ArgumentOutOfRangeException("DataBits is out of range!");
-548             }
-549 
-550             if (Object\&.BaudRate == 115200)
-551             {
-552                 controlRegister &= 0xF0;
-553             }
-554             else if (Object\&.BaudRate == 50)
-555             {
-556                 controlRegister |= 0x01;
-557             }
-558             else if (Object\&.BaudRate == 75)
-559             {
-560                 controlRegister |= 0x02;
-561             }
-562             else if (Object\&.BaudRate == 110)
-563             {
-564                 controlRegister |= 0x03;
-565             }
-566             else if (Object\&.BaudRate == 135)
-567             {
-568                 controlRegister |= 0x04;
-569             }
-570             else if (Object\&.BaudRate == 150)
-571             {
-572                 controlRegister |= 0x05;
-573             }
-574             else if (Object\&.BaudRate == 300)
-575             {
-576                 controlRegister |= 0x06;
-577             }
-578             else if (Object\&.BaudRate == 600)
-579             {
-580                 controlRegister |= 0x07;
-581             }
-582             else if (Object\&.BaudRate == 1200)
-583             {
-584                 controlRegister |= 0x08;
-585             }
-586             else if (Object\&.BaudRate == 1800)
-587             {
-588                 controlRegister |= 0x09;
-589             }
-590             else if (Object\&.BaudRate == 2400)
-591             {
-592                 controlRegister |= 0x0A;
-593             }
-594             else if (Object\&.BaudRate == 3600)
-595             {
-596                 controlRegister |= 0x0B;
-597             }
-598             else if (Object\&.BaudRate == 4800)
-599             {
-600                 controlRegister |= 0x0C;
-601             }
-602             else if (Object\&.BaudRate == 7200)
-603             {
-604                 controlRegister |= 0x0D;
-605             }
-606             else if (Object\&.BaudRate == 9600)
-607             {
-608                 controlRegister |= 0x0E;
-609             }
-610             else if (Object\&.BaudRate == 19200)
-611             {
-612                 controlRegister |= 0x0F;
-613             }
-614             else
-615             {
-616                 throw new ArgumentOutOfRangeException("BaudRate is outside the range of Baud Rates supported by the W65C51!");
-617             }
-618 
-619             Memory[Offset + 3] = controlRegister;
-620         }
+512         {
+513             byte controlRegister = Memory[Offset + 3];
+514 
+515             if (Object\&.StopBits == StopBits\&.Two)
+516             {
+517                 controlRegister |= 0x80;
+518             }
+519             else if ((Object\&.StopBits == StopBits\&.OnePointFive) && (Object\&.DataBits == 5) || (Object\&.StopBits == StopBits\&.One))
+520             {
+521                 controlRegister &= 0x7F;
+522             }
+523             else
+524             {
+525                 throw new ArgumentOutOfRangeException("StopBits or combination of StopBits and DataBits is invalid!");
+526             }
+527 
+528             if (Object\&.DataBits == 8)
+529             {
+530                 controlRegister &= 0x9F;
+531             }
+532             else if (Object\&.DataBits == 7)
+533             {
+534                 controlRegister |= 0x20;
+535             }
+536             else if (Object\&.DataBits == 6)
+537             {
+538                 controlRegister |= 0x40;
+539             }
+540             else if (Object\&.DataBits == 5)
+541             {
+542                 controlRegister |= 0x60;
+543             }
+544             else
+545             {
+546                 throw new ArgumentOutOfRangeException("DataBits is out of range!");
+547             }
+548 
+549             if (Object\&.BaudRate == 115200)
+550             {
+551                 controlRegister &= 0xF0;
+552             }
+553             else if (Object\&.BaudRate == 50)
+554             {
+555                 controlRegister |= 0x01;
+556             }
+557             else if (Object\&.BaudRate == 75)
+558             {
+559                 controlRegister |= 0x02;
+560             }
+561             else if (Object\&.BaudRate == 110)
+562             {
+563                 controlRegister |= 0x03;
+564             }
+565             else if (Object\&.BaudRate == 135)
+566             {
+567                 controlRegister |= 0x04;
+568             }
+569             else if (Object\&.BaudRate == 150)
+570             {
+571                 controlRegister |= 0x05;
+572             }
+573             else if (Object\&.BaudRate == 300)
+574             {
+575                 controlRegister |= 0x06;
+576             }
+577             else if (Object\&.BaudRate == 600)
+578             {
+579                 controlRegister |= 0x07;
+580             }
+581             else if (Object\&.BaudRate == 1200)
+582             {
+583                 controlRegister |= 0x08;
+584             }
+585             else if (Object\&.BaudRate == 1800)
+586             {
+587                 controlRegister |= 0x09;
+588             }
+589             else if (Object\&.BaudRate == 2400)
+590             {
+591                 controlRegister |= 0x0A;
+592             }
+593             else if (Object\&.BaudRate == 3600)
+594             {
+595                 controlRegister |= 0x0B;
+596             }
+597             else if (Object\&.BaudRate == 4800)
+598             {
+599                 controlRegister |= 0x0C;
+600             }
+601             else if (Object\&.BaudRate == 7200)
+602             {
+603                 controlRegister |= 0x0D;
+604             }
+605             else if (Object\&.BaudRate == 9600)
+606             {
+607                 controlRegister |= 0x0E;
+608             }
+609             else if (Object\&.BaudRate == 19200)
+610             {
+611                 controlRegister |= 0x0F;
+612             }
+613             else
+614             {
+615                 throw new ArgumentOutOfRangeException("BaudRate is outside the range of Baud Rates supported by the W65C51!");
+616             }
+617 
+618             Memory[Offset + 3] = controlRegister;
+619         }
 .fi
 .SS "void Hardware\&.W65C51\&.Fini ()\fC [inline]\fP"
 
 .PP
 Called when the window is closed\&.  
 .PP
-Definition at line \fB95\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB94\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-96         {
-97             ComFini(Object);
-98         }
+95         {
+96             ComFini(Object);
+97         }
 .fi
 .SS "void Hardware\&.W65C51\&.HardwarePreRead (int address)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB274\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB273\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-275         {
-276             if (address == Offset)
-277             {
-278                 Interrupted = false;
-279                 Overrun = false;
-280                 ReceiverFull = false;
-281 
-282             }
-283             else if (address == Offset + 1)
-284             {
-285                 StatusRegisterUpdate();
-286             }
-287             else if (address == Offset + 2)
-288             {
-289                 CommandRegisterUpdate();
-290             }
-291             else if (address == Offset + 3)
-292             {
-293                 ControlRegisterUpdate();
-294             }
-295         }
+274         {
+275             if (address == Offset)
+276             {
+277                 Interrupted = false;
+278                 Overrun = false;
+279                 ReceiverFull = false;
+280 
+281             }
+282             else if (address == Offset + 1)
+283             {
+284                 StatusRegisterUpdate();
+285             }
+286             else if (address == Offset + 2)
+287             {
+288                 CommandRegisterUpdate();
+289             }
+290             else if (address == Offset + 3)
+291             {
+292                 ControlRegisterUpdate();
+293             }
+294         }
 .fi
 .SS "void Hardware\&.W65C51\&.HardwarePreWrite (int address, byte data)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB254\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB253\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-255         {
-256             if (address == Offset)
-257             {
-258                 WriteCOM(data);
-259             }
-260             else if (address == Offset + 1)
-261             {
-262                 Reset();
-263             }
-264             else if (address == Offset + 2)
-265             {
-266                 CommandRegister(data);
-267             }
-268             else if (address == Offset + 3)
-269             {
-270                 ControlRegister(data);
-271             }
-272         }
+254         {
+255             if (address == Offset)
+256             {
+257                 WriteCOM(data);
+258             }
+259             else if (address == Offset + 1)
+260             {
+261                 Reset();
+262             }
+263             else if (address == Offset + 2)
+264             {
+265                 CommandRegister(data);
+266             }
+267             else if (address == Offset + 3)
+268             {
+269                 ControlRegister(data);
+270             }
+271         }
 .fi
 .SS "void Hardware\&.W65C51\&.Init (string port)\fC [inline]\fP"
 
@@ -717,15 +717,15 @@ Default Constructor, Instantiates a new instance of COM Port I/O\&.
 .PP
 
 .PP
-Definition at line \fB70\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB69\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-71         {
-72             Object = new SerialPort(port, defaultBaudRate, Parity\&.None, 8, StopBits\&.One);
-73             ObjectName = port;
-74 
-75             ComInit(Object);
-76         }
+70         {
+71             Object = new SerialPort(port, defaultBaudRate, Parity\&.None, 8, StopBits\&.One);
+72             ObjectName = port;
+73 
+74             ComInit(Object);
+75         }
 .fi
 .SS "void Hardware\&.W65C51\&.Init (string port, int baudRate)\fC [inline]\fP"
 
@@ -741,15 +741,15 @@ Default Constructor, Instantiates a new instance of COM Port I/O\&.
 .PP
 
 .PP
-Definition at line \fB84\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB83\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-85         {
-86             Object = new SerialPort(port, baudRate, Parity\&.None, 8, StopBits\&.One);
-87             ObjectName = port;
-88 
-89             ComInit(Object);
-90         }
+84         {
+85             Object = new SerialPort(port, baudRate, Parity\&.None, 8, StopBits\&.One);
+86             ObjectName = port;
+87 
+88             ComInit(Object);
+89         }
 .fi
 .SS "byte Hardware\&.W65C51\&.Read (int address)\fC [inline]\fP"
 
@@ -769,25 +769,25 @@ the byte being returned
 .PP
 
 .PP
-Definition at line \fB107\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB106\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-108         {
-109             HardwarePreRead(address);
-110             byte data = Memory[address - Offset];
-111             DataRead = true;
-112             return data;
-113         }
+107         {
+108             HardwarePreRead(address);
+109             byte data = Memory[address - Offset];
+110             DataRead = true;
+111             return data;
+112         }
 .fi
 .SS "void Hardware\&.W65C51\&.Reset ()\fC [inline]\fP"
 
 .PP
-Definition at line \fB60\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB59\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-61         {
-62             IsEnabled = false;
-63         }
+60         {
+61             IsEnabled = false;
+62         }
 .fi
 .SS "void Hardware\&.W65C51\&.SerialDataReceived (object sender, SerialDataReceivedEventArgs e)\fC [inline]\fP, \fC [private]\fP"
 
@@ -803,109 +803,109 @@ Called whenever SerialDataReceivedEventHandler event occurs\&.
 .PP
 
 .PP
-Definition at line \fB213\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB212\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-214         {
-215             try
-216             {
-217                 if (EchoMode)
-218                 {
-219                     WriteCOM(Convert\&.ToByte(Object\&.ReadByte()));
-220                 }
-221                 else
-222                 {
-223                     if (!ReceiverFull)
-224                     {
-225                         ReceiverFull = true;
-226                     }
-227                     else
-228                     {
-229                         Overrun = true;
-230                     }
-231                     Memory[0] = Convert\&.ToByte(Object\&.ReadByte());
-232                 }
-233 
-234                 if (!InterruptDisabled)
-235                 {
-236                     Interrupted = true;
-237                     Processor\&.InterruptRequest();
-238                 }
-239             }
-240             catch (Win32Exception w)
-241             {
-242                 FileStream file = new FileStream(FileLocations\&.ErrorFile, FileMode\&.OpenOrCreate, FileAccess\&.ReadWrite);
-243                 StreamWriter stream = new StreamWriter(file);
-244                 stream\&.WriteLine(w\&.Message);
-245                 stream\&.WriteLine(w\&.ErrorCode\&.ToString());
-246                 stream\&.WriteLine(w\&.Source);
-247                 stream\&.Flush();
-248                 stream\&.Close();
-249                 file\&.Flush();
-250                 file\&.Close();
-251             }
-252         }
+213         {
+214             try
+215             {
+216                 if (EchoMode)
+217                 {
+218                     WriteCOM(Convert\&.ToByte(Object\&.ReadByte()));
+219                 }
+220                 else
+221                 {
+222                     if (!ReceiverFull)
+223                     {
+224                         ReceiverFull = true;
+225                     }
+226                     else
+227                     {
+228                         Overrun = true;
+229                     }
+230                     Memory[0] = Convert\&.ToByte(Object\&.ReadByte());
+231                 }
+232 
+233                 if (!InterruptDisabled)
+234                 {
+235                     Interrupted = true;
+236                     Processor\&.InterruptRequest();
+237                 }
+238             }
+239             catch (Win32Exception w)
+240             {
+241                 FileStream file = new FileStream(FileLocations\&.ErrorFile, FileMode\&.OpenOrCreate, FileAccess\&.ReadWrite);
+242                 StreamWriter stream = new StreamWriter(file);
+243                 stream\&.WriteLine(w\&.Message);
+244                 stream\&.WriteLine(w\&.ErrorCode\&.ToString());
+245                 stream\&.WriteLine(w\&.Source);
+246                 stream\&.Flush();
+247                 stream\&.Close();
+248                 file\&.Flush();
+249                 file\&.Close();
+250             }
+251         }
 .fi
 .SS "void Hardware\&.W65C51\&.StatusRegisterUpdate ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB622\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB621\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-623         {
-624             byte statusRegister = Memory[Offset + 1];
-625 
-626             if (Interrupted)
-627             {
-628                 statusRegister |= 0x80;
-629             }
-630             else
-631             {
-632                 statusRegister &= 0x7F;
-633             }
-634 
-635             if (Object\&.DsrHolding == false)
-636             {
-637                 statusRegister |= 0x40;
-638             }
-639             else
-640             {
-641                 statusRegister &= 0xBF;
-642             }
-643 
-644             if (Object\&.CDHolding)
-645             {
-646                 statusRegister |= 0x20;
-647             }
-648             else
-649             {
-650                 statusRegister &= 0xDF;
-651             }
-652 
-653             statusRegister |= 0x10;
-654 
-655             if (ReceiverFull)
-656             {
-657                 statusRegister |= 0x08;
-658             }
-659             else
-660             {
-661                 statusRegister &= 0xF7;
-662             }
-663 
-664             if (Overrun)
-665             {
-666                 statusRegister |= 0x04;
-667             }
-668             else
-669             {
-670                 statusRegister &= 0xFB;
-671             }
-672 
-673             statusRegister &= 0xFC;
-674 
-675             Memory[Offset + 1] = statusRegister;
-676         }
+622         {
+623             byte statusRegister = Memory[Offset + 1];
+624 
+625             if (Interrupted)
+626             {
+627                 statusRegister |= 0x80;
+628             }
+629             else
+630             {
+631                 statusRegister &= 0x7F;
+632             }
+633 
+634             if (Object\&.DsrHolding == false)
+635             {
+636                 statusRegister |= 0x40;
+637             }
+638             else
+639             {
+640                 statusRegister &= 0xBF;
+641             }
+642 
+643             if (Object\&.CDHolding)
+644             {
+645                 statusRegister |= 0x20;
+646             }
+647             else
+648             {
+649                 statusRegister &= 0xDF;
+650             }
+651 
+652             statusRegister |= 0x10;
+653 
+654             if (ReceiverFull)
+655             {
+656                 statusRegister |= 0x08;
+657             }
+658             else
+659             {
+660                 statusRegister &= 0xF7;
+661             }
+662 
+663             if (Overrun)
+664             {
+665                 statusRegister |= 0x04;
+666             }
+667             else
+668             {
+669                 statusRegister &= 0xFB;
+670             }
+671 
+672             statusRegister &= 0xFC;
+673 
+674             Memory[Offset + 1] = statusRegister;
+675         }
 .fi
 .SS "void Hardware\&.W65C51\&.Write (int address, byte data)\fC [inline]\fP"
 
@@ -921,16 +921,16 @@ Writes data to the given address\&.
 .PP
 
 .PP
-Definition at line \fB121\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB120\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-122         {
-123             HardwarePreWrite(address, data);
-124             if (!((address == Offset) || (address == Offset + 1)))
-125             {
-126                 Memory[address - Offset] = data;
-127             }
-128         }
+121         {
+122             HardwarePreWrite(address, data);
+123             if (!((address == Offset) || (address == Offset + 1)))
+124             {
+125                 Memory[address - Offset] = data;
+126             }
+127         }
 .fi
 .SS "void Hardware\&.W65C51\&.WriteCOM (byte data)\fC [inline]\fP"
 
@@ -944,131 +944,27 @@ Called in order to write to the serial port\&.
 .PP
 
 .PP
-Definition at line \fB135\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB134\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
-136         {
-137             byte[] writeByte = new byte[] { data };
-138             Object\&.Write(writeByte, 0, 1);
-139         }
+135         {
+136             byte[] writeByte = new byte[] { data };
+137             Object\&.Write(writeByte, 0, 1);
+138         }
 .fi
 .SH "Member Data Documentation"
 .PP 
 .SS "byte Hardware\&.W65C51\&.byteIn"
 
 .PP
-Definition at line \fB17\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB16\fP of file \fBW65C51\&.cs\fP\&.
 .SS "readonly int Hardware\&.W65C51\&.defaultBaudRate = 115200"
 
 .PP
-Definition at line \fB16\fP of file \fBW65C51\&.cs\fP\&.
+Definition at line \fB15\fP of file \fBW65C51\&.cs\fP\&.
 .SH "Property Documentation"
 .PP 
 .SS "BackgroundWorker Hardware\&.W65C51\&._backgroundWorker\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB26\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-26 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.DataRead\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB30\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-30 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.EchoMode\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB31\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-31 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.InterruptDisabled\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB32\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-32 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.Interrupted\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB33\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-33 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.IsEnabled\fC [get]\fP, \fC [set]\fP"
-
-.PP
-Definition at line \fB22\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-22 { get; set; }
-.fi
-.SS "int Hardware\&.W65C51\&.Length\fC [get]\fP, \fC [set]\fP"
-
-.PP
-Definition at line \fB28\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-28 { get; set; }
-.fi
-.SS "byte [] Hardware\&.W65C51\&.Memory\fC [get]\fP, \fC [set]\fP"
-
-.PP
-Definition at line \fB21\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-21 { get; set; }
-.fi
-.SS "SerialPort Hardware\&.W65C51\&.Object\fC [get]\fP, \fC [set]\fP"
-
-.PP
-Definition at line \fB23\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-23 { get; set; }
-.fi
-.SS "string Hardware\&.W65C51\&.ObjectName\fC [get]\fP, \fC [set]\fP"
-
-.PP
-Definition at line \fB24\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-24 { get; set; }
-.fi
-.SS "int Hardware\&.W65C51\&.Offset\fC [get]\fP, \fC [set]\fP"
-
-.PP
-Definition at line \fB27\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-27 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.Overrun\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB34\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-34 { get; set; }
-.fi
-.SS "bool Hardware\&.W65C51\&.ParityEnabled\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB35\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-35 { get; set; }
-.fi
-.SS "\fBW65C02\fP Hardware\&.W65C51\&.Processor\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
 
 .PP
 Definition at line \fB25\fP of file \fBW65C51\&.cs\fP\&.
@@ -1076,21 +972,125 @@ Definition at line \fB25\fP of file \fBW65C51\&.cs\fP\&.
 .nf
 25 { get; set; }
 .fi
+.SS "bool Hardware\&.W65C51\&.DataRead\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB29\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+29 { get; set; }
+.fi
+.SS "bool Hardware\&.W65C51\&.EchoMode\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB30\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+30 { get; set; }
+.fi
+.SS "bool Hardware\&.W65C51\&.InterruptDisabled\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB31\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+31 { get; set; }
+.fi
+.SS "bool Hardware\&.W65C51\&.Interrupted\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB32\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+32 { get; set; }
+.fi
+.SS "bool Hardware\&.W65C51\&.IsEnabled\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Definition at line \fB21\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+21 { get; set; }
+.fi
+.SS "int Hardware\&.W65C51\&.Length\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Definition at line \fB27\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+27 { get; set; }
+.fi
+.SS "byte [] Hardware\&.W65C51\&.Memory\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Definition at line \fB20\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+20 { get; set; }
+.fi
+.SS "SerialPort Hardware\&.W65C51\&.Object\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Definition at line \fB22\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+22 { get; set; }
+.fi
+.SS "string Hardware\&.W65C51\&.ObjectName\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Definition at line \fB23\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+23 { get; set; }
+.fi
+.SS "int Hardware\&.W65C51\&.Offset\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Definition at line \fB26\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+26 { get; set; }
+.fi
+.SS "bool Hardware\&.W65C51\&.Overrun\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB33\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+33 { get; set; }
+.fi
+.SS "bool Hardware\&.W65C51\&.ParityEnabled\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB34\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+34 { get; set; }
+.fi
+.SS "\fBW65C02\fP Hardware\&.W65C51\&.Processor\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB24\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+24 { get; set; }
+.fi
 .SS "bool Hardware\&.W65C51\&.ReceiverFull\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB35\fP of file \fBW65C51\&.cs\fP\&.
+.PP
+.nf
+35 { get; set; }
+.fi
+.SS "byte Hardware\&.W65C51\&.RtsControl\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
 
 .PP
 Definition at line \fB36\fP of file \fBW65C51\&.cs\fP\&.
 .PP
 .nf
 36 { get; set; }
-.fi
-.SS "byte Hardware\&.W65C51\&.RtsControl\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
-
-.PP
-Definition at line \fB37\fP of file \fBW65C51\&.cs\fP\&.
-.PP
-.nf
-37 { get; set; }
 .fi
 
 

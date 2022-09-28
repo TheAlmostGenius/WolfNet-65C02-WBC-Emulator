@@ -1,4 +1,4 @@
-.TH "Emulator.ViewModel.MainViewModel" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Emulator.ViewModel.MainViewModel" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -83,10 +83,6 @@ Inherits ViewModelBase\&.
 .br
 .RI "The number of cycles\&.  "
 .ti -1c
-.RI "string \fBMemoryPageOffset\fP\fC [get, set]\fP"
-.br
-.RI "The Memory Page number\&.  "
-.ti -1c
 .RI "bool \fBIsRunning\fP\fC [get, set]\fP"
 .br
 .RI "Is the Prorgam Running  "
@@ -106,6 +102,10 @@ Inherits ViewModelBase\&.
 .RI "RelayCommand \fBStepCommand\fP\fC [get, set]\fP"
 .br
 .RI "RelayCommand for Stepping through the progam one instruction at a time\&.  "
+.ti -1c
+.RI "RelayCommand \fBMemoryVisualCommand\fP\fC [get, set]\fP"
+.br
+.RI "RelayCommand for opening the Memory View window\&.  "
 .ti -1c
 .RI "RelayCommand \fBResetCommand\fP\fC [get, set]\fP"
 .br
@@ -166,9 +166,6 @@ Inherits ViewModelBase\&.
 .RI "void \fBSettingsAppliedNotifcation\fP (NotificationMessage< \fBSettingsModel\fP > notificationMessage)"
 .br
 .ti -1c
-.RI "void \fBUpdateMemoryPage\fP ()"
-.br
-.ti -1c
 .RI "void \fBReset\fP ()"
 .br
 .ti -1c
@@ -199,10 +196,16 @@ Inherits ViewModelBase\&.
 .RI "int \fBGetSleepValue\fP ()"
 .br
 .ti -1c
+.RI "void \fBUpdateMemoryPage\fP ()"
+.br
+.ti -1c
 .RI "void \fBAbout\fP ()"
 .br
 .ti -1c
 .RI "void \fBSettings\fP ()"
+.br
+.ti -1c
+.RI "void \fBMemoryView\fP ()"
 .br
 .ti -1c
 .RI "void \fBAddBreakPoint\fP ()"
@@ -215,9 +218,6 @@ Inherits ViewModelBase\&.
 
 .in +1c
 .ti -1c
-.RI "int \fB_memoryPageOffset\fP"
-.br
-.ti -1c
 .RI "readonly BackgroundWorker \fB_backgroundWorker\fP"
 .br
 .ti -1c
@@ -228,7 +228,7 @@ Inherits ViewModelBase\&.
 .PP 
 The Main \fBViewModel\fP  
 .PP
-Definition at line \fB27\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB26\fP of file \fBMainViewModel\&.cs\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Emulator\&.ViewModel\&.MainViewModel\&.MainViewModel ()\fC [inline]\fP"
@@ -236,690 +236,673 @@ Definition at line \fB27\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 Creates a new Instance of the \fBMainViewModel\fP\&.  
 .PP
-Definition at line \fB231\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB216\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-232         {
-233             var _formatter = new XmlSerializer(typeof(SettingsModel));
-234             Stream _stream = new FileStream(FileLocations\&.SettingsFile, FileMode\&.OpenOrCreate);
-235             if (!((_stream == null) || (0 >= _stream\&.Length)))
-236             {
-237                 SettingsModel = (SettingsModel)_formatter\&.Deserialize(_stream);
-238                 if ((SettingsModel\&.SettingsVersionMajor < Versioning\&.SettingsFile\&.Major) ||
-239                     (SettingsModel\&.SettingsVersionMinor < Versioning\&.SettingsFile\&.Minor) ||
-240                     (SettingsModel\&.SettingsVersionBuild < Versioning\&.SettingsFile\&.Build) ||
-241                     (SettingsModel\&.SettingsVersionRevision < Versioning\&.SettingsFile\&.Revision))
-242                 {
-243 #if !DEBUG
-244                     throw new NotImplementedException(String\&.Format("Unable to handle problem: Settings File version is less than {0}\&.{1}\&.{2}\&.{3}", Versioning\&.SettingsFile\&.Major, Versioning\&.SettingsFile\&.Minor, Versioning\&.SettingsFile\&.Revision, Versioning\&.SettingsFile\&.Build));
-245 #else
-246                     MessageBox\&.Show("Settings file contains old information\&.\&.\&.\nDeleting old settings file\&.\&.\&.",
-247                                     "Settings file stale!", MessageBoxButton\&.OKCancel, MessageBoxImage\&.Warning,
-248                                     MessageBoxResult\&.OK);
-249                     // Close the file, then delete it\&.
-250                     _stream\&.Close();
-251                     File\&.Delete(FileLocations\&.SettingsFile);
-252                     SettingsModel = SettingsFile\&.CreateNew();
-253 #endif
-254                 }
-255             }
-256             else
-257             {
-258                 MessageBox\&.Show("Creating new settings file\&.\&.\&.");
-259                 SettingsModel = SettingsFile\&.CreateNew();
-260             }
-261             _stream\&.Close();
-262 
-263             HM62256 = new HM62256(MemoryMap\&.BankedRam\&.TotalBanks, MemoryMap\&.BankedRam\&.Offset, MemoryMap\&.BankedRam\&.Length);
-264             AT28C64 = new AT28CXX(MemoryMap\&.SharedRom\&.Offset, MemoryMap\&.SharedRom\&.Length, 1);
-265             AT28C010 = new AT28CXX(MemoryMap\&.BankedRom\&.Offset, MemoryMap\&.BankedRom\&.Length, MemoryMap\&.BankedRom\&.TotalBanks);
-266             W65C02 = new W65C02();
-267             W65C51 = new W65C51(W65C02, MemoryMap\&.Devices\&.ACIA\&.Offset);
-268             W65C51\&.Init(SettingsModel\&.ComPortName\&.ToString());
-269             W65C22 = new W65C22(W65C02, MemoryMap\&.Devices\&.GPIO\&.Offset, MemoryMap\&.Devices\&.GPIO\&.Length);
-270             W65C22\&.Init(1000);
-271             MM65SIB = new W65C22(W65C02, MemoryMap\&.Devices\&.MM65SIB\&.Offset, MemoryMap\&.Devices\&.MM65SIB\&.Length);
-272             MM65SIB\&.Init(1000);
-273 
-274             MemoryMap\&.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
-275 
-276             // Now we can load the BIOS\&.
-277             byte[][] _bios = AT28C64\&.ReadFile(FileLocations\&.BiosFile);
-278             if (_bios == null)
-279             {
-280                 Environment\&.Exit(ExitCodes\&.NO_BIOS);
-281             }
-282             AT28C64\&.Load(_bios);
+217         {
+218             var _formatter = new XmlSerializer(typeof(SettingsModel));
+219             Stream _stream = new FileStream(FileLocations\&.SettingsFile, FileMode\&.OpenOrCreate);
+220             if (!((_stream == null) || (0 >= _stream\&.Length)))
+221             {
+222                 SettingsModel = (SettingsModel)_formatter\&.Deserialize(_stream);
+223                 if ((SettingsModel\&.SettingsVersionMajor < Versioning\&.SettingsFile\&.Major) ||
+224                     (SettingsModel\&.SettingsVersionMinor < Versioning\&.SettingsFile\&.Minor) ||
+225                     (SettingsModel\&.SettingsVersionBuild < Versioning\&.SettingsFile\&.Build) ||
+226                     (SettingsModel\&.SettingsVersionRevision < Versioning\&.SettingsFile\&.Revision))
+227                 {
+228                     MessageBox\&.Show("Settings file contains old information\&.\&.\&.\nDeleting old settings file\&.\&.\&.",
+229                                     "Settings file stale!", MessageBoxButton\&.OKCancel, MessageBoxImage\&.Warning,
+230                                     MessageBoxResult\&.OK);
+231                     // Close the file, then delete it\&.
+232                     _stream\&.Close();
+233                     File\&.Delete(FileLocations\&.SettingsFile);
+234                     SettingsModel = SettingsFile\&.CreateNew();
+235                 }
+236             }
+237             else
+238             {
+239                 MessageBox\&.Show("Creating new settings file\&.\&.\&.");
+240                 SettingsModel = SettingsFile\&.CreateNew();
+241             }
+242             _stream\&.Close();
+243 
+244             HM62256 = new HM62256(MemoryMap\&.BankedRam\&.TotalBanks, MemoryMap\&.BankedRam\&.Offset, MemoryMap\&.BankedRam\&.Length);
+245             AT28C64 = new AT28CXX(MemoryMap\&.SharedRom\&.Offset, MemoryMap\&.SharedRom\&.Length, 1);
+246             AT28C010 = new AT28CXX(MemoryMap\&.BankedRom\&.Offset, MemoryMap\&.BankedRom\&.Length, MemoryMap\&.BankedRom\&.TotalBanks);
+247             W65C02 = new W65C02();
+248             W65C51 = new W65C51(W65C02, MemoryMap\&.Devices\&.ACIA\&.Offset);
+249             W65C51\&.Init(SettingsModel\&.ComPortName\&.ToString());
+250             W65C22 = new W65C22(W65C02, MemoryMap\&.Devices\&.GPIO\&.Offset, MemoryMap\&.Devices\&.GPIO\&.Length);
+251             W65C22\&.Init(1000);
+252             MM65SIB = new W65C22(W65C02, MemoryMap\&.Devices\&.MM65SIB\&.Offset, MemoryMap\&.Devices\&.MM65SIB\&.Length);
+253             MM65SIB\&.Init(1000);
+254 
+255             MemoryMap\&.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
+256 
+257             // Now we can load the BIOS\&.
+258             byte[][] _bios = AT28C64\&.ReadFile(FileLocations\&.BiosFile);
+259             if (_bios == null)
+260             {
+261                 Environment\&.Exit(ExitCodes\&.NO_BIOS);
+262             }
+263             AT28C64\&.Load(_bios);
+264 
+265             AboutCommand = new RelayCommand(About);
+266             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
+267             CloseCommand = new RelayCommand<IClosable>(Close);
+268             MemoryVisualCommand = new RelayCommand(MemoryView);
+269             RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
+270             ResetCommand = new RelayCommand(Reset);
+271             RunPauseCommand = new RelayCommand(RunPause);
+272             SettingsCommand = new RelayCommand(Settings);
+273             StepCommand = new RelayCommand(Step);
+274 
+275             Messenger\&.Default\&.Register<NotificationMessage>(this, GenericNotifcation);
+276             Messenger\&.Default\&.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
+277             Messenger\&.Default\&.Register<NotificationMessage<SettingsModel>>(this, SettingsAppliedNotifcation);
+278             Messenger\&.Default\&.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
+279 
+280             MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
+281             OutputLog = new MultiThreadedObservableCollection<OutputLog>();
+282             Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
 283 
-284             AboutCommand = new RelayCommand(About);
-285             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
-286             CloseCommand = new RelayCommand<IClosable>(Close);
-287             RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
-288             ResetCommand = new RelayCommand(Reset);
-289             RunPauseCommand = new RelayCommand(RunPause);
-290             SettingsCommand = new RelayCommand(Settings);
-291             StepCommand = new RelayCommand(Step);
-292             UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
-293 
-294             Messenger\&.Default\&.Register<NotificationMessage>(this, GenericNotifcation);
-295             Messenger\&.Default\&.Register<NotificationMessage<RomFileModel>>(this, BinaryLoadedNotification);
-296             Messenger\&.Default\&.Register<NotificationMessage<SettingsModel>>(this, SettingsAppliedNotifcation);
-297             Messenger\&.Default\&.Register<NotificationMessage<StateFileModel>>(this, StateLoadedNotifcation);
-298 
-299             MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
-300             OutputLog = new MultiThreadedObservableCollection<OutputLog>();
-301             Breakpoints = new MultiThreadedObservableCollection<Breakpoint>();
-302 
-303             UpdateMemoryPage();
-304 
-305             _backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
-306             _backgroundWorker\&.DoWork += BackgroundWorkerDoWork;
-307             Application\&.Current\&.MainWindow\&.Closing += new CancelEventHandler(OnClose);
-308             Application\&.Current\&.MainWindow\&.Loaded += new RoutedEventHandler(OnLoad);
-309 
-310             Reset();
-311         }
+284             UpdateMemoryPage();
+285 
+286             _backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
+287             _backgroundWorker\&.DoWork += BackgroundWorkerDoWork;
+288             Application\&.Current\&.MainWindow\&.Title = Versioning\&.Product\&.Title;
+289             Application\&.Current\&.MainWindow\&.Closing += new CancelEventHandler(OnClose);
+290             Application\&.Current\&.MainWindow\&.Loaded += new RoutedEventHandler(OnLoad);
+291 
+292             Reset();
+293         }
 .fi
 .SH "Member Function Documentation"
 .PP 
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.About ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB756\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB718\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-757         {
-758             IsRunning = false;
-759 
-760             if (_backgroundWorker\&.IsBusy)
-761                 _backgroundWorker\&.CancelAsync();
-762 
-763             MessageBox\&.Show(string\&.Format("{0}\n{1}\nVersion: {2}\nCompany: {3}", Versioning\&.Product\&.Name, Versioning\&.Product\&.Description, Versioning\&.Product\&.VersionString, Versioning\&.Product\&.Company), Versioning\&.Product\&.Title);
-764         }
+719         {
+720             IsRunning = false;
+721 
+722             if (_backgroundWorker\&.IsBusy)
+723                 _backgroundWorker\&.CancelAsync();
+724 
+725             MessageBox\&.Show(string\&.Format("{0}\n{1}\nVersion: {2}\nCompany: {3}", Versioning\&.Product\&.Name, Versioning\&.Product\&.Description, Versioning\&.Product\&.VersionString, Versioning\&.Product\&.Company), Versioning\&.Product\&.Title);
+726         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.AddBreakPoint ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB776\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB743\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-777         {
-778             Breakpoints\&.Add(new Breakpoint());
-779             RaisePropertyChanged("Breakpoints");
-780         }
+744         {
+745             Breakpoints\&.Add(new Breakpoint());
+746             RaisePropertyChanged("Breakpoints");
+747         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.BackgroundWorkerDoWork (object sender, DoWorkEventArgs e)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB632\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB589\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-633         {
-634             var worker = sender as BackgroundWorker;
-635             var outputLogs = new List<OutputLog>();
-636 
-637             while (true)
-638             {
-639                 if (worker != null && worker\&.CancellationPending || IsBreakPointTriggered())
-640                 {
-641                     e\&.Cancel = true;
-642 
-643                     RaisePropertyChanged("W65C02");
-644 
-645                     foreach (var log in outputLogs)
-646                         OutputLog\&.Insert(0, log);
-647 
-648                     UpdateMemoryPage();
-649                     return;
-650                 }
-651 
-652                 StepProcessor();
-653                 outputLogs\&.Add(GetOutputLog());
-654 
-655                 if (NumberOfCycles % GetLogModValue() == 0)
-656                 {
-657                     foreach (var log in outputLogs)
-658                         OutputLog\&.Insert(0, log);
-659 
-660                     outputLogs\&.Clear();
-661                     UpdateUi();
-662                 }
-663                 Thread\&.Sleep(GetSleepValue());
-664             }
-665         }
+590         {
+591             var worker = sender as BackgroundWorker;
+592             var outputLogs = new List<OutputLog>();
+593 
+594             while (true)
+595             {
+596                 if (worker != null && worker\&.CancellationPending || IsBreakPointTriggered())
+597                 {
+598                     e\&.Cancel = true;
+599 
+600                     RaisePropertyChanged("W65C02");
+601 
+602                     foreach (var log in outputLogs)
+603                         OutputLog\&.Insert(0, log);
+604 
+605                     UpdateMemoryPage();
+606                     return;
+607                 }
+608 
+609                 StepProcessor();
+610                 outputLogs\&.Add(GetOutputLog());
+611 
+612                 if (NumberOfCycles % GetLogModValue() == 0)
+613                 {
+614                     foreach (var log in outputLogs)
+615                         OutputLog\&.Insert(0, log);
+616 
+617                     outputLogs\&.Clear();
+618                     UpdateUi();
+619                 }
+620                 Thread\&.Sleep(GetSleepValue());
+621             }
+622         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.BinaryLoadedNotification (NotificationMessage< \fBRomFileModel\fP > notificationMessage)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB374\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB356\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-375         {
-376             if (notificationMessage\&.Notification != "FileLoaded")
-377             {
-378                 return;
-379             }
-380 
-381             // Load Banked ROM
-382             AT28C010\&.Load(notificationMessage\&.Content\&.Rom);
-383             IsRomLoaded = true;
-384             RaisePropertyChanged("IsRomLoaded");
-385 
-386             Reset();
-387         }
+357         {
+358             if (notificationMessage\&.Notification != "FileLoaded")
+359             {
+360                 return;
+361             }
+362 
+363             // Load Banked ROM
+364             AT28C010\&.Load(notificationMessage\&.Content\&.Rom);
+365             IsRomLoaded = true;
+366             RaisePropertyChanged("IsRomLoaded");
+367 
+368             Reset();
+369         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.Close (\fBIClosable\fP window)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB366\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB348\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-367         {
-368             if ((window != null) && (!IsRunning))
-369             {
-370                 Environment\&.Exit(ExitCodes\&.NO_ERROR);
-371             }
-372         }
+349         {
+350             if ((window != null) && (!IsRunning))
+351             {
+352                 Environment\&.Exit(ExitCodes\&.NO_ERROR);
+353             }
+354         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.GenericNotifcation (NotificationMessage notificationMessage)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB416\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB398\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-417         {
-418             if (notificationMessage\&.Notification == "CloseFile")
-419             {
-420                 AT28C010\&.Clear();
-421                 if (IsRunning) { RunPause(); }
-422                 IsRomLoaded = false;
-423                 RaisePropertyChanged("IsRomLoaded");
-424                 return;
-425             }
-426             else if (notificationMessage\&.Notification == "LoadFile")
-427             {
-428                 var dialog = new OpenFileDialog {   DefaultExt = "\&.bin", Filter =
-429                                                     "All Files (*\&.bin, *\&.65C02)|*\&.bin;*\&.65C02|Binary Assembly (*\&.bin)|" +
-430                                                     "*\&.bin|WolfNet 65C02 Emulator Save State (*\&.65C02)|*\&.65C02" };
-431                 var result = dialog\&.ShowDialog();
-432                 if (result != true)
-433                 {
-434                     return;
+399         {
+400             if (notificationMessage\&.Notification == "CloseFile")
+401             {
+402                 AT28C010\&.Clear();
+403                 if (IsRunning) { RunPause(); }
+404                 IsRomLoaded = false;
+405                 RaisePropertyChanged("IsRomLoaded");
+406                 return;
+407             }
+408             else if (notificationMessage\&.Notification == "LoadFile")
+409             {
+410                 var dialog = new OpenFileDialog
+411                 {
+412                     DefaultExt = "\&.bin",
+413                     Filter =
+414                                                     "All Files (*\&.bin, *\&.65C02)|*\&.bin;*\&.65C02|Binary Assembly (*\&.bin)|" +
+415                                                     "*\&.bin|WolfNet 65C02 Emulator Save State (*\&.65C02)|*\&.65C02"
+416                 };
+417                 var result = dialog\&.ShowDialog();
+418                 if (result != true)
+419                 {
+420                     return;
+421                 }
+422 
+423                 if (Path\&.GetExtension(dialog\&.FileName\&.ToUpper()) == "\&.BIN")
+424                 {
+425                     byte[][] _rom = AT28C010\&.ReadFile(dialog\&.FileName);
+426 
+427                     Messenger\&.Default\&.Send(new NotificationMessage<RomFileModel>(new RomFileModel
+428                     {
+429                         Rom = _rom,
+430                         RomBanks = AT28C010\&.Banks,
+431                         RomBankSize = AT28C010\&.Length,
+432                         RomFilePath = dialog\&.FileName,
+433                         RomFileName = Path\&.GetFileName(dialog\&.FileName),
+434                     }, "FileLoaded"));
 435                 }
-436 
-437                 if (Path\&.GetExtension(dialog\&.FileName\&.ToUpper()) == "\&.BIN")
-438                 {
-439                     byte[][] _rom = AT28C010\&.ReadFile(dialog\&.FileName);
-440 
-441                     Messenger\&.Default\&.Send(new NotificationMessage<RomFileModel>(new RomFileModel
-442                     {
-443                         Rom = _rom,
-444                         RomBanks = AT28C010\&.Banks,
-445                         RomBankSize = AT28C010\&.Length,
-446                         RomFilePath = dialog\&.FileName,
-447                         RomFileName = Path\&.GetFileName(dialog\&.FileName),
-448                     }, "FileLoaded"));
-449                 }
-450                 else if (Path\&.GetExtension(dialog\&.FileName\&.ToUpper()) == "\&.6502")
-451                 {
-452                     var formatter = new BinaryFormatter();
-453                     Stream stream = new FileStream(dialog\&.FileName, FileMode\&.Open);
-454                     var fileModel = (StateFileModel)formatter\&.Deserialize(stream);
-455 
-456                     stream\&.Close();
-457 
-458                     Messenger\&.Default\&.Send(new NotificationMessage<StateFileModel>(fileModel, "StateLoaded"));
-459                 }
-460             }
-461             else if (notificationMessage\&.Notification == "SaveState")
-462             {
-463                 var dialog = new SaveFileDialog {   DefaultExt = "\&.65C02", Filter =
-464                                                     "WolfNet W65C02 Emulator Save State (*\&.65C02)|*\&.65C02" };
-465                 var result = dialog\&.ShowDialog();
-466 
-467                 if (result != true)
-468                 {
-469                     return;
-470                 }
-471 
-472                 var formatter = new BinaryFormatter();
-473                 Stream stream = new FileStream(dialog\&.FileName, FileMode\&.Create, FileAccess\&.Write, FileShare\&.None);
-474 
-475                 formatter\&.Serialize(stream, new StateFileModel
-476                 {
-477                     NumberOfCycles = NumberOfCycles,
-478                     OutputLog = OutputLog,
-479                     W65C02 = W65C02,
-480                     W65C22 = W65C22,
-481                     MM65SIB = MM65SIB,
-482                     W65C51 = W65C51,
-483                     AT28C010 = AT28C010,
-484                     AT28C64 = AT28C64,
-485             });
-486                 stream\&.Close();
-487             }
-488             else
-489             {
-490                 return;
-491             }
-492         }
+436                 else if (Path\&.GetExtension(dialog\&.FileName\&.ToUpper()) == "\&.6502")
+437                 {
+438                     var formatter = new BinaryFormatter();
+439                     Stream stream = new FileStream(dialog\&.FileName, FileMode\&.Open);
+440                     var fileModel = (StateFileModel)formatter\&.Deserialize(stream);
+441 
+442                     stream\&.Close();
+443 
+444                     Messenger\&.Default\&.Send(new NotificationMessage<StateFileModel>(fileModel, "StateLoaded"));
+445                 }
+446             }
+447             else if (notificationMessage\&.Notification == "SaveState")
+448             {
+449                 var dialog = new SaveFileDialog
+450                 {
+451                     DefaultExt = "\&.65C02",
+452                     Filter =
+453                                                     "WolfNet W65C02 Emulator Save State (*\&.65C02)|*\&.65C02"
+454                 };
+455                 var result = dialog\&.ShowDialog();
+456 
+457                 if (result != true)
+458                 {
+459                     return;
+460                 }
+461 
+462                 var formatter = new BinaryFormatter();
+463                 Stream stream = new FileStream(dialog\&.FileName, FileMode\&.Create, FileAccess\&.Write, FileShare\&.None);
+464 
+465                 formatter\&.Serialize(stream, new StateFileModel
+466                 {
+467                     NumberOfCycles = NumberOfCycles,
+468                     OutputLog = OutputLog,
+469                     W65C02 = W65C02,
+470                     W65C22 = W65C22,
+471                     MM65SIB = MM65SIB,
+472                     W65C51 = W65C51,
+473                     AT28C010 = AT28C010,
+474                     AT28C64 = AT28C64,
+475                 });
+476                 stream\&.Close();
+477             }
+478             else
+479             {
+480                 return;
+481             }
+482         }
 .fi
 .SS "int Emulator\&.ViewModel\&.MainViewModel\&.GetLogModValue ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB699\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB656\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-700         {
-701             switch (CpuSpeed)
-702             {
-703                 case 0:
-704                 case 1:
-705                 case 2:
-706                 case 3:
-707                 case 4:
-708                 case 5:
-709                     return 1;
-710                 case 6:
-711                     return 5;
-712                 case 7:
-713                     return 20;
-714                 case 8:
-715                     return 30;
-716                 case 9:
-717                     return 40;
-718                 case 10:
-719                     return 50;
-720                 default:
-721                     return 5;
-722             }
-723         }
+657         {
+658             switch (CpuSpeed)
+659             {
+660                 case 0:
+661                 case 1:
+662                 case 2:
+663                 case 3:
+664                 case 4:
+665                 case 5:
+666                     return 1;
+667                 case 6:
+668                     return 5;
+669                 case 7:
+670                     return 20;
+671                 case 8:
+672                     return 30;
+673                 case 9:
+674                     return 40;
+675                 case 10:
+676                     return 50;
+677                 default:
+678                     return 5;
+679             }
+680         }
 .fi
 .SS "\fBOutputLog\fP Emulator\&.ViewModel\&.MainViewModel\&.GetOutputLog ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB601\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB558\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-602         {
-603             if (W65C02\&.CurrentDisassembly == null)
-604             {
-605                 return new OutputLog(new Disassembly());
-606             }
-607 
-608             return new OutputLog(W65C02\&.CurrentDisassembly)
-609             {
-610                 XRegister = W65C02\&.XRegister\&.ToString("X")\&.PadLeft(2, '0'),
-611                 YRegister = W65C02\&.YRegister\&.ToString("X")\&.PadLeft(2, '0'),
-612                 Accumulator = W65C02\&.Accumulator\&.ToString("X")\&.PadLeft(2, '0'),
-613                 NumberOfCycles = NumberOfCycles,
-614                 StackPointer = W65C02\&.StackPointer\&.ToString("X")\&.PadLeft(2, '0'),
-615                 ProgramCounter = W65C02\&.ProgramCounter\&.ToString("X")\&.PadLeft(4, '0'),
-616                 CurrentOpCode = W65C02\&.CurrentOpCode\&.ToString("X")\&.PadLeft(2, '0')
-617             };
-618         }
+559         {
+560             if (W65C02\&.CurrentDisassembly == null)
+561             {
+562                 return new OutputLog(new Disassembly());
+563             }
+564 
+565             return new OutputLog(W65C02\&.CurrentDisassembly)
+566             {
+567                 XRegister = W65C02\&.XRegister\&.ToString("X")\&.PadLeft(2, '0'),
+568                 YRegister = W65C02\&.YRegister\&.ToString("X")\&.PadLeft(2, '0'),
+569                 Accumulator = W65C02\&.Accumulator\&.ToString("X")\&.PadLeft(2, '0'),
+570                 NumberOfCycles = NumberOfCycles,
+571                 StackPointer = W65C02\&.StackPointer\&.ToString("X")\&.PadLeft(2, '0'),
+572                 ProgramCounter = W65C02\&.ProgramCounter\&.ToString("X")\&.PadLeft(4, '0'),
+573                 CurrentOpCode = W65C02\&.CurrentOpCode\&.ToString("X")\&.PadLeft(2, '0')
+574             };
+575         }
 .fi
 .SS "int Emulator\&.ViewModel\&.MainViewModel\&.GetSleepValue ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB725\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB682\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-726         {
-727             switch (CpuSpeed)
-728             {
-729                 case 0:
-730                     return 550;
-731                 case 1:
-732                     return 550;
-733                 case 2:
-734                     return 440;
-735                 case 3:
-736                     return 330;
-737                 case 4:
-738                     return 220;
-739                 case 5:
-740                     return 160;
-741                 case 6:
-742                     return 80;
-743                 case 7:
-744                     return 40;
-745                 case 8:
-746                     return 20;
-747                 case 9:
-748                     return 10;
-749                 case 10:
-750                     return 5;
-751                 default:
-752                     return 5;
-753             }
-754         }
+683         {
+684             switch (CpuSpeed)
+685             {
+686                 case 0:
+687                     return 550;
+688                 case 1:
+689                     return 550;
+690                 case 2:
+691                     return 440;
+692                 case 3:
+693                     return 330;
+694                 case 4:
+695                     return 220;
+696                 case 5:
+697                     return 160;
+698                 case 6:
+699                     return 80;
+700                 case 7:
+701                     return 40;
+702                 case 8:
+703                     return 20;
+704                 case 9:
+705                     return 10;
+706                 case 10:
+707                     return 5;
+708                 default:
+709                     return 5;
+710             }
+711         }
 .fi
 .SS "bool Emulator\&.ViewModel\&.MainViewModel\&.IsBreakPointTriggered ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB667\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB624\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-668         {
-669             //This prevents the Run Command from getting stuck after reaching a breakpoint
-670             if (_breakpointTriggered)
-671             {
-672                 _breakpointTriggered = false;
-673                 return false;
-674             }
-675 
-676             foreach (var breakpoint in Breakpoints\&.Where(x => x\&.IsEnabled))
-677             {
-678                 if (!int\&.TryParse(breakpoint\&.Value, NumberStyles\&.AllowHexSpecifier, CultureInfo\&.InvariantCulture, out int value))
-679                     continue;
-680 
-681                 if (breakpoint\&.Type == BreakpointType\&.NumberOfCycleType && value == NumberOfCycles)
-682                 {
-683                     _breakpointTriggered = true;
-684                     RunPause();
-685                     return true;
-686                 }
-687 
-688                 if (breakpoint\&.Type == BreakpointType\&.ProgramCounterType && value == W65C02\&.ProgramCounter)
-689                 {
-690                     _breakpointTriggered = true;
-691                     RunPause();
-692                     return true;
-693                 }
-694             }
-695 
-696             return false;
-697         }
+625         {
+626             //This prevents the Run Command from getting stuck after reaching a breakpoint
+627             if (_breakpointTriggered)
+628             {
+629                 _breakpointTriggered = false;
+630                 return false;
+631             }
+632 
+633             foreach (var breakpoint in Breakpoints\&.Where(x => x\&.IsEnabled))
+634             {
+635                 if (!int\&.TryParse(breakpoint\&.Value, NumberStyles\&.AllowHexSpecifier, CultureInfo\&.InvariantCulture, out int value))
+636                     continue;
+637 
+638                 if (breakpoint\&.Type == BreakpointType\&.NumberOfCycleType && value == NumberOfCycles)
+639                 {
+640                     _breakpointTriggered = true;
+641                     RunPause();
+642                     return true;
+643                 }
+644 
+645                 if (breakpoint\&.Type == BreakpointType\&.ProgramCounterType && value == W65C02\&.ProgramCounter)
+646                 {
+647                     _breakpointTriggered = true;
+648                     RunPause();
+649                     return true;
+650                 }
+651             }
+652 
+653             return false;
+654         }
+.fi
+.SS "void Emulator\&.ViewModel\&.MainViewModel\&.MemoryView ()\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB738\fP of file \fBMainViewModel\&.cs\fP\&.
+.PP
+.nf
+739         {
+740             Messenger\&.Default\&.Send(new NotificationMessage("MemoryVisualWindow"));
+741         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.OnClose (Object sender, CancelEventArgs e)\fC [inline]\fP"
 
 .PP
-Definition at line \fB332\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB314\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-333         {
-334             e\&.Cancel = false;
-335             if (IsRunning)
-336             {
-337                 MessageBox\&.Show("You can't quit the emulator while it is actively running!",
-338                                 "You can't do that!", MessageBoxButton\&.OK, MessageBoxImage\&.Stop);
-339                 e\&.Cancel = true;
-340                 return;
-341             }
-342 #if !DEBUG
-343             else
-344             {
-345                 var result = MessageBox\&.Show(    "Are you sure you want to quit the emulator?",
-346                                                 "To quit, or not to quit -- that is the question\&.",
-347                                                 MessageBoxButton\&.YesNo, MessageBoxImage\&.Question,
-348                                                 MessageBoxResult\&.No);
-349                 if (result == MessageBoxResult\&.No)
-350                 {
-351                     e\&.Cancel = true;
-352                     return;
-353                 }
-354             }
-355 #endif
-356             Stream stream = new FileStream(FileLocations\&.SettingsFile, FileMode\&.Create, FileAccess\&.Write, FileShare\&.None);
-357             XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
-358             XmlFormatter\&.Serialize(stream, MainViewModel\&.SettingsModel);
-359             stream\&.Flush();
-360             stream\&.Close();
-361             W65C51\&.Fini();
-362         }
+315         {
+316             e\&.Cancel = false;
+317             if (IsRunning)
+318             {
+319                 MessageBox\&.Show("You can't quit the emulator while it is actively running!",
+320                                 "You can't do that!", MessageBoxButton\&.OK, MessageBoxImage\&.Stop);
+321                 e\&.Cancel = true;
+322                 return;
+323             }
+324 #if !DEBUG
+325             else
+326             {
+327                 var result = MessageBox\&.Show("Are you sure you want to quit the emulator?",
+328                                                 "To quit, or not to quit -- that is the question\&.",
+329                                                 MessageBoxButton\&.YesNo, MessageBoxImage\&.Question,
+330                                                 MessageBoxResult\&.No);
+331                 if (result == MessageBoxResult\&.No)
+332                 {
+333                     e\&.Cancel = true;
+334                     return;
+335                 }
+336             }
+337 #endif
+338             Stream stream = new FileStream(FileLocations\&.SettingsFile, FileMode\&.Create, FileAccess\&.Write, FileShare\&.None);
+339             XmlSerializer XmlFormatter = new XmlSerializer(typeof(SettingsModel));
+340             XmlFormatter\&.Serialize(stream, MainViewModel\&.SettingsModel);
+341             stream\&.Flush();
+342             stream\&.Close();
+343             W65C51\&.Fini();
+344         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.OnLoad (Object sender, RoutedEventArgs e)\fC [inline]\fP"
 
 .PP
-Definition at line \fB313\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB295\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-314         {
-315 #if !DEBUG
-316             if (Versioning\&.Product\&.Major < 1)
-317             {
-318                 var result = MessageBox\&.Show(String\&.Format("Thank you for using {0}\n" +
-319                                                         "Be warned that this is a beta build\&.\n" +
-320                                                         "It may break or have bugs\&.", Versioning\&.Product\&.Name),
-321                                                         Versioning\&.Product\&.Title, MessageBoxButton\&.OKCancel,
-322                                                         MessageBoxImage\&.Warning, MessageBoxResult\&.None);
-323                 if (result == MessageBoxResult\&.Cancel)
-324                 {
-325                     // Exit without making any changes\&.
-326                     Environment\&.Exit(ExitCodes\&.NO_ERROR);
-327                 }
-328             }
-329 #endif
-330         }
+296         {
+297 #if !DEBUG
+298             if (Versioning\&.Product\&.Major < 1)
+299             {
+300                 var result = MessageBox\&.Show(String\&.Format("Thank you for using {0}\n" +
+301                                                         "Be warned that this is a beta build\&.\n" +
+302                                                         "It may break or have bugs\&.", Versioning\&.Product\&.Name),
+303                                                         Versioning\&.Product\&.Title, MessageBoxButton\&.OKCancel,
+304                                                         MessageBoxImage\&.Warning, MessageBoxResult\&.None);
+305                 if (result == MessageBoxResult\&.Cancel)
+306                 {
+307                     // Exit without making any changes\&.
+308                     Environment\&.Exit(ExitCodes\&.NO_ERROR);
+309                 }
+310             }
+311 #endif
+312         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.RemoveBreakPoint ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB782\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB749\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-783         {
-784             if (SelectedBreakpoint == null)
-785                 return;
-786 
-787             Breakpoints\&.Remove(SelectedBreakpoint);
-788             SelectedBreakpoint = null;
-789             RaisePropertyChanged("SelectedBreakpoint");
-790         }
+750         {
+751             if (SelectedBreakpoint == null)
+752                 return;
+753 
+754             Breakpoints\&.Remove(SelectedBreakpoint);
+755             SelectedBreakpoint = null;
+756             RaisePropertyChanged("SelectedBreakpoint");
+757         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.Reset ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB540\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB497\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-541         {
-542             IsRunning = false;
-543 
-544             if (_backgroundWorker\&.IsBusy)
-545                 _backgroundWorker\&.CancelAsync();
-546 
-547             // "Reset" the Hardware\&.\&.\&.
-548             W65C02\&.Reset();
-549             RaisePropertyChanged("W65C02");
-550             W65C22\&.Reset();
-551             RaisePropertyChanged("W65C22");
-552             MM65SIB\&.Reset();
-553             RaisePropertyChanged("MM65SIB");
-554             W65C51\&.Reset();
-555             RaisePropertyChanged("W65C51");
-556             HM62256\&.Reset();
-557             RaisePropertyChanged("HM62256");
-558 
-559             IsRunning = false;
-560             NumberOfCycles = 0;
-561             RaisePropertyChanged("NumberOfCycles");
-562 
-563             UpdateMemoryPage();
-564             RaisePropertyChanged("MemoryPage");
-565 
-566             OutputLog\&.Clear();
-567             RaisePropertyChanged("CurrentDisassembly");
-568 
-569             OutputLog\&.Insert(0, GetOutputLog());
-570             UpdateUi();
-571         }
+498         {
+499             IsRunning = false;
+500 
+501             if (_backgroundWorker\&.IsBusy)
+502                 _backgroundWorker\&.CancelAsync();
+503 
+504             // "Reset" the Hardware\&.\&.\&.
+505             W65C02\&.Reset();
+506             RaisePropertyChanged("W65C02");
+507             W65C22\&.Reset();
+508             RaisePropertyChanged("W65C22");
+509             MM65SIB\&.Reset();
+510             RaisePropertyChanged("MM65SIB");
+511             W65C51\&.Reset();
+512             RaisePropertyChanged("W65C51");
+513             HM62256\&.Reset();
+514             RaisePropertyChanged("HM62256");
+515 
+516             IsRunning = false;
+517             NumberOfCycles = 0;
+518             RaisePropertyChanged("NumberOfCycles");
+519 
+520             UpdateMemoryPage();
+521             RaisePropertyChanged("MemoryPage");
+522 
+523             OutputLog\&.Clear();
+524             RaisePropertyChanged("CurrentDisassembly");
+525 
+526             OutputLog\&.Insert(0, GetOutputLog());
+527             UpdateUi();
+528         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.RunPause ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB620\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB577\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-621         {
-622             var isRunning = !IsRunning;
-623 
-624             if (isRunning)
-625                 _backgroundWorker\&.RunWorkerAsync();
-626             else
-627                 _backgroundWorker\&.CancelAsync();
-628 
-629             IsRunning = !IsRunning;
-630         }
+578         {
+579             var isRunning = !IsRunning;
+580 
+581             if (isRunning)
+582                 _backgroundWorker\&.RunWorkerAsync();
+583             else
+584                 _backgroundWorker\&.CancelAsync();
+585 
+586             IsRunning = !IsRunning;
+587         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.Settings ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB766\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB728\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-767         {
-768             IsRunning = false;
-769 
-770             if (_backgroundWorker\&.IsBusy)
-771                 _backgroundWorker\&.CancelAsync();
-772 
-773             Messenger\&.Default\&.Send(new NotificationMessage<SettingsModel>(SettingsModel, "SettingsWindow"));
-774         }
+729         {
+730             IsRunning = false;
+731 
+732             if (_backgroundWorker\&.IsBusy)
+733                 _backgroundWorker\&.CancelAsync();
+734 
+735             Messenger\&.Default\&.Send(new NotificationMessage<SettingsModel>(SettingsModel, "SettingsWindow"));
+736         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.SettingsAppliedNotifcation (NotificationMessage< \fBSettingsModel\fP > notificationMessage)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB494\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB484\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-495         {
-496             if (notificationMessage\&.Notification != "SettingsApplied")
-497             {
-498                 return;
-499             }
-500 
-501             SettingsModel = notificationMessage\&.Content;
-502             W65C51\&.Init(notificationMessage\&.Content\&.ComPortName);
-503             RaisePropertyChanged("SettingsModel");
-504             UpdateUi();
-505         }
+485         {
+486             if (notificationMessage\&.Notification != "SettingsApplied")
+487             {
+488                 return;
+489             }
+490 
+491             SettingsModel = notificationMessage\&.Content;
+492             W65C51\&.Init(notificationMessage\&.Content\&.ComPortName);
+493             RaisePropertyChanged("SettingsModel");
+494             UpdateUi();
+495         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.StateLoadedNotifcation (NotificationMessage< \fBStateFileModel\fP > notificationMessage)\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB389\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB371\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-390         {
-391             if (notificationMessage\&.Notification != "StateLoaded")
-392             {
-393                 return;
-394             }
-395 
-396             Reset();
-397 
-398             OutputLog = new MultiThreadedObservableCollection<OutputLog>(notificationMessage\&.Content\&.OutputLog);
-399             RaisePropertyChanged("OutputLog");
-400 
-401             NumberOfCycles = notificationMessage\&.Content\&.NumberOfCycles;
-402 
-403             W65C02 = notificationMessage\&.Content\&.W65C02;
-404             W65C22 = notificationMessage\&.Content\&.W65C22;
-405             MM65SIB = notificationMessage\&.Content\&.MM65SIB;
-406             W65C51 = notificationMessage\&.Content\&.W65C51;
-407             AT28C010 = notificationMessage\&.Content\&.AT28C010;
-408             AT28C64 = notificationMessage\&.Content\&.AT28C64;
-409             UpdateMemoryPage();
-410             UpdateUi();
-411 
-412             IsRomLoaded = true;
-413             RaisePropertyChanged("IsRomLoaded");
-414         }
+372         {
+373             if (notificationMessage\&.Notification != "StateLoaded")
+374             {
+375                 return;
+376             }
+377 
+378             Reset();
+379 
+380             OutputLog = new MultiThreadedObservableCollection<OutputLog>(notificationMessage\&.Content\&.OutputLog);
+381             RaisePropertyChanged("OutputLog");
+382 
+383             NumberOfCycles = notificationMessage\&.Content\&.NumberOfCycles;
+384 
+385             W65C02 = notificationMessage\&.Content\&.W65C02;
+386             W65C22 = notificationMessage\&.Content\&.W65C22;
+387             MM65SIB = notificationMessage\&.Content\&.MM65SIB;
+388             W65C51 = notificationMessage\&.Content\&.W65C51;
+389             AT28C010 = notificationMessage\&.Content\&.AT28C010;
+390             AT28C64 = notificationMessage\&.Content\&.AT28C64;
+391             UpdateMemoryPage();
+392             UpdateUi();
+393 
+394             IsRomLoaded = true;
+395             RaisePropertyChanged("IsRomLoaded");
+396         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.Step ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB573\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB530\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-574         {
-575             IsRunning = false;
-576 
-577             if (_backgroundWorker\&.IsBusy)
-578                 _backgroundWorker\&.CancelAsync();
-579 
-580             StepProcessor();
-581             UpdateMemoryPage();
-582 
-583             OutputLog\&.Insert(0, GetOutputLog());
-584             UpdateUi();
-585         }
+531         {
+532             IsRunning = false;
+533 
+534             if (_backgroundWorker\&.IsBusy)
+535                 _backgroundWorker\&.CancelAsync();
+536 
+537             StepProcessor();
+538             UpdateMemoryPage();
+539 
+540             OutputLog\&.Insert(0, GetOutputLog());
+541             UpdateUi();
+542         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.StepProcessor ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB595\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB552\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-596         {
-597             W65C02\&.NextStep();
-598             NumberOfCycles = W65C02\&.GetCycleCount();
-599         }
+553         {
+554             W65C02\&.NextStep();
+555             NumberOfCycles = W65C02\&.GetCycleCount();
+556         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.UpdateMemoryPage ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB507\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB713\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-508         {
-509             MemoryPage\&.Clear();
-510             var offset = _memoryPageOffset * 256;
-511             
-512             var multiplyer = 0;
-513             for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
-514             {
-515 
-516                 MemoryPage\&.Add(new MemoryRowModel
-517                 {
-518                     Offset = ((16 * multiplyer) + offset)\&.ToString("X")\&.PadLeft(4, '0'),
-519                     Location00 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-520                     Location01 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-521                     Location02 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-522                     Location03 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-523                     Location04 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-524                     Location05 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-525                     Location06 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-526                     Location07 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-527                     Location08 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-528                     Location09 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-529                     Location0A = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-530                     Location0B = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-531                     Location0C = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-532                     Location0D = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-533                     Location0E = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
-534                     Location0F = MemoryMap\&.ReadWithoutCycle(i)\&.ToString("X")\&.PadLeft(2, '0'),
-535                 });
-536                 multiplyer++;
-537             }
-538         }
+714         {
+715             Messenger\&.Default\&.Send(new NotificationMessage("UpdateMemoryPage"));
+716         }
 .fi
 .SS "void Emulator\&.ViewModel\&.MainViewModel\&.UpdateUi ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB587\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB544\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-588         {
-589             RaisePropertyChanged("W65C02");
-590             RaisePropertyChanged("NumberOfCycles");
-591             RaisePropertyChanged("CurrentDisassembly");
-592             RaisePropertyChanged("MemoryPage");
-593         }
+545         {
+546             RaisePropertyChanged("W65C02");
+547             RaisePropertyChanged("NumberOfCycles");
+548             RaisePropertyChanged("CurrentDisassembly");
+549             RaisePropertyChanged("MemoryPage");
+550         }
 .fi
 .SH "Member Data Documentation"
 .PP 
 .SS "readonly BackgroundWorker Emulator\&.ViewModel\&.MainViewModel\&._backgroundWorker\fC [private]\fP"
 
 .PP
-Definition at line \fB31\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB29\fP of file \fBMainViewModel\&.cs\fP\&.
 .SS "bool Emulator\&.ViewModel\&.MainViewModel\&._breakpointTriggered\fC [private]\fP"
-
-.PP
-Definition at line \fB32\fP of file \fBMainViewModel\&.cs\fP\&.
-.SS "int Emulator\&.ViewModel\&.MainViewModel\&._memoryPageOffset\fC [private]\fP"
 
 .PP
 Definition at line \fB30\fP of file \fBMainViewModel\&.cs\fP\&.
@@ -930,336 +913,324 @@ Definition at line \fB30\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 The Relay Command that opens the About window\&.  
 .PP
-Definition at line \fB193\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB178\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-193 { get; set; }
+178 { get; set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.AddBreakPointCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Relay Command that adds a new breakpoint  
 .PP
-Definition at line \fB188\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB173\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-188 { get; set; }
+173 { get; set; }
 .fi
 .SS "\fBAT28CXX\fP Emulator\&.ViewModel\&.MainViewModel\&.AT28C010\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The AT28C010 ROM\&.  
 .PP
-Definition at line \fB69\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB67\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-69 { get; private set; }
+67 { get; private set; }
 .fi
 .SS "\fBAT28CXX\fP Emulator\&.ViewModel\&.MainViewModel\&.AT28C64\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The AT28C010 ROM\&.  
 .PP
-Definition at line \fB64\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB62\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-64 { get; private set; }
+62 { get; private set; }
 .fi
 .SS "\fBMultiThreadedObservableCollection\fP<\fBBreakpoint\fP> Emulator\&.ViewModel\&.MainViewModel\&.Breakpoints\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Breakpoints  
 .PP
-Definition at line \fB84\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB82\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-84 { get; set; }
+82 { get; set; }
 .fi
 .SS "RelayCommand<\fBIClosable\fP> Emulator\&.ViewModel\&.MainViewModel\&.CloseCommand\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The Command that loads or saves the settings\&.  
 .PP
-Definition at line \fB208\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB193\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-208 { get; private set; }
+193 { get; private set; }
 .fi
 .SS "int Emulator\&.ViewModel\&.MainViewModel\&.CpuSpeed\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Slider CPU Speed  
 .PP
-Definition at line \fB158\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB138\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-158 { get; set; }
+138 { get; set; }
 .fi
 .SS "string Emulator\&.ViewModel\&.MainViewModel\&.CurrentDisassembly\fC [get]\fP"
 
 .PP
 The Current Disassembly  
 .PP
-Definition at line \fB99\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB97\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-100         {
-101             get
-102             {
-103                 if (W65C02\&.CurrentDisassembly != null)
-104                 {
-105                     return string\&.Format("{0} {1}", W65C02\&.CurrentDisassembly\&.OpCodeString, W65C02\&.CurrentDisassembly\&.DisassemblyOutput);
-106                 }
-107                 else
-108                 {
-109                     return string\&.Empty;
-110                 }
-111             }
-112         }
+98         {
+99             get
+100             {
+101                 if (W65C02\&.CurrentDisassembly != null)
+102                 {
+103                     return string\&.Format("{0} {1}", W65C02\&.CurrentDisassembly\&.OpCodeString, W65C02\&.CurrentDisassembly\&.DisassemblyOutput);
+104                 }
+105                 else
+106                 {
+107                     return string\&.Empty;
+108                 }
+109             }
+110         }
 .fi
 .SS "string Emulator\&.ViewModel\&.MainViewModel\&.CurrentSerialPort\fC [get]\fP"
 
 .PP
 The current serial port object name\&.  
 .PP
-Definition at line \fB213\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB198\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-214         {
-215             get
-216             {
-217                 return W65C51\&.ObjectName;
-218             }
-219         }
+199         {
+200             get
+201             {
+202                 return W65C51\&.ObjectName;
+203             }
+204         }
 .fi
 .SS "\fBHM62256\fP Emulator\&.ViewModel\&.MainViewModel\&.HM62256\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
 
 .PP
 The 62256 RAM\&.  
 .PP
-Definition at line \fB39\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB37\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-39 { get; set; }
+37 { get; set; }
 .fi
 .SS "bool Emulator\&.ViewModel\&.MainViewModel\&.IsRomLoaded\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Is the banked ROM Loaded\&.  
 .PP
-Definition at line \fB153\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB133\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-153 { get; set; }
+133 { get; set; }
 .fi
 .SS "bool Emulator\&.ViewModel\&.MainViewModel\&.IsRunning\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Is the Prorgam Running  
 .PP
-Definition at line \fB140\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB120\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-141         {
-142             get { return W65C02\&.isRunning; }
-143             set
-144             {
-145                 W65C02\&.isRunning = value;
-146                 RaisePropertyChanged("IsRunning");
-147             }
-148         }
+121         {
+122             get { return W65C02\&.isRunning; }
+123             set
+124             {
+125                 W65C02\&.isRunning = value;
+126                 RaisePropertyChanged("IsRunning");
+127             }
+128         }
 .fi
 .SS "\fBMultiThreadedObservableCollection\fP<\fBMemoryRowModel\fP> Emulator\&.ViewModel\&.MainViewModel\&.MemoryPage\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Current Memory Page  
 .PP
-Definition at line \fB74\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB72\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-74 { get; set; }
+72 { get; set; }
 .fi
-.SS "string Emulator\&.ViewModel\&.MainViewModel\&.MemoryPageOffset\fC [get]\fP, \fC [set]\fP"
+.SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.MemoryVisualCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
-The Memory Page number\&.  
+RelayCommand for opening the Memory View window\&.  
 .PP
-Definition at line \fB122\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB153\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-123         {
-124             get { return _memoryPageOffset\&.ToString("X"); }
-125             set
-126             {
-127                 if (string\&.IsNullOrEmpty(value))
-128                     return;
-129                 try
-130                 {
-131                     _memoryPageOffset = Convert\&.ToInt32(value, 16);
-132                 }
-133                 catch { }
-134             }
-135         }
+153 { get; set; }
 .fi
 .SS "\fBW65C22\fP Emulator\&.ViewModel\&.MainViewModel\&.MM65SIB\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 Memory management and 65SIB\&.  
 .PP
-Definition at line \fB54\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB52\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-54 { get; private set; }
+52 { get; private set; }
 .fi
 .SS "int Emulator\&.ViewModel\&.MainViewModel\&.NumberOfCycles\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The number of cycles\&.  
 .PP
-Definition at line \fB117\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB115\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-117 { get; private set; }
+115 { get; private set; }
 .fi
 .SS "\fBMultiThreadedObservableCollection\fP<\fBOutputLog\fP> Emulator\&.ViewModel\&.MainViewModel\&.OutputLog\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The output log  
 .PP
-Definition at line \fB79\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB77\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-79 { get; private set; }
+77 { get; private set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.RemoveBreakPointCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Relay Command that Removes an existing breakpoint\&.  
 .PP
-Definition at line \fB198\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB183\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-198 { get; set; }
+183 { get; set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.ResetCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Relay Command to Reset the Program back to its initial state\&.  
 .PP
-Definition at line \fB173\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB158\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-173 { get; set; }
+158 { get; set; }
 .fi
 .SS "\fBRomFileModel\fP Emulator\&.ViewModel\&.MainViewModel\&.RomFile\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The currently loaded binary file\&. (If it is indeed loaded, that is\&.)  
 .PP
-Definition at line \fB94\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB92\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-94 { get; set; }
+92 { get; set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.RunPauseCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Relay Command that Run/Pauses Execution  
 .PP
-Definition at line \fB178\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB163\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-178 { get; set; }
+163 { get; set; }
 .fi
 .SS "\fBBreakpoint\fP Emulator\&.ViewModel\&.MainViewModel\&.SelectedBreakpoint\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Currently Selected Breakpoint  
 .PP
-Definition at line \fB89\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB87\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-89 { get; set; }
+87 { get; set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.SettingsCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Command that loads or saves the settings\&.  
 .PP
-Definition at line \fB203\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB188\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-203 { get; set; }
+188 { get; set; }
 .fi
 .SS "\fBSettingsModel\fP Emulator\&.ViewModel\&.MainViewModel\&.SettingsModel\fC [static]\fP, \fC [get]\fP, \fC [set]\fP"
 
 .PP
 The \fBModel\fP used for saving, loading and using data from Settings\&.xml  
 .PP
-Definition at line \fB163\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB143\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-163 { get; set; }
+143 { get; set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.StepCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 RelayCommand for Stepping through the progam one instruction at a time\&.  
 .PP
-Definition at line \fB168\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB148\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-168 { get; set; }
+148 { get; set; }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.MainViewModel\&.UpdateMemoryMapCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Relay Command that updates the Memory Map when the Page changes  
 .PP
-Definition at line \fB183\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB168\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-183 { get; set; }
+168 { get; set; }
 .fi
 .SS "\fBW65C02\fP Emulator\&.ViewModel\&.MainViewModel\&.W65C02\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The 65C02 Processor\&.  
 .PP
-Definition at line \fB44\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB42\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-44 { get; private set; }
+42 { get; private set; }
 .fi
 .SS "\fBW65C22\fP Emulator\&.ViewModel\&.MainViewModel\&.W65C22\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 General Purpose I/O, Shift Registers and Timers\&.  
 .PP
-Definition at line \fB49\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB47\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-49 { get; private set; }
+47 { get; private set; }
 .fi
 .SS "\fBW65C51\fP Emulator\&.ViewModel\&.MainViewModel\&.W65C51\fC [get]\fP, \fC [private set]\fP"
 
 .PP
 The ACIA serial interface\&.  
 .PP
-Definition at line \fB59\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB57\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-59 { get; private set; }
+57 { get; private set; }
 .fi
 .SS "string Emulator\&.ViewModel\&.MainViewModel\&.WindowTitle\fC [get]\fP"
 
 .PP
 The title for the main window\&.  
 .PP
-Definition at line \fB224\fP of file \fBMainViewModel\&.cs\fP\&.
+Definition at line \fB209\fP of file \fBMainViewModel\&.cs\fP\&.
 .PP
 .nf
-224 { get { return Versioning\&.Product\&.Title; } }
+209 { get { return Versioning\&.Product\&.Title; } }
 .fi
 
 

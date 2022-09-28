@@ -147,50 +147,50 @@
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l01948">1948</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1949</span>        {</div>
-<div class="line"><span class="lineno"> 1950</span>            <span class="keywordtype">int</span> value;</div>
-<div class="line"><span class="lineno"> 1951</span>            var memoryAddress = 0;</div>
-<div class="line"><span class="lineno"> 1952</span>            <span class="keywordflow">if</span> (addressingMode == <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Accumulator)</div>
+<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l01943">1943</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1944</span>        {</div>
+<div class="line"><span class="lineno"> 1945</span>            <span class="keywordtype">int</span> value;</div>
+<div class="line"><span class="lineno"> 1946</span>            var memoryAddress = 0;</div>
+<div class="line"><span class="lineno"> 1947</span>            <span class="keywordflow">if</span> (addressingMode == <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Accumulator)</div>
+<div class="line"><span class="lineno"> 1948</span>            {</div>
+<div class="line"><span class="lineno"> 1949</span>                MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> + 1);</div>
+<div class="line"><span class="lineno"> 1950</span>                value = <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054.html#a4eec5b3efabf5175eaef145c3a886054">Accumulator</a>;</div>
+<div class="line"><span class="lineno"> 1951</span>            }</div>
+<div class="line"><span class="lineno"> 1952</span>            <span class="keywordflow">else</span></div>
 <div class="line"><span class="lineno"> 1953</span>            {</div>
-<div class="line"><span class="lineno"> 1954</span>                MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a> + 1);</div>
-<div class="line"><span class="lineno"> 1955</span>                value = <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054.html#a4eec5b3efabf5175eaef145c3a886054">Accumulator</a>;</div>
+<div class="line"><span class="lineno"> 1954</span>                memoryAddress = <a class="code hl_function" href="class_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe.html#ac0ef46e724de47e6c7ab6b3cb77e9afe">GetAddressByAddressingMode</a>(addressingMode);</div>
+<div class="line"><span class="lineno"> 1955</span>                value = MemoryMap.Read(memoryAddress);</div>
 <div class="line"><span class="lineno"> 1956</span>            }</div>
-<div class="line"><span class="lineno"> 1957</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 1958</span>            {</div>
-<div class="line"><span class="lineno"> 1959</span>                memoryAddress = <a class="code hl_function" href="class_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe.html#ac0ef46e724de47e6c7ab6b3cb77e9afe">GetAddressByAddressingMode</a>(addressingMode);</div>
-<div class="line"><span class="lineno"> 1960</span>                value = MemoryMap.Read(memoryAddress);</div>
-<div class="line"><span class="lineno"> 1961</span>            }</div>
-<div class="line"><span class="lineno"> 1962</span> </div>
-<div class="line"><span class="lineno"> 1963</span>            <span class="comment">//Dummy Write</span></div>
-<div class="line"><span class="lineno"> 1964</span>            <span class="keywordflow">if</span> (addressingMode != <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Accumulator)</div>
-<div class="line"><span class="lineno"> 1965</span>            {</div>
-<div class="line"><span class="lineno"> 1966</span>                MemoryMap.Write(memoryAddress, (<span class="keywordtype">byte</span>)value);</div>
-<div class="line"><span class="lineno"> 1967</span>            }</div>
-<div class="line"><span class="lineno"> 1968</span> </div>
-<div class="line"><span class="lineno"> 1969</span>            <span class="comment">//If the 7th bit is set, then we have a carry</span></div>
-<div class="line"><span class="lineno"> 1970</span>            <a class="code hl_property" href="class_hardware_1_1_w65_c02_a01a336b0ce4f4f4675a3cb673f776a08.html#a01a336b0ce4f4f4675a3cb673f776a08">CarryFlag</a> = ((value &amp; 0x80) != 0);</div>
-<div class="line"><span class="lineno"> 1971</span> </div>
-<div class="line"><span class="lineno"> 1972</span>            <span class="comment">//The And here ensures that if the value is greater than 255 it wraps properly.</span></div>
-<div class="line"><span class="lineno"> 1973</span>            value = (value &lt;&lt; 1) &amp; 0xFE;</div>
-<div class="line"><span class="lineno"> 1974</span> </div>
-<div class="line"><span class="lineno"> 1975</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">SetNegativeFlag</a>(value);</div>
-<div class="line"><span class="lineno"> 1976</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">SetZeroFlag</a>(value);</div>
-<div class="line"><span class="lineno"> 1977</span> </div>
-<div class="line"><span class="lineno"> 1978</span> </div>
-<div class="line"><span class="lineno"> 1979</span>            <span class="keywordflow">if</span> (addressingMode == <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Accumulator)</div>
-<div class="line"><span class="lineno"> 1980</span>                <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054.html#a4eec5b3efabf5175eaef145c3a886054">Accumulator</a> = value;</div>
-<div class="line"><span class="lineno"> 1981</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 1982</span>            {</div>
-<div class="line"><span class="lineno"> 1983</span>                MemoryMap.Write(memoryAddress, (<span class="keywordtype">byte</span>)value);</div>
-<div class="line"><span class="lineno"> 1984</span>            }</div>
-<div class="line"><span class="lineno"> 1985</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a01a336b0ce4f4f4675a3cb673f776a08_html_a01a336b0ce4f4f4675a3cb673f776a08"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a01a336b0ce4f4f4675a3cb673f776a08.html#a01a336b0ce4f4f4675a3cb673f776a08">Hardware.W65C02.CarryFlag</a></div><div class="ttdeci">bool CarryFlag</div><div class="ttdoc">This is the carry flag. when adding, if the result is greater than 255 or 99 in BCD Mode,...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00094">W65C02.cs:94</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054_html_a4eec5b3efabf5175eaef145c3a886054"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054.html#a4eec5b3efabf5175eaef145c3a886054">Hardware.W65C02.Accumulator</a></div><div class="ttdeci">int Accumulator</div><div class="ttdoc">The Accumulator. This value is implemented as an integer intead of a byte. This is done so we can det...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00034">W65C02.cs:34</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31_html_a53423ebf1b14c250ee208da8021e6e31"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">Hardware.W65C02.SetZeroFlag</a></div><div class="ttdeci">void SetZeroFlag(int value)</div><div class="ttdoc">Sets the IsResultZero register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01328">W65C02.cs:1328</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1_html_ab2dda1182961a15be691d895e3f3c4b1"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">Hardware.W65C02.SetNegativeFlag</a></div><div class="ttdeci">void SetNegativeFlag(int value)</div><div class="ttdoc">Sets the IsSignNegative register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01318">W65C02.cs:1318</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe_html_ac0ef46e724de47e6c7ab6b3cb77e9afe"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe.html#ac0ef46e724de47e6c7ab6b3cb77e9afe">Hardware.W65C02.GetAddressByAddressingMode</a></div><div class="ttdeci">int GetAddressByAddressingMode(AddressingMode addressingMode)</div><div class="ttdoc">Uses the AddressingMode to return the correct address based on the mode. Note: This method will not i...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01340">W65C02.cs:1340</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_html_ad953847ee02d563ea055be5f70976247"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">Hardware.W65C02.ProgramCounter</a></div><div class="ttdeci">int ProgramCounter</div><div class="ttdoc">Points to the Current Address of the instruction being executed by the system. The PC wraps when the ...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00060">W65C02.cs:61</a></div></div>
+<div class="line"><span class="lineno"> 1957</span> </div>
+<div class="line"><span class="lineno"> 1958</span>            <span class="comment">//Dummy Write</span></div>
+<div class="line"><span class="lineno"> 1959</span>            <span class="keywordflow">if</span> (addressingMode != <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Accumulator)</div>
+<div class="line"><span class="lineno"> 1960</span>            {</div>
+<div class="line"><span class="lineno"> 1961</span>                MemoryMap.Write(memoryAddress, (<span class="keywordtype">byte</span>)value);</div>
+<div class="line"><span class="lineno"> 1962</span>            }</div>
+<div class="line"><span class="lineno"> 1963</span> </div>
+<div class="line"><span class="lineno"> 1964</span>            <span class="comment">//If the 7th bit is set, then we have a carry</span></div>
+<div class="line"><span class="lineno"> 1965</span>            <a class="code hl_property" href="class_hardware_1_1_w65_c02_a01a336b0ce4f4f4675a3cb673f776a08.html#a01a336b0ce4f4f4675a3cb673f776a08">CarryFlag</a> = ((value &amp; 0x80) != 0);</div>
+<div class="line"><span class="lineno"> 1966</span> </div>
+<div class="line"><span class="lineno"> 1967</span>            <span class="comment">//The And here ensures that if the value is greater than 255 it wraps properly.</span></div>
+<div class="line"><span class="lineno"> 1968</span>            value = (value &lt;&lt; 1) &amp; 0xFE;</div>
+<div class="line"><span class="lineno"> 1969</span> </div>
+<div class="line"><span class="lineno"> 1970</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">SetNegativeFlag</a>(value);</div>
+<div class="line"><span class="lineno"> 1971</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">SetZeroFlag</a>(value);</div>
+<div class="line"><span class="lineno"> 1972</span> </div>
+<div class="line"><span class="lineno"> 1973</span> </div>
+<div class="line"><span class="lineno"> 1974</span>            <span class="keywordflow">if</span> (addressingMode == <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Accumulator)</div>
+<div class="line"><span class="lineno"> 1975</span>                <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054.html#a4eec5b3efabf5175eaef145c3a886054">Accumulator</a> = value;</div>
+<div class="line"><span class="lineno"> 1976</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 1977</span>            {</div>
+<div class="line"><span class="lineno"> 1978</span>                MemoryMap.Write(memoryAddress, (<span class="keywordtype">byte</span>)value);</div>
+<div class="line"><span class="lineno"> 1979</span>            }</div>
+<div class="line"><span class="lineno"> 1980</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a01a336b0ce4f4f4675a3cb673f776a08_html_a01a336b0ce4f4f4675a3cb673f776a08"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a01a336b0ce4f4f4675a3cb673f776a08.html#a01a336b0ce4f4f4675a3cb673f776a08">Hardware.W65C02.CarryFlag</a></div><div class="ttdeci">bool CarryFlag</div><div class="ttdoc">This is the carry flag. when adding, if the result is greater than 255 or 99 in BCD Mode,...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00093">W65C02.cs:93</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054_html_a4eec5b3efabf5175eaef145c3a886054"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054.html#a4eec5b3efabf5175eaef145c3a886054">Hardware.W65C02.Accumulator</a></div><div class="ttdeci">int Accumulator</div><div class="ttdoc">The Accumulator. This value is implemented as an integer intead of a byte. This is done so we can det...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00033">W65C02.cs:33</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31_html_a53423ebf1b14c250ee208da8021e6e31"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">Hardware.W65C02.SetZeroFlag</a></div><div class="ttdeci">void SetZeroFlag(int value)</div><div class="ttdoc">Sets the IsResultZero register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01327">W65C02.cs:1327</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1_html_ab2dda1182961a15be691d895e3f3c4b1"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">Hardware.W65C02.SetNegativeFlag</a></div><div class="ttdeci">void SetNegativeFlag(int value)</div><div class="ttdoc">Sets the IsSignNegative register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01317">W65C02.cs:1317</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe_html_ac0ef46e724de47e6c7ab6b3cb77e9afe"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe.html#ac0ef46e724de47e6c7ab6b3cb77e9afe">Hardware.W65C02.GetAddressByAddressingMode</a></div><div class="ttdeci">int GetAddressByAddressingMode(AddressingMode addressingMode)</div><div class="ttdoc">Uses the AddressingMode to return the correct address based on the mode. Note: This method will not i...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01339">W65C02.cs:1339</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_html_ad953847ee02d563ea055be5f70976247"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">Hardware.W65C02.ProgramCounter</a></div><div class="ttdeci">int ProgramCounter</div><div class="ttdoc">Points to the Current Address of the instruction being executed by the system. The PC wraps when the ...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00059">W65C02.cs:60</a></div></div>
 <div class="ttc" id="anamespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_html_a20ed8885928dd1f3f9eac50507a162fc"><div class="ttname"><a href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">Hardware.AddressingMode</a></div><div class="ttdeci">AddressingMode</div><div class="ttdoc">The addressing modes used by the 6502 Processor</div><div class="ttdef"><b>Definition:</b> <a href="_addressing_mode_8cs_source.html#l00006">AddressingMode.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>

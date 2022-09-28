@@ -1,4 +1,4 @@
-.TH "Emulator.ViewModel.SettingsViewModel" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Emulator.ViewModel.SettingsViewModel" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -76,7 +76,7 @@ Inherits ViewModelBase\&.
 .PP 
 The \fBViewModel\fP Used by the SaveFileView  
 .PP
-Definition at line \fB17\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB14\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Emulator\&.ViewModel\&.SettingsViewModel\&.SettingsViewModel ()\fC [inline]\fP"
@@ -84,12 +84,12 @@ Definition at line \fB17\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 Instantiates a new instance of the \fBSettingsViewModel\fP\&. This is used by the IOC to create the default instance\&.  
 .PP
-Definition at line \fB51\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB48\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-52         {
-53 
-54         }
+49         {
+50 
+51         }
 .fi
 .SS "Emulator\&.ViewModel\&.SettingsViewModel\&.SettingsViewModel (\fBSettingsModel\fP settingsModel)\fC [inline]\fP"
 
@@ -103,70 +103,70 @@ Instantiates a new instance of the \fBSettingsViewModel\fP
 .PP
 
 .PP
-Definition at line \fB60\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB57\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-61         {
-62             ApplyCommand = new RelayCommand(Apply);
-63             CloseCommand = new RelayCommand(Close);
-64             ComPortSelection = settingsModel\&.ComPortName;
-65 
-66             UpdatePortList();
-67         }
+58         {
+59             ApplyCommand = new RelayCommand(Apply);
+60             CloseCommand = new RelayCommand(Close);
+61             ComPortSelection = settingsModel\&.ComPortName;
+62 
+63             UpdatePortList();
+64         }
 .fi
 .SH "Member Function Documentation"
 .PP 
 .SS "void Emulator\&.ViewModel\&.SettingsViewModel\&.Apply ()\fC [inline]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB84\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB81\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-85         {
-86             Messenger\&.Default\&.Send(new NotificationMessage<SettingsModel>(new SettingsModel
-87             {
-88                 SettingsVersionMajor = Versioning\&.SettingsFile\&.Major,
-89                 SettingsVersionMinor = Versioning\&.SettingsFile\&.Minor,
-90                 SettingsVersionBuild = Versioning\&.SettingsFile\&.Build,
-91                 SettingsVersionRevision = Versioning\&.SettingsFile\&.Revision,
-92                 ComPortName = ComPortSelection,
-93             }, "SettingsApplied"));
-94             Messenger\&.Default\&.Send(new NotificationMessage("CloseSettingsWindow"));
-95         }
+82         {
+83             Messenger\&.Default\&.Send(new NotificationMessage<SettingsModel>(new SettingsModel
+84             {
+85                 SettingsVersionMajor = Versioning\&.SettingsFile\&.Major,
+86                 SettingsVersionMinor = Versioning\&.SettingsFile\&.Minor,
+87                 SettingsVersionBuild = Versioning\&.SettingsFile\&.Build,
+88                 SettingsVersionRevision = Versioning\&.SettingsFile\&.Revision,
+89                 ComPortName = ComPortSelection,
+90             }, "SettingsApplied"));
+91             Messenger\&.Default\&.Send(new NotificationMessage("CloseSettingsWindow"));
+92         }
 .fi
 .SS "static void Emulator\&.ViewModel\&.SettingsViewModel\&.Close ()\fC [inline]\fP, \fC [static]\fP, \fC [private]\fP"
 
 .PP
-Definition at line \fB97\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB94\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-98         {
-99             Messenger\&.Default\&.Send(new NotificationMessage("CloseSettingsWindow"));
-100         }
+95         {
+96             Messenger\&.Default\&.Send(new NotificationMessage("CloseSettingsWindow"));
+97         }
 .fi
 .SS "void Emulator\&.ViewModel\&.SettingsViewModel\&.UpdatePortList ()\fC [inline]\fP"
 
 .PP
 Updates PortList with the COM ports available to the computer  
 .PP
-Definition at line \fB72\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB69\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-73         {
-74             PortList\&.Clear();
-75             foreach (string s in SerialPort\&.GetPortNames())
-76             {
-77                 PortList\&.Add(s);
-78             }
-79             RaisePropertyChanged("PortList");
-80         }
+70         {
+71             PortList\&.Clear();
+72             foreach (string s in SerialPort\&.GetPortNames())
+73             {
+74                 PortList\&.Add(s);
+75             }
+76             RaisePropertyChanged("PortList");
+77         }
 .fi
 .SH "Member Data Documentation"
 .PP 
 .SS "readonly ObservableCollection<string> Emulator\&.ViewModel\&.SettingsViewModel\&._PortList = new ObservableCollection<string>()\fC [private]\fP"
 
 .PP
-Definition at line \fB40\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB37\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .SH "Property Documentation"
 .PP 
 .SS "RelayCommand Emulator\&.ViewModel\&.SettingsViewModel\&.ApplyCommand\fC [get]\fP, \fC [set]\fP"
@@ -174,56 +174,56 @@ Definition at line \fB40\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 The Relay Command called when saving a file  
 .PP
-Definition at line \fB23\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB20\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-23 { get; set; }
+20 { get; set; }
 .fi
 .SS "bool Emulator\&.ViewModel\&.SettingsViewModel\&.ApplyEnabled\fC [get]\fP"
 
 .PP
 Tells the UI that that a file has been selected and can be saved\&.  
 .PP
-Definition at line \fB33\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB30\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-33 { get { return !string\&.IsNullOrEmpty(Emulator\&.FileLocations\&.SettingsFile); } }
+30 { get { return !string\&.IsNullOrEmpty(Emulator\&.FileLocations\&.SettingsFile); } }
 .fi
 .SS "RelayCommand Emulator\&.ViewModel\&.SettingsViewModel\&.CloseCommand\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The Relay Command called when closing a file  
 .PP
-Definition at line \fB28\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB25\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-28 { get; set; }
+25 { get; set; }
 .fi
 .SS "string Emulator\&.ViewModel\&.SettingsViewModel\&.ComPortSelection\fC [static]\fP, \fC [get]\fP, \fC [set]\fP"
 
 .PP
-Definition at line \fB42\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB39\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-42 { get; set; }
+39 { get; set; }
 .fi
 .SS "ObservableCollection<string> Emulator\&.ViewModel\&.SettingsViewModel\&.PortList\fC [get]\fP"
 
 .PP
 Creates a new instance of PortList, the list of all COM ports available to the computer  
 .PP
-Definition at line \fB39\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB36\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-39 { get { return _PortList; } }
+36 { get { return _PortList; } }
 .fi
 .SS "\fBSettingsModel\fP Emulator\&.ViewModel\&.SettingsViewModel\&.SettingsModel\fC [static]\fP, \fC [get]\fP, \fC [set]\fP"
 
 .PP
-Definition at line \fB43\fP of file \fBSettingsViewModel\&.cs\fP\&.
+Definition at line \fB40\fP of file \fBSettingsViewModel\&.cs\fP\&.
 .PP
 .nf
-43 { get; set; }
+40 { get; set; }
 .fi
 
 

@@ -1,4 +1,4 @@
-.TH "Hardware.AT28CXX" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Hardware.AT28CXX" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -112,18 +112,18 @@ Definition at line \fB54\fP of file \fBAT28CXX\&.cs\fP\&.
 .PP
 Clears the ROM\&.  
 .PP
-Definition at line \fB165\fP of file \fBAT28CXX\&.cs\fP\&.
+Definition at line \fB166\fP of file \fBAT28CXX\&.cs\fP\&.
 .PP
 .nf
-166         {
-167             for (byte i = 0; i < Banks; i++)
-168             {
-169                 for (int j = 0; j < Length; j++)
-170                 {
-171                     Memory[i][j] = 0x00;
-172                 }
-173             }
-174         }
+167         {
+168             for (byte i = 0; i < Banks; i++)
+169             {
+170                 for (int j = 0; j < Length; j++)
+171                 {
+172                     Memory[i][j] = 0x00;
+173                 }
+174             }
+175         }
 .fi
 .SS "byte[][] Hardware\&.AT28CXX\&.DumpMemory ()\fC [inline]\fP"
 
@@ -166,11 +166,12 @@ Definition at line \fB153\fP of file \fBAT28CXX\&.cs\fP\&.
 .nf
 154         {
 155             byte[] _tempMemory = new byte[MemoryMap\&.BankedRom\&.Length + 1];
-156             for (var i = 0; i < MemoryMap\&.BankedRom\&.Length; i++) {
-157                 _tempMemory[i] = Memory[bank][i];
-158             }
-159             return _tempMemory;
-160         }
+156             for (var i = 0; i < MemoryMap\&.BankedRom\&.Length; i++)
+157             {
+158                 _tempMemory[i] = Memory[bank][i];
+159             }
+160             return _tempMemory;
+161         }
 .fi
 .SS "void Hardware\&.AT28CXX\&.Load (byte bank, byte[] data)\fC [inline]\fP"
 

@@ -137,20 +137,20 @@
 
 <p>Points to the Current Position of the Stack. This value is a 00-FF value but is offset to point to the location in memory where the stack resides.  </p>
 
-<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l00070">70</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>        {</div>
-<div class="line"><span class="lineno">   72</span>            <span class="keyword">get</span> { <span class="keywordflow">return</span> <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a>; }</div>
-<div class="line"><span class="lineno">   73</span>            <span class="keyword">private</span> <span class="keyword">set</span></div>
-<div class="line"><span class="lineno">   74</span>            {</div>
-<div class="line"><span class="lineno">   75</span>                <span class="keywordflow">if</span> (value &gt; 0xFF)</div>
-<div class="line"><span class="lineno">   76</span>                    <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a> = value - 0x100;</div>
-<div class="line"><span class="lineno">   77</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value &lt; 0x00)</div>
-<div class="line"><span class="lineno">   78</span>                    <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a> = value + 0x100;</div>
-<div class="line"><span class="lineno">   79</span>                <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   80</span>                    <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a> = value;</div>
-<div class="line"><span class="lineno">   81</span>            }</div>
-<div class="line"><span class="lineno">   82</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed_html_a42a8b12df740a0135197860cc854ceed"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">Hardware.W65C02._stackPointer</a></div><div class="ttdeci">int _stackPointer</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00018">W65C02.cs:18</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l00069">69</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   70</span>        {</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keyword">get</span> { <span class="keywordflow">return</span> <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a>; }</div>
+<div class="line"><span class="lineno">   72</span>            <span class="keyword">private</span> <span class="keyword">set</span></div>
+<div class="line"><span class="lineno">   73</span>            {</div>
+<div class="line"><span class="lineno">   74</span>                <span class="keywordflow">if</span> (value &gt; 0xFF)</div>
+<div class="line"><span class="lineno">   75</span>                    <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a> = value - 0x100;</div>
+<div class="line"><span class="lineno">   76</span>                <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value &lt; 0x00)</div>
+<div class="line"><span class="lineno">   77</span>                    <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a> = value + 0x100;</div>
+<div class="line"><span class="lineno">   78</span>                <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   79</span>                    <a class="code hl_variable" href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">_stackPointer</a> = value;</div>
+<div class="line"><span class="lineno">   80</span>            }</div>
+<div class="line"><span class="lineno">   81</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed_html_a42a8b12df740a0135197860cc854ceed"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed">Hardware.W65C02._stackPointer</a></div><div class="ttdeci">int _stackPointer</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00017">W65C02.cs:17</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

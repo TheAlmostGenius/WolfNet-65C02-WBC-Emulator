@@ -148,141 +148,141 @@
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The memory Location</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l01340">1340</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1341</span>        {</div>
-<div class="line"><span class="lineno"> 1342</span>            <span class="keywordtype">int</span> address;</div>
-<div class="line"><span class="lineno"> 1343</span>            <span class="keywordtype">int</span> highByte;</div>
-<div class="line"><span class="lineno"> 1344</span>            <span class="keywordflow">switch</span> (addressingMode)</div>
-<div class="line"><span class="lineno"> 1345</span>            {</div>
-<div class="line"><span class="lineno"> 1346</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Absolute):</div>
-<div class="line"><span class="lineno"> 1347</span>                    {</div>
-<div class="line"><span class="lineno"> 1348</span>                        <span class="keywordflow">return</span> (MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++) | (MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++) &lt;&lt; 8));</div>
-<div class="line"><span class="lineno"> 1349</span>                    }</div>
-<div class="line"><span class="lineno"> 1350</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.AbsoluteX:</div>
-<div class="line"><span class="lineno"> 1351</span>                    {</div>
-<div class="line"><span class="lineno"> 1352</span>                        <span class="comment">//Get the low half of the address</span></div>
-<div class="line"><span class="lineno"> 1353</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1354</span> </div>
-<div class="line"><span class="lineno"> 1355</span>                        <span class="comment">//Get the high byte</span></div>
-<div class="line"><span class="lineno"> 1356</span>                        highByte = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1357</span> </div>
-<div class="line"><span class="lineno"> 1358</span>                        <span class="comment">//We crossed a page boundry, so an extra read has occurred.</span></div>
-<div class="line"><span class="lineno"> 1359</span>                        <span class="comment">//However, if this is an ASL, LSR, DEC, INC, ROR, ROL or STA operation, we do not decrease it by 1.</span></div>
-<div class="line"><span class="lineno"> 1360</span>                        <span class="keywordflow">if</span> (address + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a> &gt; 0xFF)</div>
-<div class="line"><span class="lineno"> 1361</span>                        {</div>
-<div class="line"><span class="lineno"> 1362</span>                            <span class="keywordflow">switch</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">CurrentOpCode</a>)</div>
-<div class="line"><span class="lineno"> 1363</span>                            {</div>
-<div class="line"><span class="lineno"> 1364</span>                                <span class="keywordflow">case</span> 0x1E:</div>
-<div class="line"><span class="lineno"> 1365</span>                                <span class="keywordflow">case</span> 0xDE:</div>
-<div class="line"><span class="lineno"> 1366</span>                                <span class="keywordflow">case</span> 0xFE:</div>
-<div class="line"><span class="lineno"> 1367</span>                                <span class="keywordflow">case</span> 0x5E:</div>
-<div class="line"><span class="lineno"> 1368</span>                                <span class="keywordflow">case</span> 0x3E:</div>
-<div class="line"><span class="lineno"> 1369</span>                                <span class="keywordflow">case</span> 0x7E:</div>
-<div class="line"><span class="lineno"> 1370</span>                                <span class="keywordflow">case</span> 0x9D:</div>
-<div class="line"><span class="lineno"> 1371</span>                                    {</div>
-<div class="line"><span class="lineno"> 1372</span>                                        <span class="comment">//This is a MemoryMap.Read Fetch Write Operation, so we don&#39;t make the extra read.</span></div>
-<div class="line"><span class="lineno"> 1373</span>                                        <span class="keywordflow">return</span> ((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>) &amp; 0xFFFF;</div>
-<div class="line"><span class="lineno"> 1374</span>                                    }</div>
-<div class="line"><span class="lineno"> 1375</span>                                <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno"> 1376</span>                                    {</div>
-<div class="line"><span class="lineno"> 1377</span>                                        MemoryMap.Read((((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>) - 0xFF) &amp; 0xFFFF);</div>
-<div class="line"><span class="lineno"> 1378</span>                                        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1379</span>                                    }</div>
-<div class="line"><span class="lineno"> 1380</span>                            }</div>
-<div class="line"><span class="lineno"> 1381</span>                        }</div>
-<div class="line"><span class="lineno"> 1382</span> </div>
-<div class="line"><span class="lineno"> 1383</span>                        <span class="keywordflow">return</span> ((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>) &amp; 0xFFFF;</div>
-<div class="line"><span class="lineno"> 1384</span>                    }</div>
-<div class="line"><span class="lineno"> 1385</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.AbsoluteY:</div>
-<div class="line"><span class="lineno"> 1386</span>                    {</div>
-<div class="line"><span class="lineno"> 1387</span>                        <span class="comment">//Get the low half of the address</span></div>
-<div class="line"><span class="lineno"> 1388</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1389</span> </div>
-<div class="line"><span class="lineno"> 1390</span>                        <span class="comment">//Get the high byte</span></div>
-<div class="line"><span class="lineno"> 1391</span>                        highByte = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1392</span> </div>
-<div class="line"><span class="lineno"> 1393</span>                        <span class="comment">//We crossed a page boundry, so decrease the number of cycles by 1 if the operation is not STA</span></div>
-<div class="line"><span class="lineno"> 1394</span>                        <span class="keywordflow">if</span> (address + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> &gt; 0xFF &amp;&amp; <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">CurrentOpCode</a> != 0x99)</div>
-<div class="line"><span class="lineno"> 1395</span>                        {</div>
-<div class="line"><span class="lineno"> 1396</span>                            MemoryMap.Read((((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>) - 0xFF) &amp; 0xFFFF);</div>
-<div class="line"><span class="lineno"> 1397</span>                        }</div>
-<div class="line"><span class="lineno"> 1398</span> </div>
-<div class="line"><span class="lineno"> 1399</span>                        <span class="comment">//Bitshift the high byte into place, AND with FFFF to handle wrapping.</span></div>
-<div class="line"><span class="lineno"> 1400</span>                        <span class="keywordflow">return</span> ((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>) &amp; 0xFFFF;</div>
-<div class="line"><span class="lineno"> 1401</span>                    }</div>
-<div class="line"><span class="lineno"> 1402</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Immediate:</div>
-<div class="line"><span class="lineno"> 1403</span>                    {</div>
-<div class="line"><span class="lineno"> 1404</span>                        <span class="keywordflow">return</span> <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++;</div>
-<div class="line"><span class="lineno"> 1405</span>                    }</div>
-<div class="line"><span class="lineno"> 1406</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.IndirectX:</div>
-<div class="line"><span class="lineno"> 1407</span>                    {</div>
-<div class="line"><span class="lineno"> 1408</span>                        <span class="comment">//Get the location of the address to retrieve</span></div>
-<div class="line"><span class="lineno"> 1409</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1410</span>                        MemoryMap.Read(address);</div>
-<div class="line"><span class="lineno"> 1411</span> </div>
-<div class="line"><span class="lineno"> 1412</span>                        address += <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>;</div>
-<div class="line"><span class="lineno"> 1413</span> </div>
-<div class="line"><span class="lineno"> 1414</span>                        <span class="comment">//Now get the final Address. The is not a zero page address either.</span></div>
-<div class="line"><span class="lineno"> 1415</span>                        var finalAddress = MemoryMap.Read((address &amp; 0xFF)) | (MemoryMap.Read((address + 1) &amp; 0xFF) &lt;&lt; 8);</div>
-<div class="line"><span class="lineno"> 1416</span>                        <span class="keywordflow">return</span> finalAddress;</div>
-<div class="line"><span class="lineno"> 1417</span>                    }</div>
-<div class="line"><span class="lineno"> 1418</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.IndirectY:</div>
-<div class="line"><span class="lineno"> 1419</span>                    {</div>
-<div class="line"><span class="lineno"> 1420</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1421</span> </div>
-<div class="line"><span class="lineno"> 1422</span>                        var finalAddress = MemoryMap.Read(address) + (MemoryMap.Read((address + 1) &amp; 0xFF) &lt;&lt; 8);</div>
-<div class="line"><span class="lineno"> 1423</span> </div>
-<div class="line"><span class="lineno"> 1424</span>                        <span class="keywordflow">if</span> ((finalAddress &amp; 0xFF) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> &gt; 0xFF &amp;&amp; <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">CurrentOpCode</a> != 0x91)</div>
-<div class="line"><span class="lineno"> 1425</span>                        {</div>
-<div class="line"><span class="lineno"> 1426</span>                            MemoryMap.Read((finalAddress + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> - 0xFF) &amp; 0xFFFF);</div>
-<div class="line"><span class="lineno"> 1427</span>                        }</div>
-<div class="line"><span class="lineno"> 1428</span> </div>
-<div class="line"><span class="lineno"> 1429</span>                        <span class="keywordflow">return</span> (finalAddress + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>) &amp; 0xFFFF;</div>
-<div class="line"><span class="lineno"> 1430</span>                    }</div>
-<div class="line"><span class="lineno"> 1431</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Relative:</div>
-<div class="line"><span class="lineno"> 1432</span>                    {</div>
-<div class="line"><span class="lineno"> 1433</span>                        <span class="keywordflow">return</span> <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>;</div>
-<div class="line"><span class="lineno"> 1434</span>                    }</div>
-<div class="line"><span class="lineno"> 1435</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.ZeroPage):</div>
-<div class="line"><span class="lineno"> 1436</span>                    {</div>
-<div class="line"><span class="lineno"> 1437</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1438</span>                        <span class="keywordflow">return</span> address;</div>
-<div class="line"><span class="lineno"> 1439</span>                    }</div>
-<div class="line"><span class="lineno"> 1440</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.ZeroPageX):</div>
-<div class="line"><span class="lineno"> 1441</span>                    {</div>
-<div class="line"><span class="lineno"> 1442</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1443</span>                        MemoryMap.Read(address);</div>
-<div class="line"><span class="lineno"> 1444</span> </div>
-<div class="line"><span class="lineno"> 1445</span>                        address += <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>;</div>
-<div class="line"><span class="lineno"> 1446</span>                        address &amp;= 0xFF;</div>
-<div class="line"><span class="lineno"> 1447</span> </div>
-<div class="line"><span class="lineno"> 1448</span>                        <span class="comment">//This address wraps if its greater than 0xFF</span></div>
-<div class="line"><span class="lineno"> 1449</span>                        <span class="keywordflow">if</span> (address &gt; 0xFF)</div>
-<div class="line"><span class="lineno"> 1450</span>                        {</div>
-<div class="line"><span class="lineno"> 1451</span>                            address -= 0x100;</div>
-<div class="line"><span class="lineno"> 1452</span>                            <span class="keywordflow">return</span> address;</div>
-<div class="line"><span class="lineno"> 1453</span>                        }</div>
-<div class="line"><span class="lineno"> 1454</span> </div>
-<div class="line"><span class="lineno"> 1455</span>                        <span class="keywordflow">return</span> address;</div>
-<div class="line"><span class="lineno"> 1456</span>                    }</div>
-<div class="line"><span class="lineno"> 1457</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.ZeroPageY):</div>
-<div class="line"><span class="lineno"> 1458</span>                    {</div>
-<div class="line"><span class="lineno"> 1459</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
-<div class="line"><span class="lineno"> 1460</span>                        MemoryMap.Read(address);</div>
-<div class="line"><span class="lineno"> 1461</span> </div>
-<div class="line"><span class="lineno"> 1462</span>                        address += <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>;</div>
-<div class="line"><span class="lineno"> 1463</span>                        address &amp;= 0xFF;</div>
-<div class="line"><span class="lineno"> 1464</span> </div>
-<div class="line"><span class="lineno"> 1465</span>                        <span class="keywordflow">return</span> address;</div>
-<div class="line"><span class="lineno"> 1466</span>                    }</div>
-<div class="line"><span class="lineno"> 1467</span>                <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno"> 1468</span>                    <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidOperationException(<span class="keywordtype">string</span>.Format(<span class="stringliteral">&quot;The Address Mode &#39;{0}&#39; does not require an address&quot;</span>, addressingMode));</div>
-<div class="line"><span class="lineno"> 1469</span>            }</div>
-<div class="line"><span class="lineno"> 1470</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50_html_a23427a87d4c5710bf18e0bc338badc50"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">Hardware.W65C02.YRegister</a></div><div class="ttdeci">int YRegister</div><div class="ttdoc">The Y Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00044">W65C02.cs:44</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df_html_a4f2280e861529c00e5adca272a18a8df"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">Hardware.W65C02.CurrentOpCode</a></div><div class="ttdeci">int CurrentOpCode</div><div class="ttdoc">The Current Op Code being executed by the system</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00049">W65C02.cs:49</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652_html_aa30549de0474b350b3fa8ca30714a652"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">Hardware.W65C02.XRegister</a></div><div class="ttdeci">int XRegister</div><div class="ttdoc">The X Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00039">W65C02.cs:39</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_html_ad953847ee02d563ea055be5f70976247"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">Hardware.W65C02.ProgramCounter</a></div><div class="ttdeci">int ProgramCounter</div><div class="ttdoc">Points to the Current Address of the instruction being executed by the system. The PC wraps when the ...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00060">W65C02.cs:61</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l01339">1339</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1340</span>        {</div>
+<div class="line"><span class="lineno"> 1341</span>            <span class="keywordtype">int</span> address;</div>
+<div class="line"><span class="lineno"> 1342</span>            <span class="keywordtype">int</span> highByte;</div>
+<div class="line"><span class="lineno"> 1343</span>            <span class="keywordflow">switch</span> (addressingMode)</div>
+<div class="line"><span class="lineno"> 1344</span>            {</div>
+<div class="line"><span class="lineno"> 1345</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Absolute):</div>
+<div class="line"><span class="lineno"> 1346</span>                    {</div>
+<div class="line"><span class="lineno"> 1347</span>                        <span class="keywordflow">return</span> (MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++) | (MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++) &lt;&lt; 8));</div>
+<div class="line"><span class="lineno"> 1348</span>                    }</div>
+<div class="line"><span class="lineno"> 1349</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.AbsoluteX:</div>
+<div class="line"><span class="lineno"> 1350</span>                    {</div>
+<div class="line"><span class="lineno"> 1351</span>                        <span class="comment">//Get the low half of the address</span></div>
+<div class="line"><span class="lineno"> 1352</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1353</span> </div>
+<div class="line"><span class="lineno"> 1354</span>                        <span class="comment">//Get the high byte</span></div>
+<div class="line"><span class="lineno"> 1355</span>                        highByte = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1356</span> </div>
+<div class="line"><span class="lineno"> 1357</span>                        <span class="comment">//We crossed a page boundry, so an extra read has occurred.</span></div>
+<div class="line"><span class="lineno"> 1358</span>                        <span class="comment">//However, if this is an ASL, LSR, DEC, INC, ROR, ROL or STA operation, we do not decrease it by 1.</span></div>
+<div class="line"><span class="lineno"> 1359</span>                        <span class="keywordflow">if</span> (address + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a> &gt; 0xFF)</div>
+<div class="line"><span class="lineno"> 1360</span>                        {</div>
+<div class="line"><span class="lineno"> 1361</span>                            <span class="keywordflow">switch</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">CurrentOpCode</a>)</div>
+<div class="line"><span class="lineno"> 1362</span>                            {</div>
+<div class="line"><span class="lineno"> 1363</span>                                <span class="keywordflow">case</span> 0x1E:</div>
+<div class="line"><span class="lineno"> 1364</span>                                <span class="keywordflow">case</span> 0xDE:</div>
+<div class="line"><span class="lineno"> 1365</span>                                <span class="keywordflow">case</span> 0xFE:</div>
+<div class="line"><span class="lineno"> 1366</span>                                <span class="keywordflow">case</span> 0x5E:</div>
+<div class="line"><span class="lineno"> 1367</span>                                <span class="keywordflow">case</span> 0x3E:</div>
+<div class="line"><span class="lineno"> 1368</span>                                <span class="keywordflow">case</span> 0x7E:</div>
+<div class="line"><span class="lineno"> 1369</span>                                <span class="keywordflow">case</span> 0x9D:</div>
+<div class="line"><span class="lineno"> 1370</span>                                    {</div>
+<div class="line"><span class="lineno"> 1371</span>                                        <span class="comment">//This is a MemoryMap.Read Fetch Write Operation, so we don&#39;t make the extra read.</span></div>
+<div class="line"><span class="lineno"> 1372</span>                                        <span class="keywordflow">return</span> ((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>) &amp; 0xFFFF;</div>
+<div class="line"><span class="lineno"> 1373</span>                                    }</div>
+<div class="line"><span class="lineno"> 1374</span>                                <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno"> 1375</span>                                    {</div>
+<div class="line"><span class="lineno"> 1376</span>                                        MemoryMap.Read((((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>) - 0xFF) &amp; 0xFFFF);</div>
+<div class="line"><span class="lineno"> 1377</span>                                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1378</span>                                    }</div>
+<div class="line"><span class="lineno"> 1379</span>                            }</div>
+<div class="line"><span class="lineno"> 1380</span>                        }</div>
+<div class="line"><span class="lineno"> 1381</span> </div>
+<div class="line"><span class="lineno"> 1382</span>                        <span class="keywordflow">return</span> ((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>) &amp; 0xFFFF;</div>
+<div class="line"><span class="lineno"> 1383</span>                    }</div>
+<div class="line"><span class="lineno"> 1384</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.AbsoluteY:</div>
+<div class="line"><span class="lineno"> 1385</span>                    {</div>
+<div class="line"><span class="lineno"> 1386</span>                        <span class="comment">//Get the low half of the address</span></div>
+<div class="line"><span class="lineno"> 1387</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1388</span> </div>
+<div class="line"><span class="lineno"> 1389</span>                        <span class="comment">//Get the high byte</span></div>
+<div class="line"><span class="lineno"> 1390</span>                        highByte = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1391</span> </div>
+<div class="line"><span class="lineno"> 1392</span>                        <span class="comment">//We crossed a page boundry, so decrease the number of cycles by 1 if the operation is not STA</span></div>
+<div class="line"><span class="lineno"> 1393</span>                        <span class="keywordflow">if</span> (address + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> &gt; 0xFF &amp;&amp; <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">CurrentOpCode</a> != 0x99)</div>
+<div class="line"><span class="lineno"> 1394</span>                        {</div>
+<div class="line"><span class="lineno"> 1395</span>                            MemoryMap.Read((((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>) - 0xFF) &amp; 0xFFFF);</div>
+<div class="line"><span class="lineno"> 1396</span>                        }</div>
+<div class="line"><span class="lineno"> 1397</span> </div>
+<div class="line"><span class="lineno"> 1398</span>                        <span class="comment">//Bitshift the high byte into place, AND with FFFF to handle wrapping.</span></div>
+<div class="line"><span class="lineno"> 1399</span>                        <span class="keywordflow">return</span> ((highByte &lt;&lt; 8 | address) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>) &amp; 0xFFFF;</div>
+<div class="line"><span class="lineno"> 1400</span>                    }</div>
+<div class="line"><span class="lineno"> 1401</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Immediate:</div>
+<div class="line"><span class="lineno"> 1402</span>                    {</div>
+<div class="line"><span class="lineno"> 1403</span>                        <span class="keywordflow">return</span> <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++;</div>
+<div class="line"><span class="lineno"> 1404</span>                    }</div>
+<div class="line"><span class="lineno"> 1405</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.IndirectX:</div>
+<div class="line"><span class="lineno"> 1406</span>                    {</div>
+<div class="line"><span class="lineno"> 1407</span>                        <span class="comment">//Get the location of the address to retrieve</span></div>
+<div class="line"><span class="lineno"> 1408</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1409</span>                        MemoryMap.Read(address);</div>
+<div class="line"><span class="lineno"> 1410</span> </div>
+<div class="line"><span class="lineno"> 1411</span>                        address += <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>;</div>
+<div class="line"><span class="lineno"> 1412</span> </div>
+<div class="line"><span class="lineno"> 1413</span>                        <span class="comment">//Now get the final Address. The is not a zero page address either.</span></div>
+<div class="line"><span class="lineno"> 1414</span>                        var finalAddress = MemoryMap.Read((address &amp; 0xFF)) | (MemoryMap.Read((address + 1) &amp; 0xFF) &lt;&lt; 8);</div>
+<div class="line"><span class="lineno"> 1415</span>                        <span class="keywordflow">return</span> finalAddress;</div>
+<div class="line"><span class="lineno"> 1416</span>                    }</div>
+<div class="line"><span class="lineno"> 1417</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.IndirectY:</div>
+<div class="line"><span class="lineno"> 1418</span>                    {</div>
+<div class="line"><span class="lineno"> 1419</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1420</span> </div>
+<div class="line"><span class="lineno"> 1421</span>                        var finalAddress = MemoryMap.Read(address) + (MemoryMap.Read((address + 1) &amp; 0xFF) &lt;&lt; 8);</div>
+<div class="line"><span class="lineno"> 1422</span> </div>
+<div class="line"><span class="lineno"> 1423</span>                        <span class="keywordflow">if</span> ((finalAddress &amp; 0xFF) + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> &gt; 0xFF &amp;&amp; <a class="code hl_property" href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">CurrentOpCode</a> != 0x91)</div>
+<div class="line"><span class="lineno"> 1424</span>                        {</div>
+<div class="line"><span class="lineno"> 1425</span>                            MemoryMap.Read((finalAddress + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> - 0xFF) &amp; 0xFFFF);</div>
+<div class="line"><span class="lineno"> 1426</span>                        }</div>
+<div class="line"><span class="lineno"> 1427</span> </div>
+<div class="line"><span class="lineno"> 1428</span>                        <span class="keywordflow">return</span> (finalAddress + <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>) &amp; 0xFFFF;</div>
+<div class="line"><span class="lineno"> 1429</span>                    }</div>
+<div class="line"><span class="lineno"> 1430</span>                <span class="keywordflow">case</span> <a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.Relative:</div>
+<div class="line"><span class="lineno"> 1431</span>                    {</div>
+<div class="line"><span class="lineno"> 1432</span>                        <span class="keywordflow">return</span> <a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>;</div>
+<div class="line"><span class="lineno"> 1433</span>                    }</div>
+<div class="line"><span class="lineno"> 1434</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.ZeroPage):</div>
+<div class="line"><span class="lineno"> 1435</span>                    {</div>
+<div class="line"><span class="lineno"> 1436</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1437</span>                        <span class="keywordflow">return</span> address;</div>
+<div class="line"><span class="lineno"> 1438</span>                    }</div>
+<div class="line"><span class="lineno"> 1439</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.ZeroPageX):</div>
+<div class="line"><span class="lineno"> 1440</span>                    {</div>
+<div class="line"><span class="lineno"> 1441</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1442</span>                        MemoryMap.Read(address);</div>
+<div class="line"><span class="lineno"> 1443</span> </div>
+<div class="line"><span class="lineno"> 1444</span>                        address += <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a>;</div>
+<div class="line"><span class="lineno"> 1445</span>                        address &amp;= 0xFF;</div>
+<div class="line"><span class="lineno"> 1446</span> </div>
+<div class="line"><span class="lineno"> 1447</span>                        <span class="comment">//This address wraps if its greater than 0xFF</span></div>
+<div class="line"><span class="lineno"> 1448</span>                        <span class="keywordflow">if</span> (address &gt; 0xFF)</div>
+<div class="line"><span class="lineno"> 1449</span>                        {</div>
+<div class="line"><span class="lineno"> 1450</span>                            address -= 0x100;</div>
+<div class="line"><span class="lineno"> 1451</span>                            <span class="keywordflow">return</span> address;</div>
+<div class="line"><span class="lineno"> 1452</span>                        }</div>
+<div class="line"><span class="lineno"> 1453</span> </div>
+<div class="line"><span class="lineno"> 1454</span>                        <span class="keywordflow">return</span> address;</div>
+<div class="line"><span class="lineno"> 1455</span>                    }</div>
+<div class="line"><span class="lineno"> 1456</span>                <span class="keywordflow">case</span> (<a class="code hl_enumeration" href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">AddressingMode</a>.ZeroPageY):</div>
+<div class="line"><span class="lineno"> 1457</span>                    {</div>
+<div class="line"><span class="lineno"> 1458</span>                        address = MemoryMap.Read(<a class="code hl_property" href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">ProgramCounter</a>++);</div>
+<div class="line"><span class="lineno"> 1459</span>                        MemoryMap.Read(address);</div>
+<div class="line"><span class="lineno"> 1460</span> </div>
+<div class="line"><span class="lineno"> 1461</span>                        address += <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>;</div>
+<div class="line"><span class="lineno"> 1462</span>                        address &amp;= 0xFF;</div>
+<div class="line"><span class="lineno"> 1463</span> </div>
+<div class="line"><span class="lineno"> 1464</span>                        <span class="keywordflow">return</span> address;</div>
+<div class="line"><span class="lineno"> 1465</span>                    }</div>
+<div class="line"><span class="lineno"> 1466</span>                <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno"> 1467</span>                    <span class="keywordflow">throw</span> <span class="keyword">new</span> InvalidOperationException(<span class="keywordtype">string</span>.Format(<span class="stringliteral">&quot;The Address Mode &#39;{0}&#39; does not require an address&quot;</span>, addressingMode));</div>
+<div class="line"><span class="lineno"> 1468</span>            }</div>
+<div class="line"><span class="lineno"> 1469</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50_html_a23427a87d4c5710bf18e0bc338badc50"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">Hardware.W65C02.YRegister</a></div><div class="ttdeci">int YRegister</div><div class="ttdoc">The Y Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00043">W65C02.cs:43</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df_html_a4f2280e861529c00e5adca272a18a8df"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df.html#a4f2280e861529c00e5adca272a18a8df">Hardware.W65C02.CurrentOpCode</a></div><div class="ttdeci">int CurrentOpCode</div><div class="ttdoc">The Current Op Code being executed by the system</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00048">W65C02.cs:48</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652_html_aa30549de0474b350b3fa8ca30714a652"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">Hardware.W65C02.XRegister</a></div><div class="ttdeci">int XRegister</div><div class="ttdoc">The X Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00038">W65C02.cs:38</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_html_ad953847ee02d563ea055be5f70976247"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247.html#ad953847ee02d563ea055be5f70976247">Hardware.W65C02.ProgramCounter</a></div><div class="ttdeci">int ProgramCounter</div><div class="ttdoc">Points to the Current Address of the instruction being executed by the system. The PC wraps when the ...</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00059">W65C02.cs:60</a></div></div>
 <div class="ttc" id="anamespace_hardware_a20ed8885928dd1f3f9eac50507a162fc_html_a20ed8885928dd1f3f9eac50507a162fc"><div class="ttname"><a href="namespace_hardware_a20ed8885928dd1f3f9eac50507a162fc.html#a20ed8885928dd1f3f9eac50507a162fc">Hardware.AddressingMode</a></div><div class="ttdeci">AddressingMode</div><div class="ttdoc">The addressing modes used by the 6502 Processor</div><div class="ttdef"><b>Definition:</b> <a href="_addressing_mode_8cs_source.html#l00006">AddressingMode.cs:7</a></div></div>
 </div><!-- fragment -->
 </div>

@@ -1,115 +1,113 @@
 \hypertarget{_h_m62256_8cs_source}{}\doxysubsection{HM62256.\+cs}
-\label{_h_m62256_8cs_source}\index{Hardware/HM62256.cs@{Hardware/HM62256.cs}}
+\label{_h_m62256_8cs_source}\index{Hardware/Hardware/HM62256.cs@{Hardware/Hardware/HM62256.cs}}
 \mbox{\hyperlink{_h_m62256_8cs}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00002}00002 }
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00003}00003 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_hardware}{Hardware}}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00004}00004 \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00005}\mbox{\hyperlink{class_hardware_1_1_h_m62256}{00005}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00006}00006     \{\textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00007}00007 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00008}00008 \textcolor{comment}{        /// The memory area.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00009}00009 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00010}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{00010}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[][] \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00011}00011 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00012}00012 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00013}00013 \textcolor{comment}{        /// The memory offset.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00014}00014 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00015}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{00015}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00016}00016 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00017}00017 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00018}00018 \textcolor{comment}{        /// The memory length.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00019}00019 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00020}\mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{00020}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00021}00021 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00022}00022 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00023}00023 \textcolor{comment}{        /// The location of the end of memory.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00024}00024 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00025}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ae5a1c71ff356aeaf806e7b3af40d2537_ae5a1c71ff356aeaf806e7b3af40d2537}{00025}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae5a1c71ff356aeaf806e7b3af40d2537_ae5a1c71ff356aeaf806e7b3af40d2537}{End}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}}; \} \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00026}00026 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00027}00027 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00028}00028 \textcolor{comment}{        /// The number of banks the memory has.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00029}00029 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00030}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{00030}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00031}00031 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00032}00032 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00033}00033 \textcolor{comment}{        /// The currently selected bank.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00034}00034 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00035}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{00035}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00036}00036 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00037}00037 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00038}00038 \textcolor{comment}{        /// Called whenever a new 62256 object is required.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00039}00039 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00040}00040 \textcolor{comment}{        /// <param name="{}banks"{}>Number of banks the new memory will have.</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00041}00041 \textcolor{comment}{        /// <param name="{}offset"{}>Offset of the new memory in the address space.</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00042}00042 \textcolor{comment}{        /// <param name="{}length"{}>Length of each bank of memory.</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00043}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a800956212641730a5e3721c76ed55fa7_a800956212641730a5e3721c76ed55fa7}{00043}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a800956212641730a5e3721c76ed55fa7_a800956212641730a5e3721c76ed55fa7}{HM62256}}(\textcolor{keywordtype}{byte} banks, \textcolor{keywordtype}{int} offset, \textcolor{keywordtype}{int} length)}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00044}00044         \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00045}00045             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[banks][];}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00046}00046             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < banks; i++)}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00047}00047             \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00048}00048                 \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length + 1];}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00049}00049             \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00050}00050             \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}} = length;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00051}00051             \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}} = banks;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00052}00052             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} = offset;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00053}00053             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}} = 0;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00054}00054         \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00055}00055 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00056}00056 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00057}00057 \textcolor{comment}{        /// Called whenever the emulated computer is reset.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00058}00058 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00059}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}{00059}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}{Reset}}()}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00060}00060         \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00061}00061             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{Clear}}();}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00062}00062         \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00063}00063 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00064}00064 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00065}00065 \textcolor{comment}{        /// Clears the memory.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00066}00066 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00067}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{00067}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{Clear}}()}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00068}00068         \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00069}00069             \textcolor{keywordflow}{for} (var i = 0; i < \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}}; i++)}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00070}00070             \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00071}00071                 \textcolor{keywordflow}{for} (var j = 0; j < \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}.Length; j++)}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00072}00072                 \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00073}00073                     \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i][j] = 0x00;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00074}00074                 \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00075}00075             \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00076}00076         \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00077}00077         \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00078}00078 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00079}00079 \textcolor{comment}{        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. }}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00080}00080 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00081}00081 \textcolor{comment}{        /// <param name="{}bank"{}>The bank to read data from.</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00082}00082 \textcolor{comment}{        /// <param name="{}address"{}></param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00083}00083 \textcolor{comment}{        /// <returns>The byte being read.</returns>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00084}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a4080099863fd3a767d3878965ad95c92_a4080099863fd3a767d3878965ad95c92}{00084}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a4080099863fd3a767d3878965ad95c92_a4080099863fd3a767d3878965ad95c92}{Read}}(\textcolor{keywordtype}{int} address)}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00085}00085         \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00086}00086             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}];}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00087}00087         \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00088}00088 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00089}00089 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00090}00090 \textcolor{comment}{        /// Writes data to the given address without incrementing the cycle.}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00091}00091 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00092}00092 \textcolor{comment}{        /// <param name="{}bank"{}>The bank to load data to.</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00093}00093 \textcolor{comment}{        /// <param name="{}address"{}>The address to write data to</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00094}00094 \textcolor{comment}{        /// <param name="{}data"{}>The data to write</param>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00095}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a79126f2ca6a9b4385239b530900a4a48_a79126f2ca6a9b4385239b530900a4a48}{00095}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a79126f2ca6a9b4385239b530900a4a48_a79126f2ca6a9b4385239b530900a4a48}{Write}}(\textcolor{keywordtype}{int} address, \textcolor{keywordtype}{byte} data)}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00096}00096         \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00097}00097             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}] = data;}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00098}00098         \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00099}00099 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00100}00100 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00101}00101 \textcolor{comment}{        /// Dumps the entire memory object. Used when saving the memory state}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00102}00102 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00103}00103 \textcolor{comment}{        /// <returns>Jagged array representing the banked memory.</returns>}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00104}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac6757cc4413ba9d23134817ec265e1c3_ac6757cc4413ba9d23134817ec265e1c3}{00104}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[][] \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac6757cc4413ba9d23134817ec265e1c3_ac6757cc4413ba9d23134817ec265e1c3}{DumpMemory}}()}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00105}00105         \{}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00106}00106             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}};}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00107}00107         \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00108}00108     \}}
-\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00109}00109 \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00001}00001 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_hardware}{Hardware}}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00002}00002 \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00003}\mbox{\hyperlink{class_hardware_1_1_h_m62256}{00003}}     \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00004}00004     \{\textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00005}00005 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00006}00006 \textcolor{comment}{        /// The memory area.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00007}00007 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00008}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{00008}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[][] \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00009}00009 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00010}00010 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00011}00011 \textcolor{comment}{        /// The memory offset.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00012}00012 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00013}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{00013}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00014}00014 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00015}00015 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00016}00016 \textcolor{comment}{        /// The memory length.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00017}00017 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00018}\mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{00018}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00019}00019 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00021}00021 \textcolor{comment}{        /// The location of the end of memory.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00022}00022 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00023}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ae5a1c71ff356aeaf806e7b3af40d2537_ae5a1c71ff356aeaf806e7b3af40d2537}{00023}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{int} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae5a1c71ff356aeaf806e7b3af40d2537_ae5a1c71ff356aeaf806e7b3af40d2537}{End}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}}; \} \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00024}00024 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00025}00025 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00026}00026 \textcolor{comment}{        /// The number of banks the memory has.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00027}00027 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00028}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{00028}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00029}00029 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00030}00030 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00031}00031 \textcolor{comment}{        /// The currently selected bank.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00032}00032 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00033}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{00033}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00034}00034 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00035}00035 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00036}00036 \textcolor{comment}{        /// Called whenever a new 62256 object is required.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00037}00037 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00038}00038 \textcolor{comment}{        /// <param name="{}banks"{}>Number of banks the new memory will have.</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00039}00039 \textcolor{comment}{        /// <param name="{}offset"{}>Offset of the new memory in the address space.</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00040}00040 \textcolor{comment}{        /// <param name="{}length"{}>Length of each bank of memory.</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00041}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a800956212641730a5e3721c76ed55fa7_a800956212641730a5e3721c76ed55fa7}{00041}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a800956212641730a5e3721c76ed55fa7_a800956212641730a5e3721c76ed55fa7}{HM62256}}(\textcolor{keywordtype}{byte} banks, \textcolor{keywordtype}{int} offset, \textcolor{keywordtype}{int} length)}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00042}00042         \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00043}00043             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[banks][];}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00044}00044             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < banks; i++)}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00045}00045             \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00046}00046                 \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length + 1];}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00047}00047             \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00048}00048             \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}} = length;}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00049}00049             \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}} = banks;}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00050}00050             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} = offset;}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00051}00051             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}} = 0;}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00052}00052         \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00053}00053 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00054}00054 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00055}00055 \textcolor{comment}{        /// Called whenever the emulated computer is reset.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00056}00056 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00057}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}{00057}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}{Reset}}()}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00058}00058         \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00059}00059             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{Clear}}();}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00060}00060         \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00061}00061 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00062}00062 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00063}00063 \textcolor{comment}{        /// Clears the memory.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00064}00064 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00065}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{00065}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{Clear}}()}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00066}00066         \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00067}00067             \textcolor{keywordflow}{for} (var i = 0; i < \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}}; i++)}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00068}00068             \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00069}00069                 \textcolor{keywordflow}{for} (var j = 0; j < \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}.Length; j++)}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00070}00070                 \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00071}00071                     \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i][j] = 0x00;}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00072}00072                 \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00073}00073             \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00074}00074         \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00075}00075 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00076}00076 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00077}00077 \textcolor{comment}{        /// Returns the byte at a given address without incrementing the cycle. Useful for test harness. }}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00078}00078 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00079}00079 \textcolor{comment}{        /// <param name="{}bank"{}>The bank to read data from.</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00080}00080 \textcolor{comment}{        /// <param name="{}address"{}></param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00081}00081 \textcolor{comment}{        /// <returns>The byte being read.</returns>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00082}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a4080099863fd3a767d3878965ad95c92_a4080099863fd3a767d3878965ad95c92}{00082}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a4080099863fd3a767d3878965ad95c92_a4080099863fd3a767d3878965ad95c92}{Read}}(\textcolor{keywordtype}{int} address)}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00083}00083         \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00084}00084             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}];}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00085}00085         \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00086}00086 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00087}00087 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00088}00088 \textcolor{comment}{        /// Writes data to the given address without incrementing the cycle.}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00089}00089 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00090}00090 \textcolor{comment}{        /// <param name="{}bank"{}>The bank to load data to.</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00091}00091 \textcolor{comment}{        /// <param name="{}address"{}>The address to write data to</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00092}00092 \textcolor{comment}{        /// <param name="{}data"{}>The data to write</param>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00093}\mbox{\hyperlink{class_hardware_1_1_h_m62256_a79126f2ca6a9b4385239b530900a4a48_a79126f2ca6a9b4385239b530900a4a48}{00093}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_h_m62256_a79126f2ca6a9b4385239b530900a4a48_a79126f2ca6a9b4385239b530900a4a48}{Write}}(\textcolor{keywordtype}{int} address, \textcolor{keywordtype}{byte} data)}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00094}00094         \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00095}00095             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}] = data;}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00096}00096         \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00097}00097 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00098}00098 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00099}00099 \textcolor{comment}{        /// Dumps the entire memory object. Used when saving the memory state}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00100}00100 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00101}00101 \textcolor{comment}{        /// <returns>Jagged array representing the banked memory.</returns>}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00102}\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac6757cc4413ba9d23134817ec265e1c3_ac6757cc4413ba9d23134817ec265e1c3}{00102}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[][] \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac6757cc4413ba9d23134817ec265e1c3_ac6757cc4413ba9d23134817ec265e1c3}{DumpMemory}}()}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00103}00103         \{}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00104}00104             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}};}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00105}00105         \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00106}00106     \}}
+\DoxyCodeLine{\Hypertarget{_h_m62256_8cs_source_l00107}00107 \}}
 
 \end{DoxyCode}

@@ -96,7 +96,7 @@ void \mbox{\hyperlink{class_hardware_1_1_w65_c51_a094f067e1d4500746fc98398ff4569
 \doxysubsubsection{Detailed Description}
 An implementation of a \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65\+C51}} ACIA.  
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00013}{13}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 
@@ -109,27 +109,27 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00013}{13}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00041}{41}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00040}{40}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00042         \{}
-\DoxyCodeLine{00043             \textcolor{keywordflow}{if} (offset > MemoryMap.DeviceArea.Length)}
-\DoxyCodeLine{00044                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(String.Format(\textcolor{stringliteral}{"{}The offset: \{0\} is greater than the device area: \{1\}"{}}, offset, MemoryMap.DeviceArea.Length));}
-\DoxyCodeLine{00045             }
-\DoxyCodeLine{00046             \mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}} = processor;}
-\DoxyCodeLine{00047 }
-\DoxyCodeLine{00048             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} = MemoryMap.DeviceArea.Offset | offset;}
-\DoxyCodeLine{00049             \mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4b06a191d59b71d910c6341ee834ad7_aa4b06a191d59b71d910c6341ee834ad7}{Length}} = 0x04;}
-\DoxyCodeLine{00050             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4b06a191d59b71d910c6341ee834ad7_aa4b06a191d59b71d910c6341ee834ad7}{Length}} + 1];}
-\DoxyCodeLine{00051 }
-\DoxyCodeLine{00052             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9ed9bab751d57a53291e47a9610c6549_a9ed9bab751d57a53291e47a9610c6549}{\_backgroundWorker}} = \textcolor{keyword}{new} BackgroundWorker}
-\DoxyCodeLine{00053             \{}
-\DoxyCodeLine{00054                 WorkerSupportsCancellation = \textcolor{keyword}{true}}
-\DoxyCodeLine{00055             \};}
-\DoxyCodeLine{00056             \_backgroundWorker.DoWork += \mbox{\hyperlink{class_hardware_1_1_w65_c51_a094f067e1d4500746fc98398ff4569fb_a094f067e1d4500746fc98398ff4569fb}{BackgroundWorkerDoWork}};}
-\DoxyCodeLine{00057             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9ed9bab751d57a53291e47a9610c6549_a9ed9bab751d57a53291e47a9610c6549}{\_backgroundWorker}}.RunWorkerAsync();}
-\DoxyCodeLine{00058         \}}
+\DoxyCodeLine{00041         \{}
+\DoxyCodeLine{00042             \textcolor{keywordflow}{if} (offset > MemoryMap.DeviceArea.Length)}
+\DoxyCodeLine{00043                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(String.Format(\textcolor{stringliteral}{"{}The offset: \{0\} is greater than the device area: \{1\}"{}}, offset, MemoryMap.DeviceArea.Length));}
+\DoxyCodeLine{00044 }
+\DoxyCodeLine{00045             \mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}} = processor;}
+\DoxyCodeLine{00046 }
+\DoxyCodeLine{00047             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} = MemoryMap.DeviceArea.Offset | offset;}
+\DoxyCodeLine{00048             \mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4b06a191d59b71d910c6341ee834ad7_aa4b06a191d59b71d910c6341ee834ad7}{Length}} = 0x04;}
+\DoxyCodeLine{00049             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4b06a191d59b71d910c6341ee834ad7_aa4b06a191d59b71d910c6341ee834ad7}{Length}} + 1];}
+\DoxyCodeLine{00050 }
+\DoxyCodeLine{00051             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9ed9bab751d57a53291e47a9610c6549_a9ed9bab751d57a53291e47a9610c6549}{\_backgroundWorker}} = \textcolor{keyword}{new} BackgroundWorker}
+\DoxyCodeLine{00052             \{}
+\DoxyCodeLine{00053                 WorkerSupportsCancellation = \textcolor{keyword}{true}}
+\DoxyCodeLine{00054             \};}
+\DoxyCodeLine{00055             \_backgroundWorker.DoWork += \mbox{\hyperlink{class_hardware_1_1_w65_c51_a094f067e1d4500746fc98398ff4569fb_a094f067e1d4500746fc98398ff4569fb}{BackgroundWorkerDoWork}};}
+\DoxyCodeLine{00056             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9ed9bab751d57a53291e47a9610c6549_a9ed9bab751d57a53291e47a9610c6549}{\_backgroundWorker}}.RunWorkerAsync();}
+\DoxyCodeLine{00057         \}}
 
 \end{DoxyCode}
 
@@ -143,40 +143,40 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00041}{41}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00678}{678}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00677}{677}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00679         \{}
-\DoxyCodeLine{00680             var worker = sender as BackgroundWorker;}
-\DoxyCodeLine{00681 }
-\DoxyCodeLine{00682             \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
-\DoxyCodeLine{00683             \{}
-\DoxyCodeLine{00684                 \textcolor{keywordflow}{if} (worker != \textcolor{keyword}{null} \&\& worker.CancellationPending)}
-\DoxyCodeLine{00685                 \{}
-\DoxyCodeLine{00686                     e.Cancel = \textcolor{keyword}{true};}
-\DoxyCodeLine{00687                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00688                 \}}
-\DoxyCodeLine{00689 }
-\DoxyCodeLine{00690                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aea5bad1eb73459933b9baf077b80a69d_aea5bad1eb73459933b9baf077b80a69d}{isRunning}})}
-\DoxyCodeLine{00691                 \{}
-\DoxyCodeLine{00692                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} || \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}})}
-\DoxyCodeLine{00693                     \{}
-\DoxyCodeLine{00694                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1] = (byte)(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1] | 0x80);}
-\DoxyCodeLine{00695                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00696                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a21e519f1e532098b8d3441cd123cc891_a21e519f1e532098b8d3441cd123cc891}{InterruptRequest}}();}
-\DoxyCodeLine{00697                     \}}
-\DoxyCodeLine{00698 }
-\DoxyCodeLine{00699                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}{DataRead}})}
-\DoxyCodeLine{00700                     \{}
-\DoxyCodeLine{00701                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00702                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00703                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00704                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}{DataRead}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00705                     \}}
-\DoxyCodeLine{00706                 \}}
-\DoxyCodeLine{00707             \}}
-\DoxyCodeLine{00708         \}}
+\DoxyCodeLine{00678         \{}
+\DoxyCodeLine{00679             var worker = sender as BackgroundWorker;}
+\DoxyCodeLine{00680 }
+\DoxyCodeLine{00681             \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{00682             \{}
+\DoxyCodeLine{00683                 \textcolor{keywordflow}{if} (worker != \textcolor{keyword}{null} \&\& worker.CancellationPending)}
+\DoxyCodeLine{00684                 \{}
+\DoxyCodeLine{00685                     e.Cancel = \textcolor{keyword}{true};}
+\DoxyCodeLine{00686                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00687                 \}}
+\DoxyCodeLine{00688 }
+\DoxyCodeLine{00689                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aea5bad1eb73459933b9baf077b80a69d_aea5bad1eb73459933b9baf077b80a69d}{isRunning}})}
+\DoxyCodeLine{00690                 \{}
+\DoxyCodeLine{00691                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} || \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}})}
+\DoxyCodeLine{00692                     \{}
+\DoxyCodeLine{00693                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1] = (byte)(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1] | 0x80);}
+\DoxyCodeLine{00694                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00695                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a21e519f1e532098b8d3441cd123cc891_a21e519f1e532098b8d3441cd123cc891}{InterruptRequest}}();}
+\DoxyCodeLine{00696                     \}}
+\DoxyCodeLine{00697 }
+\DoxyCodeLine{00698                     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}{DataRead}})}
+\DoxyCodeLine{00699                     \{}
+\DoxyCodeLine{00700                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00701                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00702                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00703                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}{DataRead}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00704                     \}}
+\DoxyCodeLine{00705                 \}}
+\DoxyCodeLine{00706             \}}
+\DoxyCodeLine{00707         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ac1a53a551116d7e6d58f1619429f77e8_ac1a53a551116d7e6d58f1619429f77e8}\label{class_hardware_1_1_w65_c51_ac1a53a551116d7e6d58f1619429f77e8_ac1a53a551116d7e6d58f1619429f77e8}} 
@@ -196,19 +196,19 @@ Called when the window is closed.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00196}{196}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00195}{195}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00197         \{}
-\DoxyCodeLine{00198             \textcolor{keywordflow}{if} (serialPort != \textcolor{keyword}{null})}
-\DoxyCodeLine{00199             \{}
-\DoxyCodeLine{00200                 serialPort.Close();}
-\DoxyCodeLine{00201             \}}
-\DoxyCodeLine{00202 }
-\DoxyCodeLine{00203             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9ed9bab751d57a53291e47a9610c6549_a9ed9bab751d57a53291e47a9610c6549}{\_backgroundWorker}}.CancelAsync();}
-\DoxyCodeLine{00204             \_backgroundWorker.DoWork -\/= \mbox{\hyperlink{class_hardware_1_1_w65_c51_a094f067e1d4500746fc98398ff4569fb_a094f067e1d4500746fc98398ff4569fb}{BackgroundWorkerDoWork}};}
-\DoxyCodeLine{00205         \}}
+\DoxyCodeLine{00196         \{}
+\DoxyCodeLine{00197             \textcolor{keywordflow}{if} (serialPort != \textcolor{keyword}{null})}
+\DoxyCodeLine{00198             \{}
+\DoxyCodeLine{00199                 serialPort.Close();}
+\DoxyCodeLine{00200             \}}
+\DoxyCodeLine{00201 }
+\DoxyCodeLine{00202             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9ed9bab751d57a53291e47a9610c6549_a9ed9bab751d57a53291e47a9610c6549}{\_backgroundWorker}}.CancelAsync();}
+\DoxyCodeLine{00203             \_backgroundWorker.DoWork -\/= \mbox{\hyperlink{class_hardware_1_1_w65_c51_a094f067e1d4500746fc98398ff4569fb_a094f067e1d4500746fc98398ff4569fb}{BackgroundWorkerDoWork}};}
+\DoxyCodeLine{00204         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a6e5f1770a6d0baf4f44a36133dc055c8_a6e5f1770a6d0baf4f44a36133dc055c8}\label{class_hardware_1_1_w65_c51_a6e5f1770a6d0baf4f44a36133dc055c8_a6e5f1770a6d0baf4f44a36133dc055c8}} 
@@ -228,51 +228,51 @@ Called whenever the ACIA is initialized.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00148}{148}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00147}{147}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00149         \{}
-\DoxyCodeLine{00150             \textcolor{keywordflow}{try}}
-\DoxyCodeLine{00151             \{}
-\DoxyCodeLine{00152                 serialPort.Open();}
-\DoxyCodeLine{00153             \}}
-\DoxyCodeLine{00154             \textcolor{keywordflow}{catch} (UnauthorizedAccessException w)}
-\DoxyCodeLine{00155             \{}
-\DoxyCodeLine{00156                 FileStream file = \textcolor{keyword}{new} FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);}
-\DoxyCodeLine{00157                 StreamWriter stream = \textcolor{keyword}{new} StreamWriter(file);}
-\DoxyCodeLine{00158                 stream.WriteLine(w.Message);}
-\DoxyCodeLine{00159                 stream.WriteLine(w.Source);}
-\DoxyCodeLine{00160                 stream.Flush();}
-\DoxyCodeLine{00161                 file.Flush();}
-\DoxyCodeLine{00162                 stream.Close();}
-\DoxyCodeLine{00163                 file.Close();}
-\DoxyCodeLine{00164                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00165             \}}
-\DoxyCodeLine{00166             serialPort.ReadTimeout = 50;}
-\DoxyCodeLine{00167             serialPort.WriteTimeout = 50;}
-\DoxyCodeLine{00168             serialPort.DataReceived += \textcolor{keyword}{new} SerialDataReceivedEventHandler(\mbox{\hyperlink{class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd_a0a03ec7d6eb92e5b64e99df5e0a584cd}{SerialDataReceived}});}
-\DoxyCodeLine{00169             \textcolor{keywordflow}{try}}
-\DoxyCodeLine{00170             \{}
-\DoxyCodeLine{00171                 serialPort.Write(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}});}
-\DoxyCodeLine{00172                 serialPort.Write(\textcolor{stringliteral}{"{} WolfNet 6502 WBC Emulator\(\backslash\)r\(\backslash\)n"{}});}
-\DoxyCodeLine{00173                 serialPort.Write(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}});}
-\DoxyCodeLine{00174                 serialPort.Write(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}});}
-\DoxyCodeLine{00175             \}}
-\DoxyCodeLine{00176             \textcolor{keywordflow}{catch} (TimeoutException t)}
-\DoxyCodeLine{00177             \{}
-\DoxyCodeLine{00178                 \_ = t;}
-\DoxyCodeLine{00179                 FileStream file = \textcolor{keyword}{new} FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);}
-\DoxyCodeLine{00180                 StreamWriter stream = \textcolor{keyword}{new} StreamWriter(file);}
-\DoxyCodeLine{00181                 stream.WriteLine(\textcolor{stringliteral}{"{}Read/Write error: Port timed out!"{}});}
-\DoxyCodeLine{00182                 stream.WriteLine(\textcolor{stringliteral}{"{}Please ensure all cables are connected properly!"{}});}
-\DoxyCodeLine{00183                 stream.Flush();}
-\DoxyCodeLine{00184                 file.Flush();}
-\DoxyCodeLine{00185                 stream.Close();}
-\DoxyCodeLine{00186                 file.Close();}
-\DoxyCodeLine{00187                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00188             \}}
-\DoxyCodeLine{00189         \}}
+\DoxyCodeLine{00148         \{}
+\DoxyCodeLine{00149             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00150             \{}
+\DoxyCodeLine{00151                 serialPort.Open();}
+\DoxyCodeLine{00152             \}}
+\DoxyCodeLine{00153             \textcolor{keywordflow}{catch} (UnauthorizedAccessException w)}
+\DoxyCodeLine{00154             \{}
+\DoxyCodeLine{00155                 FileStream file = \textcolor{keyword}{new} FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);}
+\DoxyCodeLine{00156                 StreamWriter stream = \textcolor{keyword}{new} StreamWriter(file);}
+\DoxyCodeLine{00157                 stream.WriteLine(w.Message);}
+\DoxyCodeLine{00158                 stream.WriteLine(w.Source);}
+\DoxyCodeLine{00159                 stream.Flush();}
+\DoxyCodeLine{00160                 file.Flush();}
+\DoxyCodeLine{00161                 stream.Close();}
+\DoxyCodeLine{00162                 file.Close();}
+\DoxyCodeLine{00163                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00164             \}}
+\DoxyCodeLine{00165             serialPort.ReadTimeout = 50;}
+\DoxyCodeLine{00166             serialPort.WriteTimeout = 50;}
+\DoxyCodeLine{00167             serialPort.DataReceived += \textcolor{keyword}{new} SerialDataReceivedEventHandler(\mbox{\hyperlink{class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd_a0a03ec7d6eb92e5b64e99df5e0a584cd}{SerialDataReceived}});}
+\DoxyCodeLine{00168             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00169             \{}
+\DoxyCodeLine{00170                 serialPort.Write(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{00171                 serialPort.Write(\textcolor{stringliteral}{"{} WolfNet 6502 WBC Emulator\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{00172                 serialPort.Write(\textcolor{stringliteral}{"{}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{00173                 serialPort.Write(\textcolor{stringliteral}{"{}\(\backslash\)r\(\backslash\)n"{}});}
+\DoxyCodeLine{00174             \}}
+\DoxyCodeLine{00175             \textcolor{keywordflow}{catch} (TimeoutException t)}
+\DoxyCodeLine{00176             \{}
+\DoxyCodeLine{00177                 \_ = t;}
+\DoxyCodeLine{00178                 FileStream file = \textcolor{keyword}{new} FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);}
+\DoxyCodeLine{00179                 StreamWriter stream = \textcolor{keyword}{new} StreamWriter(file);}
+\DoxyCodeLine{00180                 stream.WriteLine(\textcolor{stringliteral}{"{}Read/Write error: Port timed out!"{}});}
+\DoxyCodeLine{00181                 stream.WriteLine(\textcolor{stringliteral}{"{}Please ensure all cables are connected properly!"{}});}
+\DoxyCodeLine{00182                 stream.Flush();}
+\DoxyCodeLine{00183                 file.Flush();}
+\DoxyCodeLine{00184                 stream.Close();}
+\DoxyCodeLine{00185                 file.Close();}
+\DoxyCodeLine{00186                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00187             \}}
+\DoxyCodeLine{00188         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1_ac255fa899abc27ac92f665d4957b2be1}\label{class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1_ac255fa899abc27ac92f665d4957b2be1}} 
@@ -283,68 +283,68 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00148}{148}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00297}{297}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00296}{296}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00298         \{}
-\DoxyCodeLine{00299             \textcolor{keywordtype}{byte} test = (byte)(data \& 0x20);}
-\DoxyCodeLine{00300             \textcolor{keywordflow}{if} (test == 0x20)}
-\DoxyCodeLine{00301             \{}
-\DoxyCodeLine{00302                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(\textcolor{stringliteral}{"{}Parity must NEVER be enabled!"{}});}
-\DoxyCodeLine{00303             \}}
-\DoxyCodeLine{00304 }
-\DoxyCodeLine{00305             test = (byte)(data \& 0x10);}
-\DoxyCodeLine{00306             \textcolor{keywordflow}{if} (test == 0x10)}
-\DoxyCodeLine{00307             \{}
-\DoxyCodeLine{00308                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00309             \}}
-\DoxyCodeLine{00310             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00311             \{}
-\DoxyCodeLine{00312                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00313             \}}
-\DoxyCodeLine{00314 }
-\DoxyCodeLine{00315             test = (byte)(data \& 0x0C);}
-\DoxyCodeLine{00316             \textcolor{keywordflow}{if} (test == 0x00)}
-\DoxyCodeLine{00317             \{}
-\DoxyCodeLine{00318                 Object.Handshake = Handshake.None;}
-\DoxyCodeLine{00319                 Object.RtsEnable = \textcolor{keyword}{true};}
-\DoxyCodeLine{00320                 Object.Handshake = Handshake.RequestToSend;}
-\DoxyCodeLine{00321             \}}
-\DoxyCodeLine{00322             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x04)}
-\DoxyCodeLine{00323             \{}
-\DoxyCodeLine{00324                 Object.Handshake = Handshake.None;}
-\DoxyCodeLine{00325                 Object.RtsEnable = \textcolor{keyword}{false};}
-\DoxyCodeLine{00326             \}}
-\DoxyCodeLine{00327             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((test == 0x08) || (test == 0x0C))}
-\DoxyCodeLine{00328             \{}
-\DoxyCodeLine{00329                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException(\textcolor{stringliteral}{"{}This cannot be emulated on windows!"{}});}
-\DoxyCodeLine{00330             \}}
-\DoxyCodeLine{00331             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00332             \{}
-\DoxyCodeLine{00333                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}RtsControl is invalid!"{}});}
-\DoxyCodeLine{00334             \}}
-\DoxyCodeLine{00335 }
-\DoxyCodeLine{00336             test = (byte)(data \& 0x02);}
-\DoxyCodeLine{00337             \textcolor{keywordflow}{if} (test == 0x02)}
-\DoxyCodeLine{00338             \{}
-\DoxyCodeLine{00339                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00340             \}}
-\DoxyCodeLine{00341             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00342             \{}
-\DoxyCodeLine{00343                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00344             \}}
-\DoxyCodeLine{00345 }
-\DoxyCodeLine{00346             test = (byte)(data \& 0x01);}
-\DoxyCodeLine{00347             \textcolor{keywordflow}{if} (test == 0x01)}
-\DoxyCodeLine{00348             \{}
-\DoxyCodeLine{00349                 Object.DtrEnable = \textcolor{keyword}{true};}
-\DoxyCodeLine{00350             \}}
-\DoxyCodeLine{00351             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00352             \{}
-\DoxyCodeLine{00353                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DtrEnable= \textcolor{keyword}{false};}
-\DoxyCodeLine{00354             \}}
-\DoxyCodeLine{00355         \}}
+\DoxyCodeLine{00297         \{}
+\DoxyCodeLine{00298             \textcolor{keywordtype}{byte} test = (byte)(data \& 0x20);}
+\DoxyCodeLine{00299             \textcolor{keywordflow}{if} (test == 0x20)}
+\DoxyCodeLine{00300             \{}
+\DoxyCodeLine{00301                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(\textcolor{stringliteral}{"{}Parity must NEVER be enabled!"{}});}
+\DoxyCodeLine{00302             \}}
+\DoxyCodeLine{00303 }
+\DoxyCodeLine{00304             test = (byte)(data \& 0x10);}
+\DoxyCodeLine{00305             \textcolor{keywordflow}{if} (test == 0x10)}
+\DoxyCodeLine{00306             \{}
+\DoxyCodeLine{00307                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00308             \}}
+\DoxyCodeLine{00309             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00310             \{}
+\DoxyCodeLine{00311                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00312             \}}
+\DoxyCodeLine{00313 }
+\DoxyCodeLine{00314             test = (byte)(data \& 0x0C);}
+\DoxyCodeLine{00315             \textcolor{keywordflow}{if} (test == 0x00)}
+\DoxyCodeLine{00316             \{}
+\DoxyCodeLine{00317                 Object.Handshake = Handshake.None;}
+\DoxyCodeLine{00318                 Object.RtsEnable = \textcolor{keyword}{true};}
+\DoxyCodeLine{00319                 Object.Handshake = Handshake.RequestToSend;}
+\DoxyCodeLine{00320             \}}
+\DoxyCodeLine{00321             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x04)}
+\DoxyCodeLine{00322             \{}
+\DoxyCodeLine{00323                 Object.Handshake = Handshake.None;}
+\DoxyCodeLine{00324                 Object.RtsEnable = \textcolor{keyword}{false};}
+\DoxyCodeLine{00325             \}}
+\DoxyCodeLine{00326             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((test == 0x08) || (test == 0x0C))}
+\DoxyCodeLine{00327             \{}
+\DoxyCodeLine{00328                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException(\textcolor{stringliteral}{"{}This cannot be emulated on windows!"{}});}
+\DoxyCodeLine{00329             \}}
+\DoxyCodeLine{00330             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00331             \{}
+\DoxyCodeLine{00332                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}RtsControl is invalid!"{}});}
+\DoxyCodeLine{00333             \}}
+\DoxyCodeLine{00334 }
+\DoxyCodeLine{00335             test = (byte)(data \& 0x02);}
+\DoxyCodeLine{00336             \textcolor{keywordflow}{if} (test == 0x02)}
+\DoxyCodeLine{00337             \{}
+\DoxyCodeLine{00338                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00339             \}}
+\DoxyCodeLine{00340             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00341             \{}
+\DoxyCodeLine{00342                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00343             \}}
+\DoxyCodeLine{00344 }
+\DoxyCodeLine{00345             test = (byte)(data \& 0x01);}
+\DoxyCodeLine{00346             \textcolor{keywordflow}{if} (test == 0x01)}
+\DoxyCodeLine{00347             \{}
+\DoxyCodeLine{00348                 Object.DtrEnable = \textcolor{keyword}{true};}
+\DoxyCodeLine{00349             \}}
+\DoxyCodeLine{00350             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00351             \{}
+\DoxyCodeLine{00352                 Object.DtrEnable = \textcolor{keyword}{false};}
+\DoxyCodeLine{00353             \}}
+\DoxyCodeLine{00354         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a8ea8a0684044126e393df6dd34c27f02_a8ea8a0684044126e393df6dd34c27f02}\label{class_hardware_1_1_w65_c51_a8ea8a0684044126e393df6dd34c27f02_a8ea8a0684044126e393df6dd34c27f02}} 
@@ -355,52 +355,52 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00297}{297}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00357}{357}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00356}{356}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00358         \{}
-\DoxyCodeLine{00359             \textcolor{keywordtype}{byte} data = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2];}
-\DoxyCodeLine{00360 }
-\DoxyCodeLine{00361             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425_acbd4474533a87f7be6d54137ba217425}{ParityEnabled}})}
-\DoxyCodeLine{00362             \{}
-\DoxyCodeLine{00363                 data |= 0x20;}
-\DoxyCodeLine{00364             \}}
-\DoxyCodeLine{00365             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00366             \{}
-\DoxyCodeLine{00367                 data \&= 0xD0;}
-\DoxyCodeLine{00368             \}}
-\DoxyCodeLine{00369 }
-\DoxyCodeLine{00370             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}})}
-\DoxyCodeLine{00371             \{}
-\DoxyCodeLine{00372                 data |= 0x10;}
-\DoxyCodeLine{00373             \}}
-\DoxyCodeLine{00374             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00375             \{}
-\DoxyCodeLine{00376                 data \&= 0xE0;}
-\DoxyCodeLine{00377             \}}
-\DoxyCodeLine{00378 }
-\DoxyCodeLine{00379             data \&= \mbox{\hyperlink{class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13_af596f49b3ad1cf55d15a23cd51a3ae13}{RtsControl}};}
-\DoxyCodeLine{00380 }
-\DoxyCodeLine{00381             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}})}
-\DoxyCodeLine{00382             \{}
-\DoxyCodeLine{00383                 data |= 0x02;}
-\DoxyCodeLine{00384             \}}
-\DoxyCodeLine{00385             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00386             \{}
-\DoxyCodeLine{00387                 data \&= 0x0D;}
-\DoxyCodeLine{00388             \}}
-\DoxyCodeLine{00389             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DtrEnable)}
-\DoxyCodeLine{00390             \{}
-\DoxyCodeLine{00391                 data |= 0x01;}
-\DoxyCodeLine{00392             \}}
-\DoxyCodeLine{00393             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00394             \{}
-\DoxyCodeLine{00395                 data \&= 0x0E;}
-\DoxyCodeLine{00396             \}}
-\DoxyCodeLine{00397 }
-\DoxyCodeLine{00398             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2] = data;}
-\DoxyCodeLine{00399         \}}
+\DoxyCodeLine{00357         \{}
+\DoxyCodeLine{00358             \textcolor{keywordtype}{byte} data = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2];}
+\DoxyCodeLine{00359 }
+\DoxyCodeLine{00360             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425_acbd4474533a87f7be6d54137ba217425}{ParityEnabled}})}
+\DoxyCodeLine{00361             \{}
+\DoxyCodeLine{00362                 data |= 0x20;}
+\DoxyCodeLine{00363             \}}
+\DoxyCodeLine{00364             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00365             \{}
+\DoxyCodeLine{00366                 data \&= 0xD0;}
+\DoxyCodeLine{00367             \}}
+\DoxyCodeLine{00368 }
+\DoxyCodeLine{00369             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}})}
+\DoxyCodeLine{00370             \{}
+\DoxyCodeLine{00371                 data |= 0x10;}
+\DoxyCodeLine{00372             \}}
+\DoxyCodeLine{00373             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00374             \{}
+\DoxyCodeLine{00375                 data \&= 0xE0;}
+\DoxyCodeLine{00376             \}}
+\DoxyCodeLine{00377 }
+\DoxyCodeLine{00378             data \&= \mbox{\hyperlink{class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13_af596f49b3ad1cf55d15a23cd51a3ae13}{RtsControl}};}
+\DoxyCodeLine{00379 }
+\DoxyCodeLine{00380             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}})}
+\DoxyCodeLine{00381             \{}
+\DoxyCodeLine{00382                 data |= 0x02;}
+\DoxyCodeLine{00383             \}}
+\DoxyCodeLine{00384             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00385             \{}
+\DoxyCodeLine{00386                 data \&= 0x0D;}
+\DoxyCodeLine{00387             \}}
+\DoxyCodeLine{00388             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DtrEnable)}
+\DoxyCodeLine{00389             \{}
+\DoxyCodeLine{00390                 data |= 0x01;}
+\DoxyCodeLine{00391             \}}
+\DoxyCodeLine{00392             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00393             \{}
+\DoxyCodeLine{00394                 data \&= 0x0E;}
+\DoxyCodeLine{00395             \}}
+\DoxyCodeLine{00396 }
+\DoxyCodeLine{00397             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2] = data;}
+\DoxyCodeLine{00398         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0_a912e82bacb2b6048f32d2e572ecd9ab0}\label{class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0_a912e82bacb2b6048f32d2e572ecd9ab0}} 
@@ -411,119 +411,119 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00357}{357}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00401}{401}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00400}{400}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00402         \{}
-\DoxyCodeLine{00403             \textcolor{keywordtype}{byte} test = (byte)(data \& 0x80);}
-\DoxyCodeLine{00404             \textcolor{keywordflow}{if} (test == 0x80)}
-\DoxyCodeLine{00405             \{}
-\DoxyCodeLine{00406                 test = (byte)(data \& 0x60);}
-\DoxyCodeLine{00407                 \textcolor{keywordflow}{if} (test == 0x60)}
-\DoxyCodeLine{00408                 \{}
-\DoxyCodeLine{00409                     Object.StopBits = StopBits.OnePointFive;}
-\DoxyCodeLine{00410                 \}}
-\DoxyCodeLine{00411                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00412                 \{}
-\DoxyCodeLine{00413                     Object.StopBits = StopBits.Two;}
-\DoxyCodeLine{00414                 \}}
-\DoxyCodeLine{00415             \}}
-\DoxyCodeLine{00416             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00417             \{}
-\DoxyCodeLine{00418                 Object.StopBits = StopBits.One;}
-\DoxyCodeLine{00419             \}}
-\DoxyCodeLine{00420 }
-\DoxyCodeLine{00421             test = (byte)(data \& 0x60);}
-\DoxyCodeLine{00422             \textcolor{keywordflow}{if} (test == 0x20)}
-\DoxyCodeLine{00423             \{}
-\DoxyCodeLine{00424                 Object.DataBits = 7;}
-\DoxyCodeLine{00425             \}}
-\DoxyCodeLine{00426             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x40)}
-\DoxyCodeLine{00427             \{}
-\DoxyCodeLine{00428                 Object.DataBits = 6;}
-\DoxyCodeLine{00429             \}}
-\DoxyCodeLine{00430             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x60)}
-\DoxyCodeLine{00431             \{}
-\DoxyCodeLine{00432                 Object.DataBits = 5;}
-\DoxyCodeLine{00433             \}}
-\DoxyCodeLine{00434             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00435             \{}
-\DoxyCodeLine{00436                 Object.DataBits = 8;}
-\DoxyCodeLine{00437             \}}
-\DoxyCodeLine{00438 }
-\DoxyCodeLine{00439             test = (byte)(data \& 0x10);}
-\DoxyCodeLine{00440             \textcolor{keywordflow}{if} (!(test == 0x10))}
-\DoxyCodeLine{00441             \{}
-\DoxyCodeLine{00442                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(\textcolor{stringliteral}{"{}External clock rate not available on the WolfNet 65C02 WBC!"{}});}
-\DoxyCodeLine{00443             \}}
-\DoxyCodeLine{00444 }
-\DoxyCodeLine{00445             test = (byte)(data \& 0x0F);}
-\DoxyCodeLine{00446             \textcolor{keywordflow}{if} (test == 0x00)}
-\DoxyCodeLine{00447             \{}
-\DoxyCodeLine{00448                 Object.BaudRate = 115200;}
-\DoxyCodeLine{00449             \}}
-\DoxyCodeLine{00450             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x01)}
-\DoxyCodeLine{00451             \{}
-\DoxyCodeLine{00452                 Object.BaudRate = 50;}
-\DoxyCodeLine{00453             \}}
-\DoxyCodeLine{00454             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x02)}
-\DoxyCodeLine{00455             \{}
-\DoxyCodeLine{00456                 Object.BaudRate = 75;}
-\DoxyCodeLine{00457             \}}
-\DoxyCodeLine{00458             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x03)}
-\DoxyCodeLine{00459             \{}
-\DoxyCodeLine{00460                 Object.BaudRate = 110;}
-\DoxyCodeLine{00461             \}}
-\DoxyCodeLine{00462             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x04)}
-\DoxyCodeLine{00463             \{}
-\DoxyCodeLine{00464                 Object.BaudRate = 135;}
-\DoxyCodeLine{00465             \}}
-\DoxyCodeLine{00466             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x05)}
-\DoxyCodeLine{00467             \{}
-\DoxyCodeLine{00468                 Object.BaudRate = 150;}
-\DoxyCodeLine{00469             \}}
-\DoxyCodeLine{00470             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x06)}
-\DoxyCodeLine{00471             \{}
-\DoxyCodeLine{00472                 Object.BaudRate = 300;}
-\DoxyCodeLine{00473             \}}
-\DoxyCodeLine{00474             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x07)}
-\DoxyCodeLine{00475             \{}
-\DoxyCodeLine{00476                 Object.BaudRate = 600;}
-\DoxyCodeLine{00477             \}}
-\DoxyCodeLine{00478             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x08)}
-\DoxyCodeLine{00479             \{}
-\DoxyCodeLine{00480                 Object.BaudRate = 1200;}
-\DoxyCodeLine{00481             \}}
-\DoxyCodeLine{00482             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x09)}
-\DoxyCodeLine{00483             \{}
-\DoxyCodeLine{00484                 Object.BaudRate = 1800;}
-\DoxyCodeLine{00485             \}}
-\DoxyCodeLine{00486             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0A)}
-\DoxyCodeLine{00487             \{}
-\DoxyCodeLine{00488                 Object.BaudRate = 2400;}
-\DoxyCodeLine{00489             \}}
-\DoxyCodeLine{00490             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0B)}
-\DoxyCodeLine{00491             \{}
-\DoxyCodeLine{00492                 Object.BaudRate = 3600;}
-\DoxyCodeLine{00493             \}}
-\DoxyCodeLine{00494             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0C)}
-\DoxyCodeLine{00495             \{}
-\DoxyCodeLine{00496                 Object.BaudRate = 4800;}
-\DoxyCodeLine{00497             \}}
-\DoxyCodeLine{00498             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0D)}
-\DoxyCodeLine{00499             \{}
-\DoxyCodeLine{00500                 Object.BaudRate = 7200;}
-\DoxyCodeLine{00501             \}}
-\DoxyCodeLine{00502             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0E)}
-\DoxyCodeLine{00503             \{}
-\DoxyCodeLine{00504                 Object.BaudRate = 9600;}
-\DoxyCodeLine{00505             \}}
-\DoxyCodeLine{00506             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00507             \{}
-\DoxyCodeLine{00508                 Object.BaudRate = 19200;}
-\DoxyCodeLine{00509             \}}
-\DoxyCodeLine{00510         \}}
+\DoxyCodeLine{00401         \{}
+\DoxyCodeLine{00402             \textcolor{keywordtype}{byte} test = (byte)(data \& 0x80);}
+\DoxyCodeLine{00403             \textcolor{keywordflow}{if} (test == 0x80)}
+\DoxyCodeLine{00404             \{}
+\DoxyCodeLine{00405                 test = (byte)(data \& 0x60);}
+\DoxyCodeLine{00406                 \textcolor{keywordflow}{if} (test == 0x60)}
+\DoxyCodeLine{00407                 \{}
+\DoxyCodeLine{00408                     Object.StopBits = StopBits.OnePointFive;}
+\DoxyCodeLine{00409                 \}}
+\DoxyCodeLine{00410                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00411                 \{}
+\DoxyCodeLine{00412                     Object.StopBits = StopBits.Two;}
+\DoxyCodeLine{00413                 \}}
+\DoxyCodeLine{00414             \}}
+\DoxyCodeLine{00415             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00416             \{}
+\DoxyCodeLine{00417                 Object.StopBits = StopBits.One;}
+\DoxyCodeLine{00418             \}}
+\DoxyCodeLine{00419 }
+\DoxyCodeLine{00420             test = (byte)(data \& 0x60);}
+\DoxyCodeLine{00421             \textcolor{keywordflow}{if} (test == 0x20)}
+\DoxyCodeLine{00422             \{}
+\DoxyCodeLine{00423                 Object.DataBits = 7;}
+\DoxyCodeLine{00424             \}}
+\DoxyCodeLine{00425             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x40)}
+\DoxyCodeLine{00426             \{}
+\DoxyCodeLine{00427                 Object.DataBits = 6;}
+\DoxyCodeLine{00428             \}}
+\DoxyCodeLine{00429             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x60)}
+\DoxyCodeLine{00430             \{}
+\DoxyCodeLine{00431                 Object.DataBits = 5;}
+\DoxyCodeLine{00432             \}}
+\DoxyCodeLine{00433             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00434             \{}
+\DoxyCodeLine{00435                 Object.DataBits = 8;}
+\DoxyCodeLine{00436             \}}
+\DoxyCodeLine{00437 }
+\DoxyCodeLine{00438             test = (byte)(data \& 0x10);}
+\DoxyCodeLine{00439             \textcolor{keywordflow}{if} (!(test == 0x10))}
+\DoxyCodeLine{00440             \{}
+\DoxyCodeLine{00441                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentException(\textcolor{stringliteral}{"{}External clock rate not available on the WolfNet 65C02 WBC!"{}});}
+\DoxyCodeLine{00442             \}}
+\DoxyCodeLine{00443 }
+\DoxyCodeLine{00444             test = (byte)(data \& 0x0F);}
+\DoxyCodeLine{00445             \textcolor{keywordflow}{if} (test == 0x00)}
+\DoxyCodeLine{00446             \{}
+\DoxyCodeLine{00447                 Object.BaudRate = 115200;}
+\DoxyCodeLine{00448             \}}
+\DoxyCodeLine{00449             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x01)}
+\DoxyCodeLine{00450             \{}
+\DoxyCodeLine{00451                 Object.BaudRate = 50;}
+\DoxyCodeLine{00452             \}}
+\DoxyCodeLine{00453             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x02)}
+\DoxyCodeLine{00454             \{}
+\DoxyCodeLine{00455                 Object.BaudRate = 75;}
+\DoxyCodeLine{00456             \}}
+\DoxyCodeLine{00457             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x03)}
+\DoxyCodeLine{00458             \{}
+\DoxyCodeLine{00459                 Object.BaudRate = 110;}
+\DoxyCodeLine{00460             \}}
+\DoxyCodeLine{00461             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x04)}
+\DoxyCodeLine{00462             \{}
+\DoxyCodeLine{00463                 Object.BaudRate = 135;}
+\DoxyCodeLine{00464             \}}
+\DoxyCodeLine{00465             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x05)}
+\DoxyCodeLine{00466             \{}
+\DoxyCodeLine{00467                 Object.BaudRate = 150;}
+\DoxyCodeLine{00468             \}}
+\DoxyCodeLine{00469             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x06)}
+\DoxyCodeLine{00470             \{}
+\DoxyCodeLine{00471                 Object.BaudRate = 300;}
+\DoxyCodeLine{00472             \}}
+\DoxyCodeLine{00473             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x07)}
+\DoxyCodeLine{00474             \{}
+\DoxyCodeLine{00475                 Object.BaudRate = 600;}
+\DoxyCodeLine{00476             \}}
+\DoxyCodeLine{00477             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x08)}
+\DoxyCodeLine{00478             \{}
+\DoxyCodeLine{00479                 Object.BaudRate = 1200;}
+\DoxyCodeLine{00480             \}}
+\DoxyCodeLine{00481             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x09)}
+\DoxyCodeLine{00482             \{}
+\DoxyCodeLine{00483                 Object.BaudRate = 1800;}
+\DoxyCodeLine{00484             \}}
+\DoxyCodeLine{00485             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0A)}
+\DoxyCodeLine{00486             \{}
+\DoxyCodeLine{00487                 Object.BaudRate = 2400;}
+\DoxyCodeLine{00488             \}}
+\DoxyCodeLine{00489             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0B)}
+\DoxyCodeLine{00490             \{}
+\DoxyCodeLine{00491                 Object.BaudRate = 3600;}
+\DoxyCodeLine{00492             \}}
+\DoxyCodeLine{00493             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0C)}
+\DoxyCodeLine{00494             \{}
+\DoxyCodeLine{00495                 Object.BaudRate = 4800;}
+\DoxyCodeLine{00496             \}}
+\DoxyCodeLine{00497             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0D)}
+\DoxyCodeLine{00498             \{}
+\DoxyCodeLine{00499                 Object.BaudRate = 7200;}
+\DoxyCodeLine{00500             \}}
+\DoxyCodeLine{00501             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (test == 0x0E)}
+\DoxyCodeLine{00502             \{}
+\DoxyCodeLine{00503                 Object.BaudRate = 9600;}
+\DoxyCodeLine{00504             \}}
+\DoxyCodeLine{00505             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00506             \{}
+\DoxyCodeLine{00507                 Object.BaudRate = 19200;}
+\DoxyCodeLine{00508             \}}
+\DoxyCodeLine{00509         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ad2a26a3e0f12764063072ded0010f886_ad2a26a3e0f12764063072ded0010f886}\label{class_hardware_1_1_w65_c51_ad2a26a3e0f12764063072ded0010f886_ad2a26a3e0f12764063072ded0010f886}} 
@@ -534,118 +534,118 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00401}{401}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00512}{512}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00511}{511}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00513         \{}
-\DoxyCodeLine{00514             \textcolor{keywordtype}{byte} controlRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3];}
-\DoxyCodeLine{00515 }
-\DoxyCodeLine{00516             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.StopBits == StopBits.Two)}
-\DoxyCodeLine{00517             \{}
-\DoxyCodeLine{00518                 controlRegister |= 0x80;}
-\DoxyCodeLine{00519             \}}
-\DoxyCodeLine{00520             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.StopBits == StopBits.OnePointFive) \&\& (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 5) || (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.StopBits == StopBits.One))}
-\DoxyCodeLine{00521             \{}
-\DoxyCodeLine{00522                 controlRegister \&= 0x7F;}
-\DoxyCodeLine{00523             \}}
-\DoxyCodeLine{00524             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00525             \{}
-\DoxyCodeLine{00526                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}StopBits or combination of StopBits and DataBits is invalid!"{}});}
-\DoxyCodeLine{00527             \}}
-\DoxyCodeLine{00528 }
-\DoxyCodeLine{00529             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 8)}
-\DoxyCodeLine{00530             \{}
-\DoxyCodeLine{00531                 controlRegister \&= 0x9F;}
-\DoxyCodeLine{00532             \}}
-\DoxyCodeLine{00533             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 7)}
-\DoxyCodeLine{00534             \{}
-\DoxyCodeLine{00535                 controlRegister |= 0x20;}
-\DoxyCodeLine{00536             \}}
-\DoxyCodeLine{00537             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 6)}
-\DoxyCodeLine{00538             \{}
-\DoxyCodeLine{00539                 controlRegister |= 0x40;}
-\DoxyCodeLine{00540             \}}
-\DoxyCodeLine{00541             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 5)}
-\DoxyCodeLine{00542             \{}
-\DoxyCodeLine{00543                 controlRegister |= 0x60;}
-\DoxyCodeLine{00544             \}}
-\DoxyCodeLine{00545             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00546             \{}
-\DoxyCodeLine{00547                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}DataBits is out of range!"{}});}
-\DoxyCodeLine{00548             \}}
-\DoxyCodeLine{00549 }
-\DoxyCodeLine{00550             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 115200)}
-\DoxyCodeLine{00551             \{}
-\DoxyCodeLine{00552                 controlRegister \&= 0xF0;}
-\DoxyCodeLine{00553             \}}
-\DoxyCodeLine{00554             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 50)}
-\DoxyCodeLine{00555             \{}
-\DoxyCodeLine{00556                 controlRegister |= 0x01;}
-\DoxyCodeLine{00557             \}}
-\DoxyCodeLine{00558             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 75)}
-\DoxyCodeLine{00559             \{}
-\DoxyCodeLine{00560                 controlRegister |= 0x02;}
-\DoxyCodeLine{00561             \}}
-\DoxyCodeLine{00562             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 110)}
-\DoxyCodeLine{00563             \{}
-\DoxyCodeLine{00564                 controlRegister |= 0x03;}
-\DoxyCodeLine{00565             \}}
-\DoxyCodeLine{00566             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 135)}
-\DoxyCodeLine{00567             \{}
-\DoxyCodeLine{00568                 controlRegister |= 0x04;}
-\DoxyCodeLine{00569             \}}
-\DoxyCodeLine{00570             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 150)}
-\DoxyCodeLine{00571             \{}
-\DoxyCodeLine{00572                 controlRegister |= 0x05;}
-\DoxyCodeLine{00573             \}}
-\DoxyCodeLine{00574             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 300)}
-\DoxyCodeLine{00575             \{}
-\DoxyCodeLine{00576                 controlRegister |= 0x06;}
-\DoxyCodeLine{00577             \}}
-\DoxyCodeLine{00578             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 600)}
-\DoxyCodeLine{00579             \{}
-\DoxyCodeLine{00580                 controlRegister |= 0x07;}
-\DoxyCodeLine{00581             \}}
-\DoxyCodeLine{00582             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 1200)}
-\DoxyCodeLine{00583             \{}
-\DoxyCodeLine{00584                 controlRegister |= 0x08;}
-\DoxyCodeLine{00585             \}}
-\DoxyCodeLine{00586             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 1800)}
-\DoxyCodeLine{00587             \{}
-\DoxyCodeLine{00588                 controlRegister |= 0x09;}
-\DoxyCodeLine{00589             \}}
-\DoxyCodeLine{00590             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 2400)}
-\DoxyCodeLine{00591             \{}
-\DoxyCodeLine{00592                 controlRegister |= 0x0A;}
-\DoxyCodeLine{00593             \}}
-\DoxyCodeLine{00594             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 3600)}
-\DoxyCodeLine{00595             \{}
-\DoxyCodeLine{00596                 controlRegister |= 0x0B;}
-\DoxyCodeLine{00597             \}}
-\DoxyCodeLine{00598             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 4800)}
-\DoxyCodeLine{00599             \{}
-\DoxyCodeLine{00600                 controlRegister |= 0x0C;}
-\DoxyCodeLine{00601             \}}
-\DoxyCodeLine{00602             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 7200)}
-\DoxyCodeLine{00603             \{}
-\DoxyCodeLine{00604                 controlRegister |= 0x0D;}
-\DoxyCodeLine{00605             \}}
-\DoxyCodeLine{00606             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 9600)}
-\DoxyCodeLine{00607             \{}
-\DoxyCodeLine{00608                 controlRegister |= 0x0E;}
-\DoxyCodeLine{00609             \}}
-\DoxyCodeLine{00610             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 19200)}
-\DoxyCodeLine{00611             \{}
-\DoxyCodeLine{00612                 controlRegister |= 0x0F;}
-\DoxyCodeLine{00613             \}}
-\DoxyCodeLine{00614             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00615             \{}
-\DoxyCodeLine{00616                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}BaudRate is outside the range of Baud Rates supported by the W65C51!"{}});}
-\DoxyCodeLine{00617             \}}
-\DoxyCodeLine{00618 }
-\DoxyCodeLine{00619             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3] = controlRegister;}
-\DoxyCodeLine{00620         \}}
+\DoxyCodeLine{00512         \{}
+\DoxyCodeLine{00513             \textcolor{keywordtype}{byte} controlRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3];}
+\DoxyCodeLine{00514 }
+\DoxyCodeLine{00515             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.StopBits == StopBits.Two)}
+\DoxyCodeLine{00516             \{}
+\DoxyCodeLine{00517                 controlRegister |= 0x80;}
+\DoxyCodeLine{00518             \}}
+\DoxyCodeLine{00519             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.StopBits == StopBits.OnePointFive) \&\& (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 5) || (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.StopBits == StopBits.One))}
+\DoxyCodeLine{00520             \{}
+\DoxyCodeLine{00521                 controlRegister \&= 0x7F;}
+\DoxyCodeLine{00522             \}}
+\DoxyCodeLine{00523             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00524             \{}
+\DoxyCodeLine{00525                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}StopBits or combination of StopBits and DataBits is invalid!"{}});}
+\DoxyCodeLine{00526             \}}
+\DoxyCodeLine{00527 }
+\DoxyCodeLine{00528             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 8)}
+\DoxyCodeLine{00529             \{}
+\DoxyCodeLine{00530                 controlRegister \&= 0x9F;}
+\DoxyCodeLine{00531             \}}
+\DoxyCodeLine{00532             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 7)}
+\DoxyCodeLine{00533             \{}
+\DoxyCodeLine{00534                 controlRegister |= 0x20;}
+\DoxyCodeLine{00535             \}}
+\DoxyCodeLine{00536             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 6)}
+\DoxyCodeLine{00537             \{}
+\DoxyCodeLine{00538                 controlRegister |= 0x40;}
+\DoxyCodeLine{00539             \}}
+\DoxyCodeLine{00540             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DataBits == 5)}
+\DoxyCodeLine{00541             \{}
+\DoxyCodeLine{00542                 controlRegister |= 0x60;}
+\DoxyCodeLine{00543             \}}
+\DoxyCodeLine{00544             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00545             \{}
+\DoxyCodeLine{00546                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}DataBits is out of range!"{}});}
+\DoxyCodeLine{00547             \}}
+\DoxyCodeLine{00548 }
+\DoxyCodeLine{00549             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 115200)}
+\DoxyCodeLine{00550             \{}
+\DoxyCodeLine{00551                 controlRegister \&= 0xF0;}
+\DoxyCodeLine{00552             \}}
+\DoxyCodeLine{00553             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 50)}
+\DoxyCodeLine{00554             \{}
+\DoxyCodeLine{00555                 controlRegister |= 0x01;}
+\DoxyCodeLine{00556             \}}
+\DoxyCodeLine{00557             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 75)}
+\DoxyCodeLine{00558             \{}
+\DoxyCodeLine{00559                 controlRegister |= 0x02;}
+\DoxyCodeLine{00560             \}}
+\DoxyCodeLine{00561             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 110)}
+\DoxyCodeLine{00562             \{}
+\DoxyCodeLine{00563                 controlRegister |= 0x03;}
+\DoxyCodeLine{00564             \}}
+\DoxyCodeLine{00565             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 135)}
+\DoxyCodeLine{00566             \{}
+\DoxyCodeLine{00567                 controlRegister |= 0x04;}
+\DoxyCodeLine{00568             \}}
+\DoxyCodeLine{00569             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 150)}
+\DoxyCodeLine{00570             \{}
+\DoxyCodeLine{00571                 controlRegister |= 0x05;}
+\DoxyCodeLine{00572             \}}
+\DoxyCodeLine{00573             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 300)}
+\DoxyCodeLine{00574             \{}
+\DoxyCodeLine{00575                 controlRegister |= 0x06;}
+\DoxyCodeLine{00576             \}}
+\DoxyCodeLine{00577             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 600)}
+\DoxyCodeLine{00578             \{}
+\DoxyCodeLine{00579                 controlRegister |= 0x07;}
+\DoxyCodeLine{00580             \}}
+\DoxyCodeLine{00581             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 1200)}
+\DoxyCodeLine{00582             \{}
+\DoxyCodeLine{00583                 controlRegister |= 0x08;}
+\DoxyCodeLine{00584             \}}
+\DoxyCodeLine{00585             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 1800)}
+\DoxyCodeLine{00586             \{}
+\DoxyCodeLine{00587                 controlRegister |= 0x09;}
+\DoxyCodeLine{00588             \}}
+\DoxyCodeLine{00589             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 2400)}
+\DoxyCodeLine{00590             \{}
+\DoxyCodeLine{00591                 controlRegister |= 0x0A;}
+\DoxyCodeLine{00592             \}}
+\DoxyCodeLine{00593             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 3600)}
+\DoxyCodeLine{00594             \{}
+\DoxyCodeLine{00595                 controlRegister |= 0x0B;}
+\DoxyCodeLine{00596             \}}
+\DoxyCodeLine{00597             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 4800)}
+\DoxyCodeLine{00598             \{}
+\DoxyCodeLine{00599                 controlRegister |= 0x0C;}
+\DoxyCodeLine{00600             \}}
+\DoxyCodeLine{00601             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 7200)}
+\DoxyCodeLine{00602             \{}
+\DoxyCodeLine{00603                 controlRegister |= 0x0D;}
+\DoxyCodeLine{00604             \}}
+\DoxyCodeLine{00605             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 9600)}
+\DoxyCodeLine{00606             \{}
+\DoxyCodeLine{00607                 controlRegister |= 0x0E;}
+\DoxyCodeLine{00608             \}}
+\DoxyCodeLine{00609             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.BaudRate == 19200)}
+\DoxyCodeLine{00610             \{}
+\DoxyCodeLine{00611                 controlRegister |= 0x0F;}
+\DoxyCodeLine{00612             \}}
+\DoxyCodeLine{00613             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00614             \{}
+\DoxyCodeLine{00615                 \textcolor{keywordflow}{throw} \textcolor{keyword}{new} ArgumentOutOfRangeException(\textcolor{stringliteral}{"{}BaudRate is outside the range of Baud Rates supported by the W65C51!"{}});}
+\DoxyCodeLine{00616             \}}
+\DoxyCodeLine{00617 }
+\DoxyCodeLine{00618             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3] = controlRegister;}
+\DoxyCodeLine{00619         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a25c526b05b1f87d939e5ec65166ee89c_a25c526b05b1f87d939e5ec65166ee89c}\label{class_hardware_1_1_w65_c51_a25c526b05b1f87d939e5ec65166ee89c_a25c526b05b1f87d939e5ec65166ee89c}} 
@@ -660,13 +660,13 @@ Called when the window is closed.
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00095}{95}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00094}{94}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00096         \{}
-\DoxyCodeLine{00097             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ac1a53a551116d7e6d58f1619429f77e8_ac1a53a551116d7e6d58f1619429f77e8}{ComFini}}(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}});}
-\DoxyCodeLine{00098         \}}
+\DoxyCodeLine{00095         \{}
+\DoxyCodeLine{00096             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ac1a53a551116d7e6d58f1619429f77e8_ac1a53a551116d7e6d58f1619429f77e8}{ComFini}}(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}});}
+\DoxyCodeLine{00097         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a099f00c16fd289d784f02efc87e2954f_a099f00c16fd289d784f02efc87e2954f}\label{class_hardware_1_1_w65_c51_a099f00c16fd289d784f02efc87e2954f_a099f00c16fd289d784f02efc87e2954f}} 
@@ -677,31 +677,31 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00095}{95}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00274}{274}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00273}{273}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00275         \{}
-\DoxyCodeLine{00276             \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}})}
-\DoxyCodeLine{00277             \{}
-\DoxyCodeLine{00278                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00279                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00280                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00281 }
-\DoxyCodeLine{00282             \}}
-\DoxyCodeLine{00283             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1)}
-\DoxyCodeLine{00284             \{}
-\DoxyCodeLine{00285                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a3fd221adf3f875786ef9c53063d6fa4e_a3fd221adf3f875786ef9c53063d6fa4e}{StatusRegisterUpdate}}();}
-\DoxyCodeLine{00286             \}}
-\DoxyCodeLine{00287             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2)}
-\DoxyCodeLine{00288             \{}
-\DoxyCodeLine{00289                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a8ea8a0684044126e393df6dd34c27f02_a8ea8a0684044126e393df6dd34c27f02}{CommandRegisterUpdate}}();}
-\DoxyCodeLine{00290             \}}
-\DoxyCodeLine{00291             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3)}
-\DoxyCodeLine{00292             \{}
-\DoxyCodeLine{00293                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad2a26a3e0f12764063072ded0010f886_ad2a26a3e0f12764063072ded0010f886}{ControlRegisterUpdate}}();}
-\DoxyCodeLine{00294             \}}
-\DoxyCodeLine{00295         \}}
+\DoxyCodeLine{00274         \{}
+\DoxyCodeLine{00275             \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}})}
+\DoxyCodeLine{00276             \{}
+\DoxyCodeLine{00277                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00278                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00279                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00280 }
+\DoxyCodeLine{00281             \}}
+\DoxyCodeLine{00282             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1)}
+\DoxyCodeLine{00283             \{}
+\DoxyCodeLine{00284                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a3fd221adf3f875786ef9c53063d6fa4e_a3fd221adf3f875786ef9c53063d6fa4e}{StatusRegisterUpdate}}();}
+\DoxyCodeLine{00285             \}}
+\DoxyCodeLine{00286             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2)}
+\DoxyCodeLine{00287             \{}
+\DoxyCodeLine{00288                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a8ea8a0684044126e393df6dd34c27f02_a8ea8a0684044126e393df6dd34c27f02}{CommandRegisterUpdate}}();}
+\DoxyCodeLine{00289             \}}
+\DoxyCodeLine{00290             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3)}
+\DoxyCodeLine{00291             \{}
+\DoxyCodeLine{00292                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad2a26a3e0f12764063072ded0010f886_ad2a26a3e0f12764063072ded0010f886}{ControlRegisterUpdate}}();}
+\DoxyCodeLine{00293             \}}
+\DoxyCodeLine{00294         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ac009443943124ef7b781a2f515194426_ac009443943124ef7b781a2f515194426}\label{class_hardware_1_1_w65_c51_ac009443943124ef7b781a2f515194426_ac009443943124ef7b781a2f515194426}} 
@@ -712,28 +712,28 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00274}{274}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00254}{254}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00253}{253}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00255         \{}
-\DoxyCodeLine{00256             \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}})}
-\DoxyCodeLine{00257             \{}
-\DoxyCodeLine{00258                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_a9d9aec62f430df25eba3c522ddae912b}{WriteCOM}}(data);}
-\DoxyCodeLine{00259             \}}
-\DoxyCodeLine{00260             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1)}
-\DoxyCodeLine{00261             \{}
-\DoxyCodeLine{00262                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_a0beb6caf59660b8d3ce8bc2abd1d9077}{Reset}}();}
-\DoxyCodeLine{00263             \}}
-\DoxyCodeLine{00264             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2)}
-\DoxyCodeLine{00265             \{}
-\DoxyCodeLine{00266                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1_ac255fa899abc27ac92f665d4957b2be1}{CommandRegister}}(data);}
-\DoxyCodeLine{00267             \}}
-\DoxyCodeLine{00268             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3)}
-\DoxyCodeLine{00269             \{}
-\DoxyCodeLine{00270                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0_a912e82bacb2b6048f32d2e572ecd9ab0}{ControlRegister}}(data);}
-\DoxyCodeLine{00271             \}}
-\DoxyCodeLine{00272         \}}
+\DoxyCodeLine{00254         \{}
+\DoxyCodeLine{00255             \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}})}
+\DoxyCodeLine{00256             \{}
+\DoxyCodeLine{00257                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_a9d9aec62f430df25eba3c522ddae912b}{WriteCOM}}(data);}
+\DoxyCodeLine{00258             \}}
+\DoxyCodeLine{00259             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1)}
+\DoxyCodeLine{00260             \{}
+\DoxyCodeLine{00261                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_a0beb6caf59660b8d3ce8bc2abd1d9077}{Reset}}();}
+\DoxyCodeLine{00262             \}}
+\DoxyCodeLine{00263             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 2)}
+\DoxyCodeLine{00264             \{}
+\DoxyCodeLine{00265                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1_ac255fa899abc27ac92f665d4957b2be1}{CommandRegister}}(data);}
+\DoxyCodeLine{00266             \}}
+\DoxyCodeLine{00267             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 3)}
+\DoxyCodeLine{00268             \{}
+\DoxyCodeLine{00269                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0_a912e82bacb2b6048f32d2e572ecd9ab0}{ControlRegister}}(data);}
+\DoxyCodeLine{00270             \}}
+\DoxyCodeLine{00271         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a707d35ba77abc4887e559854333fa1bf_a707d35ba77abc4887e559854333fa1bf}\label{class_hardware_1_1_w65_c51_a707d35ba77abc4887e559854333fa1bf_a707d35ba77abc4887e559854333fa1bf}} 
@@ -753,16 +753,16 @@ Default Constructor, Instantiates a new instance of COM Port I/O.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00070}{70}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00071         \{}
-\DoxyCodeLine{00072             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}} = \textcolor{keyword}{new} SerialPort(port, \mbox{\hyperlink{class_hardware_1_1_w65_c51_a024d1472d29baf3e1c0d557e7baf583f_a024d1472d29baf3e1c0d557e7baf583f}{defaultBaudRate}}, Parity.None, 8, StopBits.One);}
-\DoxyCodeLine{00073             \mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}{ObjectName}} = port;}
-\DoxyCodeLine{00074 }
-\DoxyCodeLine{00075             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a6e5f1770a6d0baf4f44a36133dc055c8_a6e5f1770a6d0baf4f44a36133dc055c8}{ComInit}}(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}});}
-\DoxyCodeLine{00076         \}}
+\DoxyCodeLine{00070         \{}
+\DoxyCodeLine{00071             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}} = \textcolor{keyword}{new} SerialPort(port, \mbox{\hyperlink{class_hardware_1_1_w65_c51_a024d1472d29baf3e1c0d557e7baf583f_a024d1472d29baf3e1c0d557e7baf583f}{defaultBaudRate}}, Parity.None, 8, StopBits.One);}
+\DoxyCodeLine{00072             \mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}{ObjectName}} = port;}
+\DoxyCodeLine{00073 }
+\DoxyCodeLine{00074             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a6e5f1770a6d0baf4f44a36133dc055c8_a6e5f1770a6d0baf4f44a36133dc055c8}{ComInit}}(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}});}
+\DoxyCodeLine{00075         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a5a1fbadd8ec191c64c1bab339dde9160_a5a1fbadd8ec191c64c1bab339dde9160}\label{class_hardware_1_1_w65_c51_a5a1fbadd8ec191c64c1bab339dde9160_a5a1fbadd8ec191c64c1bab339dde9160}} 
@@ -784,16 +784,16 @@ Default Constructor, Instantiates a new instance of COM Port I/O.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00084}{84}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00083}{83}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00085         \{}
-\DoxyCodeLine{00086             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}} = \textcolor{keyword}{new} SerialPort(port, baudRate, Parity.None, 8, StopBits.One);}
-\DoxyCodeLine{00087             \mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}{ObjectName}} = port;}
-\DoxyCodeLine{00088 }
-\DoxyCodeLine{00089             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a6e5f1770a6d0baf4f44a36133dc055c8_a6e5f1770a6d0baf4f44a36133dc055c8}{ComInit}}(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}});}
-\DoxyCodeLine{00090         \}}
+\DoxyCodeLine{00084         \{}
+\DoxyCodeLine{00085             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}} = \textcolor{keyword}{new} SerialPort(port, baudRate, Parity.None, 8, StopBits.One);}
+\DoxyCodeLine{00086             \mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}{ObjectName}} = port;}
+\DoxyCodeLine{00087 }
+\DoxyCodeLine{00088             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a6e5f1770a6d0baf4f44a36133dc055c8_a6e5f1770a6d0baf4f44a36133dc055c8}{ComInit}}(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}});}
+\DoxyCodeLine{00089         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a18c78892478ca49cb3866d2c277f2564_a18c78892478ca49cb3866d2c277f2564}\label{class_hardware_1_1_w65_c51_a18c78892478ca49cb3866d2c277f2564_a18c78892478ca49cb3866d2c277f2564}} 
@@ -818,16 +818,16 @@ the byte being returned
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00107}{107}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00106}{106}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00108         \{}
-\DoxyCodeLine{00109             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a099f00c16fd289d784f02efc87e2954f_a099f00c16fd289d784f02efc87e2954f}{HardwarePreRead}}(address);}
-\DoxyCodeLine{00110             \textcolor{keywordtype}{byte} data = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[address -\/ \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}}];}
-\DoxyCodeLine{00111             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}{DataRead}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00112             \textcolor{keywordflow}{return} data;}
-\DoxyCodeLine{00113         \}}
+\DoxyCodeLine{00107         \{}
+\DoxyCodeLine{00108             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a099f00c16fd289d784f02efc87e2954f_a099f00c16fd289d784f02efc87e2954f}{HardwarePreRead}}(address);}
+\DoxyCodeLine{00109             \textcolor{keywordtype}{byte} data = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[address -\/ \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}}];}
+\DoxyCodeLine{00110             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}{DataRead}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00111             \textcolor{keywordflow}{return} data;}
+\DoxyCodeLine{00112         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_a0beb6caf59660b8d3ce8bc2abd1d9077}\label{class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_a0beb6caf59660b8d3ce8bc2abd1d9077}} 
@@ -838,13 +838,13 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00107}{107}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00060}{60}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00061         \{}
-\DoxyCodeLine{00062             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a64cea997c80c6dd1888061c3724469c8_a64cea997c80c6dd1888061c3724469c8}{IsEnabled}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00063         \}}
+\DoxyCodeLine{00060         \{}
+\DoxyCodeLine{00061             \mbox{\hyperlink{class_hardware_1_1_w65_c51_a64cea997c80c6dd1888061c3724469c8_a64cea997c80c6dd1888061c3724469c8}{IsEnabled}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00062         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd_a0a03ec7d6eb92e5b64e99df5e0a584cd}\label{class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd_a0a03ec7d6eb92e5b64e99df5e0a584cd}} 
@@ -866,49 +866,49 @@ Called whenever Serial\+Data\+Received\+Event\+Handler event occurs.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00213}{213}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00212}{212}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00214         \{}
-\DoxyCodeLine{00215             \textcolor{keywordflow}{try}}
-\DoxyCodeLine{00216             \{}
-\DoxyCodeLine{00217                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}})}
-\DoxyCodeLine{00218                 \{}
-\DoxyCodeLine{00219                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_a9d9aec62f430df25eba3c522ddae912b}{WriteCOM}}(Convert.ToByte(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.ReadByte()));}
-\DoxyCodeLine{00220                 \}}
-\DoxyCodeLine{00221                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00222                 \{}
-\DoxyCodeLine{00223                     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}})}
-\DoxyCodeLine{00224                     \{}
-\DoxyCodeLine{00225                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00226                     \}}
-\DoxyCodeLine{00227                     \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00228                     \{}
-\DoxyCodeLine{00229                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00230                     \}}
-\DoxyCodeLine{00231                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[0] = Convert.ToByte(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.ReadByte());}
-\DoxyCodeLine{00232                 \}}
-\DoxyCodeLine{00233 }
-\DoxyCodeLine{00234                 \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}})}
-\DoxyCodeLine{00235                 \{}
-\DoxyCodeLine{00236                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00237                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a21e519f1e532098b8d3441cd123cc891_a21e519f1e532098b8d3441cd123cc891}{InterruptRequest}}();}
-\DoxyCodeLine{00238                 \}}
-\DoxyCodeLine{00239             \}}
-\DoxyCodeLine{00240             \textcolor{keywordflow}{catch} (Win32Exception w)}
-\DoxyCodeLine{00241             \{}
-\DoxyCodeLine{00242                 FileStream file = \textcolor{keyword}{new} FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);}
-\DoxyCodeLine{00243                 StreamWriter stream = \textcolor{keyword}{new} StreamWriter(file);}
-\DoxyCodeLine{00244                 stream.WriteLine(w.Message);}
-\DoxyCodeLine{00245                 stream.WriteLine(w.ErrorCode.ToString());}
-\DoxyCodeLine{00246                 stream.WriteLine(w.Source);}
-\DoxyCodeLine{00247                 stream.Flush();}
-\DoxyCodeLine{00248                 stream.Close();}
-\DoxyCodeLine{00249                 file.Flush();}
-\DoxyCodeLine{00250                 file.Close();}
-\DoxyCodeLine{00251             \}}
-\DoxyCodeLine{00252         \}}
+\DoxyCodeLine{00213         \{}
+\DoxyCodeLine{00214             \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00215             \{}
+\DoxyCodeLine{00216                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}{EchoMode}})}
+\DoxyCodeLine{00217                 \{}
+\DoxyCodeLine{00218                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_a9d9aec62f430df25eba3c522ddae912b}{WriteCOM}}(Convert.ToByte(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.ReadByte()));}
+\DoxyCodeLine{00219                 \}}
+\DoxyCodeLine{00220                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00221                 \{}
+\DoxyCodeLine{00222                     \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}})}
+\DoxyCodeLine{00223                     \{}
+\DoxyCodeLine{00224                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00225                     \}}
+\DoxyCodeLine{00226                     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00227                     \{}
+\DoxyCodeLine{00228                         \mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00229                     \}}
+\DoxyCodeLine{00230                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[0] = Convert.ToByte(\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.ReadByte());}
+\DoxyCodeLine{00231                 \}}
+\DoxyCodeLine{00232 }
+\DoxyCodeLine{00233                 \textcolor{keywordflow}{if} (!\mbox{\hyperlink{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}{InterruptDisabled}})}
+\DoxyCodeLine{00234                 \{}
+\DoxyCodeLine{00235                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00236                     \mbox{\hyperlink{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}{Processor}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a21e519f1e532098b8d3441cd123cc891_a21e519f1e532098b8d3441cd123cc891}{InterruptRequest}}();}
+\DoxyCodeLine{00237                 \}}
+\DoxyCodeLine{00238             \}}
+\DoxyCodeLine{00239             \textcolor{keywordflow}{catch} (Win32Exception w)}
+\DoxyCodeLine{00240             \{}
+\DoxyCodeLine{00241                 FileStream file = \textcolor{keyword}{new} FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);}
+\DoxyCodeLine{00242                 StreamWriter stream = \textcolor{keyword}{new} StreamWriter(file);}
+\DoxyCodeLine{00243                 stream.WriteLine(w.Message);}
+\DoxyCodeLine{00244                 stream.WriteLine(w.ErrorCode.ToString());}
+\DoxyCodeLine{00245                 stream.WriteLine(w.Source);}
+\DoxyCodeLine{00246                 stream.Flush();}
+\DoxyCodeLine{00247                 stream.Close();}
+\DoxyCodeLine{00248                 file.Flush();}
+\DoxyCodeLine{00249                 file.Close();}
+\DoxyCodeLine{00250             \}}
+\DoxyCodeLine{00251         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a3fd221adf3f875786ef9c53063d6fa4e_a3fd221adf3f875786ef9c53063d6fa4e}\label{class_hardware_1_1_w65_c51_a3fd221adf3f875786ef9c53063d6fa4e_a3fd221adf3f875786ef9c53063d6fa4e}} 
@@ -919,64 +919,64 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00213}{213}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00622}{622}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00621}{621}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00623         \{}
-\DoxyCodeLine{00624             \textcolor{keywordtype}{byte} statusRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1];}
-\DoxyCodeLine{00625 }
-\DoxyCodeLine{00626             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}})}
-\DoxyCodeLine{00627             \{}
-\DoxyCodeLine{00628                 statusRegister |= 0x80;}
-\DoxyCodeLine{00629             \}}
-\DoxyCodeLine{00630             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00631             \{}
-\DoxyCodeLine{00632                 statusRegister \&= 0x7F;}
-\DoxyCodeLine{00633             \}}
-\DoxyCodeLine{00634 }
-\DoxyCodeLine{00635             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DsrHolding == \textcolor{keyword}{false})}
-\DoxyCodeLine{00636             \{}
-\DoxyCodeLine{00637                 statusRegister |= 0x40;}
-\DoxyCodeLine{00638             \}}
-\DoxyCodeLine{00639             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00640             \{}
-\DoxyCodeLine{00641                 statusRegister \&= 0xBF;}
-\DoxyCodeLine{00642             \}}
-\DoxyCodeLine{00643 }
-\DoxyCodeLine{00644             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.CDHolding)}
-\DoxyCodeLine{00645             \{}
-\DoxyCodeLine{00646                 statusRegister |= 0x20;}
-\DoxyCodeLine{00647             \}}
-\DoxyCodeLine{00648             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00649             \{}
-\DoxyCodeLine{00650                 statusRegister \&= 0xDF;}
-\DoxyCodeLine{00651             \}}
-\DoxyCodeLine{00652 }
-\DoxyCodeLine{00653             statusRegister |= 0x10;}
-\DoxyCodeLine{00654 }
-\DoxyCodeLine{00655             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}})}
-\DoxyCodeLine{00656             \{}
-\DoxyCodeLine{00657                 statusRegister |= 0x08;}
-\DoxyCodeLine{00658             \}}
-\DoxyCodeLine{00659             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00660             \{}
-\DoxyCodeLine{00661                 statusRegister \&= 0xF7;}
-\DoxyCodeLine{00662             \}}
-\DoxyCodeLine{00663 }
-\DoxyCodeLine{00664             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}})}
-\DoxyCodeLine{00665             \{}
-\DoxyCodeLine{00666                 statusRegister |= 0x04;}
-\DoxyCodeLine{00667             \}}
-\DoxyCodeLine{00668             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00669             \{}
-\DoxyCodeLine{00670                 statusRegister \&= 0xFB;}
-\DoxyCodeLine{00671             \}}
-\DoxyCodeLine{00672 }
-\DoxyCodeLine{00673             statusRegister \&= 0xFC;}
-\DoxyCodeLine{00674 }
-\DoxyCodeLine{00675             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1] = statusRegister;}
-\DoxyCodeLine{00676         \}}
+\DoxyCodeLine{00622         \{}
+\DoxyCodeLine{00623             \textcolor{keywordtype}{byte} statusRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1];}
+\DoxyCodeLine{00624 }
+\DoxyCodeLine{00625             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}{Interrupted}})}
+\DoxyCodeLine{00626             \{}
+\DoxyCodeLine{00627                 statusRegister |= 0x80;}
+\DoxyCodeLine{00628             \}}
+\DoxyCodeLine{00629             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00630             \{}
+\DoxyCodeLine{00631                 statusRegister \&= 0x7F;}
+\DoxyCodeLine{00632             \}}
+\DoxyCodeLine{00633 }
+\DoxyCodeLine{00634             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.DsrHolding == \textcolor{keyword}{false})}
+\DoxyCodeLine{00635             \{}
+\DoxyCodeLine{00636                 statusRegister |= 0x40;}
+\DoxyCodeLine{00637             \}}
+\DoxyCodeLine{00638             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00639             \{}
+\DoxyCodeLine{00640                 statusRegister \&= 0xBF;}
+\DoxyCodeLine{00641             \}}
+\DoxyCodeLine{00642 }
+\DoxyCodeLine{00643             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.CDHolding)}
+\DoxyCodeLine{00644             \{}
+\DoxyCodeLine{00645                 statusRegister |= 0x20;}
+\DoxyCodeLine{00646             \}}
+\DoxyCodeLine{00647             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00648             \{}
+\DoxyCodeLine{00649                 statusRegister \&= 0xDF;}
+\DoxyCodeLine{00650             \}}
+\DoxyCodeLine{00651 }
+\DoxyCodeLine{00652             statusRegister |= 0x10;}
+\DoxyCodeLine{00653 }
+\DoxyCodeLine{00654             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}{ReceiverFull}})}
+\DoxyCodeLine{00655             \{}
+\DoxyCodeLine{00656                 statusRegister |= 0x08;}
+\DoxyCodeLine{00657             \}}
+\DoxyCodeLine{00658             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00659             \{}
+\DoxyCodeLine{00660                 statusRegister \&= 0xF7;}
+\DoxyCodeLine{00661             \}}
+\DoxyCodeLine{00662 }
+\DoxyCodeLine{00663             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}{Overrun}})}
+\DoxyCodeLine{00664             \{}
+\DoxyCodeLine{00665                 statusRegister |= 0x04;}
+\DoxyCodeLine{00666             \}}
+\DoxyCodeLine{00667             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00668             \{}
+\DoxyCodeLine{00669                 statusRegister \&= 0xFB;}
+\DoxyCodeLine{00670             \}}
+\DoxyCodeLine{00671 }
+\DoxyCodeLine{00672             statusRegister \&= 0xFC;}
+\DoxyCodeLine{00673 }
+\DoxyCodeLine{00674             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1] = statusRegister;}
+\DoxyCodeLine{00675         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a3fcfa84682d1b05c185afeb6fd9cd133_a3fcfa84682d1b05c185afeb6fd9cd133}\label{class_hardware_1_1_w65_c51_a3fcfa84682d1b05c185afeb6fd9cd133_a3fcfa84682d1b05c185afeb6fd9cd133}} 
@@ -998,17 +998,17 @@ Writes data to the given address.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00121}{121}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00120}{120}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00122         \{}
-\DoxyCodeLine{00123             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ac009443943124ef7b781a2f515194426_ac009443943124ef7b781a2f515194426}{HardwarePreWrite}}(address, data);}
-\DoxyCodeLine{00124             \textcolor{keywordflow}{if} (!((address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}}) || (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1)))}
-\DoxyCodeLine{00125             \{}
-\DoxyCodeLine{00126                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[address -\/ \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}}] = data;}
-\DoxyCodeLine{00127             \}}
-\DoxyCodeLine{00128         \}}
+\DoxyCodeLine{00121         \{}
+\DoxyCodeLine{00122             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ac009443943124ef7b781a2f515194426_ac009443943124ef7b781a2f515194426}{HardwarePreWrite}}(address, data);}
+\DoxyCodeLine{00123             \textcolor{keywordflow}{if} (!((address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}}) || (address == \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}} + 1)))}
+\DoxyCodeLine{00124             \{}
+\DoxyCodeLine{00125                 \mbox{\hyperlink{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}{Memory}}[address -\/ \mbox{\hyperlink{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}{Offset}}] = data;}
+\DoxyCodeLine{00126             \}}
+\DoxyCodeLine{00127         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_a9d9aec62f430df25eba3c522ddae912b}\label{class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_a9d9aec62f430df25eba3c522ddae912b}} 
@@ -1028,14 +1028,14 @@ Called in order to write to the serial port.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00135}{135}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00134}{134}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00136         \{}
-\DoxyCodeLine{00137             \textcolor{keywordtype}{byte}[] writeByte = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[] \{ data \};}
-\DoxyCodeLine{00138             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.Write(writeByte, 0, 1);}
-\DoxyCodeLine{00139         \}}
+\DoxyCodeLine{00135         \{}
+\DoxyCodeLine{00136             \textcolor{keywordtype}{byte}[] writeByte = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[] \{ data \};}
+\DoxyCodeLine{00137             \mbox{\hyperlink{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}{Object}}.Write(writeByte, 0, 1);}
+\DoxyCodeLine{00138         \}}
 
 \end{DoxyCode}
 
@@ -1049,7 +1049,7 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00135}{135}} of file \m
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00017}{17}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a024d1472d29baf3e1c0d557e7baf583f_a024d1472d29baf3e1c0d557e7baf583f}\label{class_hardware_1_1_w65_c51_a024d1472d29baf3e1c0d557e7baf583f_a024d1472d29baf3e1c0d557e7baf583f}} 
 \index{Hardware.W65C51@{Hardware.W65C51}!defaultBaudRate@{defaultBaudRate}}
@@ -1059,7 +1059,7 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00017}{17}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 
@@ -1072,11 +1072,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00016}{16}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00026 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00025 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}\label{class_hardware_1_1_w65_c51_a2515ec4321e4f65bb022b948953cb96b_a2515ec4321e4f65bb022b948953cb96b}} 
@@ -1087,11 +1087,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00026}{26}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00030 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00029 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}\label{class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_ab282dcc36d460629c35e8c769b304e7e}} 
@@ -1102,11 +1102,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00030}{30}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00031 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00030 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}\label{class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_adfb52f9d9393e94311acfbe60643aa81}} 
@@ -1117,11 +1117,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00031}{31}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00032 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00031 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}\label{class_hardware_1_1_w65_c51_af7f58983ea2fe5c532fc53972ca49360_af7f58983ea2fe5c532fc53972ca49360}} 
@@ -1132,11 +1132,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00032}{32}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00033 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00032 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a64cea997c80c6dd1888061c3724469c8_a64cea997c80c6dd1888061c3724469c8}\label{class_hardware_1_1_w65_c51_a64cea997c80c6dd1888061c3724469c8_a64cea997c80c6dd1888061c3724469c8}} 
@@ -1147,11 +1147,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00033}{33}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00022 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00021 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_aa4b06a191d59b71d910c6341ee834ad7_aa4b06a191d59b71d910c6341ee834ad7}\label{class_hardware_1_1_w65_c51_aa4b06a191d59b71d910c6341ee834ad7_aa4b06a191d59b71d910c6341ee834ad7}} 
@@ -1162,11 +1162,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00022}{22}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00028 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00027 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}\label{class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_ad620c5227dc3c1673fea1d93df91f1a8}} 
@@ -1177,11 +1177,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00028}{28}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00021}{21}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00021 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00020 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}\label{class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_ab83fbff41ab917d8df9be26511dc446a}} 
@@ -1192,11 +1192,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00021}{21}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00022}{22}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00023 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00022 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}\label{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}} 
@@ -1207,11 +1207,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00023}{23}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00024 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00023 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}\label{class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_a95d3f77dcc70a2d539fd471a5275a981}} 
@@ -1222,11 +1222,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00024}{24}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00027 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00026 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}\label{class_hardware_1_1_w65_c51_a87511cdbbbb99cf526c8564fd14fd5a0_a87511cdbbbb99cf526c8564fd14fd5a0}} 
@@ -1237,11 +1237,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00027}{27}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00034 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00033 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425_acbd4474533a87f7be6d54137ba217425}\label{class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425_acbd4474533a87f7be6d54137ba217425}} 
@@ -1252,11 +1252,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00034}{34}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00034}{34}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00035 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00034 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}\label{class_hardware_1_1_w65_c51_af98802757fa59dd67533d7dced705ea1_af98802757fa59dd67533d7dced705ea1}} 
@@ -1267,11 +1267,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00035}{35}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00024}{24}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00025 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00024 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}\label{class_hardware_1_1_w65_c51_a79594d9198be53f45d06ac5cf7136df6_a79594d9198be53f45d06ac5cf7136df6}} 
@@ -1282,11 +1282,11 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00025}{25}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00036}{36}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00036 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00035 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13_af596f49b3ad1cf55d15a23cd51a3ae13}\label{class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13_af596f49b3ad1cf55d15a23cd51a3ae13}} 
@@ -1297,15 +1297,15 @@ Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00036}{36}} of file \mb
 
 
 
-Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00037}{37}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
+Definition at line \mbox{\hyperlink{_w65_c51_8cs_source_l00036}{36}} of file \mbox{\hyperlink{_w65_c51_8cs_source}{W65\+C51.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00037 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00036 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Hardware/\mbox{\hyperlink{_w65_c51_8cs}{W65\+C51.\+cs}}\end{DoxyCompactItemize}
+Hardware/\+Hardware/\mbox{\hyperlink{_w65_c51_8cs}{W65\+C51.\+cs}}\end{DoxyCompactItemize}

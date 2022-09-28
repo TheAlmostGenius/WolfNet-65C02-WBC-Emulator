@@ -144,6 +144,10 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a39dbf996ee94d2068cd26747428515ce.html#a39dbf996ee94d2068cd26747428515ce"><param name="Name" value="Emulator::MainWindow"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a6c0b26b03d632ddc4e21041ea4a0817a.html#a6c0b26b03d632ddc4e21041ea4a0817a"><param name="Name" value="Connect(int connectionId, object target)"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a6c0b26b03d632ddc4e21041ea4a0817a.html#a6c0b26b03d632ddc4e21041ea4a0817a"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1.html#ad8a7f921c8b79521f7e93429a92da6d1"><param name="Name" value="Connect(int connectionId, object target)"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_ad8a7f921c8b79521f7e93429a92da6d1.html#ad8a7f921c8b79521f7e93429a92da6d1"><param name="Name" value="Emulator::SaveFile"></OBJECT>
@@ -151,6 +155,10 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703.html#a0aae9631fe13978aeac0edae697b9703"><param name="Name" value="Connect(int connectionId, object target)"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_settings_a0aae9631fe13978aeac0edae697b9703.html#a0aae9631fe13978aeac0edae697b9703"><param name="Name" value="Emulator::Settings"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a245ea8869905915ae1b39eb9bf8abc73.html#a245ea8869905915ae1b39eb9bf8abc73"><param name="Name" value="Connect(int connectionId, object target)"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a245ea8869905915ae1b39eb9bf8abc73.html#a245ea8869905915ae1b39eb9bf8abc73"><param name="Name" value="Emulator::Window1"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0.html#a912e82bacb2b6048f32d2e572ecd9ab0"><param name="Name" value="ControlRegister(byte data)"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c51_ad2a26a3e0f12764063072ded0010f886.html#ad2a26a3e0f12764063072ded0010f886"><param name="Name" value="ControlRegisterUpdate()"></OBJECT>
@@ -285,10 +293,6 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a9081b45a59859564c5d5e173faa0721b.html#a9081b45a59859564c5d5e173faa0721b"><param name="Name" value="NotificationMessageReceived(NotificationMessage&lt; SettingsModel &gt; notificationMessage)"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a6a6a233204dfc136721b60b296f01ba2.html"><param name="Name" value="Emulator::MainWindow"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a6a6a233204dfc136721b60b296f01ba2.html#a6a6a233204dfc136721b60b296f01ba2"><param name="Name" value="NotificationMessageReceived(NotificationMessage&lt; StateFileModel &gt; notificationMessage)"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a4284bd93fa26aa57d9aa7519f790fc53.html"><param name="Name" value="Emulator::MainWindow"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a4284bd93fa26aa57d9aa7519f790fc53.html#a4284bd93fa26aa57d9aa7519f790fc53"><param name="Name" value="SaveFile(Object sender, EventArgs e)"></OBJECT>
@@ -300,6 +304,23 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_af512e877654f05508dce90d6f2756459.html"><param name="Name" value="Emulator::MainWindow"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_af512e877654f05508dce90d6f2756459.html#af512e877654f05508dce90d6f2756459"><param name="Name" value="_contentLoaded"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual.html"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a6c0b26b03d632ddc4e21041ea4a0817a.html"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a6c0b26b03d632ddc4e21041ea4a0817a.html#a6c0b26b03d632ddc4e21041ea4a0817a"><param name="Name" value="Connect(int connectionId, object target)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a14ce286b91b99935aa182bad7c9cac9c.html"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a14ce286b91b99935aa182bad7c9cac9c.html#a14ce286b91b99935aa182bad7c9cac9c"><param name="Name" value="InitializeComponent()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a40bec30a74e78aa842e3850f99422277.html"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a40bec30a74e78aa842e3850f99422277.html#a40bec30a74e78aa842e3850f99422277"><param name="Name" value="MemoryVisual()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_ac8c974c56ca8a4e51234204b564c86d5.html"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_ac8c974c56ca8a4e51234204b564c86d5.html#ac8c974c56ca8a4e51234204b564c86d5"><param name="Name" value="_contentLoaded"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_emulator_1_1_model.html"><param name="Name" value="Emulator::Model"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_model_1_1_breakpoint.html"><param name="Name" value="Emulator::Model::Breakpoint"></OBJECT>
@@ -746,9 +767,13 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b.html#a77444b822722e3a6533d26f03251d66b"><param name="Name" value="MemoryPage"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0.html"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2.html"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0.html#a8393603c75099ab35c03f60c4fa823c0"><param name="Name" value="MemoryPageOffset"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2.html#ae2c95d01efa4ad05aee6f15547896ce2"><param name="Name" value="MemoryView()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc.html"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc.html#a49c70ab506c43d9e159bf9c2f6c011dc"><param name="Name" value="MemoryVisualCommand"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74.html"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
   <UL>
@@ -866,9 +891,38 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096.html#ab00aaafab897056a51f1685cc8f20096"><param name="Name" value="_breakpointTriggered"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f.html"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aaca3710eacbe6076d17d9c4af0c4fe9a.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f.html#a8670b217882200882d2ce10272b6c18f"><param name="Name" value="_memoryPageOffset"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aaca3710eacbe6076d17d9c4af0c4fe9a.html#aaca3710eacbe6076d17d9c4af0c4fe9a"><param name="Name" value="GenericNotification(NotificationMessage notificationMessage)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2.html#ae1afb856ffca32ca1f707563d1d1d9b2"><param name="Name" value="MemoryPage"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aea9071d5d088cdcdf443a26a601ab84a.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aea9071d5d088cdcdf443a26a601ab84a.html#aea9071d5d088cdcdf443a26a601ab84a"><param name="Name" value="MemoryPageOffset"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_acba7dc8aa7337551dcc41b9895f9fa81.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_acba7dc8aa7337551dcc41b9895f9fa81.html#acba7dc8aa7337551dcc41b9895f9fa81"><param name="Name" value="MemoryVisualViewModel()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba.html#aed488880cecb97345853fc6b3916d3ba"><param name="Name" value="UpdateMemoryMapCommand"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3.html#a1757c6638529648cb3c3b0037e50dfa3"><param name="Name" value="UpdateMemoryPage()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4.html#afa92b335f9e4b806b6e70778fa3209d4"><param name="Name" value="UpdateUi()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2.html"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2.html#ada11919488b9adda19bcce2ee1fb30b2"><param name="Name" value="_memoryPageOffset"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_save_file_view_model.html"><param name="Name" value="Emulator::ViewModel::SaveFileViewModel"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_save_file_view_model_acf6fe4aed05c67775779745dbde34a83.html"><param name="Name" value="Emulator::ViewModel::SaveFileViewModel"></OBJECT>
@@ -973,9 +1027,9 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_a79e7e4d50cffb44fb994718640c92f76.html#a79e7e4d50cffb44fb994718640c92f76"><param name="Name" value="Main"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c.html"><param name="Name" value="Emulator::ViewModel::ViewModelLocator"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_a49ac50d7f36abeba7b0334b79f5ff47b.html"><param name="Name" value="Emulator::ViewModel::ViewModelLocator"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c.html#adab2dfdfce934cee68d3a2db9cb1160c"><param name="Name" value="SaveFile"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_a49ac50d7f36abeba7b0334b79f5ff47b.html#a49ac50d7f36abeba7b0334b79f5ff47b"><param name="Name" value="MemoryVisual"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_afd98fea8ef52bd6c7610ecec5d667440.html"><param name="Name" value="Emulator::ViewModel::ViewModelLocator"></OBJECT>
   <UL>
@@ -984,6 +1038,19 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551.html"><param name="Name" value="Emulator::ViewModel::ViewModelLocator"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_a5ef6c804ba7dc4bb72781c5530689551.html#a5ef6c804ba7dc4bb72781c5530689551"><param name="Name" value="ViewModelLocator()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1.html"><param name="Name" value="Emulator::Window1"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a245ea8869905915ae1b39eb9bf8abc73.html"><param name="Name" value="Emulator::Window1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a245ea8869905915ae1b39eb9bf8abc73.html#a245ea8869905915ae1b39eb9bf8abc73"><param name="Name" value="Connect(int connectionId, object target)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_aaa8731f4e24c16518f69c4def4a77559.html"><param name="Name" value="Emulator::Window1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_aaa8731f4e24c16518f69c4def4a77559.html#aaa8731f4e24c16518f69c4def4a77559"><param name="Name" value="InitializeComponent()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a84ef8673f99f54ee194a0899e6882cd1.html"><param name="Name" value="Emulator::Window1"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a84ef8673f99f54ee194a0899e6882cd1.html#a84ef8673f99f54ee194a0899e6882cd1"><param name="Name" value="_contentLoaded"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_a_t28_c_x_x_adb8e2ad623ff794913779078d13b7384.html#adb8e2ad623ff794913779078d13b7384"><param name="Name" value="End"></OBJECT>
   <UL>
@@ -1007,6 +1074,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c51_a25c526b05b1f87d939e5ec65166ee89c.html#a25c526b05b1f87d939e5ec65166ee89c"><param name="Name" value="Fini()"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_memory_map_a7cb514b5bacbb7ba91e1b52166b53b53.html#a7cb514b5bacbb7ba91e1b52166b53b53"><param name="Name" value="GPIO"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a2092242c6ebc7bad25c9c50e9b82465e.html#a2092242c6ebc7bad25c9c50e9b82465e"><param name="Name" value="GenericNotifcation(NotificationMessage notificationMessage)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aaca3710eacbe6076d17d9c4af0c4fe9a.html#aaca3710eacbe6076d17d9c4af0c4fe9a"><param name="Name" value="GenericNotification(NotificationMessage notificationMessage)"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_ac0ef46e724de47e6c7ab6b3cb77e9afe.html#ac0ef46e724de47e6c7ab6b3cb77e9afe"><param name="Name" value="GetAddressByAddressingMode(AddressingMode addressingMode)"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_af54529fb64ab3001c221aec400fb50af.html#af54529fb64ab3001c221aec400fb50af"><param name="Name" value="GetAddressingMode()"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_ab342c867fed7c221e8515f0ea08eabe0.html#ab342c867fed7c221e8515f0ea08eabe0"><param name="Name" value="GetCycleCount()"></OBJECT>
@@ -1931,6 +1999,10 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a937b0e22a82f9713513fea23b662db92.html#a937b0e22a82f9713513fea23b662db92"><param name="Name" value="Emulator::MainWindow"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a14ce286b91b99935aa182bad7c9cac9c.html#a14ce286b91b99935aa182bad7c9cac9c"><param name="Name" value="InitializeComponent()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a14ce286b91b99935aa182bad7c9cac9c.html#a14ce286b91b99935aa182bad7c9cac9c"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1.html#a72ff13c671b6b8f30e89a5e81bc8fdd1"><param name="Name" value="InitializeComponent()"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_a72ff13c671b6b8f30e89a5e81bc8fdd1.html#a72ff13c671b6b8f30e89a5e81bc8fdd1"><param name="Name" value="Emulator::SaveFile"></OBJECT>
@@ -1938,6 +2010,10 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51.html#afbdd691cc1d09333564ab6464073bb51"><param name="Name" value="InitializeComponent()"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_settings_afbdd691cc1d09333564ab6464073bb51.html#afbdd691cc1d09333564ab6464073bb51"><param name="Name" value="Emulator::Settings"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_aaa8731f4e24c16518f69c4def4a77559.html#aaa8731f4e24c16518f69c4def4a77559"><param name="Name" value="InitializeComponent()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_aaa8731f4e24c16518f69c4def4a77559.html#aaa8731f4e24c16518f69c4def4a77559"><param name="Name" value="Emulator::Window1"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_xaml_generated_namespace_1_1_generated_application_a34f50ac379fb79b742157a0334deee91.html#a34f50ac379fb79b742157a0334deee91"><param name="Name" value="InitializeComponent()"></OBJECT>
   <UL>
@@ -2083,7 +2159,19 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8"><param name="Name" value="Hardware::W65C51"></OBJECT>
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b.html#a77444b822722e3a6533d26f03251d66b"><param name="Name" value="MemoryPage"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0.html#a8393603c75099ab35c03f60c4fa823c0"><param name="Name" value="MemoryPageOffset"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b.html#a77444b822722e3a6533d26f03251d66b"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2.html#ae1afb856ffca32ca1f707563d1d1d9b2"><param name="Name" value="MemoryPage"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ae1afb856ffca32ca1f707563d1d1d9b2.html#ae1afb856ffca32ca1f707563d1d1d9b2"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aea9071d5d088cdcdf443a26a601ab84a.html#aea9071d5d088cdcdf443a26a601ab84a"><param name="Name" value="MemoryPageOffset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2.html#ae2c95d01efa4ad05aee6f15547896ce2"><param name="Name" value="MemoryView()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_a40bec30a74e78aa842e3850f99422277.html#a40bec30a74e78aa842e3850f99422277"><param name="Name" value="MemoryVisual()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_a49ac50d7f36abeba7b0334b79f5ff47b.html#a49ac50d7f36abeba7b0334b79f5ff47b"><param name="Name" value="MemoryVisual"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc.html#a49c70ab506c43d9e159bf9c2f6c011dc"><param name="Name" value="MemoryVisualCommand"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_acba7dc8aa7337551dcc41b9895f9fa81.html#acba7dc8aa7337551dcc41b9895f9fa81"><param name="Name" value="MemoryVisualViewModel()"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_versioning_1_1_product_aa8f23309faa5b69b39201fd0b85aa317.html#aa8f23309faa5b69b39201fd0b85aa317"><param name="Name" value="Minor"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_versioning_1_1_product_aa8f23309faa5b69b39201fd0b85aa317.html#aa8f23309faa5b69b39201fd0b85aa317"><param name="Name" value="Emulator::Versioning::Product"></OBJECT>
@@ -2128,7 +2216,6 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_settings_accd0b24ec993d17eb446c90ec98d0fcf.html#accd0b24ec993d17eb446c90ec98d0fcf"><param name="Name" value="Emulator::Settings"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a6a6a233204dfc136721b60b296f01ba2.html#a6a6a233204dfc136721b60b296f01ba2"><param name="Name" value="NotificationMessageReceived(NotificationMessage&lt; StateFileModel &gt; notificationMessage)"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_model_1_1_breakpoint_type_a703169811aff4940b3509ed680e6bc7a.html#a703169811aff4940b3509ed680e6bc7a"><param name="Name" value="NumberOfCycleType"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_model_1_1_output_log_a75aed4810abc1ee8b04f76af2d4711ab.html#a75aed4810abc1ee8b04f76af2d4711ab"><param name="Name" value="NumberOfCycles"></OBJECT>
   <UL>
@@ -2317,7 +2404,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_save_file_view_model_a6f6af47133ddc0f63c9405f6cc03aaf1.html#a6f6af47133ddc0f63c9405f6cc03aaf1"><param name="Name" value="SaveEnabled"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_a1a2bb012188d57f7bdb3200de0dd0a98.html#a1a2bb012188d57f7bdb3200de0dd0a98"><param name="Name" value="SaveFile()"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_a4284bd93fa26aa57d9aa7519f790fc53.html#a4284bd93fa26aa57d9aa7519f790fc53"><param name="Name" value="SaveFile(Object sender, EventArgs e)"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_view_model_locator_adab2dfdfce934cee68d3a2db9cb1160c.html#adab2dfdfce934cee68d3a2db9cb1160c"><param name="Name" value="SaveFile"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_save_file_view_model_a3284aab27bce54766ec026d18c1ff589.html#a3284aab27bce54766ec026d18c1ff589"><param name="Name" value="SaveFileCommand"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_save_file_view_model_a791eba17133e254aa87de372119f4ddf.html#a791eba17133e254aa87de372119f4ddf"><param name="Name" value="SaveFileViewModel()"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_save_file_view_model_a996733c4ac7b8ebb4e26c157f996bc8c.html#a996733c4ac7b8ebb4e26c157f996bc8c"><param name="Name" value="SaveFileViewModel(StateFileModel stateFileModel)"></OBJECT>
@@ -2412,9 +2498,30 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_model_1_1_breakpoint_a2036e2a7090937c5806439f737f618bd.html#a2036e2a7090937c5806439f737f618bd"><param name="Name" value="Type"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_exit_codes_af3a7e593f3920ad288cfd0034c42e740.html#af3a7e593f3920ad288cfd0034c42e740"><param name="Name" value="USER_ERROR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a35dd83b4be9d111598054e96f9b0f582.html#a35dd83b4be9d111598054e96f9b0f582"><param name="Name" value="UpdateMemoryMapCommand"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a35dd83b4be9d111598054e96f9b0f582.html#a35dd83b4be9d111598054e96f9b0f582"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba.html#aed488880cecb97345853fc6b3916d3ba"><param name="Name" value="UpdateMemoryMapCommand"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_aed488880cecb97345853fc6b3916d3ba.html#aed488880cecb97345853fc6b3916d3ba"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4.html#abdf34968b15f24511acdb115148fe7e4"><param name="Name" value="UpdateMemoryPage()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4.html#abdf34968b15f24511acdb115148fe7e4"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3.html#a1757c6638529648cb3c3b0037e50dfa3"><param name="Name" value="UpdateMemoryPage()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_a1757c6638529648cb3c3b0037e50dfa3.html#a1757c6638529648cb3c3b0037e50dfa3"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_settings_view_model_a133a0dcf684c258a3399ede8e55a5116.html#a133a0dcf684c258a3399ede8e55a5116"><param name="Name" value="UpdatePortList()"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730.html#a38e1d4b85d321bd6048a6f8392d24730"><param name="Name" value="UpdateUi()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730.html#a38e1d4b85d321bd6048a6f8392d24730"><param name="Name" value="Emulator::ViewModel::MainViewModel"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4.html#afa92b335f9e4b806b6e70778fa3209d4"><param name="Name" value="UpdateUi()"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_afa92b335f9e4b806b6e70778fa3209d4.html#afa92b335f9e4b806b6e70778fa3209d4"><param name="Name" value="Emulator::ViewModel::MemoryVisualViewModel"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_model_1_1_breakpoint_a01886fc4bfd37adc6a7e3ccf25b9bdf7.html#a01886fc4bfd37adc6a7e3ccf25b9bdf7"><param name="Name" value="Value"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_versioning_1_1_product_a898131fdb876fea06c99669293c7071a.html#a898131fdb876fea06c99669293c7071a"><param name="Name" value="Version"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_versioning_1_1_product_a0e49b8ea8ca6b08f69b39b291b460e4b.html#a0e49b8ea8ca6b08f69b39b291b460e4b"><param name="Name" value="VersionString"></OBJECT>
@@ -2580,6 +2687,10 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_main_window_af512e877654f05508dce90d6f2756459.html#af512e877654f05508dce90d6f2756459"><param name="Name" value="Emulator::MainWindow"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_ac8c974c56ca8a4e51234204b564c86d5.html#ac8c974c56ca8a4e51234204b564c86d5"><param name="Name" value="_contentLoaded"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_memory_visual_ac8c974c56ca8a4e51234204b564c86d5.html#ac8c974c56ca8a4e51234204b564c86d5"><param name="Name" value="Emulator::MemoryVisual"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc.html#ace53a05d6d24b62c991d36723a5449cc"><param name="Name" value="_contentLoaded"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_save_file_ace53a05d6d24b62c991d36723a5449cc.html#ace53a05d6d24b62c991d36723a5449cc"><param name="Name" value="Emulator::SaveFile"></OBJECT>
@@ -2588,6 +2699,10 @@
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_settings_a3da00fc0f33d3c5cc15a576d2eefac1c.html#a3da00fc0f33d3c5cc15a576d2eefac1c"><param name="Name" value="Emulator::Settings"></OBJECT>
   </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a84ef8673f99f54ee194a0899e6882cd1.html#a84ef8673f99f54ee194a0899e6882cd1"><param name="Name" value="_contentLoaded"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_window1_a84ef8673f99f54ee194a0899e6882cd1.html#a84ef8673f99f54ee194a0899e6882cd1"><param name="Name" value="Emulator::Window1"></OBJECT>
+  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_xaml_generated_namespace_1_1_generated_application_a8b50ad7a15fdd5cb2af2623209a46c3c.html#a8b50ad7a15fdd5cb2af2623209a46c3c"><param name="Name" value="_contentLoaded"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="class_xaml_generated_namespace_1_1_generated_application_a8b50ad7a15fdd5cb2af2623209a46c3c.html#a8b50ad7a15fdd5cb2af2623209a46c3c"><param name="Name" value="XamlGeneratedNamespace::GeneratedApplication"></OBJECT>
@@ -2595,7 +2710,7 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_a1887c3c32e8f0916851b15c376fd6f88.html#a1887c3c32e8f0916851b15c376fd6f88"><param name="Name" value="_cycleCount"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_a4e01ed5f12d89a4f323afbf661a9e348.html#a4e01ed5f12d89a4f323afbf661a9e348"><param name="Name" value="_interrupt"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_a80966ec7e9c6dba1f3586ed0e9f80cc1.html#a80966ec7e9c6dba1f3586ed0e9f80cc1"><param name="Name" value="_logger"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f.html#a8670b217882200882d2ce10272b6c18f"><param name="Name" value="_memoryPageOffset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_emulator_1_1_view_model_1_1_memory_visual_view_model_ada11919488b9adda19bcce2ee1fb30b2.html#ada11919488b9adda19bcce2ee1fb30b2"><param name="Name" value="_memoryPageOffset"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_af27df02bea5ab70320301aa322bdf50a.html#af27df02bea5ab70320301aa322bdf50a"><param name="Name" value="_previousInterrupt"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_ae180656bffc65257a3656e69f63aee79.html#ae180656bffc65257a3656e69f63aee79"><param name="Name" value="_programCounter"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="class_hardware_1_1_w65_c02_a42a8b12df740a0135197860cc854ceed.html#a42a8b12df740a0135197860cc854ceed"><param name="Name" value="_stackPointer"></OBJECT>

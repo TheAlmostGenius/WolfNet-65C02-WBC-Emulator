@@ -2,14 +2,14 @@
 \label{_save_file_view_model_8cs_source}\index{Emulator/ViewModel/SaveFileViewModel.cs@{Emulator/ViewModel/SaveFileViewModel.cs}}
 \mbox{\hyperlink{_save_file_view_model_8cs}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }System.IO;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }System.Runtime.Serialization.Formatters.Binary;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00003}00003 \textcolor{keyword}{using }GalaSoft.MvvmLight;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00004}00004 \textcolor{keyword}{using }GalaSoft.MvvmLight.Command;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00005}00005 \textcolor{keyword}{using }GalaSoft.MvvmLight.Ioc;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00006}00006 \textcolor{keyword}{using }GalaSoft.MvvmLight.Messaging;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00007}00007 \textcolor{keyword}{using }Microsoft.Win32;}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00008}00008 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}};}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00001}00001 \textcolor{keyword}{using }\mbox{\hyperlink{namespace_emulator_1_1_model}{Emulator.Model}};}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00002}00002 \textcolor{keyword}{using }GalaSoft.MvvmLight;}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00003}00003 \textcolor{keyword}{using }GalaSoft.MvvmLight.Command;}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00004}00004 \textcolor{keyword}{using }GalaSoft.MvvmLight.Ioc;}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00005}00005 \textcolor{keyword}{using }GalaSoft.MvvmLight.Messaging;}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00006}00006 \textcolor{keyword}{using }Microsoft.Win32;}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00007}00007 \textcolor{keyword}{using }System.IO;}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00008}00008 \textcolor{keyword}{using }System.Runtime.Serialization.Formatters.Binary;}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00009}00009 }
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00010}00010 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_emulator_1_1_view_model}{Emulator.ViewModel}}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00011}00011 \{\textcolor{comment}{}}
@@ -19,13 +19,13 @@
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00015}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{00015}} \textcolor{comment}{}    \textcolor{keyword}{public} \textcolor{keyword}{class }\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model}{SaveFileViewModel}} : ViewModelBase}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00016}00016     \{}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00017}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_afa724f767dff77c3a9a8d3af54cb147a_afa724f767dff77c3a9a8d3af54cb147a}{00017}}         \textcolor{keyword}{private} readonly \mbox{\hyperlink{class_emulator_1_1_model_1_1_state_file_model}{StateFileModel}} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_afa724f767dff77c3a9a8d3af54cb147a_afa724f767dff77c3a9a8d3af54cb147a}{\_stateFileModel}};}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00018}00018         }
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00018}00018 }
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00019}00019 \textcolor{preprocessor}{        \#region Properties}\textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00020}00020 \textcolor{comment}{        /// <summary>}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00021}00021 \textcolor{comment}{        /// The Relay Command called when saving a file}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00022}00022 \textcolor{comment}{        /// </summary>}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00023}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a3284aab27bce54766ec026d18c1ff589_a3284aab27bce54766ec026d18c1ff589}{00023}} \textcolor{comment}{}        \textcolor{keyword}{public} RelayCommand \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a3284aab27bce54766ec026d18c1ff589_a3284aab27bce54766ec026d18c1ff589}{SaveFileCommand}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00024}00024         \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00024}00024 \textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00025}00025 \textcolor{comment}{        /// <summary>}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00026}00026 \textcolor{comment}{        /// The Relay Command called when closing a file}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00027}00027 \textcolor{comment}{        /// </summary>}}
@@ -44,7 +44,7 @@
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00040}00040 \textcolor{comment}{        /// <summary>}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00041}00041 \textcolor{comment}{        /// Tells the UI that that a file has been selected and can be saved.}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00042}00042 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00043}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a6f6af47133ddc0f63c9405f6cc03aaf1_a6f6af47133ddc0f63c9405f6cc03aaf1}{00043}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a6f6af47133ddc0f63c9405f6cc03aaf1_a6f6af47133ddc0f63c9405f6cc03aaf1}{SaveEnabled}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} !\textcolor{keywordtype}{string}.IsNullOrEmpty(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a99865bc3c192b0ea3c41b4864bace09e_a99865bc3c192b0ea3c41b4864bace09e}{Filename}}); \}\}}
+\DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00043}\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a6f6af47133ddc0f63c9405f6cc03aaf1_a6f6af47133ddc0f63c9405f6cc03aaf1}{00043}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a6f6af47133ddc0f63c9405f6cc03aaf1_a6f6af47133ddc0f63c9405f6cc03aaf1}{SaveEnabled}} \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} !\textcolor{keywordtype}{string}.IsNullOrEmpty(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_save_file_view_model_a99865bc3c192b0ea3c41b4864bace09e_a99865bc3c192b0ea3c41b4864bace09e}{Filename}}); \} \}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00044}00044 \textcolor{preprocessor}{        \#endregion}}
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00045}00045 }
 \DoxyCodeLine{\Hypertarget{_save_file_view_model_8cs_source_l00046}00046 \textcolor{preprocessor}{        \#region Public Methods}\textcolor{comment}{}}

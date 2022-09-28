@@ -1,4 +1,4 @@
-.TH "Hardware.HM62256" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Hardware.HM62256" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -64,7 +64,7 @@ Hardware.HM62256
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB5\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB3\fP of file \fBHM62256\&.cs\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Hardware\&.HM62256\&.HM62256 (byte banks, int offset, int length)\fC [inline]\fP"
@@ -83,20 +83,20 @@ Called whenever a new 62256 object is required\&.
 .PP
 
 .PP
-Definition at line \fB43\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB41\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-44         {
-45             Memory = new byte[banks][];
-46             for (int i = 0; i < banks; i++)
-47             {
-48                 Memory[i] = new byte[length + 1];
-49             }
-50             Length = length;
-51             Banks = banks;
-52             Offset = offset;
-53             CurrentBank = 0;
-54         }
+42         {
+43             Memory = new byte[banks][];
+44             for (int i = 0; i < banks; i++)
+45             {
+46                 Memory[i] = new byte[length + 1];
+47             }
+48             Length = length;
+49             Banks = banks;
+50             Offset = offset;
+51             CurrentBank = 0;
+52         }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -105,18 +105,18 @@ Definition at line \fB43\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 Clears the memory\&.  
 .PP
-Definition at line \fB67\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB65\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-68         {
-69             for (var i = 0; i < Banks; i++)
-70             {
-71                 for (var j = 0; j < Memory\&.Length; j++)
-72                 {
-73                     Memory[i][j] = 0x00;
-74                 }
-75             }
-76         }
+66         {
+67             for (var i = 0; i < Banks; i++)
+68             {
+69                 for (var j = 0; j < Memory\&.Length; j++)
+70                 {
+71                     Memory[i][j] = 0x00;
+72                 }
+73             }
+74         }
 .fi
 .SS "byte[][] Hardware\&.HM62256\&.DumpMemory ()\fC [inline]\fP"
 
@@ -130,12 +130,12 @@ Jagged array representing the banked memory\&.
 .PP
 
 .PP
-Definition at line \fB104\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB102\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-105         {
-106             return Memory;
-107         }
+103         {
+104             return Memory;
+105         }
 .fi
 .SS "byte Hardware\&.HM62256\&.Read (int address)\fC [inline]\fP"
 
@@ -156,24 +156,24 @@ The byte being read\&.
 .PP
 
 .PP
-Definition at line \fB84\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB82\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-85         {
-86             return Memory[CurrentBank][address - Offset];
-87         }
+83         {
+84             return Memory[CurrentBank][address - Offset];
+85         }
 .fi
 .SS "void Hardware\&.HM62256\&.Reset ()\fC [inline]\fP"
 
 .PP
 Called whenever the emulated computer is reset\&.  
 .PP
-Definition at line \fB59\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB57\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-60         {
-61             Clear();
-62         }
+58         {
+59             Clear();
+60         }
 .fi
 .SS "void Hardware\&.HM62256\&.Write (int address, byte data)\fC [inline]\fP"
 
@@ -191,12 +191,12 @@ Writes data to the given address without incrementing the cycle\&.
 .PP
 
 .PP
-Definition at line \fB95\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB93\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-96         {
-97             Memory[CurrentBank][address - Offset] = data;
-98         }
+94         {
+95             Memory[CurrentBank][address - Offset] = data;
+96         }
 .fi
 .SH "Property Documentation"
 .PP 
@@ -205,60 +205,60 @@ Definition at line \fB95\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 The number of banks the memory has\&.  
 .PP
-Definition at line \fB30\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB28\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-30 { get; set; }
+28 { get; set; }
 .fi
 .SS "byte Hardware\&.HM62256\&.CurrentBank\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The currently selected bank\&.  
 .PP
-Definition at line \fB35\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB33\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-35 { get; set; }
+33 { get; set; }
 .fi
 .SS "int Hardware\&.HM62256\&.End\fC [get]\fP"
 
 .PP
 The location of the end of memory\&.  
 .PP
-Definition at line \fB25\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB23\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-25 { get { return Offset + Length; } }
+23 { get { return Offset + Length; } }
 .fi
 .SS "int Hardware\&.HM62256\&.Length\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The memory length\&.  
 .PP
-Definition at line \fB20\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB18\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-20 { get; set; }
+18 { get; set; }
 .fi
 .SS "byte [][] Hardware\&.HM62256\&.Memory\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The memory area\&.  
 .PP
-Definition at line \fB10\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB8\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-10 { get; set; }
+8 { get; set; }
 .fi
 .SS "int Hardware\&.HM62256\&.Offset\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The memory offset\&.  
 .PP
-Definition at line \fB15\fP of file \fBHM62256\&.cs\fP\&.
+Definition at line \fB13\fP of file \fBHM62256\&.cs\fP\&.
 .PP
 .nf
-15 { get; set; }
+13 { get; set; }
 .fi
 
 

@@ -50,7 +50,6 @@
         <table>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096.html#ab00aaafab897056a51f1685cc8f20096">_breakpointTriggered</a></td></tr>
-          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f.html#a8670b217882200882d2ce10272b6c18f">_memoryPageOffset</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a4d81ee580a460f70e86cdf43529988b7.html#a4d81ee580a460f70e86cdf43529988b7">About</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8e6cfd8465d8ce06fb5625edade91fd0.html#a8e6cfd8465d8ce06fb5625edade91fd0">AboutCommand</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2.html#a31162434b812de16b0d3b3a9a47a32f2">AddBreakPoint</a></td></tr>
@@ -75,7 +74,8 @@
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_af5094863d43352e3dce9c696d89ecc84.html#af5094863d43352e3dce9c696d89ecc84">MainViewModel</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b.html#a77444b822722e3a6533d26f03251d66b">MemoryPage</a></td></tr>
-          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0.html#a8393603c75099ab35c03f60c4fa823c0">MemoryPageOffset</a></td></tr>
+          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2.html#ae2c95d01efa4ad05aee6f15547896ce2">MemoryView</a></td></tr>
+          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc.html#a49c70ab506c43d9e159bf9c2f6c011dc">MemoryVisualCommand</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0.html#aee902050fd981fe5b409bdc5e2505ba0">MM65SIB</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74.html#a66abf02dc2c4b0be17e6a564b3a28f74">NumberOfCycles</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e.html#ae60919bf486f58dd060b2c8ea750306e">OnClose</a></td></tr>
@@ -132,23 +132,23 @@
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_main_view_model_8cs_source.html#l00374">374</a> of file <a class="el" href="_main_view_model_8cs_source.html">MainViewModel.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  375</span>        {</div>
-<div class="line"><span class="lineno">  376</span>            <span class="keywordflow">if</span> (notificationMessage.Notification != <span class="stringliteral">&quot;FileLoaded&quot;</span>)</div>
-<div class="line"><span class="lineno">  377</span>            {</div>
-<div class="line"><span class="lineno">  378</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  379</span>            }</div>
-<div class="line"><span class="lineno">  380</span> </div>
-<div class="line"><span class="lineno">  381</span>            <span class="comment">// Load Banked ROM</span></div>
-<div class="line"><span class="lineno">  382</span>            <a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e.html#a0baef7da610d2756bb8a28a0449b9f8e">AT28C010</a>.<a class="code hl_function" href="class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac.html#acedda08b77d785a2d8d15827b6962aac">Load</a>(notificationMessage.Content.Rom);</div>
-<div class="line"><span class="lineno">  383</span>            <a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6.html#ad32dbd58b3c610b05e6f823fed6847a6">IsRomLoaded</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  384</span>            RaisePropertyChanged(<span class="stringliteral">&quot;IsRomLoaded&quot;</span>);</div>
-<div class="line"><span class="lineno">  385</span> </div>
-<div class="line"><span class="lineno">  386</span>            <a class="code hl_function" href="class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a.html#a46564fc960dae5dcc7bfc6dbaeae111a">Reset</a>();</div>
-<div class="line"><span class="lineno">  387</span>        }</div>
-<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_html_a0baef7da610d2756bb8a28a0449b9f8e"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e.html#a0baef7da610d2756bb8a28a0449b9f8e">Emulator.ViewModel.MainViewModel.AT28C010</a></div><div class="ttdeci">AT28CXX AT28C010</div><div class="ttdoc">The AT28C010 ROM.</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00069">MainViewModel.cs:69</a></div></div>
-<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_html_a46564fc960dae5dcc7bfc6dbaeae111a"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a.html#a46564fc960dae5dcc7bfc6dbaeae111a">Emulator.ViewModel.MainViewModel.Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00540">MainViewModel.cs:540</a></div></div>
-<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_html_ad32dbd58b3c610b05e6f823fed6847a6"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6.html#ad32dbd58b3c610b05e6f823fed6847a6">Emulator.ViewModel.MainViewModel.IsRomLoaded</a></div><div class="ttdeci">bool IsRomLoaded</div><div class="ttdoc">Is the banked ROM Loaded.</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00153">MainViewModel.cs:153</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_main_view_model_8cs_source.html#l00356">356</a> of file <a class="el" href="_main_view_model_8cs_source.html">MainViewModel.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  357</span>        {</div>
+<div class="line"><span class="lineno">  358</span>            <span class="keywordflow">if</span> (notificationMessage.Notification != <span class="stringliteral">&quot;FileLoaded&quot;</span>)</div>
+<div class="line"><span class="lineno">  359</span>            {</div>
+<div class="line"><span class="lineno">  360</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  361</span>            }</div>
+<div class="line"><span class="lineno">  362</span> </div>
+<div class="line"><span class="lineno">  363</span>            <span class="comment">// Load Banked ROM</span></div>
+<div class="line"><span class="lineno">  364</span>            <a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e.html#a0baef7da610d2756bb8a28a0449b9f8e">AT28C010</a>.<a class="code hl_function" href="class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac.html#acedda08b77d785a2d8d15827b6962aac">Load</a>(notificationMessage.Content.Rom);</div>
+<div class="line"><span class="lineno">  365</span>            <a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6.html#ad32dbd58b3c610b05e6f823fed6847a6">IsRomLoaded</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  366</span>            RaisePropertyChanged(<span class="stringliteral">&quot;IsRomLoaded&quot;</span>);</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>            <a class="code hl_function" href="class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a.html#a46564fc960dae5dcc7bfc6dbaeae111a">Reset</a>();</div>
+<div class="line"><span class="lineno">  369</span>        }</div>
+<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_html_a0baef7da610d2756bb8a28a0449b9f8e"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e.html#a0baef7da610d2756bb8a28a0449b9f8e">Emulator.ViewModel.MainViewModel.AT28C010</a></div><div class="ttdeci">AT28CXX AT28C010</div><div class="ttdoc">The AT28C010 ROM.</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00067">MainViewModel.cs:67</a></div></div>
+<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_html_a46564fc960dae5dcc7bfc6dbaeae111a"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a.html#a46564fc960dae5dcc7bfc6dbaeae111a">Emulator.ViewModel.MainViewModel.Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00497">MainViewModel.cs:497</a></div></div>
+<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_html_ad32dbd58b3c610b05e6f823fed6847a6"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6.html#ad32dbd58b3c610b05e6f823fed6847a6">Emulator.ViewModel.MainViewModel.IsRomLoaded</a></div><div class="ttdeci">bool IsRomLoaded</div><div class="ttdoc">Is the banked ROM Loaded.</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00133">MainViewModel.cs:133</a></div></div>
 <div class="ttc" id="aclass_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_html_acedda08b77d785a2d8d15827b6962aac"><div class="ttname"><a href="class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac.html#acedda08b77d785a2d8d15827b6962aac">Hardware.AT28CXX.Load</a></div><div class="ttdeci">void Load(byte[][] data)</div><div class="ttdoc">Loads a program into ROM.</div><div class="ttdef"><b>Definition:</b> <a href="_a_t28_c_x_x_8cs_source.html#l00071">AT28CXX.cs:71</a></div></div>
 </div><!-- fragment -->
 </div>

@@ -50,7 +50,6 @@
         <table>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096.html#ab00aaafab897056a51f1685cc8f20096">_breakpointTriggered</a></td></tr>
-          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f.html#a8670b217882200882d2ce10272b6c18f">_memoryPageOffset</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a4d81ee580a460f70e86cdf43529988b7.html#a4d81ee580a460f70e86cdf43529988b7">About</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8e6cfd8465d8ce06fb5625edade91fd0.html#a8e6cfd8465d8ce06fb5625edade91fd0">AboutCommand</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2.html#a31162434b812de16b0d3b3a9a47a32f2">AddBreakPoint</a></td></tr>
@@ -75,7 +74,8 @@
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_af5094863d43352e3dce9c696d89ecc84.html#af5094863d43352e3dce9c696d89ecc84">MainViewModel</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b.html#a77444b822722e3a6533d26f03251d66b">MemoryPage</a></td></tr>
-          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0.html#a8393603c75099ab35c03f60c4fa823c0">MemoryPageOffset</a></td></tr>
+          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2.html#ae2c95d01efa4ad05aee6f15547896ce2">MemoryView</a></td></tr>
+          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc.html#a49c70ab506c43d9e159bf9c2f6c011dc">MemoryVisualCommand</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0.html#aee902050fd981fe5b409bdc5e2505ba0">MM65SIB</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74.html#a66abf02dc2c4b0be17e6a564b3a28f74">NumberOfCycles</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e.html#ae60919bf486f58dd060b2c8ea750306e">OnClose</a></td></tr>
@@ -131,19 +131,19 @@
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_main_view_model_8cs_source.html#l00620">620</a> of file <a class="el" href="_main_view_model_8cs_source.html">MainViewModel.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  621</span>        {</div>
-<div class="line"><span class="lineno">  622</span>            var isRunning = !<a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a>;</div>
-<div class="line"><span class="lineno">  623</span> </div>
-<div class="line"><span class="lineno">  624</span>            <span class="keywordflow">if</span> (isRunning)</div>
-<div class="line"><span class="lineno">  625</span>                <a class="code hl_variable" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a>.RunWorkerAsync();</div>
-<div class="line"><span class="lineno">  626</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  627</span>                <a class="code hl_variable" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a>.CancelAsync();</div>
-<div class="line"><span class="lineno">  628</span> </div>
-<div class="line"><span class="lineno">  629</span>            <a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a> = !<a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a>;</div>
-<div class="line"><span class="lineno">  630</span>        }</div>
-<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_html_a471dd3e95368333b4f6cb617c175b017"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">Emulator.ViewModel.MainViewModel._backgroundWorker</a></div><div class="ttdeci">readonly BackgroundWorker _backgroundWorker</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00031">MainViewModel.cs:31</a></div></div>
-<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_html_aad64b13977f5e45489f628e5a944aeff"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">Emulator.ViewModel.MainViewModel.IsRunning</a></div><div class="ttdeci">bool IsRunning</div><div class="ttdoc">Is the Prorgam Running</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00140">MainViewModel.cs:141</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_main_view_model_8cs_source.html#l00577">577</a> of file <a class="el" href="_main_view_model_8cs_source.html">MainViewModel.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  578</span>        {</div>
+<div class="line"><span class="lineno">  579</span>            var isRunning = !<a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a>;</div>
+<div class="line"><span class="lineno">  580</span> </div>
+<div class="line"><span class="lineno">  581</span>            <span class="keywordflow">if</span> (isRunning)</div>
+<div class="line"><span class="lineno">  582</span>                <a class="code hl_variable" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a>.RunWorkerAsync();</div>
+<div class="line"><span class="lineno">  583</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  584</span>                <a class="code hl_variable" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a>.CancelAsync();</div>
+<div class="line"><span class="lineno">  585</span> </div>
+<div class="line"><span class="lineno">  586</span>            <a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a> = !<a class="code hl_property" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a>;</div>
+<div class="line"><span class="lineno">  587</span>        }</div>
+<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_html_a471dd3e95368333b4f6cb617c175b017"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">Emulator.ViewModel.MainViewModel._backgroundWorker</a></div><div class="ttdeci">readonly BackgroundWorker _backgroundWorker</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00029">MainViewModel.cs:29</a></div></div>
+<div class="ttc" id="aclass_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_html_aad64b13977f5e45489f628e5a944aeff"><div class="ttname"><a href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">Emulator.ViewModel.MainViewModel.IsRunning</a></div><div class="ttdeci">bool IsRunning</div><div class="ttdoc">Is the Prorgam Running</div><div class="ttdef"><b>Definition:</b> <a href="_main_view_model_8cs_source.html#l00120">MainViewModel.cs:121</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

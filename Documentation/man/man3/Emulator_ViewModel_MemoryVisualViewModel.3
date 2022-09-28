@@ -1,0 +1,199 @@
+.TH "Emulator.ViewModel.MemoryVisualViewModel" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Emulator.ViewModel.MemoryVisualViewModel \- The Main \fBViewModel\fP   
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+Inherits ViewModelBase\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMemoryVisualViewModel\fP ()"
+.br
+.RI "Creates a new Instance of the \fBMemoryVisualViewModel\fP\&.  "
+.ti -1c
+.RI "void \fBUpdateMemoryPage\fP ()"
+.br
+.in -1c
+.SS "Properties"
+
+.in +1c
+.ti -1c
+.RI "\fBMultiThreadedObservableCollection\fP< \fBMemoryRowModel\fP > \fBMemoryPage\fP\fC [get, set]\fP"
+.br
+.RI "The Current Memory Page  "
+.ti -1c
+.RI "string \fBMemoryPageOffset\fP\fC [get, set]\fP"
+.br
+.RI "The Memory Page number\&.  "
+.ti -1c
+.RI "RelayCommand \fBUpdateMemoryMapCommand\fP\fC [get, set]\fP"
+.br
+.RI "Relay Command that updates the Memory Map when the Page changes  "
+.in -1c
+.SS "Private Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBGenericNotification\fP (NotificationMessage notificationMessage)"
+.br
+.ti -1c
+.RI "void \fBUpdateUi\fP ()"
+.br
+.in -1c
+.SS "Private Attributes"
+
+.in +1c
+.ti -1c
+.RI "int \fB_memoryPageOffset\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Main \fBViewModel\fP  
+.PP
+Definition at line \fB13\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Emulator\&.ViewModel\&.MemoryVisualViewModel\&.MemoryVisualViewModel ()\fC [inline]\fP"
+
+.PP
+Creates a new Instance of the \fBMemoryVisualViewModel\fP\&.  
+.PP
+Definition at line \fB53\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+54         {
+55             UpdateMemoryMapCommand = new RelayCommand(UpdateMemoryPage);
+56 
+57             Messenger\&.Default\&.Register<NotificationMessage>(this, GenericNotification);
+58 
+59             MemoryPage = new MultiThreadedObservableCollection<MemoryRowModel>();
+60 
+61             UpdateMemoryPage();
+62             UpdateUi();
+63         }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Emulator\&.ViewModel\&.MemoryVisualViewModel\&.GenericNotification (NotificationMessage notificationMessage)\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB65\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+66         {
+67             if (notificationMessage\&.Notification == "UpdateMemoryPage")
+68             {
+69                 UpdateMemoryPage();
+70                 UpdateUi();
+71             }
+72         }
+.fi
+.SS "void Emulator\&.ViewModel\&.MemoryVisualViewModel\&.UpdateMemoryPage ()\fC [inline]\fP"
+
+.PP
+Definition at line \fB74\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+75         {
+76             MemoryPage\&.Clear();
+77             var offset = _memoryPageOffset * 256;
+78 
+79             var multiplyer = 0;
+80             for (ushort i = (ushort)offset; i < 256 * (_memoryPageOffset + 1); i++)
+81             {
+82                 MemoryPage\&.Add(new MemoryRowModel
+83                 {
+84                     Offset = ((16 * multiplyer) + offset)\&.ToString("X")\&.PadLeft(4, '0'),
+85                     Location00 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+86                     Location01 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+87                     Location02 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+88                     Location03 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+89                     Location04 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+90                     Location05 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+91                     Location06 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+92                     Location07 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+93                     Location08 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+94                     Location09 = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+95                     Location0A = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+96                     Location0B = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+97                     Location0C = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+98                     Location0D = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+99                     Location0E = MemoryMap\&.ReadWithoutCycle(i++)\&.ToString("X")\&.PadLeft(2, '0'),
+100                     Location0F = MemoryMap\&.ReadWithoutCycle(i)\&.ToString("X")\&.PadLeft(2, '0'),
+101                 });
+102                 multiplyer++;
+103             }
+104         }
+.fi
+.SS "void Emulator\&.ViewModel\&.MemoryVisualViewModel\&.UpdateUi ()\fC [inline]\fP, \fC [private]\fP"
+
+.PP
+Definition at line \fB108\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+109         {
+110             RaisePropertyChanged("MemoryPage");
+111         }
+.fi
+.SH "Member Data Documentation"
+.PP 
+.SS "int Emulator\&.ViewModel\&.MemoryVisualViewModel\&._memoryPageOffset\fC [private]\fP"
+
+.PP
+Definition at line \fB16\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.SH "Property Documentation"
+.PP 
+.SS "\fBMultiThreadedObservableCollection\fP<\fBMemoryRowModel\fP> Emulator\&.ViewModel\&.MemoryVisualViewModel\&.MemoryPage\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Current Memory Page  
+.PP
+Definition at line \fB23\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+23 { get; set; }
+.fi
+.SS "string Emulator\&.ViewModel\&.MemoryVisualViewModel\&.MemoryPageOffset\fC [get]\fP, \fC [set]\fP"
+
+.PP
+The Memory Page number\&.  
+.PP
+Definition at line \fB28\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+29         {
+30             get { return _memoryPageOffset\&.ToString("X"); }
+31             set
+32             {
+33                 if (string\&.IsNullOrEmpty(value))
+34                     return;
+35                 try
+36                 {
+37                     _memoryPageOffset = Convert\&.ToInt32(value, 16);
+38                 }
+39                 catch { }
+40             }
+41         }
+.fi
+.SS "RelayCommand Emulator\&.ViewModel\&.MemoryVisualViewModel\&.UpdateMemoryMapCommand\fC [get]\fP, \fC [set]\fP"
+
+.PP
+Relay Command that updates the Memory Map when the Page changes  
+.PP
+Definition at line \fB46\fP of file \fBMemoryVisualViewModel\&.cs\fP\&.
+.PP
+.nf
+46 { get; set; }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for WolfNet 6502 WorkBench Computer Emulator from the source code\&.

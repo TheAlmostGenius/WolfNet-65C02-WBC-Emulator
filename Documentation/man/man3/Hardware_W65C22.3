@@ -1,4 +1,4 @@
-.TH "Hardware.W65C22" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Hardware.W65C22" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -165,26 +165,26 @@ Hardware.W65C22 \- An implementation of a \fBW65C22\fP VIA\&.
 .PP 
 An implementation of a \fBW65C22\fP VIA\&.  
 .PP
-Definition at line \fB11\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB10\fP of file \fBW65C22\&.cs\fP\&.
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "Hardware\&.W65C22\&.W65C22 (\fBW65C02\fP processor, byte offset, int length)\fC [inline]\fP"
 
 .PP
-Definition at line \fB123\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB122\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-124         {
-125             if (offset > MemoryMap\&.DeviceArea\&.Length)
-126                 throw new ArgumentException(String\&.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap\&.DeviceArea\&.Length));
-127             T1Init(1000);
-128             T2Init(1000);
-129 
-130             Offset = MemoryMap\&.DeviceArea\&.Offset | offset;
-131             Memory = new byte[length + 1];
-132             Length = length;
-133             Processor = processor;
-134         }
+123         {
+124             if (offset > MemoryMap\&.DeviceArea\&.Length)
+125                 throw new ArgumentException(String\&.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap\&.DeviceArea\&.Length));
+126             T1Init(1000);
+127             T2Init(1000);
+128 
+129             Offset = MemoryMap\&.DeviceArea\&.Offset | offset;
+130             Memory = new byte[length + 1];
+131             Length = length;
+132             Processor = processor;
+133         }
 .fi
 .SH "Member Function Documentation"
 .PP 
@@ -200,13 +200,13 @@ Initialization routine for the VIA\&.
 .PP
 
 .PP
-Definition at line \fB151\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB150\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-152         {
-153             T1Init(timer);
-154             T2Init(timer);
-155         }
+151         {
+152             T1Init(timer);
+153             T2Init(timer);
+154         }
 .fi
 .SS "void Hardware\&.W65C22\&.OnT1Timeout (object sender, ElapsedEventArgs e)\fC [inline]\fP, \fC [private]\fP"
 
@@ -222,26 +222,26 @@ Called whenever System\&.Timers\&.Timer event elapses\&.
 .PP
 
 .PP
-Definition at line \fB248\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB247\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-249         {
-250             if (Processor\&.isRunning)
-251             {
-252                 if (T1IsEnabled)
-253                 {
-254                     Write(IFR, (byte)(IFR_T1 & IFR_INT));
-255                     if (T1IsIRQ)
-256                     {
-257                         Processor\&.InterruptRequest();
-258                     }
-259                     else
-260                     {
-261                         Processor\&.TriggerNmi = true;
-262                     }
-263                 }
-264             }
-265         }
+248         {
+249             if (Processor\&.isRunning)
+250             {
+251                 if (T1IsEnabled)
+252                 {
+253                     Write(IFR, (byte)(IFR_T1 & IFR_INT));
+254                     if (T1IsIRQ)
+255                     {
+256                         Processor\&.InterruptRequest();
+257                     }
+258                     else
+259                     {
+260                         Processor\&.TriggerNmi = true;
+261                     }
+262                 }
+263             }
+264         }
 .fi
 .SS "void Hardware\&.W65C22\&.OnT2Timeout (object sender, ElapsedEventArgs e)\fC [inline]\fP, \fC [private]\fP"
 
@@ -257,26 +257,26 @@ Called whenever System\&.Timers\&.Timer event elapses
 .PP
 
 .PP
-Definition at line \fB273\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB272\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-274         {
-275             if (Processor\&.isRunning)
-276             {
-277                 if (T2IsEnabled)
-278                 {
-279                     Write(IFR, (byte)(IFR_T2 & IFR_INT));
-280                     if (T2IsIRQ)
-281                     {
-282                         Processor\&.InterruptRequest();
-283                     }
-284                     else
-285                     {
-286                         Processor\&.TriggerNmi = true;
-287                     }
-288                 }
-289             }
-290         }
+273         {
+274             if (Processor\&.isRunning)
+275             {
+276                 if (T2IsEnabled)
+277                 {
+278                     Write(IFR, (byte)(IFR_T2 & IFR_INT));
+279                     if (T2IsIRQ)
+280                     {
+281                         Processor\&.InterruptRequest();
+282                     }
+283                     else
+284                     {
+285                         Processor\&.TriggerNmi = true;
+286                     }
+287                 }
+288             }
+289         }
 .fi
 .SS "byte Hardware\&.W65C22\&.Read (int address)\fC [inline]\fP"
 
@@ -296,43 +296,43 @@ Byte value stored in the local memory\&.
 .PP
 
 .PP
-Definition at line \fB192\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB191\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-193         {
-194             if ((Offset <= address) && (address <= End))
-195             {
-196                 byte data = 0x00;
-197                 if (T1TimerControl)
-198                 {
-199                     data = (byte)(data | ACR_T1TC);
-200                 }
-201                 else if (T2TimerControl)
-202                 {
-203                     data = (byte)(data | ACR_T2TC);
-204                 }
-205                 return data;
-206             }
-207             else
-208             {
-209                 return Memory[address - Offset];
-210             }
-211         }
+192         {
+193             if ((Offset <= address) && (address <= End))
+194             {
+195                 byte data = 0x00;
+196                 if (T1TimerControl)
+197                 {
+198                     data = (byte)(data | ACR_T1TC);
+199                 }
+200                 else if (T2TimerControl)
+201                 {
+202                     data = (byte)(data | ACR_T2TC);
+203                 }
+204                 return data;
+205             }
+206             else
+207             {
+208                 return Memory[address - Offset];
+209             }
+210         }
 .fi
 .SS "void Hardware\&.W65C22\&.Reset ()\fC [inline]\fP"
 
 .PP
 Reset routine called whenever the emulated computer is reset\&.  
 .PP
-Definition at line \fB139\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB138\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-140         {
-141             T1TimerControl = false;
-142             T1IsEnabled = false;
-143             T2TimerControl = false;
-144             T2IsEnabled = false;
-145         }
+139         {
+140             T1TimerControl = false;
+141             T1IsEnabled = false;
+142             T2TimerControl = false;
+143             T2IsEnabled = false;
+144         }
 .fi
 .SS "void Hardware\&.W65C22\&.T1Init (double value)\fC [inline]\fP"
 
@@ -346,16 +346,16 @@ T1 counter initialization routine\&.
 .PP
 
 .PP
-Definition at line \fB162\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB161\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-163         {
-164             T1Object = new Timer(value);
-165             T1Object\&.Start();
-166             T1Object\&.Elapsed += OnT1Timeout;
-167             T1TimerControl = true;
-168             T1IsEnabled = false;
-169         }
+162         {
+163             T1Object = new Timer(value);
+164             T1Object\&.Start();
+165             T1Object\&.Elapsed += OnT1Timeout;
+166             T1TimerControl = true;
+167             T1IsEnabled = false;
+168         }
 .fi
 .SS "void Hardware\&.W65C22\&.T2Init (double value)\fC [inline]\fP"
 
@@ -369,16 +369,16 @@ T2 counter initialization routine\&.
 .PP
 
 .PP
-Definition at line \fB176\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB175\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-177         {
-178             T2Object = new Timer(value);
-179             T2Object\&.Start();
-180             T2Object\&.Elapsed += OnT2Timeout;
-181             T2TimerControl = true;
-182             T2IsEnabled = false;
-183         }
+176         {
+177             T2Object = new Timer(value);
+178             T2Object\&.Start();
+179             T2Object\&.Elapsed += OnT2Timeout;
+180             T2TimerControl = true;
+181             T2IsEnabled = false;
+182         }
 .fi
 .SS "void Hardware\&.W65C22\&.Write (int address, byte data)\fC [inline]\fP"
 
@@ -394,99 +394,99 @@ Writes data to the specified address in local memory\&.
 .PP
 
 .PP
-Definition at line \fB219\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB218\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-220         {
-221             if ((address == Offset + ACR) && ((data | ACR_T1TC) == ACR_T1TC))
-222             {
-223                 T1TimerControl = true;
-224             }
-225             else if ((address == Offset + ACR) && ((data | ACR_T2TC) == ACR_T2TC))
-226             {
-227                 T2TimerControl = true;
-228             }
-229             else if ((address == Offset + IER) && ((data | IER_T1) == IER_T1) && ((data | IER_EN) == IER_EN))
-230             {
-231                 T1Init(T1Interval);
-232             }
-233             else if ((address == Offset + IER) && ((data | IER_T2) == IER_T2) && ((data | IER_EN) == IER_EN))
-234             {
-235                 T2Init(T2Interval);
-236             }
-237             Memory[address - Offset] = data;
-238         }
+219         {
+220             if ((address == Offset + ACR) && ((data | ACR_T1TC) == ACR_T1TC))
+221             {
+222                 T1TimerControl = true;
+223             }
+224             else if ((address == Offset + ACR) && ((data | ACR_T2TC) == ACR_T2TC))
+225             {
+226                 T2TimerControl = true;
+227             }
+228             else if ((address == Offset + IER) && ((data | IER_T1) == IER_T1) && ((data | IER_EN) == IER_EN))
+229             {
+230                 T1Init(T1Interval);
+231             }
+232             else if ((address == Offset + IER) && ((data | IER_T2) == IER_T2) && ((data | IER_EN) == IER_EN))
+233             {
+234                 T2Init(T2Interval);
+235             }
+236             Memory[address - Offset] = data;
+237         }
 .fi
 .SH "Member Data Documentation"
 .PP 
 .SS "int Hardware\&.W65C22\&.ACR = 0x0B"
 
 .PP
-Definition at line \fB20\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB19\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.ACR_T1TC = (byte)(1 << 7)"
 
 .PP
-Definition at line \fB24\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB23\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.ACR_T2TC = (byte)(1 << 6)"
 
 .PP
-Definition at line \fB25\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB24\fP of file \fBW65C22\&.cs\fP\&.
 .SS "int Hardware\&.W65C22\&.IER = 0x0E"
 
 .PP
-Definition at line \fB22\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB21\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.IER_EN = (byte)(1 << 7)"
 
 .PP
-Definition at line \fB33\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB32\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.IER_T1 = (byte)(1 << 6)"
 
 .PP
-Definition at line \fB32\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB31\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.IER_T2 = (byte)(1 << 5)"
 
 .PP
-Definition at line \fB31\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB30\fP of file \fBW65C22\&.cs\fP\&.
 .SS "int Hardware\&.W65C22\&.IFR = 0x0D"
 
 .PP
-Definition at line \fB21\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB20\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.IFR_INT = (byte)(1 << 7)"
 
 .PP
-Definition at line \fB29\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB28\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.IFR_T1 = (byte)(1 << 6)"
 
 .PP
-Definition at line \fB28\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB27\fP of file \fBW65C22\&.cs\fP\&.
 .SS "byte Hardware\&.W65C22\&.IFR_T2 = (byte)(1 << 5)"
 
 .PP
-Definition at line \fB27\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB26\fP of file \fBW65C22\&.cs\fP\&.
 .SS "int Hardware\&.W65C22\&.T1CH = 0x05"
 
 .PP
-Definition at line \fB17\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB16\fP of file \fBW65C22\&.cs\fP\&.
 .SS "int Hardware\&.W65C22\&.T1CL = 0x04"
 
 .PP
-Definition at line \fB16\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB15\fP of file \fBW65C22\&.cs\fP\&.
 .SS "readonly bool Hardware\&.W65C22\&.T1IsIRQ = false"
 
 .PP
-Definition at line \fB14\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB13\fP of file \fBW65C22\&.cs\fP\&.
 .SS "int Hardware\&.W65C22\&.T2CH = 0x09"
 
 .PP
-Definition at line \fB19\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB18\fP of file \fBW65C22\&.cs\fP\&.
 .SS "int Hardware\&.W65C22\&.T2CL = 0x08"
 
 .PP
-Definition at line \fB18\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB17\fP of file \fBW65C22\&.cs\fP\&.
 .SS "readonly bool Hardware\&.W65C22\&.T2IsIRQ = true"
 
 .PP
-Definition at line \fB15\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB14\fP of file \fBW65C22\&.cs\fP\&.
 .SH "Property Documentation"
 .PP 
 .SS "int Hardware\&.W65C22\&.End\fC [get]\fP"
@@ -494,144 +494,144 @@ Definition at line \fB15\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 The end of memory  
 .PP
-Definition at line \fB55\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB54\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-55 { get { return Offset + Length; } }
+54 { get { return Offset + Length; } }
 .fi
 .SS "int Hardware\&.W65C22\&.Length\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The length of the device memory\&.  
 .PP
-Definition at line \fB50\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB49\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-50 { get; set; }
+49 { get; set; }
 .fi
 .SS "byte [] Hardware\&.W65C22\&.Memory\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The memory area\&.  
 .PP
-Definition at line \fB40\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB39\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-40 { get; set; }
+39 { get; set; }
 .fi
 .SS "int Hardware\&.W65C22\&.Offset\fC [get]\fP, \fC [set]\fP"
 
 .PP
 The memory offset of the device\&.  
 .PP
-Definition at line \fB45\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB44\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-45 { get; set; }
+44 { get; set; }
 .fi
 .SS "\fBW65C02\fP Hardware\&.W65C22\&.Processor\fC [get]\fP, \fC [set]\fP, \fC [private]\fP"
 
 .PP
 Local referemce to the processor object\&.  
 .PP
-Definition at line \fB119\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB118\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-119 { get; set; }
+118 { get; set; }
 .fi
 .SS "double Hardware\&.W65C22\&.T1Interval\fC [get]\fP"
 
 .PP
 Set or check the timer 1 interval\&.  
 .PP
-Definition at line \fB96\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB95\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-96 { get { return (int)(Read(T1CL) | (Read(T1CH) << 8)); } }
+95 { get { return (int)(Read(T1CL) | (Read(T1CH) << 8)); } }
 .fi
 .SS "bool Hardware\&.W65C22\&.T1IsEnabled\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Enable or check whether timer 1 is enabled or not\&.  
 .PP
-Definition at line \fB78\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB77\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-79         {
-80             get { return T1Object\&.Enabled; }
-81             set { T1Object\&.Enabled = value; }
-82         }
+78         {
+79             get { return T1Object\&.Enabled; }
+80             set { T1Object\&.Enabled = value; }
+81         }
 .fi
 .SS "Timer Hardware\&.W65C22\&.T1Object\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Set or get the timer 1 object\&.  
 .PP
-Definition at line \fB109\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB108\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-109 { get; set; }
+108 { get; set; }
 .fi
 .SS "bool Hardware\&.W65C22\&.T1TimerControl\fC [get]\fP, \fC [set]\fP"
 
 .PP
 T1 timer control  
 .PP
-Definition at line \fB60\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB59\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-61         {
-62             get { return T1Object\&.AutoReset; }
-63             set { T1Object\&.AutoReset = value; }
-64         }
+60         {
+61             get { return T1Object\&.AutoReset; }
+62             set { T1Object\&.AutoReset = value; }
+63         }
 .fi
 .SS "double Hardware\&.W65C22\&.T2Interval\fC [get]\fP"
 
 .PP
 Set or check the timer 2 interval\&.  
 .PP
-Definition at line \fB101\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB100\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-102         {
-103             get { return (int)(Read(T2CL) | (Read(T2CH) << 8)); }
-104         }
+101         {
+102             get { return (int)(Read(T2CL) | (Read(T2CH) << 8)); }
+103         }
 .fi
 .SS "bool Hardware\&.W65C22\&.T2IsEnabled\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Enable or check whether timer 2 is enabled or not\&.  
 .PP
-Definition at line \fB87\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB86\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-88         {
-89             get { return T2Object\&.Enabled; }
-90             set { T2Object\&.Enabled = value; }
-91         }
+87         {
+88             get { return T2Object\&.Enabled; }
+89             set { T2Object\&.Enabled = value; }
+90         }
 .fi
 .SS "Timer Hardware\&.W65C22\&.T2Object\fC [get]\fP, \fC [set]\fP"
 
 .PP
 Set or get the timer 2 object\&.  
 .PP
-Definition at line \fB114\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB113\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-114 { get; set; }
+113 { get; set; }
 .fi
 .SS "bool Hardware\&.W65C22\&.T2TimerControl\fC [get]\fP, \fC [set]\fP"
 
 .PP
 T2 timer control\&.  
 .PP
-Definition at line \fB69\fP of file \fBW65C22\&.cs\fP\&.
+Definition at line \fB68\fP of file \fBW65C22\&.cs\fP\&.
 .PP
 .nf
-70         {
-71             get { return T2Object\&.AutoReset; }
-72             set { T2Object\&.AutoReset = value; }
-73         }
+69         {
+70             get { return T2Object\&.AutoReset; }
+71             set { T2Object\&.AutoReset = value; }
+72         }
 .fi
 
 

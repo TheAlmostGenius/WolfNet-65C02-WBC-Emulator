@@ -1,11 +1,11 @@
 \hypertarget{_a_t28_c_x_x_8cs_source}{}\doxysubsection{AT28\+CXX.\+cs}
-\label{_a_t28_c_x_x_8cs_source}\index{Hardware/AT28CXX.cs@{Hardware/AT28CXX.cs}}
+\label{_a_t28_c_x_x_8cs_source}\index{Hardware/Hardware/AT28CXX.cs@{Hardware/Hardware/AT28CXX.cs}}
 \mbox{\hyperlink{_a_t28_c_x_x_8cs}{Go to the documentation of this file.}}
 \begin{DoxyCode}{0}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00001}00001 \textcolor{keyword}{using }System;}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00002}00002 \textcolor{keyword}{using }System.IO;}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00003}00003 }
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00004}\mbox{\hyperlink{namespace_hardware}{00004}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_hardware}{Hardware}}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00004}00004 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_hardware}{Hardware}}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00005}00005 \{\textcolor{comment}{}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00006}00006 \textcolor{comment}{    /// <summary>}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00007}00007 \textcolor{comment}{    /// An implementation of a W65C02 Processor.}}
@@ -48,7 +48,7 @@
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00044}00044 \textcolor{comment}{        /// <summary>}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00045}00045 \textcolor{comment}{        /// The processor reference}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00046}00046 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00047}\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}{00047}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}{Processor}}\{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00047}\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}{00047}} \textcolor{comment}{}        \textcolor{keyword}{public} \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a5f921a415afdc78e74436da0d6acb445_a5f921a415afdc78e74436da0d6acb445}{Processor}} \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00048}00048 \textcolor{preprocessor}{        \#endregion}}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00049}00049 }
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00050}00050 \textcolor{preprocessor}{        \#region Public Methods}\textcolor{comment}{}}
@@ -157,27 +157,28 @@
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00153}\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_af5d84d7784ea0f4b0539fa54ae1aff62_af5d84d7784ea0f4b0539fa54ae1aff62}{00153}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{byte}[] \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_af5d84d7784ea0f4b0539fa54ae1aff62_af5d84d7784ea0f4b0539fa54ae1aff62}{DumpMemory}}(\textcolor{keywordtype}{byte} bank)}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00154}00154         \{}
 \DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00155}00155             \textcolor{keywordtype}{byte}[] \_tempMemory = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[MemoryMap.BankedRom.Length + 1];}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00156}00156             \textcolor{keywordflow}{for} (var i = 0; i < \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_ae226c5194545c539ea9e5b59c67b1557_ae226c5194545c539ea9e5b59c67b1557}{Length}}; i++) \{}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00157}00157                 \_tempMemory[i] = \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[bank][i];}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00158}00158             \}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00159}00159             \textcolor{keywordflow}{return} \_tempMemory;}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00160}00160         \}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00161}00161 \textcolor{comment}{}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00162}00162 \textcolor{comment}{        /// <summary>}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00163}00163 \textcolor{comment}{        /// Clears the ROM.}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00164}00164 \textcolor{comment}{        /// </summary>}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00165}\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{00165}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{Clear}}()}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00166}00166         \{}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00167}00167             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00168}00168             \{}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00169}00169                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; j++)}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00170}00170                 \{}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00171}00171                     \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[i][j] = 0x00;}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00172}00172                 \}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00173}00173             \}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00174}00174         \}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00175}00175 \textcolor{preprocessor}{\#endregion}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00176}00176     \}}
-\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00177}00177 \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00156}00156             \textcolor{keywordflow}{for} (var i = 0; i < \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_ae226c5194545c539ea9e5b59c67b1557_ae226c5194545c539ea9e5b59c67b1557}{Length}}; i++)}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00157}00157             \{}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00158}00158                 \_tempMemory[i] = \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[bank][i];}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00159}00159             \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00160}00160             \textcolor{keywordflow}{return} \_tempMemory;}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00161}00161         \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00162}00162 \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00163}00163 \textcolor{comment}{        /// <summary>}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00164}00164 \textcolor{comment}{        /// Clears the ROM.}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00165}00165 \textcolor{comment}{        /// </summary>}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00166}\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{00166}} \textcolor{comment}{}        \textcolor{keyword}{public} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{Clear}}()}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00167}00167         \{}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00168}00168             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00169}00169             \{}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00170}00170                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; j++)}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00171}00171                 \{}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00172}00172                     \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[i][j] = 0x00;}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00173}00173                 \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00174}00174             \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00175}00175         \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00176}00176 \textcolor{preprocessor}{        \#endregion}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00177}00177     \}}
+\DoxyCodeLine{\Hypertarget{_a_t28_c_x_x_8cs_source_l00178}00178 \}}
 
 \end{DoxyCode}

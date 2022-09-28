@@ -121,49 +121,49 @@
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00148">148</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  149</span>        {</div>
-<div class="line"><span class="lineno">  150</span>            <span class="keywordflow">try</span></div>
-<div class="line"><span class="lineno">  151</span>            {</div>
-<div class="line"><span class="lineno">  152</span>                serialPort.Open();</div>
-<div class="line"><span class="lineno">  153</span>            }</div>
-<div class="line"><span class="lineno">  154</span>            <span class="keywordflow">catch</span> (UnauthorizedAccessException w)</div>
-<div class="line"><span class="lineno">  155</span>            {</div>
-<div class="line"><span class="lineno">  156</span>                FileStream file = <span class="keyword">new</span> FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
-<div class="line"><span class="lineno">  157</span>                StreamWriter stream = <span class="keyword">new</span> StreamWriter(file);</div>
-<div class="line"><span class="lineno">  158</span>                stream.WriteLine(w.Message);</div>
-<div class="line"><span class="lineno">  159</span>                stream.WriteLine(w.Source);</div>
-<div class="line"><span class="lineno">  160</span>                stream.Flush();</div>
-<div class="line"><span class="lineno">  161</span>                file.Flush();</div>
-<div class="line"><span class="lineno">  162</span>                stream.Close();</div>
-<div class="line"><span class="lineno">  163</span>                file.Close();</div>
-<div class="line"><span class="lineno">  164</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  165</span>            }</div>
-<div class="line"><span class="lineno">  166</span>            serialPort.ReadTimeout = 50;</div>
-<div class="line"><span class="lineno">  167</span>            serialPort.WriteTimeout = 50;</div>
-<div class="line"><span class="lineno">  168</span>            serialPort.DataReceived += <span class="keyword">new</span> SerialDataReceivedEventHandler(<a class="code hl_function" href="class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd.html#a0a03ec7d6eb92e5b64e99df5e0a584cd">SerialDataReceived</a>);</div>
-<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">try</span></div>
-<div class="line"><span class="lineno">  170</span>            {</div>
-<div class="line"><span class="lineno">  171</span>                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  172</span>                serialPort.Write(<span class="stringliteral">&quot; WolfNet 6502 WBC Emulator\r\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  173</span>                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  174</span>                serialPort.Write(<span class="stringliteral">&quot;\r\n&quot;</span>);</div>
-<div class="line"><span class="lineno">  175</span>            }</div>
-<div class="line"><span class="lineno">  176</span>            <span class="keywordflow">catch</span> (TimeoutException t)</div>
-<div class="line"><span class="lineno">  177</span>            {</div>
-<div class="line"><span class="lineno">  178</span>                _ = t;</div>
-<div class="line"><span class="lineno">  179</span>                FileStream file = <span class="keyword">new</span> FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
-<div class="line"><span class="lineno">  180</span>                StreamWriter stream = <span class="keyword">new</span> StreamWriter(file);</div>
-<div class="line"><span class="lineno">  181</span>                stream.WriteLine(<span class="stringliteral">&quot;Read/Write error: Port timed out!&quot;</span>);</div>
-<div class="line"><span class="lineno">  182</span>                stream.WriteLine(<span class="stringliteral">&quot;Please ensure all cables are connected properly!&quot;</span>);</div>
-<div class="line"><span class="lineno">  183</span>                stream.Flush();</div>
-<div class="line"><span class="lineno">  184</span>                file.Flush();</div>
-<div class="line"><span class="lineno">  185</span>                stream.Close();</div>
-<div class="line"><span class="lineno">  186</span>                file.Close();</div>
-<div class="line"><span class="lineno">  187</span>                <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  188</span>            }</div>
-<div class="line"><span class="lineno">  189</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd_html_a0a03ec7d6eb92e5b64e99df5e0a584cd"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd.html#a0a03ec7d6eb92e5b64e99df5e0a584cd">Hardware.W65C51.SerialDataReceived</a></div><div class="ttdeci">void SerialDataReceived(object sender, SerialDataReceivedEventArgs e)</div><div class="ttdoc">Called whenever SerialDataReceivedEventHandler event occurs.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00213">W65C51.cs:213</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00147">147</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  148</span>        {</div>
+<div class="line"><span class="lineno">  149</span>            <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  150</span>            {</div>
+<div class="line"><span class="lineno">  151</span>                serialPort.Open();</div>
+<div class="line"><span class="lineno">  152</span>            }</div>
+<div class="line"><span class="lineno">  153</span>            <span class="keywordflow">catch</span> (UnauthorizedAccessException w)</div>
+<div class="line"><span class="lineno">  154</span>            {</div>
+<div class="line"><span class="lineno">  155</span>                FileStream file = <span class="keyword">new</span> FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
+<div class="line"><span class="lineno">  156</span>                StreamWriter stream = <span class="keyword">new</span> StreamWriter(file);</div>
+<div class="line"><span class="lineno">  157</span>                stream.WriteLine(w.Message);</div>
+<div class="line"><span class="lineno">  158</span>                stream.WriteLine(w.Source);</div>
+<div class="line"><span class="lineno">  159</span>                stream.Flush();</div>
+<div class="line"><span class="lineno">  160</span>                file.Flush();</div>
+<div class="line"><span class="lineno">  161</span>                stream.Close();</div>
+<div class="line"><span class="lineno">  162</span>                file.Close();</div>
+<div class="line"><span class="lineno">  163</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  164</span>            }</div>
+<div class="line"><span class="lineno">  165</span>            serialPort.ReadTimeout = 50;</div>
+<div class="line"><span class="lineno">  166</span>            serialPort.WriteTimeout = 50;</div>
+<div class="line"><span class="lineno">  167</span>            serialPort.DataReceived += <span class="keyword">new</span> SerialDataReceivedEventHandler(<a class="code hl_function" href="class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd.html#a0a03ec7d6eb92e5b64e99df5e0a584cd">SerialDataReceived</a>);</div>
+<div class="line"><span class="lineno">  168</span>            <span class="keywordflow">try</span></div>
+<div class="line"><span class="lineno">  169</span>            {</div>
+<div class="line"><span class="lineno">  170</span>                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  171</span>                serialPort.Write(<span class="stringliteral">&quot; WolfNet 6502 WBC Emulator\r\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  172</span>                serialPort.Write(<span class="stringliteral">&quot;---------------------------\r\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  173</span>                serialPort.Write(<span class="stringliteral">&quot;\r\n&quot;</span>);</div>
+<div class="line"><span class="lineno">  174</span>            }</div>
+<div class="line"><span class="lineno">  175</span>            <span class="keywordflow">catch</span> (TimeoutException t)</div>
+<div class="line"><span class="lineno">  176</span>            {</div>
+<div class="line"><span class="lineno">  177</span>                _ = t;</div>
+<div class="line"><span class="lineno">  178</span>                FileStream file = <span class="keyword">new</span> FileStream(FileLocations.ErrorFile, FileMode.OpenOrCreate, FileAccess.ReadWrite);</div>
+<div class="line"><span class="lineno">  179</span>                StreamWriter stream = <span class="keyword">new</span> StreamWriter(file);</div>
+<div class="line"><span class="lineno">  180</span>                stream.WriteLine(<span class="stringliteral">&quot;Read/Write error: Port timed out!&quot;</span>);</div>
+<div class="line"><span class="lineno">  181</span>                stream.WriteLine(<span class="stringliteral">&quot;Please ensure all cables are connected properly!&quot;</span>);</div>
+<div class="line"><span class="lineno">  182</span>                stream.Flush();</div>
+<div class="line"><span class="lineno">  183</span>                file.Flush();</div>
+<div class="line"><span class="lineno">  184</span>                stream.Close();</div>
+<div class="line"><span class="lineno">  185</span>                file.Close();</div>
+<div class="line"><span class="lineno">  186</span>                <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  187</span>            }</div>
+<div class="line"><span class="lineno">  188</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd_html_a0a03ec7d6eb92e5b64e99df5e0a584cd"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a0a03ec7d6eb92e5b64e99df5e0a584cd.html#a0a03ec7d6eb92e5b64e99df5e0a584cd">Hardware.W65C51.SerialDataReceived</a></div><div class="ttdeci">void SerialDataReceived(object sender, SerialDataReceivedEventArgs e)</div><div class="ttdoc">Called whenever SerialDataReceivedEventHandler event occurs.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00212">W65C51.cs:212</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

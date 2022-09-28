@@ -112,56 +112,56 @@
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00357">357</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  358</span>        {</div>
-<div class="line"><span class="lineno">  359</span>            <span class="keywordtype">byte</span> data = <a class="code hl_property" href="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8">Memory</a>[<a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 2];</div>
-<div class="line"><span class="lineno">  360</span> </div>
-<div class="line"><span class="lineno">  361</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425.html#acbd4474533a87f7be6d54137ba217425">ParityEnabled</a>)</div>
-<div class="line"><span class="lineno">  362</span>            {</div>
-<div class="line"><span class="lineno">  363</span>                data |= 0x20;</div>
-<div class="line"><span class="lineno">  364</span>            }</div>
-<div class="line"><span class="lineno">  365</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  366</span>            {</div>
-<div class="line"><span class="lineno">  367</span>                data &amp;= 0xD0;</div>
-<div class="line"><span class="lineno">  368</span>            }</div>
-<div class="line"><span class="lineno">  369</span> </div>
-<div class="line"><span class="lineno">  370</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e.html#ab282dcc36d460629c35e8c769b304e7e">EchoMode</a>)</div>
-<div class="line"><span class="lineno">  371</span>            {</div>
-<div class="line"><span class="lineno">  372</span>                data |= 0x10;</div>
-<div class="line"><span class="lineno">  373</span>            }</div>
-<div class="line"><span class="lineno">  374</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  375</span>            {</div>
-<div class="line"><span class="lineno">  376</span>                data &amp;= 0xE0;</div>
-<div class="line"><span class="lineno">  377</span>            }</div>
-<div class="line"><span class="lineno">  378</span> </div>
-<div class="line"><span class="lineno">  379</span>            data &amp;= <a class="code hl_property" href="class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13.html#af596f49b3ad1cf55d15a23cd51a3ae13">RtsControl</a>;</div>
-<div class="line"><span class="lineno">  380</span> </div>
-<div class="line"><span class="lineno">  381</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81.html#adfb52f9d9393e94311acfbe60643aa81">InterruptDisabled</a>)</div>
-<div class="line"><span class="lineno">  382</span>            {</div>
-<div class="line"><span class="lineno">  383</span>                data |= 0x02;</div>
-<div class="line"><span class="lineno">  384</span>            }</div>
-<div class="line"><span class="lineno">  385</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  386</span>            {</div>
-<div class="line"><span class="lineno">  387</span>                data &amp;= 0x0D;</div>
-<div class="line"><span class="lineno">  388</span>            }</div>
-<div class="line"><span class="lineno">  389</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a.html#ab83fbff41ab917d8df9be26511dc446a">Object</a>.DtrEnable)</div>
-<div class="line"><span class="lineno">  390</span>            {</div>
-<div class="line"><span class="lineno">  391</span>                data |= 0x01;</div>
-<div class="line"><span class="lineno">  392</span>            }</div>
-<div class="line"><span class="lineno">  393</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  394</span>            {</div>
-<div class="line"><span class="lineno">  395</span>                data &amp;= 0x0E;</div>
-<div class="line"><span class="lineno">  396</span>            }</div>
-<div class="line"><span class="lineno">  397</span> </div>
-<div class="line"><span class="lineno">  398</span>            <a class="code hl_property" href="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8">Memory</a>[<a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 2] = data;</div>
-<div class="line"><span class="lineno">  399</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_html_a95d3f77dcc70a2d539fd471a5275a981"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Hardware.W65C51.Offset</a></div><div class="ttdeci">int Offset</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00027">W65C51.cs:27</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_html_ab282dcc36d460629c35e8c769b304e7e"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e.html#ab282dcc36d460629c35e8c769b304e7e">Hardware.W65C51.EchoMode</a></div><div class="ttdeci">bool EchoMode</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00031">W65C51.cs:31</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_html_ab83fbff41ab917d8df9be26511dc446a"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a.html#ab83fbff41ab917d8df9be26511dc446a">Hardware.W65C51.Object</a></div><div class="ttdeci">SerialPort Object</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00023">W65C51.cs:23</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425_html_acbd4474533a87f7be6d54137ba217425"><div class="ttname"><a href="class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425.html#acbd4474533a87f7be6d54137ba217425">Hardware.W65C51.ParityEnabled</a></div><div class="ttdeci">bool ParityEnabled</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00035">W65C51.cs:35</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_html_ad620c5227dc3c1673fea1d93df91f1a8"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8">Hardware.W65C51.Memory</a></div><div class="ttdeci">byte[] Memory</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00021">W65C51.cs:21</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_html_adfb52f9d9393e94311acfbe60643aa81"><div class="ttname"><a href="class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81.html#adfb52f9d9393e94311acfbe60643aa81">Hardware.W65C51.InterruptDisabled</a></div><div class="ttdeci">bool InterruptDisabled</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00032">W65C51.cs:32</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13_html_af596f49b3ad1cf55d15a23cd51a3ae13"><div class="ttname"><a href="class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13.html#af596f49b3ad1cf55d15a23cd51a3ae13">Hardware.W65C51.RtsControl</a></div><div class="ttdeci">byte RtsControl</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00037">W65C51.cs:37</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00356">356</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  357</span>        {</div>
+<div class="line"><span class="lineno">  358</span>            <span class="keywordtype">byte</span> data = <a class="code hl_property" href="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8">Memory</a>[<a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 2];</div>
+<div class="line"><span class="lineno">  359</span> </div>
+<div class="line"><span class="lineno">  360</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425.html#acbd4474533a87f7be6d54137ba217425">ParityEnabled</a>)</div>
+<div class="line"><span class="lineno">  361</span>            {</div>
+<div class="line"><span class="lineno">  362</span>                data |= 0x20;</div>
+<div class="line"><span class="lineno">  363</span>            }</div>
+<div class="line"><span class="lineno">  364</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  365</span>            {</div>
+<div class="line"><span class="lineno">  366</span>                data &amp;= 0xD0;</div>
+<div class="line"><span class="lineno">  367</span>            }</div>
+<div class="line"><span class="lineno">  368</span> </div>
+<div class="line"><span class="lineno">  369</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e.html#ab282dcc36d460629c35e8c769b304e7e">EchoMode</a>)</div>
+<div class="line"><span class="lineno">  370</span>            {</div>
+<div class="line"><span class="lineno">  371</span>                data |= 0x10;</div>
+<div class="line"><span class="lineno">  372</span>            }</div>
+<div class="line"><span class="lineno">  373</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  374</span>            {</div>
+<div class="line"><span class="lineno">  375</span>                data &amp;= 0xE0;</div>
+<div class="line"><span class="lineno">  376</span>            }</div>
+<div class="line"><span class="lineno">  377</span> </div>
+<div class="line"><span class="lineno">  378</span>            data &amp;= <a class="code hl_property" href="class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13.html#af596f49b3ad1cf55d15a23cd51a3ae13">RtsControl</a>;</div>
+<div class="line"><span class="lineno">  379</span> </div>
+<div class="line"><span class="lineno">  380</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81.html#adfb52f9d9393e94311acfbe60643aa81">InterruptDisabled</a>)</div>
+<div class="line"><span class="lineno">  381</span>            {</div>
+<div class="line"><span class="lineno">  382</span>                data |= 0x02;</div>
+<div class="line"><span class="lineno">  383</span>            }</div>
+<div class="line"><span class="lineno">  384</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  385</span>            {</div>
+<div class="line"><span class="lineno">  386</span>                data &amp;= 0x0D;</div>
+<div class="line"><span class="lineno">  387</span>            }</div>
+<div class="line"><span class="lineno">  388</span>            <span class="keywordflow">if</span> (<a class="code hl_property" href="class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a.html#ab83fbff41ab917d8df9be26511dc446a">Object</a>.DtrEnable)</div>
+<div class="line"><span class="lineno">  389</span>            {</div>
+<div class="line"><span class="lineno">  390</span>                data |= 0x01;</div>
+<div class="line"><span class="lineno">  391</span>            }</div>
+<div class="line"><span class="lineno">  392</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  393</span>            {</div>
+<div class="line"><span class="lineno">  394</span>                data &amp;= 0x0E;</div>
+<div class="line"><span class="lineno">  395</span>            }</div>
+<div class="line"><span class="lineno">  396</span> </div>
+<div class="line"><span class="lineno">  397</span>            <a class="code hl_property" href="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8">Memory</a>[<a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 2] = data;</div>
+<div class="line"><span class="lineno">  398</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_html_a95d3f77dcc70a2d539fd471a5275a981"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Hardware.W65C51.Offset</a></div><div class="ttdeci">int Offset</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00026">W65C51.cs:26</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e_html_ab282dcc36d460629c35e8c769b304e7e"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ab282dcc36d460629c35e8c769b304e7e.html#ab282dcc36d460629c35e8c769b304e7e">Hardware.W65C51.EchoMode</a></div><div class="ttdeci">bool EchoMode</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00030">W65C51.cs:30</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a_html_ab83fbff41ab917d8df9be26511dc446a"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ab83fbff41ab917d8df9be26511dc446a.html#ab83fbff41ab917d8df9be26511dc446a">Hardware.W65C51.Object</a></div><div class="ttdeci">SerialPort Object</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00022">W65C51.cs:22</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425_html_acbd4474533a87f7be6d54137ba217425"><div class="ttname"><a href="class_hardware_1_1_w65_c51_acbd4474533a87f7be6d54137ba217425.html#acbd4474533a87f7be6d54137ba217425">Hardware.W65C51.ParityEnabled</a></div><div class="ttdeci">bool ParityEnabled</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00034">W65C51.cs:34</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8_html_ad620c5227dc3c1673fea1d93df91f1a8"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ad620c5227dc3c1673fea1d93df91f1a8.html#ad620c5227dc3c1673fea1d93df91f1a8">Hardware.W65C51.Memory</a></div><div class="ttdeci">byte[] Memory</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00020">W65C51.cs:20</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81_html_adfb52f9d9393e94311acfbe60643aa81"><div class="ttname"><a href="class_hardware_1_1_w65_c51_adfb52f9d9393e94311acfbe60643aa81.html#adfb52f9d9393e94311acfbe60643aa81">Hardware.W65C51.InterruptDisabled</a></div><div class="ttdeci">bool InterruptDisabled</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00031">W65C51.cs:31</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13_html_af596f49b3ad1cf55d15a23cd51a3ae13"><div class="ttname"><a href="class_hardware_1_1_w65_c51_af596f49b3ad1cf55d15a23cd51a3ae13.html#af596f49b3ad1cf55d15a23cd51a3ae13">Hardware.W65C51.RtsControl</a></div><div class="ttdeci">byte RtsControl</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00036">W65C51.cs:36</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -97,19 +97,19 @@ Clears the ROM.
 
 
 
-Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00165}{165}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
+Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00166}{166}} of file \mbox{\hyperlink{_a_t28_c_x_x_8cs_source}{AT28\+CXX.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00166         \{}
-\DoxyCodeLine{00167             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
-\DoxyCodeLine{00168             \{}
-\DoxyCodeLine{00169                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; j++)}
-\DoxyCodeLine{00170                 \{}
-\DoxyCodeLine{00171                     \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[i][j] = 0x00;}
-\DoxyCodeLine{00172                 \}}
-\DoxyCodeLine{00173             \}}
-\DoxyCodeLine{00174         \}}
+\DoxyCodeLine{00167         \{}
+\DoxyCodeLine{00168             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{byte} i = 0; i < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}}; i++)}
+\DoxyCodeLine{00169             \{}
+\DoxyCodeLine{00170                 \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}}; j++)}
+\DoxyCodeLine{00171                 \{}
+\DoxyCodeLine{00172                     \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[i][j] = 0x00;}
+\DoxyCodeLine{00173                 \}}
+\DoxyCodeLine{00174             \}}
+\DoxyCodeLine{00175         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_ab7f9e538b53d617c57171554102edcaa_ab7f9e538b53d617c57171554102edcaa}\label{class_hardware_1_1_a_t28_c_x_x_ab7f9e538b53d617c57171554102edcaa_ab7f9e538b53d617c57171554102edcaa}} 
@@ -162,11 +162,12 @@ Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00153}{153}} of fil
 \begin{DoxyCode}{0}
 \DoxyCodeLine{00154         \{}
 \DoxyCodeLine{00155             \textcolor{keywordtype}{byte}[] \_tempMemory = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[MemoryMap.BankedRom.Length + 1];}
-\DoxyCodeLine{00156             \textcolor{keywordflow}{for} (var i = 0; i < MemoryMap.BankedRom.Length; i++) \{}
-\DoxyCodeLine{00157                 \_tempMemory[i] = \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[bank][i];}
-\DoxyCodeLine{00158             \}}
-\DoxyCodeLine{00159             \textcolor{keywordflow}{return} \_tempMemory;}
-\DoxyCodeLine{00160         \}}
+\DoxyCodeLine{00156             \textcolor{keywordflow}{for} (var i = 0; i < MemoryMap.BankedRom.Length; i++)}
+\DoxyCodeLine{00157             \{}
+\DoxyCodeLine{00158                 \_tempMemory[i] = \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aeaee9f6edadb2e8905bfc8203fb40daf_aeaee9f6edadb2e8905bfc8203fb40daf}{Memory}}[bank][i];}
+\DoxyCodeLine{00159             \}}
+\DoxyCodeLine{00160             \textcolor{keywordflow}{return} \_tempMemory;}
+\DoxyCodeLine{00161         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_a_t28_c_x_x_a5a5bcbe33294e585a06c258e319f4db7_a5a5bcbe33294e585a06c258e319f4db7}\label{class_hardware_1_1_a_t28_c_x_x_a5a5bcbe33294e585a06c258e319f4db7_a5a5bcbe33294e585a06c258e319f4db7}} 
@@ -467,4 +468,4 @@ Definition at line \mbox{\hyperlink{_a_t28_c_x_x_8cs_source_l00047}{47}} of file
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Hardware/\mbox{\hyperlink{_a_t28_c_x_x_8cs}{AT28\+CXX.\+cs}}\end{DoxyCompactItemize}
+Hardware/\+Hardware/\mbox{\hyperlink{_a_t28_c_x_x_8cs}{AT28\+CXX.\+cs}}\end{DoxyCompactItemize}

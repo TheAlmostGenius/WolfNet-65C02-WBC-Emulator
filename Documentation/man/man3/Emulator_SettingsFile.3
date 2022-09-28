@@ -1,4 +1,4 @@
-.TH "Emulator.SettingsFile" 3 "Sat Sep 24 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
+.TH "Emulator.SettingsFile" 3 "Wed Sep 28 2022" "Version beta" "WolfNet 6502 WorkBench Computer Emulator" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -15,31 +15,31 @@ Emulator.SettingsFile
 .in -1c
 .SH "Detailed Description"
 .PP 
-Definition at line \fB6\fP of file \fBSettingsFile\&.cs\fP\&.
+Definition at line \fB5\fP of file \fBSettingsFile\&.cs\fP\&.
 .SH "Member Function Documentation"
 .PP 
 .SS "static \fBSettingsModel\fP Emulator\&.SettingsFile\&.CreateNew ()\fC [inline]\fP, \fC [static]\fP"
 
 .PP
-Definition at line \fB8\fP of file \fBSettingsFile\&.cs\fP\&.
+Definition at line \fB7\fP of file \fBSettingsFile\&.cs\fP\&.
 .PP
 .nf
-9         {
-10             // Create new settings file\&.
-11             SettingsModel _settings = new SettingsModel
-12             {
-13                 SettingsVersionMajor = Versioning\&.SettingsFile\&.Major,
-14                 SettingsVersionMinor = Versioning\&.SettingsFile\&.Minor,
-15                 SettingsVersionBuild = Versioning\&.SettingsFile\&.Build,
-16                 SettingsVersionRevision = Versioning\&.SettingsFile\&.Revision,
-17 #if DEBUG
-18                 ComPortName = "COM9",
-19 #else
-20                 ComPortName = "COM1",
-21 #endif
-22             };
-23             return _settings;
-24         }
+8         {
+9             // Create new settings file\&.
+10             SettingsModel _settings = new SettingsModel
+11             {
+12                 SettingsVersionMajor = Versioning\&.SettingsFile\&.Major,
+13                 SettingsVersionMinor = Versioning\&.SettingsFile\&.Minor,
+14                 SettingsVersionBuild = Versioning\&.SettingsFile\&.Build,
+15                 SettingsVersionRevision = Versioning\&.SettingsFile\&.Revision,
+16 #if DEBUG
+17                 ComPortName = "COM9",
+18 #else
+19                 ComPortName = "COM1",
+20 #endif
+21             };
+22             return _settings;
+23         }
 .fi
 
 

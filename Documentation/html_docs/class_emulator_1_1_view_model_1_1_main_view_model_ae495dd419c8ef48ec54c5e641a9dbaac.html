@@ -50,7 +50,6 @@
         <table>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017.html#a471dd3e95368333b4f6cb617c175b017">_backgroundWorker</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096.html#ab00aaafab897056a51f1685cc8f20096">_breakpointTriggered</a></td></tr>
-          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f.html#a8670b217882200882d2ce10272b6c18f">_memoryPageOffset</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a4d81ee580a460f70e86cdf43529988b7.html#a4d81ee580a460f70e86cdf43529988b7">About</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8e6cfd8465d8ce06fb5625edade91fd0.html#a8e6cfd8465d8ce06fb5625edade91fd0">AboutCommand</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2.html#a31162434b812de16b0d3b3a9a47a32f2">AddBreakPoint</a></td></tr>
@@ -75,7 +74,8 @@
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff.html#aad64b13977f5e45489f628e5a944aeff">IsRunning</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_af5094863d43352e3dce9c696d89ecc84.html#af5094863d43352e3dce9c696d89ecc84">MainViewModel</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b.html#a77444b822722e3a6533d26f03251d66b">MemoryPage</a></td></tr>
-          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0.html#a8393603c75099ab35c03f60c4fa823c0">MemoryPageOffset</a></td></tr>
+          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2.html#ae2c95d01efa4ad05aee6f15547896ce2">MemoryView</a></td></tr>
+          <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc.html#a49c70ab506c43d9e159bf9c2f6c011dc">MemoryVisualCommand</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0.html#aee902050fd981fe5b409bdc5e2505ba0">MM65SIB</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74.html#a66abf02dc2c4b0be17e6a564b3a28f74">NumberOfCycles</a></td></tr>
           <tr><td class="navtab"><a class="navtab" href="class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e.html#ae60919bf486f58dd060b2c8ea750306e">OnClose</a></td></tr>
@@ -142,24 +142,24 @@
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_main_view_model_8cs_source.html#l00313">313</a> of file <a class="el" href="_main_view_model_8cs_source.html">MainViewModel.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  314</span>        {</div>
-<div class="line"><span class="lineno">  315</span><span class="preprocessor">#if !DEBUG</span></div>
-<div class="line"><span class="lineno">  316</span>            <span class="keywordflow">if</span> (Versioning.Product.Major &lt; 1)</div>
-<div class="line"><span class="lineno">  317</span>            {</div>
-<div class="line"><span class="lineno">  318</span>                var result = MessageBox.Show(String.Format(<span class="stringliteral">&quot;Thank you for using {0}\n&quot;</span> +</div>
-<div class="line"><span class="lineno">  319</span>                                                        <span class="stringliteral">&quot;Be warned that this is a beta build.\n&quot;</span> +</div>
-<div class="line"><span class="lineno">  320</span>                                                        <span class="stringliteral">&quot;It may break or have bugs.&quot;</span>, Versioning.Product.Name),</div>
-<div class="line"><span class="lineno">  321</span>                                                        Versioning.Product.Title, MessageBoxButton.OKCancel,</div>
-<div class="line"><span class="lineno">  322</span>                                                        MessageBoxImage.Warning, MessageBoxResult.None);</div>
-<div class="line"><span class="lineno">  323</span>                <span class="keywordflow">if</span> (result == MessageBoxResult.Cancel)</div>
-<div class="line"><span class="lineno">  324</span>                {</div>
-<div class="line"><span class="lineno">  325</span>                    <span class="comment">// Exit without making any changes.</span></div>
-<div class="line"><span class="lineno">  326</span>                    Environment.Exit(ExitCodes.NO_ERROR);</div>
-<div class="line"><span class="lineno">  327</span>                }</div>
-<div class="line"><span class="lineno">  328</span>            }</div>
-<div class="line"><span class="lineno">  329</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  330</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="_main_view_model_8cs_source.html#l00295">295</a> of file <a class="el" href="_main_view_model_8cs_source.html">MainViewModel.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  296</span>        {</div>
+<div class="line"><span class="lineno">  297</span><span class="preprocessor">#if !DEBUG</span></div>
+<div class="line"><span class="lineno">  298</span>            <span class="keywordflow">if</span> (Versioning.Product.Major &lt; 1)</div>
+<div class="line"><span class="lineno">  299</span>            {</div>
+<div class="line"><span class="lineno">  300</span>                var result = MessageBox.Show(String.Format(<span class="stringliteral">&quot;Thank you for using {0}\n&quot;</span> +</div>
+<div class="line"><span class="lineno">  301</span>                                                        <span class="stringliteral">&quot;Be warned that this is a beta build.\n&quot;</span> +</div>
+<div class="line"><span class="lineno">  302</span>                                                        <span class="stringliteral">&quot;It may break or have bugs.&quot;</span>, Versioning.Product.Name),</div>
+<div class="line"><span class="lineno">  303</span>                                                        Versioning.Product.Title, MessageBoxButton.OKCancel,</div>
+<div class="line"><span class="lineno">  304</span>                                                        MessageBoxImage.Warning, MessageBoxResult.None);</div>
+<div class="line"><span class="lineno">  305</span>                <span class="keywordflow">if</span> (result == MessageBoxResult.Cancel)</div>
+<div class="line"><span class="lineno">  306</span>                {</div>
+<div class="line"><span class="lineno">  307</span>                    <span class="comment">// Exit without making any changes.</span></div>
+<div class="line"><span class="lineno">  308</span>                    Environment.Exit(ExitCodes.NO_ERROR);</div>
+<div class="line"><span class="lineno">  309</span>                }</div>
+<div class="line"><span class="lineno">  310</span>            }</div>
+<div class="line"><span class="lineno">  311</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  312</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>

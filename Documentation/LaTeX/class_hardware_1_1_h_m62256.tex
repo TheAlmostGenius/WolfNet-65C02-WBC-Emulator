@@ -35,7 +35,7 @@ byte \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629
 \doxysubsubsection{Detailed Description}
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00005}{5}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00003}{3}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 
@@ -61,21 +61,21 @@ Called whenever a new 62256 object is required.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00043}{43}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00041}{41}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00044         \{}
-\DoxyCodeLine{00045             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[banks][];}
-\DoxyCodeLine{00046             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < banks; i++)}
-\DoxyCodeLine{00047             \{}
-\DoxyCodeLine{00048                 \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length + 1];}
-\DoxyCodeLine{00049             \}}
-\DoxyCodeLine{00050             \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}} = length;}
-\DoxyCodeLine{00051             \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}} = banks;}
-\DoxyCodeLine{00052             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} = offset;}
-\DoxyCodeLine{00053             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}} = 0;}
-\DoxyCodeLine{00054         \}}
+\DoxyCodeLine{00042         \{}
+\DoxyCodeLine{00043             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}} = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[banks][];}
+\DoxyCodeLine{00044             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < banks; i++)}
+\DoxyCodeLine{00045             \{}
+\DoxyCodeLine{00046                 \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i] = \textcolor{keyword}{new} \textcolor{keywordtype}{byte}[length + 1];}
+\DoxyCodeLine{00047             \}}
+\DoxyCodeLine{00048             \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}} = length;}
+\DoxyCodeLine{00049             \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}} = banks;}
+\DoxyCodeLine{00050             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} = offset;}
+\DoxyCodeLine{00051             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}} = 0;}
+\DoxyCodeLine{00052         \}}
 
 \end{DoxyCode}
 
@@ -93,19 +93,19 @@ Clears the memory.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00067}{67}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00065}{65}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00068         \{}
-\DoxyCodeLine{00069             \textcolor{keywordflow}{for} (var i = 0; i < \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}}; i++)}
-\DoxyCodeLine{00070             \{}
-\DoxyCodeLine{00071                 \textcolor{keywordflow}{for} (var j = 0; j < \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}.Length; j++)}
-\DoxyCodeLine{00072                 \{}
-\DoxyCodeLine{00073                     \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i][j] = 0x00;}
-\DoxyCodeLine{00074                 \}}
-\DoxyCodeLine{00075             \}}
-\DoxyCodeLine{00076         \}}
+\DoxyCodeLine{00066         \{}
+\DoxyCodeLine{00067             \textcolor{keywordflow}{for} (var i = 0; i < \mbox{\hyperlink{class_hardware_1_1_h_m62256_a928a808daf6f3f13f90906b20333e876_a928a808daf6f3f13f90906b20333e876}{Banks}}; i++)}
+\DoxyCodeLine{00068             \{}
+\DoxyCodeLine{00069                 \textcolor{keywordflow}{for} (var j = 0; j < \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}.Length; j++)}
+\DoxyCodeLine{00070                 \{}
+\DoxyCodeLine{00071                     \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[i][j] = 0x00;}
+\DoxyCodeLine{00072                 \}}
+\DoxyCodeLine{00073             \}}
+\DoxyCodeLine{00074         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_ac6757cc4413ba9d23134817ec265e1c3_ac6757cc4413ba9d23134817ec265e1c3}\label{class_hardware_1_1_h_m62256_ac6757cc4413ba9d23134817ec265e1c3_ac6757cc4413ba9d23134817ec265e1c3}} 
@@ -123,13 +123,13 @@ Jagged array representing the banked memory.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00104}{104}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00102}{102}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00105         \{}
-\DoxyCodeLine{00106             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}};}
-\DoxyCodeLine{00107         \}}
+\DoxyCodeLine{00103         \{}
+\DoxyCodeLine{00104             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}};}
+\DoxyCodeLine{00105         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_a4080099863fd3a767d3878965ad95c92_a4080099863fd3a767d3878965ad95c92}\label{class_hardware_1_1_h_m62256_a4080099863fd3a767d3878965ad95c92_a4080099863fd3a767d3878965ad95c92}} 
@@ -154,13 +154,13 @@ The byte being read.
 \end{DoxyReturn}
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00084}{84}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00082}{82}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00085         \{}
-\DoxyCodeLine{00086             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}];}
-\DoxyCodeLine{00087         \}}
+\DoxyCodeLine{00083         \{}
+\DoxyCodeLine{00084             \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}];}
+\DoxyCodeLine{00085         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}\label{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}} 
@@ -175,13 +175,13 @@ Called whenever the emulated computer is reset.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00060         \{}
-\DoxyCodeLine{00061             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{Clear}}();}
-\DoxyCodeLine{00062         \}}
+\DoxyCodeLine{00058         \{}
+\DoxyCodeLine{00059             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac13a2c43b13fed712f023625217f42d6_ac13a2c43b13fed712f023625217f42d6}{Clear}}();}
+\DoxyCodeLine{00060         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_a79126f2ca6a9b4385239b530900a4a48_a79126f2ca6a9b4385239b530900a4a48}\label{class_hardware_1_1_h_m62256_a79126f2ca6a9b4385239b530900a4a48_a79126f2ca6a9b4385239b530900a4a48}} 
@@ -205,13 +205,13 @@ Writes data to the given address without incrementing the cycle.
 \end{DoxyParams}
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00095}{95}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00093}{93}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00096         \{}
-\DoxyCodeLine{00097             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}] = data;}
-\DoxyCodeLine{00098         \}}
+\DoxyCodeLine{00094         \{}
+\DoxyCodeLine{00095             \mbox{\hyperlink{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}{Memory}}[\mbox{\hyperlink{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}{CurrentBank}}][address -\/ \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}}] = data;}
+\DoxyCodeLine{00096         \}}
 
 \end{DoxyCode}
 
@@ -229,11 +229,11 @@ The number of banks the memory has.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00030}{30}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00028}{28}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00030 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00028 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}\label{class_hardware_1_1_h_m62256_ac0afb2cee634eee2a8f40545c3629326_ac0afb2cee634eee2a8f40545c3629326}} 
@@ -248,11 +248,11 @@ The currently selected bank.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00035}{35}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00033}{33}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00035 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00033 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_ae5a1c71ff356aeaf806e7b3af40d2537_ae5a1c71ff356aeaf806e7b3af40d2537}\label{class_hardware_1_1_h_m62256_ae5a1c71ff356aeaf806e7b3af40d2537_ae5a1c71ff356aeaf806e7b3af40d2537}} 
@@ -267,11 +267,11 @@ The location of the end of memory.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00025}{25}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00023}{23}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00025 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}}; \} \}}
+\DoxyCodeLine{00023 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}{Offset}} + \mbox{\hyperlink{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}{Length}}; \} \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}\label{class_hardware_1_1_h_m62256_aa3f2703fccb77291ac8f1953cf205ac8_aa3f2703fccb77291ac8f1953cf205ac8}} 
@@ -286,11 +286,11 @@ The memory length.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00020 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00018 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}\label{class_hardware_1_1_h_m62256_ac657a8942bf81fce3ddf1354e83f9d53_ac657a8942bf81fce3ddf1354e83f9d53}} 
@@ -305,11 +305,11 @@ The memory area.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00010}{10}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00008}{8}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00010 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00008 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}\label{class_hardware_1_1_h_m62256_ae2d21db85bfd944bc3ce0e56aeb31250_ae2d21db85bfd944bc3ce0e56aeb31250}} 
@@ -324,15 +324,15 @@ The memory offset.
 
 
 
-Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
+Definition at line \mbox{\hyperlink{_h_m62256_8cs_source_l00013}{13}} of file \mbox{\hyperlink{_h_m62256_8cs_source}{HM62256.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00015 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00013 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-Hardware/\mbox{\hyperlink{_h_m62256_8cs}{HM62256.\+cs}}\end{DoxyCompactItemize}
+Hardware/\+Hardware/\mbox{\hyperlink{_h_m62256_8cs}{HM62256.\+cs}}\end{DoxyCompactItemize}

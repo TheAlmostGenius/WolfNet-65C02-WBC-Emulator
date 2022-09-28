@@ -51,8 +51,6 @@ string \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_acc912
 \begin{DoxyCompactList}\small\item\em The Current Disassembly  \end{DoxyCompactList}\item 
 int \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{Number\+Of\+Cycles}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, private set\mbox{]}}
 \begin{DoxyCompactList}\small\item\em The number of cycles.  \end{DoxyCompactList}\item 
-string \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0_a8393603c75099ab35c03f60c4fa823c0}{Memory\+Page\+Offset}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
-\begin{DoxyCompactList}\small\item\em The Memory Page number.  \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{Is\+Running}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \begin{DoxyCompactList}\small\item\em Is the Prorgam Running  \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{Is\+Rom\+Loaded}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
@@ -63,6 +61,8 @@ static \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+M
 \begin{DoxyCompactList}\small\item\em The \mbox{\hyperlink{namespace_emulator_1_1_model}{Model}} used for saving, loading and using data from Settings.\+xml  \end{DoxyCompactList}\item 
 Relay\+Command \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a26f578c362e6f11a8c5f686cb4e761f5_a26f578c362e6f11a8c5f686cb4e761f5}{Step\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \begin{DoxyCompactList}\small\item\em Relay\+Command for Stepping through the progam one instruction at a time.  \end{DoxyCompactList}\item 
+Relay\+Command \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc_a49c70ab506c43d9e159bf9c2f6c011dc}{Memory\+Visual\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
+\begin{DoxyCompactList}\small\item\em Relay\+Command for opening the Memory View window.  \end{DoxyCompactList}\item 
 Relay\+Command \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_acbebfa6910614d0ed71355ec1c4d0464_acbebfa6910614d0ed71355ec1c4d0464}{Reset\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
 \begin{DoxyCompactList}\small\item\em Relay Command to Reset the Program back to its initial state.  \end{DoxyCompactList}\item 
 Relay\+Command \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae0af5f3b23ec3ea1999b6c14005b6309_ae0af5f3b23ec3ea1999b6c14005b6309}{Run\+Pause\+Command}}\hspace{0.3cm}{\ttfamily  \mbox{[}get, set\mbox{]}}
@@ -96,8 +96,6 @@ void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a2092242
 \item 
 void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_adcd1a0507d40c2c541c58274a59a1d36_adcd1a0507d40c2c541c58274a59a1d36}{Settings\+Applied\+Notifcation}} (Notification\+Message$<$ \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{Settings\+Model}} $>$ notification\+Message)
 \item 
-void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{Update\+Memory\+Page}} ()
-\item 
 void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}} ()
 \item 
 void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a26f2d0bf1045ba4bc022c03ef8a277fa_a26f2d0bf1045ba4bc022c03ef8a277fa}{Step}} ()
@@ -118,9 +116,13 @@ int \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8bb658ab
 \item 
 int \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8ab3439fb8e5f1ac6c8d08429acb07de_a8ab3439fb8e5f1ac6c8d08429acb07de}{Get\+Sleep\+Value}} ()
 \item 
+void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{Update\+Memory\+Page}} ()
+\item 
 void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4d81ee580a460f70e86cdf43529988b7_a4d81ee580a460f70e86cdf43529988b7}{About}} ()
 \item 
 void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_afacc95c49d76c92a7a1370a44bf00982_afacc95c49d76c92a7a1370a44bf00982}{Settings}} ()
+\item 
+void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2_ae2c95d01efa4ad05aee6f15547896ce2}{Memory\+View}} ()
 \item 
 void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2_a31162434b812de16b0d3b3a9a47a32f2}{Add\+Break\+Point}} ()
 \item 
@@ -128,8 +130,6 @@ void \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a437b92b
 \end{DoxyCompactItemize}
 \doxysubsubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
-\item 
-int \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}{\+\_\+memory\+Page\+Offset}}
 \item 
 readonly Background\+Worker \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\+\_\+background\+Worker}}
 \item 
@@ -140,7 +140,7 @@ bool \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaaf
 \doxysubsubsection{Detailed Description}
 The Main \mbox{\hyperlink{namespace_emulator_1_1_view_model}{View\+Model}}  
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00027}{27}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00026}{26}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 
@@ -157,90 +157,87 @@ Creates a new Instance of the \mbox{\hyperlink{class_emulator_1_1_view_model_1_1
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00231}{231}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00216}{216}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00232         \{}
-\DoxyCodeLine{00233             var \_formatter = \textcolor{keyword}{new} XmlSerializer(typeof(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}));}
-\DoxyCodeLine{00234             Stream \_stream = \textcolor{keyword}{new} FileStream(FileLocations.SettingsFile, FileMode.OpenOrCreate);}
-\DoxyCodeLine{00235             \textcolor{keywordflow}{if} (!((\_stream == \textcolor{keyword}{null}) || (0 >= \_stream.Length)))}
-\DoxyCodeLine{00236             \{}
-\DoxyCodeLine{00237                 \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a991932b99e0fbcc15a28ab33032e6bc7_a991932b99e0fbcc15a28ab33032e6bc7}{SettingsModel}})\_formatter.Deserialize(\_stream);}
-\DoxyCodeLine{00238                 \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a28eb1608f1932ff197a96cd8bfb92309_a28eb1608f1932ff197a96cd8bfb92309}{SettingsVersionMajor}} < Versioning.SettingsFile.Major) ||}
-\DoxyCodeLine{00239                     (SettingsModel.SettingsVersionMinor < Versioning.SettingsFile.Minor) ||}
-\DoxyCodeLine{00240                     (\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a2e6371500222d09bf5c05dbcf969e47b_a2e6371500222d09bf5c05dbcf969e47b}{SettingsVersionBuild}} < Versioning.SettingsFile.Build) ||}
-\DoxyCodeLine{00241                     (SettingsModel.SettingsVersionRevision < Versioning.SettingsFile.Revision))}
-\DoxyCodeLine{00242                 \{}
-\DoxyCodeLine{00243 \textcolor{preprocessor}{\#if !DEBUG}}
-\DoxyCodeLine{00244                     \textcolor{keywordflow}{throw} \textcolor{keyword}{new} NotImplementedException(String.Format(\textcolor{stringliteral}{"{}Unable to handle problem: Settings File version is less than \{0\}.\{1\}.\{2\}.\{3\}"{}}, Versioning.SettingsFile.Major, Versioning.SettingsFile.Minor, Versioning.SettingsFile.Revision, Versioning.SettingsFile.Build));}
-\DoxyCodeLine{00245 \textcolor{preprocessor}{\#else}}
-\DoxyCodeLine{00246                     MessageBox.Show(\textcolor{stringliteral}{"{}Settings file contains old information...\(\backslash\)nDeleting old settings file..."{}},}
-\DoxyCodeLine{00247                                     \textcolor{stringliteral}{"{}Settings file stale!"{}}, MessageBoxButton.OKCancel, MessageBoxImage.Warning,}
-\DoxyCodeLine{00248                                     MessageBoxResult.OK);}
-\DoxyCodeLine{00249                     \textcolor{comment}{// Close the file, then delete it.}}
-\DoxyCodeLine{00250                     \_stream.Close();}
-\DoxyCodeLine{00251                     File.Delete(FileLocations.SettingsFile);}
-\DoxyCodeLine{00252                     \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = SettingsFile.CreateNew();}
-\DoxyCodeLine{00253 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00254                 \}}
-\DoxyCodeLine{00255             \}}
-\DoxyCodeLine{00256             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00257             \{}
-\DoxyCodeLine{00258                 MessageBox.Show(\textcolor{stringliteral}{"{}Creating new settings file..."{}});}
-\DoxyCodeLine{00259                 \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = SettingsFile.CreateNew();}
-\DoxyCodeLine{00260             \}}
-\DoxyCodeLine{00261             \_stream.Close();}
-\DoxyCodeLine{00262 }
-\DoxyCodeLine{00263             \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a9d6993b33a8c56460e1618b31fc11761_a9d6993b33a8c56460e1618b31fc11761}{HM62256}}(\mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram}{BankedRam}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram_a1aaa56ba79234dbcf58e47c431c33ce8_a1aaa56ba79234dbcf58e47c431c33ce8}{TotalBanks}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram}{BankedRam}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram_a6e9fe75f693d519c39bfc110286f34bf_a6e9fe75f693d519c39bfc110286f34bf}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram}{BankedRam}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram_abd1202b9be9a1d708891400a8b66ff07_abd1202b9be9a1d708891400a8b66ff07}{Length}});}
-\DoxyCodeLine{00264             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x}{AT28CXX}}(\mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom}{SharedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom_a29d065a484b77a0b48be02249eab9496_a29d065a484b77a0b48be02249eab9496}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom}{SharedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom_a448574800f741025b58ea5cfa4727d5d_a448574800f741025b58ea5cfa4727d5d}{Length}}, 1);}
-\DoxyCodeLine{00265             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x}{AT28CXX}}(\mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_a6e1b4ba2933745ed2f64909e928bb7b7_a6e1b4ba2933745ed2f64909e928bb7b7}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_ae226c5194545c539ea9e5b59c67b1557_ae226c5194545c539ea9e5b59c67b1557}{Length}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_a29351add7ff31655b7cca1f924a588cd_a29351add7ff31655b7cca1f924a588cd}{TotalBanks}});}
-\DoxyCodeLine{00266             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a9fddace9f89324f737366d140bd570bd_a9fddace9f89324f737366d140bd570bd}{W65C02}}();}
-\DoxyCodeLine{00267             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a334e09c67fd9a69c6dda182af52c90a5_a334e09c67fd9a69c6dda182af52c90a5}{W65C51}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_a_c_i_a}{ACIA}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_a_c_i_a_a6d38195990deca2a8d01d3071a307ba7_a6d38195990deca2a8d01d3071a307ba7}{Offset}});}
-\DoxyCodeLine{00268             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a707d35ba77abc4887e559854333fa1bf_a707d35ba77abc4887e559854333fa1bf}{Init}}(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_af3339a666134a772a14cb4937f05cf55_af3339a666134a772a14cb4937f05cf55}{ComPortName}}.ToString());}
-\DoxyCodeLine{00269             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}{W65C22}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o}{GPIO}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o_a2578f5bbdd86b286cf6fc83560c8a9e7_a2578f5bbdd86b286cf6fc83560c8a9e7}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o}{GPIO}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o_a1adc2286f3ad2267e7a287e83a8c8090_a1adc2286f3ad2267e7a287e83a8c8090}{Length}});}
-\DoxyCodeLine{00270             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}{Init}}(1000);}
-\DoxyCodeLine{00271             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}{W65C22}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b_add3c59cc6fb69ba45cb8aa43276c8a5f_add3c59cc6fb69ba45cb8aa43276c8a5f}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b_a8878b20ad3bd3f6968f395527b91808e_a8878b20ad3bd3f6968f395527b91808e}{Length}});}
-\DoxyCodeLine{00272             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}{Init}}(1000);}
-\DoxyCodeLine{00273 }
-\DoxyCodeLine{00274             \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a93989451834580e16bd0934d426c930e_a93989451834580e16bd0934d426c930e}{Init}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}}, \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}, \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}});}
-\DoxyCodeLine{00275 }
-\DoxyCodeLine{00276             \textcolor{comment}{// Now we can load the BIOS.}}
-\DoxyCodeLine{00277             \textcolor{keywordtype}{byte}[][] \_bios = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}{ReadFile}}(FileLocations.BiosFile);}
-\DoxyCodeLine{00278             \textcolor{keywordflow}{if} (\_bios == \textcolor{keyword}{null})}
-\DoxyCodeLine{00279             \{}
-\DoxyCodeLine{00280                 Environment.Exit(ExitCodes.NO\_BIOS);}
-\DoxyCodeLine{00281             \}}
-\DoxyCodeLine{00282             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}{Load}}(\_bios);}
+\DoxyCodeLine{00217         \{}
+\DoxyCodeLine{00218             var \_formatter = \textcolor{keyword}{new} XmlSerializer(typeof(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}));}
+\DoxyCodeLine{00219             Stream \_stream = \textcolor{keyword}{new} FileStream(FileLocations.SettingsFile, FileMode.OpenOrCreate);}
+\DoxyCodeLine{00220             \textcolor{keywordflow}{if} (!((\_stream == \textcolor{keyword}{null}) || (0 >= \_stream.Length)))}
+\DoxyCodeLine{00221             \{}
+\DoxyCodeLine{00222                 \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a991932b99e0fbcc15a28ab33032e6bc7_a991932b99e0fbcc15a28ab33032e6bc7}{SettingsModel}})\_formatter.Deserialize(\_stream);}
+\DoxyCodeLine{00223                 \textcolor{keywordflow}{if} ((\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a28eb1608f1932ff197a96cd8bfb92309_a28eb1608f1932ff197a96cd8bfb92309}{SettingsVersionMajor}} < Versioning.SettingsFile.Major) ||}
+\DoxyCodeLine{00224                     (SettingsModel.SettingsVersionMinor < Versioning.SettingsFile.Minor) ||}
+\DoxyCodeLine{00225                     (\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_a2e6371500222d09bf5c05dbcf969e47b_a2e6371500222d09bf5c05dbcf969e47b}{SettingsVersionBuild}} < Versioning.SettingsFile.Build) ||}
+\DoxyCodeLine{00226                     (SettingsModel.SettingsVersionRevision < Versioning.SettingsFile.Revision))}
+\DoxyCodeLine{00227                 \{}
+\DoxyCodeLine{00228                     MessageBox.Show(\textcolor{stringliteral}{"{}Settings file contains old information...\(\backslash\)nDeleting old settings file..."{}},}
+\DoxyCodeLine{00229                                     \textcolor{stringliteral}{"{}Settings file stale!"{}}, MessageBoxButton.OKCancel, MessageBoxImage.Warning,}
+\DoxyCodeLine{00230                                     MessageBoxResult.OK);}
+\DoxyCodeLine{00231                     \textcolor{comment}{// Close the file, then delete it.}}
+\DoxyCodeLine{00232                     \_stream.Close();}
+\DoxyCodeLine{00233                     File.Delete(FileLocations.SettingsFile);}
+\DoxyCodeLine{00234                     \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = SettingsFile.CreateNew();}
+\DoxyCodeLine{00235                 \}}
+\DoxyCodeLine{00236             \}}
+\DoxyCodeLine{00237             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00238             \{}
+\DoxyCodeLine{00239                 MessageBox.Show(\textcolor{stringliteral}{"{}Creating new settings file..."{}});}
+\DoxyCodeLine{00240                 \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = SettingsFile.CreateNew();}
+\DoxyCodeLine{00241             \}}
+\DoxyCodeLine{00242             \_stream.Close();}
+\DoxyCodeLine{00243 }
+\DoxyCodeLine{00244             \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a9d6993b33a8c56460e1618b31fc11761_a9d6993b33a8c56460e1618b31fc11761}{HM62256}}(\mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram}{BankedRam}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram_a1aaa56ba79234dbcf58e47c431c33ce8_a1aaa56ba79234dbcf58e47c431c33ce8}{TotalBanks}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram}{BankedRam}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram_a6e9fe75f693d519c39bfc110286f34bf_a6e9fe75f693d519c39bfc110286f34bf}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram}{BankedRam}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_ram_abd1202b9be9a1d708891400a8b66ff07_abd1202b9be9a1d708891400a8b66ff07}{Length}});}
+\DoxyCodeLine{00245             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x}{AT28CXX}}(\mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom}{SharedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom_a29d065a484b77a0b48be02249eab9496_a29d065a484b77a0b48be02249eab9496}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom}{SharedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_shared_rom_a448574800f741025b58ea5cfa4727d5d_a448574800f741025b58ea5cfa4727d5d}{Length}}, 1);}
+\DoxyCodeLine{00246             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x}{AT28CXX}}(\mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_a6e1b4ba2933745ed2f64909e928bb7b7_a6e1b4ba2933745ed2f64909e928bb7b7}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_ae226c5194545c539ea9e5b59c67b1557_ae226c5194545c539ea9e5b59c67b1557}{Length}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom}{BankedRom}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_banked_rom_a29351add7ff31655b7cca1f924a588cd_a29351add7ff31655b7cca1f924a588cd}{TotalBanks}});}
+\DoxyCodeLine{00247             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a9fddace9f89324f737366d140bd570bd_a9fddace9f89324f737366d140bd570bd}{W65C02}}();}
+\DoxyCodeLine{00248             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a334e09c67fd9a69c6dda182af52c90a5_a334e09c67fd9a69c6dda182af52c90a5}{W65C51}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_a_c_i_a}{ACIA}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_a_c_i_a_a6d38195990deca2a8d01d3071a307ba7_a6d38195990deca2a8d01d3071a307ba7}{Offset}});}
+\DoxyCodeLine{00249             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a707d35ba77abc4887e559854333fa1bf_a707d35ba77abc4887e559854333fa1bf}{Init}}(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model_af3339a666134a772a14cb4937f05cf55_af3339a666134a772a14cb4937f05cf55}{ComPortName}}.ToString());}
+\DoxyCodeLine{00250             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}{W65C22}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o}{GPIO}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o_a2578f5bbdd86b286cf6fc83560c8a9e7_a2578f5bbdd86b286cf6fc83560c8a9e7}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o}{GPIO}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_g_p_i_o_a1adc2286f3ad2267e7a287e83a8c8090_a1adc2286f3ad2267e7a287e83a8c8090}{Length}});}
+\DoxyCodeLine{00251             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}{Init}}(1000);}
+\DoxyCodeLine{00252             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}{W65C22}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b_add3c59cc6fb69ba45cb8aa43276c8a5f_add3c59cc6fb69ba45cb8aa43276c8a5f}{Offset}}, \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices}{Devices}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_1_1_devices_1_1_m_m65_s_i_b_a8878b20ad3bd3f6968f395527b91808e_a8878b20ad3bd3f6968f395527b91808e}{Length}});}
+\DoxyCodeLine{00253             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_aaeaa8853c2e0ccebc58fc6f188ded32e_aaeaa8853c2e0ccebc58fc6f188ded32e}{Init}}(1000);}
+\DoxyCodeLine{00254 }
+\DoxyCodeLine{00255             \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a93989451834580e16bd0934d426c930e_a93989451834580e16bd0934d426c930e}{Init}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}, \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}}, \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}, \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}});}
+\DoxyCodeLine{00256 }
+\DoxyCodeLine{00257             \textcolor{comment}{// Now we can load the BIOS.}}
+\DoxyCodeLine{00258             \textcolor{keywordtype}{byte}[][] \_bios = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}{ReadFile}}(FileLocations.BiosFile);}
+\DoxyCodeLine{00259             \textcolor{keywordflow}{if} (\_bios == \textcolor{keyword}{null})}
+\DoxyCodeLine{00260             \{}
+\DoxyCodeLine{00261                 Environment.Exit(ExitCodes.NO\_BIOS);}
+\DoxyCodeLine{00262             \}}
+\DoxyCodeLine{00263             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}{Load}}(\_bios);}
+\DoxyCodeLine{00264 }
+\DoxyCodeLine{00265             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8e6cfd8465d8ce06fb5625edade91fd0_a8e6cfd8465d8ce06fb5625edade91fd0}{AboutCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4d81ee580a460f70e86cdf43529988b7_a4d81ee580a460f70e86cdf43529988b7}{About}});}
+\DoxyCodeLine{00266             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad67ed7fd5a32062af7525e6e610c607d_ad67ed7fd5a32062af7525e6e610c607d}{AddBreakPointCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2_a31162434b812de16b0d3b3a9a47a32f2}{AddBreakPoint}});}
+\DoxyCodeLine{00267             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abfd3a1a877f66736f0b0aa7a76ed1014_abfd3a1a877f66736f0b0aa7a76ed1014}{CloseCommand}} = \textcolor{keyword}{new} RelayCommand<IClosable>(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad1ab8d1ad26f80b9b5fe61d779d16a7_aad1ab8d1ad26f80b9b5fe61d779d16a7}{Close}});}
+\DoxyCodeLine{00268             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc_a49c70ab506c43d9e159bf9c2f6c011dc}{MemoryVisualCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2_ae2c95d01efa4ad05aee6f15547896ce2}{MemoryView}});}
+\DoxyCodeLine{00269             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a228fad16f934cab4350d5d78232ed9e3_a228fad16f934cab4350d5d78232ed9e3}{RemoveBreakPointCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a437b92b1a2e095eaeed1a6cdab364adb_a437b92b1a2e095eaeed1a6cdab364adb}{RemoveBreakPoint}});}
+\DoxyCodeLine{00270             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_acbebfa6910614d0ed71355ec1c4d0464_acbebfa6910614d0ed71355ec1c4d0464}{ResetCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}});}
+\DoxyCodeLine{00271             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae0af5f3b23ec3ea1999b6c14005b6309_ae0af5f3b23ec3ea1999b6c14005b6309}{RunPauseCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}});}
+\DoxyCodeLine{00272             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_afc26fd8dd3cd6889b96f759d06af9dea_afc26fd8dd3cd6889b96f759d06af9dea}{SettingsCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_afacc95c49d76c92a7a1370a44bf00982_afacc95c49d76c92a7a1370a44bf00982}{Settings}});}
+\DoxyCodeLine{00273             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a26f578c362e6f11a8c5f686cb4e761f5_a26f578c362e6f11a8c5f686cb4e761f5}{StepCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a26f2d0bf1045ba4bc022c03ef8a277fa_a26f2d0bf1045ba4bc022c03ef8a277fa}{Step}});}
+\DoxyCodeLine{00274 }
+\DoxyCodeLine{00275             Messenger.Default.Register<NotificationMessage>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a2092242c6ebc7bad25c9c50e9b82465e_a2092242c6ebc7bad25c9c50e9b82465e}{GenericNotifcation}});}
+\DoxyCodeLine{00276             Messenger.Default.Register<NotificationMessage<RomFileModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a582ced579740b205b7ba5cf2c9b5c464_a582ced579740b205b7ba5cf2c9b5c464}{BinaryLoadedNotification}});}
+\DoxyCodeLine{00277             Messenger.Default.Register<NotificationMessage<SettingsModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_adcd1a0507d40c2c541c58274a59a1d36_adcd1a0507d40c2c541c58274a59a1d36}{SettingsAppliedNotifcation}});}
+\DoxyCodeLine{00278             Messenger.Default.Register<NotificationMessage<StateFileModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a90b42fcbcb5bf4690d86bc396221a61a_a90b42fcbcb5bf4690d86bc396221a61a}{StateLoadedNotifcation}});}
+\DoxyCodeLine{00279 }
+\DoxyCodeLine{00280             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b_a77444b822722e3a6533d26f03251d66b}{MemoryPage}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<MemoryRowModel>();}
+\DoxyCodeLine{00281             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<OutputLog>();}
+\DoxyCodeLine{00282             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<Breakpoint>();}
 \DoxyCodeLine{00283 }
-\DoxyCodeLine{00284             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8e6cfd8465d8ce06fb5625edade91fd0_a8e6cfd8465d8ce06fb5625edade91fd0}{AboutCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4d81ee580a460f70e86cdf43529988b7_a4d81ee580a460f70e86cdf43529988b7}{About}});}
-\DoxyCodeLine{00285             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad67ed7fd5a32062af7525e6e610c607d_ad67ed7fd5a32062af7525e6e610c607d}{AddBreakPointCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2_a31162434b812de16b0d3b3a9a47a32f2}{AddBreakPoint}});}
-\DoxyCodeLine{00286             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abfd3a1a877f66736f0b0aa7a76ed1014_abfd3a1a877f66736f0b0aa7a76ed1014}{CloseCommand}} = \textcolor{keyword}{new} RelayCommand<IClosable>(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad1ab8d1ad26f80b9b5fe61d779d16a7_aad1ab8d1ad26f80b9b5fe61d779d16a7}{Close}});}
-\DoxyCodeLine{00287             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a228fad16f934cab4350d5d78232ed9e3_a228fad16f934cab4350d5d78232ed9e3}{RemoveBreakPointCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a437b92b1a2e095eaeed1a6cdab364adb_a437b92b1a2e095eaeed1a6cdab364adb}{RemoveBreakPoint}});}
-\DoxyCodeLine{00288             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_acbebfa6910614d0ed71355ec1c4d0464_acbebfa6910614d0ed71355ec1c4d0464}{ResetCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}});}
-\DoxyCodeLine{00289             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae0af5f3b23ec3ea1999b6c14005b6309_ae0af5f3b23ec3ea1999b6c14005b6309}{RunPauseCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}});}
-\DoxyCodeLine{00290             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_afc26fd8dd3cd6889b96f759d06af9dea_afc26fd8dd3cd6889b96f759d06af9dea}{SettingsCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_afacc95c49d76c92a7a1370a44bf00982_afacc95c49d76c92a7a1370a44bf00982}{Settings}});}
-\DoxyCodeLine{00291             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a26f578c362e6f11a8c5f686cb4e761f5_a26f578c362e6f11a8c5f686cb4e761f5}{StepCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a26f2d0bf1045ba4bc022c03ef8a277fa_a26f2d0bf1045ba4bc022c03ef8a277fa}{Step}});}
-\DoxyCodeLine{00292             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a35dd83b4be9d111598054e96f9b0f582_a35dd83b4be9d111598054e96f9b0f582}{UpdateMemoryMapCommand}} = \textcolor{keyword}{new} RelayCommand(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}});}
-\DoxyCodeLine{00293 }
-\DoxyCodeLine{00294             Messenger.Default.Register<NotificationMessage>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a2092242c6ebc7bad25c9c50e9b82465e_a2092242c6ebc7bad25c9c50e9b82465e}{GenericNotifcation}});}
-\DoxyCodeLine{00295             Messenger.Default.Register<NotificationMessage<RomFileModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a582ced579740b205b7ba5cf2c9b5c464_a582ced579740b205b7ba5cf2c9b5c464}{BinaryLoadedNotification}});}
-\DoxyCodeLine{00296             Messenger.Default.Register<NotificationMessage<SettingsModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_adcd1a0507d40c2c541c58274a59a1d36_adcd1a0507d40c2c541c58274a59a1d36}{SettingsAppliedNotifcation}});}
-\DoxyCodeLine{00297             Messenger.Default.Register<NotificationMessage<StateFileModel>>(\textcolor{keyword}{this}, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a90b42fcbcb5bf4690d86bc396221a61a_a90b42fcbcb5bf4690d86bc396221a61a}{StateLoadedNotifcation}});}
-\DoxyCodeLine{00298 }
-\DoxyCodeLine{00299             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b_a77444b822722e3a6533d26f03251d66b}{MemoryPage}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<MemoryRowModel>();}
-\DoxyCodeLine{00300             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<OutputLog>();}
-\DoxyCodeLine{00301             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<Breakpoint>();}
-\DoxyCodeLine{00302 }
-\DoxyCodeLine{00303             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
-\DoxyCodeLine{00304 }
-\DoxyCodeLine{00305             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}} = \textcolor{keyword}{new} BackgroundWorker \{ WorkerSupportsCancellation = \textcolor{keyword}{true}, WorkerReportsProgress = \textcolor{keyword}{false} \};}
-\DoxyCodeLine{00306             \_backgroundWorker.DoWork += \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a535a42e0544a3afc1a3cf2771423c46c_a535a42e0544a3afc1a3cf2771423c46c}{BackgroundWorkerDoWork}};}
-\DoxyCodeLine{00307             Application.Current.MainWindow.Closing += \textcolor{keyword}{new} CancelEventHandler(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e_ae60919bf486f58dd060b2c8ea750306e}{OnClose}});}
-\DoxyCodeLine{00308             Application.Current.MainWindow.Loaded += \textcolor{keyword}{new} RoutedEventHandler(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae495dd419c8ef48ec54c5e641a9dbaac_ae495dd419c8ef48ec54c5e641a9dbaac}{OnLoad}});}
-\DoxyCodeLine{00309 }
-\DoxyCodeLine{00310             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}}();}
-\DoxyCodeLine{00311         \}}
+\DoxyCodeLine{00284             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
+\DoxyCodeLine{00285 }
+\DoxyCodeLine{00286             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}} = \textcolor{keyword}{new} BackgroundWorker \{ WorkerSupportsCancellation = \textcolor{keyword}{true}, WorkerReportsProgress = \textcolor{keyword}{false} \};}
+\DoxyCodeLine{00287             \_backgroundWorker.DoWork += \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a535a42e0544a3afc1a3cf2771423c46c_a535a42e0544a3afc1a3cf2771423c46c}{BackgroundWorkerDoWork}};}
+\DoxyCodeLine{00288             Application.Current.MainWindow.Title = Versioning.Product.Title;}
+\DoxyCodeLine{00289             Application.Current.MainWindow.Closing += \textcolor{keyword}{new} CancelEventHandler(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e_ae60919bf486f58dd060b2c8ea750306e}{OnClose}});}
+\DoxyCodeLine{00290             Application.Current.MainWindow.Loaded += \textcolor{keyword}{new} RoutedEventHandler(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ae495dd419c8ef48ec54c5e641a9dbaac_ae495dd419c8ef48ec54c5e641a9dbaac}{OnLoad}});}
+\DoxyCodeLine{00291 }
+\DoxyCodeLine{00292             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}}();}
+\DoxyCodeLine{00293         \}}
 
 \end{DoxyCode}
 
@@ -254,18 +251,18 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00231}{231}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00756}{756}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00718}{718}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00757         \{}
-\DoxyCodeLine{00758             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00759 }
-\DoxyCodeLine{00760             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
-\DoxyCodeLine{00761                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
-\DoxyCodeLine{00762 }
-\DoxyCodeLine{00763             MessageBox.Show(\textcolor{keywordtype}{string}.Format(\textcolor{stringliteral}{"{}\{0\}\(\backslash\)n\{1\}\(\backslash\)nVersion: \{2\}\(\backslash\)nCompany: \{3\}"{}}, Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.VersionString, Versioning.Product.Company), Versioning.Product.Title);}
-\DoxyCodeLine{00764         \}}
+\DoxyCodeLine{00719         \{}
+\DoxyCodeLine{00720             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00721 }
+\DoxyCodeLine{00722             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
+\DoxyCodeLine{00723                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
+\DoxyCodeLine{00724 }
+\DoxyCodeLine{00725             MessageBox.Show(\textcolor{keywordtype}{string}.Format(\textcolor{stringliteral}{"{}\{0\}\(\backslash\)n\{1\}\(\backslash\)nVersion: \{2\}\(\backslash\)nCompany: \{3\}"{}}, Versioning.Product.Name, Versioning.Product.Description, Versioning.Product.VersionString, Versioning.Product.Company), Versioning.Product.Title);}
+\DoxyCodeLine{00726         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2_a31162434b812de16b0d3b3a9a47a32f2}\label{class_emulator_1_1_view_model_1_1_main_view_model_a31162434b812de16b0d3b3a9a47a32f2_a31162434b812de16b0d3b3a9a47a32f2}} 
@@ -276,14 +273,14 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00756}{756}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00776}{776}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00743}{743}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00777         \{}
-\DoxyCodeLine{00778             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint}{Breakpoint}}());}
-\DoxyCodeLine{00779             RaisePropertyChanged(\textcolor{stringliteral}{"{}Breakpoints"{}});}
-\DoxyCodeLine{00780         \}}
+\DoxyCodeLine{00744         \{}
+\DoxyCodeLine{00745             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint}{Breakpoint}}());}
+\DoxyCodeLine{00746             RaisePropertyChanged(\textcolor{stringliteral}{"{}Breakpoints"{}});}
+\DoxyCodeLine{00747         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a535a42e0544a3afc1a3cf2771423c46c_a535a42e0544a3afc1a3cf2771423c46c}\label{class_emulator_1_1_view_model_1_1_main_view_model_a535a42e0544a3afc1a3cf2771423c46c_a535a42e0544a3afc1a3cf2771423c46c}} 
@@ -294,43 +291,43 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00776}{776}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00632}{632}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00589}{589}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00633         \{}
-\DoxyCodeLine{00634             var worker = sender as BackgroundWorker;}
-\DoxyCodeLine{00635             var outputLogs = \textcolor{keyword}{new} List<OutputLog>();}
-\DoxyCodeLine{00636 }
-\DoxyCodeLine{00637             \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
-\DoxyCodeLine{00638             \{}
-\DoxyCodeLine{00639                 \textcolor{keywordflow}{if} (worker != \textcolor{keyword}{null} \&\& worker.CancellationPending || \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4f62ed6eaf6e12e9789c7c626b3a07bc_a4f62ed6eaf6e12e9789c7c626b3a07bc}{IsBreakPointTriggered}}())}
-\DoxyCodeLine{00640                 \{}
-\DoxyCodeLine{00641                     e.Cancel = \textcolor{keyword}{true};}
-\DoxyCodeLine{00642 }
-\DoxyCodeLine{00643                     RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C02"{}});}
-\DoxyCodeLine{00644 }
-\DoxyCodeLine{00645                     \textcolor{keywordflow}{foreach} (var log \textcolor{keywordflow}{in} outputLogs)}
-\DoxyCodeLine{00646                         \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, log);}
-\DoxyCodeLine{00647 }
-\DoxyCodeLine{00648                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
-\DoxyCodeLine{00649                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00650                 \}}
-\DoxyCodeLine{00651 }
-\DoxyCodeLine{00652                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_af8f9b1354e9ad215cbc9d538bb12c8e5_af8f9b1354e9ad215cbc9d538bb12c8e5}{StepProcessor}}();}
-\DoxyCodeLine{00653                 outputLogs.Add(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}{GetOutputLog}}());}
-\DoxyCodeLine{00654 }
-\DoxyCodeLine{00655                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} \% \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8bb658abe7a9035e48fa5c708f9a9876_a8bb658abe7a9035e48fa5c708f9a9876}{GetLogModValue}}() == 0)}
-\DoxyCodeLine{00656                 \{}
-\DoxyCodeLine{00657                     \textcolor{keywordflow}{foreach} (var log \textcolor{keywordflow}{in} outputLogs)}
-\DoxyCodeLine{00658                         \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, log);}
-\DoxyCodeLine{00659 }
-\DoxyCodeLine{00660                     outputLogs.Clear();}
-\DoxyCodeLine{00661                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
-\DoxyCodeLine{00662                 \}}
-\DoxyCodeLine{00663                 Thread.Sleep(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8ab3439fb8e5f1ac6c8d08429acb07de_a8ab3439fb8e5f1ac6c8d08429acb07de}{GetSleepValue}}());}
-\DoxyCodeLine{00664             \}}
-\DoxyCodeLine{00665         \}}
+\DoxyCodeLine{00590         \{}
+\DoxyCodeLine{00591             var worker = sender as BackgroundWorker;}
+\DoxyCodeLine{00592             var outputLogs = \textcolor{keyword}{new} List<OutputLog>();}
+\DoxyCodeLine{00593 }
+\DoxyCodeLine{00594             \textcolor{keywordflow}{while} (\textcolor{keyword}{true})}
+\DoxyCodeLine{00595             \{}
+\DoxyCodeLine{00596                 \textcolor{keywordflow}{if} (worker != \textcolor{keyword}{null} \&\& worker.CancellationPending || \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4f62ed6eaf6e12e9789c7c626b3a07bc_a4f62ed6eaf6e12e9789c7c626b3a07bc}{IsBreakPointTriggered}}())}
+\DoxyCodeLine{00597                 \{}
+\DoxyCodeLine{00598                     e.Cancel = \textcolor{keyword}{true};}
+\DoxyCodeLine{00599 }
+\DoxyCodeLine{00600                     RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C02"{}});}
+\DoxyCodeLine{00601 }
+\DoxyCodeLine{00602                     \textcolor{keywordflow}{foreach} (var log \textcolor{keywordflow}{in} outputLogs)}
+\DoxyCodeLine{00603                         \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, log);}
+\DoxyCodeLine{00604 }
+\DoxyCodeLine{00605                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
+\DoxyCodeLine{00606                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00607                 \}}
+\DoxyCodeLine{00608 }
+\DoxyCodeLine{00609                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_af8f9b1354e9ad215cbc9d538bb12c8e5_af8f9b1354e9ad215cbc9d538bb12c8e5}{StepProcessor}}();}
+\DoxyCodeLine{00610                 outputLogs.Add(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}{GetOutputLog}}());}
+\DoxyCodeLine{00611 }
+\DoxyCodeLine{00612                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} \% \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8bb658abe7a9035e48fa5c708f9a9876_a8bb658abe7a9035e48fa5c708f9a9876}{GetLogModValue}}() == 0)}
+\DoxyCodeLine{00613                 \{}
+\DoxyCodeLine{00614                     \textcolor{keywordflow}{foreach} (var log \textcolor{keywordflow}{in} outputLogs)}
+\DoxyCodeLine{00615                         \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, log);}
+\DoxyCodeLine{00616 }
+\DoxyCodeLine{00617                     outputLogs.Clear();}
+\DoxyCodeLine{00618                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
+\DoxyCodeLine{00619                 \}}
+\DoxyCodeLine{00620                 Thread.Sleep(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8ab3439fb8e5f1ac6c8d08429acb07de_a8ab3439fb8e5f1ac6c8d08429acb07de}{GetSleepValue}}());}
+\DoxyCodeLine{00621             \}}
+\DoxyCodeLine{00622         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a582ced579740b205b7ba5cf2c9b5c464_a582ced579740b205b7ba5cf2c9b5c464}\label{class_emulator_1_1_view_model_1_1_main_view_model_a582ced579740b205b7ba5cf2c9b5c464_a582ced579740b205b7ba5cf2c9b5c464}} 
@@ -341,23 +338,23 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00632}{632}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00374}{374}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00356}{356}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00375         \{}
-\DoxyCodeLine{00376             \textcolor{keywordflow}{if} (notificationMessage.Notification != \textcolor{stringliteral}{"{}FileLoaded"{}})}
-\DoxyCodeLine{00377             \{}
-\DoxyCodeLine{00378                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00379             \}}
-\DoxyCodeLine{00380 }
-\DoxyCodeLine{00381             \textcolor{comment}{// Load Banked ROM}}
-\DoxyCodeLine{00382             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}{Load}}(notificationMessage.Content.Rom);}
-\DoxyCodeLine{00383             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{IsRomLoaded}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00384             RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRomLoaded"{}});}
-\DoxyCodeLine{00385 }
-\DoxyCodeLine{00386             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}}();}
-\DoxyCodeLine{00387         \}}
+\DoxyCodeLine{00357         \{}
+\DoxyCodeLine{00358             \textcolor{keywordflow}{if} (notificationMessage.Notification != \textcolor{stringliteral}{"{}FileLoaded"{}})}
+\DoxyCodeLine{00359             \{}
+\DoxyCodeLine{00360                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00361             \}}
+\DoxyCodeLine{00362 }
+\DoxyCodeLine{00363             \textcolor{comment}{// Load Banked ROM}}
+\DoxyCodeLine{00364             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_acedda08b77d785a2d8d15827b6962aac_acedda08b77d785a2d8d15827b6962aac}{Load}}(notificationMessage.Content.Rom);}
+\DoxyCodeLine{00365             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{IsRomLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00366             RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRomLoaded"{}});}
+\DoxyCodeLine{00367 }
+\DoxyCodeLine{00368             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}}();}
+\DoxyCodeLine{00369         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_aad1ab8d1ad26f80b9b5fe61d779d16a7_aad1ab8d1ad26f80b9b5fe61d779d16a7}\label{class_emulator_1_1_view_model_1_1_main_view_model_aad1ab8d1ad26f80b9b5fe61d779d16a7_aad1ab8d1ad26f80b9b5fe61d779d16a7}} 
@@ -368,16 +365,16 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00374}{374}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00366}{366}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00348}{348}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00367         \{}
-\DoxyCodeLine{00368             \textcolor{keywordflow}{if} ((window != \textcolor{keyword}{null}) \&\& (!\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}}))}
-\DoxyCodeLine{00369             \{}
-\DoxyCodeLine{00370                 Environment.Exit(ExitCodes.NO\_ERROR);}
-\DoxyCodeLine{00371             \}}
-\DoxyCodeLine{00372         \}}
+\DoxyCodeLine{00349         \{}
+\DoxyCodeLine{00350             \textcolor{keywordflow}{if} ((window != \textcolor{keyword}{null}) \&\& (!\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}}))}
+\DoxyCodeLine{00351             \{}
+\DoxyCodeLine{00352                 Environment.Exit(ExitCodes.NO\_ERROR);}
+\DoxyCodeLine{00353             \}}
+\DoxyCodeLine{00354         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a2092242c6ebc7bad25c9c50e9b82465e_a2092242c6ebc7bad25c9c50e9b82465e}\label{class_emulator_1_1_view_model_1_1_main_view_model_a2092242c6ebc7bad25c9c50e9b82465e_a2092242c6ebc7bad25c9c50e9b82465e}} 
@@ -388,86 +385,94 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00366}{366}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00416}{416}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00398}{398}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00417         \{}
-\DoxyCodeLine{00418             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}CloseFile"{}})}
-\DoxyCodeLine{00419             \{}
-\DoxyCodeLine{00420                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{Clear}}();}
-\DoxyCodeLine{00421                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}}) \{ \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}}(); \}}
-\DoxyCodeLine{00422                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{IsRomLoaded}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00423                 RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRomLoaded"{}});}
-\DoxyCodeLine{00424                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00425             \}}
-\DoxyCodeLine{00426             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}LoadFile"{}})}
-\DoxyCodeLine{00427             \{}
-\DoxyCodeLine{00428                 var dialog = \textcolor{keyword}{new} OpenFileDialog \{   DefaultExt = \textcolor{stringliteral}{"{}.bin"{}}, Filter =}
-\DoxyCodeLine{00429                                                     \textcolor{stringliteral}{"{}All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|"{}} +}
-\DoxyCodeLine{00430                                                     \textcolor{stringliteral}{"{}*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02"{}} \};}
-\DoxyCodeLine{00431                 var result = dialog.ShowDialog();}
-\DoxyCodeLine{00432                 \textcolor{keywordflow}{if} (result != \textcolor{keyword}{true})}
-\DoxyCodeLine{00433                 \{}
-\DoxyCodeLine{00434                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00399         \{}
+\DoxyCodeLine{00400             \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}CloseFile"{}})}
+\DoxyCodeLine{00401             \{}
+\DoxyCodeLine{00402                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a9c7c7f04088bf8c5fbd788b6c415138a_a9c7c7f04088bf8c5fbd788b6c415138a}{Clear}}();}
+\DoxyCodeLine{00403                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}}) \{ \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}}(); \}}
+\DoxyCodeLine{00404                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{IsRomLoaded}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00405                 RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRomLoaded"{}});}
+\DoxyCodeLine{00406                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00407             \}}
+\DoxyCodeLine{00408             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}LoadFile"{}})}
+\DoxyCodeLine{00409             \{}
+\DoxyCodeLine{00410                 var dialog = \textcolor{keyword}{new} OpenFileDialog}
+\DoxyCodeLine{00411                 \{}
+\DoxyCodeLine{00412                     DefaultExt = \textcolor{stringliteral}{"{}.bin"{}},}
+\DoxyCodeLine{00413                     Filter =}
+\DoxyCodeLine{00414                                                     \textcolor{stringliteral}{"{}All Files (*.bin, *.65C02)|*.bin;*.65C02|Binary Assembly (*.bin)|"{}} +}
+\DoxyCodeLine{00415                                                     \textcolor{stringliteral}{"{}*.bin|WolfNet 65C02 Emulator Save State (*.65C02)|*.65C02"{}}}
+\DoxyCodeLine{00416                 \};}
+\DoxyCodeLine{00417                 var result = dialog.ShowDialog();}
+\DoxyCodeLine{00418                 \textcolor{keywordflow}{if} (result != \textcolor{keyword}{true})}
+\DoxyCodeLine{00419                 \{}
+\DoxyCodeLine{00420                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00421                 \}}
+\DoxyCodeLine{00422 }
+\DoxyCodeLine{00423                 \textcolor{keywordflow}{if} (Path.GetExtension(dialog.FileName.ToUpper()) == \textcolor{stringliteral}{"{}.BIN"{}})}
+\DoxyCodeLine{00424                 \{}
+\DoxyCodeLine{00425                     \textcolor{keywordtype}{byte}[][] \_rom = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}{ReadFile}}(dialog.FileName);}
+\DoxyCodeLine{00426 }
+\DoxyCodeLine{00427                     Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<RomFileModel>(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_rom_file_model}{RomFileModel}}}
+\DoxyCodeLine{00428                     \{}
+\DoxyCodeLine{00429                         Rom = \_rom,}
+\DoxyCodeLine{00430                         RomBanks = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}},}
+\DoxyCodeLine{00431                         RomBankSize = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}},}
+\DoxyCodeLine{00432                         RomFilePath = dialog.FileName,}
+\DoxyCodeLine{00433                         RomFileName = Path.GetFileName(dialog.FileName),}
+\DoxyCodeLine{00434                     \}, \textcolor{stringliteral}{"{}FileLoaded"{}}));}
 \DoxyCodeLine{00435                 \}}
-\DoxyCodeLine{00436 }
-\DoxyCodeLine{00437                 \textcolor{keywordflow}{if} (Path.GetExtension(dialog.FileName.ToUpper()) == \textcolor{stringliteral}{"{}.BIN"{}})}
-\DoxyCodeLine{00438                 \{}
-\DoxyCodeLine{00439                     \textcolor{keywordtype}{byte}[][] \_rom = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a320e6427232a2a2b612c9bc32ae063b6_a320e6427232a2a2b612c9bc32ae063b6}{ReadFile}}(dialog.FileName);}
-\DoxyCodeLine{00440 }
-\DoxyCodeLine{00441                     Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<RomFileModel>(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_rom_file_model}{RomFileModel}}}
-\DoxyCodeLine{00442                     \{}
-\DoxyCodeLine{00443                         Rom = \_rom,}
-\DoxyCodeLine{00444                         RomBanks = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_a3cd01885b99b9b8bebfe8c72c6152fe2_a3cd01885b99b9b8bebfe8c72c6152fe2}{Banks}},}
-\DoxyCodeLine{00445                         RomBankSize = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}}.\mbox{\hyperlink{class_hardware_1_1_a_t28_c_x_x_aad5456d2e0115af37d2431808af114ec_aad5456d2e0115af37d2431808af114ec}{Length}},}
-\DoxyCodeLine{00446                         RomFilePath = dialog.FileName,}
-\DoxyCodeLine{00447                         RomFileName = Path.GetFileName(dialog.FileName),}
-\DoxyCodeLine{00448                     \}, \textcolor{stringliteral}{"{}FileLoaded"{}}));}
-\DoxyCodeLine{00449                 \}}
-\DoxyCodeLine{00450                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Path.GetExtension(dialog.FileName.ToUpper()) == \textcolor{stringliteral}{"{}.6502"{}})}
-\DoxyCodeLine{00451                 \{}
-\DoxyCodeLine{00452                     var formatter = \textcolor{keyword}{new} BinaryFormatter();}
-\DoxyCodeLine{00453                     Stream stream = \textcolor{keyword}{new} FileStream(dialog.FileName, FileMode.Open);}
-\DoxyCodeLine{00454                     var fileModel = (\mbox{\hyperlink{class_emulator_1_1_model_1_1_state_file_model}{StateFileModel}})formatter.Deserialize(stream);}
-\DoxyCodeLine{00455 }
-\DoxyCodeLine{00456                     stream.Close();}
-\DoxyCodeLine{00457 }
-\DoxyCodeLine{00458                     Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<StateFileModel>(fileModel, \textcolor{stringliteral}{"{}StateLoaded"{}}));}
-\DoxyCodeLine{00459                 \}}
-\DoxyCodeLine{00460             \}}
-\DoxyCodeLine{00461             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}SaveState"{}})}
-\DoxyCodeLine{00462             \{}
-\DoxyCodeLine{00463                 var dialog = \textcolor{keyword}{new} SaveFileDialog \{   DefaultExt = \textcolor{stringliteral}{"{}.65C02"{}}, Filter =}
-\DoxyCodeLine{00464                                                     \textcolor{stringliteral}{"{}WolfNet W65C02 Emulator Save State (*.65C02)|*.65C02"{}} \};}
-\DoxyCodeLine{00465                 var result = dialog.ShowDialog();}
-\DoxyCodeLine{00466 }
-\DoxyCodeLine{00467                 \textcolor{keywordflow}{if} (result != \textcolor{keyword}{true})}
-\DoxyCodeLine{00468                 \{}
-\DoxyCodeLine{00469                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00470                 \}}
-\DoxyCodeLine{00471 }
-\DoxyCodeLine{00472                 var formatter = \textcolor{keyword}{new} BinaryFormatter();}
-\DoxyCodeLine{00473                 Stream stream = \textcolor{keyword}{new} FileStream(dialog.FileName, FileMode.Create, FileAccess.Write, FileShare.None);}
-\DoxyCodeLine{00474 }
-\DoxyCodeLine{00475                 formatter.Serialize(stream, \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_state_file_model}{StateFileModel}}}
-\DoxyCodeLine{00476                 \{}
-\DoxyCodeLine{00477                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}},}
-\DoxyCodeLine{00478                     \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}{OutputLog}},}
-\DoxyCodeLine{00479                     \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a9fddace9f89324f737366d140bd570bd_a9fddace9f89324f737366d140bd570bd}{W65C02}},}
-\DoxyCodeLine{00480                     \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}{W65C22}},}
-\DoxyCodeLine{00481                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}},}
-\DoxyCodeLine{00482                     \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a334e09c67fd9a69c6dda182af52c90a5_a334e09c67fd9a69c6dda182af52c90a5}{W65C51}},}
-\DoxyCodeLine{00483                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}},}
-\DoxyCodeLine{00484                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}},}
-\DoxyCodeLine{00485             \});}
-\DoxyCodeLine{00486                 stream.Close();}
-\DoxyCodeLine{00487             \}}
-\DoxyCodeLine{00488             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00489             \{}
-\DoxyCodeLine{00490                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00491             \}}
-\DoxyCodeLine{00492         \}}
+\DoxyCodeLine{00436                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (Path.GetExtension(dialog.FileName.ToUpper()) == \textcolor{stringliteral}{"{}.6502"{}})}
+\DoxyCodeLine{00437                 \{}
+\DoxyCodeLine{00438                     var formatter = \textcolor{keyword}{new} BinaryFormatter();}
+\DoxyCodeLine{00439                     Stream stream = \textcolor{keyword}{new} FileStream(dialog.FileName, FileMode.Open);}
+\DoxyCodeLine{00440                     var fileModel = (\mbox{\hyperlink{class_emulator_1_1_model_1_1_state_file_model}{StateFileModel}})formatter.Deserialize(stream);}
+\DoxyCodeLine{00441 }
+\DoxyCodeLine{00442                     stream.Close();}
+\DoxyCodeLine{00443 }
+\DoxyCodeLine{00444                     Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<StateFileModel>(fileModel, \textcolor{stringliteral}{"{}StateLoaded"{}}));}
+\DoxyCodeLine{00445                 \}}
+\DoxyCodeLine{00446             \}}
+\DoxyCodeLine{00447             \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (notificationMessage.Notification == \textcolor{stringliteral}{"{}SaveState"{}})}
+\DoxyCodeLine{00448             \{}
+\DoxyCodeLine{00449                 var dialog = \textcolor{keyword}{new} SaveFileDialog}
+\DoxyCodeLine{00450                 \{}
+\DoxyCodeLine{00451                     DefaultExt = \textcolor{stringliteral}{"{}.65C02"{}},}
+\DoxyCodeLine{00452                     Filter =}
+\DoxyCodeLine{00453                                                     \textcolor{stringliteral}{"{}WolfNet W65C02 Emulator Save State (*.65C02)|*.65C02"{}}}
+\DoxyCodeLine{00454                 \};}
+\DoxyCodeLine{00455                 var result = dialog.ShowDialog();}
+\DoxyCodeLine{00456 }
+\DoxyCodeLine{00457                 \textcolor{keywordflow}{if} (result != \textcolor{keyword}{true})}
+\DoxyCodeLine{00458                 \{}
+\DoxyCodeLine{00459                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00460                 \}}
+\DoxyCodeLine{00461 }
+\DoxyCodeLine{00462                 var formatter = \textcolor{keyword}{new} BinaryFormatter();}
+\DoxyCodeLine{00463                 Stream stream = \textcolor{keyword}{new} FileStream(dialog.FileName, FileMode.Create, FileAccess.Write, FileShare.None);}
+\DoxyCodeLine{00464 }
+\DoxyCodeLine{00465                 formatter.Serialize(stream, \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_state_file_model}{StateFileModel}}}
+\DoxyCodeLine{00466                 \{}
+\DoxyCodeLine{00467                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}},}
+\DoxyCodeLine{00468                     \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}{OutputLog}},}
+\DoxyCodeLine{00469                     \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a9fddace9f89324f737366d140bd570bd_a9fddace9f89324f737366d140bd570bd}{W65C02}},}
+\DoxyCodeLine{00470                     \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}{W65C22}},}
+\DoxyCodeLine{00471                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}},}
+\DoxyCodeLine{00472                     \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a334e09c67fd9a69c6dda182af52c90a5_a334e09c67fd9a69c6dda182af52c90a5}{W65C51}},}
+\DoxyCodeLine{00473                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}},}
+\DoxyCodeLine{00474                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}},}
+\DoxyCodeLine{00475                 \});}
+\DoxyCodeLine{00476                 stream.Close();}
+\DoxyCodeLine{00477             \}}
+\DoxyCodeLine{00478             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00479             \{}
+\DoxyCodeLine{00480                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00481             \}}
+\DoxyCodeLine{00482         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a8bb658abe7a9035e48fa5c708f9a9876_a8bb658abe7a9035e48fa5c708f9a9876}\label{class_emulator_1_1_view_model_1_1_main_view_model_a8bb658abe7a9035e48fa5c708f9a9876_a8bb658abe7a9035e48fa5c708f9a9876}} 
@@ -478,34 +483,34 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00416}{416}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00699}{699}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00656}{656}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00700         \{}
-\DoxyCodeLine{00701             \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abc2f7618ab53e0bb56d63259d2151040_abc2f7618ab53e0bb56d63259d2151040}{CpuSpeed}})}
-\DoxyCodeLine{00702             \{}
-\DoxyCodeLine{00703                 \textcolor{keywordflow}{case} 0:}
-\DoxyCodeLine{00704                 \textcolor{keywordflow}{case} 1:}
-\DoxyCodeLine{00705                 \textcolor{keywordflow}{case} 2:}
-\DoxyCodeLine{00706                 \textcolor{keywordflow}{case} 3:}
-\DoxyCodeLine{00707                 \textcolor{keywordflow}{case} 4:}
-\DoxyCodeLine{00708                 \textcolor{keywordflow}{case} 5:}
-\DoxyCodeLine{00709                     \textcolor{keywordflow}{return} 1;}
-\DoxyCodeLine{00710                 \textcolor{keywordflow}{case} 6:}
-\DoxyCodeLine{00711                     \textcolor{keywordflow}{return} 5;}
-\DoxyCodeLine{00712                 \textcolor{keywordflow}{case} 7:}
-\DoxyCodeLine{00713                     \textcolor{keywordflow}{return} 20;}
-\DoxyCodeLine{00714                 \textcolor{keywordflow}{case} 8:}
-\DoxyCodeLine{00715                     \textcolor{keywordflow}{return} 30;}
-\DoxyCodeLine{00716                 \textcolor{keywordflow}{case} 9:}
-\DoxyCodeLine{00717                     \textcolor{keywordflow}{return} 40;}
-\DoxyCodeLine{00718                 \textcolor{keywordflow}{case} 10:}
-\DoxyCodeLine{00719                     \textcolor{keywordflow}{return} 50;}
-\DoxyCodeLine{00720                 \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00721                     \textcolor{keywordflow}{return} 5;}
-\DoxyCodeLine{00722             \}}
-\DoxyCodeLine{00723         \}}
+\DoxyCodeLine{00657         \{}
+\DoxyCodeLine{00658             \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abc2f7618ab53e0bb56d63259d2151040_abc2f7618ab53e0bb56d63259d2151040}{CpuSpeed}})}
+\DoxyCodeLine{00659             \{}
+\DoxyCodeLine{00660                 \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00661                 \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00662                 \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00663                 \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00664                 \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00665                 \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00666                     \textcolor{keywordflow}{return} 1;}
+\DoxyCodeLine{00667                 \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{00668                     \textcolor{keywordflow}{return} 5;}
+\DoxyCodeLine{00669                 \textcolor{keywordflow}{case} 7:}
+\DoxyCodeLine{00670                     \textcolor{keywordflow}{return} 20;}
+\DoxyCodeLine{00671                 \textcolor{keywordflow}{case} 8:}
+\DoxyCodeLine{00672                     \textcolor{keywordflow}{return} 30;}
+\DoxyCodeLine{00673                 \textcolor{keywordflow}{case} 9:}
+\DoxyCodeLine{00674                     \textcolor{keywordflow}{return} 40;}
+\DoxyCodeLine{00675                 \textcolor{keywordflow}{case} 10:}
+\DoxyCodeLine{00676                     \textcolor{keywordflow}{return} 50;}
+\DoxyCodeLine{00677                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00678                     \textcolor{keywordflow}{return} 5;}
+\DoxyCodeLine{00679             \}}
+\DoxyCodeLine{00680         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}\label{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}} 
@@ -516,27 +521,27 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00699}{699}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00601}{601}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00558}{558}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00602         \{}
-\DoxyCodeLine{00603             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}} == \textcolor{keyword}{null})}
-\DoxyCodeLine{00604             \{}
-\DoxyCodeLine{00605                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}{OutputLog}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_hardware_1_1_disassembly}{Disassembly}}());}
-\DoxyCodeLine{00606             \}}
-\DoxyCodeLine{00607 }
-\DoxyCodeLine{00608             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}{OutputLog}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}})}
-\DoxyCodeLine{00609             \{}
-\DoxyCodeLine{00610                 XRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652_aa30549de0474b350b3fa8ca30714a652}{XRegister}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00611                 YRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50_a23427a87d4c5710bf18e0bc338badc50}{YRegister}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00612                 Accumulator = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054_a4eec5b3efabf5175eaef145c3a886054}{Accumulator}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00613                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}},}
-\DoxyCodeLine{00614                 StackPointer = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ac83aed13efee53d08984eeb08543f72b_ac83aed13efee53d08984eeb08543f72b}{StackPointer}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00615                 ProgramCounter = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_ad953847ee02d563ea055be5f70976247}{ProgramCounter}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(4, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00616                 CurrentOpCode = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df_a4f2280e861529c00e5adca272a18a8df}{CurrentOpCode}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'})}
-\DoxyCodeLine{00617             \};}
-\DoxyCodeLine{00618         \}}
+\DoxyCodeLine{00559         \{}
+\DoxyCodeLine{00560             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}} == \textcolor{keyword}{null})}
+\DoxyCodeLine{00561             \{}
+\DoxyCodeLine{00562                 \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}{OutputLog}}(\textcolor{keyword}{new} \mbox{\hyperlink{class_hardware_1_1_disassembly}{Disassembly}}());}
+\DoxyCodeLine{00563             \}}
+\DoxyCodeLine{00564 }
+\DoxyCodeLine{00565             \textcolor{keywordflow}{return} \textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}{OutputLog}}(\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}})}
+\DoxyCodeLine{00566             \{}
+\DoxyCodeLine{00567                 XRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652_aa30549de0474b350b3fa8ca30714a652}{XRegister}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{00568                 YRegister = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50_a23427a87d4c5710bf18e0bc338badc50}{YRegister}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{00569                 Accumulator = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a4eec5b3efabf5175eaef145c3a886054_a4eec5b3efabf5175eaef145c3a886054}{Accumulator}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{00570                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}},}
+\DoxyCodeLine{00571                 StackPointer = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ac83aed13efee53d08984eeb08543f72b_ac83aed13efee53d08984eeb08543f72b}{StackPointer}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{00572                 ProgramCounter = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_ad953847ee02d563ea055be5f70976247}{ProgramCounter}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(4, \textcolor{charliteral}{'0'}),}
+\DoxyCodeLine{00573                 CurrentOpCode = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a4f2280e861529c00e5adca272a18a8df_a4f2280e861529c00e5adca272a18a8df}{CurrentOpCode}}.ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'})}
+\DoxyCodeLine{00574             \};}
+\DoxyCodeLine{00575         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a8ab3439fb8e5f1ac6c8d08429acb07de_a8ab3439fb8e5f1ac6c8d08429acb07de}\label{class_emulator_1_1_view_model_1_1_main_view_model_a8ab3439fb8e5f1ac6c8d08429acb07de_a8ab3439fb8e5f1ac6c8d08429acb07de}} 
@@ -547,39 +552,39 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00601}{601}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00725}{725}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00682}{682}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00726         \{}
-\DoxyCodeLine{00727             \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abc2f7618ab53e0bb56d63259d2151040_abc2f7618ab53e0bb56d63259d2151040}{CpuSpeed}})}
-\DoxyCodeLine{00728             \{}
-\DoxyCodeLine{00729                 \textcolor{keywordflow}{case} 0:}
-\DoxyCodeLine{00730                     \textcolor{keywordflow}{return} 550;}
-\DoxyCodeLine{00731                 \textcolor{keywordflow}{case} 1:}
-\DoxyCodeLine{00732                     \textcolor{keywordflow}{return} 550;}
-\DoxyCodeLine{00733                 \textcolor{keywordflow}{case} 2:}
-\DoxyCodeLine{00734                     \textcolor{keywordflow}{return} 440;}
-\DoxyCodeLine{00735                 \textcolor{keywordflow}{case} 3:}
-\DoxyCodeLine{00736                     \textcolor{keywordflow}{return} 330;}
-\DoxyCodeLine{00737                 \textcolor{keywordflow}{case} 4:}
-\DoxyCodeLine{00738                     \textcolor{keywordflow}{return} 220;}
-\DoxyCodeLine{00739                 \textcolor{keywordflow}{case} 5:}
-\DoxyCodeLine{00740                     \textcolor{keywordflow}{return} 160;}
-\DoxyCodeLine{00741                 \textcolor{keywordflow}{case} 6:}
-\DoxyCodeLine{00742                     \textcolor{keywordflow}{return} 80;}
-\DoxyCodeLine{00743                 \textcolor{keywordflow}{case} 7:}
-\DoxyCodeLine{00744                     \textcolor{keywordflow}{return} 40;}
-\DoxyCodeLine{00745                 \textcolor{keywordflow}{case} 8:}
-\DoxyCodeLine{00746                     \textcolor{keywordflow}{return} 20;}
-\DoxyCodeLine{00747                 \textcolor{keywordflow}{case} 9:}
-\DoxyCodeLine{00748                     \textcolor{keywordflow}{return} 10;}
-\DoxyCodeLine{00749                 \textcolor{keywordflow}{case} 10:}
-\DoxyCodeLine{00750                     \textcolor{keywordflow}{return} 5;}
-\DoxyCodeLine{00751                 \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{00752                     \textcolor{keywordflow}{return} 5;}
-\DoxyCodeLine{00753             \}}
-\DoxyCodeLine{00754         \}}
+\DoxyCodeLine{00683         \{}
+\DoxyCodeLine{00684             \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abc2f7618ab53e0bb56d63259d2151040_abc2f7618ab53e0bb56d63259d2151040}{CpuSpeed}})}
+\DoxyCodeLine{00685             \{}
+\DoxyCodeLine{00686                 \textcolor{keywordflow}{case} 0:}
+\DoxyCodeLine{00687                     \textcolor{keywordflow}{return} 550;}
+\DoxyCodeLine{00688                 \textcolor{keywordflow}{case} 1:}
+\DoxyCodeLine{00689                     \textcolor{keywordflow}{return} 550;}
+\DoxyCodeLine{00690                 \textcolor{keywordflow}{case} 2:}
+\DoxyCodeLine{00691                     \textcolor{keywordflow}{return} 440;}
+\DoxyCodeLine{00692                 \textcolor{keywordflow}{case} 3:}
+\DoxyCodeLine{00693                     \textcolor{keywordflow}{return} 330;}
+\DoxyCodeLine{00694                 \textcolor{keywordflow}{case} 4:}
+\DoxyCodeLine{00695                     \textcolor{keywordflow}{return} 220;}
+\DoxyCodeLine{00696                 \textcolor{keywordflow}{case} 5:}
+\DoxyCodeLine{00697                     \textcolor{keywordflow}{return} 160;}
+\DoxyCodeLine{00698                 \textcolor{keywordflow}{case} 6:}
+\DoxyCodeLine{00699                     \textcolor{keywordflow}{return} 80;}
+\DoxyCodeLine{00700                 \textcolor{keywordflow}{case} 7:}
+\DoxyCodeLine{00701                     \textcolor{keywordflow}{return} 40;}
+\DoxyCodeLine{00702                 \textcolor{keywordflow}{case} 8:}
+\DoxyCodeLine{00703                     \textcolor{keywordflow}{return} 20;}
+\DoxyCodeLine{00704                 \textcolor{keywordflow}{case} 9:}
+\DoxyCodeLine{00705                     \textcolor{keywordflow}{return} 10;}
+\DoxyCodeLine{00706                 \textcolor{keywordflow}{case} 10:}
+\DoxyCodeLine{00707                     \textcolor{keywordflow}{return} 5;}
+\DoxyCodeLine{00708                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00709                     \textcolor{keywordflow}{return} 5;}
+\DoxyCodeLine{00710             \}}
+\DoxyCodeLine{00711         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a4f62ed6eaf6e12e9789c7c626b3a07bc_a4f62ed6eaf6e12e9789c7c626b3a07bc}\label{class_emulator_1_1_view_model_1_1_main_view_model_a4f62ed6eaf6e12e9789c7c626b3a07bc_a4f62ed6eaf6e12e9789c7c626b3a07bc}} 
@@ -590,40 +595,57 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00725}{725}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00667}{667}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00624}{624}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00668         \{}
-\DoxyCodeLine{00669             \textcolor{comment}{//This prevents the Run Command from getting stuck after reaching a breakpoint}}
-\DoxyCodeLine{00670             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}})}
-\DoxyCodeLine{00671             \{}
-\DoxyCodeLine{00672                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00673                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{00674             \}}
-\DoxyCodeLine{00675 }
-\DoxyCodeLine{00676             \textcolor{keywordflow}{foreach} (var breakpoint \textcolor{keywordflow}{in} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}}.Where(x => x.IsEnabled))}
-\DoxyCodeLine{00677             \{}
-\DoxyCodeLine{00678                 \textcolor{keywordflow}{if} (!\textcolor{keywordtype}{int}.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out \textcolor{keywordtype}{int} value))}
-\DoxyCodeLine{00679                     \textcolor{keywordflow}{continue};}
-\DoxyCodeLine{00680 }
-\DoxyCodeLine{00681                 \textcolor{keywordflow}{if} (breakpoint.Type == \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{BreakpointType}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a703169811aff4940b3509ed680e6bc7a_a703169811aff4940b3509ed680e6bc7a}{NumberOfCycleType}} \&\& value == \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}})}
-\DoxyCodeLine{00682                 \{}
-\DoxyCodeLine{00683                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00684                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}}();}
-\DoxyCodeLine{00685                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{00686                 \}}
-\DoxyCodeLine{00687 }
-\DoxyCodeLine{00688                 \textcolor{keywordflow}{if} (breakpoint.Type == \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{BreakpointType}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a9826dcf087cab16fb97f0541e8b358e0_a9826dcf087cab16fb97f0541e8b358e0}{ProgramCounterType}} \&\& value == \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_ad953847ee02d563ea055be5f70976247}{ProgramCounter}})}
-\DoxyCodeLine{00689                 \{}
-\DoxyCodeLine{00690                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00691                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}}();}
-\DoxyCodeLine{00692                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
-\DoxyCodeLine{00693                 \}}
-\DoxyCodeLine{00694             \}}
-\DoxyCodeLine{00695 }
-\DoxyCodeLine{00696             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
-\DoxyCodeLine{00697         \}}
+\DoxyCodeLine{00625         \{}
+\DoxyCodeLine{00626             \textcolor{comment}{//This prevents the Run Command from getting stuck after reaching a breakpoint}}
+\DoxyCodeLine{00627             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}})}
+\DoxyCodeLine{00628             \{}
+\DoxyCodeLine{00629                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00630                 \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00631             \}}
+\DoxyCodeLine{00632 }
+\DoxyCodeLine{00633             \textcolor{keywordflow}{foreach} (var breakpoint \textcolor{keywordflow}{in} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}}.Where(x => x.IsEnabled))}
+\DoxyCodeLine{00634             \{}
+\DoxyCodeLine{00635                 \textcolor{keywordflow}{if} (!\textcolor{keywordtype}{int}.TryParse(breakpoint.Value, NumberStyles.AllowHexSpecifier, CultureInfo.InvariantCulture, out \textcolor{keywordtype}{int} value))}
+\DoxyCodeLine{00636                     \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{00637 }
+\DoxyCodeLine{00638                 \textcolor{keywordflow}{if} (breakpoint.Type == \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{BreakpointType}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a703169811aff4940b3509ed680e6bc7a_a703169811aff4940b3509ed680e6bc7a}{NumberOfCycleType}} \&\& value == \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}})}
+\DoxyCodeLine{00639                 \{}
+\DoxyCodeLine{00640                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00641                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}}();}
+\DoxyCodeLine{00642                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00643                 \}}
+\DoxyCodeLine{00644 }
+\DoxyCodeLine{00645                 \textcolor{keywordflow}{if} (breakpoint.Type == \mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type}{BreakpointType}}.\mbox{\hyperlink{class_emulator_1_1_model_1_1_breakpoint_type_a9826dcf087cab16fb97f0541e8b358e0_a9826dcf087cab16fb97f0541e8b358e0}{ProgramCounterType}} \&\& value == \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ad953847ee02d563ea055be5f70976247_ad953847ee02d563ea055be5f70976247}{ProgramCounter}})}
+\DoxyCodeLine{00646                 \{}
+\DoxyCodeLine{00647                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}{\_breakpointTriggered}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00648                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}{RunPause}}();}
+\DoxyCodeLine{00649                     \textcolor{keywordflow}{return} \textcolor{keyword}{true};}
+\DoxyCodeLine{00650                 \}}
+\DoxyCodeLine{00651             \}}
+\DoxyCodeLine{00652 }
+\DoxyCodeLine{00653             \textcolor{keywordflow}{return} \textcolor{keyword}{false};}
+\DoxyCodeLine{00654         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2_ae2c95d01efa4ad05aee6f15547896ce2}\label{class_emulator_1_1_view_model_1_1_main_view_model_ae2c95d01efa4ad05aee6f15547896ce2_ae2c95d01efa4ad05aee6f15547896ce2}} 
+\index{Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}!MemoryView@{MemoryView}}
+\index{MemoryView@{MemoryView}!Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}}
+\doxyparagraph{\texorpdfstring{MemoryView()}{MemoryView()}}
+{\footnotesize\ttfamily void Emulator.\+View\+Model.\+Main\+View\+Model.\+Memory\+View (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00738}{738}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00739         \{}
+\DoxyCodeLine{00740             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}MemoryVisualWindow"{}}));}
+\DoxyCodeLine{00741         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e_ae60919bf486f58dd060b2c8ea750306e}\label{class_emulator_1_1_view_model_1_1_main_view_model_ae60919bf486f58dd060b2c8ea750306e_ae60919bf486f58dd060b2c8ea750306e}} 
@@ -634,40 +656,40 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00667}{667}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00332}{332}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00314}{314}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00333         \{}
-\DoxyCodeLine{00334             e.Cancel = \textcolor{keyword}{false};}
-\DoxyCodeLine{00335             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}})}
-\DoxyCodeLine{00336             \{}
-\DoxyCodeLine{00337                 MessageBox.Show(\textcolor{stringliteral}{"{}You can't quit the emulator while it is actively running!"{}},}
-\DoxyCodeLine{00338                                 \textcolor{stringliteral}{"{}You can't do that!"{}}, MessageBoxButton.OK, MessageBoxImage.Stop);}
-\DoxyCodeLine{00339                 e.Cancel = \textcolor{keyword}{true};}
-\DoxyCodeLine{00340                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00341             \}}
-\DoxyCodeLine{00342 \textcolor{preprocessor}{\#if !DEBUG}}
-\DoxyCodeLine{00343             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00344             \{}
-\DoxyCodeLine{00345                 var result = MessageBox.Show(   \textcolor{stringliteral}{"{}Are you sure you want to quit the emulator?"{}},}
-\DoxyCodeLine{00346                                                 \textcolor{stringliteral}{"{}To quit, or not to quit -\/-\/ that is the question."{}},}
-\DoxyCodeLine{00347                                                 MessageBoxButton.YesNo, MessageBoxImage.Question,}
-\DoxyCodeLine{00348                                                 MessageBoxResult.No);}
-\DoxyCodeLine{00349                 \textcolor{keywordflow}{if} (result == MessageBoxResult.No)}
-\DoxyCodeLine{00350                 \{}
-\DoxyCodeLine{00351                     e.Cancel = \textcolor{keyword}{true};}
-\DoxyCodeLine{00352                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00353                 \}}
-\DoxyCodeLine{00354             \}}
-\DoxyCodeLine{00355 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00356             Stream stream = \textcolor{keyword}{new} FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);}
-\DoxyCodeLine{00357             XmlSerializer XmlFormatter = \textcolor{keyword}{new} XmlSerializer(typeof(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}));}
-\DoxyCodeLine{00358             XmlFormatter.Serialize(stream, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_af5094863d43352e3dce9c696d89ecc84_af5094863d43352e3dce9c696d89ecc84}{MainViewModel}}.SettingsModel);}
-\DoxyCodeLine{00359             stream.Flush();}
-\DoxyCodeLine{00360             stream.Close();}
-\DoxyCodeLine{00361             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a25c526b05b1f87d939e5ec65166ee89c_a25c526b05b1f87d939e5ec65166ee89c}{Fini}}();}
-\DoxyCodeLine{00362         \}}
+\DoxyCodeLine{00315         \{}
+\DoxyCodeLine{00316             e.Cancel = \textcolor{keyword}{false};}
+\DoxyCodeLine{00317             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}})}
+\DoxyCodeLine{00318             \{}
+\DoxyCodeLine{00319                 MessageBox.Show(\textcolor{stringliteral}{"{}You can't quit the emulator while it is actively running!"{}},}
+\DoxyCodeLine{00320                                 \textcolor{stringliteral}{"{}You can't do that!"{}}, MessageBoxButton.OK, MessageBoxImage.Stop);}
+\DoxyCodeLine{00321                 e.Cancel = \textcolor{keyword}{true};}
+\DoxyCodeLine{00322                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00323             \}}
+\DoxyCodeLine{00324 \textcolor{preprocessor}{\#if !DEBUG}}
+\DoxyCodeLine{00325             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00326             \{}
+\DoxyCodeLine{00327                 var result = MessageBox.Show(\textcolor{stringliteral}{"{}Are you sure you want to quit the emulator?"{}},}
+\DoxyCodeLine{00328                                                 \textcolor{stringliteral}{"{}To quit, or not to quit -\/-\/ that is the question."{}},}
+\DoxyCodeLine{00329                                                 MessageBoxButton.YesNo, MessageBoxImage.Question,}
+\DoxyCodeLine{00330                                                 MessageBoxResult.No);}
+\DoxyCodeLine{00331                 \textcolor{keywordflow}{if} (result == MessageBoxResult.No)}
+\DoxyCodeLine{00332                 \{}
+\DoxyCodeLine{00333                     e.Cancel = \textcolor{keyword}{true};}
+\DoxyCodeLine{00334                     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00335                 \}}
+\DoxyCodeLine{00336             \}}
+\DoxyCodeLine{00337 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00338             Stream stream = \textcolor{keyword}{new} FileStream(FileLocations.SettingsFile, FileMode.Create, FileAccess.Write, FileShare.None);}
+\DoxyCodeLine{00339             XmlSerializer XmlFormatter = \textcolor{keyword}{new} XmlSerializer(typeof(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}));}
+\DoxyCodeLine{00340             XmlFormatter.Serialize(stream, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_af5094863d43352e3dce9c696d89ecc84_af5094863d43352e3dce9c696d89ecc84}{MainViewModel}}.SettingsModel);}
+\DoxyCodeLine{00341             stream.Flush();}
+\DoxyCodeLine{00342             stream.Close();}
+\DoxyCodeLine{00343             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a25c526b05b1f87d939e5ec65166ee89c_a25c526b05b1f87d939e5ec65166ee89c}{Fini}}();}
+\DoxyCodeLine{00344         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ae495dd419c8ef48ec54c5e641a9dbaac_ae495dd419c8ef48ec54c5e641a9dbaac}\label{class_emulator_1_1_view_model_1_1_main_view_model_ae495dd419c8ef48ec54c5e641a9dbaac_ae495dd419c8ef48ec54c5e641a9dbaac}} 
@@ -678,27 +700,27 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00332}{332}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00313}{313}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00295}{295}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00314         \{}
-\DoxyCodeLine{00315 \textcolor{preprocessor}{\#if !DEBUG}}
-\DoxyCodeLine{00316             \textcolor{keywordflow}{if} (Versioning.Product.Major < 1)}
-\DoxyCodeLine{00317             \{}
-\DoxyCodeLine{00318                 var result = MessageBox.Show(String.Format(\textcolor{stringliteral}{"{}Thank you for using \{0\}\(\backslash\)n"{}} +}
-\DoxyCodeLine{00319                                                         \textcolor{stringliteral}{"{}Be warned that this is a beta build.\(\backslash\)n"{}} +}
-\DoxyCodeLine{00320                                                         \textcolor{stringliteral}{"{}It may break or have bugs."{}}, Versioning.Product.Name),}
-\DoxyCodeLine{00321                                                         Versioning.Product.Title, MessageBoxButton.OKCancel,}
-\DoxyCodeLine{00322                                                         MessageBoxImage.Warning, MessageBoxResult.None);}
-\DoxyCodeLine{00323                 \textcolor{keywordflow}{if} (result == MessageBoxResult.Cancel)}
-\DoxyCodeLine{00324                 \{}
-\DoxyCodeLine{00325                     \textcolor{comment}{// Exit without making any changes.}}
-\DoxyCodeLine{00326                     Environment.Exit(ExitCodes.NO\_ERROR);}
-\DoxyCodeLine{00327                 \}}
-\DoxyCodeLine{00328             \}}
-\DoxyCodeLine{00329 \textcolor{preprocessor}{\#endif}}
-\DoxyCodeLine{00330         \}}
+\DoxyCodeLine{00296         \{}
+\DoxyCodeLine{00297 \textcolor{preprocessor}{\#if !DEBUG}}
+\DoxyCodeLine{00298             \textcolor{keywordflow}{if} (Versioning.Product.Major < 1)}
+\DoxyCodeLine{00299             \{}
+\DoxyCodeLine{00300                 var result = MessageBox.Show(String.Format(\textcolor{stringliteral}{"{}Thank you for using \{0\}\(\backslash\)n"{}} +}
+\DoxyCodeLine{00301                                                         \textcolor{stringliteral}{"{}Be warned that this is a beta build.\(\backslash\)n"{}} +}
+\DoxyCodeLine{00302                                                         \textcolor{stringliteral}{"{}It may break or have bugs."{}}, Versioning.Product.Name),}
+\DoxyCodeLine{00303                                                         Versioning.Product.Title, MessageBoxButton.OKCancel,}
+\DoxyCodeLine{00304                                                         MessageBoxImage.Warning, MessageBoxResult.None);}
+\DoxyCodeLine{00305                 \textcolor{keywordflow}{if} (result == MessageBoxResult.Cancel)}
+\DoxyCodeLine{00306                 \{}
+\DoxyCodeLine{00307                     \textcolor{comment}{// Exit without making any changes.}}
+\DoxyCodeLine{00308                     Environment.Exit(ExitCodes.NO\_ERROR);}
+\DoxyCodeLine{00309                 \}}
+\DoxyCodeLine{00310             \}}
+\DoxyCodeLine{00311 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00312         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a437b92b1a2e095eaeed1a6cdab364adb_a437b92b1a2e095eaeed1a6cdab364adb}\label{class_emulator_1_1_view_model_1_1_main_view_model_a437b92b1a2e095eaeed1a6cdab364adb_a437b92b1a2e095eaeed1a6cdab364adb}} 
@@ -709,18 +731,18 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00313}{313}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00782}{782}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00749}{749}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00783         \{}
-\DoxyCodeLine{00784             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}{SelectedBreakpoint}} == \textcolor{keyword}{null})}
-\DoxyCodeLine{00785                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00786 }
-\DoxyCodeLine{00787             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}}.Remove(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}{SelectedBreakpoint}});}
-\DoxyCodeLine{00788             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}{SelectedBreakpoint}} = \textcolor{keyword}{null};}
-\DoxyCodeLine{00789             RaisePropertyChanged(\textcolor{stringliteral}{"{}SelectedBreakpoint"{}});}
-\DoxyCodeLine{00790         \}}
+\DoxyCodeLine{00750         \{}
+\DoxyCodeLine{00751             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}{SelectedBreakpoint}} == \textcolor{keyword}{null})}
+\DoxyCodeLine{00752                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00753 }
+\DoxyCodeLine{00754             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}{Breakpoints}}.Remove(\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}{SelectedBreakpoint}});}
+\DoxyCodeLine{00755             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}{SelectedBreakpoint}} = \textcolor{keyword}{null};}
+\DoxyCodeLine{00756             RaisePropertyChanged(\textcolor{stringliteral}{"{}SelectedBreakpoint"{}});}
+\DoxyCodeLine{00757         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}\label{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}} 
@@ -731,41 +753,41 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00782}{782}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00540}{540}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00497}{497}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00541         \{}
-\DoxyCodeLine{00542             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00543 }
-\DoxyCodeLine{00544             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
-\DoxyCodeLine{00545                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
-\DoxyCodeLine{00546 }
-\DoxyCodeLine{00547             \textcolor{comment}{// "{}Reset"{} the Hardware...}}
-\DoxyCodeLine{00548             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a9768a473c3b12b4fac7154ee00850a90_a9768a473c3b12b4fac7154ee00850a90}{Reset}}();}
-\DoxyCodeLine{00549             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C02"{}});}
-\DoxyCodeLine{00550             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}{Reset}}();}
-\DoxyCodeLine{00551             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C22"{}});}
-\DoxyCodeLine{00552             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}{Reset}}();}
-\DoxyCodeLine{00553             RaisePropertyChanged(\textcolor{stringliteral}{"{}MM65SIB"{}});}
-\DoxyCodeLine{00554             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_a0beb6caf59660b8d3ce8bc2abd1d9077}{Reset}}();}
-\DoxyCodeLine{00555             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C51"{}});}
-\DoxyCodeLine{00556             \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}.\mbox{\hyperlink{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}{Reset}}();}
-\DoxyCodeLine{00557             RaisePropertyChanged(\textcolor{stringliteral}{"{}HM62256"{}});}
-\DoxyCodeLine{00558 }
-\DoxyCodeLine{00559             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00560             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = 0;}
-\DoxyCodeLine{00561             RaisePropertyChanged(\textcolor{stringliteral}{"{}NumberOfCycles"{}});}
-\DoxyCodeLine{00562 }
-\DoxyCodeLine{00563             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
-\DoxyCodeLine{00564             RaisePropertyChanged(\textcolor{stringliteral}{"{}MemoryPage"{}});}
-\DoxyCodeLine{00565 }
-\DoxyCodeLine{00566             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Clear();}
-\DoxyCodeLine{00567             RaisePropertyChanged(\textcolor{stringliteral}{"{}CurrentDisassembly"{}});}
-\DoxyCodeLine{00568 }
-\DoxyCodeLine{00569             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}{GetOutputLog}}());}
-\DoxyCodeLine{00570             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
-\DoxyCodeLine{00571         \}}
+\DoxyCodeLine{00498         \{}
+\DoxyCodeLine{00499             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00500 }
+\DoxyCodeLine{00501             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
+\DoxyCodeLine{00502                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
+\DoxyCodeLine{00503 }
+\DoxyCodeLine{00504             \textcolor{comment}{// "{}Reset"{} the Hardware...}}
+\DoxyCodeLine{00505             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a9768a473c3b12b4fac7154ee00850a90_a9768a473c3b12b4fac7154ee00850a90}{Reset}}();}
+\DoxyCodeLine{00506             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C02"{}});}
+\DoxyCodeLine{00507             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}{Reset}}();}
+\DoxyCodeLine{00508             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C22"{}});}
+\DoxyCodeLine{00509             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}}.\mbox{\hyperlink{class_hardware_1_1_w65_c22_af98a9e750fd72188ddd96f56ef2f52dc_af98a9e750fd72188ddd96f56ef2f52dc}{Reset}}();}
+\DoxyCodeLine{00510             RaisePropertyChanged(\textcolor{stringliteral}{"{}MM65SIB"{}});}
+\DoxyCodeLine{00511             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_a0beb6caf59660b8d3ce8bc2abd1d9077}{Reset}}();}
+\DoxyCodeLine{00512             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C51"{}});}
+\DoxyCodeLine{00513             \mbox{\hyperlink{class_hardware_1_1_h_m62256}{HM62256}}.\mbox{\hyperlink{class_hardware_1_1_h_m62256_a372033908049620610cf9dd3c6557bf7_a372033908049620610cf9dd3c6557bf7}{Reset}}();}
+\DoxyCodeLine{00514             RaisePropertyChanged(\textcolor{stringliteral}{"{}HM62256"{}});}
+\DoxyCodeLine{00515 }
+\DoxyCodeLine{00516             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00517             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = 0;}
+\DoxyCodeLine{00518             RaisePropertyChanged(\textcolor{stringliteral}{"{}NumberOfCycles"{}});}
+\DoxyCodeLine{00519 }
+\DoxyCodeLine{00520             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
+\DoxyCodeLine{00521             RaisePropertyChanged(\textcolor{stringliteral}{"{}MemoryPage"{}});}
+\DoxyCodeLine{00522 }
+\DoxyCodeLine{00523             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Clear();}
+\DoxyCodeLine{00524             RaisePropertyChanged(\textcolor{stringliteral}{"{}CurrentDisassembly"{}});}
+\DoxyCodeLine{00525 }
+\DoxyCodeLine{00526             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}{GetOutputLog}}());}
+\DoxyCodeLine{00527             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
+\DoxyCodeLine{00528         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}\label{class_emulator_1_1_view_model_1_1_main_view_model_a360243541332219c0e3798f3ff28a6d1_a360243541332219c0e3798f3ff28a6d1}} 
@@ -776,20 +798,20 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00540}{540}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00620}{620}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00577}{577}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00621         \{}
-\DoxyCodeLine{00622             var isRunning = !\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}};}
-\DoxyCodeLine{00623 }
-\DoxyCodeLine{00624             \textcolor{keywordflow}{if} (isRunning)}
-\DoxyCodeLine{00625                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.RunWorkerAsync();}
-\DoxyCodeLine{00626             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00627                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
-\DoxyCodeLine{00628 }
-\DoxyCodeLine{00629             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = !\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}};}
-\DoxyCodeLine{00630         \}}
+\DoxyCodeLine{00578         \{}
+\DoxyCodeLine{00579             var isRunning = !\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}};}
+\DoxyCodeLine{00580 }
+\DoxyCodeLine{00581             \textcolor{keywordflow}{if} (isRunning)}
+\DoxyCodeLine{00582                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.RunWorkerAsync();}
+\DoxyCodeLine{00583             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00584                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
+\DoxyCodeLine{00585 }
+\DoxyCodeLine{00586             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = !\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}};}
+\DoxyCodeLine{00587         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_afacc95c49d76c92a7a1370a44bf00982_afacc95c49d76c92a7a1370a44bf00982}\label{class_emulator_1_1_view_model_1_1_main_view_model_afacc95c49d76c92a7a1370a44bf00982_afacc95c49d76c92a7a1370a44bf00982}} 
@@ -800,18 +822,18 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00620}{620}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00766}{766}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00728}{728}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00767         \{}
-\DoxyCodeLine{00768             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00769 }
-\DoxyCodeLine{00770             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
-\DoxyCodeLine{00771                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
-\DoxyCodeLine{00772 }
-\DoxyCodeLine{00773             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<SettingsModel>(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}, \textcolor{stringliteral}{"{}SettingsWindow"{}}));}
-\DoxyCodeLine{00774         \}}
+\DoxyCodeLine{00729         \{}
+\DoxyCodeLine{00730             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00731 }
+\DoxyCodeLine{00732             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
+\DoxyCodeLine{00733                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
+\DoxyCodeLine{00734 }
+\DoxyCodeLine{00735             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage<SettingsModel>(\mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}}, \textcolor{stringliteral}{"{}SettingsWindow"{}}));}
+\DoxyCodeLine{00736         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_adcd1a0507d40c2c541c58274a59a1d36_adcd1a0507d40c2c541c58274a59a1d36}\label{class_emulator_1_1_view_model_1_1_main_view_model_adcd1a0507d40c2c541c58274a59a1d36_adcd1a0507d40c2c541c58274a59a1d36}} 
@@ -822,21 +844,21 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00766}{766}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00494}{494}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00484}{484}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00495         \{}
-\DoxyCodeLine{00496             \textcolor{keywordflow}{if} (notificationMessage.Notification != \textcolor{stringliteral}{"{}SettingsApplied"{}})}
-\DoxyCodeLine{00497             \{}
-\DoxyCodeLine{00498                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00499             \}}
-\DoxyCodeLine{00500 }
-\DoxyCodeLine{00501             \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = notificationMessage.Content;}
-\DoxyCodeLine{00502             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a707d35ba77abc4887e559854333fa1bf_a707d35ba77abc4887e559854333fa1bf}{Init}}(notificationMessage.Content.ComPortName);}
-\DoxyCodeLine{00503             RaisePropertyChanged(\textcolor{stringliteral}{"{}SettingsModel"{}});}
-\DoxyCodeLine{00504             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
-\DoxyCodeLine{00505         \}}
+\DoxyCodeLine{00485         \{}
+\DoxyCodeLine{00486             \textcolor{keywordflow}{if} (notificationMessage.Notification != \textcolor{stringliteral}{"{}SettingsApplied"{}})}
+\DoxyCodeLine{00487             \{}
+\DoxyCodeLine{00488                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00489             \}}
+\DoxyCodeLine{00490 }
+\DoxyCodeLine{00491             \mbox{\hyperlink{class_emulator_1_1_model_1_1_settings_model}{SettingsModel}} = notificationMessage.Content;}
+\DoxyCodeLine{00492             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_a707d35ba77abc4887e559854333fa1bf_a707d35ba77abc4887e559854333fa1bf}{Init}}(notificationMessage.Content.ComPortName);}
+\DoxyCodeLine{00493             RaisePropertyChanged(\textcolor{stringliteral}{"{}SettingsModel"{}});}
+\DoxyCodeLine{00494             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
+\DoxyCodeLine{00495         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a90b42fcbcb5bf4690d86bc396221a61a_a90b42fcbcb5bf4690d86bc396221a61a}\label{class_emulator_1_1_view_model_1_1_main_view_model_a90b42fcbcb5bf4690d86bc396221a61a_a90b42fcbcb5bf4690d86bc396221a61a}} 
@@ -847,35 +869,35 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00494}{494}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00389}{389}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00371}{371}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00390         \{}
-\DoxyCodeLine{00391             \textcolor{keywordflow}{if} (notificationMessage.Notification != \textcolor{stringliteral}{"{}StateLoaded"{}})}
-\DoxyCodeLine{00392             \{}
-\DoxyCodeLine{00393                 \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00394             \}}
-\DoxyCodeLine{00395 }
-\DoxyCodeLine{00396             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}}();}
-\DoxyCodeLine{00397 }
-\DoxyCodeLine{00398             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<OutputLog>(notificationMessage.Content.OutputLog);}
-\DoxyCodeLine{00399             RaisePropertyChanged(\textcolor{stringliteral}{"{}OutputLog"{}});}
-\DoxyCodeLine{00400 }
-\DoxyCodeLine{00401             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = notificationMessage.Content.NumberOfCycles;}
-\DoxyCodeLine{00402 }
-\DoxyCodeLine{00403             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} = notificationMessage.Content.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a86db392ae9eb672281ca9cdaff7eb369_a86db392ae9eb672281ca9cdaff7eb369}{W65C02}};}
-\DoxyCodeLine{00404             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}} = notificationMessage.Content.\mbox{\hyperlink{class_hardware_1_1_w65_c22_a5f28a7b35217c8736be1b4e771fa81a4_a5f28a7b35217c8736be1b4e771fa81a4}{W65C22}};}
-\DoxyCodeLine{00405             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}} = notificationMessage.Content.MM65SIB;}
-\DoxyCodeLine{00406             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}} = notificationMessage.Content.\mbox{\hyperlink{class_hardware_1_1_w65_c51_aab41af4a8fac8edb7789f32e2840410d_aab41af4a8fac8edb7789f32e2840410d}{W65C51}};}
-\DoxyCodeLine{00407             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}} = notificationMessage.Content.AT28C010;}
-\DoxyCodeLine{00408             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}} = notificationMessage.Content.AT28C64;}
-\DoxyCodeLine{00409             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
-\DoxyCodeLine{00410             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
-\DoxyCodeLine{00411 }
-\DoxyCodeLine{00412             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{IsRomLoaded}} = \textcolor{keyword}{true};}
-\DoxyCodeLine{00413             RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRomLoaded"{}});}
-\DoxyCodeLine{00414         \}}
+\DoxyCodeLine{00372         \{}
+\DoxyCodeLine{00373             \textcolor{keywordflow}{if} (notificationMessage.Notification != \textcolor{stringliteral}{"{}StateLoaded"{}})}
+\DoxyCodeLine{00374             \{}
+\DoxyCodeLine{00375                 \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00376             \}}
+\DoxyCodeLine{00377 }
+\DoxyCodeLine{00378             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a46564fc960dae5dcc7bfc6dbaeae111a_a46564fc960dae5dcc7bfc6dbaeae111a}{Reset}}();}
+\DoxyCodeLine{00379 }
+\DoxyCodeLine{00380             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}} = \textcolor{keyword}{new} MultiThreadedObservableCollection<OutputLog>(notificationMessage.Content.OutputLog);}
+\DoxyCodeLine{00381             RaisePropertyChanged(\textcolor{stringliteral}{"{}OutputLog"{}});}
+\DoxyCodeLine{00382 }
+\DoxyCodeLine{00383             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = notificationMessage.Content.NumberOfCycles;}
+\DoxyCodeLine{00384 }
+\DoxyCodeLine{00385             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}} = notificationMessage.Content.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a86db392ae9eb672281ca9cdaff7eb369_a86db392ae9eb672281ca9cdaff7eb369}{W65C02}};}
+\DoxyCodeLine{00386             \mbox{\hyperlink{class_hardware_1_1_w65_c22}{W65C22}} = notificationMessage.Content.\mbox{\hyperlink{class_hardware_1_1_w65_c22_a5f28a7b35217c8736be1b4e771fa81a4_a5f28a7b35217c8736be1b4e771fa81a4}{W65C22}};}
+\DoxyCodeLine{00387             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}{MM65SIB}} = notificationMessage.Content.MM65SIB;}
+\DoxyCodeLine{00388             \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}} = notificationMessage.Content.\mbox{\hyperlink{class_hardware_1_1_w65_c51_aab41af4a8fac8edb7789f32e2840410d_aab41af4a8fac8edb7789f32e2840410d}{W65C51}};}
+\DoxyCodeLine{00389             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}{AT28C010}} = notificationMessage.Content.AT28C010;}
+\DoxyCodeLine{00390             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}{AT28C64}} = notificationMessage.Content.AT28C64;}
+\DoxyCodeLine{00391             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
+\DoxyCodeLine{00392             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
+\DoxyCodeLine{00393 }
+\DoxyCodeLine{00394             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}{IsRomLoaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{00395             RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRomLoaded"{}});}
+\DoxyCodeLine{00396         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a26f2d0bf1045ba4bc022c03ef8a277fa_a26f2d0bf1045ba4bc022c03ef8a277fa}\label{class_emulator_1_1_view_model_1_1_main_view_model_a26f2d0bf1045ba4bc022c03ef8a277fa_a26f2d0bf1045ba4bc022c03ef8a277fa}} 
@@ -886,22 +908,22 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00389}{389}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00573}{573}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00530}{530}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00574         \{}
-\DoxyCodeLine{00575             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{00576 }
-\DoxyCodeLine{00577             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
-\DoxyCodeLine{00578                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
-\DoxyCodeLine{00579 }
-\DoxyCodeLine{00580             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_af8f9b1354e9ad215cbc9d538bb12c8e5_af8f9b1354e9ad215cbc9d538bb12c8e5}{StepProcessor}}();}
-\DoxyCodeLine{00581             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
-\DoxyCodeLine{00582 }
-\DoxyCodeLine{00583             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}{GetOutputLog}}());}
-\DoxyCodeLine{00584             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
-\DoxyCodeLine{00585         \}}
+\DoxyCodeLine{00531         \{}
+\DoxyCodeLine{00532             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}{IsRunning}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{00533 }
+\DoxyCodeLine{00534             \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.IsBusy)}
+\DoxyCodeLine{00535                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a471dd3e95368333b4f6cb617c175b017_a471dd3e95368333b4f6cb617c175b017}{\_backgroundWorker}}.CancelAsync();}
+\DoxyCodeLine{00536 }
+\DoxyCodeLine{00537             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_af8f9b1354e9ad215cbc9d538bb12c8e5_af8f9b1354e9ad215cbc9d538bb12c8e5}{StepProcessor}}();}
+\DoxyCodeLine{00538             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}{UpdateMemoryPage}}();}
+\DoxyCodeLine{00539 }
+\DoxyCodeLine{00540             \mbox{\hyperlink{class_emulator_1_1_model_1_1_output_log}{OutputLog}}.Insert(0, \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_ab98b284684be073b340f22fea78fc7a7_ab98b284684be073b340f22fea78fc7a7}{GetOutputLog}}());}
+\DoxyCodeLine{00541             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}{UpdateUi}}();}
+\DoxyCodeLine{00542         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_af8f9b1354e9ad215cbc9d538bb12c8e5_af8f9b1354e9ad215cbc9d538bb12c8e5}\label{class_emulator_1_1_view_model_1_1_main_view_model_af8f9b1354e9ad215cbc9d538bb12c8e5_af8f9b1354e9ad215cbc9d538bb12c8e5}} 
@@ -912,14 +934,14 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00573}{573}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00595}{595}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00552}{552}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00596         \{}
-\DoxyCodeLine{00597             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a2694c9c669ca2078f577ba1fe212c65e_a2694c9c669ca2078f577ba1fe212c65e}{NextStep}}();}
-\DoxyCodeLine{00598             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ab342c867fed7c221e8515f0ea08eabe0_ab342c867fed7c221e8515f0ea08eabe0}{GetCycleCount}}();}
-\DoxyCodeLine{00599         \}}
+\DoxyCodeLine{00553         \{}
+\DoxyCodeLine{00554             \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_a2694c9c669ca2078f577ba1fe212c65e_a2694c9c669ca2078f577ba1fe212c65e}{NextStep}}();}
+\DoxyCodeLine{00555             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}{NumberOfCycles}} = \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_ab342c867fed7c221e8515f0ea08eabe0_ab342c867fed7c221e8515f0ea08eabe0}{GetCycleCount}}();}
+\DoxyCodeLine{00556         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}\label{class_emulator_1_1_view_model_1_1_main_view_model_abdf34968b15f24511acdb115148fe7e4_abdf34968b15f24511acdb115148fe7e4}} 
@@ -930,41 +952,13 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00595}{595}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00507}{507}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00713}{713}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00508         \{}
-\DoxyCodeLine{00509             \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b_a77444b822722e3a6533d26f03251d66b}{MemoryPage}}.Clear();}
-\DoxyCodeLine{00510             var offset = \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}{\_memoryPageOffset}} * 256;}
-\DoxyCodeLine{00511             }
-\DoxyCodeLine{00512             var multiplyer = 0;}
-\DoxyCodeLine{00513             \textcolor{keywordflow}{for} (ushort i = (ushort)offset; i < 256 * (\mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}{\_memoryPageOffset}} + 1); i++)}
-\DoxyCodeLine{00514             \{}
-\DoxyCodeLine{00515 }
-\DoxyCodeLine{00516                 \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b_a77444b822722e3a6533d26f03251d66b}{MemoryPage}}.Add(\textcolor{keyword}{new} \mbox{\hyperlink{class_emulator_1_1_model_1_1_memory_row_model}{MemoryRowModel}}}
-\DoxyCodeLine{00517                 \{}
-\DoxyCodeLine{00518                     Offset = ((16 * multiplyer) + offset).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(4, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00519                     Location00 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00520                     Location01 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00521                     Location02 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00522                     Location03 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00523                     Location04 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00524                     Location05 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00525                     Location06 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00526                     Location07 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00527                     Location08 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00528                     Location09 = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00529                     Location0A = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00530                     Location0B = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00531                     Location0C = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00532                     Location0D = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00533                     Location0E = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i++).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00534                     Location0F = \mbox{\hyperlink{class_hardware_1_1_memory_map}{MemoryMap}}.\mbox{\hyperlink{class_hardware_1_1_memory_map_a9bc7d1d4c91d28a0429c274e223d7012_a9bc7d1d4c91d28a0429c274e223d7012}{ReadWithoutCycle}}(i).ToString(\textcolor{stringliteral}{"{}X"{}}).PadLeft(2, \textcolor{charliteral}{'0'}),}
-\DoxyCodeLine{00535                 \});}
-\DoxyCodeLine{00536                 multiplyer++;}
-\DoxyCodeLine{00537             \}}
-\DoxyCodeLine{00538         \}}
+\DoxyCodeLine{00714         \{}
+\DoxyCodeLine{00715             Messenger.Default.Send(\textcolor{keyword}{new} NotificationMessage(\textcolor{stringliteral}{"{}UpdateMemoryPage"{}}));}
+\DoxyCodeLine{00716         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}\label{class_emulator_1_1_view_model_1_1_main_view_model_a38e1d4b85d321bd6048a6f8392d24730_a38e1d4b85d321bd6048a6f8392d24730}} 
@@ -975,16 +969,16 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00507}{507}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00587}{587}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00544}{544}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00588         \{}
-\DoxyCodeLine{00589             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C02"{}});}
-\DoxyCodeLine{00590             RaisePropertyChanged(\textcolor{stringliteral}{"{}NumberOfCycles"{}});}
-\DoxyCodeLine{00591             RaisePropertyChanged(\textcolor{stringliteral}{"{}CurrentDisassembly"{}});}
-\DoxyCodeLine{00592             RaisePropertyChanged(\textcolor{stringliteral}{"{}MemoryPage"{}});}
-\DoxyCodeLine{00593         \}}
+\DoxyCodeLine{00545         \{}
+\DoxyCodeLine{00546             RaisePropertyChanged(\textcolor{stringliteral}{"{}W65C02"{}});}
+\DoxyCodeLine{00547             RaisePropertyChanged(\textcolor{stringliteral}{"{}NumberOfCycles"{}});}
+\DoxyCodeLine{00548             RaisePropertyChanged(\textcolor{stringliteral}{"{}CurrentDisassembly"{}});}
+\DoxyCodeLine{00549             RaisePropertyChanged(\textcolor{stringliteral}{"{}MemoryPage"{}});}
+\DoxyCodeLine{00550         \}}
 
 \end{DoxyCode}
 
@@ -998,23 +992,13 @@ Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00587}{587}} of
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00031}{31}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00029}{29}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}\label{class_emulator_1_1_view_model_1_1_main_view_model_ab00aaafab897056a51f1685cc8f20096_ab00aaafab897056a51f1685cc8f20096}} 
 \index{Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}!\_breakpointTriggered@{\_breakpointTriggered}}
 \index{\_breakpointTriggered@{\_breakpointTriggered}!Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}}
 \doxyparagraph{\texorpdfstring{\_breakpointTriggered}{\_breakpointTriggered}}
 {\footnotesize\ttfamily bool Emulator.\+View\+Model.\+Main\+View\+Model.\+\_\+breakpoint\+Triggered\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00032}{32}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
-
-\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}\label{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}} 
-\index{Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}!\_memoryPageOffset@{\_memoryPageOffset}}
-\index{\_memoryPageOffset@{\_memoryPageOffset}!Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}}
-\doxyparagraph{\texorpdfstring{\_memoryPageOffset}{\_memoryPageOffset}}
-{\footnotesize\ttfamily int Emulator.\+View\+Model.\+Main\+View\+Model.\+\_\+memory\+Page\+Offset\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -1035,11 +1019,11 @@ The Relay Command that opens the About window.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00193}{193}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00178}{178}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00193 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00178 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ad67ed7fd5a32062af7525e6e610c607d_ad67ed7fd5a32062af7525e6e610c607d}\label{class_emulator_1_1_view_model_1_1_main_view_model_ad67ed7fd5a32062af7525e6e610c607d_ad67ed7fd5a32062af7525e6e610c607d}} 
@@ -1054,11 +1038,11 @@ The Relay Command that adds a new breakpoint
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00188}{188}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00173}{173}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00188 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00173 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}\label{class_emulator_1_1_view_model_1_1_main_view_model_a0baef7da610d2756bb8a28a0449b9f8e_a0baef7da610d2756bb8a28a0449b9f8e}} 
@@ -1073,11 +1057,11 @@ The AT28\+C010 ROM.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00069}{69}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00067}{67}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00069 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00067 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}\label{class_emulator_1_1_view_model_1_1_main_view_model_a6107a219d36057af6bdc4227acd7c093_a6107a219d36057af6bdc4227acd7c093}} 
@@ -1092,11 +1076,11 @@ The AT28\+C010 ROM.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00064}{64}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00062}{62}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00064 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00062 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}\label{class_emulator_1_1_view_model_1_1_main_view_model_a0b5248168c403d7b22a13cd580d1b8cb_a0b5248168c403d7b22a13cd580d1b8cb}} 
@@ -1111,11 +1095,11 @@ The Breakpoints
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00084}{84}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00082}{82}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00084 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00082 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_abfd3a1a877f66736f0b0aa7a76ed1014_abfd3a1a877f66736f0b0aa7a76ed1014}\label{class_emulator_1_1_view_model_1_1_main_view_model_abfd3a1a877f66736f0b0aa7a76ed1014_abfd3a1a877f66736f0b0aa7a76ed1014}} 
@@ -1130,11 +1114,11 @@ The Command that loads or saves the settings.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00208}{208}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00193}{193}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00208 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00193 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_abc2f7618ab53e0bb56d63259d2151040_abc2f7618ab53e0bb56d63259d2151040}\label{class_emulator_1_1_view_model_1_1_main_view_model_abc2f7618ab53e0bb56d63259d2151040_abc2f7618ab53e0bb56d63259d2151040}} 
@@ -1149,11 +1133,11 @@ The Slider CPU Speed
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00158}{158}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00138}{138}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00158 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00138 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_acc912ebe3d2dda58e4e1bfb753701095_acc912ebe3d2dda58e4e1bfb753701095}\label{class_emulator_1_1_view_model_1_1_main_view_model_acc912ebe3d2dda58e4e1bfb753701095_acc912ebe3d2dda58e4e1bfb753701095}} 
@@ -1168,23 +1152,23 @@ The Current Disassembly
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00099}{99}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00097}{97}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00100         \{}
-\DoxyCodeLine{00101             \textcolor{keyword}{get}}
-\DoxyCodeLine{00102             \{}
-\DoxyCodeLine{00103                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}} != \textcolor{keyword}{null})}
-\DoxyCodeLine{00104                 \{}
-\DoxyCodeLine{00105                     \textcolor{keywordflow}{return} \textcolor{keywordtype}{string}.Format(\textcolor{stringliteral}{"{}\{0\} \{1\}"{}}, \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}}.\mbox{\hyperlink{class_hardware_1_1_disassembly_a36c24bc939c910f06e59e310831bf592_a36c24bc939c910f06e59e310831bf592}{OpCodeString}}, \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}}.\mbox{\hyperlink{class_hardware_1_1_disassembly_a91bd4979539e3d6dfcba828aca5d83e4_a91bd4979539e3d6dfcba828aca5d83e4}{DisassemblyOutput}});}
-\DoxyCodeLine{00106                 \}}
-\DoxyCodeLine{00107                 \textcolor{keywordflow}{else}}
-\DoxyCodeLine{00108                 \{}
-\DoxyCodeLine{00109                     \textcolor{keywordflow}{return} \textcolor{keywordtype}{string}.Empty;}
-\DoxyCodeLine{00110                 \}}
-\DoxyCodeLine{00111             \}}
-\DoxyCodeLine{00112         \}}
+\DoxyCodeLine{00098         \{}
+\DoxyCodeLine{00099             \textcolor{keyword}{get}}
+\DoxyCodeLine{00100             \{}
+\DoxyCodeLine{00101                 \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}} != \textcolor{keyword}{null})}
+\DoxyCodeLine{00102                 \{}
+\DoxyCodeLine{00103                     \textcolor{keywordflow}{return} \textcolor{keywordtype}{string}.Format(\textcolor{stringliteral}{"{}\{0\} \{1\}"{}}, \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}}.\mbox{\hyperlink{class_hardware_1_1_disassembly_a36c24bc939c910f06e59e310831bf592_a36c24bc939c910f06e59e310831bf592}{OpCodeString}}, \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aaa88743b54b6e1a121c750786b314d93_aaa88743b54b6e1a121c750786b314d93}{CurrentDisassembly}}.\mbox{\hyperlink{class_hardware_1_1_disassembly_a91bd4979539e3d6dfcba828aca5d83e4_a91bd4979539e3d6dfcba828aca5d83e4}{DisassemblyOutput}});}
+\DoxyCodeLine{00104                 \}}
+\DoxyCodeLine{00105                 \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00106                 \{}
+\DoxyCodeLine{00107                     \textcolor{keywordflow}{return} \textcolor{keywordtype}{string}.Empty;}
+\DoxyCodeLine{00108                 \}}
+\DoxyCodeLine{00109             \}}
+\DoxyCodeLine{00110         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_aa917f1ea6eb897889116627e75197cbf_aa917f1ea6eb897889116627e75197cbf}\label{class_emulator_1_1_view_model_1_1_main_view_model_aa917f1ea6eb897889116627e75197cbf_aa917f1ea6eb897889116627e75197cbf}} 
@@ -1199,16 +1183,16 @@ The current serial port object name.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00213}{213}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00198}{198}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00214         \{}
-\DoxyCodeLine{00215             \textcolor{keyword}{get}}
-\DoxyCodeLine{00216             \{}
-\DoxyCodeLine{00217                 \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}{ObjectName}};}
-\DoxyCodeLine{00218             \}}
-\DoxyCodeLine{00219         \}}
+\DoxyCodeLine{00199         \{}
+\DoxyCodeLine{00200             \textcolor{keyword}{get}}
+\DoxyCodeLine{00201             \{}
+\DoxyCodeLine{00202                 \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c51}{W65C51}}.\mbox{\hyperlink{class_hardware_1_1_w65_c51_aa4db181a4dbc29808f1f27890e9703fe_aa4db181a4dbc29808f1f27890e9703fe}{ObjectName}};}
+\DoxyCodeLine{00203             \}}
+\DoxyCodeLine{00204         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a9d6993b33a8c56460e1618b31fc11761_a9d6993b33a8c56460e1618b31fc11761}\label{class_emulator_1_1_view_model_1_1_main_view_model_a9d6993b33a8c56460e1618b31fc11761_a9d6993b33a8c56460e1618b31fc11761}} 
@@ -1223,11 +1207,11 @@ The 62256 RAM.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00039}{39}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00037}{37}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00039 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00037 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}\label{class_emulator_1_1_view_model_1_1_main_view_model_ad32dbd58b3c610b05e6f823fed6847a6_ad32dbd58b3c610b05e6f823fed6847a6}} 
@@ -1242,11 +1226,11 @@ Is the banked ROM Loaded.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00153}{153}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00133}{133}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00153 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00133 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}\label{class_emulator_1_1_view_model_1_1_main_view_model_aad64b13977f5e45489f628e5a944aeff_aad64b13977f5e45489f628e5a944aeff}} 
@@ -1261,18 +1245,18 @@ Is the Prorgam Running
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00140}{140}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00120}{120}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00141         \{}
-\DoxyCodeLine{00142             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aea5bad1eb73459933b9baf077b80a69d_aea5bad1eb73459933b9baf077b80a69d}{isRunning}}; \}}
-\DoxyCodeLine{00143             \textcolor{keyword}{set}}
-\DoxyCodeLine{00144             \{}
-\DoxyCodeLine{00145                 W65C02.isRunning = value;}
-\DoxyCodeLine{00146                 RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRunning"{}});}
-\DoxyCodeLine{00147             \}}
-\DoxyCodeLine{00148         \}}
+\DoxyCodeLine{00121         \{}
+\DoxyCodeLine{00122             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_hardware_1_1_w65_c02}{W65C02}}.\mbox{\hyperlink{class_hardware_1_1_w65_c02_aea5bad1eb73459933b9baf077b80a69d_aea5bad1eb73459933b9baf077b80a69d}{isRunning}}; \}}
+\DoxyCodeLine{00123             \textcolor{keyword}{set}}
+\DoxyCodeLine{00124             \{}
+\DoxyCodeLine{00125                 W65C02.isRunning = value;}
+\DoxyCodeLine{00126                 RaisePropertyChanged(\textcolor{stringliteral}{"{}IsRunning"{}});}
+\DoxyCodeLine{00127             \}}
+\DoxyCodeLine{00128         \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b_a77444b822722e3a6533d26f03251d66b}\label{class_emulator_1_1_view_model_1_1_main_view_model_a77444b822722e3a6533d26f03251d66b_a77444b822722e3a6533d26f03251d66b}} 
@@ -1287,42 +1271,30 @@ The Current Memory Page
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00074}{74}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00072}{72}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00074 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00072 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
-\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0_a8393603c75099ab35c03f60c4fa823c0}\label{class_emulator_1_1_view_model_1_1_main_view_model_a8393603c75099ab35c03f60c4fa823c0_a8393603c75099ab35c03f60c4fa823c0}} 
-\index{Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}!MemoryPageOffset@{MemoryPageOffset}}
-\index{MemoryPageOffset@{MemoryPageOffset}!Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}}
-\doxyparagraph{\texorpdfstring{MemoryPageOffset}{MemoryPageOffset}}
-{\footnotesize\ttfamily string Emulator.\+View\+Model.\+Main\+View\+Model.\+Memory\+Page\+Offset\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+\mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc_a49c70ab506c43d9e159bf9c2f6c011dc}\label{class_emulator_1_1_view_model_1_1_main_view_model_a49c70ab506c43d9e159bf9c2f6c011dc_a49c70ab506c43d9e159bf9c2f6c011dc}} 
+\index{Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}!MemoryVisualCommand@{MemoryVisualCommand}}
+\index{MemoryVisualCommand@{MemoryVisualCommand}!Emulator.ViewModel.MainViewModel@{Emulator.ViewModel.MainViewModel}}
+\doxyparagraph{\texorpdfstring{MemoryVisualCommand}{MemoryVisualCommand}}
+{\footnotesize\ttfamily Relay\+Command Emulator.\+View\+Model.\+Main\+View\+Model.\+Memory\+Visual\+Command\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
 
 
 
-The Memory Page number.  
+Relay\+Command for opening the Memory View window.  
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00122}{122}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00153}{153}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00123         \{}
-\DoxyCodeLine{00124             \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}{\_memoryPageOffset}}.ToString(\textcolor{stringliteral}{"{}X"{}}); \}}
-\DoxyCodeLine{00125             \textcolor{keyword}{set}}
-\DoxyCodeLine{00126             \{}
-\DoxyCodeLine{00127                 \textcolor{keywordflow}{if} (\textcolor{keywordtype}{string}.IsNullOrEmpty(value))}
-\DoxyCodeLine{00128                     \textcolor{keywordflow}{return};}
-\DoxyCodeLine{00129                 \textcolor{keywordflow}{try}}
-\DoxyCodeLine{00130                 \{}
-\DoxyCodeLine{00131                     \mbox{\hyperlink{class_emulator_1_1_view_model_1_1_main_view_model_a8670b217882200882d2ce10272b6c18f_a8670b217882200882d2ce10272b6c18f}{\_memoryPageOffset}} = Convert.ToInt32(value, 16);}
-\DoxyCodeLine{00132                 \}}
-\DoxyCodeLine{00133                 \textcolor{keywordflow}{catch} \{ \}}
-\DoxyCodeLine{00134             \}}
-\DoxyCodeLine{00135         \}}
+\DoxyCodeLine{00153 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}\label{class_emulator_1_1_view_model_1_1_main_view_model_aee902050fd981fe5b409bdc5e2505ba0_aee902050fd981fe5b409bdc5e2505ba0}} 
@@ -1337,11 +1309,11 @@ Memory management and 65SIB.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00054}{54}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00052}{52}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00054 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00052 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}\label{class_emulator_1_1_view_model_1_1_main_view_model_a66abf02dc2c4b0be17e6a564b3a28f74_a66abf02dc2c4b0be17e6a564b3a28f74}} 
@@ -1356,11 +1328,11 @@ The number of cycles.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00117}{117}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00115}{115}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00117 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00115 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}\label{class_emulator_1_1_view_model_1_1_main_view_model_a560aec2527d4fc50eaf24c998569b2f3_a560aec2527d4fc50eaf24c998569b2f3}} 
@@ -1375,11 +1347,11 @@ The output log
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00079}{79}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00077}{77}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00079 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00077 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a228fad16f934cab4350d5d78232ed9e3_a228fad16f934cab4350d5d78232ed9e3}\label{class_emulator_1_1_view_model_1_1_main_view_model_a228fad16f934cab4350d5d78232ed9e3_a228fad16f934cab4350d5d78232ed9e3}} 
@@ -1394,11 +1366,11 @@ The Relay Command that Removes an existing breakpoint.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00198}{198}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00183}{183}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00198 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00183 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_acbebfa6910614d0ed71355ec1c4d0464_acbebfa6910614d0ed71355ec1c4d0464}\label{class_emulator_1_1_view_model_1_1_main_view_model_acbebfa6910614d0ed71355ec1c4d0464_acbebfa6910614d0ed71355ec1c4d0464}} 
@@ -1413,11 +1385,11 @@ Relay Command to Reset the Program back to its initial state.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00173}{173}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00158}{158}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00173 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00158 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a0f26df78dc79f2a05c4f3814c691ece5_a0f26df78dc79f2a05c4f3814c691ece5}\label{class_emulator_1_1_view_model_1_1_main_view_model_a0f26df78dc79f2a05c4f3814c691ece5_a0f26df78dc79f2a05c4f3814c691ece5}} 
@@ -1432,11 +1404,11 @@ The currently loaded binary file. (If it is indeed loaded, that is.)
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00094}{94}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00092}{92}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00094 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00092 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_ae0af5f3b23ec3ea1999b6c14005b6309_ae0af5f3b23ec3ea1999b6c14005b6309}\label{class_emulator_1_1_view_model_1_1_main_view_model_ae0af5f3b23ec3ea1999b6c14005b6309_ae0af5f3b23ec3ea1999b6c14005b6309}} 
@@ -1451,11 +1423,11 @@ Relay Command that Run/\+Pauses Execution
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00178}{178}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00163}{163}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00178 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00163 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}\label{class_emulator_1_1_view_model_1_1_main_view_model_a4450f87fb85dfaa6b3ad77b1856a95ae_a4450f87fb85dfaa6b3ad77b1856a95ae}} 
@@ -1470,11 +1442,11 @@ The Currently Selected Breakpoint
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00089}{89}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00087}{87}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00089 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00087 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_afc26fd8dd3cd6889b96f759d06af9dea_afc26fd8dd3cd6889b96f759d06af9dea}\label{class_emulator_1_1_view_model_1_1_main_view_model_afc26fd8dd3cd6889b96f759d06af9dea_afc26fd8dd3cd6889b96f759d06af9dea}} 
@@ -1489,11 +1461,11 @@ The Command that loads or saves the settings.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00203}{203}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00188}{188}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00203 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00188 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a991932b99e0fbcc15a28ab33032e6bc7_a991932b99e0fbcc15a28ab33032e6bc7}\label{class_emulator_1_1_view_model_1_1_main_view_model_a991932b99e0fbcc15a28ab33032e6bc7_a991932b99e0fbcc15a28ab33032e6bc7}} 
@@ -1508,11 +1480,11 @@ The \mbox{\hyperlink{namespace_emulator_1_1_model}{Model}} used for saving, load
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00163}{163}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00143}{143}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00163 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00143 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a26f578c362e6f11a8c5f686cb4e761f5_a26f578c362e6f11a8c5f686cb4e761f5}\label{class_emulator_1_1_view_model_1_1_main_view_model_a26f578c362e6f11a8c5f686cb4e761f5_a26f578c362e6f11a8c5f686cb4e761f5}} 
@@ -1527,11 +1499,11 @@ Relay\+Command for Stepping through the progam one instruction at a time.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00168}{168}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00148}{148}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00168 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00148 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a35dd83b4be9d111598054e96f9b0f582_a35dd83b4be9d111598054e96f9b0f582}\label{class_emulator_1_1_view_model_1_1_main_view_model_a35dd83b4be9d111598054e96f9b0f582_a35dd83b4be9d111598054e96f9b0f582}} 
@@ -1546,11 +1518,11 @@ Relay Command that updates the Memory Map when the Page changes
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00183}{183}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00168}{168}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00183 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00168 \{ \textcolor{keyword}{get}; \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a9fddace9f89324f737366d140bd570bd_a9fddace9f89324f737366d140bd570bd}\label{class_emulator_1_1_view_model_1_1_main_view_model_a9fddace9f89324f737366d140bd570bd_a9fddace9f89324f737366d140bd570bd}} 
@@ -1565,11 +1537,11 @@ The 65C02 Processor.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00044}{44}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00042}{42}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00044 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00042 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}\label{class_emulator_1_1_view_model_1_1_main_view_model_a87f39f4d03d67c6991d47e49ab27c175_a87f39f4d03d67c6991d47e49ab27c175}} 
@@ -1584,11 +1556,11 @@ General Purpose I/O, Shift Registers and Timers.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00049}{49}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00047}{47}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00049 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00047 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a334e09c67fd9a69c6dda182af52c90a5_a334e09c67fd9a69c6dda182af52c90a5}\label{class_emulator_1_1_view_model_1_1_main_view_model_a334e09c67fd9a69c6dda182af52c90a5_a334e09c67fd9a69c6dda182af52c90a5}} 
@@ -1603,11 +1575,11 @@ The ACIA serial interface.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00059}{59}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00057}{57}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00059 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
+\DoxyCodeLine{00057 \{ \textcolor{keyword}{get}; \textcolor{keyword}{private} \textcolor{keyword}{set}; \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_emulator_1_1_view_model_1_1_main_view_model_a6e9f7cb5daedffc02336ace58d7b893c_a6e9f7cb5daedffc02336ace58d7b893c}\label{class_emulator_1_1_view_model_1_1_main_view_model_a6e9f7cb5daedffc02336ace58d7b893c_a6e9f7cb5daedffc02336ace58d7b893c}} 
@@ -1622,11 +1594,11 @@ The title for the main window.
 
 
 
-Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00224}{224}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
+Definition at line \mbox{\hyperlink{_main_view_model_8cs_source_l00209}{209}} of file \mbox{\hyperlink{_main_view_model_8cs_source}{Main\+View\+Model.\+cs}}.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{00224 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} Versioning.Product.Title; \} \}}
+\DoxyCodeLine{00209 \{ \textcolor{keyword}{get} \{ \textcolor{keywordflow}{return} Versioning.Product.Title; \} \}}
 
 \end{DoxyCode}
 

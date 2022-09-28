@@ -158,34 +158,34 @@
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l02068">2068</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 2069</span>        {</div>
-<div class="line"><span class="lineno"> 2070</span>            var value = useXRegister ? <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a> : <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>;</div>
+<p class="definition">Definition at line <a class="el" href="_w65_c02_8cs_source.html#l02063">2063</a> of file <a class="el" href="_w65_c02_8cs_source.html">W65C02.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 2064</span>        {</div>
+<div class="line"><span class="lineno"> 2065</span>            var value = useXRegister ? <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a> : <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a>;</div>
+<div class="line"><span class="lineno"> 2066</span> </div>
+<div class="line"><span class="lineno"> 2067</span>            <span class="keywordflow">if</span> (decrement)</div>
+<div class="line"><span class="lineno"> 2068</span>                value -= 1;</div>
+<div class="line"><span class="lineno"> 2069</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 2070</span>                value += 1;</div>
 <div class="line"><span class="lineno"> 2071</span> </div>
-<div class="line"><span class="lineno"> 2072</span>            <span class="keywordflow">if</span> (decrement)</div>
-<div class="line"><span class="lineno"> 2073</span>                value -= 1;</div>
-<div class="line"><span class="lineno"> 2074</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 2075</span>                value += 1;</div>
+<div class="line"><span class="lineno"> 2072</span>            <span class="keywordflow">if</span> (value &lt; 0x00)</div>
+<div class="line"><span class="lineno"> 2073</span>                value += 0x100;</div>
+<div class="line"><span class="lineno"> 2074</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value &gt; 0xFF)</div>
+<div class="line"><span class="lineno"> 2075</span>                value -= 0x100;</div>
 <div class="line"><span class="lineno"> 2076</span> </div>
-<div class="line"><span class="lineno"> 2077</span>            <span class="keywordflow">if</span> (value &lt; 0x00)</div>
-<div class="line"><span class="lineno"> 2078</span>                value += 0x100;</div>
-<div class="line"><span class="lineno"> 2079</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (value &gt; 0xFF)</div>
-<div class="line"><span class="lineno"> 2080</span>                value -= 0x100;</div>
-<div class="line"><span class="lineno"> 2081</span> </div>
-<div class="line"><span class="lineno"> 2082</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">SetZeroFlag</a>(value);</div>
-<div class="line"><span class="lineno"> 2083</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">SetNegativeFlag</a>(value);</div>
-<div class="line"><span class="lineno"> 2084</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">IncrementCycleCount</a>();</div>
-<div class="line"><span class="lineno"> 2085</span> </div>
-<div class="line"><span class="lineno"> 2086</span>            <span class="keywordflow">if</span> (useXRegister)</div>
-<div class="line"><span class="lineno"> 2087</span>                <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a> = value;</div>
-<div class="line"><span class="lineno"> 2088</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno"> 2089</span>                <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> = value;</div>
-<div class="line"><span class="lineno"> 2090</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50_html_a23427a87d4c5710bf18e0bc338badc50"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">Hardware.W65C02.YRegister</a></div><div class="ttdeci">int YRegister</div><div class="ttdoc">The Y Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00044">W65C02.cs:44</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31_html_a53423ebf1b14c250ee208da8021e6e31"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">Hardware.W65C02.SetZeroFlag</a></div><div class="ttdeci">void SetZeroFlag(int value)</div><div class="ttdoc">Sets the IsResultZero register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01328">W65C02.cs:1328</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652_html_aa30549de0474b350b3fa8ca30714a652"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">Hardware.W65C02.XRegister</a></div><div class="ttdeci">int XRegister</div><div class="ttdoc">The X Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00039">W65C02.cs:39</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1_html_ab2dda1182961a15be691d895e3f3c4b1"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">Hardware.W65C02.SetNegativeFlag</a></div><div class="ttdeci">void SetNegativeFlag(int value)</div><div class="ttdoc">Sets the IsSignNegative register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01318">W65C02.cs:1318</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245_html_aeed967d6db628ec61f047dd0d79ca245"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">Hardware.W65C02.IncrementCycleCount</a></div><div class="ttdeci">void IncrementCycleCount()</div><div class="ttdoc">Increments the Cycle Count, causes a CycleCountIncrementedAction to fire.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00217">W65C02.cs:217</a></div></div>
+<div class="line"><span class="lineno"> 2077</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">SetZeroFlag</a>(value);</div>
+<div class="line"><span class="lineno"> 2078</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">SetNegativeFlag</a>(value);</div>
+<div class="line"><span class="lineno"> 2079</span>            <a class="code hl_function" href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">IncrementCycleCount</a>();</div>
+<div class="line"><span class="lineno"> 2080</span> </div>
+<div class="line"><span class="lineno"> 2081</span>            <span class="keywordflow">if</span> (useXRegister)</div>
+<div class="line"><span class="lineno"> 2082</span>                <a class="code hl_property" href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">XRegister</a> = value;</div>
+<div class="line"><span class="lineno"> 2083</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno"> 2084</span>                <a class="code hl_property" href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">YRegister</a> = value;</div>
+<div class="line"><span class="lineno"> 2085</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50_html_a23427a87d4c5710bf18e0bc338badc50"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a23427a87d4c5710bf18e0bc338badc50.html#a23427a87d4c5710bf18e0bc338badc50">Hardware.W65C02.YRegister</a></div><div class="ttdeci">int YRegister</div><div class="ttdoc">The Y Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00043">W65C02.cs:43</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31_html_a53423ebf1b14c250ee208da8021e6e31"><div class="ttname"><a href="class_hardware_1_1_w65_c02_a53423ebf1b14c250ee208da8021e6e31.html#a53423ebf1b14c250ee208da8021e6e31">Hardware.W65C02.SetZeroFlag</a></div><div class="ttdeci">void SetZeroFlag(int value)</div><div class="ttdoc">Sets the IsResultZero register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01327">W65C02.cs:1327</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652_html_aa30549de0474b350b3fa8ca30714a652"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aa30549de0474b350b3fa8ca30714a652.html#aa30549de0474b350b3fa8ca30714a652">Hardware.W65C02.XRegister</a></div><div class="ttdeci">int XRegister</div><div class="ttdoc">The X Index Register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00038">W65C02.cs:38</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1_html_ab2dda1182961a15be691d895e3f3c4b1"><div class="ttname"><a href="class_hardware_1_1_w65_c02_ab2dda1182961a15be691d895e3f3c4b1.html#ab2dda1182961a15be691d895e3f3c4b1">Hardware.W65C02.SetNegativeFlag</a></div><div class="ttdeci">void SetNegativeFlag(int value)</div><div class="ttdoc">Sets the IsSignNegative register</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l01317">W65C02.cs:1317</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245_html_aeed967d6db628ec61f047dd0d79ca245"><div class="ttname"><a href="class_hardware_1_1_w65_c02_aeed967d6db628ec61f047dd0d79ca245.html#aeed967d6db628ec61f047dd0d79ca245">Hardware.W65C02.IncrementCycleCount</a></div><div class="ttdeci">void IncrementCycleCount()</div><div class="ttdoc">Increments the Cycle Count, causes a CycleCountIncrementedAction to fire.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c02_8cs_source.html#l00216">W65C02.cs:216</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -123,30 +123,30 @@
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00254">254</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  255</span>        {</div>
-<div class="line"><span class="lineno">  256</span>            <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a>)</div>
-<div class="line"><span class="lineno">  257</span>            {</div>
-<div class="line"><span class="lineno">  258</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b.html#a9d9aec62f430df25eba3c522ddae912b">WriteCOM</a>(data);</div>
-<div class="line"><span class="lineno">  259</span>            }</div>
-<div class="line"><span class="lineno">  260</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 1)</div>
-<div class="line"><span class="lineno">  261</span>            {</div>
-<div class="line"><span class="lineno">  262</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077.html#a0beb6caf59660b8d3ce8bc2abd1d9077">Reset</a>();</div>
-<div class="line"><span class="lineno">  263</span>            }</div>
-<div class="line"><span class="lineno">  264</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 2)</div>
-<div class="line"><span class="lineno">  265</span>            {</div>
-<div class="line"><span class="lineno">  266</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1.html#ac255fa899abc27ac92f665d4957b2be1">CommandRegister</a>(data);</div>
-<div class="line"><span class="lineno">  267</span>            }</div>
-<div class="line"><span class="lineno">  268</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 3)</div>
-<div class="line"><span class="lineno">  269</span>            {</div>
-<div class="line"><span class="lineno">  270</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0.html#a912e82bacb2b6048f32d2e572ecd9ab0">ControlRegister</a>(data);</div>
-<div class="line"><span class="lineno">  271</span>            }</div>
-<div class="line"><span class="lineno">  272</span>        }</div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_html_a0beb6caf59660b8d3ce8bc2abd1d9077"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077.html#a0beb6caf59660b8d3ce8bc2abd1d9077">Hardware.W65C51.Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00060">W65C51.cs:60</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0_html_a912e82bacb2b6048f32d2e572ecd9ab0"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0.html#a912e82bacb2b6048f32d2e572ecd9ab0">Hardware.W65C51.ControlRegister</a></div><div class="ttdeci">void ControlRegister(byte data)</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00401">W65C51.cs:401</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_html_a95d3f77dcc70a2d539fd471a5275a981"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Hardware.W65C51.Offset</a></div><div class="ttdeci">int Offset</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00027">W65C51.cs:27</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_html_a9d9aec62f430df25eba3c522ddae912b"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b.html#a9d9aec62f430df25eba3c522ddae912b">Hardware.W65C51.WriteCOM</a></div><div class="ttdeci">void WriteCOM(byte data)</div><div class="ttdoc">Called in order to write to the serial port.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00135">W65C51.cs:135</a></div></div>
-<div class="ttc" id="aclass_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1_html_ac255fa899abc27ac92f665d4957b2be1"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1.html#ac255fa899abc27ac92f665d4957b2be1">Hardware.W65C51.CommandRegister</a></div><div class="ttdeci">void CommandRegister(byte data)</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00297">W65C51.cs:297</a></div></div>
+<p class="definition">Definition at line <a class="el" href="_w65_c51_8cs_source.html#l00253">253</a> of file <a class="el" href="_w65_c51_8cs_source.html">W65C51.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  254</span>        {</div>
+<div class="line"><span class="lineno">  255</span>            <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a>)</div>
+<div class="line"><span class="lineno">  256</span>            {</div>
+<div class="line"><span class="lineno">  257</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b.html#a9d9aec62f430df25eba3c522ddae912b">WriteCOM</a>(data);</div>
+<div class="line"><span class="lineno">  258</span>            }</div>
+<div class="line"><span class="lineno">  259</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 1)</div>
+<div class="line"><span class="lineno">  260</span>            {</div>
+<div class="line"><span class="lineno">  261</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077.html#a0beb6caf59660b8d3ce8bc2abd1d9077">Reset</a>();</div>
+<div class="line"><span class="lineno">  262</span>            }</div>
+<div class="line"><span class="lineno">  263</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 2)</div>
+<div class="line"><span class="lineno">  264</span>            {</div>
+<div class="line"><span class="lineno">  265</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1.html#ac255fa899abc27ac92f665d4957b2be1">CommandRegister</a>(data);</div>
+<div class="line"><span class="lineno">  266</span>            }</div>
+<div class="line"><span class="lineno">  267</span>            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (address == <a class="code hl_property" href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Offset</a> + 3)</div>
+<div class="line"><span class="lineno">  268</span>            {</div>
+<div class="line"><span class="lineno">  269</span>                <a class="code hl_function" href="class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0.html#a912e82bacb2b6048f32d2e572ecd9ab0">ControlRegister</a>(data);</div>
+<div class="line"><span class="lineno">  270</span>            }</div>
+<div class="line"><span class="lineno">  271</span>        }</div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077_html_a0beb6caf59660b8d3ce8bc2abd1d9077"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a0beb6caf59660b8d3ce8bc2abd1d9077.html#a0beb6caf59660b8d3ce8bc2abd1d9077">Hardware.W65C51.Reset</a></div><div class="ttdeci">void Reset()</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00059">W65C51.cs:59</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0_html_a912e82bacb2b6048f32d2e572ecd9ab0"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a912e82bacb2b6048f32d2e572ecd9ab0.html#a912e82bacb2b6048f32d2e572ecd9ab0">Hardware.W65C51.ControlRegister</a></div><div class="ttdeci">void ControlRegister(byte data)</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00400">W65C51.cs:400</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981_html_a95d3f77dcc70a2d539fd471a5275a981"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a95d3f77dcc70a2d539fd471a5275a981.html#a95d3f77dcc70a2d539fd471a5275a981">Hardware.W65C51.Offset</a></div><div class="ttdeci">int Offset</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00026">W65C51.cs:26</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b_html_a9d9aec62f430df25eba3c522ddae912b"><div class="ttname"><a href="class_hardware_1_1_w65_c51_a9d9aec62f430df25eba3c522ddae912b.html#a9d9aec62f430df25eba3c522ddae912b">Hardware.W65C51.WriteCOM</a></div><div class="ttdeci">void WriteCOM(byte data)</div><div class="ttdoc">Called in order to write to the serial port.</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00134">W65C51.cs:134</a></div></div>
+<div class="ttc" id="aclass_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1_html_ac255fa899abc27ac92f665d4957b2be1"><div class="ttname"><a href="class_hardware_1_1_w65_c51_ac255fa899abc27ac92f665d4957b2be1.html#ac255fa899abc27ac92f665d4957b2be1">Hardware.W65C51.CommandRegister</a></div><div class="ttdeci">void CommandRegister(byte data)</div><div class="ttdef"><b>Definition:</b> <a href="_w65_c51_8cs_source.html#l00296">W65C51.cs:296</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
