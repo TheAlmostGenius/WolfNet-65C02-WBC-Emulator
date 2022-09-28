@@ -1,13 +1,13 @@
 @echo off
-if exist .\Documentation (rd /S /Q .\Documentation)
+if exist .\docs (rd /S /Q .\docs)
 Tools\Doxygen\doxygen.exe doxyfile.config
-pushd .\Documentation\LaTeX\
+pushd .\docs\LaTeX\
 call make.bat pdf
 popd
-pushd .\Documentation\html_docs
+pushd .\docs\html_docs
 ::start index.html
 ::start index.hhp
 popd
-::if exist .\Documentation\LaTeX\refman.pdf (move .\Documentation\LaTeX\refman.pdf .\Documentation\Documentation.pdf && start .\Documentation\Documentation.pdf) else (echo Build failed: PDF output not found!)
-::if exist .\Documentation\rtf\refman.rtf (move .\Documentation\rtf\refman.rtf .\Documentation\Documentation.rtf && start .\Documentation\Documentation.rtf) else (echo Build failed: RTF output not found!)
+::if exist .\docs\LaTeX\refman.pdf (move .\docs\LaTeX\refman.pdf .\docs\docs.pdf && start .\docs\docs.pdf) else (echo Build failed: PDF output not found!)
+::if exist .\docs\rtf\refman.rtf (move .\docs\rtf\refman.rtf .\docs\docs.rtf && start .\docs\docs.rtf) else (echo Build failed: RTF output not found!)
 del *.bak
