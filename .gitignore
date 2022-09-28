@@ -176,4 +176,5 @@ Reference/*
 Settings.xml
 *.log
 *.bin
+update-bios.bat
 Latest.exe

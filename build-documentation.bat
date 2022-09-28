@@ -1,5 +1,6 @@
 @echo off
-if exist .\docs (rd /S /Q .\docs)
+if exist .\docs\*\ (rd /S /Q .\docs\*\)
+pause
 Tools\Doxygen\doxygen.exe doxyfile.config
 pushd .\docs\LaTeX\
 call make.bat pdf
