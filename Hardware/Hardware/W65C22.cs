@@ -13,11 +13,17 @@ namespace Hardware
         #region Fields
         public readonly bool T1IsIRQ = false;
         public readonly bool T2IsIRQ = true;
+        public int IORB = 0x00;
+        public int IORA = 0x01;
+        public int DDRB = 0x02;
+        public int DDRA = 0x03;
         public int T1CL = 0x04;
         public int T1CH = 0x05;
         public int T2CL = 0x08;
         public int T2CH = 0x09;
+        public int SR = 0x0A;
         public int ACR = 0x0B;
+        public int PCR = 0x0C;
         public int IFR = 0x0D;
         public int IER = 0x0E;
 
@@ -127,7 +133,7 @@ namespace Hardware
             T1Init(1000);
             T2Init(1000);
 
-            Offset = MemoryMap.DeviceArea.Offset | offset;
+            Offset = MemoryMap.DeviceArea.Offset + offset;
             Memory = new byte[length + 1];
             Length = length;
             Processor = processor;
