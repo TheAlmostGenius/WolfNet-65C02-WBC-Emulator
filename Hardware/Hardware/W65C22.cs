@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Remoting.Messaging;
 using System.Timers;
 
 namespace Hardware
@@ -164,7 +165,7 @@ namespace Hardware
             T1Object.Start();
             T1Object.Elapsed += OnT1Timeout;
             T1TimerControl = true;
-            T1IsEnabled = false;
+            T1IsEnabled = true;
         }
 
         /// <summary>
@@ -178,7 +179,7 @@ namespace Hardware
             T2Object.Start();
             T2Object.Elapsed += OnT2Timeout;
             T2TimerControl = true;
-            T2IsEnabled = false;
+            T2IsEnabled = true;
         }
 
         /// <summary>
@@ -190,7 +191,7 @@ namespace Hardware
         /// <returns>Byte value stored in the local memory.</returns>
         public byte Read(int address)
         {
-            if ((Offset <= address) && (address <= End))
+            if (address == ACR)
             {
                 byte data = 0x00;
                 if (T1TimerControl)
@@ -217,23 +218,23 @@ namespace Hardware
         /// <param name="data">The data to be written.</param>
         public void Write(int address, byte data)
         {
-            if ((address == Offset + ACR) && ((data | ACR_T1TC) == ACR_T1TC))
+            Memory[address - Offset] = data;
+            if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T1TC) == ACR_T1TC))
             {
                 T1TimerControl = true;
             }
-            else if ((address == Offset + ACR) && ((data | ACR_T2TC) == ACR_T2TC))
+            else if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T2TC) == ACR_T2TC))
             {
                 T2TimerControl = true;
             }
-            else if ((address == Offset + IER) && ((data | IER_T1) == IER_T1) && ((data | IER_EN) == IER_EN))
+            else if ((address == Offset + IER) && ((Memory[address - Offset] & IER_T1) == IER_T1) && ((Memory[address - Offset] & IER_EN) == IER_EN))
             {
                 T1Init(T1Interval);
             }
-            else if ((address == Offset + IER) && ((data | IER_T2) == IER_T2) && ((data | IER_EN) == IER_EN))
+            else if ((address == Offset + IER) && ((Memory[address - Offset] & IER_T2) == IER_T2) && ((Memory[address - Offset] & IER_EN) == IER_EN))
             {
                 T2Init(T2Interval);
             }
-            Memory[address - Offset] = data;
         }
         #endregion
 
