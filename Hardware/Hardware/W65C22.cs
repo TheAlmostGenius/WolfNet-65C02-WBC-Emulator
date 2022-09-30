@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Runtime.Remoting.Messaging;
 using System.Timers;
 
@@ -27,16 +28,18 @@ namespace Hardware
         public int IFR = 0x0D;
         public int IER = 0x0E;
 
-        public byte ACR_T1TC = (byte)(1 << 7);
-        public byte ACR_T2TC = (byte)(1 << 6);
+        public byte ACR_LATCH = 0x03;
+        public byte ACR_T2TC = 0x20;
+        public byte ACR_T1TC = 0x40;
+        public byte ACR_PB7 = 0x80;
 
-        public byte IFR_T2 = (byte)(1 << 5);
-        public byte IFR_T1 = (byte)(1 << 6);
-        public byte IFR_INT = (byte)(1 << 7);
+        public byte IFR_T2 = 0x20;
+        public byte IFR_T1 = 0x40;
+        public byte IFR_INT = 0x80;
 
-        public byte IER_T2 = (byte)(1 << 5);
-        public byte IER_T1 = (byte)(1 << 6);
-        public byte IER_EN = (byte)(1 << 7);
+        public byte IER_T2 = 0x20;
+        public byte IER_T1 = 0x40;
+        public byte IER_EN = 0x80;
         #endregion
 
         #region Properties
@@ -60,69 +63,57 @@ namespace Hardware
         /// </summary>
         public int End { get { return Offset + Length; } }
 
+        public bool LatchingEnabled { get; set; }
+
+        public byte LastCB1 { get; set; }
+
+        public byte LastCA1 { get; set; }
+
         /// <summary>
         /// T1 timer control
         /// </summary>
-        public bool T1TimerControl
-        {
-            get { return T1Object.AutoReset; }
-            set { T1Object.AutoReset = value; }
-        }
+        public bool T1TimerControl { get; set; }
 
         /// <summary>
         /// T2 timer control.
         /// </summary>
-        public bool T2TimerControl
-        {
-            get { return T2Object.AutoReset; }
-            set { T2Object.AutoReset = value; }
-        }
+        public bool T2TimerControl { get; set; }
 
         /// <summary>
         /// Enable or check whether timer 1 is enabled or not.
         /// </summary>
-        public bool T1IsEnabled
-        {
-            get { return T1Object.Enabled; }
-            set { T1Object.Enabled = value; }
-        }
+        public bool T1IsEnabled { get; set; }
 
         /// <summary>
         /// Enable or check whether timer 2 is enabled or not.
         /// </summary>
-        public bool T2IsEnabled
-        {
-            get { return T2Object.Enabled; }
-            set { T2Object.Enabled = value; }
-        }
+        public bool T2IsEnabled { get; set; }
 
         /// <summary>
         /// Set or check the timer 1 interval.
         /// </summary>
-        public double T1Interval { get { return (int)(Read(T1CL) | (Read(T1CH) << 8)); } }
+        public double T1Interval { get { return (int)(Read(T1CL + Offset) | (Read(T1CH + Offset) << 8)); } }
 
         /// <summary>
         /// Set or check the timer 2 interval.
         /// </summary>
         public double T2Interval
         {
-            get { return (int)(Read(T2CL) | (Read(T2CH) << 8)); }
+            get { return (int)(Read(T2CL + Offset) | (Read(T2CH + Offset) << 8)); }
         }
-
-        /// <summary>
-        /// Set or get the timer 1 object.
-        /// </summary>
-        public Timer T1Object { get; set; }
-
-        /// <summary>
-        /// Set or get the timer 2 object.
-        /// </summary>
-        public Timer T2Object { get; set; }
 
         /// <summary>
         /// Local referemce to the processor object.
         /// </summary>
         private W65C02 Processor { get; set; }
+
+        private BackgroundWorker _backgroundWorker { get; set; }
+
+        private bool PreviousPHI2 { get; set; }
+
+        private short Timer1 { get; set; }
+
+        private short Timer2 { get; set; }
         #endregion
 
         #region Public Methods
@@ -130,6 +121,7 @@ namespace Hardware
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
+            
             T1Init(1000);
             T2Init(1000);
 
@@ -137,6 +129,16 @@ namespace Hardware
             Memory = new byte[length + 1];
             Length = length;
             Processor = processor;
+
+            _backgroundWorker = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            }; _backgroundWorker = new BackgroundWorker
+            {
+                WorkerSupportsCancellation = true
+            };
+            _backgroundWorker.DoWork += BackgroundWorkerDoWork;
+            _backgroundWorker.RunWorkerAsync();
         }
 
         /// <summary>
@@ -169,7 +171,29 @@ namespace Hardware
         /// <returns>Byte value stored in the local memory.</returns>
         public byte Read(int address)
         {
-            if (address == ACR)
+            if (address - Offset == IORB)
+            {
+                if (LatchingEnabled)
+                {
+                    return LastCB1;
+                }
+                else
+                {
+                    return Memory[address - Offset];
+                }
+            }
+            else if (address - Offset == IORA)
+            {
+                if (LatchingEnabled)
+                {
+                    return LastCA1;
+                }
+                else
+                {
+                    return Memory[address - Offset];
+                }
+            }
+            else if (address - Offset == ACR)
             {
                 byte data = 0x00;
                 if (T1TimerControl)
@@ -180,10 +204,16 @@ namespace Hardware
                 {
                     data = (byte)(data | ACR_T2TC);
                 }
+                else if (LatchingEnabled)
+                {
+                    data = (byte)(data | ACR_LATCH);
+                }
                 return data;
             }
             else
             {
+                // DDRB
+                // DDRA
                 return Memory[address - Offset];
             }
         }
@@ -224,9 +254,6 @@ namespace Hardware
         /// <param name="value">Timer initialization value in milliseconds.</param>
         private void T1Init(double value)
         {
-            T1Object = new Timer(value);
-            T1Object.Start();
-            T1Object.Elapsed += OnT1Timeout;
             T1TimerControl = true;
             T1IsEnabled = true;
         }
@@ -238,25 +265,27 @@ namespace Hardware
         /// <param name="value">Timer initialization value in milliseconds.</param>
         private void T2Init(double value)
         {
-            T2Object = new Timer(value);
-            T2Object.Start();
-            T2Object.Elapsed += OnT2Timeout;
             T2TimerControl = true;
             T2IsEnabled = true;
         }
-
-        /// <summary>
-        /// Called whenever System.Timers.Timer event elapses.
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnT1Timeout(object sender, ElapsedEventArgs e)
+        
+        private void OnT1Timeout()
         {
             if (Processor.isRunning)
             {
                 if (T1IsEnabled)
                 {
+                    if ((Memory[ACR] | ACR_PB7) == ACR_PB7)
+                    {
+                        if ((Memory[IORB] | 0x80) == 0x80)
+                        {
+                            Memory[IORB] &= 0x7F;
+                        }
+                        else
+                        {
+                            Memory[IORB] |= 0x80;
+                        }
+                    }
                     Write(IFR, (byte)(IFR_T1 & IFR_INT));
                     if (T1IsIRQ)
                     {
@@ -270,13 +299,7 @@ namespace Hardware
             }
         }
 
-        /// <summary>
-        /// Called whenever System.Timers.Timer event elapses
-        /// </summary>
-        /// 
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnT2Timeout(object sender, ElapsedEventArgs e)
+        private void OnT2Timeout()
         {
             if (Processor.isRunning)
             {
@@ -291,6 +314,37 @@ namespace Hardware
                     {
                         Processor.TriggerNmi = true;
                     }
+                }
+            }
+        }
+
+        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        {
+            var worker = sender as BackgroundWorker;
+
+            while (true)
+            {
+                if (worker != null && worker.CancellationPending)
+                {
+                    e.Cancel = true;
+                    return;
+                }
+
+                if (Processor.PHI2 != PreviousPHI2)
+                {
+                    --Timer1;
+                    --Timer2;
+                    PreviousPHI2 = Processor.PHI2;
+                }
+
+                if (Timer1 == 0)
+                {
+                    OnT1Timeout();
+                }
+
+                if (Timer2 == 0)
+                {
+                    OnT2Timeout();
                 }
             }
         }

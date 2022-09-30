@@ -115,6 +115,11 @@ namespace Emulator.ViewModel
         public int NumberOfCycles { get; private set; }
 
         /// <summary>
+        /// The previous number of cycles.
+        /// </summary>
+        public int PreviousNumberOfCycles { get; private set; }
+
+        /// <summary>
         ///  Is the Prorgam Running
         /// </summary>
         public bool IsRunning
@@ -537,6 +542,7 @@ namespace Emulator.ViewModel
 
             StepProcessor();
             UpdateMemoryPage();
+            IncrementPhi2();
 
             OutputLog.Insert(0, GetOutputLog());
             UpdateUi();
@@ -618,8 +624,20 @@ namespace Emulator.ViewModel
                     outputLogs.Clear();
                     UpdateUi();
                 }
+                IncrementPhi2();
                 Thread.Sleep(GetSleepValue());
             }
+        }
+
+        private void IncrementPhi2()
+        {
+            for (int i = 0; i <= (NumberOfCycles - PreviousNumberOfCycles); i++)
+            {
+                W65C02.PHI2 = false;
+                W65C02.PHI2 = true;
+
+            }
+            PreviousNumberOfCycles = NumberOfCycles;
         }
 
         private bool IsBreakPointTriggered()

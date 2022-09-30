@@ -151,6 +151,8 @@
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,113,80,0" x:Name="CurrentInstructionText" Text="Current Instruction" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Right" Margin="0,113,368,0" x:Name="ProgramCounterText" Text="PC" VerticalAlignment="Top" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="640,312,0,0" x:Name="CycleCountText" Text="Cycle Count" VerticalAlignment="Top" />
+        <CheckBox Height="16" HorizontalAlignment="Left" Margin="907,273,0,0" x:Name="PHI2" VerticalAlignment="Top" IsChecked="{Binding W65C02.PHI2, Mode=OneWay}" />
+        <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="907,253,0,0" x:Name="PHI2Text" Text="PHI2" VerticalAlignment="Top" />
         <CheckBox Height="16" HorizontalAlignment="Left" Margin="869,273,0,0" x:Name="CarryFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.CarryFlag, Mode=OneWay}" />
         <TextBlock FontSize="14" Height="23" HorizontalAlignment="Left" Margin="869,253,0,0" x:Name="CarryFlagText" Text="C" VerticalAlignment="Top" />
         <CheckBox Height="16" HorizontalAlignment="Left" Margin="831,273,0,0" x:Name="ZeroFlag" VerticalAlignment="Top" IsChecked="{Binding W65C02.ZeroFlag, Mode=OneWay}" />
