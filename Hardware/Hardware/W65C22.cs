@@ -82,11 +82,17 @@ namespace Hardware
         /// <summary>
         /// Enable or check whether timer 1 is enabled or not.
         /// </summary>
+        /// <todo>
+        /// Add in get and set for Memory[]
+        /// </todo>
         public bool T1IsEnabled { get; set; }
 
         /// <summary>
         /// Enable or check whether timer 2 is enabled or not.
         /// </summary>
+        /// <todo>
+        /// Add in get and set for Memory[]
+        /// </todo>
         public bool T2IsEnabled { get; set; }
 
         /// <summary>
@@ -107,7 +113,7 @@ namespace Hardware
         /// </summary>
         private W65C02 Processor { get; set; }
 
-        private BackgroundWorker _backgroundWorker { get; set; }
+        private BackgroundWorker BackgroundWorker { get; set; }
 
         private bool PreviousPHI2 { get; set; }
 
@@ -122,23 +128,17 @@ namespace Hardware
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
             
-            T1Init(1000);
-            T2Init(1000);
-
             Offset = MemoryMap.DeviceArea.Offset + offset;
             Memory = new byte[length + 1];
             Length = length;
             Processor = processor;
 
-            _backgroundWorker = new BackgroundWorker
-            {
-                WorkerSupportsCancellation = true
-            }; _backgroundWorker = new BackgroundWorker
+            BackgroundWorker = new BackgroundWorker
             {
                 WorkerSupportsCancellation = true
             };
-            _backgroundWorker.DoWork += BackgroundWorkerDoWork;
-            _backgroundWorker.RunWorkerAsync();
+            BackgroundWorker.DoWork += BackgroundWorkerDoWork;
+            BackgroundWorker.RunWorkerAsync();
         }
 
         /// <summary>
@@ -155,11 +155,10 @@ namespace Hardware
         /// <summary>
         /// Initialization routine for the VIA.
         /// </summary>
-        /// <param name="timer">Amount of time to set timers for.</param>
-        public void Init(double timer)
+        public void Init()
         {
-            T1Init(timer);
-            T2Init(timer);
+            T1Init();
+            T2Init();
         }
 
         /// <summary>
@@ -237,11 +236,11 @@ namespace Hardware
             }
             else if ((address == Offset + IER) && ((Memory[address - Offset] & IER_T1) == IER_T1) && ((Memory[address - Offset] & IER_EN) == IER_EN))
             {
-                T1Init(T1Interval);
+                T1IsEnabled = true;
             }
             else if ((address == Offset + IER) && ((Memory[address - Offset] & IER_T2) == IER_T2) && ((Memory[address - Offset] & IER_EN) == IER_EN))
             {
-                T2Init(T2Interval);
+                T2IsEnabled = true;
             }
         }
         #endregion
@@ -250,9 +249,7 @@ namespace Hardware
         /// <summary>
         /// T1 counter initialization routine.
         /// </summary>
-        /// 
-        /// <param name="value">Timer initialization value in milliseconds.</param>
-        private void T1Init(double value)
+        private void T1Init()
         {
             T1TimerControl = true;
             T1IsEnabled = true;
@@ -261,9 +258,7 @@ namespace Hardware
         /// <summary>
         /// T2 counter initialization routine.
         /// </summary>
-        /// 
-        /// <param name="value">Timer initialization value in milliseconds.</param>
-        private void T2Init(double value)
+        private void T2Init()
         {
             T2TimerControl = true;
             T2IsEnabled = true;
@@ -340,11 +335,17 @@ namespace Hardware
                 if (Timer1 == 0)
                 {
                     OnT1Timeout();
+                    /// <TODO>
+                    /// Add in handling for reset of Timer1
+                    /// </TODO>
                 }
 
                 if (Timer2 == 0)
                 {
                     OnT2Timeout();
+                    /// <TODO>
+                    /// Add in handling for reset of Timer2
+                    /// </TODO>
                 }
             }
         }
