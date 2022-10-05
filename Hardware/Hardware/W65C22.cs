@@ -233,16 +233,39 @@ namespace Hardware
         /// <param name="data">The data to be written.</param>
         public void Write(int address, byte data)
         {
-            if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T1TC) == ACR_T1TC))
+            if (address == Offset + IORB)
+            {
+                Memory[IORB] = (byte)(data & ~Memory[DDRB]);
+            }
+            else if (address == Offset + IORA)
+            {
+                Memory[IORA] = (byte)(data & ~Memory[DDRA]);
+            }
+            else if (address == Offset + T1CH)
+            {
+                Timer1 = (short)((data << 8) & Memory[T1CL]);
+                Memory[IFR] &= 0xC7;
+            }
+            else if (address == Offset + T2CH)
+            {
+                Timer2 = (short)((data << 8) & Memory[T2CL]);
+                Memory[IFR] &= 0xD7;
+            }
+            else if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T1TC) == ACR_T1TC))
             {
                 T1TimerControl = true;
+                Memory[address - Offset] = data;
             }
             else if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T2TC) == ACR_T2TC))
             {
                 T2TimerControl = true;
+                Memory[address - Offset] = data;
+            }
+            else
+            {
+                Memory[address - Offset] = data;
             }
 
-            Memory[address - Offset] = data;
         }
         #endregion
 
