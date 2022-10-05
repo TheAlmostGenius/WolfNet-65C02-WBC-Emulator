@@ -133,8 +133,6 @@ namespace Hardware
 
         /// Set to true when an IRQ has occurred and is being processed by the CPU
         public bool TriggerIRQ { get; private set; }
-
-        public bool PHI2 { get; set; }
         #endregion
 
         #region Public Methods
@@ -164,7 +162,6 @@ namespace Hardware
             _previousInterrupt = false;
             TriggerNmi = false;
             TriggerIRQ = false;
-            PHI2 = false;
         }
 
         /// <summary>

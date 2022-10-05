@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Numerics;
 using System.ComponentModel;
-using System.Runtime.Remoting.Messaging;
-using System.Timers;
+using GalaSoft.MvvmLight.Messaging;
+using System.Net;
 
 namespace Hardware
 {
@@ -20,6 +21,8 @@ namespace Hardware
         public int DDRA = 0x03;
         public int T1CL = 0x04;
         public int T1CH = 0x05;
+        public int T1LL = 0x06;
+        public int T1LH = 0x07;
         public int T2CL = 0x08;
         public int T2CH = 0x09;
         public int SR = 0x0A;
@@ -80,14 +83,6 @@ namespace Hardware
         public bool T2TimerControl { get; set; }
 
         /// <summary>
-        /// Enable or check whether timer 1 is enabled or not.
-        /// </summary>
-        /// <todo>
-        /// Add in get and set for Memory[]
-        /// </todo>
-        public bool T1IsEnabled { get; set; }
-
-        /// <summary>
         /// Enable or check whether timer 2 is enabled or not.
         /// </summary>
         /// <todo>
@@ -96,26 +91,9 @@ namespace Hardware
         public bool T2IsEnabled { get; set; }
 
         /// <summary>
-        /// Set or check the timer 1 interval.
-        /// </summary>
-        public double T1Interval { get { return (int)(Read(T1CL + Offset) | (Read(T1CH + Offset) << 8)); } }
-
-        /// <summary>
-        /// Set or check the timer 2 interval.
-        /// </summary>
-        public double T2Interval
-        {
-            get { return (int)(Read(T2CL + Offset) | (Read(T2CH + Offset) << 8)); }
-        }
-
-        /// <summary>
         /// Local referemce to the processor object.
         /// </summary>
         private W65C02 Processor { get; set; }
-
-        private BackgroundWorker BackgroundWorker { get; set; }
-
-        private bool PreviousPHI2 { get; set; }
 
         private short Timer1 { get; set; }
 
@@ -127,18 +105,13 @@ namespace Hardware
         {
             if (offset > MemoryMap.DeviceArea.Length)
                 throw new ArgumentException(String.Format("The offset: {0} is greater than the device area: {1}", offset, MemoryMap.DeviceArea.Length));
-            
+
             Offset = MemoryMap.DeviceArea.Offset + offset;
             Memory = new byte[length + 1];
             Length = length;
             Processor = processor;
 
-            BackgroundWorker = new BackgroundWorker
-            {
-                WorkerSupportsCancellation = true
-            };
-            BackgroundWorker.DoWork += BackgroundWorkerDoWork;
-            BackgroundWorker.RunWorkerAsync();
+            Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
         }
 
         /// <summary>
@@ -147,9 +120,7 @@ namespace Hardware
         public void Reset()
         {
             T1TimerControl = false;
-            T1IsEnabled = false;
             T2TimerControl = false;
-            T2IsEnabled = false;
         }
 
         /// <summary>
@@ -172,6 +143,11 @@ namespace Hardware
         {
             if (address - Offset == IORB)
             {
+                if ((Memory[PCR] != 0x01) && (Memory[PCR] != 0x03))
+                {
+                    Memory[IFR] &= 0xF7;
+                }
+
                 if (LatchingEnabled)
                 {
                     return LastCB1;
@@ -183,6 +159,11 @@ namespace Hardware
             }
             else if (address - Offset == IORA)
             {
+                if ((Memory[PCR] != 0x01) && (Memory[PCR] != 0x03))
+                {
+                    Memory[IFR] &= 0xFE;
+                }
+
                 if (LatchingEnabled)
                 {
                     return LastCA1;
@@ -191,6 +172,35 @@ namespace Hardware
                 {
                     return Memory[address - Offset];
                 }
+            }
+            else if (address - Offset == T1CL)
+            {
+                if (!LatchingEnabled)
+                {
+                    Memory[IFR] &= 0xC7;
+                }
+                return (byte)(Timer1 & 0xFF);
+            }
+            else if (address - Offset == T1CH)
+            {
+                return (byte)((Timer1 >> 8) & 0xFF);
+            }
+            else if (address - Offset == T1LL)
+            {
+                return (byte)(Timer1 & 0xFF);
+            }
+            else if (address - Offset == T1LH)
+            {
+                return (byte)((Timer1 >> 8) & 0xFF);
+            }
+            else if (address - Offset == T2CL)
+            {
+                Memory[IFR] &= 0xD7;
+                return (byte)(Timer2 & 0xFF);
+            }
+            else if (address - Offset == T2CH)
+            {
+                return (byte)((Timer2 >> 8) & 0xFF);
             }
             else if (address - Offset == ACR)
             {
@@ -211,8 +221,6 @@ namespace Hardware
             }
             else
             {
-                // DDRB
-                // DDRA
                 return Memory[address - Offset];
             }
         }
@@ -225,7 +233,6 @@ namespace Hardware
         /// <param name="data">The data to be written.</param>
         public void Write(int address, byte data)
         {
-            Memory[address - Offset] = data;
             if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T1TC) == ACR_T1TC))
             {
                 T1TimerControl = true;
@@ -234,14 +241,8 @@ namespace Hardware
             {
                 T2TimerControl = true;
             }
-            else if ((address == Offset + IER) && ((Memory[address - Offset] & IER_T1) == IER_T1) && ((Memory[address - Offset] & IER_EN) == IER_EN))
-            {
-                T1IsEnabled = true;
-            }
-            else if ((address == Offset + IER) && ((Memory[address - Offset] & IER_T2) == IER_T2) && ((Memory[address - Offset] & IER_EN) == IER_EN))
-            {
-                T2IsEnabled = true;
-            }
+
+            Memory[address - Offset] = data;
         }
         #endregion
 
@@ -252,7 +253,6 @@ namespace Hardware
         private void T1Init()
         {
             T1TimerControl = true;
-            T1IsEnabled = true;
         }
 
         /// <summary>
@@ -261,18 +261,18 @@ namespace Hardware
         private void T2Init()
         {
             T2TimerControl = true;
-            T2IsEnabled = true;
         }
-        
+
         private void OnT1Timeout()
         {
+            var doFirePB7 = false;
             if (Processor.isRunning)
             {
-                if (T1IsEnabled)
+                if (((Memory[IER] & IER_T1) == IER_T1) && ((Memory[IER] & IER_EN) == IER_EN))
                 {
-                    if ((Memory[ACR] | ACR_PB7) == ACR_PB7)
+                    if ((Memory[ACR] & ACR_PB7) == ACR_PB7)
                     {
-                        if ((Memory[IORB] | 0x80) == 0x80)
+                        if ((Memory[IORB] & 0x80) == 0x80)
                         {
                             Memory[IORB] &= 0x7F;
                         }
@@ -281,14 +281,29 @@ namespace Hardware
                             Memory[IORB] |= 0x80;
                         }
                     }
-                    Write(IFR, (byte)(IFR_T1 & IFR_INT));
-                    if (T1IsIRQ)
+                    else if ((Memory[ACR] & 0xC0) == 0xC0)
                     {
-                        Processor.InterruptRequest();
+                        Memory[IORB] &= 0x7F;
+                        doFirePB7 = true;
                     }
-                    else
+
+                    if ((Read(IER) & IER_T1) == IER_T1)
                     {
-                        Processor.TriggerNmi = true;
+                        Write(IFR, (byte)(IFR_T1 & IFR_INT));
+
+                        if (T1IsIRQ)
+                        {
+                            Processor.InterruptRequest();
+                        }
+                        else
+                        {
+                            Processor.TriggerNmi = true;
+                        }
+
+                        if (doFirePB7)
+                        {
+                            Memory[IORB] |= 0x80;
+                        }
                     }
                 }
             }
@@ -298,54 +313,83 @@ namespace Hardware
         {
             if (Processor.isRunning)
             {
-                if (T2IsEnabled)
+                if (((Memory[IER] & IER_T2) == IER_T2) && ((Memory[IER] & IER_EN) == IER_EN))
                 {
-                    Write(IFR, (byte)(IFR_T2 & IFR_INT));
-                    if (T2IsIRQ)
+                    if ((Read(IER) & IER_T1) == IER_T1)
                     {
-                        Processor.InterruptRequest();
-                    }
-                    else
-                    {
-                        Processor.TriggerNmi = true;
+                        Write(IFR, (byte)(IFR_T2 & IFR_INT));
+                        if (T2IsIRQ)
+                        {
+                            Processor.InterruptRequest();
+                        }
+                        else
+                        {
+                            Processor.TriggerNmi = true;
+                        }
                     }
                 }
             }
         }
 
-        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        private void NotificationMessageReceived(NotificationMessage notificationMessage)
         {
-            var worker = sender as BackgroundWorker;
-
-            while (true)
+            if (notificationMessage.Notification == "PHI2")
             {
-                if (worker != null && worker.CancellationPending)
+                if ((Memory[ACR] & 0x1C) == 0x04)
                 {
-                    e.Cancel = true;
-                    return;
+                    Memory[SR] = (byte)(Memory[SR] << 1);
+                }
+                else if ((Memory[ACR] & 0x1C) == 0x14)
+                {
+                    Memory[SR] = (byte)((Memory[SR] >> 1) | (Memory[SR] << (8 - 1)));
                 }
 
-                if (Processor.PHI2 != PreviousPHI2)
+                if (((Memory[IER] & IER_T1) == IER_T1) && ((Memory[IER] & IER_EN) == IER_EN))
                 {
                     --Timer1;
-                    --Timer2;
-                    PreviousPHI2 = Processor.PHI2;
+                    if (Timer1 == 0)
+                    {
+                        OnT1Timeout();
+
+                        if (T1TimerControl)
+                        {
+                            Timer1 = (short)(Memory[T1CL] & (Memory[T1CH] << 8));
+                        }
+                        else
+                        {
+                            Memory[IER] &= 0xCF;
+                        }
+                    }
                 }
 
-                if (Timer1 == 0)
+                if (((Memory[IER] & IER_T2) == IER_T2) && ((Memory[IER] & IER_EN) == IER_EN))
                 {
-                    OnT1Timeout();
-                    /// <TODO>
-                    /// Add in handling for reset of Timer1
-                    /// </TODO>
-                }
+                    if ((((Memory[ACR] & 0x20) == 0x20) && !((Memory[IORB] & 0x40) == 0x40)) || ((Memory[ACR] & 0x20) != 0x20))
+                    {
+                        --Timer2;
+                        if (Timer2 == 0)
+                        {
+                            if ((Memory[ACR] & 0x1C) == 0x08)
+                            {
+                                Memory[SR] = (byte)(Memory[SR] << 1);
+                            }
+                            else if ((Memory[ACR] & 0x1C) == 0x18)
+                            {
+                                Memory[SR] = (byte)((Memory[SR] >> 1) | (Memory[SR] << (8 - 1)));
+                            }
 
-                if (Timer2 == 0)
-                {
-                    OnT2Timeout();
-                    /// <TODO>
-                    /// Add in handling for reset of Timer2
-                    /// </TODO>
+                            OnT2Timeout();
+
+                            if (T2TimerControl)
+                            {
+                                Timer2 = (short)(Memory[T2CL] & (Memory[T2CH] << 8));
+                            }
+                            else
+                            {
+                                Memory[IER] &= 0xDF;
+                            }
+                        }
+                    }
                 }
             }
         }

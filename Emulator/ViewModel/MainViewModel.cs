@@ -11,6 +11,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Security.Cryptography;
 using System.Threading;
 using System.Windows;
 using System.Xml.Serialization;
@@ -253,9 +254,9 @@ namespace Emulator.ViewModel
             W65C51 = new W65C51(W65C02, MemoryMap.Devices.ACIA.Offset);
             W65C51.Init(SettingsModel.ComPortName.ToString());
             W65C22 = new W65C22(W65C02, MemoryMap.Devices.GPIO.Offset, MemoryMap.Devices.GPIO.Length);
-            W65C22.Init(1000);
+            W65C22.Init();
             MM65SIB = new W65C22(W65C02, MemoryMap.Devices.MM65SIB.Offset, MemoryMap.Devices.MM65SIB.Length);
-            MM65SIB.Init(1000);
+            MM65SIB.Init();
 
             MemoryMap.Init(W65C02, W65C22, MM65SIB, W65C51, HM62256, AT28C010, AT28C64);
 
@@ -263,7 +264,11 @@ namespace Emulator.ViewModel
             byte[][] _bios = AT28C64.ReadFile(FileLocations.BiosFile);
             if (_bios == null)
             {
+#if !DEBUG
                 Environment.Exit(ExitCodes.NO_BIOS);
+#else
+                throw new Exception("NO BIOS!");
+#endif
             }
             AT28C64.Load(_bios);
 
@@ -348,9 +353,9 @@ namespace Emulator.ViewModel
             stream.Close();
             W65C51.Fini();
         }
-        #endregion
+#endregion
 
-        #region Private Methods
+#region Private Methods
         private void Close(IClosable window)
         {
             if ((window != null) && (!IsRunning))
@@ -542,10 +547,19 @@ namespace Emulator.ViewModel
 
             StepProcessor();
             UpdateMemoryPage();
-            IncrementPhi2();
+            UpdatePHI2();
 
             OutputLog.Insert(0, GetOutputLog());
             UpdateUi();
+        }
+
+        private void UpdatePHI2()
+        {
+            for (int i = 0; i <= (NumberOfCycles - PreviousNumberOfCycles); i++)
+            {
+                Messenger.Default.Send(new NotificationMessage("PHI2"));
+            }
+            PreviousNumberOfCycles = NumberOfCycles;
         }
 
         private void UpdateUi()
@@ -624,20 +638,9 @@ namespace Emulator.ViewModel
                     outputLogs.Clear();
                     UpdateUi();
                 }
-                IncrementPhi2();
+                UpdatePHI2();
                 Thread.Sleep(GetSleepValue());
             }
-        }
-
-        private void IncrementPhi2()
-        {
-            for (int i = 0; i <= (NumberOfCycles - PreviousNumberOfCycles); i++)
-            {
-                W65C02.PHI2 = false;
-                W65C02.PHI2 = true;
-
-            }
-            PreviousNumberOfCycles = NumberOfCycles;
         }
 
         private bool IsBreakPointTriggered()
@@ -774,6 +777,6 @@ namespace Emulator.ViewModel
             SelectedBreakpoint = null;
             RaisePropertyChanged("SelectedBreakpoint");
         }
-        #endregion
+#endregion
     }
 }
