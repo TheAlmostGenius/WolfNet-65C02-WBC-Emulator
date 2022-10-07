@@ -251,6 +251,10 @@ namespace Hardware
                 Timer2 = (short)((data << 8) & Memory[T2CL]);
                 Memory[IFR] &= 0xD7;
             }
+            else if (address == Offset + IFR)
+            {
+                return;
+            }
             else if ((address == Offset + ACR) && ((Memory[address - Offset] & ACR_T1TC) == ACR_T1TC))
             {
                 T1TimerControl = true;
@@ -356,6 +360,18 @@ namespace Hardware
 
         private void NotificationMessageReceived(NotificationMessage notificationMessage)
         {
+            if (notificationMessage.Notification == "CB2")
+            {
+                if ((Memory[ACR] & 0x1C) == 0x04)
+                {
+                    Memory[SR] = (byte)(Memory[SR] << 1);
+                }
+                else if ((Memory[ACR] & 0x1C) == 0x14)
+                {
+                    Memory[SR] = (byte)((Memory[SR] >> 1) | (Memory[SR] << (8 - 1)));
+                }
+            }
+
             if (notificationMessage.Notification == "PHI2")
             {
                 if ((Memory[ACR] & 0x1C) == 0x04)
