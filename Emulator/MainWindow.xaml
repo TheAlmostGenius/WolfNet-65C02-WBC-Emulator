@@ -78,6 +78,9 @@
                 <MenuItem Header="View" VerticalAlignment="Top" HorizontalAlignment="Left" >
                     <MenuItem Header="View _Memory" Command="{Binding MemoryVisualCommand}" IsEnabled="{Binding Path=IsRomLoaded}" />
                 </MenuItem>
+                <MenuItem Header="Control" VerticalAlignment="Top" HorizontalAlignment="Left" >
+                    <MenuItem Header="Control _GPIO" Command="{Binding GpioCommand}" IsEnabled="{Binding Path=IsRomLoaded}" />
+                </MenuItem>
                 <MenuItem VerticalAlignment="Top" HorizontalAlignment="Left" Header="Breakpoints" >
                     <MenuItem Header="_Add" IsEnabled="{Binding Path=IsRomLoaded}" Icon="/Images/add.png" Command="{Binding AddBreakPointCommand}" />
                     <MenuItem Header="_Remove" IsEnabled="{Binding Path=IsRomLoaded}" Icon="/Images/remove.png" Command="{Binding RemoveBreakPointCommand}" />

@@ -153,6 +153,8 @@ namespace Emulator.ViewModel
         /// </summary>
         public RelayCommand StepCommand { get; set; }
 
+        public RelayCommand GpioCommand { get; set; }
+
         /// <summary>
         /// RelayCommand for opening the Memory View window.
         /// </summary>
@@ -275,6 +277,7 @@ namespace Emulator.ViewModel
             AboutCommand = new RelayCommand(About);
             AddBreakPointCommand = new RelayCommand(AddBreakPoint);
             CloseCommand = new RelayCommand<IClosable>(Close);
+            GpioCommand = new RelayCommand(Gpio);
             MemoryVisualCommand = new RelayCommand(MemoryView);
             RemoveBreakPointCommand = new RelayCommand(RemoveBreakPoint);
             ResetCommand = new RelayCommand(Reset);
@@ -755,6 +758,11 @@ namespace Emulator.ViewModel
                 _backgroundWorker.CancelAsync();
 
             Messenger.Default.Send(new NotificationMessage<SettingsModel>(SettingsModel, "SettingsWindow"));
+        }
+
+        private void Gpio()
+        {
+            Messenger.Default.Send(new NotificationMessage("GpioControlWindow"));
         }
 
         private void MemoryView()
