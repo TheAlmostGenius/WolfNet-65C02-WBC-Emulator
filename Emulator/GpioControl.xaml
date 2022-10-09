@@ -11,6 +11,14 @@
         <Label Content="PA3" Foreground="AntiqueWhite" Margin="58,10,710,400" />
         <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA3_State}" Margin="66,28,718,390" />
         <Label Content="PA4" Foreground="AntiqueWhite" Margin="82,10,686,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA4_State}" Margin="90,28,694,390" RenderTransformOrigin="2.45,0.676" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA4_State}" Margin="90,28,694,390" />
+        <Label Content="PA5" Foreground="AntiqueWhite" Margin="107,10,663,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA5_State}" Margin="113,28,669,390" />
+        <Label Content="PA6" Foreground="AntiqueWhite" Margin="130,10,638,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA6_State}" Margin="137,28,647,390" />
+        <Label Content="PA7" Foreground="AntiqueWhite" Margin="154,10,614,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA7_State}" Margin="162,28,622,390" />
+        <Label Content="PA8" Foreground="AntiqueWhite" Margin="178,10,590,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA8_State}" Margin="186,28,598,390" />
     </Grid>
 </Window>
