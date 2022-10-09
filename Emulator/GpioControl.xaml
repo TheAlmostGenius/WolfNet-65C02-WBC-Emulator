@@ -40,9 +40,14 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
-        <DataGrid Foreground="AntiqueWhite" Background="Black">
-            
-        </DataGrid>
+    <Grid Background="Black">
+        <Label Content="PA1" Foreground="AntiqueWhite" Margin="11,10,759,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA1_State}" Margin="17,28,765,390" />
+        <Label Content="PA2" Foreground="AntiqueWhite" Margin="34,10,734,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA2_State}" Margin="41,28,743,390" />
+        <Label Content="PA3" Foreground="AntiqueWhite" Margin="58,10,710,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA3_State}" Margin="66,28,718,390" />
+        <Label Content="PA4" Foreground="AntiqueWhite" Margin="82,10,686,400" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA4_State}" Margin="90,28,694,390" RenderTransformOrigin="2.45,0.676" />
     </Grid>
 </Window>
