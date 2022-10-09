@@ -52,11 +52,19 @@ namespace Emulator.ViewModel
         }
 
         /// <summary>
-        /// The SaveFileViewModel Instance
+        /// The MemoryVisualViewModel Instance
         /// </summary>
         public MemoryVisualViewModel MemoryVisual
         {
             get { return ServiceLocator.Current.GetInstance<MemoryVisualViewModel>(); }
+        }
+
+        /// <summary>
+        /// The GpioControlViewModel Instance
+        /// </summary>
+        public GpioControlViewModel GpioControl
+        {
+            get { return ServiceLocator.Current.GetInstance<GpioControlViewModel>(); }
         }
 
         /// <summary>
