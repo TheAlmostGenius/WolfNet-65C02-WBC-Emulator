@@ -1,8 +1,7 @@
-﻿using System;
-using System.Numerics;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.ComponentModel;
-using GalaSoft.MvvmLight.Messaging;
-using System.Net;
+using System.Net.NetworkInformation;
 
 namespace Hardware
 {
@@ -13,6 +12,8 @@ namespace Hardware
     public class W65C22
     {
         #region Fields
+        private readonly BackgroundWorker _backgroundWorker;
+
         public readonly bool T1IsIRQ = false;
         public readonly bool T2IsIRQ = true;
         public int IORB = 0x00;
@@ -36,13 +37,14 @@ namespace Hardware
         public byte ACR_T1TC = 0x40;
         public byte ACR_PB7 = 0x80;
 
+        public byte IFR_CA2 = 0x01;
+        public byte IFR_CA1 = 0x02;
+        public byte IFR_SR = 0x04;
+        public byte IFR_CB2 = 0x08;
+        public byte IFR_CB1 = 0x10;
         public byte IFR_T2 = 0x20;
         public byte IFR_T1 = 0x40;
         public byte IFR_INT = 0x80;
-
-        public byte IER_T2 = 0x20;
-        public byte IER_T1 = 0x40;
-        public byte IER_EN = 0x80;
         #endregion
 
         #region Properties
@@ -112,6 +114,10 @@ namespace Hardware
             Processor = processor;
 
             Messenger.Default.Register<NotificationMessage>(this, NotificationMessageReceived);
+
+            _backgroundWorker = new BackgroundWorker { WorkerSupportsCancellation = true, WorkerReportsProgress = false };
+            _backgroundWorker.DoWork += BackgroundWorkerDoWork;
+            _backgroundWorker.RunWorkerAsync();
         }
 
         /// <summary>
@@ -145,8 +151,10 @@ namespace Hardware
             {
                 if ((Memory[PCR] != 0x01) && (Memory[PCR] != 0x03))
                 {
-                    Memory[IFR] &= 0xF7;
+                    Memory[IFR] &= (byte)~IFR_CB2;
                 }
+
+                Memory[IFR] = (byte)~IFR_CB1;
 
                 if (LatchingEnabled)
                 {
@@ -154,15 +162,17 @@ namespace Hardware
                 }
                 else
                 {
-                    return Memory[address - Offset];
+                    return (byte)(Memory[address - Offset] & ~DDRB);
                 }
             }
             else if (address - Offset == IORA)
             {
                 if ((Memory[PCR] != 0x01) && (Memory[PCR] != 0x03))
                 {
-                    Memory[IFR] &= 0xFE;
+                    Memory[IFR] &= (byte)~IFR_CA2;
                 }
+
+                Memory[IFR] = (byte)~IFR_CA1;
 
                 if (LatchingEnabled)
                 {
@@ -170,14 +180,14 @@ namespace Hardware
                 }
                 else
                 {
-                    return Memory[address - Offset];
+                    return (byte)(Memory[address - Offset] & ~DDRA);
                 }
             }
             else if (address - Offset == T1CL)
             {
                 if (!LatchingEnabled)
                 {
-                    Memory[IFR] &= 0xC7;
+                    Memory[IFR] &= (byte)~IFR_T1;
                 }
                 return (byte)(Timer1 & 0xFF);
             }
@@ -195,12 +205,17 @@ namespace Hardware
             }
             else if (address - Offset == T2CL)
             {
-                Memory[IFR] &= 0xD7;
+                Memory[IFR] &= (byte)~IFR_T2;
                 return (byte)(Timer2 & 0xFF);
             }
             else if (address - Offset == T2CH)
             {
                 return (byte)((Timer2 >> 8) & 0xFF);
+            }
+            else if (address - Offset == SR)
+            {
+                Memory[IFR] &= (byte)~IFR_SR;
+                return Memory[address - Offset];
             }
             else if (address - Offset == ACR)
             {
@@ -235,21 +250,36 @@ namespace Hardware
         {
             if (address == Offset + IORB)
             {
+                if ((Memory[PCR] != 0x01) && (Memory[PCR] != 0x03))
+                {
+                    Memory[IFR] &= (byte)~IFR_CB2;
+                }
+                Memory[IFR] &= (byte)~IFR_CB1;
                 Memory[IORB] = (byte)(data & ~Memory[DDRB]);
             }
             else if (address == Offset + IORA)
             {
+                if ((Memory[PCR] != 0x01) && (Memory[PCR] != 0x03))
+                {
+                    Memory[IFR] &= (byte)~IFR_CA2;
+                }
+                Memory[IFR] = (byte)~IFR_CA1;
                 Memory[IORA] = (byte)(data & ~Memory[DDRA]);
             }
             else if (address == Offset + T1CH)
             {
                 Timer1 = (short)((data << 8) & Memory[T1CL]);
-                Memory[IFR] &= 0xC7;
+                Memory[IFR] &= (byte)~IFR_T1;
             }
             else if (address == Offset + T2CH)
             {
                 Timer2 = (short)((data << 8) & Memory[T2CL]);
-                Memory[IFR] &= 0xD7;
+                Memory[IFR] &= (byte)~IFR_T2;
+            }
+            else if (address == Offset + SR)
+            {
+                Memory[IFR] &= (byte)~IFR_SR;
+                Memory[address - Offset] = data;
             }
             else if (address == Offset + IFR)
             {
@@ -290,12 +320,26 @@ namespace Hardware
             T2TimerControl = true;
         }
 
+        private bool RaiseINT(byte IfrData)
+        {
+            if (((Memory[IER] & IfrData) == IfrData) && ((Memory[IER] & IFR_INT) == IFR_INT))
+            {
+                Write(IFR, (byte)(IfrData & IFR_INT));
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         private void OnT1Timeout()
         {
-            var doFirePB7 = false;
+            bool doFirePB7 = false;
             if (Processor.isRunning)
             {
-                if (((Memory[IER] & IER_T1) == IER_T1) && ((Memory[IER] & IER_EN) == IER_EN))
+                bool intRaised = RaiseINT(IFR_T1);
+                if (intRaised)
                 {
                     if ((Memory[ACR] & ACR_PB7) == ACR_PB7)
                     {
@@ -307,16 +351,11 @@ namespace Hardware
                         {
                             Memory[IORB] |= 0x80;
                         }
-                    }
-                    else if ((Memory[ACR] & 0xC0) == 0xC0)
-                    {
-                        Memory[IORB] &= 0x7F;
-                        doFirePB7 = true;
-                    }
 
-                    if ((Read(IER) & IER_T1) == IER_T1)
-                    {
-                        Write(IFR, (byte)(IFR_T1 & IFR_INT));
+                        if (doFirePB7)
+                        {
+                            Memory[IORB] |= 0x80;
+                        }
 
                         if (T1IsIRQ)
                         {
@@ -326,11 +365,11 @@ namespace Hardware
                         {
                             Processor.TriggerNmi = true;
                         }
-
-                        if (doFirePB7)
-                        {
-                            Memory[IORB] |= 0x80;
-                        }
+                    }
+                    else if ((Memory[ACR] & 0xC0) == 0xC0)
+                    {
+                        Memory[IORB] &= 0x7F;
+                        doFirePB7 = true;
                     }
                 }
             }
@@ -340,19 +379,16 @@ namespace Hardware
         {
             if (Processor.isRunning)
             {
-                if (((Memory[IER] & IER_T2) == IER_T2) && ((Memory[IER] & IER_EN) == IER_EN))
+                bool intRaised = RaiseINT(IFR_T2);
+                if (intRaised)
                 {
-                    if ((Read(IER) & IER_T1) == IER_T1)
+                    if (T2IsIRQ)
                     {
-                        Write(IFR, (byte)(IFR_T2 & IFR_INT));
-                        if (T2IsIRQ)
-                        {
-                            Processor.InterruptRequest();
-                        }
-                        else
-                        {
-                            Processor.TriggerNmi = true;
-                        }
+                        Processor.InterruptRequest();
+                    }
+                    else
+                    {
+                        Processor.TriggerNmi = true;
                     }
                 }
             }
@@ -383,7 +419,7 @@ namespace Hardware
                     Memory[SR] = (byte)((Memory[SR] >> 1) | (Memory[SR] << (8 - 1)));
                 }
 
-                if (((Memory[IER] & IER_T1) == IER_T1) && ((Memory[IER] & IER_EN) == IER_EN))
+                if (((Memory[IER] & IFR_T1) == IFR_T1) && ((Memory[IER] & IFR_INT) == IFR_INT))
                 {
                     --Timer1;
                     if (Timer1 == 0)
@@ -401,7 +437,7 @@ namespace Hardware
                     }
                 }
 
-                if (((Memory[IER] & IER_T2) == IER_T2) && ((Memory[IER] & IER_EN) == IER_EN))
+                if (((Memory[IER] & IFR_T2) == IFR_T2) && ((Memory[IER] & IFR_INT) == IFR_INT))
                 {
                     if ((((Memory[ACR] & 0x20) == 0x20) && !((Memory[IORB] & 0x40) == 0x40)) || ((Memory[ACR] & 0x20) != 0x20))
                     {
@@ -428,6 +464,27 @@ namespace Hardware
                                 Memory[IER] &= 0xDF;
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        private void BackgroundWorkerDoWork(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+
+            for (int i = 1; i <= 10; i++)
+            {
+                if (worker.CancellationPending == true)
+                {
+                    e.Cancel = true;
+                    break;
+                }
+                else
+                {
+                    if (Memory[IFR] == IFR_INT)
+                    {
+                        Memory[IFR] = 0x00;
                     }
                 }
             }
