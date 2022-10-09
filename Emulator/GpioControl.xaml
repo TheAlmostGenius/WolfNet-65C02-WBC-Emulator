@@ -4,21 +4,25 @@
         Title="GPIO Control" Height="450" Width="800" Foreground="AntiqueWhite" Background="Black" >
 
     <Grid Background="Black">
-        <Label Content="PA1" Foreground="AntiqueWhite" Margin="11,10,759,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA1_State}" Margin="17,28,765,390" />
-        <Label Content="PA2" Foreground="AntiqueWhite" Margin="34,10,734,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA2_State}" Margin="41,28,743,390" />
-        <Label Content="PA3" Foreground="AntiqueWhite" Margin="58,10,710,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA3_State}" Margin="66,28,718,390" />
-        <Label Content="PA4" Foreground="AntiqueWhite" Margin="82,10,686,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA4_State}" Margin="90,28,694,390" />
-        <Label Content="PA5" Foreground="AntiqueWhite" Margin="107,10,663,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA5_State}" Margin="113,28,669,390" />
-        <Label Content="PA6" Foreground="AntiqueWhite" Margin="130,10,638,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA6_State}" Margin="137,28,647,390" />
-        <Label Content="PA7" Foreground="AntiqueWhite" Margin="154,10,614,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA7_State}" Margin="162,28,622,390" />
-        <Label Content="PA8" Foreground="AntiqueWhite" Margin="178,10,590,400" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA8_State}" Margin="186,28,598,390" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="180*"/>
+        </Grid.RowDefinitions>
+        <Label Content="PA1" Foreground="AntiqueWhite" Margin="11,10,759,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA1_State}" Margin="17,28,765,30" />
+        <Label Content="PA2" Foreground="AntiqueWhite" Margin="34,10,734,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA2_State}" Margin="41,28,743,30" />
+        <Label Content="PA3" Foreground="AntiqueWhite" Margin="58,10,710,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA3_State}" Margin="66,28,718,30" />
+        <Label Content="PA4" Foreground="AntiqueWhite" Margin="82,10,686,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA4_State}" Margin="90,28,694,30" />
+        <Label Content="PA5" Foreground="AntiqueWhite" Margin="107,10,663,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA5_State}" Margin="113,28,669,30" />
+        <Label Content="PA6" Foreground="AntiqueWhite" Margin="130,10,638,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA6_State}" Margin="137,28,647,30" />
+        <Label Content="PA7" Foreground="AntiqueWhite" Margin="154,10,614,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA7_State}" Margin="162,28,622,30" />
+        <Label Content="PA8" Foreground="AntiqueWhite" Margin="178,10,590,40" />
+        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA8_State}" Margin="186,28,598,30" />
     </Grid>
 </Window>
