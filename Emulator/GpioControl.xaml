@@ -4,7 +4,7 @@
 		DataContext="{Binding GpioControl, Source={StaticResource Locator}}"
         Title="GPIO Control" Height="480" Width="640" Foreground="AntiqueWhite" Background="Black" ResizeMode="NoResize" >
 
-    <Grid Background="Black" HorizontalAlignment="Left" Width="640">
+    <Grid Background="Black">
         <Grid Margin="0,0,320,400">
             <Label Content="PA0" Foreground="AntiqueWhite" />
             <CheckBox Content="{Binding PA0_State}" IsChecked="{Binding PA0_State}" Margin="10,22,10,22" />
