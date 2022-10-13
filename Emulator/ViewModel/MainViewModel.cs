@@ -762,7 +762,7 @@ namespace Emulator.ViewModel
 
         private void Gpio()
         {
-            Messenger.Default.Send(new NotificationMessage("GpioControlWindow"));
+            Messenger.Default.Send(new NotificationMessage<W65C22>(W65C22, "GpioControlWindow"));
         }
 
         private void MemoryView()
