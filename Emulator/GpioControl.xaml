@@ -1,28 +1,46 @@
 ﻿<Window x:Class="Emulator.GpioControl"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="GPIO Control" Height="450" Width="800" Foreground="AntiqueWhite" Background="Black" >
+		DataContext="{Binding GpioControl, Source={StaticResource Locator}}"
+        Title="GPIO Control" Height="480" Width="640" Foreground="AntiqueWhite" Background="Black" ResizeMode="NoResize" >
 
-    <Grid Background="Black">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="37*"/>
-            <RowDefinition Height="180*"/>
-        </Grid.RowDefinitions>
-        <Label Content="PA1" Foreground="AntiqueWhite" Margin="11,10,759,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA1_State}" Margin="17,28,765,30" />
-        <Label Content="PA2" Foreground="AntiqueWhite" Margin="34,10,734,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA2_State}" Margin="41,28,743,30" />
-        <Label Content="PA3" Foreground="AntiqueWhite" Margin="58,10,710,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA3_State}" Margin="66,28,718,30" />
-        <Label Content="PA4" Foreground="AntiqueWhite" Margin="82,10,686,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA4_State}" Margin="90,28,694,30" />
-        <Label Content="PA5" Foreground="AntiqueWhite" Margin="107,10,663,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA5_State}" Margin="113,28,669,30" />
-        <Label Content="PA6" Foreground="AntiqueWhite" Margin="130,10,638,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA6_State}" Margin="137,28,647,30" />
-        <Label Content="PA7" Foreground="AntiqueWhite" Margin="154,10,614,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA7_State}" Margin="162,28,622,30" />
-        <Label Content="PA8" Foreground="AntiqueWhite" Margin="178,10,590,40" />
-        <CheckBox Content="CheckBox" IsChecked="{Binding Path=PA8_State}" Margin="186,28,598,30" />
+    <Grid Background="Black" HorizontalAlignment="Left" Width="640">
+        <Grid Margin="0,0,320,400">
+            <Label Content="PA0" Foreground="AntiqueWhite" />
+            <CheckBox Content="{Binding PA0_State}" IsChecked="{Binding PA0_State}" Margin="10,22,10,22" />
+            <Label Content="PA1" Foreground="AntiqueWhite" Margin="34,0,-34,0" />
+            <CheckBox Content="{Binding PA1_State}" IsChecked="{Binding PA1_State}" Margin="44,22,44,22" />
+            <Label Content="PA2" Foreground="AntiqueWhite" Margin="68,0,-68,0" />
+            <CheckBox Content="{Binding PA2_State}" IsChecked="{Binding PA2_State}" Margin="78,22,78,22" />
+            <Label Content="PA3" Foreground="AntiqueWhite" Margin="102,0,-102,0" />
+            <CheckBox Content="{Binding PA3_State}" IsChecked="{Binding PA3_State}" Margin="112,22,112,22" />
+            <Label Content="PA4" Foreground="AntiqueWhite" Margin="136,0,-136,0" />
+            <CheckBox Content="{Binding PA4_State}" IsChecked="{Binding PA4_State}" Margin="146,22,-146,22" />
+            <Label Content="PA5" Foreground="AntiqueWhite" Margin="170,0,-170,0" />
+            <CheckBox Content="{Binding PA5_State}" IsChecked="{Binding PA5_State}" Margin="180,22,-180,22" />
+            <Label Content="PA6" Foreground="AntiqueWhite" Margin="204,0,-204,0" />
+            <CheckBox Content="{Binding PA6_State}" IsChecked="{Binding PA6_State}" Margin="214,22,-214,22" />
+            <Label Content="PA7" Foreground="AntiqueWhite" Margin="238,0,-238,0" />
+            <CheckBox Content="{Binding PA7_State}" IsChecked="{Binding PA7_State}" Margin="248,22,-248,22" />
+        </Grid>
+
+        <Grid Margin="0,80,320,320">
+            <Label Content="PB0" Foreground="AntiqueWhite" VerticalAlignment="Top" />
+            <CheckBox Content="{Binding PB0_State}" IsChecked="{Binding PB0_State}" Margin="10,22,-10,22" />
+            <Label Content="PB1" Foreground="AntiqueWhite" Margin="34,0,-34,0" />
+            <CheckBox Content="{Binding PB1_State}" IsChecked="{Binding PB1_State}" Margin="44,22,-44,22" />
+            <Label Content="PB2" Foreground="AntiqueWhite" Margin="68,0,-68,0" />
+            <CheckBox Content="{Binding PB2_State}" IsChecked="{Binding PB2_State}" Margin="78,22,-78,22" />
+            <Label Content="PB3" Foreground="AntiqueWhite" Margin="102,0,-102,0" />
+            <CheckBox Content="{Binding PB3_State}" IsChecked="{Binding PB3_State}" Margin="112,22,-112,22" />
+            <Label Content="PB4" Foreground="AntiqueWhite" Margin="136,0,-136,0" />
+            <CheckBox Content="{Binding PB4_State}" IsChecked="{Binding PB4_State}" Margin="146,22,-146,22" />
+            <Label Content="PB5" Foreground="AntiqueWhite" Margin="170,0,-170,0" />
+            <CheckBox Content="{Binding PB5_State}" IsChecked="{Binding PB5_State}" Margin="180,22,-180,22" />
+            <Label Content="PB6" Foreground="AntiqueWhite" Margin="204,0,-204,0" />
+            <CheckBox Content="{Binding PB6_State}" IsChecked="{Binding PB6_State}" Margin="214,22,-214,22" />
+            <Label Content="PB7" Foreground="AntiqueWhite" Margin="238,0,-238,0" />
+            <CheckBox Content="{Binding PB7_State}" IsChecked="{Binding PB7_State}" Margin="248,22,-248,22" />
+        </Grid>
     </Grid>
 </Window>
