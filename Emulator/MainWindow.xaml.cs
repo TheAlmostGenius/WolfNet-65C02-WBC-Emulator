@@ -50,6 +50,11 @@ namespace Emulator
                 var memoryVisual = new MemoryVisual { DataContext = new MemoryVisualViewModel() };
                 memoryVisual.Show();
             }
+            else if (notificationMessage.Notification == "GpioControlWindow")
+            {
+                var GpioControl = new GpioControl { DataContext = new GpioControlViewModel() };
+                GpioControl.Show();
+            }
         }
 
         private void NotificationMessageReceived(NotificationMessage<SettingsModel> notificationMessage)
